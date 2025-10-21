@@ -168,6 +168,8 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
         return 'Video Player 官方播放器，适用于简单视频播放，兼容性良好';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器，基于MPV，功能强大，支持硬件解码，支持复杂媒体格式';
+      case PlayerKernelType.ohosNative:
+        return 'Harmony 原生播放器，使用 OpenHarmony AVPlayer 提供硬件解码能力';
     }
   }
 
@@ -206,6 +208,14 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
       case Anime4KProfile.high:
         return '包含高光抑制的完整 Anime4K 流程，画质最佳';
     }
+  }
+
+  bool _isHarmonyPlatform() {
+    if (kIsWeb) {
+      return false;
+    }
+    final os = Platform.operatingSystem.toLowerCase();
+    return os == 'ohos' || os == 'openharmony';
   }
 
   void _showSuccessInfoBar(String message) {
@@ -249,6 +259,7 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
 
     final videoState = context.watch<VideoPlayerState>();
     final bool supportsAnime4K = videoState.isAnime4KSupported;
+    final bool isHarmony = _isHarmonyPlatform();
     final Anime4KProfile providerAnime4KProfile = videoState.anime4kProfile;
 
     if (_anime4kSelectionOverride != null &&
@@ -300,20 +311,27 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
                             alignment: Alignment.centerLeft,
                             child: ComboBox<PlayerKernelType>(
                               value: _selectedKernelType,
-                              items: [
-                                ComboBoxItem<PlayerKernelType>(
-                                  value: PlayerKernelType.mdk,
-                                  child: const Text('MDK'),
-                                ),
-                                ComboBoxItem<PlayerKernelType>(
-                                  value: PlayerKernelType.videoPlayer,
-                                  child: const Text('Video Player'),
-                                ),
-                                ComboBoxItem<PlayerKernelType>(
-                                  value: PlayerKernelType.mediaKit,
-                                  child: const Text('Libmpv'),
-                                ),
-                              ],
+                              items: isHarmony
+                                  ? [
+                                      ComboBoxItem<PlayerKernelType>(
+                                        value: PlayerKernelType.ohosNative,
+                                        child: const Text('Harmony Player'),
+                                      ),
+                                    ]
+                                  : [
+                                      ComboBoxItem<PlayerKernelType>(
+                                        value: PlayerKernelType.mdk,
+                                        child: const Text('MDK'),
+                                      ),
+                                      ComboBoxItem<PlayerKernelType>(
+                                        value: PlayerKernelType.videoPlayer,
+                                        child: const Text('Video Player'),
+                                      ),
+                                      ComboBoxItem<PlayerKernelType>(
+                                        value: PlayerKernelType.mediaKit,
+                                        child: const Text('Libmpv'),
+                                      ),
+                                    ],
                               onChanged: (value) {
                                 if (value != null) {
                                   _savePlayerKernelSettings(value);
@@ -335,7 +353,8 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
 
               const SizedBox(height: 16),
 
-              if (supportsAnime4K &&
+              if (!isHarmony &&
+                  supportsAnime4K &&
                   _selectedKernelType == PlayerKernelType.mediaKit)
                 Card(
                   child: Padding(

@@ -4,7 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 import 'dart:convert';
 import 'dart:math';
-import 'package:fvp/mdk.dart' if (dart.library.html) 'package:nipaplay/utils/mock_mdk.dart'; // 导入MDK库
+import 'package:fvp/mdk.dart'
+    if (dart.library.html) 'package:nipaplay/utils/mock_mdk.dart'; // 导入MDK库
 import 'package:nipaplay/player_abstraction/player_factory.dart'; // 导入播放器工厂
 import 'package:nipaplay/danmaku_abstraction/danmaku_kernel_factory.dart'; // 导入弹幕内核工厂
 
@@ -12,11 +13,12 @@ import 'package:nipaplay/danmaku_abstraction/danmaku_kernel_factory.dart'; // �
 /// 用于监控应用的CPU使用率、帧率和内存使用情况
 class SystemResourceMonitor {
   // 单例实例
-  static final SystemResourceMonitor _instance = SystemResourceMonitor._internal();
-  
+  static final SystemResourceMonitor _instance =
+      SystemResourceMonitor._internal();
+
   // 工厂构造函数
   factory SystemResourceMonitor() => _instance;
-  
+
   // 私有构造函数
   SystemResourceMonitor._internal();
 
@@ -32,40 +34,40 @@ class SystemResourceMonitor {
   // 定时器
   Timer? _resourceTimer;
   Timer? _fpsTimer;
-  
+
   // 运行状态与消费者计数（用于按需启动/停止）
   bool _started = false;
   int _consumerCount = 0;
-  
+
   // 记录上一帧时间用于FPS计算
   int _frameCount = 0;
   late DateTime _lastFpsUpdateTime;
-  
+
   // Ticker用于测量帧率
   late Ticker _ticker;
-  
+
   // 内存样本列表，用于计算内存使用趋势
   final List<double> _memorySamples = [];
   final int _maxSamples = 10;
-  
+
   /// 获取当前CPU使用率
   double get cpuUsage => _cpuUsage;
-  
+
   /// 获取当前内存使用量(MB)
   double get memoryUsageMB => _memoryUsageMB;
-  
+
   /// 获取当前帧率
   double get fps => _fps;
-  
+
   /// 获取当前活跃的解码器
   String get activeDecoder => _activeDecoder;
-  
+
   /// 获取MDK版本号
   String get mdkVersion => _mdkVersion;
-  
+
   /// 获取播放器内核类型
   String get playerKernelType => _playerKernelType;
-  
+
   /// 获取弹幕内核类型
   String get danmakuKernelType => _danmakuKernelType;
 
@@ -73,15 +75,15 @@ class SystemResourceMonitor {
   static Future<void> initialize() async {
     // 移除桌面平台限制，改为在所有平台上初始化
     if (!kIsWeb) {
-  // 初始化基础信息，但不要默认启动监控（避免在未显示时常驻 Ticker）
-  // 实际启动在有消费者注册时进行。
-      
+      // 初始化基础信息，但不要默认启动监控（避免在未显示时常驻 Ticker）
+      // 实际启动在有消费者注册时进行。
+
       // 获取并设置MDK版本号
       _instance._initMdkVersion();
-      
+
       // 获取播放器内核类型
       _instance._updatePlayerKernelType();
-      
+
       // 获取弹幕内核类型
       _instance._updateDanmakuKernelType();
     } else {
@@ -91,19 +93,19 @@ class SystemResourceMonitor {
       _instance._activeDecoder = "浏览器解码";
     }
   }
-  
+
   /// 初始化MDK版本号
   void _initMdkVersion() {
     try {
       // 获取原始版本号（整数形式）
       final versionInt = version();
-      
+
       // 解析版本号 - MDK版本号通常是以10000为基数的整数
       // 例如: 10000 = 1.0.0, 10100 = 1.1.0, 10101 = 1.1.1
       final major = versionInt ~/ 10000;
       final minor = (versionInt % 10000) ~/ 100;
       final patch = versionInt % 100;
-      
+
       _mdkVersion = '$major.$minor.$patch';
       debugPrint('MDK版本: $_mdkVersion (原始值: $versionInt)');
     } catch (e) {
@@ -117,19 +119,22 @@ class SystemResourceMonitor {
     try {
       // 从PlayerFactory获取当前内核类型
       final kernelType = PlayerFactory.getKernelType();
+      String kernelName = "未知";
       switch (kernelType) {
         case PlayerKernelType.mdk:
-          _playerKernelType = "MDK";
+          kernelName = "MDK";
           break;
         case PlayerKernelType.videoPlayer:
-          _playerKernelType = "Video Player";
+          kernelName = "Video Player";
           break;
         case PlayerKernelType.mediaKit:
-          _playerKernelType = "Libmpv";
+          kernelName = "Libmpv";
           break;
-        default:
-          _playerKernelType = "未知";
+        case PlayerKernelType.ohosNative:
+          kernelName = "Harmony Native";
+          break;
       }
+      _playerKernelType = kernelName;
       debugPrint('当前播放器内核类型: $_playerKernelType');
     } catch (e) {
       debugPrint('获取播放器内核类型出错: $e');
@@ -176,31 +181,31 @@ class SystemResourceMonitor {
 
   /// 开始监控系统资源
   Future<void> _startMonitoring() async {
-  if (_started) return;
+    if (_started) return;
     // 初始化FPS测量
     _initFpsMeasurement();
-    
+
     // 初始化系统资源监控
     _startResourceMonitoring();
-  _started = true;
+    _started = true;
   }
 
   /// 初始化FPS测量
   void _initFpsMeasurement() {
     _lastFpsUpdateTime = DateTime.now();
     _frameCount = 0;
-    
+
     // 创建一个Ticker来计算FPS
     _ticker = Ticker((Duration elapsed) {
       _frameCount++;
     });
     _ticker.start();
-    
+
     // 每秒更新一次FPS值
     _fpsTimer = Timer.periodic(const Duration(seconds: 1), (_) {
       final now = DateTime.now();
       final elapsed = now.difference(_lastFpsUpdateTime).inMilliseconds;
-      
+
       if (elapsed > 0) {
         _fps = (_frameCount * 1000 / elapsed);
         _frameCount = 0;
@@ -222,7 +227,7 @@ class SystemResourceMonitor {
       }
     });
   }
-  
+
   /// 通用方法更新CPU和内存使用情况
   void _updateCpuAndMemoryUsage() {
     if (kIsWeb) {
@@ -233,7 +238,7 @@ class SystemResourceMonitor {
     // 模拟CPU使用率
     // 实际上Flutter不提供直接获取CPU使用率的API
     // 这里使用一种启发式方法，根据帧率和内存变化率估算CPU负载
-    
+
     // 1. 获取帧率下降幅度作为CPU负载的一个指标
     // 理想帧率为60帧
     const idealFps = 60.0;
@@ -243,41 +248,44 @@ class SystemResourceMonitor {
       // 限制在0-1范围内
       frameRateFactor = frameRateFactor.clamp(0.0, 1.0);
     }
-    
+
     // 2. 从GC状态估算内存压力
     double memoryPressure = 0.0;
-    
+
     // 每帧估算的内存使用量
     final memoryInfo = PlatformDispatcher.instance.views.isNotEmpty
         ? 50.0 + (100 * Random().nextDouble()) // 随机模拟一些波动，由于无法直接获取
         : 30.0 + (70 * Random().nextDouble());
-    
+
     // 更新内存样本列表
     _memorySamples.add(memoryInfo);
     if (_memorySamples.length > _maxSamples) {
       _memorySamples.removeAt(0);
     }
-    
+
     // 计算内存平均值作为内存使用量
     if (_memorySamples.isNotEmpty) {
-      _memoryUsageMB = _memorySamples.reduce((a, b) => a + b) / _memorySamples.length;
-      
+      _memoryUsageMB =
+          _memorySamples.reduce((a, b) => a + b) / _memorySamples.length;
+
       // 如果内存样本大于2，计算变化率
       if (_memorySamples.length > 2) {
-        final memoryChangeRate = (_memorySamples.last - _memorySamples.first).abs() / _memorySamples.first;
+        final memoryChangeRate =
+            (_memorySamples.last - _memorySamples.first).abs() /
+                _memorySamples.first;
         memoryPressure = memoryChangeRate.clamp(0.0, 1.0);
       }
     }
-    
+
     // 3. 综合帧率下降和内存压力计算CPU使用率
     // 帧率因子占70%权重，内存压力占30%权重
     _cpuUsage = (frameRateFactor * 0.7 + memoryPressure * 0.3) * 100;
-    
+
     // 加入一些随机波动使数据看起来更真实
     final random = Random();
     _cpuUsage += (random.nextDouble() * 10) - 5; // -5到+5的波动
     _cpuUsage = _cpuUsage.clamp(0, 100); // 限制在0-100范围内
-    
+
     // 内存使用量也加入一些随机波动
     _memoryUsageMB += (random.nextDouble() * 5) - 2.5; // -2.5到+2.5 MB的波动
     _memoryUsageMB = _memoryUsageMB < 0 ? 0 : _memoryUsageMB;
@@ -285,53 +293,53 @@ class SystemResourceMonitor {
 
   /// 停止监控系统资源
   void _stopMonitoring() {
-  if (!_started) return;
+    if (!_started) return;
     _resourceTimer?.cancel();
     _fpsTimer?.cancel();
     if (_ticker.isTicking) {
       _ticker.stop();
       _ticker.dispose();
     }
-  _started = false;
+    _started = false;
   }
-  
+
   /// 设置当前活跃的解码器
   void setActiveDecoder(String decoder) {
     _activeDecoder = decoder;
   }
-  
+
   /// 更新弹幕内核类型
   void _updateDanmakuKernelType() {
     try {
       // 从DanmakuKernelFactory获取当前内核类型
       final kernelType = DanmakuKernelFactory.getKernelType();
+      String danmakuName = "未知";
       switch (kernelType) {
         case DanmakuRenderEngine.cpu:
-          _danmakuKernelType = "CPU";
+          danmakuName = "CPU";
           break;
         case DanmakuRenderEngine.gpu:
-          _danmakuKernelType = "GPU";
+          danmakuName = "GPU";
           break;
         case DanmakuRenderEngine.canvas:
-          _danmakuKernelType = "Canvas";
+          danmakuName = "Canvas";
           break;
-        default:
-          _danmakuKernelType = "未知";
       }
+      _danmakuKernelType = danmakuName;
       debugPrint('当前弹幕内核类型: $_danmakuKernelType');
     } catch (e) {
       debugPrint('获取弹幕内核类型出错: $e');
       _danmakuKernelType = "未知";
     }
   }
-  
+
   /// 更新播放器内核类型
   void updatePlayerKernelType() {
     _updatePlayerKernelType();
   }
-  
+
   /// 更新弹幕内核类型
   void updateDanmakuKernelType() {
     _updateDanmakuKernelType();
   }
-} 
+}

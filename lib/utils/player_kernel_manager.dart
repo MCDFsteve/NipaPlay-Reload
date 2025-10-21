@@ -118,29 +118,35 @@ class PlayerKernelManager {
 
   /// 获取支持的播放器内核列表
   static List<String> getSupportedPlayerKernels() {
-    List<String> kernels = ['FVP', 'Media Kit', 'Video Player'];
-
-    // 根据平台过滤支持的内核
     if (kIsWeb) {
-      // Web平台只支持特定内核
       return ['Video Player'];
-    } else if (Platform.isIOS) {
-      // iOS平台支持的内核
-      return ['FVP', 'Video Player'];
-    } else if (Platform.isAndroid) {
-      // Android平台支持的内核
-      return ['FVP', 'Media Kit', 'Video Player'];
-    } else if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
-      // 桌面平台支持所有内核
-      return kernels;
     }
 
-    return kernels;
+    if (_isHarmonyPlatform()) {
+      return ['Harmony Player'];
+    }
+
+    if (Platform.isIOS) {
+      return ['FVP', 'Video Player'];
+    }
+
+    if (Platform.isAndroid) {
+      return ['FVP', 'Media Kit', 'Video Player'];
+    }
+
+    if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+      return ['FVP', 'Media Kit', 'Video Player'];
+    }
+
+    return ['FVP', 'Media Kit', 'Video Player'];
   }
 
   /// 获取当前播放器内核
   static Future<String> getCurrentPlayerKernel() async {
     final prefs = await SharedPreferences.getInstance();
+    if (_isHarmonyPlatform()) {
+      return prefs.getString('player_kernel') ?? 'Harmony Player';
+    }
     return prefs.getString('player_kernel') ?? 'FVP';
   }
 
@@ -161,8 +167,13 @@ class PlayerKernelManager {
       case 'Video Player':
         kernelType = PlayerKernelType.videoPlayer;
         break;
+      case 'Harmony Player':
+        kernelType = PlayerKernelType.ohosNative;
+        break;
       default:
-        kernelType = PlayerKernelType.mdk;
+        kernelType = _isHarmonyPlatform()
+            ? PlayerKernelType.ohosNative
+            : PlayerKernelType.mdk;
     }
 
     // 通知PlayerFactory内核已改变
@@ -205,7 +216,7 @@ class PlayerKernelManager {
   /// 获取内核性能信息
   static Map<String, dynamic> getKernelPerformanceInfo() {
     final playerKernelType = PlayerFactory.getKernelType();
-    String playerKernelName;
+    String playerKernelName = 'Unknown';
     switch (playerKernelType) {
       case PlayerKernelType.mdk:
         playerKernelName = 'FVP';
@@ -216,8 +227,9 @@ class PlayerKernelManager {
       case PlayerKernelType.videoPlayer:
         playerKernelName = 'Video Player';
         break;
-      default:
-        playerKernelName = 'Unknown';
+      case PlayerKernelType.ohosNative:
+        playerKernelName = 'Harmony Player';
+        break;
     }
 
     return {
@@ -244,6 +256,8 @@ class PlayerKernelManager {
       return true; // 移动平台通常支持硬件解码
     } else if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
       return true; // 桌面平台需要具体检测，这里简化为true
+    } else if (_isHarmonyPlatform()) {
+      return true;
     }
 
     return false;
@@ -257,6 +271,15 @@ class PlayerKernelManager {
     if (Platform.isWindows) return 'Windows';
     if (Platform.isMacOS) return 'macOS';
     if (Platform.isLinux) return 'Linux';
+    if (_isHarmonyPlatform()) return 'OpenHarmony';
     return 'Unknown';
+  }
+
+  static bool _isHarmonyPlatform() {
+    if (kIsWeb) {
+      return false;
+    }
+    final os = Platform.operatingSystem.toLowerCase();
+    return os == 'ohos' || os == 'openharmony';
   }
 }

@@ -288,6 +288,8 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         return 'Video Player 官方播放器\n适用于简单视频播放，兼容性良好';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器\n基于MPV，功能强大，支持硬件解码，支持复杂媒体格式';
+      case PlayerKernelType.ohosNative:
+        return 'Harmony 原生播放器\n基于 OpenHarmony AVPlayer，提供系统级硬件解码能力';
     }
   }
 
@@ -328,6 +330,14 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
     }
   }
 
+  bool _isHarmonyPlatform() {
+    if (kIsWeb) {
+      return false;
+    }
+    final os = Platform.operatingSystem.toLowerCase();
+    return os == 'ohos' || os == 'openharmony';
+  }
+
   @override
   Widget build(BuildContext context) {
     // Web 平台不显示此页面内容，或者显示一个提示信息
@@ -340,84 +350,101 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         ),
       );
     }
+    final bool isHarmony = _isHarmonyPlatform();
+
     return ListView(
       children: [
         SettingsItem.dropdown(
           title: "播放器内核",
           subtitle: "选择播放器使用的核心引擎",
           icon: Ionicons.play_circle_outline,
-          items: [
-            DropdownMenuItemData(
-              title: "MDK",
-              value: PlayerKernelType.mdk,
-              isSelected: _selectedKernelType == PlayerKernelType.mdk,
-              description: _getPlayerKernelDescription(PlayerKernelType.mdk),
-            ),
-            DropdownMenuItemData(
-              title: "Video Player",
-              value: PlayerKernelType.videoPlayer,
-              isSelected: _selectedKernelType == PlayerKernelType.videoPlayer,
-              description:
-                  _getPlayerKernelDescription(PlayerKernelType.videoPlayer),
-            ),
-            DropdownMenuItemData(
-              title: "Libmpv",
-              value: PlayerKernelType.mediaKit,
-              isSelected: _selectedKernelType == PlayerKernelType.mediaKit,
-              description:
-                  _getPlayerKernelDescription(PlayerKernelType.mediaKit),
-            ),
-          ],
+          items: isHarmony
+              ? [
+                  DropdownMenuItemData(
+                    title: "Harmony Player",
+                    value: PlayerKernelType.ohosNative,
+                    isSelected:
+                        _selectedKernelType == PlayerKernelType.ohosNative,
+                    description: _getPlayerKernelDescription(
+                        PlayerKernelType.ohosNative),
+                  ),
+                ]
+              : [
+                  DropdownMenuItemData(
+                    title: "MDK",
+                    value: PlayerKernelType.mdk,
+                    isSelected: _selectedKernelType == PlayerKernelType.mdk,
+                    description:
+                        _getPlayerKernelDescription(PlayerKernelType.mdk),
+                  ),
+                  DropdownMenuItemData(
+                    title: "Video Player",
+                    value: PlayerKernelType.videoPlayer,
+                    isSelected:
+                        _selectedKernelType == PlayerKernelType.videoPlayer,
+                    description: _getPlayerKernelDescription(
+                        PlayerKernelType.videoPlayer),
+                  ),
+                  DropdownMenuItemData(
+                    title: "Libmpv",
+                    value: PlayerKernelType.mediaKit,
+                    isSelected:
+                        _selectedKernelType == PlayerKernelType.mediaKit,
+                    description:
+                        _getPlayerKernelDescription(PlayerKernelType.mediaKit),
+                  ),
+                ],
           onChanged: (kernelType) {
             _savePlayerKernelSettings(kernelType);
           },
           dropdownKey: _playerKernelDropdownKey,
         ),
 
-        const Divider(color: Colors.white12, height: 1),
+        if (!isHarmony) const Divider(color: Colors.white12, height: 1),
 
-        Consumer<VideoPlayerState>(
-          builder: (context, videoState, child) {
-            final Anime4KProfile currentProfile = videoState.anime4kProfile;
-            final bool supportsAnime4K = videoState.isAnime4KSupported;
+        if (!isHarmony)
+          Consumer<VideoPlayerState>(
+            builder: (context, videoState, child) {
+              final Anime4KProfile currentProfile = videoState.anime4kProfile;
+              final bool supportsAnime4K = videoState.isAnime4KSupported;
 
-            final items = Anime4KProfile.values
-                .map(
-                  (profile) => DropdownMenuItemData(
-                    title: _getAnime4KProfileTitle(profile),
-                    value: profile,
-                    isSelected: profile == currentProfile,
-                    description: _getAnime4KProfileDescription(profile),
-                  ),
-                )
-                .toList();
+              final items = Anime4KProfile.values
+                  .map(
+                    (profile) => DropdownMenuItemData(
+                      title: _getAnime4KProfileTitle(profile),
+                      value: profile,
+                      isSelected: profile == currentProfile,
+                      description: _getAnime4KProfileDescription(profile),
+                    ),
+                  )
+                  .toList();
 
-        if (_selectedKernelType != PlayerKernelType.mediaKit) {
-          return const SizedBox.shrink();
-        }
+              if (_selectedKernelType != PlayerKernelType.mediaKit) {
+                return const SizedBox.shrink();
+              }
 
-        if (!supportsAnime4K) {
-          return const SizedBox.shrink();
-        }
+              if (!supportsAnime4K) {
+                return const SizedBox.shrink();
+              }
 
-        return SettingsItem.dropdown(
-          title: 'Anime4K 超分辨率（实验性）',
-          subtitle: '使用 Anime4K GLSL 着色器提升二次元画面清晰度',
-          icon: Ionicons.color_wand_outline,
-          items: items,
-          onChanged: (dynamic value) async {
-            if (value is! Anime4KProfile) return;
-            await videoState.setAnime4KProfile(value);
-            if (!context.mounted) return;
-            final String option = _getAnime4KProfileTitle(value);
-            final String message = value == Anime4KProfile.off
-                ? '已关闭 Anime4K'
-                : 'Anime4K 已切换为$option';
-            BlurSnackBar.show(context, message);
-          },
-        );
-      },
-    ),
+              return SettingsItem.dropdown(
+                title: 'Anime4K 超分辨率（实验性）',
+                subtitle: '使用 Anime4K GLSL 着色器提升二次元画面清晰度',
+                icon: Ionicons.color_wand_outline,
+                items: items,
+                onChanged: (dynamic value) async {
+                  if (value is! Anime4KProfile) return;
+                  await videoState.setAnime4KProfile(value);
+                  if (!context.mounted) return;
+                  final String option = _getAnime4KProfileTitle(value);
+                  final String message = value == Anime4KProfile.off
+                      ? '已关闭 Anime4K'
+                      : 'Anime4K 已切换为$option';
+                  BlurSnackBar.show(context, message);
+                },
+              );
+            },
+          ),
 
         const Divider(color: Colors.white12, height: 1),
 
@@ -485,36 +512,5 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         ],
       ],
     );
-  }
-
-  String _getDecoderDescription() {
-    if (kIsWeb) return 'Web平台使用浏览器内置解码器';
-    if (Platform.isMacOS || Platform.isIOS) {
-      return 'VT: macOS/iOS 视频工具箱硬件加速\n'
-          'hap: HAP 视频格式解码\n'
-          'FFmpeg: 软件解码，支持绝大多数格式\n'
-          'dav1d: 高效AV1解码器';
-    } else if (Platform.isWindows) {
-      return 'MFT:d3d=11: 媒体基础转换D3D11加速\n'
-          'D3D11: 直接3D 11硬件加速\n'
-          'DXVA: DirectX视频加速\n'
-          'CUDA: NVIDIA GPU加速\n'
-          'hap: HAP 视频格式解码\n'
-          'FFmpeg: 软件解码，支持绝大多数格式\n'
-          'dav1d: 高效AV1解码器';
-    } else if (Platform.isLinux) {
-      return 'VAAPI: 视频加速API\n'
-          'VDPAU: 视频解码和演示API\n'
-          'CUDA: NVIDIA GPU加速\n'
-          'hap: HAP 视频格式解码\n'
-          'FFmpeg: 软件解码，支持绝大多数格式\n'
-          'dav1d: 高效AV1解码器';
-    } else if (Platform.isAndroid) {
-      return 'AMediaCodec: Android媒体编解码器\n'
-          'FFmpeg: 软件解码，支持绝大多数格式\n'
-          'dav1d: 高效AV1解码器';
-    } else {
-      return 'FFmpeg: 软件解码，支持绝大多数格式';
-    }
   }
 }
