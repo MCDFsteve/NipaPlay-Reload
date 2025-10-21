@@ -50,6 +50,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
+import 'package:sqlite3/open.dart' as sqlite_open;
 import 'package:nipaplay/services/playback_service.dart';
 import 'package:nipaplay/models/playable_item.dart';
 import 'package:desktop_drop/desktop_drop.dart';
@@ -64,6 +65,7 @@ import 'package:nipaplay/providers/settings_provider.dart';
 import 'package:nipaplay/models/watch_history_database.dart';
 import 'package:nipaplay/services/http_client_initializer.dart';
 import 'utils/ohos_path_provider.dart';
+import 'utils/ohos_sqlite_loader.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 // 将通道定义为全局变量
@@ -80,8 +82,10 @@ void main(List<String> args) async {
     SharedPreferencesStorePlatform.instance =
         InMemorySharedPreferencesStore.empty();
     PathProviderPlatform.instance = OhosPathProvider();
+    sqlite_open.open.overrideForAll(loadOhosSqlite);
     debugPrint('[SharedPreferences] 已切换为内存存储以兼容 HarmonyOS 环境');
     debugPrint('[PathProvider] 已使用 HarmonyOS 沙箱路径提供器');
+    debugPrint('[SQLite] 已覆写动态库加载器以兼容 HarmonyOS');
   }
 
   // 安装 HTTP 客户端覆盖（自签名证书信任规则），尽早生效

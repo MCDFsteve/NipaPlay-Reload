@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqlite3/open.dart' as sqlite_open;
+import 'package:nipaplay/utils/ohos_sqlite_loader.dart';
 import 'watch_history_model.dart';
 import 'package:nipaplay/utils/storage_service.dart';
 import 'dart:io' as io;
@@ -13,6 +15,11 @@ class WatchHistoryDatabase {
   static const String _dbName = 'watch_history.db';
   static const int _dbVersion = 1;
   static bool _migrationCompleted = false;
+  static bool _isHarmonyPlatform() {
+    if (kIsWeb) return false;
+    final os = Platform.operatingSystem.toLowerCase();
+    return os == 'ohos' || os == 'openharmony';
+  }
   
   // 私有构造函数
   WatchHistoryDatabase._init();
@@ -26,10 +33,26 @@ class WatchHistoryDatabase {
   
   // 初始化数据库
   Future<Database> _initDB() async {
-    // 确保在桌面平台上初始化SQLite FFI
-    if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-      sqfliteFfiInit();
-      databaseFactory = databaseFactoryFfi;
+    // 确保在桌面与 Harmony 平台上初始化 SQLite FFI
+    final bool useFfi = !kIsWeb &&
+        (Platform.isWindows ||
+            Platform.isLinux ||
+            Platform.isMacOS ||
+            _isHarmonyPlatform());
+
+    if (useFfi) {
+      if (_isHarmonyPlatform()) {
+        // HarmonyOS 需要自定义工厂以在后台 isolate 中也覆写 sqlite 动态库加载器
+        databaseFactory = createDatabaseFactoryFfi(
+          noIsolate: true,
+          ffiInit: () {
+            sqlite_open.open.overrideForAll(loadOhosSqlite);
+          },
+        );
+      } else {
+        sqfliteFfiInit();
+        databaseFactory = databaseFactoryFfi;
+      }
     }
     
     // 使用StorageService获取正确的存储目录
