@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 
 /// FluentUI风格的自定义InfoBar组件
 class FluentInfoBar extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'dart:io' if (dart.library.io) 'dart:io';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';

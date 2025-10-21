@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nipaplay/utils/color_compat.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:provider/provider.dart';
 import '../danmaku_density_chart.dart';

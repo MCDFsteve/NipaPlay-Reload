@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/material.dart' as material;
 
 /// FluentUI风格的视频加载中控件

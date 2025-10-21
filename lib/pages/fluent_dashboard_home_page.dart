@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:convert';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:nipaplay/models/watch_history_model.dart';

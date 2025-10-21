@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' as material;
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/controllers/user_activity_controller.dart';
 
 /// Fluent UI版本的用户活动记录组件

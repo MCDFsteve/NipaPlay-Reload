@@ -18,6 +18,11 @@ class OhosPlayerAdapter implements AbstractPlayer {
   static const String _defaultEventChannelPrefix =
       'nipaplay/ohos_player/events';
 
+  @visibleForTesting
+  static void debugResetIdSeed() {
+    _idSeed = 0;
+  }
+
   final String _playerId;
   late final MethodChannel _channel;
   EventChannel? _eventChannel;

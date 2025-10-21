@@ -1,6 +1,6 @@
 import 'dart:io'; // Required for File
 import 'dart:ui';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/material.dart' as material;
 import 'package:nipaplay/widgets/nipaplay_theme/cached_network_image_widget.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;

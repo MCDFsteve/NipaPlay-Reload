@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/services/bangumi_service.dart';
 import 'package:nipaplay/models/bangumi_model.dart';
 import 'package:nipaplay/models/watch_history_model.dart';

@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/services/dandanplay_service.dart';
 
 class FluentSendDanmakuDialog extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'dart:convert';
 import 'dart:io' as io;

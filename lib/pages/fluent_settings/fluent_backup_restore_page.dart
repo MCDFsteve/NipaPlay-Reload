@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:nipaplay/services/auto_sync_service.dart';
 import 'package:nipaplay/services/backup_service.dart';

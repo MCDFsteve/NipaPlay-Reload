@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' as material;
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/pages/fluent_settings_page.dart';
 import 'package:nipaplay/pages/fluent_dashboard_home_page.dart';
 import 'package:nipaplay/pages/play_video_page.dart';

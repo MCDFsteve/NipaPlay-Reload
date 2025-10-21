@@ -35,8 +35,6 @@ import 'package:nipaplay/providers/shared_remote_library_provider.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/providers/jellyfin_transcode_provider.dart';
 import 'package:nipaplay/providers/emby_transcode_provider.dart';
-import 'package:nipaplay/pages/fluent_main_page.dart';
-import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'dart:async';
 import 'services/file_picker_service.dart';
 import 'services/security_bookmark_service.dart';
@@ -50,6 +48,8 @@ import 'package:nipaplay/services/file_association_service.dart';
 import 'package:nipaplay/danmaku_abstraction/danmaku_kernel_factory.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:nipaplay/services/playback_service.dart';
 import 'package:nipaplay/models/playable_item.dart';
 import 'package:desktop_drop/desktop_drop.dart';
@@ -63,6 +63,7 @@ import 'utils/hotkey_service.dart';
 import 'package:nipaplay/providers/settings_provider.dart';
 import 'package:nipaplay/models/watch_history_database.dart';
 import 'package:nipaplay/services/http_client_initializer.dart';
+import 'utils/ohos_path_provider.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 // 将通道定义为全局变量
@@ -72,6 +73,16 @@ final GlobalKey<State<DefaultTabController>> tabControllerKey = GlobalKey<State<
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // HarmonyOS 环境缺少 shared_preferences 原生插件，实现Fallback避免MethodChannel卡死
+  final String osName = Platform.operatingSystem.toLowerCase();
+  if (!kIsWeb && (osName == 'ohos' || osName == 'openharmony')) {
+    SharedPreferencesStorePlatform.instance =
+        InMemorySharedPreferencesStore.empty();
+    PathProviderPlatform.instance = OhosPathProvider();
+    debugPrint('[SharedPreferences] 已切换为内存存储以兼容 HarmonyOS 环境');
+    debugPrint('[PathProvider] 已使用 HarmonyOS 沙箱路径提供器');
+  }
 
   // 安装 HTTP 客户端覆盖（自签名证书信任规则），尽早生效
   await HttpClientInitializer.install();
@@ -145,9 +156,15 @@ void main(List<String> args) async {
   try {
     MediaKit.ensureInitialized();
   } catch (e) {
-    debugPrint('MediaKit初始化警告: $e');
-    // 如果是重复初始化错误，可以安全忽略
-    if (!e.toString().contains('invalid reuse after initialization failure')) {
+    final String message = e.toString();
+    debugPrint('MediaKit初始化警告: $message');
+    // HarmonyOS 暂不支持 media_kit，忽略 Unsupported operating system 异常
+    final bool isUnsupportedOhos =
+        message.toLowerCase().contains('unsupported operating system') &&
+        (osName == 'ohos' || osName == 'openharmony');
+    final bool isSafeReuseError =
+        message.contains('invalid reuse after initialization failure');
+    if (!isUnsupportedOhos && !isSafeReuseError) {
       rethrow;
     }
   }
@@ -722,46 +739,24 @@ class _NipaPlayAppState extends State<NipaPlayApp> {
           }
           
           // 根据UI主题选择使用哪套应用框架
-          if (uiThemeProvider.isFluentUITheme) {
-            // 使用 Fluent UI
-            return fluent.FluentApp(
-              title: 'NipaPlay',
-              debugShowCheckedModeBanner: false,
-              theme: fluent.FluentThemeData.light(),
-              darkTheme: fluent.FluentThemeData.dark(),
-              themeMode: uiThemeProvider.fluentThemeMode,
-              navigatorKey: navigatorKey,
-              home: FluentMainPage(launchFilePath: widget.launchFilePath),
-              builder: (context, appChild) {
-                return Stack(
-                  children: [
-                    appChild!, // The app's content
-                    if (_isDragging) const DragDropOverlay(),
-                  ],
-                );
-              },
-            );
-          } else {
-            // 默认使用 Material Design
-            return MaterialApp(
-              title: 'NipaPlay',
-              debugShowCheckedModeBanner: false,
-              color: Colors.transparent,
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
-              themeMode: themeNotifier.themeMode,
-              navigatorKey: navigatorKey,
-              home: MainPage(launchFilePath: widget.launchFilePath),
-              builder: (context, appChild) {
-                return Stack(
-                  children: [
-                    appChild!, // The app's content
-                    if (_isDragging) const DragDropOverlay(),
-                  ],
-                );
-              },
-            );
-          }
+          return MaterialApp(
+            title: 'NipaPlay',
+            debugShowCheckedModeBanner: false,
+            color: Colors.transparent,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeNotifier.themeMode,
+            navigatorKey: navigatorKey,
+            home: MainPage(launchFilePath: widget.launchFilePath),
+            builder: (context, appChild) {
+              return Stack(
+                children: [
+                  appChild!, // The app's content
+                  if (_isDragging) const DragDropOverlay(),
+                ],
+              );
+            },
+          );
         },
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_anime_card.dart';
 
 /// FluentUI风格的新番更新页面布局

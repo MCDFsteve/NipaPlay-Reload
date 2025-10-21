@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:path/path.dart' as p;
 

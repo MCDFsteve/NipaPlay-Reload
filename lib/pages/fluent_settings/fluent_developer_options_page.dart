@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' as material; // 用于跳转现有日志页面
 import 'package:nipaplay/pages/settings/debug_log_viewer_page.dart';

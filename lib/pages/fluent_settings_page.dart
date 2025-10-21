@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/pages/fluent_settings/fluent_account_page.dart';
 import 'package:nipaplay/pages/fluent_settings/fluent_ui_theme_page.dart';
 import 'package:nipaplay/pages/fluent_settings/fluent_appearance_page.dart';

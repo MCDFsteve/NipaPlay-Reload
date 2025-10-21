@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:nipaplay/utils/color_compat.dart';
 
 /// 弹幕密度数据点
 class DanmakuDensityPoint {

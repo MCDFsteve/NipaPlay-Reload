@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:nipaplay/utils/video_player_state.dart';

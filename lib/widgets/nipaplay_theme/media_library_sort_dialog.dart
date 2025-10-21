@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:nipaplay/utils/color_compat.dart';
 
 /// 媒体库类型枚举
 enum MediaLibraryType {

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:nipaplay/providers/service_provider.dart';

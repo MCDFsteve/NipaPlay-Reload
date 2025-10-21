@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:nipaplay/widgets/user_activity/fluent_user_activity.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_info_bar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';

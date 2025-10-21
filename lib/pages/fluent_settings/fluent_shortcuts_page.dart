@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:flutter/services.dart';
 import 'package:nipaplay/utils/hotkey_service.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_info_bar.dart';

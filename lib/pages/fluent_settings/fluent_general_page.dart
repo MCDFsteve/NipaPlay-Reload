@@ -1,4 +1,4 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:nipaplay/fluent_ui_stub.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:nipaplay/utils/image_cache_manager.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_info_bar.dart';

@@ -1,0 +1,53 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/sakiko/.ohos/config/default_ohos_SDq_krckCBtgf68C3u5K9TdrcFlXsoQX_cBBTFpMXSY=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B73E000B2DC6DEB7DC18000775D2223C7EAD6F9F5EF26546CE9EBCBE9075A6CC8FA2F4860F78044",
+          "profile": "/Users/sakiko/.ohos/config/default_ohos_SDq_krckCBtgf68C3u5K9TdrcFlXsoQX_cBBTFpMXSY=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/sakiko/.ohos/config/default_ohos_SDq_krckCBtgf68C3u5K9TdrcFlXsoQX_cBBTFpMXSY=.p12",
+          "storePassword": "0000001BD1180DBF06297914113AA77DE59AEC4E78772607B981650651E2050DEE977847834C735FEC0B61"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.1.0(18)",
+        "runtimeOS": "HarmonyOS",
+        "targetSdkVersion": ""
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "profile"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

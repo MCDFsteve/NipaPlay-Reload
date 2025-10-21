@@ -1,17 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:nipaplay/utils/video_player_state.dart';
-import 'package:provider/provider.dart';
-import 'base_settings_menu.dart';
 import 'dart:io';
-import 'package:nipaplay/services/jellyfin_service.dart';
+
+import 'package:flutter/material.dart';
+import 'package:nipaplay/models/emby_model.dart';
+import 'package:nipaplay/models/jellyfin_model.dart';
+import 'package:nipaplay/models/watch_history_model.dart';
+import 'package:nipaplay/services/dandanplay_service.dart';
+import 'package:nipaplay/services/emby_episode_mapping_service.dart';
 import 'package:nipaplay/services/emby_service.dart';
 import 'package:nipaplay/services/jellyfin_episode_mapping_service.dart';
-import 'package:nipaplay/services/emby_episode_mapping_service.dart';
-import 'package:nipaplay/services/dandanplay_service.dart';
-import 'package:nipaplay/models/jellyfin_model.dart';
-import 'package:nipaplay/models/emby_model.dart';
-import 'package:nipaplay/models/watch_history_model.dart';
+import 'package:nipaplay/services/jellyfin_service.dart';
+import 'package:nipaplay/utils/color_compat.dart';
 import 'package:nipaplay/utils/message_helper.dart';
+import 'package:nipaplay/utils/video_player_state.dart';
+import 'package:provider/provider.dart';
+
+import 'base_settings_menu.dart';
 
 class PlaylistMenu extends StatefulWidget {
   final VoidCallback onClose;
