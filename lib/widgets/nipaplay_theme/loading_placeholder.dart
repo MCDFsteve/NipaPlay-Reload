@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class LoadingPlaceholder extends StatefulWidget {
   final double width;
@@ -58,17 +59,29 @@ class _LoadingPlaceholderState extends State<LoadingPlaceholder>
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             border: Border.all(
-              color: Colors.white.withOpacity(0.1),
+              color:
+                  ThemeColorUtils.primaryForeground(context).withOpacity(0.1),
               width: 0.5,
             ),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 8 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 8 : 0),
+              filter: ImageFilter.blur(
+                  sigmaX: context
+                          .watch<AppearanceSettingsProvider>()
+                          .enableWidgetBlurEffect
+                      ? 8
+                      : 0,
+                  sigmaY: context
+                          .watch<AppearanceSettingsProvider>()
+                          .enableWidgetBlurEffect
+                      ? 8
+                      : 0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(_opacityAnimation.value * 0.1),
+                  color: ThemeColorUtils.primaryForeground(context)
+                      .withOpacity(_opacityAnimation.value * 0.1),
                   borderRadius: BorderRadius.circular(widget.borderRadius),
                 ),
               ),
@@ -78,4 +91,4 @@ class _LoadingPlaceholderState extends State<LoadingPlaceholder>
       },
     );
   }
-} 
+}

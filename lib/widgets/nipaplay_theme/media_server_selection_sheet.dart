@@ -4,6 +4,7 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 
 class MediaServerSelectionSheet extends StatelessWidget {
   const MediaServerSelectionSheet({super.key});
@@ -19,6 +20,10 @@ class MediaServerSelectionSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final foregroundColor = ThemeColorUtils.primaryForeground(context);
+    final subtleForeground = foregroundColor.withOpacity(0.7);
+    final faintForeground = foregroundColor.withOpacity(0.5);
+
     return Container(
       height: MediaQuery.of(context).size.height * 0.5,
       decoration: const BoxDecoration(
@@ -32,23 +37,25 @@ class MediaServerSelectionSheet extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         borderRadius: 20,
-        blur: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 20 : 0,
+        blur: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect
+            ? 20
+            : 0,
         alignment: Alignment.center,
         border: 1,
         linearGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.3),
-            Colors.white.withOpacity(0.25),
+            foregroundColor.withOpacity(0.3),
+            foregroundColor.withOpacity(0.25),
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.5),
-            Colors.white.withOpacity(0.5),
+            foregroundColor.withOpacity(0.5),
+            foregroundColor.withOpacity(0.5),
           ],
         ),
         child: Column(
@@ -61,26 +68,26 @@ class MediaServerSelectionSheet extends StatelessWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
+                  color: foregroundColor.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
             ),
-            
+
             // 标题
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
               child: Text(
                 '选择媒体服务器',
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                  color: Colors.white,
+                locale: Locale("zh-Hans", "zh"),
+                style: TextStyle(
+                  color: foregroundColor,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            
+
             // 服务器选项列表
             Expanded(
               child: SingleChildScrollView(
@@ -89,6 +96,7 @@ style: TextStyle(
                   children: [
                     // NipaPlay 选项
                     _buildServerOptionWithImage(
+                      context: context,
                       imageAsset: 'assets/nipaplay.png',
                       title: 'NipaPlay',
                       subtitle: '局域网媒体共享',
@@ -100,6 +108,7 @@ style: TextStyle(
 
                     // Jellyfin 选项
                     _buildServerOptionWithSvg(
+                      context: context,
                       svgAsset: 'assets/jellyfin.svg',
                       title: 'Jellyfin',
                       subtitle: '开源媒体服务器',
@@ -111,6 +120,7 @@ style: TextStyle(
 
                     // Emby 选项
                     _buildServerOptionWithSvg(
+                      context: context,
                       svgAsset: 'assets/emby.svg',
                       title: 'Emby',
                       subtitle: '功能丰富的媒体服务器',
@@ -131,12 +141,18 @@ style: TextStyle(
   }
 
   Widget _buildServerOptionWithSvg({
+    required BuildContext context,
     required String svgAsset,
     required String title,
     required String subtitle,
     required Color color,
     required VoidCallback onTap,
   }) {
+    final baseColor = ThemeColorUtils.primaryForeground(context);
+    final subtleColor = baseColor.withOpacity(0.7);
+    final iconColor = baseColor.withOpacity(0.5);
+    final borderColor = baseColor.withOpacity(0.2);
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -147,13 +163,12 @@ style: TextStyle(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: borderColor,
               width: 0.5,
             ),
           ),
           child: Row(
             children: [
-              // Logo图标
               Container(
                 width: 48,
                 height: 48,
@@ -172,16 +187,14 @@ style: TextStyle(
                 ),
               ),
               const SizedBox(width: 16),
-              
-              // 文本信息
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: baseColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -189,21 +202,19 @@ style: TextStyle(
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                      locale: const Locale('zh-Hans', 'zh'),
+                      style: TextStyle(
+                        color: subtleColor,
                         fontSize: 14,
                       ),
                     ),
                   ],
                 ),
               ),
-              
-              // 箭头图标
               Icon(
                 Ionicons.chevron_forward,
                 size: 16,
-                color: Colors.white.withOpacity(0.5),
+                color: iconColor,
               ),
             ],
           ),
@@ -213,12 +224,18 @@ style: TextStyle(
   }
 
   Widget _buildServerOptionWithImage({
+    required BuildContext context,
     required String imageAsset,
     required String title,
     required String subtitle,
     required Color color,
     required VoidCallback onTap,
   }) {
+    final baseColor = ThemeColorUtils.primaryForeground(context);
+    final subtleColor = baseColor.withOpacity(0.7);
+    final iconColor = baseColor.withOpacity(0.5);
+    final borderColor = baseColor.withOpacity(0.2);
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -229,13 +246,12 @@ style: TextStyle(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: borderColor,
               width: 0.5,
             ),
           ),
           child: Row(
             children: [
-              // Logo图标
               Container(
                 width: 48,
                 height: 48,
@@ -259,16 +275,14 @@ style: TextStyle(
                 ),
               ),
               const SizedBox(width: 16),
-
-              // 文本信息
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: baseColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -276,21 +290,19 @@ style: TextStyle(
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      locale: const Locale("zh-Hans", "zh"),
+                      locale: const Locale('zh-Hans', 'zh'),
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: subtleColor,
                         fontSize: 14,
                       ),
                     ),
                   ],
                 ),
               ),
-
-              // 箭头图标
               Icon(
                 Ionicons.chevron_forward,
                 size: 16,
-                color: Colors.white.withOpacity(0.5),
+                color: iconColor,
               ),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'theme_color_utils.dart';
 
 /// 媒体库类型枚举
 enum MediaLibraryType {
@@ -57,6 +58,11 @@ class MediaLibrarySortDialog extends StatefulWidget {
 class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
   late String _selectedSortBy;
   late String _selectedSortOrder;
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
 
   /// Jellyfin 排序选项
   static const List<MediaSortOption> _jellyfinSortOptions = [
@@ -193,8 +199,9 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
     final screenSize = MediaQuery.of(context).size;
     final dialogWidth = screenSize.width * 0.9;
     final maxDialogWidth = 400.0;
-    final finalWidth = dialogWidth > maxDialogWidth ? maxDialogWidth : dialogWidth;
-    
+    final finalWidth =
+        dialogWidth > maxDialogWidth ? maxDialogWidth : dialogWidth;
+
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
@@ -208,12 +215,12 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.white.withValues(alpha: 0.15),
-              Colors.white.withValues(alpha: 0.05),
+              _foregroundColor(context, 0.15),
+              _foregroundColor(context, 0.05),
             ],
           ),
           border: Border.all(
-            color: Colors.white.withValues(alpha: 0.3),
+            color: _foregroundColor(context, 0.3),
             width: 1,
           ),
           boxShadow: [
@@ -237,8 +244,8 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
                   // 标题
                   Text(
                     _dialogTitle,
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: _foregroundColor(context),
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -251,9 +258,9 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '排序方式',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white,
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: _foregroundColor(context),
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -268,20 +275,20 @@ style: TextStyle(
                       itemBuilder: (context, index) {
                         final option = _sortOptions[index];
                         final isSelected = _selectedSortBy == option.value;
-                        
+
                         return Container(
                           margin: const EdgeInsets.only(bottom: 8.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: isSelected 
-                                  ? Colors.lightBlueAccent 
-                                  : Colors.white.withValues(alpha: 0.2),
+                              color: isSelected
+                                  ? Colors.lightBlueAccent
+                                  : _foregroundColor(context, 0.2),
                               width: isSelected ? 2 : 1,
                             ),
-                            color: isSelected 
+                            color: isSelected
                                 ? Colors.lightBlueAccent.withValues(alpha: 0.1)
-                                : Colors.white.withValues(alpha: 0.05),
+                                : _foregroundColor(context, 0.05),
                           ),
                           child: Material(
                             color: Colors.transparent,
@@ -297,20 +304,27 @@ style: TextStyle(
                                 child: Row(
                                   children: [
                                     Icon(
-                                      isSelected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
-                                      color: isSelected ? Colors.lightBlueAccent : Colors.white70,
+                                      isSelected
+                                          ? Icons.radio_button_checked
+                                          : Icons.radio_button_unchecked,
+                                      color: isSelected
+                                          ? Colors.lightBlueAccent
+                                          : _foregroundColor(context, 0.7),
                                       size: 20,
                                     ),
                                     const SizedBox(width: 12),
                                     Expanded(
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             option.label,
-                                            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                              color: isSelected ? Colors.lightBlueAccent : Colors.white,
+                                            locale: Locale("zh-Hans", "zh"),
+                                            style: TextStyle(
+                                              color: isSelected
+                                                  ? Colors.lightBlueAccent
+                                                  : _foregroundColor(context),
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -318,9 +332,10 @@ style: TextStyle(
                                           const SizedBox(height: 2),
                                           Text(
                                             option.description,
-                                            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                              color: Colors.white.withValues(alpha: 0.7),
+                                            locale: Locale("zh-Hans", "zh"),
+                                            style: TextStyle(
+                                              color: _foregroundColor(
+                                                  context, 0.7),
                                               fontSize: 12,
                                             ),
                                           ),
@@ -343,9 +358,9 @@ style: TextStyle(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '排序顺序',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white,
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: _foregroundColor(context),
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -361,14 +376,14 @@ style: TextStyle(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: isSelected 
-                                  ? Colors.lightBlueAccent 
-                                  : Colors.white.withValues(alpha: 0.2),
+                              color: isSelected
+                                  ? Colors.lightBlueAccent
+                                  : _foregroundColor(context, 0.2),
                               width: isSelected ? 2 : 1,
                             ),
-                            color: isSelected 
+                            color: isSelected
                                 ? Colors.lightBlueAccent.withValues(alpha: 0.1)
-                                : Colors.white.withValues(alpha: 0.05),
+                                : _foregroundColor(context, 0.05),
                           ),
                           child: Material(
                             color: Colors.transparent,
@@ -380,13 +395,16 @@ style: TextStyle(
                                 });
                               },
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 12),
                                 child: Center(
                                   child: Text(
                                     order['label']!,
-                                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                      color: isSelected ? Colors.lightBlueAccent : Colors.white,
+                                    locale: Locale("zh-Hans", "zh"),
+                                    style: TextStyle(
+                                      color: isSelected
+                                          ? Colors.lightBlueAccent
+                                          : _foregroundColor(context),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -407,10 +425,11 @@ style: TextStyle(
                     children: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
-                        child: const Text(
+                        child: Text(
                           '取消',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+                          locale: Locale("zh-Hans", "zh"),
+                          style:
+                              TextStyle(color: _foregroundColor(context, 0.7)),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -430,8 +449,8 @@ style: TextStyle(color: Colors.white70),
                         ),
                         child: const Text(
                           '应用',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(fontWeight: FontWeight.w600),
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],

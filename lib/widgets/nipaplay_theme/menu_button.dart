@@ -5,6 +5,7 @@ import 'package:window_manager/window_manager.dart';
 import 'dart:ui';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 const double iconSize = 25.0; // 图标大小
 const double buttonSize = 28.0; // 按钮大小
@@ -62,12 +63,13 @@ class _WindowControlButtonState extends State<WindowControlButton>
   @override
   Widget build(BuildContext context) {
     // 悬停时的背景颜色 - 参考blur_snackbar的设计
+    final iconColor = ThemeColorUtils.primaryForeground(context);
     Color hoverColor = Colors.transparent;
     if (_isHovered) {
       if (widget.isCloseButton) {
         hoverColor = const Color(0x40FF4444); // 红色悬停
       } else {
-        hoverColor = Colors.white.withOpacity(0.1); // 白色悬停
+        hoverColor = iconColor.withOpacity(0.1); // 白色悬停
       }
     }
 
@@ -117,7 +119,7 @@ class _WindowControlButtonState extends State<WindowControlButton>
                 child: Icon(
                   widget.icon,
                   size: widget.customIconSize ?? iconSize,
-                  color: Colors.white,
+                  color: iconColor,
                 ),
               ),
             );
@@ -146,7 +148,8 @@ class WindowControlButtons extends StatefulWidget {
   State<WindowControlButtons> createState() => _WindowControlButtonsState();
 }
 
-class _WindowControlButtonsState extends State<WindowControlButtons> with WindowListener {
+class _WindowControlButtonsState extends State<WindowControlButtons>
+    with WindowListener {
   @override
   void initState() {
     super.initState();
@@ -183,12 +186,24 @@ class _WindowControlButtonsState extends State<WindowControlButtons> with Window
   @override
   Widget build(BuildContext context) {
     // 参考system_resource_display的毛玻璃设计
+    final borderColor =
+        ThemeColorUtils.primaryForeground(context).withOpacity(0.2);
     return Container(
       margin: const EdgeInsets.all(4.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0),
+          filter: ImageFilter.blur(
+              sigmaX: context
+                      .watch<AppearanceSettingsProvider>()
+                      .enableWidgetBlurEffect
+                  ? 25
+                  : 0,
+              sigmaY: context
+                      .watch<AppearanceSettingsProvider>()
+                      .enableWidgetBlurEffect
+                  ? 25
+                  : 0),
           child: Container(
             height: containerHeight,
             padding: const EdgeInsets.symmetric(
@@ -199,7 +214,7 @@ class _WindowControlButtonsState extends State<WindowControlButtons> with Window
               borderRadius: BorderRadius.circular(borderRadius),
               color: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.2),
               border: Border.all(
-                color: Colors.white.withOpacity(0.2),
+                color: borderColor,
                 width: 0.5,
               ),
             ),
@@ -214,17 +229,17 @@ class _WindowControlButtonsState extends State<WindowControlButtons> with Window
                   onPressed: widget.onMinimize,
                 ),
                 const SizedBox(width: 8),
-                
+
                 // 最大化/恢复按钮
                 WindowControlButton(
-                  icon: widget.isMaximized 
-                      ? Icons.filter_none_rounded 
+                  icon: widget.isMaximized
+                      ? Icons.filter_none_rounded
                       : Icons.crop_square_rounded,
                   onPressed: widget.onMaximizeRestore,
                   customIconSize: widget.isMaximized ? 18.0 : null,
                 ),
                 const SizedBox(width: 8),
-                
+
                 // 关闭按钮
                 WindowControlButton(
                   icon: Icons.close_rounded,
