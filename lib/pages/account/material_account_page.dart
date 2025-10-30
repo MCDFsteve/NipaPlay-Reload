@@ -6,6 +6,7 @@ import 'package:nipaplay/widgets/user_activity/material_user_activity.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_login_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/utils/nipaplay_colors.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/settings_divider.dart';
 import 'account_controller.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -126,6 +127,11 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
 
   @override
   void showDeleteAccountDialog(String deleteAccountUrl) {
+    final colors = context.nipaplayColors;
+    final textSecondary = colors.textSecondary;
+    final accent = colors.accent;
+    final errorColor = Theme.of(context).colorScheme.error;
+
     BlurDialog.show(
       context: context,
       title: '账号注销确认',
@@ -133,36 +139,36 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '警告：账号注销是不可逆操作！',
             style: TextStyle(
-              color: Colors.red,
+              color: errorColor,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
+          Text(
             '注销后将：',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: colors.textPrimary),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             '• 永久删除您的弹弹play账号\n• 清除所有个人数据和收藏\n• 无法恢复已发送的弹幕\n• 失去所有积分和等级',
-            style: TextStyle(color: Colors.white70),
+            style: TextStyle(color: textSecondary),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             '点击"继续注销"将在浏览器中打开注销页面，请在页面中完成最终确认。',
-            style: TextStyle(color: Colors.yellow),
+            style: TextStyle(color: accent),
           ),
         ],
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text(
+          child: Text(
             '取消',
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: textSecondary),
           ),
         ),
         TextButton(
@@ -189,9 +195,9 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
               showMessage('打开注销页面失败: $e');
             }
           },
-          child: const Text(
+          child: Text(
             '继续注销',
-            style: TextStyle(color: Colors.red),
+            style: TextStyle(color: errorColor),
           ),
         ),
       ],
@@ -314,6 +320,17 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
   }
 
   Widget _buildLoggedInView(double blurValue) {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final containerColor = colors.surface.withOpacity(isDark ? 0.55 : 0.92);
+    final borderColor = colors.border.withOpacity(isDark ? 0.6 : 0.45);
+    final buttonOverlay = colors.surfaceMuted.withOpacity(isDark ? 0.4 : 0.85);
+    final buttonBorder = colors.border.withOpacity(isDark ? 0.5 : 0.4);
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
+    final iconSecondary = colors.iconSecondary;
+    final errorColor = Theme.of(context).colorScheme.error;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: BackdropFilter(
@@ -321,10 +338,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: containerColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.3),
+              color: borderColor,
               width: 0.5,
             ),
           ),
@@ -339,18 +356,18 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                         height: 48,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return const Icon(
+                          return Icon(
                             Icons.account_circle,
                             size: 48,
-                            color: Colors.white60,
+                            color: iconSecondary,
                           );
                         },
                       ),
                     )
-                  : const Icon(
+                  : Icon(
                       Icons.account_circle,
                       size: 48,
-                      color: Colors.white60,
+                      color: iconSecondary,
                     ),
               const SizedBox(width: 16),
               // 用户信息
@@ -360,18 +377,18 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                   children: [
                     Text(
                       username,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: textPrimary,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    const Text(
+                    Text(
                       '已登录',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white60,
+                      locale: const Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: textSecondary,
                         fontSize: 12,
                       ),
                     ),
@@ -390,27 +407,27 @@ style: TextStyle(
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: buttonOverlay,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.2),
+                        color: buttonBorder,
                         width: 0.5,
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
                           Icons.logout,
-                          color: Colors.white70,
+                          color: iconSecondary,
                           size: 16,
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
                           '退出',
-                          locale: Locale("zh-Hans", "zh"),
+                          locale: const Locale("zh-Hans", "zh"),
                           style: TextStyle(
-                            color: Colors.white70,
+                            color: textSecondary,
                             fontSize: 14,
                           ),
                         ),
@@ -432,10 +449,10 @@ style: TextStyle(
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.red.withOpacity(0.1),
+                      color: errorColor.withOpacity(isDark ? 0.15 : 0.1),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.red.withOpacity(0.3),
+                        color: errorColor.withOpacity(isDark ? 0.4 : 0.3),
                         width: 0.5,
                       ),
                     ),
@@ -443,26 +460,26 @@ style: TextStyle(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (isLoading)
-                          const SizedBox(
+                          SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                              valueColor: AlwaysStoppedAnimation<Color>(errorColor),
                             ),
                           )
                         else
-                          const Icon(
+                          Icon(
                             Icons.delete_forever,
-                            color: Colors.red,
+                            color: errorColor,
                             size: 16,
                           ),
                         const SizedBox(width: 4),
                         Text(
                           isLoading ? '处理中...' : '注销账号',
                           locale: const Locale("zh-Hans", "zh"),
-                          style: const TextStyle(
-                            color: Colors.red,
+                          style: TextStyle(
+                            color: errorColor,
                             fontSize: 14,
                           ),
                         ),
@@ -479,38 +496,42 @@ style: TextStyle(
   }
 
   Widget _buildLoggedOutView(double blurValue) {
+    final colors = context.nipaplayColors;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
+    final iconColor = colors.iconSecondary;
     return Column(
       children: [
         ListTile(
-          title: const Text(
+          title: Text(
             "登录弹弹play账号",
             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+style: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
           ),
-          subtitle: const Text(
+          subtitle: Text(
             "登录后可以同步观看记录和个人设置",
             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+style: TextStyle(color: textSecondary),
           ),
-          trailing: const Icon(Icons.login, color: Colors.white),
+          trailing: Icon(Icons.login, color: iconColor),
           onTap: showLoginDialog,
         ),
-        const Divider(color: Colors.white12, height: 1),
+        const SettingsDivider(),
         ListTile(
-          title: const Text(
+          title: Text(
             "注册弹弹play账号",
             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+style: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
           ),
-          subtitle: const Text(
+          subtitle: Text(
             "创建新的弹弹play账号，享受完整功能",
             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+style: TextStyle(color: textSecondary),
           ),
-          trailing: const Icon(Icons.person_add, color: Colors.white),
+          trailing: Icon(Icons.person_add, color: iconColor),
           onTap: showRegisterDialog,
         ),
-        const Divider(color: Colors.white12, height: 1),
+        const SettingsDivider(),
       ],
     );
   }
@@ -865,6 +886,10 @@ style: TextStyle(color: Colors.white70),
 
   // 构建弹弹play页面内容
   Widget _buildDandanplayPage(double blurValue) {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final overlay = colors.surface.withOpacity(isDark ? 0.45 : 0.9);
+    final borderColor = colors.border.withOpacity(isDark ? 0.55 : 0.4);
     return Column(
       children: [
         if (isLoggedIn) ...[
@@ -878,10 +903,10 @@ style: TextStyle(color: Colors.white70),
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: overlay,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: borderColor,
                       width: 0.5,
                     ),
                   ),
