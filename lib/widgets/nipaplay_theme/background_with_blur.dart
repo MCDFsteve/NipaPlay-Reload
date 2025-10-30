@@ -70,10 +70,7 @@ class BackgroundWithBlur extends StatelessWidget {
 
   Widget _buildBackgroundImage() {
     if (globals.backgroundImageMode == '关闭') {
-      return Image.asset(
-        'assets/backempty.png',
-        fit: BoxFit.cover,
-      );
+      return ColoredBox(color: globals.emptyBackgroundColor);
     } else if (globals.backgroundImageMode == '看板娘') {
       return Image.asset(
         backgroundImageUrl,

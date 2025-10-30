@@ -13,12 +13,14 @@ class ThemeNotifier with ChangeNotifier {
   ThemeNotifier({
     ThemeMode initialThemeMode = ThemeMode.system,
     String initialBackgroundImageMode = "看板娘2",
-    String initialCustomBackgroundPath = 'assets/backempty.png',
+    String initialCustomBackgroundPath = '',
     AnimeDetailDisplayMode initialAnimeDetailDisplayMode =
         AnimeDetailDisplayMode.simple,
   })  : _themeMode = initialThemeMode,
         _backgroundImageMode = initialBackgroundImageMode,
-        _customBackgroundPath = initialCustomBackgroundPath,
+        _customBackgroundPath = initialCustomBackgroundPath.isNotEmpty
+            ? initialCustomBackgroundPath
+            : globals.customBackgroundPath,
         _animeDetailDisplayMode = initialAnimeDetailDisplayMode;
 
   ThemeMode get themeMode => _themeMode;

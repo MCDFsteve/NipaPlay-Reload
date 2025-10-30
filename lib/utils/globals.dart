@@ -12,6 +12,7 @@ double mobileThreshold = 550;
 String Appversion = "1.0.0";
 String backgroundImageMode = "看板娘2"; // 添加背景图像模式变量
 String customBackgroundPath = 'assets/images/main_image.png'; // 添加自定义背景图片路径变量
+Color emptyBackgroundColor = Colors.white; // 默认纯色背景
 //////全局变量/////
 ///
 //////设备类型判断/////

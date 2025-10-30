@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:nipaplay/utils/image_cache_manager.dart';
+import 'package:nipaplay/utils/globals.dart' as globals;
 import 'loading_placeholder.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,6 +50,14 @@ class _CachedNetworkImageWidgetState extends State<CachedNetworkImageWidget> {
   bool _isDisposed = false;
   ui.Image? _basicImage; // 基础图片
 
+  Widget _buildColorPlaceholder() {
+    return SizedBox(
+      width: widget.width,
+      height: widget.height,
+      child: ColoredBox(color: globals.emptyBackgroundColor),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -77,6 +86,12 @@ class _CachedNetworkImageWidgetState extends State<CachedNetworkImageWidget> {
   void _loadImage() {
     if (_currentUrl == widget.imageUrl || _isDisposed) return;
     _currentUrl = widget.imageUrl;
+
+    if (widget.imageUrl.trim().isEmpty) {
+      _imageFuture = null;
+      _basicImage = null;
+      return;
+    }
     
     // 旧版：仅使用缓存管理器单通道加载
     if (widget.loadMode == CachedImageLoadMode.legacy) {
@@ -97,6 +112,10 @@ class _CachedNetworkImageWidgetState extends State<CachedNetworkImageWidget> {
 
   // 新增方法：立即加载基础图片
   void _loadBasicImage() async {
+    if (widget.imageUrl.trim().isEmpty) {
+      return;
+    }
+
     // 🔥 根据delayLoad参数决定是否延迟（避免与HEAD验证竞争）
     if (widget.delayLoad) {
       await Future.delayed(const Duration(milliseconds: 1500));
@@ -154,6 +173,10 @@ class _CachedNetworkImageWidgetState extends State<CachedNetworkImageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.imageUrl.trim().isEmpty) {
+      return _buildColorPlaceholder();
+    }
+
     // 如果widget已被disposal，返回空容器
     if (_isDisposed) {
       return SizedBox(
@@ -181,12 +204,7 @@ class _CachedNetworkImageWidgetState extends State<CachedNetworkImageWidget> {
           if (widget.errorBuilder != null) {
             return widget.errorBuilder!(context, snapshot.error!);
           }
-          return Image.asset(
-            'assets/backempty.png',
-            fit: widget.fit,
-            width: widget.width,
-            height: widget.height,
-          );
+          return _buildColorPlaceholder();
         }
 
         if (snapshot.hasData) {

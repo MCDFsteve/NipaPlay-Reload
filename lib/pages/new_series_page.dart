@@ -163,8 +163,7 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
     final grouped = <int, List<BangumiAnime>>{};
     // Restore original filter
     final validAnimes = _animes.where((anime) => 
-      anime.imageUrl.isNotEmpty && 
-      anime.imageUrl != 'assets/backempty.png'
+      anime.imageUrl.isNotEmpty
       // && anime.nameCn.isNotEmpty && // Temporarily removed to allow display even if names are empty
       // && anime.name.isNotEmpty       // Temporarily removed
     ).toList();

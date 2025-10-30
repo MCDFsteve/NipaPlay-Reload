@@ -110,7 +110,7 @@ class BangumiAnime {
       id: json['animeId'] as int? ?? 0,
       name: json['animeTitle'] as String? ?? '',
       nameCn: json['animeTitle'] as String? ?? '', // Default to animeTitle, can be refined if 'titles' are available in intro
-      imageUrl: imgUrl ?? 'assets/backempty.png', // Provide a default placeholder
+      imageUrl: imgUrl ?? '', // 空字符串表示使用纯色占位
       airWeekday: json['airDay'] as int?, // 0 for Sun, 1-6 for Mon-Sat
       rating: (json['rating'] as num?)?.toDouble(),
       isOnAir: json['isOnAir'] as bool?,
@@ -223,7 +223,7 @@ class BangumiAnime {
       id: json['animeId'] as int? ?? json['id'] as int? ?? 0, // 支持两种格式
       name: primaryTitle,
       nameCn: chineseTitle,
-      imageUrl: json['imageUrl'] as String? ?? 'assets/backempty.png',
+      imageUrl: json['imageUrl'] as String? ?? '',
       summary: json['summary'] as String?,
       // 尝试从多个可能的来源获取首播日期
       airDate: json['air_date'] as String? ?? 

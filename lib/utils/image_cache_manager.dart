@@ -156,7 +156,7 @@ class ImageCacheManager {
     for (final url in urls) {
       try {
         // 检查 URL 是否有效
-        if (url.isEmpty || url == 'assets/backempty.png' || url == 'assets/backEmpty.png') {
+        if (url.isEmpty) {
           //////debugPrint('跳过无效的图片 URL: $url');
           continue;
         }

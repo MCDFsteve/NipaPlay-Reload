@@ -142,7 +142,7 @@ class _FluentNewSeriesPageState extends State<FluentNewSeriesPage>
     // 应用筛选条件
     final filteredAnimes = _animes.where((anime) {
       // 基础过滤
-      if (anime.imageUrl.isEmpty || anime.imageUrl == 'assets/backempty.png') {
+      if (anime.imageUrl.isEmpty) {
         return false;
       }
       
@@ -815,7 +815,7 @@ class _FluentTagSearchDialogState extends State<_FluentTagSearchDialog> {
       id: searchAnime.animeId,
       name: searchAnime.animeTitle,
       nameCn: searchAnime.animeTitle,
-      imageUrl: searchAnime.imageUrl ?? 'assets/backempty.png',
+      imageUrl: searchAnime.imageUrl ?? '',
       rating: searchAnime.rating,
       summary: searchAnime.intro,
       typeDescription: searchAnime.typeDescription,
