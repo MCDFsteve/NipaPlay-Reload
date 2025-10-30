@@ -75,12 +75,17 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         final appearanceSettings = Provider.of<AppearanceSettingsProvider>(context);
         final enableAnimation = appearanceSettings.enablePageAnimation;
 
+        final theme = Theme.of(context);
+        final isDarkTheme = theme.brightness == Brightness.dark;
+        final primaryForegroundColor = isDarkTheme ? Colors.white : Colors.black;
+        final secondaryForegroundColor = isDarkTheme ? Colors.white60 : Colors.black54;
+
         final currentIndex = widget.tabController!.index;
 
         return BackgroundWithBlur(
           child: Scaffold(
             primary: false,
-            backgroundColor: Theme.of(context).brightness == Brightness.dark
+            backgroundColor: isDarkTheme
                 ? Colors.black.withOpacity(0.9)
                 : Colors.black.withOpacity(0),
             extendBodyBehindAppBar: false,
@@ -94,7 +99,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                   ? null
                   : IconButton(
                       icon: const Icon(Ionicons.chevron_back_outline),
-                      color: Colors.white,
+                      color: primaryForegroundColor,
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -105,16 +110,18 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                 controller: widget.tabController,
                 isScrollable: true,
                 tabs: widget.tabPage,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.white60,
+                labelColor: primaryForegroundColor,
+                unselectedLabelColor: secondaryForegroundColor,
                 labelPadding: const EdgeInsets.only(bottom: 15.0),
                 tabAlignment: TabAlignment.start,
                 // 恢复灰色背景条，并使用自定义指示器
-                dividerColor: const Color.fromARGB(59, 255, 255, 255),
+                dividerColor: isDarkTheme
+                    ? const Color.fromARGB(59, 255, 255, 255)
+                    : const Color.fromARGB(59, 0, 0, 0),
                 dividerHeight: 3.0,
-                indicator: const _CustomTabIndicator(
+                indicator: _CustomTabIndicator(
                   indicatorHeight: 3.0,
-                  indicatorColor: Colors.white,
+                  indicatorColor: primaryForegroundColor,
                   radius: 30.0, // 使用大圆角形成药丸形状
                 ),
                 indicatorSize: TabBarIndicatorSize.label, // 与label宽度一致
