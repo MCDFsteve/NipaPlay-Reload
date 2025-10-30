@@ -675,7 +675,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
                                       ),
                                     ),
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Text(
                                         '设置',
@@ -686,7 +686,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                     ],
                                   ),
                                 ),
@@ -747,7 +747,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
               const SizedBox(width: 12),
               Text(
                 item.title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: _foregroundColor(context),
                   fontSize: 14,
                 ),

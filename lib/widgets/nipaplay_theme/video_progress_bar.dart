@@ -107,7 +107,7 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                     ),
                     child: Text(
                       widget.formatDuration(widget.videoState.position),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: _foregroundColor(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,

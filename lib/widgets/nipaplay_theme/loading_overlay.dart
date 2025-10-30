@@ -126,6 +126,8 @@ class _LoadingOverlayState extends State<LoadingOverlay>
     return color;
   }
 
+  Color get effectiveTextColor => _resolveTextColor(context);
+
   @override
   Widget build(BuildContext context) {
     // 计算比例尺寸时考虑屏幕大小，修复clamp参数顺序问题

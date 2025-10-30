@@ -290,7 +290,7 @@ class _SeekStepMenuState extends State<SeekStepMenu> {
                                 border: Border.all(
                                     color: _foregroundColor(context, 0.3)),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.remove,
                                 color: _foregroundColor(context, 0.7),
                                 size: 20,
@@ -370,7 +370,7 @@ class _SeekStepMenuState extends State<SeekStepMenu> {
                                 border: Border.all(
                                     color: _foregroundColor(context, 0.3)),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.add,
                                 color: _foregroundColor(context, 0.7),
                                 size: 20,

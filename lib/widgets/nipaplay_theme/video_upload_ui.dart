@@ -76,22 +76,22 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFFffffff).withOpacity(0.1),
-            const Color(0xFFFFFFFF).withOpacity(0.05),
+            baseColor.withOpacity(_isHovered ? 0.15 : 0.1),
+            baseColor.withOpacity(_isHovered ? 0.1 : 0.05),
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFFffffff).withOpacity(0.5),
-            const Color((0xFFFFFFFF)).withOpacity(0.5),
+            baseColor.withOpacity(_isHovered ? 0.7 : 0.5),
+            baseColor.withOpacity(_isHovered ? 0.7 : 0.5),
           ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.video_library,
               size: 64,
               color: _foregroundColor(context),

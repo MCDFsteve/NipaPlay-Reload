@@ -254,7 +254,7 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
                   const SizedBox(height: 20),
 
                   // 排序方式选择
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '排序方式',
@@ -354,7 +354,7 @@ class _MediaLibrarySortDialogState extends State<MediaLibrarySortDialog> {
 
                   // 排序顺序选择
                   const SizedBox(height: 16),
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '排序顺序',

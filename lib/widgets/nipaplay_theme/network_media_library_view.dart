@@ -508,7 +508,7 @@ class _NetworkMediaLibraryViewState extends State<NetworkMediaLibraryView>
                   child: InkWell(
                     borderRadius: BorderRadius.circular(24), // 圆形
                     onTap: _backToLibraries,
-                    child: const Center(
+                    child: Center(
                       child: Icon(
                         Icons.chevron_left,
                         color: _foregroundColor(context),
@@ -778,7 +778,7 @@ class _NetworkMediaLibraryViewState extends State<NetworkMediaLibraryView>
                         width: 20,
                         height: 20,
                         padding: const EdgeInsets.all(12),
-                        child: const CircularProgressIndicator(
+                        child: CircularProgressIndicator(
                           strokeWidth: 2,
                           valueColor: AlwaysStoppedAnimation<Color>(
                               _foregroundColor(context)),

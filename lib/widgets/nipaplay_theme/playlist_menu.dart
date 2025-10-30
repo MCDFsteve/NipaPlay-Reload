@@ -703,12 +703,12 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
 
   Widget _buildContent() {
     if (_isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircularProgressIndicator(color: _foregroundColor(context)),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               '加载播放列表中...',
               locale: Locale("zh-Hans", "zh"),
@@ -748,7 +748,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
     }
 
     if (!_hasFileSystemData || _fileSystemEpisodes.isEmpty) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -757,7 +757,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
               color: _foregroundColor(context, 0.54),
               size: 48,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               '目录中没有找到视频文件',
               locale: Locale("zh-Hans", "zh"),

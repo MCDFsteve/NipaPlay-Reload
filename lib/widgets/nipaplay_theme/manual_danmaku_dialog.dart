@@ -391,7 +391,7 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
               textStyle: TextStyle(fontSize: 12),
             ),
             child: _isSearching
-                ? const SizedBox(
+                ? SizedBox(
                     width: 12,
                     height: 12,
                     child: CircularProgressIndicator(
@@ -450,13 +450,13 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
               ),
             ),
             child: _isSearching
-                ? const Center(
+                ? Center(
                     child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                         _foregroundColor(context, 0.7)),
                   ))
                 : _currentMatches.isEmpty
-                    ? const Center(
+                    ? Center(
                         child: Text('暂无结果',
                             style: TextStyle(
                                 color: _foregroundColor(context, 0.54),
@@ -657,13 +657,13 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
                 ),
               ),
               child: _isSearching
-                  ? const Center(
+                  ? Center(
                       child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
                           _foregroundColor(context, 0.7)),
                     ))
                   : _currentMatches.isEmpty
-                      ? const Center(
+                      ? Center(
                           child: Text('没有搜索结果',
                               style: TextStyle(
                                   color: _foregroundColor(context, 0.54))))
@@ -745,13 +745,13 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
                 ),
               ),
               child: _isLoadingEpisodes
-                  ? const Center(
+                  ? Center(
                       child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
                           _foregroundColor(context, 0.7)),
                     ))
                   : _currentEpisodes.isEmpty
-                      ? const Center(
+                      ? Center(
                           child: Text('没有可用的剧集',
                               style: TextStyle(
                                   color: _foregroundColor(context, 0.54))))
@@ -935,13 +935,13 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
               ),
             ),
             child: _isLoadingEpisodes
-                ? const Center(
+                ? Center(
                     child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                         _foregroundColor(context, 0.7)),
                   ))
                 : _currentEpisodes.isEmpty
-                    ? const Center(
+                    ? Center(
                         child: Text('暂无剧集',
                             style: TextStyle(
                                 color: _foregroundColor(context, 0.54),
@@ -1079,7 +1079,7 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
                           ),
                         ],
                       ),
-                      const Divider(color: _foregroundColor(context, 0.24)),
+                      Divider(color: _foregroundColor(context, 0.24)),
                       const SizedBox(height: 8),
                     ],
 
@@ -1110,7 +1110,7 @@ class _ManualDanmakuMatchDialogState extends State<ManualDanmakuMatchDialog>
 
                     // 操作按钮区域 - 仅在非手机设备显示
                     if (!isRealPhone) ...[
-                      const Divider(color: _foregroundColor(context, 0.24)),
+                      Divider(color: _foregroundColor(context, 0.24)),
                       const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,

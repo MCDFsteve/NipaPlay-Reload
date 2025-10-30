@@ -144,7 +144,7 @@ class _PlaybackRateMenuState extends State<PlaybackRateMenu> {
                             Container(
                               width: 6,
                               height: 6,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: _foregroundColor(context),
                                 shape: BoxShape.circle,
                               ),

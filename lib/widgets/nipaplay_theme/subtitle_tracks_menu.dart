@@ -527,7 +527,7 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
               // 添加加载本地字幕文件的按钮
               if (!kIsWeb) ...[
                 _isLoading
-                    ? const Center(
+                    ? Center(
                         child: SizedBox(
                           width: 24,
                           height: 24,
@@ -553,10 +553,10 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
 
               // 外部字幕列表
               if (_externalSubtitles.isNotEmpty) ...[
-                const Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 16, bottom: 8),
+                    padding: const EdgeInsets.only(left: 16, bottom: 8),
                     child: Text(
                       '外部字幕',
                       locale: Locale("zh-Hans", "zh"),
@@ -621,7 +621,7 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
                                 children: [
                                   Text(
                                     fileName,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       color: _foregroundColor(context),
                                       fontSize: 14,
                                     ),
@@ -657,10 +657,10 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
 
               // 内嵌字幕列表
               if (hasEmbeddedSubtitles) ...[
-                const Align(
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 16, bottom: 8),
+                    padding: const EdgeInsets.only(left: 16, bottom: 8),
                     child: Text(
                       '内嵌字幕',
                       locale: Locale("zh-Hans", "zh"),
@@ -755,7 +755,7 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
                                 children: [
                                   Text(
                                     title, // Display title from SubtitleManager (or fallback)
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       color: _foregroundColor(context),
                                       fontSize: 14,
                                     ),
@@ -781,8 +781,8 @@ class _SubtitleTracksMenuState extends State<SubtitleTracksMenu> {
 
               // 没有字幕的情况
               if (!hasEmbeddedSubtitles && _externalSubtitles.isEmpty)
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     '当前视频没有可用的字幕轨道。\n您可以通过"加载本地字幕文件"按钮添加外部字幕。',
                     locale: Locale("zh-Hans", "zh"),

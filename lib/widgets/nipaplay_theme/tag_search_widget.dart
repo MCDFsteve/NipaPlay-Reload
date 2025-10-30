@@ -707,7 +707,7 @@ class _TagSearchModalState extends State<TagSearchModal>
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: _foregroundColor(context)),
                           ),
                         ),
@@ -787,7 +787,7 @@ class _TagSearchModalState extends State<TagSearchModal>
                       ),
                     ),
                     child: _isTextSearching
-                        ? const SizedBox(
+                        ? SizedBox(
                             height: 20,
                             width: 20,
                             child: CircularProgressIndicator(
@@ -832,8 +832,8 @@ class _TagSearchModalState extends State<TagSearchModal>
 
     if (isLoading && results.isEmpty) {
       widgets.add(
-        const Padding(
-          padding: EdgeInsets.all(32.0),
+        Padding(
+          padding: const EdgeInsets.all(32.0),
           child: Center(
             child: CircularProgressIndicator(
               valueColor:
@@ -999,8 +999,8 @@ class _TagSearchModalState extends State<TagSearchModal>
     // 添加加载更多指示器
     if (isLoadingMore) {
       widgets.add(
-        const Padding(
-          padding: EdgeInsets.all(16.0),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Center(
             child: CircularProgressIndicator(
               valueColor:
@@ -1042,7 +1042,7 @@ class _TagSearchModalState extends State<TagSearchModal>
 
   Widget _buildAdvancedSearchTab() {
     if (_isLoadingConfig) {
-      return const Center(
+      return Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(_foregroundColor(context)),
         ),
@@ -1096,7 +1096,7 @@ class _TagSearchModalState extends State<TagSearchModal>
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide:
-                      const BorderSide(color: _foregroundColor(context)),
+                      BorderSide(color: _foregroundColor(context)),
                 ),
               ),
             ),
@@ -1191,7 +1191,7 @@ class _TagSearchModalState extends State<TagSearchModal>
                 ),
               ),
               child: _isAdvancedSearching
-                  ? const SizedBox(
+                  ? SizedBox(
                       height: 20,
                       width: 20,
                       child: CircularProgressIndicator(
@@ -1252,7 +1252,7 @@ class _TagSearchModalState extends State<TagSearchModal>
   Widget _buildSearchResults(List<SearchResultAnime> results, bool isLoading,
       ScrollController scrollController, bool isLoadingMore, int totalResults) {
     if (isLoading) {
-      return const Center(
+      return Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(_foregroundColor(context)),
         ),
@@ -1289,8 +1289,8 @@ class _TagSearchModalState extends State<TagSearchModal>
       itemBuilder: (context, index) {
         // 如果是加载指示器
         if (index >= results.length) {
-          return const Padding(
-            padding: EdgeInsets.all(16.0),
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Center(
               child: CircularProgressIndicator(
                 valueColor:

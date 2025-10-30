@@ -329,7 +329,7 @@ class _RatingDialogState extends State<RatingDialog> {
                               ),
                             ),
                             child: _isSubmitting
-                                ? const SizedBox(
+                                ? SizedBox(
                                     width: 16,
                                     height: 16,
                                     child: CircularProgressIndicator(

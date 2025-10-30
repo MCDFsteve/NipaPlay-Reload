@@ -1535,11 +1535,13 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
                           ? null
                           : _showWebDAVConnectionDialog,
                       borderRadius: BorderRadius.circular(12),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           '添加WebDAV服务器',
                           style: TextStyle(
-                              color: _foregroundColor(context), fontSize: 16),
+                            color: _foregroundColor(context),
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
@@ -1752,7 +1754,7 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
           child: _showWebDAVFolders
               ? _buildWebDAVFoldersList()
               : (scanService.scannedFolders.isEmpty && !scanService.isScanning
-                  ? const Center(
+                  ? Center(
                       child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。',
                           textAlign: TextAlign.center,
                           locale: Locale("zh-Hans", "zh"),
@@ -2249,15 +2251,15 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
   // 构建WebDAV文件夹列表
   Widget _buildWebDAVFoldersList() {
     if (_webdavConnections.isEmpty) {
-      return const Center(
+      return Center(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.cloud_off,
                   size: 64, color: _foregroundColor(context, 0.54)),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 '尚未添加任何WebDAV服务器。\n点击上方"添加WebDAV服务器"按钮开始。',
                 textAlign: TextAlign.center,
@@ -2360,8 +2362,8 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
         children: connection.isConnected
             ? _buildWebDAVFileNodes(connection, '/')
             : [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     '连接未建立，无法浏览文件。请点击刷新按钮重新连接。',
                     style: TextStyle(color: _foregroundColor(context, 0.54)),
@@ -2391,8 +2393,8 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
 
     if (files.isEmpty) {
       return [
-        const Padding(
-          padding: EdgeInsets.all(16.0),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Text(
             '文件夹为空或无法访问',
             style: TextStyle(color: _foregroundColor(context, 0.54)),

@@ -116,7 +116,7 @@ class _SettingsSliderState extends State<SettingsSlider> {
                     ),
                     child: Text(
                       widget.displayTextBuilder(value),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: _foregroundColor(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -159,7 +159,7 @@ class _SettingsSliderState extends State<SettingsSlider> {
       children: [
         Text(
           widget.label,
-          style: const TextStyle(
+          style: TextStyle(
             color: _foregroundColor(context),
             fontSize: 14,
           ),
