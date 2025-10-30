@@ -3,6 +3,7 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/hover_tooltip_bubble.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class FloatingActionGlassButton extends StatelessWidget {
   final IconData iconData;
@@ -21,28 +22,42 @@ class FloatingActionGlassButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appearanceSettings = context.watch<AppearanceSettingsProvider>();
+    final palette = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final bool blurEnabled = appearanceSettings.enableWidgetBlurEffect;
+
+    final Color backgroundStart = isDark
+        ? Colors.white.withOpacity(0.12)
+        : palette.accent.withOpacity(blurEnabled ? 0.2 : 0.35);
+    final Color backgroundEnd = isDark
+        ? Colors.white.withOpacity(0.06)
+        : palette.accent.withOpacity(blurEnabled ? 0.15 : 0.25);
+
+    final Color borderStart = isDark
+        ? Colors.white.withOpacity(0.45)
+        : palette.border.withOpacity(0.9);
+    final Color borderEnd = isDark
+        ? Colors.white.withOpacity(0.25)
+        : palette.border.withOpacity(0.6);
+
+    final Color iconColor = isDark ? Colors.white : palette.backgroundPrimary;
+
     final Widget button = GlassmorphicContainer(
       width: 56,
       height: 56,
       borderRadius: 28,
-      blur: appearanceSettings.enableWidgetBlurEffect ? 25 : 0,
+      blur: blurEnabled ? 25 : 0,
       alignment: Alignment.center,
       border: 1,
       linearGradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [
-          appearanceSettings.enableWidgetBlurEffect ?  Color(0xFFffffff).withOpacity(0.1) : Color.fromARGB(255, 193, 193, 193).withOpacity(0.5),
-          appearanceSettings.enableWidgetBlurEffect ?  Color(0xFFffffff).withOpacity(0.1):Color.fromARGB(255, 208, 208, 208).withOpacity(0.5)
-        ],
+        colors: [backgroundStart, backgroundEnd],
       ),
       borderGradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [
-          const Color(0xFFffffff).withOpacity(0.5),
-          const Color(0xFFFFFFFF).withOpacity(0.5),
-        ],
+        colors: [borderStart, borderEnd],
       ),
       child: Material(
         color: Colors.transparent,
@@ -52,7 +67,7 @@ class FloatingActionGlassButton extends StatelessWidget {
           child: Center(
             child: Icon(
               iconData,
-              color: Colors.white,
+              color: iconColor,
               size: 24,
             ),
           ),

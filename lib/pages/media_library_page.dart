@@ -25,6 +25,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/media_server_selection_sheet.dar
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_host_selection_sheet.dart';
 import 'package:nipaplay/providers/shared_remote_library_provider.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_login_dialog.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 // Define a callback type for when an episode is selected for playing
 typedef OnPlayEpisodeCallback = void Function(WatchHistoryItem item);
@@ -552,7 +553,10 @@ class _MediaLibraryPageState extends State<MediaLibraryPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('加载媒体库失败: $_error', style: const TextStyle(color: Colors.white70)),
+              Text(
+                '加载媒体库失败: $_error',
+                style: TextStyle(color: context.nipaplayColors.textSecondary),
+              ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadInitialMediaLibraryData,

@@ -159,13 +159,16 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
                               borderEnd,
                             ],
                           ),
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               '选择视频',
-                              locale: Locale("zh-Hans", "zh"),
+                              locale: const Locale("zh-Hans", "zh"),
                               style: TextStyle(
-                                color: Colors.white,
+                                color: isDark
+                                    ? Colors.white
+                                    : palette.backgroundPrimary,
                                 fontSize: 16,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),

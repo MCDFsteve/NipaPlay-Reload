@@ -7,6 +7,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/hover_tooltip_bubble.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class AnimeCard extends StatefulWidget {
   final String name;
@@ -107,12 +108,16 @@ class _AnimeCardState extends State<AnimeCard> {
 
   // 占位图组件
   Widget _buildPlaceholder(BuildContext context) {
+    final palette = context.nipaplayColors;
+    final isDark = context.isDarkMode;
     return Container(
-      color: Colors.grey[800]?.withOpacity(0.5),
-      child: const Center(
+      color: isDark
+          ? Colors.black.withOpacity(0.3)
+          : palette.surfaceMuted.withOpacity(0.9),
+      child: Center(
         child: Icon(
           Ionicons.image_outline,
-          color: Colors.white30,
+          color: palette.iconSecondary.withOpacity(isDark ? 0.5 : 0.7),
           size: 40,
         ),
       ),
@@ -160,6 +165,27 @@ class _AnimeCardState extends State<AnimeCard> {
   Widget build(BuildContext context) {
   final settings = context.watch<AppearanceSettingsProvider>();
   final bool enableBlur = settings.enableWidgetBlurEffect;
+  final palette = context.nipaplayColors;
+  final isDark = context.isDarkMode;
+
+  final Color borderColor = isDark
+      ? Colors.white.withOpacity(0.25)
+      : palette.border.withOpacity(0.7);
+
+  final Color overlayColor = isDark
+      ? Colors.black.withOpacity(0.25)
+      : palette.backgroundPrimary.withOpacity(0.65);
+
+  final Color shadowColor = isDark
+      ? Colors.black.withOpacity(0.45)
+      : palette.iconSecondary.withOpacity(0.15);
+
+  final Color titleTopGradient = isDark
+      ? Colors.black.withOpacity(0.1)
+      : palette.backgroundPrimary.withOpacity(0.85);
+  final Color titleBottomGradient = isDark
+      ? Colors.black.withOpacity(0.35)
+      : palette.backgroundPrimary.withOpacity(0.95);
 
   final Widget card = RepaintBoundary(
       child: GestureDetector(
@@ -169,13 +195,13 @@ class _AnimeCardState extends State<AnimeCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: borderColor,
               width: 0.5,
             ),
             boxShadow: widget.enableShadow
                 ? [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
+                      color: shadowColor,
                       blurRadius: 4,
                       offset: const Offset(0, 1),
                     ),
@@ -202,7 +228,7 @@ class _AnimeCardState extends State<AnimeCard> {
               // 中间层：半透明遮罩，提高可读性
               Positioned.fill(
                 child: Container(
-                  color: const Color.fromARGB(255, 252, 252, 252).withOpacity(0.1),
+                  color: overlayColor,
                 ),
               ),
               
@@ -224,8 +250,8 @@ class _AnimeCardState extends State<AnimeCard> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Colors.black.withOpacity(0.1),
-                            Colors.black.withOpacity(0.3),
+                            titleTopGradient,
+                            titleBottomGradient,
                           ],
                         ),
                       ),
@@ -236,7 +262,7 @@ class _AnimeCardState extends State<AnimeCard> {
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 fontSize: 12,
                                 height: 1.2,
-                                color: Colors.white,
+                                color: palette.textPrimary,
                                 fontWeight: FontWeight.w600,
                               ),
                           maxLines: 2,

@@ -31,6 +31,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/network_media_library_view.dart'
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_library_view.dart';
 import 'package:nipaplay/services/playback_service.dart';
 import 'package:nipaplay/models/playable_item.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 // Custom ScrollBehavior for NoScrollbarBehavior is removed as NestedScrollView handles scrolling differently.
 
@@ -516,29 +517,34 @@ style: TextStyle(color: Colors.white70, fontSize: 12),
                 // TabBar - 使用Flexible包装以防溢出
                 Flexible(
                   flex: 0,
-                  child: TabBar(
-                    controller: _tabController,
-                    isScrollable: true,
-                    tabs: tabs,
-                    labelColor: Colors.white,
-                    unselectedLabelColor: Colors.white70,
-                    labelStyle: const TextStyle(
-                      fontSize: 24, 
-                      fontWeight: FontWeight.bold
-                    ),
-                    indicatorPadding: const EdgeInsets.only(
-                      top: 45, 
-                      left: 0, 
-                      right: 0
-                    ),
-                    indicator: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    tabAlignment: TabAlignment.start,
-                    dividerColor: const Color.fromARGB(59, 255, 255, 255),
-                    dividerHeight: 3.0,
-                    indicatorSize: TabBarIndicatorSize.tab,
+                  child: Builder(
+                    builder: (context) {
+                      final colors = context.nipaplayColors;
+                      return TabBar(
+                        controller: _tabController,
+                        isScrollable: true,
+                        tabs: tabs,
+                        labelColor: colors.textPrimary,
+                        unselectedLabelColor: colors.textSecondary,
+                        labelStyle: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        indicatorPadding: const EdgeInsets.only(
+                          top: 45,
+                          left: 0,
+                          right: 0,
+                        ),
+                        indicator: BoxDecoration(
+                          color: colors.accent,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        tabAlignment: TabAlignment.start,
+                        dividerColor: colors.divider,
+                        dividerHeight: 3.0,
+                        indicatorSize: TabBarIndicatorSize.tab,
+                      );
+                    },
                   ),
                 ),
                 // 内容区域 - 确保占用剩余所有空间
