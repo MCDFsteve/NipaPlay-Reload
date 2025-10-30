@@ -14,6 +14,7 @@ import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class WatchHistoryPage extends StatefulWidget {
   const WatchHistoryPage({super.key});
@@ -25,6 +26,7 @@ class WatchHistoryPage extends StatefulWidget {
 class _WatchHistoryPageState extends State<WatchHistoryPage> {
   @override
   Widget build(BuildContext context) {
+    final colors = context.nipaplayColors;
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
@@ -36,8 +38,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
       body: Consumer<WatchHistoryProvider>(
         builder: (context, historyProvider, child) {
           if (historyProvider.isLoading && historyProvider.history.isEmpty) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.white),
+            return Center(
+              child: CircularProgressIndicator(color: colors.accent),
             );
           }
 
@@ -64,6 +66,20 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
 
   Widget _buildWatchHistoryItem(WatchHistoryItem item) {
     final appearanceProvider = context.watch<AppearanceSettingsProvider>();
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final gradientStart = isDark
+        ? colors.surface.withOpacity(0.55)
+        : colors.surface.withOpacity(0.95);
+    final gradientEnd = isDark
+        ? colors.surfaceMuted.withOpacity(0.45)
+        : colors.surfaceMuted.withOpacity(0.85);
+    final borderGradientStart = colors.border.withOpacity(isDark ? 0.6 : 0.5);
+    final borderGradientEnd = colors.border.withOpacity(isDark ? 0.4 : 0.35);
+    final progressBackground = colors.border.withOpacity(isDark ? 0.4 : 0.5);
+    final progressFill = colors.accent;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
     return GestureDetector(
       onLongPress: () => _showDeleteConfirmDialog(item),
       child: GlassmorphicContainer(
@@ -77,16 +93,16 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFFffffff).withOpacity(0.1),
-            const Color(0xFFFFFFFF).withOpacity(0.05),
+            gradientStart,
+            gradientEnd,
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFFffffff).withOpacity(0.5),
-            const Color(0xFFFFFFFF).withOpacity(0.5),
+            borderGradientStart,
+            borderGradientEnd,
           ],
         ),
         child: Material(
@@ -109,8 +125,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                       children: [
                         Text(
                           item.animeName.isNotEmpty ? item.animeName : path.basename(item.filePath),
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: textPrimary,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -120,8 +136,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                         const SizedBox(height: 4),
                         Text(
                           item.episodeTitle ?? '未知集数',
-                          style: const TextStyle(
-                            color: Colors.white60,
+                          style: TextStyle(
+                            color: textSecondary,
                             fontSize: 12,
                           ),
                           maxLines: 1,
@@ -141,7 +157,7 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                           width: 40,
                           height: 4,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
+                            color: progressBackground,
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: FractionallySizedBox(
@@ -149,7 +165,7 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                             widthFactor: item.watchProgress,
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
+                                color: progressFill,
                                 borderRadius: BorderRadius.circular(2),
                               ),
                             ),
@@ -158,8 +174,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                       const SizedBox(height: 4),
                       Text(
                         _formatTime(item.lastWatchTime),
-                        style: const TextStyle(
-                          color: Colors.white60,
+                        style: TextStyle(
+                          color: textSecondary,
                           fontSize: 12,
                         ),
                       ),
@@ -204,37 +220,41 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
   }
 
   Widget _buildDefaultThumbnail() {
+    final colors = context.nipaplayColors;
     return Container(
       width: 80,
       height: 45, // 16:9 比例
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: colors.surfaceMuted.withOpacity(context.isDarkMode ? 0.4 : 0.85),
         borderRadius: BorderRadius.circular(6),
       ),
-      child: const Icon(
+      child: Icon(
         Ionicons.videocam_outline,
-        color: Colors.white60,
+        color: colors.iconSecondary,
         size: 20,
       ),
     );
   }
 
   Widget _buildEmptyState() {
+    final colors = context.nipaplayColors;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
+          Icon(
             Ionicons.time_outline,
-            color: Colors.white60,
+            color: colors.iconSecondary,
             size: 64,
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             '暂无观看记录',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white,
+              color: textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
@@ -244,7 +264,7 @@ style: TextStyle(
             '开始播放视频后，这里会显示观看记录',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: textSecondary,
               fontSize: 14,
             ),
             textAlign: TextAlign.center,
@@ -350,20 +370,24 @@ style: TextStyle(
   }
 
   void _showDeleteConfirmDialog(WatchHistoryItem item) {
+    final colors = context.nipaplayColors;
     BlurDialog.show(
       context: context,
       title: '删除观看记录',
       content: '确定要删除 ${item.animeName} 的观看记录吗？',
       actions: [
         TextButton(
-          child: const Text('取消'),
+          child: Text('取消', style: TextStyle(color: colors.textSecondary)),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: const Text('删除', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.red)),
+          child: Text(
+            '删除',
+            locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: Theme.of(context).colorScheme.error),
+          ),
           onPressed: () async {
             // 调用 Provider 的方法删除观看记录
             final watchHistoryProvider = Provider.of<WatchHistoryProvider>(context, listen: false);
