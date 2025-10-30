@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 /// 设置页面专用的毛玻璃卡片容器
 /// 
@@ -44,6 +45,7 @@ class SettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final appearanceProvider = context.watch<AppearanceSettingsProvider>();
     final isBlurEnabled = appearanceProvider.enableWidgetBlurEffect;
+    final colors = context.nipaplayColors;
     
     final effectiveBorderRadius = borderRadius ?? 12.0;
     final effectivePadding = padding ?? const EdgeInsets.all(16.0);
@@ -60,9 +62,9 @@ class SettingsCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(effectiveBorderRadius),
-            color: Colors.white.withOpacity(effectiveBackgroundOpacity),
+            color: colors.surface.withOpacity(effectiveBackgroundOpacity),
             border: Border.all(
-              color: Colors.white.withOpacity(effectiveBorderOpacity),
+              color: colors.border.withOpacity(effectiveBorderOpacity),
               width: 0.5,
             ),
           ),

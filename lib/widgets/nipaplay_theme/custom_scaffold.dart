@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/switchable_view.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class CustomScaffold extends StatefulWidget {
   final List<Widget> pages;
@@ -76,13 +77,13 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         final enableAnimation = appearanceSettings.enablePageAnimation;
 
         final currentIndex = widget.tabController!.index;
+        final colors = context.nipaplayColors;
+        final isDark = context.isDarkMode;
 
         return BackgroundWithBlur(
           child: Scaffold(
             primary: false,
-            backgroundColor: Theme.of(context).brightness == Brightness.dark
-                ? Colors.black.withOpacity(0.7)
-                : Colors.black.withOpacity(0.2),
+            backgroundColor: colors.surface,
             extendBodyBehindAppBar: false,
             appBar: videoState.shouldShowAppBar() && widget.tabPage.isNotEmpty ? AppBar(
               toolbarHeight: !widget.pageIsHome && !globals.isDesktop
@@ -94,7 +95,7 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                   ? null
                   : IconButton(
                       icon: const Icon(Ionicons.chevron_back_outline),
-                      color: Colors.white,
+                      color: colors.iconPrimary,
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -105,16 +106,16 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                 controller: widget.tabController,
                 isScrollable: true,
                 tabs: widget.tabPage,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.white60,
+                labelColor: colors.textPrimary,
+                unselectedLabelColor: colors.textSecondary,
                 labelPadding: const EdgeInsets.only(bottom: 15.0),
                 tabAlignment: TabAlignment.start,
                 // 恢复灰色背景条，并使用自定义指示器
-                dividerColor: const Color.fromARGB(59, 255, 255, 255),
+                dividerColor: colors.divider,
                 dividerHeight: 3.0,
-                indicator: const _CustomTabIndicator(
+                indicator: _CustomTabIndicator(
                   indicatorHeight: 3.0,
-                  indicatorColor: Colors.white,
+                  indicatorColor: isDark ? Colors.white : colors.accent,
                   radius: 30.0, // 使用大圆角形成药丸形状
                 ),
                 indicatorSize: TabBarIndicatorSize.label, // 与label宽度一致

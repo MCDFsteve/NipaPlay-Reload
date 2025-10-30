@@ -4,6 +4,7 @@ import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dropdown.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 /// 设置项的类型枚举
 enum SettingsItemType {
@@ -248,36 +249,37 @@ class SettingsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (type) {
       case SettingsItemType.dropdown:
-        return _buildDropdownItem();
+        return _buildDropdownItem(context);
       case SettingsItemType.toggle:
-        return _buildToggleItem();
+        return _buildToggleItem(context);
       case SettingsItemType.button:
-        return _buildButtonItem();
+        return _buildButtonItem(context);
       case SettingsItemType.slider:
-        return _buildSliderItem();
+        return _buildSliderItem(context);
       case SettingsItemType.hotkey:
-        return _buildHotkeyItem();
+        return _buildHotkeyItem(context);
     }
   }
 
   /// 构建下拉菜单类型的设置项
-  Widget _buildDropdownItem() {
+  Widget _buildDropdownItem(BuildContext context) {
+    final colors = context.nipaplayColors;
     return ListTile(
-      leading: icon != null ? Icon(icon, color: Colors.white70) : null,
+      leading: icon != null ? Icon(icon, color: colors.iconSecondary) : null,
       title: Text(
         title,
-        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-          color: enabled ? Colors.white : Colors.white54,
+        locale: const Locale("zh-Hans", "zh"),
+        style: TextStyle(
+          color: enabled ? colors.textPrimary : colors.textMuted,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: subtitle != null
           ? Text(
               subtitle!,
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: enabled ? Colors.white70 : Colors.white38,
+              locale: const Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: enabled ? colors.textSecondary : colors.textMuted,
               ),
             )
           : null,
@@ -293,52 +295,54 @@ style: TextStyle(
   }
 
   /// 构建开关类型的设置项
-  Widget _buildToggleItem() {
+  Widget _buildToggleItem(BuildContext context) {
+    final colors = context.nipaplayColors;
     return SwitchListTile(
-      secondary: icon != null ? Icon(icon, color: Colors.white70) : null,
+      secondary: icon != null ? Icon(icon, color: colors.iconSecondary) : null,
       title: Text(
         title,
-        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-          color: enabled ? Colors.white : Colors.white54,
+        locale: const Locale("zh-Hans", "zh"),
+        style: TextStyle(
+          color: enabled ? colors.textPrimary : colors.textMuted,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: subtitle != null
           ? Text(
               subtitle!,
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: enabled ? Colors.white70 : Colors.white38,
+              locale: const Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: enabled ? colors.textSecondary : colors.textMuted,
               ),
             )
           : null,
       value: switchValue ?? false,
       onChanged: enabled ? onSwitchChanged : null,
-      activeColor: Colors.white,
-      inactiveThumbColor: Colors.white,
-      inactiveTrackColor: const Color.fromARGB(255, 0, 0, 0),
+      activeColor: colors.accent,
+      inactiveThumbColor: colors.iconSecondary.withOpacity(0.6),
+      inactiveTrackColor: colors.iconSecondary.withOpacity(0.2),
     );
   }
 
   /// 构建按钮类型的设置项
-  Widget _buildButtonItem() {
+  Widget _buildButtonItem(BuildContext context) {
+    final colors = context.nipaplayColors;
     return ListTile(
-      leading: icon != null ? Icon(icon, color: Colors.white70) : null,
+      leading: icon != null ? Icon(icon, color: colors.iconSecondary) : null,
       title: Text(
         title,
-        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-          color: enabled ? Colors.white : Colors.white54,
+        locale: const Locale("zh-Hans", "zh"),
+        style: TextStyle(
+          color: enabled ? colors.textPrimary : colors.textMuted,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: subtitle != null
           ? Text(
               subtitle!,
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: enabled ? Colors.white70 : Colors.white38,
+              locale: const Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: enabled ? colors.textSecondary : colors.textMuted,
               ),
             )
           : null,
@@ -346,7 +350,7 @@ style: TextStyle(
         trailingIcon ?? Ionicons.chevron_forward_outline,
         color: isDestructive 
             ? (enabled ? Colors.red : Colors.red.withOpacity(0.5))
-            : (enabled ? Colors.white : Colors.white54),
+            : (enabled ? colors.iconPrimary : colors.iconSecondary),
       ),
       onTap: enabled ? onTap : null,
       enabled: enabled,
@@ -354,34 +358,35 @@ style: TextStyle(
   }
 
   /// 构建滑块类型的设置项
-  Widget _buildSliderItem() {
+  Widget _buildSliderItem(BuildContext context) {
+    final colors = context.nipaplayColors;
     return Column(
       children: [
         ListTile(
-          leading: icon != null ? Icon(icon, color: Colors.white70) : null,
+          leading: icon != null ? Icon(icon, color: colors.iconSecondary) : null,
           title: Text(
             title,
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-              color: enabled ? Colors.white : Colors.white54,
+            locale: const Locale("zh-Hans", "zh"),
+            style: TextStyle(
+              color: enabled ? colors.textPrimary : colors.textMuted,
               fontWeight: FontWeight.bold,
             ),
           ),
           subtitle: subtitle != null
               ? Text(
                   subtitle!,
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: enabled ? Colors.white70 : Colors.white38,
+                  locale: const Locale("zh-Hans", "zh"),
+                  style: TextStyle(
+                    color: enabled ? colors.textSecondary : colors.textMuted,
                   ),
                 )
               : null,
           trailing: Text(
             sliderLabelFormatter?.call(sliderValue ?? 0) ?? 
             (sliderValue ?? 0).toStringAsFixed(1),
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-              color: enabled ? Colors.white : Colors.white54,
+            locale: const Locale("zh-Hans", "zh"),
+            style: TextStyle(
+              color: enabled ? colors.textPrimary : colors.textMuted,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -394,8 +399,8 @@ style: TextStyle(
             max: sliderMax ?? 1,
             divisions: sliderDivisions,
             onChanged: enabled ? onSliderChanged : null,
-            activeColor: Colors.white,
-            inactiveColor: Colors.white38,
+            activeColor: colors.accent,
+            inactiveColor: colors.iconSecondary.withOpacity(0.3),
           ),
         ),
       ],
@@ -403,28 +408,29 @@ style: TextStyle(
   }
 
   /// 构建快捷键类型的设置项
-  Widget _buildHotkeyItem() {
+  Widget _buildHotkeyItem(BuildContext context) {
+    final colors = context.nipaplayColors;
     return Builder(
       builder: (context) {
         final appearanceProvider = context.watch<AppearanceSettingsProvider>();
         final isBlurEnabled = appearanceProvider.enableWidgetBlurEffect;
         
         return ListTile(
-          leading: icon != null ? Icon(icon, color: Colors.white70) : null,
+          leading: icon != null ? Icon(icon, color: colors.iconSecondary) : null,
           title: Text(
             title,
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-              color: enabled ? Colors.white : Colors.white54,
+            locale: const Locale("zh-Hans", "zh"),
+            style: TextStyle(
+              color: enabled ? colors.textPrimary : colors.textMuted,
               fontWeight: FontWeight.bold,
             ),
           ),
           subtitle: subtitle != null
               ? Text(
                   subtitle!,
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: enabled ? Colors.white70 : Colors.white38,
+                  locale: const Locale("zh-Hans", "zh"),
+                  style: TextStyle(
+                    color: enabled ? colors.textSecondary : colors.textMuted,
                   ),
                 )
               : null,
@@ -440,22 +446,22 @@ style: TextStyle(
                 decoration: BoxDecoration(
                   color: isRecording 
                       ? Colors.red.withOpacity(0.2)
-                      : Colors.white.withOpacity(0.15),
+                      : colors.surfaceMuted.withOpacity(0.6),
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(
                     color: isRecording 
                         ? Colors.red 
-                        : Colors.white.withOpacity(0.4),
+                        : colors.border,
                     width: 1,
                   ),
                 ),
                 child: Text(
                   isRecording ? '按任意键...' : (hotkeyText ?? '未设置'),
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                  locale: const Locale("zh-Hans", "zh"),
+                  style: TextStyle(
                     color: isRecording 
                         ? Colors.red 
-                        : (enabled ? Colors.white : Colors.white54),
+                        : (enabled ? colors.textPrimary : colors.textMuted),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),

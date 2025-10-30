@@ -6,6 +6,8 @@ import 'dart:io' if (dart.library.io) 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
+import 'package:nipaplay/utils/nipaplay_colors.dart';
+
 // 导入 glassmorphism 插件
 String backgroundImageUrl = (globals.isDesktop || globals.isTablet)
     ? 'assets/images/main_image.png'
@@ -28,7 +30,7 @@ class BackgroundWithBlur extends StatelessWidget {
           children: [
             // 背景图像
             Positioned.fill(
-              child: _buildBackgroundImage(),
+              child: _buildBackgroundImage(context),
             ),
             // 使用 GlassmorphicContainer 实现毛玻璃效果
             if (settingsProvider.isBlurEnabled)
@@ -68,11 +70,11 @@ class BackgroundWithBlur extends StatelessWidget {
     );
   }
 
-  Widget _buildBackgroundImage() {
+  Widget _buildBackgroundImage(BuildContext context) {
+    final colors = context.nipaplayColors;
     if (globals.backgroundImageMode == '关闭') {
-      return Image.asset(
-        'assets/backempty.png',
-        fit: BoxFit.cover,
+      return DecoratedBox(
+        decoration: BoxDecoration(color: colors.backgroundPrimary),
       );
     } else if (globals.backgroundImageMode == '看板娘') {
       return Image.asset(

@@ -15,6 +15,7 @@ import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:nipaplay/services/file_picker_service.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class VideoUploadUI extends StatefulWidget {
   const VideoUploadUI({super.key});
@@ -52,6 +53,34 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
     // 使用 Material 版本（保持原有逻辑）
     final appearanceProvider = Provider.of<AppearanceSettingsProvider>(context);
     final bool enableBlur = appearanceProvider.enableWidgetBlurEffect;
+    final palette = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+
+    final Color containerStart = isDark
+        ? Colors.white.withOpacity(0.08)
+        : palette.backgroundSecondary.withOpacity(0.9);
+    final Color containerEnd = isDark
+        ? Colors.white.withOpacity(0.04)
+        : palette.surface.withOpacity(0.85);
+
+    final Color borderStart = isDark
+        ? Colors.white.withOpacity(0.4)
+        : palette.border.withOpacity(0.9);
+    final Color borderEnd = isDark
+        ? Colors.white.withOpacity(0.2)
+        : palette.border.withOpacity(0.6);
+
+    Color buttonStart(bool hovered) => palette.accent.withOpacity(
+          isDark
+              ? (hovered ? 0.35 : 0.28)
+              : (hovered ? 0.95 : 0.85),
+        );
+
+    Color buttonEnd(bool hovered) => palette.accent.withOpacity(
+          isDark
+              ? (hovered ? 0.25 : 0.18)
+              : (hovered ? 0.85 : 0.7),
+        );
 
     return Center(
       child: GlassmorphicContainer(
@@ -64,33 +93,27 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
         linearGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFFffffff).withOpacity(0.1),
-            const Color(0xFFFFFFFF).withOpacity(0.05),
-          ],
+          colors: [containerStart, containerEnd],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFFffffff).withOpacity(0.5),
-            const Color((0xFFFFFFFF)).withOpacity(0.5),
-          ],
+          colors: [borderStart, borderEnd],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.video_library,
               size: 64,
-              color: Colors.white,
+              color: isDark ? Colors.white : palette.iconPrimary,
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               '上传视频开始播放',
-              locale: Locale("zh-Hans", "zh"),
+              locale: const Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white,
+                color: palette.textPrimary,
                 fontSize: 18,
               ),
             ),
@@ -124,20 +147,16 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              const Color(0xFFffffff)
-                                  .withOpacity(_isHovered ? 0.15 : 0.1),
-                              const Color(0xFFFFFFFF)
-                                  .withOpacity(_isHovered ? 0.1 : 0.05),
+                              buttonStart(_isHovered),
+                              buttonEnd(_isHovered),
                             ],
                           ),
                           borderGradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              const Color(0xFFffffff)
-                                  .withOpacity(_isHovered ? 0.7 : 0.5),
-                              const Color((0xFFFFFFFF))
-                                  .withOpacity(_isHovered ? 0.7 : 0.5),
+                              borderStart,
+                              borderEnd,
                             ],
                           ),
                           child: const Center(
@@ -162,8 +181,9 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
                               onTapCancel: () =>
                                   setState(() => _isPressed = false),
                               onTap: _handleUploadVideo,
-                              splashColor: Colors.white.withOpacity(0.2),
-                              highlightColor: Colors.white.withOpacity(0.1),
+                              splashColor: palette.accent.withOpacity(0.2),
+                              highlightColor:
+                                  palette.accent.withOpacity(0.12),
                             ),
                           ),
                         ),

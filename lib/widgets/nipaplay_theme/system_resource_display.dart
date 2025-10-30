@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/developer_options_provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 /// 系统资源显示组件
 /// 用于在界面右上角显示当前CPU使用率、内存使用和帧率
@@ -143,14 +144,21 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
         return ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.2),
+            filter: ImageFilter.blur(
+              sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
+              sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
+            ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+                color: context.isDarkMode
+                    ? Colors.white.withOpacity(0.08)
+                    : context.nipaplayColors.surfaceMuted.withOpacity(0.92),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.2),
+                  color: context.isDarkMode
+                      ? Colors.white.withOpacity(0.2)
+                      : context.nipaplayColors.border,
                   width: 0.5,
                 ),
               ),
@@ -164,7 +172,9 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.memory, size: 22, color: Colors.white70),
+                          Icon(Icons.memory,
+                              size: 22,
+                              color: context.nipaplayColors.iconSecondary),
                           const SizedBox(width: 4),
                           Text(
                             '${_cpuUsage.toStringAsFixed(1)}%',
@@ -184,7 +194,9 @@ style: TextStyle(
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.sd_storage_outlined, size: 22, color: Colors.white70),
+                          Icon(Icons.sd_storage_outlined,
+                              size: 22,
+                              color: context.nipaplayColors.iconSecondary),
                           const SizedBox(width: 4),
                           Text(
                             '${_memoryUsageMB.toStringAsFixed(1)}MB',
@@ -204,7 +216,9 @@ style: TextStyle(
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.speed, size: 22, color: Colors.white70),
+                          Icon(Icons.speed,
+                              size: 22,
+                              color: context.nipaplayColors.iconSecondary),
                           const SizedBox(width: 4),
                           Text(
                             '${_fps.toStringAsFixed(1)} FPS',
@@ -266,15 +280,17 @@ style: TextStyle(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.developer_board, size: 16, color: Colors.white70),
+                            Icon(Icons.developer_board,
+                                size: 16,
+                                color: context.nipaplayColors.iconSecondary),
                             const SizedBox(width: 4),
                             Flexible(
                               child: Text(
                                 '播放器: $_playerKernelType', // 使用变量显示当前播放器内核
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: context.nipaplayColors.textPrimary,
                                   decoration: TextDecoration.none,
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -290,7 +306,7 @@ style: TextStyle(
                         child: Container(
                           height: 16,
                           width: 1,
-                          color: Colors.white30,
+                          color: context.nipaplayColors.divider,
                         ),
                       ),
                       
@@ -300,15 +316,17 @@ style: TextStyle(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.subtitles, size: 16, color: Colors.white70),
+                            Icon(Icons.subtitles,
+                                size: 16,
+                                color: context.nipaplayColors.iconSecondary),
                             const SizedBox(width: 4),
                             Flexible(
                               child: Text(
                                 '弹幕: $_danmakuKernelType',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: context.nipaplayColors.textPrimary,
                                   decoration: TextDecoration.none,
                                 ),
                                 overflow: TextOverflow.ellipsis,

@@ -6,6 +6,8 @@ import 'dart:ui';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'package:nipaplay/utils/nipaplay_colors.dart';
+
 const double iconSize = 25.0; // 图标大小
 const double buttonSize = 28.0; // 按钮大小
 const double containerHeight = 32.0; // 容器高度
@@ -61,13 +63,17 @@ class _WindowControlButtonState extends State<WindowControlButton>
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.nipaplayColors;
+    final isDark = context.isDarkMode;
     // 悬停时的背景颜色 - 参考blur_snackbar的设计
     Color hoverColor = Colors.transparent;
     if (_isHovered) {
       if (widget.isCloseButton) {
         hoverColor = const Color(0x40FF4444); // 红色悬停
       } else {
-        hoverColor = Colors.white.withOpacity(0.1); // 白色悬停
+        hoverColor = isDark
+            ? Colors.white.withOpacity(0.1)
+            : palette.surfaceMuted.withOpacity(0.8);
       }
     }
 
@@ -117,7 +123,9 @@ class _WindowControlButtonState extends State<WindowControlButton>
                 child: Icon(
                   widget.icon,
                   size: widget.customIconSize ?? iconSize,
-                  color: Colors.white,
+                  color: widget.isCloseButton
+                      ? (isDark ? Colors.white : Colors.red)
+                      : palette.iconPrimary,
                 ),
               ),
             );
@@ -182,13 +190,19 @@ class _WindowControlButtonsState extends State<WindowControlButtons> with Window
 
   @override
   Widget build(BuildContext context) {
+    final appearanceProvider = context.watch<AppearanceSettingsProvider>();
+    final palette = context.nipaplayColors;
+    final isDark = context.isDarkMode;
     // 参考system_resource_display的毛玻璃设计
     return Container(
       margin: const EdgeInsets.all(4.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0),
+          filter: ImageFilter.blur(
+            sigmaX: appearanceProvider.enableWidgetBlurEffect ? 25 : 0,
+            sigmaY: appearanceProvider.enableWidgetBlurEffect ? 25 : 0,
+          ),
           child: Container(
             height: containerHeight,
             padding: const EdgeInsets.symmetric(
@@ -197,9 +211,13 @@ class _WindowControlButtonsState extends State<WindowControlButtons> with Window
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(borderRadius),
-              color: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.2),
+              color: isDark
+                  ? Colors.white.withOpacity(0.08)
+                  : palette.surfaceMuted.withOpacity(0.9),
               border: Border.all(
-                color: Colors.white.withOpacity(0.2),
+                color: isDark
+                    ? Colors.white.withOpacity(0.2)
+                    : palette.border,
                 width: 0.5,
               ),
             ),
