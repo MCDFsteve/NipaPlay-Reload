@@ -12,6 +12,7 @@ import 'package:nipaplay/models/jellyfin_model.dart';
 import 'package:nipaplay/models/emby_model.dart';
 import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:nipaplay/utils/message_helper.dart';
+import 'theme_color_utils.dart';
 
 class PlaylistMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -28,20 +29,25 @@ class PlaylistMenu extends StatefulWidget {
 class _PlaylistMenuState extends State<PlaylistMenu> {
   // 文件系统数据
   List<String> _fileSystemEpisodes = [];
-  
+
   // Jellyfin剧集信息缓存 (episodeId -> episode info)
   final Map<String, dynamic> _jellyfinEpisodeCache = {};
-  
+
   // Emby剧集信息缓存 (episodeId -> episode info)
   final Map<String, dynamic> _embyEpisodeCache = {};
-  
+
   bool _isLoading = true;
   String? _error;
   String? _currentFilePath;
   String? _currentAnimeTitle;
-  
+
   // 可用的数据源
   bool _hasFileSystemData = false;
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
 
   @override
   void initState() {
@@ -51,7 +57,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
 
   Future<void> _loadFileSystemData() async {
     final videoState = Provider.of<VideoPlayerState>(context, listen: false);
-    
+
     setState(() {
       _isLoading = true;
       _error = null;
@@ -60,42 +66,56 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
     try {
       _currentFilePath = videoState.currentVideoPath;
       _currentAnimeTitle = videoState.animeTitle;
-      
+
       debugPrint('[播放列表] 开始加载文件系统数据');
       debugPrint('[播放列表] _currentFilePath: $_currentFilePath');
       debugPrint('[播放列表] _currentAnimeTitle: $_currentAnimeTitle');
-      
+
       if (_currentFilePath != null) {
         // 检查是否为Jellyfin流媒体URL
         if (_currentFilePath!.startsWith('jellyfin://')) {
           await _loadJellyfinEpisodes();
           return; // 直接返回，不执行本地文件逻辑
         }
-        
+
         // 检查是否为Emby流媒体URL
         if (_currentFilePath!.startsWith('emby://')) {
           await _loadEmbyEpisodes();
           return; // 直接返回，不执行本地文件逻辑
         }
-        
+
         final currentFile = File(_currentFilePath!);
         final directory = currentFile.parent;
-        
+
         if (directory.existsSync()) {
           // 获取目录中的所有视频文件
-          final videoExtensions = ['.mp4', '.mkv', '.avi', '.mov', '.wmv', '.flv', '.webm', '.m4v', '.3gp', '.ts', '.m2ts'];
+          final videoExtensions = [
+            '.mp4',
+            '.mkv',
+            '.avi',
+            '.mov',
+            '.wmv',
+            '.flv',
+            '.webm',
+            '.m4v',
+            '.3gp',
+            '.ts',
+            '.m2ts'
+          ];
           final videoFiles = directory
               .listSync()
               .whereType<File>()
-              .where((file) => videoExtensions.any((ext) => file.path.toLowerCase().endsWith(ext)))
+              .where((file) => videoExtensions
+                  .any((ext) => file.path.toLowerCase().endsWith(ext)))
               .toList();
 
           // 按文件名排序
-          videoFiles.sort((a, b) => a.path.toLowerCase().compareTo(b.path.toLowerCase()));
+          videoFiles.sort(
+              (a, b) => a.path.toLowerCase().compareTo(b.path.toLowerCase()));
 
           _fileSystemEpisodes = videoFiles.map((file) => file.path).toList();
           _hasFileSystemData = _fileSystemEpisodes.isNotEmpty;
-          
+
           debugPrint('[播放列表] 找到 ${_fileSystemEpisodes.length} 个视频文件');
         }
       }
@@ -107,7 +127,6 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
       setState(() {
         _isLoading = false;
       });
-
     } catch (e) {
       debugPrint('[播放列表] 加载文件系统数据失败: $e');
       setState(() {
@@ -121,26 +140,26 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
     try {
       // 解析当前的Jellyfin URL获取episodeId
       final episodeId = _currentFilePath!.replaceFirst('jellyfin://', '');
-      
+
       // 通过episodeId获取剧集详情，然后获取同一季的所有剧集
-      final episodeInfo = await JellyfinService.instance.getEpisodeDetails(episodeId);
+      final episodeInfo =
+          await JellyfinService.instance.getEpisodeDetails(episodeId);
       if (episodeInfo == null) {
         throw Exception('无法获取Jellyfin剧集信息');
       }
-      
+
       // 获取该季的所有剧集
-      final episodes = await JellyfinService.instance.getSeasonEpisodes(
-        episodeInfo.seriesId!, 
-        episodeInfo.seasonId!
-      );
-      
+      final episodes = await JellyfinService.instance
+          .getSeasonEpisodes(episodeInfo.seriesId!, episodeInfo.seasonId!);
+
       if (episodes.isEmpty) {
         throw Exception('该季没有找到剧集');
       }
-      
+
       // 按集数排序
-      episodes.sort((a, b) => (a.indexNumber ?? 0).compareTo(b.indexNumber ?? 0));
-      
+      episodes
+          .sort((a, b) => (a.indexNumber ?? 0).compareTo(b.indexNumber ?? 0));
+
       // 缓存剧集信息并转换为播放列表格式
       _jellyfinEpisodeCache.clear();
       _fileSystemEpisodes = episodes.map((ep) {
@@ -153,13 +172,12 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
         return episodeUrl;
       }).toList();
       _hasFileSystemData = _fileSystemEpisodes.isNotEmpty;
-      
+
       debugPrint('[播放列表] Jellyfin模式: 找到 ${_fileSystemEpisodes.length} 个剧集');
-      
+
       setState(() {
         _isLoading = false;
       });
-      
     } catch (e) {
       debugPrint('[播放列表] 加载Jellyfin剧集失败: $e');
       setState(() {
@@ -175,30 +193,33 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
       final embyPath = _currentFilePath!.replaceFirst('emby://', '');
       final pathParts = embyPath.split('/');
       final episodeId = pathParts.last; // 只使用最后一部分作为episodeId
-      
+
       // 通过episodeId获取剧集详情，然后获取同一季的所有剧集
-      final episodeInfo = await EmbyService.instance.getEpisodeDetails(episodeId);
+      final episodeInfo =
+          await EmbyService.instance.getEpisodeDetails(episodeId);
       if (episodeInfo == null) {
         throw Exception('无法获取Emby剧集信息');
       }
-      
+
       // 获取该季的所有剧集
-      final episodes = await EmbyService.instance.getSeasonEpisodes(
-        episodeInfo.seriesId!, 
-        episodeInfo.seasonId!
-      );
-      
+      final episodes = await EmbyService.instance
+          .getSeasonEpisodes(episodeInfo.seriesId!, episodeInfo.seasonId!);
+
       if (episodes.isEmpty) {
         throw Exception('该季没有找到剧集');
       }
-      
+
       // 按集数排序，将特别篇（indexNumber 为 null 或 0）排在最后
       episodes.sort((a, b) {
-        final aIndex = (a.indexNumber == null || a.indexNumber == 0) ? 999999 : a.indexNumber!;
-        final bIndex = (b.indexNumber == null || b.indexNumber == 0) ? 999999 : b.indexNumber!;
+        final aIndex = (a.indexNumber == null || a.indexNumber == 0)
+            ? 999999
+            : a.indexNumber!;
+        final bIndex = (b.indexNumber == null || b.indexNumber == 0)
+            ? 999999
+            : b.indexNumber!;
         return aIndex.compareTo(bIndex);
       });
-      
+
       // 缓存剧集信息并转换为播放列表格式
       _embyEpisodeCache.clear();
       _fileSystemEpisodes = episodes.map((ep) {
@@ -211,13 +232,12 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
         return episodeUrl;
       }).toList();
       _hasFileSystemData = _fileSystemEpisodes.isNotEmpty;
-      
+
       debugPrint('[播放列表] Emby模式: 找到 ${_fileSystemEpisodes.length} 个剧集');
-      
+
       setState(() {
         _isLoading = false;
       });
-      
     } catch (e) {
       debugPrint('[播放列表] 加载Emby剧集失败: $e');
       setState(() {
@@ -230,7 +250,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
   Future<void> _playEpisode(String filePath) async {
     try {
       debugPrint('[播放列表] 开始播放剧集: $filePath');
-      
+
       final videoState = Provider.of<VideoPlayerState>(context, listen: false);
 
       if (mounted) {
@@ -238,84 +258,90 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
         if (filePath.startsWith('jellyfin://')) {
           // Jellyfin流媒体模式：使用完整的弹幕映射和API获取逻辑
           final episodeId = filePath.replaceFirst('jellyfin://', '');
-          final episodeInfo = await JellyfinService.instance.getEpisodeDetails(episodeId);
-          
+          final episodeInfo =
+              await JellyfinService.instance.getEpisodeDetails(episodeId);
+
           if (episodeInfo == null) {
             throw Exception('无法获取Jellyfin剧集信息');
           }
-          
+
           // 获取实际的流媒体URL
           final actualUrl = JellyfinService.instance.getStreamUrl(episodeId);
           debugPrint('[播放列表] 获取Jellyfin流媒体URL: $actualUrl');
-          
+
           // 尝试获取弹幕映射
           int? animeId;
           int? episodeIdForDanmaku;
-          
+
           try {
-            final mapping = await JellyfinEpisodeMappingService.instance.getEpisodeMapping(episodeId);
+            final mapping = await JellyfinEpisodeMappingService.instance
+                .getEpisodeMapping(episodeId);
             if (mapping != null) {
               animeId = mapping['dandanplay_anime_id'] as int?;
               episodeIdForDanmaku = mapping['dandanplay_episode_id'] as int?;
-              debugPrint('[播放列表] 找到剧集弹幕映射: animeId=$animeId, episodeId=$episodeIdForDanmaku');
+              debugPrint(
+                  '[播放列表] 找到剧集弹幕映射: animeId=$animeId, episodeId=$episodeIdForDanmaku');
             } else {
               debugPrint('[播放列表] 未找到剧集弹幕映射，将进行自动匹配');
             }
           } catch (e) {
             debugPrint('[播放列表] 获取剧集弹幕映射失败: $e');
           }
-          
+
           // 创建带有弹幕信息的历史项
-          final historyItem = await _createJellyfinHistoryItem(episodeInfo, animeId, episodeIdForDanmaku);
-          
+          final historyItem = await _createJellyfinHistoryItem(
+              episodeInfo, animeId, episodeIdForDanmaku);
+
           // 按照剧集导航的方式，使用Jellyfin协议URL作为标识符，HTTP URL作为实际播放源
-          await videoState.initializePlayer(
-            filePath, // 使用Jellyfin协议URL作为标识符
-            historyItem: historyItem, 
-            actualPlayUrl: actualUrl // HTTP URL作为实际播放源
-          );
+          await videoState.initializePlayer(filePath, // 使用Jellyfin协议URL作为标识符
+              historyItem: historyItem,
+              actualPlayUrl: actualUrl // HTTP URL作为实际播放源
+              );
           debugPrint('[播放列表] Jellyfin剧集播放完成');
         } else if (filePath.startsWith('emby://')) {
           // Emby流媒体模式：使用完整的弹幕映射和API获取逻辑
           final embyPath = filePath.replaceFirst('emby://', '');
           final pathParts = embyPath.split('/');
           final episodeId = pathParts.last; // 只使用最后一部分作为episodeId
-          final episodeInfo = await EmbyService.instance.getEpisodeDetails(episodeId);
-          
+          final episodeInfo =
+              await EmbyService.instance.getEpisodeDetails(episodeId);
+
           if (episodeInfo == null) {
             throw Exception('无法获取Emby剧集信息');
           }
-          
+
           // 获取实际的流媒体URL
           final actualUrl = await EmbyService.instance.getStreamUrl(episodeId);
           debugPrint('[播放列表] 获取Emby流媒体URL: $actualUrl');
-          
+
           // 尝试获取弹幕映射
           int? animeId;
           int? episodeIdForDanmaku;
-          
+
           try {
-            final mapping = await EmbyEpisodeMappingService.instance.getEpisodeMapping(episodeId);
+            final mapping = await EmbyEpisodeMappingService.instance
+                .getEpisodeMapping(episodeId);
             if (mapping != null) {
               animeId = mapping['dandanplay_anime_id'] as int?;
               episodeIdForDanmaku = mapping['dandanplay_episode_id'] as int?;
-              debugPrint('[播放列表] 找到Emby剧集弹幕映射: animeId=$animeId, episodeId=$episodeIdForDanmaku');
+              debugPrint(
+                  '[播放列表] 找到Emby剧集弹幕映射: animeId=$animeId, episodeId=$episodeIdForDanmaku');
             } else {
               debugPrint('[播放列表] 未找到Emby剧集弹幕映射，将进行自动匹配');
             }
           } catch (e) {
             debugPrint('[播放列表] 获取Emby剧集弹幕映射失败: $e');
           }
-          
+
           // 创建带有弹幕信息的历史项
-          final historyItem = await _createEmbyHistoryItem(episodeInfo, animeId, episodeIdForDanmaku);
-          
+          final historyItem = await _createEmbyHistoryItem(
+              episodeInfo, animeId, episodeIdForDanmaku);
+
           // 按照剧集导航的方式，使用Emby协议URL作为标识符，HTTP URL作为实际播放源
-          await videoState.initializePlayer(
-            filePath, // 使用Emby协议URL作为标识符
-            historyItem: historyItem, 
-            actualPlayUrl: actualUrl // HTTP URL作为实际播放源
-          );
+          await videoState.initializePlayer(filePath, // 使用Emby协议URL作为标识符
+              historyItem: historyItem,
+              actualPlayUrl: actualUrl // HTTP URL作为实际播放源
+              );
           debugPrint('[播放列表] Emby剧集播放完成');
         } else {
           // 本地文件模式：保持原有逻辑
@@ -323,11 +349,11 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
           if (!file.existsSync()) {
             throw Exception('文件不存在: $filePath');
           }
-          
+
           await videoState.initializePlayer(filePath);
           debugPrint('[播放列表] 文件路径播放完成');
         }
-        
+
         // 播放成功后关闭菜单
         if (mounted) {
           widget.onClose();
@@ -337,11 +363,11 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
       }
     } catch (e) {
       debugPrint('[播放列表] 播放剧集失败: $e');
-      
+
       // 发生错误时也要关闭菜单
       if (mounted) {
         widget.onClose();
-        
+
         MessageHelper.showMessage(
           context,
           '播放失败：$e',
@@ -367,7 +393,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
       }
       return 'Episode $episodeId'; // 默认显示
     }
-    
+
     // 检查是否为Emby URL
     if (filePath.startsWith('emby://')) {
       final embyPath = filePath.replaceFirst('emby://', '');
@@ -385,7 +411,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
       }
       return 'Episode $episodeId'; // 默认显示
     }
-    
+
     // 本地文件模式：保持原有逻辑
     final fileName = filePath.split('/').last;
     // 移除文件扩展名
@@ -398,72 +424,83 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
   }
 
   /// 创建Jellyfin历史项，包含完整的弹幕映射预测和API获取的准确信息
-  Future<WatchHistoryItem> _createJellyfinHistoryItem(JellyfinEpisodeInfo episode, int? animeId, int? episodeId) async {
+  Future<WatchHistoryItem> _createJellyfinHistoryItem(
+      JellyfinEpisodeInfo episode, int? animeId, int? episodeId) async {
     try {
       int? finalAnimeId = animeId;
       int? finalEpisodeId = episodeId;
-      
+
       // 如果没有提供映射的弹幕ID，尝试智能预测
       if (finalAnimeId == null || finalEpisodeId == null) {
         debugPrint('[播放列表] 未提供弹幕映射，开始智能预测');
-        
+
         // 1. 首先尝试获取现有的剧集映射
-        final existingMapping = await JellyfinEpisodeMappingService.instance.getEpisodeMapping(episode.id);
+        final existingMapping = await JellyfinEpisodeMappingService.instance
+            .getEpisodeMapping(episode.id);
         if (existingMapping != null) {
           finalEpisodeId = existingMapping['dandanplay_episode_id'] as int?;
-          
+
           // 通过系列ID获取动画映射
-          final animeMapping = await JellyfinEpisodeMappingService.instance.getAnimeMapping(
+          final animeMapping =
+              await JellyfinEpisodeMappingService.instance.getAnimeMapping(
             jellyfinSeriesId: episode.seriesId!,
             jellyfinSeasonId: episode.seasonId,
           );
-          
+
           if (animeMapping != null) {
             finalAnimeId = animeMapping['dandanplay_anime_id'] as int?;
-            debugPrint('[播放列表] 从现有映射获取弹幕ID: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+            debugPrint(
+                '[播放列表] 从现有映射获取弹幕ID: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
           }
         } else {
           // 2. 如果没有现有映射，尝试智能预测
           debugPrint('[播放列表] 没有现有映射，开始智能预测映射');
-          final predictedEpisodeId = await JellyfinEpisodeMappingService.instance.predictEpisodeMapping(
+          final predictedEpisodeId = await JellyfinEpisodeMappingService
+              .instance
+              .predictEpisodeMapping(
             jellyfinEpisode: episode,
           );
-          
+
           if (predictedEpisodeId != null) {
             finalEpisodeId = predictedEpisodeId;
-            
+
             // 获取对应的动画ID
-            final animeMapping = await JellyfinEpisodeMappingService.instance.getAnimeMapping(
+            final animeMapping =
+                await JellyfinEpisodeMappingService.instance.getAnimeMapping(
               jellyfinSeriesId: episode.seriesId!,
               jellyfinSeasonId: episode.seasonId,
             );
-            
+
             if (animeMapping != null) {
               finalAnimeId = animeMapping['dandanplay_anime_id'] as int?;
-              debugPrint('[播放列表] 预测映射成功: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+              debugPrint(
+                  '[播放列表] 预测映射成功: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
             }
           } else {
             debugPrint('[播放列表] 智能预测失败，将使用基础信息创建历史项');
           }
         }
       }
-      
+
       // 如果有映射的弹幕ID，使用DanDanPlay API获取正确的剧集信息
       if (finalAnimeId != null && finalEpisodeId != null) {
         try {
           // 使用DanDanPlay API获取准确的剧集标题，保持标题一致性
-          debugPrint('[播放列表] 使用弹幕ID查询剧集信息: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
-          
+          debugPrint(
+              '[播放列表] 使用弹幕ID查询剧集信息: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+
           // 获取动画详情以获取准确的标题
-          final bangumiDetails = await DandanplayService.getBangumiDetails(finalAnimeId);
-          
+          final bangumiDetails =
+              await DandanplayService.getBangumiDetails(finalAnimeId);
+
           String? animeTitle;
           String? episodeTitle;
-          
-          if (bangumiDetails['success'] == true && bangumiDetails['bangumi'] != null) {
+
+          if (bangumiDetails['success'] == true &&
+              bangumiDetails['bangumi'] != null) {
             final bangumi = bangumiDetails['bangumi'];
             animeTitle = bangumi['animeTitle'] as String?;
-            
+
             // 查找对应的剧集标题
             if (bangumi['episodes'] != null && bangumi['episodes'] is List) {
               final episodes = bangumi['episodes'] as List;
@@ -471,14 +508,14 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
                 (ep) => ep['episodeId'] == finalEpisodeId,
                 orElse: () => null,
               );
-              
+
               if (targetEpisode != null) {
                 episodeTitle = targetEpisode['episodeTitle'] as String?;
                 debugPrint('[播放列表] 从DanDanPlay API获取到剧集标题: $episodeTitle');
               }
             }
           }
-          
+
           // 创建包含正确弹幕信息和标题的历史项
           return WatchHistoryItem(
             filePath: 'jellyfin://${episode.id}',
@@ -497,7 +534,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
           debugPrint('[播放列表] 获取DanDanPlay剧集信息失败: $e，使用基础信息');
         }
       }
-      
+
       // 如果没有映射的弹幕ID或获取失败，使用基础信息创建历史项
       debugPrint('[播放列表] 没有映射的弹幕ID，使用基础信息创建历史项');
       return episode.toWatchHistoryItem();
@@ -508,75 +545,85 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
   }
 
   /// 创建Emby历史项，包含完整的弹幕映射预测和API获取的准确信息
-  Future<WatchHistoryItem> _createEmbyHistoryItem(EmbyEpisodeInfo episode, int? animeId, int? episodeId) async {
+  Future<WatchHistoryItem> _createEmbyHistoryItem(
+      EmbyEpisodeInfo episode, int? animeId, int? episodeId) async {
     try {
       int? finalAnimeId = animeId;
       int? finalEpisodeId = episodeId;
-      
+
       // 如果没有提供映射的弹幕ID，尝试智能预测
       if (finalAnimeId == null || finalEpisodeId == null) {
         debugPrint('[播放列表] 未提供Emby弹幕映射，开始智能预测');
-        
+
         // 1. 首先尝试获取现有的剧集映射
-        final existingMapping = await EmbyEpisodeMappingService.instance.getEpisodeMapping(episode.id);
+        final existingMapping = await EmbyEpisodeMappingService.instance
+            .getEpisodeMapping(episode.id);
         if (existingMapping != null) {
           finalEpisodeId = existingMapping['dandanplay_episode_id'] as int?;
-          
+
           // 通过系列ID获取动画映射
-          final animeMapping = await EmbyEpisodeMappingService.instance.getAnimeMapping(
+          final animeMapping =
+              await EmbyEpisodeMappingService.instance.getAnimeMapping(
             embySeriesId: episode.seriesId!,
             embySeasonId: episode.seasonId,
           );
-          
+
           if (animeMapping != null) {
             finalAnimeId = animeMapping['dandanplay_anime_id'] as int?;
-            debugPrint('[播放列表] 从现有Emby映射获取弹幕ID: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+            debugPrint(
+                '[播放列表] 从现有Emby映射获取弹幕ID: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
           }
         } else {
           // 2. 如果没有现有映射，尝试智能预测
           debugPrint('[播放列表] 没有现有Emby映射，开始智能预测映射');
-          final predictedEpisodeId = await EmbyEpisodeMappingService.instance.predictEpisodeId(
+          final predictedEpisodeId =
+              await EmbyEpisodeMappingService.instance.predictEpisodeId(
             embyEpisodeId: episode.id,
             embyIndexNumber: episode.indexNumber ?? 0,
             embySeriesId: episode.seriesId!,
             embySeasonId: episode.seasonId,
           );
-          
+
           if (predictedEpisodeId != null) {
             finalEpisodeId = predictedEpisodeId;
-            
+
             // 获取对应的动画ID
-            final animeMapping = await EmbyEpisodeMappingService.instance.getAnimeMapping(
+            final animeMapping =
+                await EmbyEpisodeMappingService.instance.getAnimeMapping(
               embySeriesId: episode.seriesId!,
               embySeasonId: episode.seasonId,
             );
-            
+
             if (animeMapping != null) {
               finalAnimeId = animeMapping['dandanplay_anime_id'] as int?;
-              debugPrint('[播放列表] Emby预测映射成功: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+              debugPrint(
+                  '[播放列表] Emby预测映射成功: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
             }
           } else {
             debugPrint('[播放列表] Emby智能预测失败，将使用基础信息创建历史项');
           }
         }
       }
-      
+
       // 如果有映射的弹幕ID，使用DanDanPlay API获取正确的剧集信息
       if (finalAnimeId != null && finalEpisodeId != null) {
         try {
           // 使用DanDanPlay API获取准确的剧集标题，保持标题一致性
-          debugPrint('[播放列表] 使用弹幕ID查询Emby剧集信息: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
-          
+          debugPrint(
+              '[播放列表] 使用弹幕ID查询Emby剧集信息: animeId=$finalAnimeId, episodeId=$finalEpisodeId');
+
           // 获取动画详情以获取准确的标题
-          final bangumiDetails = await DandanplayService.getBangumiDetails(finalAnimeId);
-          
+          final bangumiDetails =
+              await DandanplayService.getBangumiDetails(finalAnimeId);
+
           String? animeTitle;
           String? episodeTitle;
-          
-          if (bangumiDetails['success'] == true && bangumiDetails['bangumi'] != null) {
+
+          if (bangumiDetails['success'] == true &&
+              bangumiDetails['bangumi'] != null) {
             final bangumi = bangumiDetails['bangumi'];
             animeTitle = bangumi['animeTitle'] as String?;
-            
+
             // 查找对应的剧集标题
             if (bangumi['episodes'] != null && bangumi['episodes'] is List) {
               final episodes = bangumi['episodes'] as List;
@@ -584,14 +631,14 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
                 (ep) => ep['episodeId'] == finalEpisodeId,
                 orElse: () => null,
               );
-              
+
               if (targetEpisode != null) {
                 episodeTitle = targetEpisode['episodeTitle'] as String?;
                 debugPrint('[播放列表] 从DanDanPlay API获取到Emby剧集标题: $episodeTitle');
               }
             }
           }
-          
+
           // 创建包含正确弹幕信息和标题的历史项
           return WatchHistoryItem(
             filePath: 'emby://${episode.id}',
@@ -610,7 +657,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
           debugPrint('[播放列表] 获取DanDanPlay Emby剧集信息失败: $e，使用基础信息');
         }
       }
-      
+
       // 如果没有映射的弹幕ID或获取失败，使用基础信息创建历史项
       debugPrint('[播放列表] 没有映射的Emby弹幕ID，使用基础信息创建历史项');
       return episode.toWatchHistoryItem();
@@ -635,9 +682,9 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 _currentAnimeTitle!,
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.9),
+                locale: Locale("zh-Hans", "zh"),
+                style: TextStyle(
+                  color: _foregroundColor(context, 0.9),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
@@ -646,7 +693,7 @@ style: TextStyle(
                 textAlign: TextAlign.center,
               ),
             ),
-          
+
           // 内容区域 - 移除固定高度限制
           _buildContent(),
         ],
@@ -660,12 +707,12 @@ style: TextStyle(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(color: Colors.white),
+            CircularProgressIndicator(color: _foregroundColor(context)),
             SizedBox(height: 16),
             Text(
               '加载播放列表中...',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.7)),
             ),
           ],
         ),
@@ -677,7 +724,7 @@ style: TextStyle(color: Colors.white70),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.error_outline,
               color: Colors.red,
               size: 48,
@@ -685,7 +732,7 @@ style: TextStyle(color: Colors.white70),
             const SizedBox(height: 16),
             Text(
               _error!,
-              style: const TextStyle(color: Colors.white70),
+              style: TextStyle(color: _foregroundColor(context, 0.7)),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -693,7 +740,7 @@ style: TextStyle(color: Colors.white70),
               onPressed: () {
                 _loadFileSystemData();
               },
-              child: const Text('重试'),
+              child: Text('重试'),
             ),
           ],
         ),
@@ -707,14 +754,14 @@ style: TextStyle(color: Colors.white70),
           children: [
             Icon(
               Icons.folder_open,
-              color: Colors.white54,
+              color: _foregroundColor(context, 0.54),
               size: 48,
             ),
             SizedBox(height: 16),
             Text(
               '目录中没有找到视频文件',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.7)),
             ),
           ],
         ),
@@ -737,11 +784,12 @@ style: TextStyle(color: Colors.white70),
                 margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: isCurrentEpisode 
-                      ? Colors.white.withValues(alpha: 0.2)
+                  color: isCurrentEpisode
+                      ? _foregroundColor(context, 0.2)
                       : Colors.transparent,
                   border: isCurrentEpisode
-                      ? Border.all(color: Colors.white.withValues(alpha: 0.5), width: 1)
+                      ? Border.all(
+                          color: _foregroundColor(context, 0.5), width: 1)
                       : null,
                 ),
                 child: ListTile(
@@ -751,19 +799,23 @@ style: TextStyle(color: Colors.white70),
                   ),
                   title: Text(
                     displayName,
-                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      color: isCurrentEpisode ? Colors.white : Colors.white.withValues(alpha: 0.87),
+                    locale: Locale("zh-Hans", "zh"),
+                    style: TextStyle(
+                      color: isCurrentEpisode
+                          ? _foregroundColor(context)
+                          : _foregroundColor(context, 0.87),
                       fontSize: 14,
-                      fontWeight: isCurrentEpisode ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: isCurrentEpisode
+                          ? FontWeight.bold
+                          : FontWeight.normal,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   trailing: isCurrentEpisode
-                      ? const Icon(
+                      ? Icon(
                           Icons.play_arrow,
-                          color: Colors.white,
+                          color: _foregroundColor(context),
                           size: 20,
                         )
                       : null,

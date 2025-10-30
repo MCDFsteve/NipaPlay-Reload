@@ -2,9 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 
 /// 设置页面专用的毛玻璃卡片容器
-/// 
+///
 /// 统一了设置页面中重复使用的毛玻璃卡片样式，包括：
 /// - 圆角：12px
 /// - 毛玻璃效果：根据设置决定是否启用
@@ -14,19 +15,19 @@ import 'package:nipaplay/providers/appearance_settings_provider.dart';
 class SettingsCard extends StatelessWidget {
   /// 卡片的子内容
   final Widget child;
-  
+
   /// 自定义内边距，如果不提供则使用默认的 16px
   final EdgeInsetsGeometry? padding;
-  
+
   /// 自定义圆角半径，如果不提供则使用默认的 12px
   final double? borderRadius;
-  
+
   /// 自定义外边距
   final EdgeInsetsGeometry? margin;
-  
+
   /// 自定义背景透明度，如果不提供则使用默认的 0.3
   final double? backgroundOpacity;
-  
+
   /// 自定义边框透明度，如果不提供则使用默认的 0.2
   final double? borderOpacity;
 
@@ -44,7 +45,8 @@ class SettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final appearanceProvider = context.watch<AppearanceSettingsProvider>();
     final isBlurEnabled = appearanceProvider.enableWidgetBlurEffect;
-    
+    final baseColor = ThemeColorUtils.primaryForeground(context);
+
     final effectiveBorderRadius = borderRadius ?? 12.0;
     final effectivePadding = padding ?? const EdgeInsets.all(16.0);
     final effectiveBackgroundOpacity = backgroundOpacity ?? 0.3;
@@ -60,9 +62,9 @@ class SettingsCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(effectiveBorderRadius),
-            color: Colors.white.withOpacity(effectiveBackgroundOpacity),
+            color: baseColor.withOpacity(effectiveBackgroundOpacity),
             border: Border.all(
-              color: Colors.white.withOpacity(effectiveBorderOpacity),
+              color: baseColor.withOpacity(effectiveBorderOpacity),
               width: 0.5,
             ),
           ),

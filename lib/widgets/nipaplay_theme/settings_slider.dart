@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class SettingsSlider extends StatefulWidget {
   final double value;
@@ -35,12 +36,19 @@ class _SettingsSliderState extends State<SettingsSlider> {
   bool _isDragging = false;
   OverlayEntry? _overlayEntry;
 
-  double get _progress => ((widget.value - widget.min) / (widget.max - widget.min)).clamp(0.0, 1.0);
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  double get _progress =>
+      ((widget.value - widget.min) / (widget.max - widget.min)).clamp(0.0, 1.0);
 
   double _getValueFromProgress(double progress) {
     double value = widget.min + progress * (widget.max - widget.min);
     if (widget.step != null && widget.step! > 0) {
-      value = ((value - widget.min) / widget.step!).round() * widget.step! + widget.min;
+      value = ((value - widget.min) / widget.step!).round() * widget.step! +
+          widget.min;
     }
     return value.clamp(widget.min, widget.max);
   }
@@ -58,7 +66,8 @@ class _SettingsSliderState extends State<SettingsSlider> {
 
   void _showOverlay(BuildContext context, double progress) {
     _removeOverlay();
-    final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? sliderBox =
+        _sliderKey.currentContext?.findRenderObject() as RenderBox?;
     if (sliderBox == null) return;
     final position = sliderBox.localToGlobal(Offset.zero);
     final size = sliderBox.size;
@@ -76,14 +85,25 @@ class _SettingsSliderState extends State<SettingsSlider> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0),
+                  filter: ImageFilter.blur(
+                      sigmaX: context
+                              .watch<AppearanceSettingsProvider>()
+                              .enableWidgetBlurEffect
+                          ? 10
+                          : 0,
+                      sigmaY: context
+                              .watch<AppearanceSettingsProvider>()
+                              .enableWidgetBlurEffect
+                          ? 10
+                          : 0),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: _foregroundColor(context, 0.2),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: _foregroundColor(context, 0.3),
                         width: 0.5,
                       ),
                       boxShadow: [
@@ -97,7 +117,7 @@ class _SettingsSliderState extends State<SettingsSlider> {
                     child: Text(
                       widget.displayTextBuilder(value),
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: _foregroundColor(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -114,7 +134,8 @@ class _SettingsSliderState extends State<SettingsSlider> {
   }
 
   void _updateValueFromPosition(Offset localPosition) {
-    final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? sliderBox =
+        _sliderKey.currentContext?.findRenderObject() as RenderBox?;
     if (sliderBox != null) {
       final width = sliderBox.size.width;
       final progress = (localPosition.dx / width).clamp(0.0, 1.0);
@@ -132,14 +153,14 @@ class _SettingsSliderState extends State<SettingsSlider> {
     final thumbSizeHovered = globals.isPhone ? 24.0 : 16.0;
     final thumbHitArea = globals.isPhone ? 12.0 : 8.0;
     final thumbHitAreaHovered = globals.isPhone ? 12.0 : 8.0;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           widget.label,
           style: const TextStyle(
-            color: Colors.white,
+            color: _foregroundColor(context),
             fontSize: 14,
           ),
         ),
@@ -158,17 +179,17 @@ class _SettingsSliderState extends State<SettingsSlider> {
           },
           onHover: (event) {
             if (!_isHovering || _isDragging) return;
-            final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+            final RenderBox? sliderBox =
+                _sliderKey.currentContext?.findRenderObject() as RenderBox?;
             if (sliderBox != null) {
               final localPosition = sliderBox.globalToLocal(event.position);
               final width = sliderBox.size.width;
               final progress = (localPosition.dx / width).clamp(0.0, 1.0);
               final thumbRect = Rect.fromLTWH(
-                (_progress * width) - thumbHitArea,
-                verticalMargin - thumbHitArea,
-                thumbHitArea * 2,
-                thumbHitArea * 2
-              );
+                  (_progress * width) - thumbHitArea,
+                  verticalMargin - thumbHitArea,
+                  thumbHitArea * 2,
+                  thumbHitArea * 2);
               setState(() {
                 _isThumbHovered = thumbRect.contains(localPosition);
               });
@@ -201,9 +222,11 @@ class _SettingsSliderState extends State<SettingsSlider> {
             },
             child: LayoutBuilder(
               builder: (context, constraints) {
-                final currentThumbSize = _isThumbHovered || _isDragging ? thumbSizeHovered : thumbSize;
+                final currentThumbSize = _isThumbHovered || _isDragging
+                    ? thumbSizeHovered
+                    : thumbSize;
                 final halfThumbSize = currentThumbSize / 2;
-                
+
                 return Stack(
                   key: _sliderKey,
                   clipBehavior: Clip.none,
@@ -213,7 +236,7 @@ class _SettingsSliderState extends State<SettingsSlider> {
                       height: trackHeight,
                       margin: EdgeInsets.symmetric(vertical: verticalMargin),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: _foregroundColor(context, 0.2),
                         borderRadius: BorderRadius.circular(trackHeight / 2),
                       ),
                     ),
@@ -228,11 +251,12 @@ class _SettingsSliderState extends State<SettingsSlider> {
                         child: Container(
                           height: trackHeight,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(trackHeight / 2),
+                            color: _foregroundColor(context, 0.5),
+                            borderRadius:
+                                BorderRadius.circular(trackHeight / 2),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white.withOpacity(0.3),
+                                color: _foregroundColor(context, 0.3),
                                 blurRadius: 2,
                                 spreadRadius: 0.5,
                               ),
@@ -253,12 +277,13 @@ class _SettingsSliderState extends State<SettingsSlider> {
                           width: currentThumbSize,
                           height: currentThumbSize,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: _foregroundColor(context),
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.2),
-                                blurRadius: _isThumbHovered || _isDragging ? 6 : 4,
+                                blurRadius:
+                                    _isThumbHovered || _isDragging ? 6 : 4,
                                 offset: const Offset(0, 2),
                               ),
                             ],
@@ -275,4 +300,4 @@ class _SettingsSliderState extends State<SettingsSlider> {
       ],
     );
   }
-} 
+}

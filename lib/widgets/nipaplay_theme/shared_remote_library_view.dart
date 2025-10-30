@@ -14,6 +14,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/anime_card.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/floating_action_glass_button.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_host_selection_sheet.dart';
+import 'theme_color_utils.dart';
 
 class SharedRemoteLibraryView extends StatefulWidget {
   const SharedRemoteLibraryView({super.key, this.onPlayEpisode});
@@ -21,12 +22,21 @@ class SharedRemoteLibraryView extends StatefulWidget {
   final OnPlayEpisodeCallback? onPlayEpisode;
 
   @override
-  State<SharedRemoteLibraryView> createState() => _SharedRemoteLibraryViewState();
+  State<SharedRemoteLibraryView> createState() =>
+      _SharedRemoteLibraryViewState();
 }
 
 class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
     with AutomaticKeepAliveClientMixin {
   final ScrollController _gridScrollController = ScrollController();
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  Color _secondaryForeground(BuildContext context) =>
+      ThemeColorUtils.secondaryForeground(context);
 
   @override
   bool get wantKeepAlive => true;
@@ -55,7 +65,8 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
                 if (provider.errorMessage != null)
                   _buildErrorChip(provider.errorMessage!, provider),
                 Expanded(
-                  child: _buildBody(context, provider, animeSummaries, hasHosts),
+                  child:
+                      _buildBody(context, provider, animeSummaries, hasHosts),
                 ),
               ],
             ),
@@ -106,7 +117,8 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
             final anime = animeSummaries[index];
             return AnimeCard(
               key: ValueKey('shared_${anime.animeId}'),
-              name: anime.nameCn?.isNotEmpty == true ? anime.nameCn! : anime.name,
+              name:
+                  anime.nameCn?.isNotEmpty == true ? anime.nameCn! : anime.name,
               imageUrl: anime.imageUrl ?? '',
               source: provider.activeHost?.displayName,
               enableShadow: false,
@@ -131,18 +143,21 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
         ),
         child: Row(
           children: [
-            const Icon(Ionicons.warning_outline, color: Colors.orangeAccent, size: 18),
+            const Icon(Ionicons.warning_outline,
+                color: Colors.orangeAccent, size: 18),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
                 message,
                 locale: const Locale('zh', 'CN'),
-                style: const TextStyle(color: Colors.orangeAccent, fontSize: 13),
+                style:
+                    const TextStyle(color: Colors.orangeAccent, fontSize: 13),
               ),
             ),
             IconButton(
               onPressed: provider.clearError,
-              icon: const Icon(Ionicons.close_outline, color: Colors.orangeAccent, size: 16),
+              icon: const Icon(Ionicons.close_outline,
+                  color: Colors.orangeAccent, size: 16),
             ),
           ],
         ),
@@ -154,34 +169,35 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(Ionicons.cloud_outline, color: Colors.white38, size: 48),
-          SizedBox(height: 12),
+        children: [
+          Icon(Ionicons.cloud_outline,
+              color: _foregroundColor(context, 0.38), size: 48),
+          const SizedBox(height: 12),
           Text(
             '尚未添加共享客户端\n请前往设置 > 远程媒体库 添加',
-            locale: Locale('zh', 'CN'),
+            locale: const Locale('zh', 'CN'),
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white60),
+            style: TextStyle(color: _foregroundColor(context, 0.6)),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildEmptyLibraryPlaceholder(BuildContext context, SharedRemoteHost? host) {
+  Widget _buildEmptyLibraryPlaceholder(
+      BuildContext context, SharedRemoteHost? host) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Ionicons.folder_open_outline, color: Colors.white38, size: 48),
+          Icon(Ionicons.folder_open_outline,
+              color: _foregroundColor(context, 0.38), size: 48),
           const SizedBox(height: 12),
           Text(
-            host == null
-                ? '请选择一个共享客户端'
-                : '该客户端尚未扫描任何番剧',
+            host == null ? '请选择一个共享客户端' : '该客户端尚未扫描任何番剧',
             locale: const Locale('zh', 'CN'),
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white60),
+            style: TextStyle(color: _foregroundColor(context, 0.6)),
           ),
         ],
       ),
@@ -232,8 +248,8 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
         context,
         anime.animeId,
         sharedSummary: anime,
-        sharedEpisodeLoader: () => provider.loadAnimeEpisodes(anime.animeId,
-            force: true),
+        sharedEpisodeLoader: () =>
+            provider.loadAnimeEpisodes(anime.animeId, force: true),
         sharedEpisodeBuilder: (episode) => provider.buildPlayableItem(
           anime: anime,
           episode: episode,

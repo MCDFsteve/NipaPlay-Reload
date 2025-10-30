@@ -19,6 +19,7 @@ import 'package:nipaplay/utils/url_name_generator.dart';
 import 'package:nipaplay/models/jellyfin_transcode_settings.dart';
 import 'package:nipaplay/providers/jellyfin_transcode_provider.dart';
 import 'package:nipaplay/providers/emby_transcode_provider.dart';
+import 'theme_color_utils.dart';
 
 enum MediaServerType { jellyfin, emby }
 
@@ -37,8 +38,9 @@ abstract class MediaServerProvider {
   String? get errorMessage;
   List<MediaLibrary> get availableLibraries;
   Set<String> get selectedLibraryIds;
-  
-  Future<bool> connectToServer(String server, String username, String password, {String? addressName});
+
+  Future<bool> connectToServer(String server, String username, String password,
+      {String? addressName});
   Future<void> disconnectFromServer();
   Future<void> updateSelectedLibraries(Set<String> libraryIds);
 }
@@ -47,7 +49,7 @@ abstract class MediaServerProvider {
 class JellyfinMediaLibraryAdapter implements MediaLibrary {
   final JellyfinLibrary _library;
   JellyfinMediaLibraryAdapter(this._library);
-  
+
   @override
   String get id => _library.id;
   @override
@@ -59,7 +61,7 @@ class JellyfinMediaLibraryAdapter implements MediaLibrary {
 class JellyfinProviderAdapter implements MediaServerProvider {
   final JellyfinProvider _provider;
   JellyfinProviderAdapter(this._provider);
-  
+
   @override
   bool get isConnected => _provider.isConnected;
   @override
@@ -69,26 +71,29 @@ class JellyfinProviderAdapter implements MediaServerProvider {
   @override
   String? get errorMessage => _provider.errorMessage;
   @override
-  List<MediaLibrary> get availableLibraries => 
-    _provider.availableLibraries.map((lib) => JellyfinMediaLibraryAdapter(lib)).toList();
+  List<MediaLibrary> get availableLibraries => _provider.availableLibraries
+      .map((lib) => JellyfinMediaLibraryAdapter(lib))
+      .toList();
   @override
   Set<String> get selectedLibraryIds => _provider.selectedLibraryIds.toSet();
-  
+
   @override
-  Future<bool> connectToServer(String server, String username, String password, {String? addressName}) =>
-    _provider.connectToServer(server, username, password, addressName: addressName);
+  Future<bool> connectToServer(String server, String username, String password,
+          {String? addressName}) =>
+      _provider.connectToServer(server, username, password,
+          addressName: addressName);
   @override
   Future<void> disconnectFromServer() => _provider.disconnectFromServer();
   @override
   Future<void> updateSelectedLibraries(Set<String> libraryIds) =>
-    _provider.updateSelectedLibraries(libraryIds.toList());
+      _provider.updateSelectedLibraries(libraryIds.toList());
 }
 
 // Emby适配器
 class EmbyMediaLibraryAdapter implements MediaLibrary {
   final EmbyLibrary _library;
   EmbyMediaLibraryAdapter(this._library);
-  
+
   @override
   String get id => _library.id;
   @override
@@ -100,7 +105,7 @@ class EmbyMediaLibraryAdapter implements MediaLibrary {
 class EmbyProviderAdapter implements MediaServerProvider {
   final EmbyProvider _provider;
   EmbyProviderAdapter(this._provider);
-  
+
   @override
   bool get isConnected => _provider.isConnected;
   @override
@@ -110,48 +115,55 @@ class EmbyProviderAdapter implements MediaServerProvider {
   @override
   String? get errorMessage => _provider.errorMessage;
   @override
-  List<MediaLibrary> get availableLibraries => 
-    _provider.availableLibraries.map((lib) => EmbyMediaLibraryAdapter(lib)).toList();
+  List<MediaLibrary> get availableLibraries => _provider.availableLibraries
+      .map((lib) => EmbyMediaLibraryAdapter(lib))
+      .toList();
   @override
   Set<String> get selectedLibraryIds => _provider.selectedLibraryIds.toSet();
-  
+
   @override
-  Future<bool> connectToServer(String server, String username, String password, {String? addressName}) =>
-    _provider.connectToServer(server, username, password, addressName: addressName);
+  Future<bool> connectToServer(String server, String username, String password,
+          {String? addressName}) =>
+      _provider.connectToServer(server, username, password,
+          addressName: addressName);
   @override
   Future<void> disconnectFromServer() => _provider.disconnectFromServer();
   @override
   Future<void> updateSelectedLibraries(Set<String> libraryIds) =>
-    _provider.updateSelectedLibraries(libraryIds.toList());
+      _provider.updateSelectedLibraries(libraryIds.toList());
 }
 
 class NetworkMediaServerDialog extends StatefulWidget {
   final MediaServerType serverType;
-  
+
   const NetworkMediaServerDialog({
     super.key,
     required this.serverType,
   });
 
   @override
-  State<NetworkMediaServerDialog> createState() => _NetworkMediaServerDialogState();
+  State<NetworkMediaServerDialog> createState() =>
+      _NetworkMediaServerDialogState();
 
   static Future<bool?> show(BuildContext context, MediaServerType serverType) {
     final provider = _getProvider(context, serverType);
-    
+
     if (provider.isConnected) {
       // 如果已连接，显示设置对话框
       return showDialog<bool>(
         context: context,
         barrierDismissible: true,
         barrierColor: Colors.black.withOpacity(0.5),
-        builder: (dialogContext) => NetworkMediaServerDialog(serverType: serverType),
+        builder: (dialogContext) =>
+            NetworkMediaServerDialog(serverType: serverType),
       );
     } else {
       // 如果未连接，显示登录对话框
-      final serverName = serverType == MediaServerType.jellyfin ? 'Jellyfin' : 'Emby';
-      final defaultPort = serverType == MediaServerType.jellyfin ? '8096' : '8096';
-      
+      final serverName =
+          serverType == MediaServerType.jellyfin ? 'Jellyfin' : 'Emby';
+      final defaultPort =
+          serverType == MediaServerType.jellyfin ? '8096' : '8096';
+
       return BlurLoginDialog.show(
         context,
         title: '连接到${serverName}服务器',
@@ -184,8 +196,9 @@ class NetworkMediaServerDialog extends StatefulWidget {
         onLogin: (values) async {
           // 生成地址名称（如果未提供则自动生成）
           final serverUrl = values['server']!;
-          final addressName = UrlNameGenerator.generateAddressName(serverUrl, customName: values['address_name']);
-          
+          final addressName = UrlNameGenerator.generateAddressName(serverUrl,
+              customName: values['address_name']);
+
           // 将地址名称传递给provider层
           final success = await provider.connectToServer(
             serverUrl,
@@ -193,22 +206,27 @@ class NetworkMediaServerDialog extends StatefulWidget {
             values['password']!,
             addressName: addressName,
           );
-          
+
           return LoginResult(
             success: success,
-            message: success ? '连接成功' : (provider.errorMessage ?? '连接失败，请检查服务器地址和登录信息'),
+            message: success
+                ? '连接成功'
+                : (provider.errorMessage ?? '连接失败，请检查服务器地址和登录信息'),
           );
         },
       );
     }
   }
-  
-  static MediaServerProvider _getProvider(BuildContext context, MediaServerType serverType) {
+
+  static MediaServerProvider _getProvider(
+      BuildContext context, MediaServerType serverType) {
     switch (serverType) {
       case MediaServerType.jellyfin:
-        return JellyfinProviderAdapter(Provider.of<JellyfinProvider>(context, listen: false));
+        return JellyfinProviderAdapter(
+            Provider.of<JellyfinProvider>(context, listen: false));
       case MediaServerType.emby:
-        return EmbyProviderAdapter(Provider.of<EmbyProvider>(context, listen: false));
+        return EmbyProviderAdapter(
+            Provider.of<EmbyProvider>(context, listen: false));
     }
   }
 }
@@ -219,21 +237,28 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
   late MediaServerProvider _provider;
   List<ServerAddress> _serverAddresses = [];
   String? _currentAddressId;
-  
+
   // 转码设置相关状态
   bool _transcodeSettingsExpanded = false;
   JellyfinVideoQuality _selectedQuality = JellyfinVideoQuality.bandwidth5m;
   bool _transcodeEnabled = true;
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _provider = NetworkMediaServerDialog._getProvider(context, widget.serverType);
+    _provider =
+        NetworkMediaServerDialog._getProvider(context, widget.serverType);
 
     // 初始化转码Provider（Jellyfin/Emby 各自独立）
     if (widget.serverType == MediaServerType.jellyfin) {
       try {
-        final jProvider = Provider.of<JellyfinTranscodeProvider>(context, listen: false);
+        final jProvider =
+            Provider.of<JellyfinTranscodeProvider>(context, listen: false);
         jProvider.initialize().then((_) {
           if (mounted) {
             setState(() {
@@ -256,7 +281,8 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
       }
     } else if (widget.serverType == MediaServerType.emby) {
       try {
-        final eProvider = Provider.of<EmbyTranscodeProvider>(context, listen: false);
+        final eProvider =
+            Provider.of<EmbyTranscodeProvider>(context, listen: false);
         eProvider.initialize().then((_) {
           if (mounted) {
             setState(() {
@@ -281,7 +307,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
     if (_provider.isConnected) {
       _currentAvailableLibraries = List.from(_provider.availableLibraries);
       _currentSelectedLibraryIds = Set.from(_provider.selectedLibraryIds);
-      
+
       // 加载多地址信息
       _loadMultiAddressInfo();
     } else {
@@ -291,7 +317,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
       _currentAddressId = null;
     }
   }
-  
+
   void _loadMultiAddressInfo() {
     // 根据服务器类型获取地址列表
     switch (widget.serverType) {
@@ -306,7 +332,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
         break;
     }
   }
-  
+
   Future<void> _handleAddAddress(String url, String name) async {
     try {
       bool success = false;
@@ -318,7 +344,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
           success = await EmbyService.instance.addServerAddress(url, name);
           break;
       }
-      
+
       if (success) {
         _loadMultiAddressInfo();
         setState(() {});
@@ -340,19 +366,20 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
       }
     }
   }
-  
+
   Future<void> _handleRemoveAddress(String addressId) async {
     try {
       bool success = false;
       switch (widget.serverType) {
         case MediaServerType.jellyfin:
-          success = await JellyfinService.instance.removeServerAddress(addressId);
+          success =
+              await JellyfinService.instance.removeServerAddress(addressId);
           break;
         case MediaServerType.emby:
           success = await EmbyService.instance.removeServerAddress(addressId);
           break;
       }
-      
+
       if (success) {
         _loadMultiAddressInfo();
         setState(() {});
@@ -366,7 +393,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
       }
     }
   }
-  
+
   Future<void> _handleSwitchAddress(String addressId) async {
     try {
       bool success = false;
@@ -378,7 +405,7 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
           success = await EmbyService.instance.switchToAddress(addressId);
           break;
       }
-      
+
       if (success) {
         _loadMultiAddressInfo();
         setState(() {});
@@ -402,13 +429,15 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
       bool success = false;
       switch (widget.serverType) {
         case MediaServerType.jellyfin:
-          success = await JellyfinService.instance.updateServerPriority(addressId, priority);
+          success = await JellyfinService.instance
+              .updateServerPriority(addressId, priority);
           break;
         case MediaServerType.emby:
-          success = await EmbyService.instance.updateServerPriority(addressId, priority);
+          success = await EmbyService.instance
+              .updateServerPriority(addressId, priority);
           break;
       }
-      
+
       if (success) {
         _loadMultiAddressInfo();
         setState(() {});
@@ -498,12 +527,12 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.white.withOpacity(0.15),
-                Colors.white.withOpacity(0.05),
+                _foregroundColor(context, 0.15),
+                _foregroundColor(context, 0.05),
               ],
             ),
             border: Border.all(
-              color: Colors.white.withOpacity(0.3),
+              color: _foregroundColor(context, 0.3),
               width: 1,
             ),
             boxShadow: [
@@ -542,7 +571,8 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
                       ],
                       _buildLibrariesSection(),
                       const SizedBox(height: 20),
-                      if (widget.serverType == MediaServerType.jellyfin || widget.serverType == MediaServerType.emby) ...[
+                      if (widget.serverType == MediaServerType.jellyfin ||
+                          widget.serverType == MediaServerType.emby) ...[
                         _buildTranscodeSection(),
                         const SizedBox(height: 20),
                       ],
@@ -585,8 +615,8 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
             children: [
               Text(
                 '$_serverName 服务器设置',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: _foregroundColor(context),
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
@@ -594,9 +624,9 @@ class _NetworkMediaServerDialogState extends State<NetworkMediaServerDialog> {
               const SizedBox(height: 4),
               Text(
                 '管理媒体库连接和选择',
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                locale: Locale("zh-Hans", "zh"),
+                style: TextStyle(
+                  color: _foregroundColor(context, 0.7),
                   fontSize: 14,
                 ),
               ),
@@ -611,9 +641,9 @@ style: TextStyle(
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: _foregroundColor(context, 0.05),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(color: _foregroundColor(context, 0.1)),
       ),
       child: Column(
         children: [
@@ -625,16 +655,19 @@ style: TextStyle(
                   color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Icon(Icons.dns, color: Colors.blue, size: 20),
+                child: Icon(Icons.dns, color: Colors.blue, size: 20),
               ),
               const SizedBox(width: 12),
-              const Text('服务器:', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 14)),
+              Text('服务器:',
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(
+                      color: _foregroundColor(context, 0.7), fontSize: 14)),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   _provider.serverUrl ?? '未知',
-                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                  style:
+                      TextStyle(color: _foregroundColor(context), fontSize: 14),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -649,15 +682,18 @@ style: TextStyle(color: Colors.white70, fontSize: 14)),
                   color: Colors.green.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Icon(Icons.person, color: Colors.green, size: 20),
+                child: Icon(Icons.person, color: Colors.green, size: 20),
               ),
               const SizedBox(width: 12),
-              const Text('用户:', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 14)),
+              Text('用户:',
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(
+                      color: _foregroundColor(context, 0.7), fontSize: 14)),
               const SizedBox(width: 8),
               Text(
                 _provider.username ?? '匿名',
-                style: const TextStyle(color: Colors.white, fontSize: 14),
+                style:
+                    TextStyle(color: _foregroundColor(context), fontSize: 14),
               ),
             ],
           ),
@@ -678,14 +714,14 @@ style: TextStyle(color: Colors.white70, fontSize: 14)),
                 color: Colors.purple.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Icon(Icons.library_books, color: Colors.purple, size: 20),
+              child: Icon(Icons.library_books, color: Colors.purple, size: 20),
             ),
             const SizedBox(width: 12),
-            const Text(
+            Text(
               '媒体库选择',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: Colors.white,
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: _foregroundColor(context),
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -696,9 +732,9 @@ style: TextStyle(
         Container(
           height: 300,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.03),
+            color: _foregroundColor(context, 0.03),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            border: Border.all(color: _foregroundColor(context, 0.1)),
           ),
           child: _currentAvailableLibraries.isEmpty
               ? _buildEmptyLibrariesState()
@@ -718,30 +754,30 @@ style: TextStyle(
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: _foregroundColor(context, 0.1),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Icon(
                 Icons.folder_off_outlined,
-                color: Colors.white.withOpacity(0.5),
+                color: _foregroundColor(context, 0.5),
                 size: 40,
               ),
             ),
             const SizedBox(height: 16),
             Text(
               '没有可用的媒体库',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: _foregroundColor(context, 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               '请检查服务器连接状态',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: Colors.white.withOpacity(0.5),
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: _foregroundColor(context, 0.5),
                 fontSize: 14,
               ),
             ),
@@ -759,17 +795,17 @@ style: TextStyle(
       itemBuilder: (context, index) {
         final library = _currentAvailableLibraries[index];
         final isSelected = _currentSelectedLibraryIds.contains(library.id);
-        
+
         return Container(
           decoration: BoxDecoration(
-            color: isSelected 
+            color: isSelected
                 ? _serverColor.withOpacity(0.15)
-                : Colors.white.withOpacity(0.05),
+                : _foregroundColor(context, 0.05),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: isSelected 
+              color: isSelected
                   ? _serverColor.withOpacity(0.3)
-                  : Colors.white.withOpacity(0.1),
+                  : _foregroundColor(context, 0.1),
               width: 1,
             ),
           ),
@@ -786,17 +822,17 @@ style: TextStyle(
             },
             title: Text(
               library.name,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: _foregroundColor(context),
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
             ),
             subtitle: Text(
               library.type,
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(
+                color: _foregroundColor(context, 0.7),
                 fontSize: 12,
               ),
             ),
@@ -813,8 +849,9 @@ style: TextStyle(
               ),
             ),
             activeColor: _serverColor,
-            checkColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            checkColor: _foregroundColor(context),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           ),
         );
       },
@@ -865,8 +902,8 @@ style: TextStyle(
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
-              borderRadius: _transcodeSettingsExpanded 
+              color: _foregroundColor(context, 0.05),
+              borderRadius: _transcodeSettingsExpanded
                   ? const BorderRadius.only(
                       topLeft: Radius.circular(12),
                       topRight: Radius.circular(12),
@@ -874,11 +911,11 @@ style: TextStyle(
                   : BorderRadius.circular(12),
               border: _transcodeSettingsExpanded
                   ? Border(
-                      top: BorderSide(color: Colors.white.withOpacity(0.1)),
-                      left: BorderSide(color: Colors.white.withOpacity(0.1)),
-                      right: BorderSide(color: Colors.white.withOpacity(0.1)),
+                      top: BorderSide(color: _foregroundColor(context, 0.1)),
+                      left: BorderSide(color: _foregroundColor(context, 0.1)),
+                      right: BorderSide(color: _foregroundColor(context, 0.1)),
                     )
-                  : Border.all(color: Colors.white.withOpacity(0.1)),
+                  : Border.all(color: _foregroundColor(context, 0.1)),
             ),
             child: Row(
               children: [
@@ -888,18 +925,19 @@ style: TextStyle(
                     color: Colors.orange.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(Icons.high_quality, color: Colors.orange, size: 20),
+                  child:
+                      Icon(Icons.high_quality, color: Colors.orange, size: 20),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         '转码设置',
-                        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                          color: Colors.white,
+                        locale: Locale("zh-Hans", "zh"),
+                        style: TextStyle(
+                          color: _foregroundColor(context),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -907,9 +945,9 @@ style: TextStyle(
                       const SizedBox(height: 4),
                       Text(
                         '当前默认质量: ${_selectedQuality.displayName}',
-                        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
+                        locale: Locale("zh-Hans", "zh"),
+                        style: TextStyle(
+                          color: _foregroundColor(context, 0.7),
                           fontSize: 12,
                         ),
                       ),
@@ -921,7 +959,7 @@ style: TextStyle(
                   duration: const Duration(milliseconds: 200),
                   child: Icon(
                     Icons.expand_more,
-                    color: Colors.white.withOpacity(0.7),
+                    color: _foregroundColor(context, 0.7),
                   ),
                 ),
               ],
@@ -936,15 +974,15 @@ style: TextStyle(
                   width: double.infinity,
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.03),
+                    color: _foregroundColor(context, 0.03),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(12),
                       bottomRight: Radius.circular(12),
                     ),
                     border: Border(
-                      left: BorderSide(color: Colors.white.withOpacity(0.1)),
-                      right: BorderSide(color: Colors.white.withOpacity(0.1)),
-                      bottom: BorderSide(color: Colors.white.withOpacity(0.1)),
+                      left: BorderSide(color: _foregroundColor(context, 0.1)),
+                      right: BorderSide(color: _foregroundColor(context, 0.1)),
+                      bottom: BorderSide(color: _foregroundColor(context, 0.1)),
                     ),
                   ),
                   child: Column(
@@ -956,9 +994,9 @@ style: TextStyle(
                           Expanded(
                             child: Text(
                               '启用转码',
-                              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
+                              locale: Locale("zh-Hans", "zh"),
+                              style: TextStyle(
+                                color: _foregroundColor(context, 0.9),
                                 fontSize: 14,
                               ),
                             ),
@@ -968,8 +1006,8 @@ style: TextStyle(
                             onChanged: _handleTranscodeEnabledChanged,
                             activeColor: Colors.orange,
                             activeTrackColor: Colors.orange.withOpacity(0.3),
-                            inactiveThumbColor: Colors.white.withOpacity(0.5),
-                            inactiveTrackColor: Colors.white.withOpacity(0.1),
+                            inactiveThumbColor: _foregroundColor(context, 0.5),
+                            inactiveTrackColor: _foregroundColor(context, 0.1),
                           ),
                         ],
                       ),
@@ -977,9 +1015,9 @@ style: TextStyle(
                         const SizedBox(height: 16),
                         Text(
                           '默认清晰度',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                            color: Colors.white.withOpacity(0.9),
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                            color: _foregroundColor(context, 0.9),
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -997,36 +1035,45 @@ style: TextStyle(
                                 child: Container(
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: isSelected 
+                                    color: isSelected
                                         ? Colors.orange.withOpacity(0.2)
-                                        : Colors.white.withOpacity(0.05),
+                                        : _foregroundColor(context, 0.05),
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: isSelected 
+                                      color: isSelected
                                           ? Colors.orange
-                                          : Colors.white.withOpacity(0.1),
+                                          : _foregroundColor(context, 0.1),
                                       width: 1,
                                     ),
                                   ),
                                   child: Row(
                                     children: [
                                       Icon(
-                                        isSelected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
-                                        color: isSelected ? Colors.orange : Colors.white70,
+                                        isSelected
+                                            ? Icons.radio_button_checked
+                                            : Icons.radio_button_unchecked,
+                                        color: isSelected
+                                            ? Colors.orange
+                                            : _foregroundColor(context, 0.7),
                                         size: 20,
                                       ),
                                       const SizedBox(width: 12),
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               quality.displayName,
-                                              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                                color: isSelected ? Colors.orange : Colors.white,
+                                              locale: Locale("zh-Hans", "zh"),
+                                              style: TextStyle(
+                                                color: isSelected
+                                                    ? Colors.orange
+                                                    : _foregroundColor(context),
                                                 fontSize: 14,
-                                                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                                                fontWeight: isSelected
+                                                    ? FontWeight.w600
+                                                    : FontWeight.normal,
                                               ),
                                             ),
                                           ],
@@ -1054,11 +1101,13 @@ style: TextStyle(
       bool success = false;
       if (widget.serverType == MediaServerType.jellyfin) {
         try {
-          final j = Provider.of<JellyfinTranscodeProvider>(context, listen: false);
+          final j =
+              Provider.of<JellyfinTranscodeProvider>(context, listen: false);
           success = await j.setTranscodeEnabled(enabled);
         } catch (_) {
           // 回退到单例
-          success = await JellyfinTranscodeProvider().setTranscodeEnabled(enabled);
+          success =
+              await JellyfinTranscodeProvider().setTranscodeEnabled(enabled);
         }
       } else if (widget.serverType == MediaServerType.emby) {
         try {
@@ -1100,14 +1149,16 @@ style: TextStyle(
       bool success = false;
       if (widget.serverType == MediaServerType.jellyfin) {
         try {
-          final j = Provider.of<JellyfinTranscodeProvider>(context, listen: false);
+          final j =
+              Provider.of<JellyfinTranscodeProvider>(context, listen: false);
           success = await j.setDefaultVideoQuality(quality);
           // 当选择非原画质量时，自动启用转码
           if (quality != JellyfinVideoQuality.original) {
             await j.setTranscodeEnabled(true);
           }
         } catch (_) {
-          success = await JellyfinTranscodeProvider().setDefaultVideoQuality(quality);
+          success =
+              await JellyfinTranscodeProvider().setDefaultVideoQuality(quality);
           // 当选择非原画质量时，自动启用转码
           if (quality != JellyfinVideoQuality.original) {
             await JellyfinTranscodeProvider().setTranscodeEnabled(true);
@@ -1122,7 +1173,8 @@ style: TextStyle(
             await e.setTranscodeEnabled(true);
           }
         } catch (_) {
-          success = await EmbyTranscodeProvider().setDefaultVideoQuality(quality);
+          success =
+              await EmbyTranscodeProvider().setDefaultVideoQuality(quality);
           // 当选择非原画质量时，自动启用转码
           if (quality != JellyfinVideoQuality.original) {
             await EmbyTranscodeProvider().setTranscodeEnabled(true);

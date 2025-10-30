@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'theme_color_utils.dart';
 
 class SettingsHintText extends StatelessWidget {
   final String text;
@@ -8,11 +9,11 @@ class SettingsHintText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-        color: Colors.white70,
+      style: TextStyle(
+        color: ThemeColorUtils.secondaryForeground(context),
         fontSize: 12,
       ),
       textAlign: TextAlign.left,
     );
   }
-} 
+}

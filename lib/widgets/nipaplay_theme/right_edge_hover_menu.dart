@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'video_settings_menu.dart';
+import 'theme_color_utils.dart';
 
 class RightEdgeHoverMenu extends StatefulWidget {
   const RightEdgeHoverMenu({super.key});
@@ -25,7 +26,7 @@ class _RightEdgeHoverMenuState extends State<RightEdgeHoverMenu> {
 
   void _showSettingsMenu() {
     if (_settingsMenuOverlay != null) return;
-    
+
     _settingsMenuOverlay = OverlayEntry(
       builder: (context) => HoverSettingsMenuWrapper(
         onClose: _hideSettingsMenu,
@@ -67,6 +68,7 @@ class _RightEdgeHoverMenuState extends State<RightEdgeHoverMenu> {
   Widget build(BuildContext context) {
     return Consumer<VideoPlayerState>(
       builder: (context, videoState, child) {
+        final baseColor = ThemeColorUtils.primaryForeground(context);
         // 只在有视频且非手机平台时显示
         if (!videoState.hasVideo || globals.isPhone) {
           return const SizedBox.shrink();
@@ -105,8 +107,8 @@ class _RightEdgeHoverMenuState extends State<RightEdgeHoverMenu> {
                         end: Alignment.centerRight,
                         colors: [
                           Colors.transparent,
-                          Colors.white.withOpacity(0.15),
-                          Colors.white.withOpacity(0.25),
+                          baseColor.withOpacity(0.15),
+                          baseColor.withOpacity(0.25),
                         ],
                         stops: const [0.0, 0.7, 1.0],
                       )
@@ -115,7 +117,7 @@ class _RightEdgeHoverMenuState extends State<RightEdgeHoverMenu> {
                         end: Alignment.centerRight,
                         colors: [
                           Colors.transparent,
-                          Colors.white.withOpacity(0.05),
+                          baseColor.withOpacity(0.05),
                         ],
                       ),
                 borderRadius: const BorderRadius.only(
@@ -154,7 +156,8 @@ class HoverSettingsMenuWrapper extends StatefulWidget {
   });
 
   @override
-  State<HoverSettingsMenuWrapper> createState() => _HoverSettingsMenuWrapperState();
+  State<HoverSettingsMenuWrapper> createState() =>
+      _HoverSettingsMenuWrapperState();
 }
 
 class _HoverSettingsMenuWrapperState extends State<HoverSettingsMenuWrapper> {
@@ -185,7 +188,7 @@ class _HoverSettingsMenuWrapperState extends State<HoverSettingsMenuWrapper> {
           _isMenuHovered = isHovered;
         });
         widget.onHover(isHovered);
-        
+
         if (isHovered) {
           _hideTimer?.cancel(); // 取消隐藏定时器
         } else {

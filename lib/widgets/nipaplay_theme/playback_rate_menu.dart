@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:provider/provider.dart';
 import 'base_settings_menu.dart';
+import 'theme_color_utils.dart';
 
 class PlaybackRateMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -19,8 +20,22 @@ class PlaybackRateMenu extends StatefulWidget {
 class _PlaybackRateMenuState extends State<PlaybackRateMenu> {
   // 预设的倍速选项
   static const List<double> _speedOptions = [
-    0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, 4.0, 5.0
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    5.0
   ];
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +56,18 @@ class _PlaybackRateMenuState extends State<PlaybackRateMenu> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           '当前倍速',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                            color: Colors.white70,
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                            color: _foregroundColor(context, 0.7),
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           '${videoState.playbackRate}x',
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: _foregroundColor(context),
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
@@ -61,9 +76,11 @@ style: TextStyle(
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      videoState.isSpeedBoostActive ? '正在倍速播放' : '点击下方选项或长按屏幕倍速播放',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                      videoState.isSpeedBoostActive
+                          ? '正在倍速播放'
+                          : '点击下方选项或长按屏幕倍速播放',
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey[400],
                       ),
@@ -71,14 +88,14 @@ style: TextStyle(
                   ],
                 ),
               ),
-              
-              const Divider(color: Colors.white24, height: 1),
-              
+
+              Divider(color: _foregroundColor(context, 0.24), height: 1),
+
               // 倍速选项列表
               ..._speedOptions.map((speed) {
                 final isSelected = videoState.playbackRate == speed;
                 final isNormalSpeed = speed == 1.0;
-                
+
                 return Material(
                   color: Colors.transparent,
                   child: InkWell(
@@ -88,31 +105,38 @@ style: TextStyle(
                     },
                     borderRadius: BorderRadius.circular(8),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       decoration: BoxDecoration(
-                        color: isSelected ? Colors.white.withOpacity(0.15) : Colors.transparent,
+                        color: isSelected
+                            ? _foregroundColor(context, 0.15)
+                            : Colors.transparent,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         children: [
                           Icon(
                             _getSpeedIcon(speed, isNormalSpeed),
-                            color: isSelected 
-                                ? Colors.white 
-                                : isNormalSpeed 
-                                    ? Colors.white70 
-                                    : Colors.white60,
+                            color: isSelected
+                                ? _foregroundColor(context)
+                                : isNormalSpeed
+                                    ? _foregroundColor(context, 0.7)
+                                    : _foregroundColor(context, 0.6),
                             size: 20,
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(
                               '${speed}x ${_getSpeedDescription(speed, isNormalSpeed)}',
-                              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                color: isSelected ? Colors.white : Colors.white70,
+                              locale: Locale("zh-Hans", "zh"),
+                              style: TextStyle(
+                                color: isSelected
+                                    ? _foregroundColor(context)
+                                    : _foregroundColor(context, 0.7),
                                 fontSize: 14,
-                                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                                fontWeight: isSelected
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
                               ),
                             ),
                           ),
@@ -121,7 +145,7 @@ style: TextStyle(
                               width: 6,
                               height: 6,
                               decoration: const BoxDecoration(
-                                color: Colors.white,
+                                color: _foregroundColor(context),
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -131,7 +155,7 @@ style: TextStyle(
                   ),
                 );
               }),
-              
+
               const SizedBox(height: 8),
             ],
           ),
@@ -165,4 +189,4 @@ style: TextStyle(
       return '(极速)';
     }
   }
-} 
+}
