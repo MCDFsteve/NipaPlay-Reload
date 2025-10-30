@@ -142,6 +142,21 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
   Widget build(BuildContext context) {
     final enableBlur =
         context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect;
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.brightness == Brightness.dark;
+    final primaryTextColor = isDarkTheme ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkTheme ? Colors.white70 : Colors.black54;
+    final subtleTextColor = isDarkTheme
+        ? Colors.white.withOpacity(0.85)
+        : Colors.black.withOpacity(0.7);
+    final glassGradientStart = (isDarkTheme ? Colors.white : Colors.black)
+        .withOpacity(isDarkTheme ? 0.18 : 0.08);
+    final glassGradientEnd = (isDarkTheme ? Colors.white : Colors.black)
+        .withOpacity(isDarkTheme ? 0.05 : 0.03);
+    final glassBorderStart = (isDarkTheme ? Colors.white : Colors.black)
+        .withOpacity(isDarkTheme ? 0.5 : 0.12);
+    final glassBorderEnd = (isDarkTheme ? Colors.white : Colors.black)
+        .withOpacity(isDarkTheme ? 0.15 : 0.06);
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -160,16 +175,16 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white.withOpacity(0.18),
-                  Colors.white.withOpacity(0.05),
+                  glassGradientStart,
+                  glassGradientEnd,
                 ],
               ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white.withOpacity(0.5),
-                  Colors.white.withOpacity(0.15),
+                  glassBorderStart,
+                  glassBorderEnd,
                 ],
               ),
               child: Padding(
@@ -190,8 +205,8 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                       const SizedBox(height: 6),
                       Text(
                         widget.animeTitle,
-                        style: const TextStyle(
-                          color: Colors.white70,
+                        style: TextStyle(
+                          color: secondaryTextColor,
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
@@ -199,15 +214,34 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 18),
-                      _buildRatingSection(),
+                      _buildRatingSection(
+                        isDarkTheme: isDarkTheme,
+                        primaryTextColor: primaryTextColor,
+                      ),
                       const SizedBox(height: 20),
-                      _buildCollectionSection(),
+                      _buildCollectionSection(
+                        isDarkTheme: isDarkTheme,
+                        primaryTextColor: primaryTextColor,
+                        subtleTextColor: subtleTextColor,
+                      ),
                       const SizedBox(height: 20),
-                      _buildEpisodeStatusSection(),
+                      _buildEpisodeStatusSection(
+                        isDarkTheme: isDarkTheme,
+                        primaryTextColor: primaryTextColor,
+                        secondaryTextColor: secondaryTextColor,
+                      ),
                       const SizedBox(height: 20),
-                      _buildCommentInput(),
+                      _buildCommentInput(
+                        isDarkTheme: isDarkTheme,
+                        primaryTextColor: primaryTextColor,
+                        secondaryTextColor: secondaryTextColor,
+                      ),
                       const SizedBox(height: 24),
-                      _buildActionButtons(),
+                      _buildActionButtons(
+                        isDarkTheme: isDarkTheme,
+                        primaryTextColor: primaryTextColor,
+                        secondaryTextColor: secondaryTextColor,
+                      ),
                     ],
                   ),
                 ),
@@ -219,14 +253,24 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     );
   }
 
-  Widget _buildRatingSection() {
+  Widget _buildRatingSection({
+    required bool isDarkTheme,
+    required Color primaryTextColor,
+  }) {
+    final inactiveTileColor =
+        isDarkTheme ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.05);
+    final inactiveBorderColor =
+        isDarkTheme ? Colors.white.withOpacity(0.3) : Colors.black.withOpacity(0.2);
+    final numberInactiveColor =
+        isDarkTheme ? Colors.white.withOpacity(0.8) : Colors.black.withOpacity(0.7);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '评分',
           style: TextStyle(
-            color: Colors.white,
+            color: primaryTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -237,8 +281,8 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
             children: [
               Text(
                 _selectedRating > 0 ? '$_selectedRating 分' : '未评分',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: primaryTextColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -248,7 +292,7 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                 Text(
                   _ratingEvaluationMap[_selectedRating] ?? '',
                   style: TextStyle(
-                    color: _accentColor.withOpacity(0.9),
+                    color: _accentColor.withOpacity(isDarkTheme ? 0.9 : 0.8),
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -273,11 +317,11 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                   decoration: BoxDecoration(
                     color: isActive
                         ? Colors.yellow[600]?.withOpacity(0.3)
-                        : Colors.white.withOpacity(0.08),
+                        : inactiveTileColor,
                     border: Border.all(
                       color: isActive
                           ? Colors.yellow[600]!
-                          : Colors.white.withOpacity(0.3),
+                          : inactiveBorderColor,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(6),
@@ -286,7 +330,9 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                     isActive ? Ionicons.star : Ionicons.star_outline,
                     color: isActive
                         ? Colors.yellow[600]
-                        : Colors.white.withOpacity(0.6),
+                        : (isDarkTheme
+                            ? Colors.white.withOpacity(0.6)
+                            : Colors.black.withOpacity(0.5)),
                     size: 18,
                   ),
                 ),
@@ -312,7 +358,7 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                   border: Border.all(
                     color: isSelected
                         ? _accentColor
-                        : Colors.white.withOpacity(0.3),
+                        : inactiveBorderColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(4),
@@ -323,7 +369,7 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                     style: TextStyle(
                       color: isSelected
                           ? _accentColor
-                          : Colors.white.withOpacity(0.8),
+                          : numberInactiveColor,
                       fontSize: 12,
                       fontWeight:
                           isSelected ? FontWeight.bold : FontWeight.normal,
@@ -338,14 +384,23 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     );
   }
 
-  Widget _buildCollectionSection() {
+  Widget _buildCollectionSection({
+    required bool isDarkTheme,
+    required Color primaryTextColor,
+    required Color subtleTextColor,
+  }) {
+    final inactiveBackground =
+        isDarkTheme ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.05);
+    final inactiveBorderColor =
+        isDarkTheme ? Colors.white.withOpacity(0.25) : Colors.black.withOpacity(0.2);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '收藏状态',
           style: TextStyle(
-            color: Colors.white,
+            color: primaryTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -368,11 +423,11 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? _accentColor.withOpacity(0.25)
-                      : Colors.white.withOpacity(0.08),
+                      : inactiveBackground,
                   border: Border.all(
                     color: isSelected
                         ? _accentColor
-                        : Colors.white.withOpacity(0.25),
+                        : inactiveBorderColor,
                     width: 1,
                   ),
                   borderRadius: BorderRadius.circular(6),
@@ -382,7 +437,7 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                   style: TextStyle(
                     color: isSelected
                         ? _accentColor
-                        : Colors.white.withOpacity(0.85),
+                        : subtleTextColor,
                     fontSize: 13,
                     fontWeight:
                         isSelected ? FontWeight.w600 : FontWeight.normal,
@@ -396,7 +451,11 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     );
   }
 
-  Widget _buildEpisodeStatusSection() {
+  Widget _buildEpisodeStatusSection({
+    required bool isDarkTheme,
+    required Color primaryTextColor,
+    required Color secondaryTextColor,
+  }) {
     final total = widget.totalEpisodes;
     final hasTotal = total > 0;
     final maxValue = hasTotal ? total : 999;
@@ -432,10 +491,10 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '观看进度',
           style: TextStyle(
-            color: Colors.white,
+            color: primaryTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -453,22 +512,31 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontSize: 14),
+                style: TextStyle(color: primaryTextColor, fontSize: 14),
                 decoration: InputDecoration(
                   isDense: true,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.08),
+                  fillColor: isDarkTheme
+                      ? Colors.white.withOpacity(0.08)
+                      : Colors.black.withOpacity(0.05),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6),
                     borderSide:
-                        BorderSide(color: Colors.white.withOpacity(0.25)),
+                        BorderSide(
+                      color: isDarkTheme
+                          ? Colors.white.withOpacity(0.25)
+                          : Colors.black.withOpacity(0.2),
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6),
-                    borderSide:
-                        BorderSide(color: Colors.white.withOpacity(0.25)),
+                    borderSide: BorderSide(
+                      color: isDarkTheme
+                          ? Colors.white.withOpacity(0.25)
+                          : Colors.black.withOpacity(0.2),
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6),
@@ -498,7 +566,9 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
                 child: SliderTheme(
                   data: SliderTheme.of(context).copyWith(
                     activeTrackColor: _accentColor,
-                    inactiveTrackColor: Colors.white.withOpacity(0.2),
+                    inactiveTrackColor: isDarkTheme
+                        ? Colors.white.withOpacity(0.2)
+                        : Colors.black.withOpacity(0.12),
                     thumbColor: _accentColor,
                     overlayColor: _accentColor.withOpacity(0.2),
                   ),
@@ -521,7 +591,7 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
           hasTotal
               ? '当前进度：$_selectedEpisodeStatus/$total 集'
               : '当前进度：$_selectedEpisodeStatus 集',
-          style: const TextStyle(color: Colors.white70, fontSize: 12),
+          style: TextStyle(color: secondaryTextColor, fontSize: 12),
         ),
       ],
     );
@@ -543,14 +613,25 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     });
   }
 
-  Widget _buildCommentInput() {
+  Widget _buildCommentInput({
+    required bool isDarkTheme,
+    required Color primaryTextColor,
+    required Color secondaryTextColor,
+  }) {
+    final borderColor = isDarkTheme
+        ? Colors.white.withOpacity(0.25)
+        : Colors.black.withOpacity(0.2);
+    final fillColor = isDarkTheme
+        ? Colors.black.withOpacity(0.2)
+        : Colors.black.withOpacity(0.05);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '短评',
           style: TextStyle(
-            color: Colors.white,
+            color: primaryTextColor,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -561,19 +642,17 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
           minLines: 3,
           maxLines: 4,
           maxLength: 200,
-          style:
-              const TextStyle(color: Colors.white, fontSize: 13, height: 1.4),
+          style: TextStyle(color: primaryTextColor, fontSize: 13, height: 1.4),
           cursorColor: _accentColor,
           decoration: InputDecoration(
-            counterStyle: const TextStyle(color: Colors.white54, fontSize: 11),
+            counterStyle: TextStyle(color: secondaryTextColor, fontSize: 11),
             hintText: '写下你的短评（可选）',
-            hintStyle: const TextStyle(color: Colors.white54, fontSize: 13),
+            hintStyle: TextStyle(color: secondaryTextColor, fontSize: 13),
             filled: true,
-            fillColor: Colors.black.withOpacity(0.2),
+            fillColor: fillColor,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide:
-                  BorderSide(color: Colors.white.withOpacity(0.25), width: 1),
+              borderSide: BorderSide(color: borderColor, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
@@ -585,7 +664,11 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
     );
   }
 
-  Widget _buildActionButtons() {
+  Widget _buildActionButtons({
+    required bool isDarkTheme,
+    required Color primaryTextColor,
+    required Color secondaryTextColor,
+  }) {
     return Row(
       children: [
         if (_selectedRating > 0)
@@ -594,9 +677,9 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
               onPressed: _isSubmitting
                   ? null
                   : () => setState(() => _selectedRating = 0),
-              child: const Text(
+              child: Text(
                 '清除评分',
-                style: TextStyle(color: Colors.white70, fontSize: 13),
+                style: TextStyle(color: secondaryTextColor, fontSize: 13),
               ),
             ),
           ),
@@ -604,9 +687,9 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
         Expanded(
           child: TextButton(
             onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
-            child: const Text(
+            child: Text(
               '取消',
-              style: TextStyle(color: Colors.white, fontSize: 13),
+              style: TextStyle(color: primaryTextColor, fontSize: 13),
             ),
           ),
         ),
@@ -616,24 +699,28 @@ class _BangumiCollectionDialogState extends State<BangumiCollectionDialog> {
             onPressed:
                 _isSubmitting || _selectedRating == 0 ? null : _handleSubmit,
             style: ElevatedButton.styleFrom(
-              backgroundColor: _accentColor.withOpacity(0.9),
-              foregroundColor: Colors.white,
+              backgroundColor: _accentColor.withOpacity(isDarkTheme ? 0.9 : 0.95),
+              foregroundColor: primaryTextColor,
               elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6)),
             ),
             child: _isSubmitting
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: Colors.white,
+                      color: primaryTextColor,
                     ),
                   )
-                : const Text(
+                : Text(
                     '确定',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: primaryTextColor,
+                    ),
                   ),
           ),
         ),
