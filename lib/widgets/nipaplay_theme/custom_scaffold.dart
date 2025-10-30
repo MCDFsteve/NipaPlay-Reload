@@ -81,8 +81,8 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           child: Scaffold(
             primary: false,
             backgroundColor: Theme.of(context).brightness == Brightness.dark
-                ? Colors.black.withOpacity(0.7)
-                : Colors.black.withOpacity(0.2),
+                ? Colors.black.withOpacity(0.9)
+                : Colors.black.withOpacity(0),
             extendBodyBehindAppBar: false,
             appBar: videoState.shouldShowAppBar() && widget.tabPage.isNotEmpty ? AppBar(
               toolbarHeight: !widget.pageIsHome && !globals.isDesktop
