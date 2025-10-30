@@ -12,6 +12,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_library_settings_section.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class RemoteMediaLibraryPage extends StatefulWidget {
   const RemoteMediaLibraryPage({super.key});
@@ -23,20 +24,22 @@ class RemoteMediaLibraryPage extends StatefulWidget {
 class _RemoteMediaLibraryPageState extends State<RemoteMediaLibraryPage> {
   @override
   Widget build(BuildContext context) {
+    final colors = context.nipaplayColors;
+    final textSecondary = colors.textSecondary;
     return Consumer2<JellyfinProvider, EmbyProvider>(
       builder: (context, jellyfinProvider, embyProvider, child) {
         // 检查 Provider 是否已初始化
         if (!jellyfinProvider.isInitialized && !embyProvider.isInitialized) {
-          return const Center(
+          return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(color: Colors.blue),
-                SizedBox(height: 16),
+                CircularProgressIndicator(color: colors.accent),
+                const SizedBox(height: 16),
                 Text(
                   '正在初始化远程媒体库服务...',
                   locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+style: TextStyle(color: textSecondary),
                 ),
               ],
             ),
@@ -83,6 +86,9 @@ style: TextStyle(color: Colors.white70),
   }
 
   Widget _buildErrorCard(JellyfinProvider jellyfinProvider, EmbyProvider embyProvider) {
+    final colors = context.nipaplayColors;
+    final errorColor = Theme.of(context).colorScheme.error;
+    final warningColor = Colors.amber;
     return SettingsCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,17 +97,17 @@ style: TextStyle(color: Colors.white70),
             children: [
               Icon(
                 Icons.error_outline,
-                color: Colors.red[400],
+                color: errorColor,
                 size: 24,
               ),
               const SizedBox(width: 12),
-              const Text(
+              Text(
                 '服务初始化错误',
                 locale:Locale("zh-Hans","zh"),
 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: colors.textPrimary,
                 ),
               ),
             ],
@@ -117,20 +123,20 @@ style: TextStyle(
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.yellow.withOpacity(0.1),
+              color: warningColor.withOpacity(0.15),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.yellow.withOpacity(0.3)),
+              border: Border.all(color: warningColor.withOpacity(0.35)),
             ),
-            child: const Row(
+            child: Row(
               children: [
-                Icon(Icons.info, color: Colors.yellow, size: 16),
+                Icon(Icons.info, color: warningColor, size: 16),
                 SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     '这些错误不会影响其他功能的正常使用。您可以尝试重新配置服务器连接。',
                     locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                      color: Colors.white70,
+                      color: colors.textSecondary,
                       fontSize: 12,
                     ),
                   ),
@@ -144,20 +150,22 @@ style: TextStyle(
   }
 
   Widget _buildErrorItem(String serviceName, String errorMessage) {
+    final colors = context.nipaplayColors;
+    final errorColor = Theme.of(context).colorScheme.error;
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.red.withOpacity(0.1),
+        color: errorColor.withOpacity(0.12),
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: Colors.red.withOpacity(0.3)),
+        border: Border.all(color: errorColor.withOpacity(0.35)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             serviceName,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: colors.textPrimary,
               fontWeight: FontWeight.w500,
               fontSize: 13,
             ),
@@ -167,7 +175,7 @@ style: TextStyle(
             errorMessage,
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.red[300],
+              color: errorColor,
               fontSize: 12,
             ),
           ),

@@ -233,6 +233,12 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
 
   /// 构建自定义Tab选择器
   Widget _buildCustomTabSelector(double blurValue) {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final containerColor = colors.surface.withOpacity(isDark ? 0.45 : 0.9);
+    final borderColor = colors.border.withOpacity(isDark ? 0.55 : 0.4);
+    final indicatorColor = colors.surfaceMuted.withOpacity(isDark ? 0.6 : 0.95);
+    final indicatorBorder = colors.border.withOpacity(isDark ? 0.6 : 0.45);
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: BackdropFilter(
@@ -240,10 +246,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
         child: Container(
           height: 48,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: containerColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: borderColor,
               width: 0.5,
             ),
           ),
@@ -265,10 +271,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                     width: optionWidth,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
+                        color: indicatorColor,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.3),
+                          color: indicatorBorder,
                           width: 1,
                         ),
                       ),
@@ -295,8 +301,11 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
   }
 
   Widget _buildTabOption(String text, bool isDandanplay) {
+    final colors = context.nipaplayColors;
     final isActive = _showDandanplayPage == isDandanplay;
-    
+    final activeColor = colors.textPrimary;
+    final inactiveColor = colors.textSecondary;
+
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -310,7 +319,7 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
           text,
           locale: const Locale("zh-Hans", "zh"),
           style: TextStyle(
-            color: isActive ? Colors.white : Colors.white70,
+            color: isActive ? activeColor : inactiveColor,
             fontSize: 14,
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
           ),
@@ -537,6 +546,12 @@ style: TextStyle(color: textSecondary),
   }
 
   Widget _buildBangumiSyncSection(double blurValue) {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final containerColor = colors.surface.withOpacity(isDark ? 0.5 : 0.9);
+    final borderColor = colors.border.withOpacity(isDark ? 0.55 : 0.4);
+    final iconColor = colors.iconSecondary;
+    final titleColor = colors.textPrimary;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: BackdropFilter(
@@ -544,10 +559,10 @@ style: TextStyle(color: textSecondary),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: containerColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.3),
+              color: borderColor,
               width: 0.5,
             ),
           ),
@@ -556,15 +571,15 @@ style: TextStyle(color: textSecondary),
             children: [
               Row(
                 children: [
-                  const Icon(Icons.sync, color: Colors.white, size: 24),
+                  Icon(Icons.sync, color: iconColor, size: 24),
                   const SizedBox(width: 8),
-                  const Text(
+                  Text(
                     'Bangumi观看记录同步',
                     locale: Locale("zh-Hans", "zh"),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: titleColor,
                     ),
                   ),
                 ],
@@ -586,6 +601,15 @@ style: TextStyle(color: textSecondary),
   }
 
   Widget _buildBangumiLoggedInView() {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final infoBackground = colors.surfaceMuted.withOpacity(isDark ? 0.5 : 0.88);
+    final infoBorder = colors.border.withOpacity(isDark ? 0.5 : 0.4);
+    final successColor = Theme.of(context).colorScheme.secondary;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
+    final syncingBackground = colors.surface.withOpacity(isDark ? 0.45 : 0.9);
+    final syncingBorder = colors.border.withOpacity(isDark ? 0.4 : 0.35);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -593,16 +617,16 @@ style: TextStyle(color: textSecondary),
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: infoBackground,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: infoBorder,
               width: 0.5,
             ),
           ),
           child: Row(
             children: [
-              const Icon(Icons.check_circle, color: Colors.green, size: 20),
+              Icon(Icons.check_circle, color: successColor, size: 20),
               const SizedBox(width: 8),
               Expanded(
                 child: Column(
@@ -611,8 +635,8 @@ style: TextStyle(color: textSecondary),
                     Text(
                       '已连接到 ${bangumiUserInfo?['nickname'] ?? bangumiUserInfo?['username'] ?? 'Bangumi'}',
                       locale: const Locale("zh-Hans", "zh"),
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: textPrimary,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -620,8 +644,8 @@ style: TextStyle(color: textSecondary),
                       Text(
                         '上次同步: ${_formatDateTime(lastBangumiSyncTime!)}',
                         locale: const Locale("zh-Hans", "zh"),
-                        style: const TextStyle(
-                          color: Colors.white70,
+                        style: TextStyle(
+                          color: textSecondary,
                           fontSize: 12,
                         ),
                       ),
@@ -638,21 +662,21 @@ style: TextStyle(color: textSecondary),
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.2),
+              color: syncingBackground,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: Colors.blue.withOpacity(0.3),
+                color: syncingBorder,
                 width: 0.5,
               ),
             ),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    valueColor: AlwaysStoppedAnimation<Color>(successColor),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -660,7 +684,7 @@ style: TextStyle(color: textSecondary),
                   child: Text(
                     bangumiSyncStatus,
                     locale: const Locale("zh-Hans", "zh"),
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(color: textPrimary),
                   ),
                 ),
               ],
@@ -710,11 +734,11 @@ style: TextStyle(color: textSecondary),
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '同步本地观看历史到Bangumi收藏',
           locale: Locale("zh-Hans", "zh"),
           style: TextStyle(
-            color: Colors.white,
+            color: context.nipaplayColors.textPrimary,
             fontSize: 14,
           ),
         ),
@@ -723,11 +747,11 @@ style: TextStyle(color: textSecondary),
         // 可点击的URL链接
         Row(
           children: [
-            const Text(
+            Text(
               '需要在 ',
               locale: Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white70,
+                color: context.nipaplayColors.textSecondary,
                 fontSize: 12,
               ),
             ),
@@ -755,22 +779,22 @@ style: TextStyle(color: textSecondary),
                   }
                 }
               },
-              child: const Text(
+              child: Text(
                 'https://next.bgm.tv/demo/access-token',
                 locale: Locale("zh-Hans", "zh"),
                 style: TextStyle(
-                  color: Color(0xFF53A8DC), // 使用弹弹play的蓝色作为链接色
+                  color: context.nipaplayColors.accent,
                   fontSize: 12,
                   decoration: TextDecoration.underline,
-                  decorationColor: Color(0xFF53A8DC),
+                  decorationColor: context.nipaplayColors.accent.withOpacity(context.isDarkMode ? 0.7 : 0.5),
                 ),
               ),
             ),
-            const Text(
+            Text(
               ' 创建访问令牌',
               locale: Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white70,
+                color: context.nipaplayColors.textSecondary,
                 fontSize: 12,
               ),
             ),
@@ -781,22 +805,26 @@ style: TextStyle(color: textSecondary),
         // 令牌输入框
         Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: context.nipaplayColors.surfaceMuted
+                .withOpacity(context.isDarkMode ? 0.5 : 0.85),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: context.nipaplayColors.border
+                  .withOpacity(context.isDarkMode ? 0.55 : 0.4),
               width: 0.5,
             ),
           ),
           child: TextField(
             controller: bangumiTokenController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: '请输入Bangumi访问令牌',
-              hintStyle: TextStyle(color: Colors.white54),
+              hintStyle: TextStyle(
+                color: context.nipaplayColors.textSecondary.withOpacity(0.6),
+              ),
               border: InputBorder.none,
-              contentPadding: EdgeInsets.all(16),
+              contentPadding: const EdgeInsets.all(16),
             ),
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: context.nipaplayColors.textPrimary),
             obscureText: true,
           ),
         ),
@@ -821,6 +849,16 @@ style: TextStyle(color: textSecondary),
     VoidCallback? onPressed, {
     bool isDestructive = false,
   }) {
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final neutralBackground = colors.surfaceMuted.withOpacity(isDark ? 0.4 : 0.88);
+    final neutralBorder = colors.border.withOpacity(isDark ? 0.5 : 0.4);
+    final destructiveBackground = Theme.of(context).colorScheme.error.withOpacity(isDark ? 0.15 : 0.1);
+    final destructiveBorder = Theme.of(context).colorScheme.error.withOpacity(isDark ? 0.35 : 0.25);
+    final destructiveColor = Theme.of(context).colorScheme.error;
+    final enabledTextColor = isDestructive ? destructiveColor : colors.textPrimary;
+    final disabledColor = colors.textSecondary.withOpacity(0.4);
+    final enabledIconColor = isDestructive ? destructiveColor : colors.iconSecondary;
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -829,14 +867,10 @@ style: TextStyle(color: textSecondary),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
-            color: isDestructive 
-                ? Colors.red.withOpacity(0.2)
-                : Colors.white.withOpacity(0.1),
+            color: isDestructive ? destructiveBackground : neutralBackground,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: isDestructive
-                  ? Colors.red.withOpacity(0.3)
-                  : Colors.white.withOpacity(0.2),
+              color: isDestructive ? destructiveBorder : neutralBorder,
               width: 0.5,
             ),
           ),
@@ -846,8 +880,8 @@ style: TextStyle(color: textSecondary),
               Icon(
                 icon,
                 color: onPressed != null 
-                    ? (isDestructive ? Colors.red : Colors.white)
-                    : Colors.white38,
+                    ? enabledIconColor
+                    : disabledColor,
                 size: 16,
               ),
               const SizedBox(width: 6),
@@ -856,8 +890,8 @@ style: TextStyle(color: textSecondary),
                 locale: const Locale("zh-Hans", "zh"),
                 style: TextStyle(
                   color: onPressed != null 
-                      ? (isDestructive ? Colors.red : Colors.white)
-                      : Colors.white38,
+                      ? enabledTextColor
+                      : disabledColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
