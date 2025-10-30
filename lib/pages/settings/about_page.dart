@@ -7,6 +7,7 @@ import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:nipaplay/services/update_service.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -80,14 +81,19 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Using a dark theme context for text styles as an example, 
-    // assuming the page is shown over a dark-ish blurred background from TabBarView
+    final colors = context.nipaplayColors;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
+    final accent = colors.accent;
+    final errorColor = Theme.of(context).colorScheme.error;
+    final highlightShadow = errorColor.withOpacity(context.isDarkMode ? 0.35 : 0.18);
+    final linkColor = accent;
+    final linkUnderline = accent.withOpacity(context.isDarkMode ? 0.6 : 0.4);
+    final iconMuted = colors.iconSecondary.withOpacity(context.isDarkMode ? 0.85 : 0.7);
     final textTheme = Theme.of(context).textTheme.apply(
-      bodyColor: Colors.white,
-      displayColor: Colors.white,
-    );
-    // Use getTextStyle if it provides better themed styles
-    // final baseTextStyle = getTextStyle(context);
+          bodyColor: textPrimary,
+          displayColor: textPrimary,
+        );
 
     return SingleChildScrollView(
       physics: const AlwaysScrollableScrollPhysics(),
@@ -103,7 +109,11 @@ class _AboutPageState extends State<AboutPage> {
               'assets/logo.png', // Ensure this path is correct
               height: 120, // Adjust size as needed
               errorBuilder: (context, error, stackTrace) {
-                return const Icon(Ionicons.image_outline, size: 100, color: Colors.white70); // Placeholder if logo fails
+                return Icon(
+                  Ionicons.image_outline,
+                  size: 100,
+                  color: colors.iconSecondary,
+                );
               },
             ),
             const SizedBox(height: 24),
@@ -125,7 +135,7 @@ class _AboutPageState extends State<AboutPage> {
                         'NipaPlay Reload 当前版本: $_version',
                         style: textTheme.headlineMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: textPrimary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -139,17 +149,17 @@ class _AboutPageState extends State<AboutPage> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                         decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: errorColor,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.red.withOpacity(0.3),
+                              color: highlightShadow,
                               blurRadius: 4,
                               offset: const Offset(0, 2),
                             ),
                           ],
                         ),
-                        child: const Text(
+                        child: Text(
                           'NEW',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
@@ -172,10 +182,20 @@ style: TextStyle(
                 _buildRichText(
                   context,
                   [
-                    const TextSpan(text: 'NipaPlay,名字来自《寒蝉鸣泣之时》里古手梨花 (ふるて りか) 的标志性口头禅 "'),
-                    TextSpan(text: 'にぱ〜☆', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.pinkAccent[100], fontWeight: FontWeight.bold, fontStyle: FontStyle.italic)),
-                    const TextSpan(text: '" \n为解决我 macOS和Linux 、IOS看番不便。我创造了 NipaPlay。'),
+                    TextSpan(text: 'NipaPlay,名字来自《寒蝉鸣泣之时》里古手梨花 (ふるて りか) 的标志性口头禅 "', style: TextStyle(color: textSecondary)),
+                    TextSpan(
+                      text: 'にぱ〜☆',
+                      locale:Locale("zh-Hans","zh"),
+style: TextStyle(
+                        color: accent,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '" \n为解决我 macOS和Linux 、IOS看番不便。我创造了 NipaPlay。',
+                      style: TextStyle(color: textSecondary),
+                    ),
                   ],
                 ),
               ],
@@ -189,19 +209,35 @@ style: TextStyle(color: Colors.pinkAccent[100], fontWeight: FontWeight.bold, fon
                  _buildRichText(
                   context,
                   [
-                    const TextSpan(text: '感谢弹弹play (DandanPlay) 和开发者 '),
-                    TextSpan(text: 'Kaedei', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold)),
-                    const TextSpan(text: '！提供了 NipaPlay 相关api接口和开发帮助。'),
+                    TextSpan(
+                      text: '感谢弹弹play (DandanPlay) 和开发者 ',
+                      style: TextStyle(color: textSecondary),
+                    ),
+                    TextSpan(
+                      text: 'Kaedei',
+                      locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: accent, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                      text: '！提供了 NipaPlay 相关api接口和开发帮助。',
+                      style: TextStyle(color: textSecondary),
+                    ),
                   ]
                 ),
                 _buildRichText(
                   context,
                   [
-                    const TextSpan(text: '感谢开发者 '),
-                    TextSpan(text: 'Sakiko', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold)),
-                    const TextSpan(text: '！提供了Emby和Jellyfin的媒体库支持。'),
+                    TextSpan(
+                      text: '感谢开发者 ',
+                      style: TextStyle(color: textSecondary),
+                    ),
+                    TextSpan(
+                      text: 'Sakiko',
+                      locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: accent, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                      text: '！提供了Emby和Jellyfin的媒体库支持。',
+                      style: TextStyle(color: textSecondary),
+                    ),
                   ]
                 ),
               ],
@@ -215,7 +251,10 @@ style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold
                 _buildRichText(
                   context,
                   [
-                    const TextSpan(text: '欢迎贡献代码，或者将其发布到各个软件仓库。(不会 Dart 也没关系，用 Cursor 这种ai编程也是可以的。)'),
+                    TextSpan(
+                      text: '欢迎贡献代码，或者将其发布到各个软件仓库。(不会 Dart 也没关系，用 Cursor 这种ai编程也是可以的。)',
+                      style: TextStyle(color: textSecondary),
+                    ),
                   ]
                 ),
                 const SizedBox(height: 16),
@@ -226,15 +265,15 @@ style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.logo_github, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.logo_github, color: iconMuted, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'MCDFsteve/NipaPlay-Reload',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkUnderline,
                           ),
                         ),
                       ],
@@ -249,15 +288,15 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.chatbubbles_outline, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.chatbubbles_outline, color: iconMuted, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'QQ群: 961207150',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkUnderline,
                           ),
                         ),
                       ],
@@ -272,15 +311,15 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.globe_outline, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.globe_outline, color: iconMuted, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'NipaPlay 官方网站',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkUnderline,
                           ),
                         ),
                       ],
@@ -298,7 +337,10 @@ style: TextStyle(
                 _buildRichText(
                   context,
                   [
-                    const TextSpan(text: '如果你喜欢 NipaPlay 并且希望支持项目的持续开发，欢迎通过爱发电进行赞助。赞助者的名字将会出现在项目的 README 文件和每次软件更新后的关于页面名单中。'),
+                    TextSpan(
+                      text: '如果你喜欢 NipaPlay 并且希望支持项目的持续开发，欢迎通过爱发电进行赞助。赞助者的名字将会出现在项目的 README 文件和每次软件更新后的关于页面名单中。',
+                      style: TextStyle(color: textSecondary),
+                    ),
                   ]
                 ),
                 const SizedBox(height: 16),
@@ -309,14 +351,14 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.heart, color: Colors.pinkAccent[100], size: 20),
+                        Icon(Ionicons.heart, color: accent, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           '爱发电赞助页面',
                           style: TextStyle(
-                            color: Colors.pinkAccent[100],
+                            color: accent,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.pinkAccent[100]?.withOpacity(0.7),
+                            decorationColor: accent.withOpacity(context.isDarkMode ? 0.6 : 0.4),
                           ),
                         ),
                       ],
@@ -334,6 +376,9 @@ style: TextStyle(
   }
 
   Widget _buildInfoCard({required BuildContext context, String? title, required List<Widget> children}) {
+    final colors = context.nipaplayColors;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
     return SettingsCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -343,7 +388,7 @@ style: TextStyle(
             Text(
               title,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Colors.white, 
+                color: textPrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -356,11 +401,12 @@ style: TextStyle(
   }
 
   Widget _buildRichText(BuildContext context, List<InlineSpan> spans) {
+    final colors = context.nipaplayColors;
     return RichText(
       textAlign: TextAlign.start, // Or TextAlign.justify if preferred
       text: TextSpan(
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: Colors.white.withOpacity(0.9), 
+          color: colors.textSecondary,
           height: 1.6, // Improved line spacing
         ), // Default text style for spans
         children: spans,
