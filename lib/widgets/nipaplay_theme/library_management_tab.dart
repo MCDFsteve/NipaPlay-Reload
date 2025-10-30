@@ -46,8 +46,23 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
   ScanService? _scanService;
 
   NipaplayColors get _themePalette => context.nipaplayColors;
+  bool get _isDarkMode => context.isDarkMode;
+  Color get _primaryTextColor =>
+      _isDarkMode ? Colors.white : _themePalette.textPrimary;
   Color get _secondaryColor => _themePalette.textSecondary;
   Color get _mutedColor => _themePalette.textMuted;
+  Color get _primarySurfaceColor =>
+      _isDarkMode ? Colors.white.withOpacity(0.08) : _themePalette.surface;
+  Color get _mutedSurfaceColor =>
+      _isDarkMode ? Colors.white.withOpacity(0.05) : _themePalette.surfaceMuted;
+  Color get _borderColor => _isDarkMode
+      ? Colors.white.withOpacity(0.3)
+      : _themePalette.border.withOpacity(0.8);
+
+  Color _onSurfaceColor([double opacity = 1.0]) {
+    final base = _primaryTextColor;
+    return base.withOpacity(opacity.clamp(0.0, 1.0));
+  }
 
   // 排序相关状态
   int _sortOption = 0; // 0: 文件名升序, 1: 文件名降序, 2: 修改时间升序, 3: 修改时间降序, 4: 大小升序, 5: 大小降序
@@ -514,7 +529,10 @@ style: TextStyle(color: _mutedColor)),
           child: ExpansionTile(
             key: PageStorageKey<String>(dirPath),
             leading: Icon(Icons.folder_outlined, color: _secondaryColor),
-            title: Text(p.basename(dirPath), style: const TextStyle(color: Colors.white)),
+            title: Text(
+              p.basename(dirPath),
+              style: TextStyle(color: _primaryTextColor, fontSize: 16),
+            ),
             onExpansionChanged: (isExpanded) {
               if (isExpanded && _expandedFolderContents[dirPath] == null && !_loadingFolders.contains(dirPath)) {
                 // 使用 Future.microtask 确保在当前构建帧完成后执行
@@ -572,14 +590,17 @@ style: TextStyle(color: _mutedColor)),
               }
               
               return ListTile(
-                leading: const Icon(Icons.videocam_outlined, color: Colors.white),
-                title: Text(fileName, style: const TextStyle(color: Colors.white)),
+                leading: Icon(Icons.videocam_outlined, color: _primaryTextColor),
+                title: Text(
+                  fileName,
+                  style: TextStyle(color: _primaryTextColor, fontSize: 16),
+                ),
                 subtitle: subtitleText != null 
                     ? Text(
                         subtitleText,
                         locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
+                          color: _onSurfaceColor(0.7),
                           fontSize: 12,
                         ),
                         maxLines: 2,
@@ -645,7 +666,7 @@ style: TextStyle(
             '选择文件夹中文件和子文件夹的排序方式：',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: _onSurfaceColor(0.8),
               fontSize: 14,
             ),
             textAlign: TextAlign.center,
@@ -663,7 +684,11 @@ style: TextStyle(
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(vertical: 1),
                     child: Material(
-                      color: isSelected ? Colors.white.withOpacity(0.1) : Colors.transparent,
+                      color: isSelected
+                          ? (_isDarkMode
+                              ? Colors.white.withOpacity(0.08)
+                              : _themePalette.accent.withOpacity(0.12))
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(6),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(6),
@@ -687,8 +712,11 @@ style: TextStyle(
                                   option,
                                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                    color: isSelected ? Colors.lightBlueAccent : Colors.white70,
-                                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                    color: isSelected
+                                        ? _themePalette.accent
+                                        : _onSurfaceColor(0.7),
+                                    fontWeight:
+                                        isSelected ? FontWeight.bold : FontWeight.normal,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -1090,20 +1118,14 @@ style: TextStyle(color: Colors.lightBlueAccent)),
   @override
   Widget build(BuildContext context) {
     final nipaplayPalette = context.nipaplayColors;
-    final bool isDark = context.isDarkMode;
-    final Color primaryColor = isDark ? Colors.white : nipaplayPalette.textPrimary;
-    final Color secondaryColor = nipaplayPalette.textSecondary;
-    final Color mutedColor = nipaplayPalette.textMuted;
+    final bool isDark = _isDarkMode;
+    final Color primaryColor = _primaryTextColor;
+    final Color secondaryColor = _secondaryColor;
+    final Color mutedColor = _mutedColor;
     final Color accentColor = nipaplayPalette.accent;
-    final Color borderColor = isDark
-        ? Colors.white.withOpacity(0.25)
-        : nipaplayPalette.border.withOpacity(0.8);
-    final Color surfaceColor = isDark
-        ? Colors.white.withOpacity(0.08)
-        : nipaplayPalette.surface;
-    final Color surfaceMutedColor = isDark
-        ? Colors.white.withOpacity(0.05)
-        : nipaplayPalette.surfaceMuted;
+    final Color borderColor = _borderColor;
+    final Color surfaceColor = _primarySurfaceColor;
+    final Color surfaceMutedColor = _mutedSurfaceColor;
     final Color toggleSelectedColor = isDark
         ? Colors.white.withOpacity(0.22)
         : nipaplayPalette.accent.withOpacity(0.15);
@@ -1127,6 +1149,18 @@ style: TextStyle(color: secondaryColor, fontSize: 16),
     final scanService = Provider.of<ScanService>(context);
     final appearanceProvider = Provider.of<AppearanceSettingsProvider>(context);
     final bool enableBlur = appearanceProvider.enableWidgetBlurEffect;
+    final List<Color> primaryGlassGradient = isDark
+        ? [Colors.white.withOpacity(0.15), Colors.white.withOpacity(0.05)]
+        : [
+            surfaceColor.withOpacity(0.95),
+            surfaceMutedColor.withOpacity(0.95),
+          ];
+    final List<Color> primaryGlassBorderGradient = isDark
+        ? [Colors.white.withOpacity(0.3), Colors.white.withOpacity(0.1)]
+        : [
+            borderColor.withOpacity(0.6),
+            borderColor.withOpacity(0.3),
+          ];
     // final watchHistoryProvider = Provider.of<WatchHistoryProvider>(context, listen: false); // Keep if needed for other actions
 
     return Column(
@@ -1316,18 +1350,12 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   linearGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.white.withOpacity(0.15),
-                      Colors.white.withOpacity(0.05),
-                    ],
+                    colors: primaryGlassGradient,
                   ),
                   borderGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.white.withOpacity(0.3),
-                      Colors.white.withOpacity(0.1),
-                    ],
+                    colors: primaryGlassBorderGradient,
                   ),
                   child: Material(
                     color: Colors.transparent,
@@ -1353,7 +1381,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                             
                             return Text(
                               buttonText,
-                              style: const TextStyle(color: Colors.white, fontSize: 16),
+                              style: TextStyle(color: primaryColor, fontSize: 16),
                             );
                           },
                         ),
@@ -1377,28 +1405,22 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   linearGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.white.withOpacity(0.15),
-                      Colors.white.withOpacity(0.05),
-                    ],
+                    colors: primaryGlassGradient,
                   ),
                   borderGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.white.withOpacity(0.3),
-                      Colors.white.withOpacity(0.1),
-                    ],
+                    colors: primaryGlassBorderGradient,
                   ),
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: scanService.isScanning ? null : _showWebDAVConnectionDialog,
                       borderRadius: BorderRadius.circular(12),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           '添加WebDAV服务器',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(color: primaryColor, fontSize: 16),
                         ),
                       ),
                     ),
@@ -1490,9 +1512,9 @@ style: TextStyle(color: secondaryColor)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  change.displayName,
-                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+                               Text(
+                                 change.displayName,
+                                  style: TextStyle(color: _primaryTextColor, fontWeight: FontWeight.w500),
                                 ),
                                 Text(
                                   change.changeDescription,
@@ -1555,9 +1577,9 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                 Text('排序方式：', locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor, fontSize: 14)),
                 const SizedBox(width: 8),
-                TextButton.icon(
+               TextButton.icon(
                   onPressed: _showSortOptionsDialog,
-                  icon: const Icon(Icons.sort, color: Colors.white, size: 18),
+                  icon: Icon(Icons.sort, color: _primaryTextColor, size: 18),
                   label: Text(
                     [
                       '文件名 (A→Z)',
@@ -1567,7 +1589,7 @@ style: TextStyle(color: secondaryColor, fontSize: 14)),
                       '文件大小 (小→大)',
                       '文件大小 (大→小)',
                     ][_sortOption],
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(color: _primaryTextColor, fontSize: 14),
                   ),
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -1932,10 +1954,10 @@ style: TextStyle(color: Colors.redAccent)),
         
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: _mutedSurfaceColor,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.1),
+              color: _borderColor,
               width: 0.5,
             ),
           ),
@@ -1947,7 +1969,7 @@ style: TextStyle(color: Colors.redAccent)),
                   Expanded(
                     child: Text(
                       p.basename(folderPath),
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(color: _primaryTextColor, fontSize: 16),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -1958,7 +1980,7 @@ style: TextStyle(color: Colors.redAccent)),
                 child: Text(
                   displayPath,
                   locale:Locale("zh-Hans","zh"),
-                  style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
+                  style: TextStyle(color: _onSurfaceColor(0.6), fontSize: 11),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -1966,13 +1988,13 @@ style: TextStyle(color: Colors.redAccent)),
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.delete_outline, color: Colors.white, size: 22),
+                    icon: Icon(Icons.delete_outline, color: _secondaryColor, size: 22),
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     constraints: const BoxConstraints(),
                     onPressed: scanService.isScanning ? null : () => _handleRemoveFolder(folderPath),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.refresh_rounded, color: Colors.white, size: 22),
+                    icon: Icon(Icons.refresh_rounded, color: _secondaryColor, size: 22),
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     constraints: const BoxConstraints(),
                     onPressed: scanService.isScanning
@@ -2066,10 +2088,10 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: _mutedSurfaceColor,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.white.withOpacity(0.3),
+          color: _borderColor,
           width: 1,
         ),
       ),
@@ -2077,27 +2099,29 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         key: PageStorageKey<String>('webdav_${connection.name}'),
         leading: Icon(
           Icons.cloud,
-          color: Colors.white,
+          color: _primaryTextColor,
         ),
         title: Row(
           children: [
             Expanded(
               child: Text(
                 connection.name,
-                style: const TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: _primaryTextColor, fontSize: 16),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
+                color: _isDarkMode
+                    ? Colors.white.withOpacity(0.2)
+                    : _themePalette.accent.withOpacity(0.12),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
                 connection.isConnected ? '已连接' : '未连接',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: _primaryTextColor,
                   fontSize: 10,
                 ),
               ),
@@ -2108,7 +2132,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           padding: const EdgeInsets.only(top: 4.0),
           child: Text(
             connection.url,
-            style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
+            style: TextStyle(color: _onSurfaceColor(0.6), fontSize: 11),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -2188,13 +2212,13 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             leading: Icon(Icons.folder_outlined, color: _secondaryColor),
             title: Text(
               file.name,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: _primaryTextColor),
             ),
             trailing: TextButton(
               onPressed: () => _scanWebDAVFolder(connection, file.path, file.name),
-              child: const Text(
+              child: Text(
                 '扫描',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: _primaryTextColor),
               ),
             ),
             onExpansionChanged: (isExpanded) {
@@ -2209,10 +2233,10 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         return Padding(
           padding: const EdgeInsets.only(left: 32.0),
           child: ListTile(
-            leading: const Icon(Icons.videocam_outlined, color: Colors.white),
+            leading: Icon(Icons.videocam_outlined, color: _primaryTextColor),
             title: Text(
               file.name,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: _primaryTextColor),
             ),
             subtitle: file.size != null
                 ? Text(
@@ -2272,7 +2296,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
-          child: const Text('扫描', style: TextStyle(color: Colors.white)),
+          child: Text('扫描', style: TextStyle(color: _themePalette.accent)),
           onPressed: () => Navigator.of(context).pop(true),
         ),
       ],
