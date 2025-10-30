@@ -28,6 +28,20 @@ class _AnimeInfoWidgetState extends State<AnimeInfoWidget> {
       return const SizedBox.shrink();
     }
 
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.brightness == Brightness.dark;
+    final primaryTextColor = isDarkTheme ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkTheme ? Colors.white70 : Colors.black54;
+    final gradientStart = isDarkTheme
+        ? const Color(0xFF808080).withOpacity(0.3)
+        : Colors.black.withOpacity(0.15);
+    final gradientEnd = isDarkTheme
+        ? const Color(0xFF808080).withOpacity(0.3)
+        : Colors.black.withOpacity(0.1);
+    final borderGradientColor = isDarkTheme
+        ? const Color(0xFFFFFFFF).withOpacity(0.5)
+        : Colors.black.withOpacity(0.3);
+
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 150),
       opacity: widget.videoState.showControls ? 1.0 : 0.0,
@@ -57,16 +71,16 @@ class _AnimeInfoWidgetState extends State<AnimeInfoWidget> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    const Color(0xFF808080).withOpacity(0.3),
-                    const Color(0xFF808080).withOpacity(0.3),
+                    gradientStart,
+                    gradientEnd,
                   ],
                 ),
                 borderGradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    const Color(0xFFffffff).withOpacity(0.5),
-                    const Color(0xFFFFFFFF).withOpacity(0.5),
+                    borderGradientColor,
+                    borderGradientColor,
                   ],
                 ),
                 child: Padding(
@@ -78,8 +92,8 @@ class _AnimeInfoWidgetState extends State<AnimeInfoWidget> {
                       Flexible(
                         child: Text(
                           widget.videoState.animeTitle!,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: primaryTextColor,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
@@ -100,8 +114,8 @@ class _AnimeInfoWidgetState extends State<AnimeInfoWidget> {
                             duration: const Duration(milliseconds: 200),
                             style: TextStyle(
                               color: _isEpisodeHovered
-                                  ? Colors.white
-                                  : Colors.white70,
+                                  ? primaryTextColor
+                                  : secondaryTextColor,
                               fontSize: 14,
                             ),
                             child: Text(
