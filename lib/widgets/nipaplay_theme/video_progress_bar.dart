@@ -5,6 +5,7 @@ import 'tooltip_bubble.dart';
 import 'dart:ui';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class VideoProgressBar extends StatefulWidget {
   final VideoPlayerState videoState;
@@ -36,6 +37,11 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
   OverlayEntry? _overlayEntry;
   DateTime? _lastSeekTime;
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
   @override
   void dispose() {
     _removeOverlay();
@@ -49,8 +55,9 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
 
   void _showOverlay(BuildContext context, double progress) {
     _removeOverlay();
-    
-    final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+
+    final RenderBox? sliderBox =
+        _sliderKey.currentContext?.findRenderObject() as RenderBox?;
     if (sliderBox == null) return;
 
     final position = sliderBox.localToGlobal(Offset.zero);
@@ -69,14 +76,25 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0),
+                  filter: ImageFilter.blur(
+                      sigmaX: context
+                              .watch<AppearanceSettingsProvider>()
+                              .enableWidgetBlurEffect
+                          ? 10
+                          : 0,
+                      sigmaY: context
+                              .watch<AppearanceSettingsProvider>()
+                              .enableWidgetBlurEffect
+                          ? 10
+                          : 0),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: _foregroundColor(context, 0.2),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: _foregroundColor(context, 0.3),
                         width: 0.5,
                       ),
                       boxShadow: [
@@ -90,7 +108,7 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                     child: Text(
                       widget.formatDuration(widget.videoState.position),
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: _foregroundColor(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -117,38 +135,41 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
       },
       onHover: (event) {
         if (!_isHovering || widget.isDragging) return;
-        
-        final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+
+        final RenderBox? sliderBox =
+            _sliderKey.currentContext?.findRenderObject() as RenderBox?;
         if (sliderBox != null) {
           final localPosition = sliderBox.globalToLocal(event.position);
           final width = sliderBox.size.width;
-          
+
           final progress = (localPosition.dx / width).clamp(0.0, 1.0);
           final time = Duration(
-            milliseconds: (progress * widget.videoState.duration.inMilliseconds).toInt(),
+            milliseconds:
+                (progress * widget.videoState.duration.inMilliseconds).toInt(),
           );
-          
-          final progressRect = Rect.fromLTWH(0, 0, width, sliderBox.size.height);
+
+          final progressRect =
+              Rect.fromLTWH(0, 0, width, sliderBox.size.height);
           final thumbSize = globals.isPhone ? 20.0 : 12.0;
           final thumbSizeHovered = globals.isPhone ? 24.0 : 16.0;
-          final currentThumbSize = _isThumbHovered ? thumbSizeHovered : thumbSize;
+          final currentThumbSize =
+              _isThumbHovered ? thumbSizeHovered : thumbSize;
           final halfThumbSize = currentThumbSize / 2;
           final verticalMargin = globals.isPhone ? 24.0 : 20.0;
           final trackHeight = globals.isPhone ? 6.0 : 4.0;
           final thumbRect = Rect.fromLTWH(
-            (widget.videoState.progress * width) - halfThumbSize,
-            verticalMargin + (trackHeight / 2) - halfThumbSize,
-            currentThumbSize,
-            currentThumbSize
-          );
-          
+              (widget.videoState.progress * width) - halfThumbSize,
+              verticalMargin + (trackHeight / 2) - halfThumbSize,
+              currentThumbSize,
+              currentThumbSize);
+
           setState(() {
             _isThumbHovered = thumbRect.contains(localPosition);
           });
-          
-          if (localPosition.dx >= progressRect.left && 
+
+          if (localPosition.dx >= progressRect.left &&
               localPosition.dx <= progressRect.right &&
-              localPosition.dy >= progressRect.top && 
+              localPosition.dy >= progressRect.top &&
               localPosition.dy <= progressRect.bottom) {
             if (_localHoverTime != time) {
               setState(() {
@@ -205,7 +226,8 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
             // 安全地计算进度值
             double progress = 0.0;
             if (widget.videoState.duration.inMilliseconds > 0) {
-              progress = (widget.videoState.position.inMilliseconds / widget.videoState.duration.inMilliseconds)
+              progress = (widget.videoState.position.inMilliseconds /
+                      widget.videoState.duration.inMilliseconds)
                   .clamp(0.0, 1.0);
             } else {
               // 如果总时长为0或无效，则进度也为0
@@ -221,10 +243,12 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
             final verticalMargin = globals.isPhone ? 24.0 : 20.0;
             final thumbSize = globals.isPhone ? 20.0 : 12.0;
             final thumbSizeHovered = globals.isPhone ? 24.0 : 16.0;
-            final currentThumbSize = _isThumbHovered || widget.isDragging ? thumbSizeHovered : thumbSize;
+            final currentThumbSize = _isThumbHovered || widget.isDragging
+                ? thumbSizeHovered
+                : thumbSize;
             final halfThumbSize = currentThumbSize / 2;
-            
-            return widget.isDragging 
+
+            return widget.isDragging
                 ? Stack(
                     key: _sliderKey,
                     clipBehavior: Clip.none,
@@ -234,7 +258,7 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                         height: trackHeight,
                         margin: EdgeInsets.symmetric(vertical: verticalMargin),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: _foregroundColor(context, 0.2),
                           borderRadius: BorderRadius.circular(trackHeight / 2),
                         ),
                       ),
@@ -249,11 +273,12 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                           child: Container(
                             height: trackHeight,
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.5),
-                              borderRadius: BorderRadius.circular(trackHeight / 2),
+                              color: _foregroundColor(context, 0.5),
+                              borderRadius:
+                                  BorderRadius.circular(trackHeight / 2),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.white.withOpacity(0.3),
+                                  color: _foregroundColor(context, 0.3),
                                   blurRadius: 2,
                                   spreadRadius: 0.5,
                                 ),
@@ -274,12 +299,15 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                             width: currentThumbSize,
                             height: currentThumbSize,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: _foregroundColor(context),
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.2),
-                                  blurRadius: _isThumbHovered || widget.isDragging ? 6 : 4,
+                                  blurRadius:
+                                      _isThumbHovered || widget.isDragging
+                                          ? 6
+                                          : 4,
                                   offset: const Offset(0, 2),
                                 ),
                               ],
@@ -290,8 +318,8 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                     ],
                   )
                 : TooltipBubble(
-                    text: _isHovering && _localHoverTime != null 
-                        ? widget.formatDuration(_localHoverTime!) 
+                    text: _isHovering && _localHoverTime != null
+                        ? widget.formatDuration(_localHoverTime!)
                         : '',
                     showOnTop: true,
                     followMouse: true,
@@ -304,10 +332,12 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                         // 背景轨道
                         Container(
                           height: trackHeight,
-                          margin: EdgeInsets.symmetric(vertical: verticalMargin),
+                          margin:
+                              EdgeInsets.symmetric(vertical: verticalMargin),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(trackHeight / 2),
+                            color: _foregroundColor(context, 0.2),
+                            borderRadius:
+                                BorderRadius.circular(trackHeight / 2),
                           ),
                         ),
                         // 进度轨道
@@ -321,11 +351,12 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                             child: Container(
                               height: trackHeight,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.5),
-                                borderRadius: BorderRadius.circular(trackHeight / 2),
+                                color: _foregroundColor(context, 0.5),
+                                borderRadius:
+                                    BorderRadius.circular(trackHeight / 2),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.white.withOpacity(0.3),
+                                    color: _foregroundColor(context, 0.3),
                                     blurRadius: 2,
                                     spreadRadius: 0.5,
                                   ),
@@ -336,8 +367,11 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                         ),
                         // 滑块
                         Positioned(
-                          left: (progress * constraints.maxWidth) - halfThumbSize,
-                          top: verticalMargin + (trackHeight / 2) - halfThumbSize,
+                          left:
+                              (progress * constraints.maxWidth) - halfThumbSize,
+                          top: verticalMargin +
+                              (trackHeight / 2) -
+                              halfThumbSize,
                           child: MouseRegion(
                             cursor: SystemMouseCursors.click,
                             child: AnimatedContainer(
@@ -346,12 +380,15 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
                               width: currentThumbSize,
                               height: currentThumbSize,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: _foregroundColor(context),
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.2),
-                                    blurRadius: _isThumbHovered || widget.isDragging ? 6 : 4,
+                                    blurRadius:
+                                        _isThumbHovered || widget.isDragging
+                                            ? 6
+                                            : 4,
                                     offset: const Offset(0, 2),
                                   ),
                                 ],
@@ -369,16 +406,18 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
   }
 
   void _updateProgressFromPosition(Offset localPosition) {
-    final RenderBox? sliderBox = _sliderKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? sliderBox =
+        _sliderKey.currentContext?.findRenderObject() as RenderBox?;
     if (sliderBox != null) {
       final width = sliderBox.size.width;
       final progress = (localPosition.dx / width).clamp(0.0, 1.0);
       final time = Duration(
-        milliseconds: (progress * widget.videoState.duration.inMilliseconds).toInt(),
+        milliseconds:
+            (progress * widget.videoState.duration.inMilliseconds).toInt(),
       );
-      
+
       widget.videoState.seekTo(time);
-      
+
       if (_localHoverTime != time) {
         setState(() {
           _localHoverTime = time;

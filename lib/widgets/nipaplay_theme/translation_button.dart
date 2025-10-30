@@ -9,6 +9,7 @@ import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class TranslationButton extends StatefulWidget {
   final int animeId;
@@ -38,17 +39,26 @@ class _TranslationButtonState extends State<TranslationButton> {
   bool _isTranslating = false;
   String? _errorMessage;
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  Color _secondaryForeground(BuildContext context) =>
+      ThemeColorUtils.secondaryForeground(context);
+
   Future<String?> _translateSummary(String text) async {
     try {
       setState(() {
         _isTranslating = true;
         _errorMessage = null;
       });
-      
+
       final appSecret = await DandanplayService.getAppSecret();
       ////debugPrint('开始请求翻译...');
-      
-      final response = await http.post(
+
+      final response = await http
+          .post(
         Uri.parse('https://nipaplay.aimes-soft.com/tran.php'),
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +67,8 @@ class _TranslationButtonState extends State<TranslationButton> {
           'appSecret': appSecret,
           'text': text,
         }),
-      ).timeout(
+      )
+          .timeout(
         const Duration(seconds: 15),
         onTimeout: () {
           throw TimeoutException('翻译请求超时');
@@ -113,10 +124,10 @@ class _TranslationButtonState extends State<TranslationButton> {
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: _foregroundColor(context, 0.1),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: _foregroundColor(context, 0.2),
               width: 1,
             ),
             boxShadow: [
@@ -130,25 +141,32 @@ class _TranslationButtonState extends State<TranslationButton> {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: _isTranslating ? null : () async {
-                if (!widget.translatedSummaries.containsKey(widget.animeId)) {
-                  ////debugPrint('未找到缓存翻译，开始请求翻译...');
-                  final translation = await _translateSummary(widget.summary);
-                  if (translation != null) {
-                    ////debugPrint('翻译成功，更新状态');
-                    final updatedTranslations = Map<int, String>.from(widget.translatedSummaries);
-                    updatedTranslations[widget.animeId] = translation;
-                    widget.onTranslationUpdated(updatedTranslations);
-                    widget.onTranslationStateChanged(true);
-                  }
-                } else {
-                  ////debugPrint('使用缓存翻译');
-                  widget.onTranslationStateChanged(!widget.isShowingTranslation);
-                }
-              },
+              onTap: _isTranslating
+                  ? null
+                  : () async {
+                      if (!widget.translatedSummaries
+                          .containsKey(widget.animeId)) {
+                        ////debugPrint('未找到缓存翻译，开始请求翻译...');
+                        final translation =
+                            await _translateSummary(widget.summary);
+                        if (translation != null) {
+                          ////debugPrint('翻译成功，更新状态');
+                          final updatedTranslations =
+                              Map<int, String>.from(widget.translatedSummaries);
+                          updatedTranslations[widget.animeId] = translation;
+                          widget.onTranslationUpdated(updatedTranslations);
+                          widget.onTranslationStateChanged(true);
+                        }
+                      } else {
+                        ////debugPrint('使用缓存翻译');
+                        widget.onTranslationStateChanged(
+                            !widget.isShowingTranslation);
+                      }
+                    },
               borderRadius: BorderRadius.circular(8),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -158,7 +176,8 @@ class _TranslationButtonState extends State<TranslationButton> {
                         height: 16,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              _foregroundColor(context)),
                         ),
                       )
                     else if (_errorMessage != null)
@@ -168,10 +187,10 @@ class _TranslationButtonState extends State<TranslationButton> {
                         color: Colors.red[300],
                       )
                     else
-                      const Icon(
+                      Icon(
                         Ionicons.language,
                         size: 16,
-                        color: Colors.white,
+                        color: _foregroundColor(context),
                       ),
                     const SizedBox(width: 6),
                     Text(
@@ -179,12 +198,17 @@ class _TranslationButtonState extends State<TranslationButton> {
                           ? '翻译中...'
                           : (_errorMessage != null
                               ? '重试'
-                              : (widget.translatedSummaries.containsKey(widget.animeId)
-                                  ? (widget.isShowingTranslation ? '显示原文' : '显示翻译')
+                              : (widget.translatedSummaries
+                                      .containsKey(widget.animeId)
+                                  ? (widget.isShowingTranslation
+                                      ? '显示原文'
+                                      : '显示翻译')
                                   : '翻译为中文')),
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: _errorMessage != null ? Colors.red[300] : Colors.white,
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: _errorMessage != null
+                            ? Colors.red[300]
+                            : _foregroundColor(context),
                         fontSize: 14,
                       ),
                     ),
@@ -197,4 +221,4 @@ style: TextStyle(
       ),
     );
   }
-} 
+}

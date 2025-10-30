@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class TooltipBubble extends StatefulWidget {
   final String text;
@@ -37,6 +38,11 @@ class _TooltipBubbleState extends State<TooltipBubble> {
   OverlayEntry? _overlayEntry;
   Offset? _mousePosition;
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
   void _updateOverlay(BuildContext context, [Offset? newMousePosition]) {
     if (newMousePosition != null) {
       _mousePosition = newMousePosition;
@@ -48,12 +54,13 @@ class _TooltipBubbleState extends State<TooltipBubble> {
   }
 
   void _showOverlay(BuildContext context) {
-    final RenderBox renderBox = _childKey.currentContext?.findRenderObject() as RenderBox;
+    final RenderBox renderBox =
+        _childKey.currentContext?.findRenderObject() as RenderBox;
     final position = renderBox.localToGlobal(Offset.zero);
     final size = renderBox.size;
     final bubbleWidth = _getBubbleWidth();
     final bubbleHeight = _getBubbleHeight();
-    
+
     // 添加调试日志
     //debugPrint('[TooltipBubble] 显示气泡，文本: "${widget.text}", 宽度: $bubbleWidth');
 
@@ -62,12 +69,12 @@ class _TooltipBubbleState extends State<TooltipBubble> {
 
     if (widget.position != null) {
       left = widget.position! - bubbleWidth / 2;
-      top = widget.showOnTop 
+      top = widget.showOnTop
           ? position.dy - bubbleHeight - widget.verticalOffset
           : position.dy + size.height + widget.verticalOffset;
     } else if (widget.followMouse && _mousePosition != null) {
       left = _mousePosition!.dx - bubbleWidth / 2;
-      top = widget.showOnTop 
+      top = widget.showOnTop
           ? _mousePosition!.dy - bubbleHeight - widget.verticalOffset
           : _mousePosition!.dy + widget.verticalOffset;
     } else if (widget.showOnRight) {
@@ -75,7 +82,7 @@ class _TooltipBubbleState extends State<TooltipBubble> {
       top = position.dy + (size.height - bubbleHeight) / 2;
     } else {
       left = position.dx + (size.width - bubbleWidth) / 2;
-      top = widget.showOnTop 
+      top = widget.showOnTop
           ? position.dy - bubbleHeight - widget.verticalOffset
           : position.dy + size.height + widget.verticalOffset;
     }
@@ -107,14 +114,14 @@ class _TooltipBubbleState extends State<TooltipBubble> {
       textDirection: TextDirection.ltr,
       maxLines: 1,
     )..layout(minWidth: 0, maxWidth: double.infinity);
-    
+
     // 增加额外的宽度，确保组合键能够完整显示
     final String lowerText = widget.text.toLowerCase();
-    if (lowerText.contains('shift') || 
-        lowerText.contains('ctrl') || 
-        lowerText.contains('command') || 
-        lowerText.contains('tab') || 
-        lowerText.contains('alt') || 
+    if (lowerText.contains('shift') ||
+        lowerText.contains('ctrl') ||
+        lowerText.contains('command') ||
+        lowerText.contains('tab') ||
+        lowerText.contains('alt') ||
         lowerText.contains('esc')) {
       return textPainter.width + widget.padding * 2 + 20;
     } else {
@@ -161,12 +168,12 @@ class _TooltipBubbleState extends State<TooltipBubble> {
   }
 
   Widget _buildBubble(double width) {
-    const textStyle = TextStyle(
-      color: Colors.white,
+    final textStyle = TextStyle(
+      color: _foregroundColor(context),
       fontSize: 12,
       fontWeight: FontWeight.w500,
     );
-    
+
     return Container(
       width: width,
       height: _getBubbleHeight(),
@@ -183,13 +190,23 @@ class _TooltipBubbleState extends State<TooltipBubble> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0),
+          filter: ImageFilter.blur(
+              sigmaX: context
+                      .watch<AppearanceSettingsProvider>()
+                      .enableWidgetBlurEffect
+                  ? 10
+                  : 0,
+              sigmaY: context
+                      .watch<AppearanceSettingsProvider>()
+                      .enableWidgetBlurEffect
+                  ? 10
+                  : 0),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: _foregroundColor(context, 0.2),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: Colors.white.withOpacity(0.3),
+                color: _foregroundColor(context, 0.3),
                 width: 0.5,
               ),
             ),
@@ -210,4 +227,4 @@ class _TooltipBubbleState extends State<TooltipBubble> {
       ),
     );
   }
-} 
+}

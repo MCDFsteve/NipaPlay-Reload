@@ -5,6 +5,7 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_video_upload_control.dart';
 import 'dart:io' as io;
 import 'package:universal_html/html.dart' as web_html;
@@ -27,10 +28,20 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
   bool _isHovered = false;
   bool _isPressed = false;
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  Color _secondaryForeground(BuildContext context) =>
+      ThemeColorUtils.secondaryForeground(context);
+
   @override
   Widget build(BuildContext context) {
     final uiThemeProvider =
         Provider.of<UIThemeProvider>(context, listen: false);
+    final baseColor = _foregroundColor(context);
+    final secondaryColor = _secondaryForeground(context);
 
     if (uiThemeProvider.isFluentUITheme) {
       // 使用 FluentUI 版本
@@ -83,14 +94,14 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
             const Icon(
               Icons.video_library,
               size: 64,
-              color: Colors.white,
+              color: _foregroundColor(context),
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               '上传视频开始播放',
               locale: Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white,
+                color: _foregroundColor(context),
                 fontSize: 18,
               ),
             ),
@@ -124,28 +135,24 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              const Color(0xFFffffff)
-                                  .withOpacity(_isHovered ? 0.15 : 0.1),
-                              const Color(0xFFFFFFFF)
-                                  .withOpacity(_isHovered ? 0.1 : 0.05),
+                              baseColor.withOpacity(_isHovered ? 0.15 : 0.1),
+                              baseColor.withOpacity(_isHovered ? 0.1 : 0.05),
                             ],
                           ),
                           borderGradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              const Color(0xFFffffff)
-                                  .withOpacity(_isHovered ? 0.7 : 0.5),
-                              const Color((0xFFFFFFFF))
-                                  .withOpacity(_isHovered ? 0.7 : 0.5),
+                              baseColor.withOpacity(_isHovered ? 0.7 : 0.5),
+                              baseColor.withOpacity(_isHovered ? 0.7 : 0.5),
                             ],
                           ),
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               '选择视频',
                               locale: Locale("zh-Hans", "zh"),
                               style: TextStyle(
-                                color: Colors.white,
+                                color: _foregroundColor(context),
                                 fontSize: 16,
                               ),
                             ),
@@ -162,8 +169,8 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
                               onTapCancel: () =>
                                   setState(() => _isPressed = false),
                               onTap: _handleUploadVideo,
-                              splashColor: Colors.white.withOpacity(0.2),
-                              highlightColor: Colors.white.withOpacity(0.1),
+                              splashColor: _foregroundColor(context, 0.2),
+                              highlightColor: _foregroundColor(context, 0.1),
                             ),
                           ),
                         ),
@@ -218,18 +225,18 @@ class _VideoUploadUIState extends State<VideoUploadUI> {
               onPressed: () {
                 Navigator.of(context).pop('album');
               },
-              child: const Text(
+              child: Text(
                 '相册',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: _foregroundColor(context)),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop('file'); // 先 pop
               },
-              child: const Text(
+              child: Text(
                 '文件管理器',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: _foregroundColor(context)),
               ),
             ),
           ],

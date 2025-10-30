@@ -18,6 +18,7 @@ import 'danmaku_offset_menu.dart';
 import 'jellyfin_quality_menu.dart';
 import 'playback_info_menu.dart';
 import 'seek_step_menu.dart';
+import 'theme_color_utils.dart';
 
 class VideoSettingsMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -38,6 +39,11 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
   bool _showDanmakuSettings = false;
   bool _showAudioTracks = false;
   bool _showDanmakuList = false;
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
   bool _showDanmakuTracks = false;
   bool _showSubtitleList = false;
   bool _showPlaylist = false;
@@ -71,10 +77,10 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
     videoState = Provider.of<VideoPlayerState>(context, listen: false);
     // 获取当前播放器内核类型
     _currentKernelType = PlayerFactory.getKernelType();
-    
+
     // 根据当前播放器内核类型决定显示哪些菜单项
     _settingsItems = [];
-    
+
     // 字幕轨道 - 当内核为MDK时显示
     if (_currentKernelType != PlayerKernelType.videoPlayer) {
       _settingsItems.add(SettingsItem(
@@ -84,7 +90,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
         isActive: () => _showSubtitleTracks,
       ));
     }
-    
+
     // 字幕列表 - 当内核为MDK时显示
     if (_currentKernelType != PlayerKernelType.videoPlayer) {
       _settingsItems.add(SettingsItem(
@@ -94,7 +100,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
         isActive: () => _showSubtitleList,
       ));
     }
-    
+
     // 音频轨道 - 当内核为MDK时显示
     if (_currentKernelType != PlayerKernelType.videoPlayer) {
       _settingsItems.add(SettingsItem(
@@ -104,7 +110,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
         isActive: () => _showAudioTracks,
       ));
     }
-    
+
     // 以下菜单项无论什么内核都显示
     _settingsItems.add(SettingsItem(
       icon: Icons.text_fields,
@@ -112,35 +118,35 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
       onTap: _toggleDanmakuSettingsMenu,
       isActive: () => _showDanmakuSettings,
     ));
-    
+
     _settingsItems.add(SettingsItem(
       icon: Icons.track_changes,
       title: '弹幕轨道',
       onTap: _toggleDanmakuTracksMenu,
       isActive: () => _showDanmakuTracks,
     ));
-    
+
     _settingsItems.add(SettingsItem(
       icon: Icons.list_alt_outlined,
       title: '弹幕列表',
       onTap: _toggleDanmakuListMenu,
       isActive: () => _showDanmakuList,
     ));
-    
+
     _settingsItems.add(SettingsItem(
       icon: Icons.schedule,
       title: '弹幕偏移',
       onTap: _toggleDanmakuOffsetMenu,
       isActive: () => _showDanmakuOffset,
     ));
-    
+
     _settingsItems.add(SettingsItem(
       icon: Icons.height,
       title: '控件设置',
       onTap: _toggleControlBarSettingsMenu,
       isActive: () => _showControlBarSettings,
     ));
-    
+
     // 添加倍速设置菜单项
     _settingsItems.add(SettingsItem(
       icon: Icons.speed,
@@ -148,10 +154,10 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
       onTap: _togglePlaybackRateMenu,
       isActive: () => _showPlaybackRate,
     ));
-    
+
     // 添加 Jellyfin/Emby 转码清晰度设置（播放 Jellyfin 或 Emby 内容时显示，同复用 JellyfinQualityMenu UI）
     if (videoState.currentVideoPath?.startsWith('jellyfin://') == true ||
-      videoState.currentVideoPath?.startsWith('emby://') == true) {
+        videoState.currentVideoPath?.startsWith('emby://') == true) {
       _settingsItems.add(SettingsItem(
         icon: Icons.hd,
         title: '清晰度',
@@ -159,7 +165,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
         isActive: () => _showJellyfinQuality,
       ));
     }
-    
+
     // 播放信息 - 当有视频播放时显示
     if (videoState.currentVideoPath != null) {
       _settingsItems.add(SettingsItem(
@@ -169,7 +175,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
         isActive: () => _showPlaybackInfo,
       ));
     }
-    
+
     // 播放设置 - 始终显示
     _settingsItems.add(SettingsItem(
       icon: Icons.settings,
@@ -177,7 +183,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
       onTap: _toggleSeekStepMenu,
       isActive: () => _showSeekStep,
     ));
-    
+
     // 剧集列表 - 当有视频文件时显示（整合了API、数据库、文件系统三种模式）
     if (videoState.currentVideoPath != null || videoState.animeId != null) {
       _settingsItems.add(SettingsItem(
@@ -211,7 +217,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
           _showDanmakuOffset = false;
         });
       }
-      
+
       _subtitleTracksOverlay = OverlayEntry(
         builder: (context) => SubtitleTracksMenu(
           onClose: () {
@@ -250,7 +256,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
           _showDanmakuOffset = false;
         });
       }
-      
+
       _audioTracksOverlay = OverlayEntry(
         builder: (context) => AudioTracksMenu(
           onClose: () {
@@ -525,7 +531,7 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
     _playbackInfoOverlay = null;
     _seekStepOverlay?.remove();
     _seekStepOverlay = null;
-    
+
     // 只有在组件仍然挂载时才调用setState
     if (mounted) {
       setState(() {
@@ -573,11 +579,11 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
     _subtitleListOverlay?.remove();
     _playlistOverlay?.remove();
     _danmakuOffsetOverlay?.remove();
-    
+
     for (var entry in _overlayEntries) {
       entry.remove();
     }
-    
+
     super.dispose();
   }
 
@@ -586,10 +592,10 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
     return Consumer<VideoPlayerState>(
       builder: (context, videoState, child) {
         final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-        final backgroundColor = isDarkMode 
+        final backgroundColor = isDarkMode
             ? const Color.fromARGB(255, 130, 130, 130).withOpacity(0.5)
             : const Color.fromARGB(255, 193, 193, 193).withOpacity(0.5);
-        final borderColor = Colors.white.withOpacity(0.5);
+        final borderColor = _foregroundColor(context, 0.5);
 
         return Material(
           type: MaterialType.transparency,
@@ -615,8 +621,8 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
                   child: Container(
                     width: 200,
                     constraints: BoxConstraints(
-                      maxHeight: globals.isPhone 
-                          ? MediaQuery.of(context).size.height - 120 
+                      maxHeight: globals.isPhone
+                          ? MediaQuery.of(context).size.height - 120
                           : MediaQuery.of(context).size.height - 200,
                     ),
                     child: MouseRegion(
@@ -625,7 +631,17 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0),
+                          filter: ImageFilter.blur(
+                              sigmaX: context
+                                      .watch<AppearanceSettingsProvider>()
+                                      .enableWidgetBlurEffect
+                                  ? 25
+                                  : 0,
+                              sigmaY: context
+                                      .watch<AppearanceSettingsProvider>()
+                                      .enableWidgetBlurEffect
+                                  ? 25
+                                  : 0),
                           child: Container(
                             decoration: BoxDecoration(
                               color: backgroundColor,
@@ -663,9 +679,9 @@ class _VideoSettingsMenuState extends State<VideoSettingsMenu> {
                                     children: [
                                       Text(
                                         '设置',
-                                        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                          color: Colors.white,
+                                        locale: Locale("zh-Hans", "zh"),
+                                        style: TextStyle(
+                                          color: _foregroundColor(context),
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -678,7 +694,10 @@ style: TextStyle(
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      children: _settingsItems.map((item) => _buildSettingsItem(item)).toList(),
+                                      children: _settingsItems
+                                          .map((item) =>
+                                              _buildSettingsItem(item))
+                                          .toList(),
                                     ),
                                   ),
                                 ),
@@ -700,9 +719,9 @@ style: TextStyle(
 
   Widget _buildSettingsItem(SettingsItem item) {
     final bool isActive = item.isActive();
-    
+
     return Material(
-      color: isActive ? Colors.white.withOpacity(0.15) : Colors.transparent,
+      color: isActive ? _foregroundColor(context, 0.15) : Colors.transparent,
       child: InkWell(
         onTap: item.onTap,
         child: Container(
@@ -713,7 +732,7 @@ style: TextStyle(
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Colors.white.withOpacity(0.5),
+                color: _foregroundColor(context, 0.5),
                 width: 0.5,
               ),
             ),
@@ -722,21 +741,23 @@ style: TextStyle(
             children: [
               Icon(
                 item.icon,
-                color: Colors.white,
+                color: _foregroundColor(context),
                 size: 20,
               ),
               const SizedBox(width: 12),
               Text(
                 item.title,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: _foregroundColor(context),
                   fontSize: 14,
                 ),
               ),
               const Spacer(),
               Icon(
-                isActive ? Icons.chevron_left_rounded : Icons.chevron_right_rounded,
-                color: Colors.white.withOpacity(0.7),
+                isActive
+                    ? Icons.chevron_left_rounded
+                    : Icons.chevron_right_rounded,
+                color: _foregroundColor(context, 0.7),
                 size: 20,
               ),
             ],
@@ -766,7 +787,7 @@ style: TextStyle(
         _showPlaylist = false;
         _showDanmakuOffset = false;
       });
-      
+
       _playbackRateOverlay = OverlayEntry(
         builder: (context) => PlaybackRateMenu(
           onClose: () {
@@ -801,7 +822,7 @@ style: TextStyle(
         _showPlaylist = false;
         _showPlaybackRate = false;
       });
-      
+
       _danmakuOffsetOverlay = OverlayEntry(
         builder: (context) => DanmakuOffsetMenu(
           onClose: () {
@@ -841,7 +862,7 @@ style: TextStyle(
           _showPlaybackRate = false;
         });
       }
-      
+
       _jellyfinQualityOverlay = OverlayEntry(
         builder: (context) => JellyfinQualityMenu(
           onClose: () {
@@ -881,7 +902,7 @@ style: TextStyle(
         _showJellyfinQuality = false;
         _showSeekStep = false;
       });
-      
+
       _playbackInfoOverlay = OverlayEntry(
         builder: (context) => PlaybackInfoMenu(
           onClose: () {
@@ -922,7 +943,7 @@ style: TextStyle(
         _showPlaybackInfo = false;
         _showSeekStep = false;
       });
-      
+
       _seekStepOverlay = OverlayEntry(
         builder: (context) => SeekStepMenu(
           onClose: () {
@@ -952,4 +973,4 @@ class SettingsItem {
     required this.onTap,
     required this.isActive,
   });
-} 
+}

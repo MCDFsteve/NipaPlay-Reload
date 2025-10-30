@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/services/webdav_service.dart';
+import 'theme_color_utils.dart';
 
 class WebDAVConnectionDialog {
   static Future<bool?> show(BuildContext context, {WebDAVConnection? editConnection}) async {
@@ -31,6 +32,13 @@ class _WebDAVFormState extends State<_WebDAVForm> {
   
   bool _isLoading = false;
   bool _passwordVisible = false;
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  Color _secondaryForeground(BuildContext context) => ThemeColorUtils.secondaryForeground(context);
   
   @override
   void initState() {
@@ -63,7 +71,7 @@ class _WebDAVFormState extends State<_WebDAVForm> {
           Text(
             'WebDAV服务器只会建立连接，不会自动扫描。\n您可以在连接后手动选择要扫描的文件夹。',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: _foregroundColor(context, 0.7),
               fontSize: 13,
             ),
             textAlign: TextAlign.center,
@@ -73,26 +81,26 @@ class _WebDAVFormState extends State<_WebDAVForm> {
           // 连接名称
           TextFormField(
             controller: _nameController,
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: _foregroundColor(context)),
             decoration: InputDecoration(
               labelText: '连接名称（可选）',
-              labelStyle: const TextStyle(color: Colors.white70),
+              labelStyle: TextStyle(color: _secondaryForeground(context)),
               hintText: '留空则自动生成',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+              hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: Colors.lightBlueAccent),
               ),
               filled: true,
-              fillColor: Colors.white.withOpacity(0.1),
+              fillColor: _foregroundColor(context, 0.1),
             ),
             validator: (value) {
               // 连接名称现在是可选的，不需要验证
@@ -105,26 +113,26 @@ class _WebDAVFormState extends State<_WebDAVForm> {
           // WebDAV URL
           TextFormField(
             controller: _urlController,
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: _foregroundColor(context)),
             decoration: InputDecoration(
               labelText: 'WebDAV地址',
-              labelStyle: const TextStyle(color: Colors.white70),
+              labelStyle: TextStyle(color: _secondaryForeground(context)),
               hintText: 'https://your-server.com/webdav',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+              hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: Colors.lightBlueAccent),
               ),
               filled: true,
-              fillColor: Colors.white.withOpacity(0.1),
+              fillColor: _foregroundColor(context, 0.1),
             ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
@@ -142,26 +150,26 @@ class _WebDAVFormState extends State<_WebDAVForm> {
           // 用户名
           TextFormField(
             controller: _usernameController,
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: _foregroundColor(context)),
             decoration: InputDecoration(
               labelText: '用户名',
-              labelStyle: const TextStyle(color: Colors.white70),
+              labelStyle: TextStyle(color: _secondaryForeground(context)),
               hintText: '可选，如果服务器需要认证',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+              hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: Colors.lightBlueAccent),
               ),
               filled: true,
-              fillColor: Colors.white.withOpacity(0.1),
+              fillColor: _foregroundColor(context, 0.1),
             ),
           ),
           
@@ -171,30 +179,30 @@ class _WebDAVFormState extends State<_WebDAVForm> {
           TextFormField(
             controller: _passwordController,
             obscureText: !_passwordVisible,
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: _foregroundColor(context)),
             decoration: InputDecoration(
               labelText: '密码',
-              labelStyle: const TextStyle(color: Colors.white70),
+              labelStyle: TextStyle(color: _secondaryForeground(context)),
               hintText: '可选，如果服务器需要认证',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+              hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: _foregroundColor(context)30),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: const BorderSide(color: Colors.lightBlueAccent),
               ),
               filled: true,
-              fillColor: Colors.white.withOpacity(0.1),
+              fillColor: _foregroundColor(context, 0.1),
               suffixIcon: IconButton(
                 icon: Icon(
                   _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.white70,
+                  color: _secondaryForeground(context),
                 ),
                 onPressed: () {
                   setState(() {
@@ -215,9 +223,9 @@ class _WebDAVFormState extends State<_WebDAVForm> {
                 onPressed: _isLoading ? null : () {
                   Navigator.of(context).pop(false);
                 },
-                child: const Text(
+                child: Text(
                   '取消',
-                  style: TextStyle(color: Colors.white70),
+                  style: TextStyle(color: _secondaryForeground(context)),
                 ),
               ),
               
@@ -226,12 +234,12 @@ class _WebDAVFormState extends State<_WebDAVForm> {
               TextButton(
                 onPressed: _isLoading ? null : _testConnection,
                 child: _isLoading
-                    ? const SizedBox(
+                    ? SizedBox(
                         width: 16,
                         height: 16,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+                          valueColor: AlwaysStoppedAnimation<Color>(_secondaryForeground(context)),
                         ),
                       )
                     : const Text(
