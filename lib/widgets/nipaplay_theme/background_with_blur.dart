@@ -44,8 +44,12 @@ class BackgroundWithBlur extends StatelessWidget {
                   linearGradient: LinearGradient(
                     // 添加线性渐变
                     colors: [
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0),
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0),
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color.fromARGB(255, 0, 0, 0).withOpacity(0)
+                          : Colors.white.withOpacity(0.0),
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color.fromARGB(255, 0, 0, 0).withOpacity(0)
+                          : Colors.white.withOpacity(0.0),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -53,8 +57,12 @@ class BackgroundWithBlur extends StatelessWidget {
                   borderGradient: LinearGradient(
                     // 添加边框渐变
                     colors: [
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3)
+                          : Colors.black.withOpacity(0.25),
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1)
+                          : Colors.black.withOpacity(0.1),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,

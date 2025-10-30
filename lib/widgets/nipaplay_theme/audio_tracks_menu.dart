@@ -89,6 +89,13 @@ class AudioTracksMenu extends StatelessWidget {
                     title += " (${track.codec.name})";
                   }
                   
+                  final isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+                  final baseColor = isDarkTheme ? Colors.white : Colors.black;
+                  final borderColor = baseColor.withOpacity(isDarkTheme ? 0.5 : 0.2);
+                  final activeBackground = isDarkTheme
+                      ? Colors.white.withOpacity(0.1)
+                      : Colors.black.withOpacity(0.05);
+
                   return Material(
                     color: Colors.transparent,
                     child: InkWell(
@@ -106,10 +113,10 @@ class AudioTracksMenu extends StatelessWidget {
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(
-                          color: isActive ? Colors.white.withOpacity(0.1) : Colors.transparent,
+                          color: isActive ? activeBackground : Colors.transparent,
                           border: Border(
                             bottom: BorderSide(
-                              color: Colors.white.withOpacity(0.5),
+                              color: borderColor,
                               width: 0.5,
                             ),
                           ),
@@ -118,7 +125,7 @@ class AudioTracksMenu extends StatelessWidget {
                           children: [
                             Icon(
                               isActive ? Icons.check_circle : Icons.radio_button_unchecked,
-                              color: Colors.white,
+                              color: baseColor,
                               size: 20,
                             ),
                             const SizedBox(width: 12),
@@ -128,8 +135,8 @@ class AudioTracksMenu extends StatelessWidget {
                                 children: [
                                   Text(
                                     title,
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                                    style: TextStyle(
+                                      color: baseColor,
                                       fontSize: 14,
                                     ),
                                   ),
@@ -137,7 +144,9 @@ class AudioTracksMenu extends StatelessWidget {
                                     '语言: $language',
                                     locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                      color: Colors.white.withOpacity(0.7),
+                                      color: isDarkTheme
+                                          ? Colors.white.withOpacity(0.7)
+                                          : Colors.black54,
                                       fontSize: 12,
                                     ),
                                   ),

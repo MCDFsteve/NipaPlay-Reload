@@ -76,16 +76,24 @@ class _BackButtonWidgetState extends State<BackButtonWidget> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    const Color(0xFFffffff).withOpacity(0.2),
-                    const Color(0xFFFFFFFF).withOpacity(0.2),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xFFffffff).withOpacity(0.2)
+                        : Colors.black.withOpacity(0.1),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xFFFFFFFF).withOpacity(0.2)
+                        : Colors.black.withOpacity(0.05),
                   ],
                 ),
                 borderGradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    const Color(0xFFffffff).withOpacity(0.5),
-                    const Color((0xFFFFFFFF)).withOpacity(0.5),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xFFffffff).withOpacity(0.5)
+                        : Colors.black.withOpacity(0.3),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color((0xFFFFFFFF)).withOpacity(0.5)
+                        : Colors.black.withOpacity(0.3),
                   ],
                 ),
                 child: AnimatedOpacity(
@@ -94,9 +102,11 @@ class _BackButtonWidgetState extends State<BackButtonWidget> {
                   child: AnimatedScale(
                     duration: const Duration(milliseconds: 100),
                     scale: _isBackButtonPressed ? 0.9 : 1.0,
-                    child: const Icon(
+                    child: Icon(
                       Ionicons.chevron_back_outline,
-                      color: Colors.white,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                       size: 28,
                     ),
                   ),
