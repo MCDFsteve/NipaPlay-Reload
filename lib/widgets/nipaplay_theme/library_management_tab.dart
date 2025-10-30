@@ -45,6 +45,10 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
   // 存储ScanService引用
   ScanService? _scanService;
 
+  NipaplayColors get _themePalette => context.nipaplayColors;
+  Color get _secondaryColor => _themePalette.textSecondary;
+  Color get _mutedColor => _themePalette.textMuted;
+
   // 排序相关状态
   int _sortOption = 0; // 0: 文件名升序, 1: 文件名降序, 2: 修改时间升序, 3: 修改时间降序, 4: 大小升序, 5: 大小降序
 
@@ -187,8 +191,8 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
           content: io.Platform.isAndroid ?"无法访问您选择的文件夹，可能是权限问题。\n\n如果您使用的是Android 11或更高版本，请考虑在设置中开启「管理所有文件」权限。" : "无法访问您选择的文件夹，可能是权限问题。",
           actions: <Widget>[
             TextButton(
-              child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+              child: Text("知道了", locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -302,8 +306,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要从列表中移除文件夹 "$folderPathToRemove" 吗？\n相关的媒体记录也会被清理。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+          child: Text('取消', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -496,8 +500,8 @@ style: TextStyle(color: Colors.redAccent)),
     if (entities.isEmpty && !_loadingFolders.contains(parentPath)) {
       return [Padding(
         padding: EdgeInsets.only(left: depth * 16.0 + 16.0, top: 8.0, bottom: 8.0),
-        child: const Text("文件夹为空", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: mutedColor)),
+        child: Text("文件夹为空", locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _mutedColor)),
       )];
     }
     
@@ -509,7 +513,7 @@ style: TextStyle(color: mutedColor)),
           padding: indent,
           child: ExpansionTile(
             key: PageStorageKey<String>(dirPath),
-            leading: const Icon(Icons.folder_outlined, color: secondaryColor),
+            leading: Icon(Icons.folder_outlined, color: _secondaryColor),
             title: Text(p.basename(dirPath), style: const TextStyle(color: Colors.white)),
             onExpansionChanged: (isExpanded) {
               if (isExpanded && _expandedFolderContents[dirPath] == null && !_loadingFolders.contains(dirPath)) {
@@ -587,13 +591,13 @@ style: TextStyle(
                   children: [
                     // 手动匹配弹幕按钮
                     IconButton(
-                      icon: const Icon(Icons.subtitles, color: secondaryColor, size: 20),
+                      icon: Icon(Icons.subtitles, color: _secondaryColor, size: 20),
                       onPressed: () => _showManualDanmakuMatchDialog(entity.path, fileName, historyItem),
                     ),
                     // 移除扫描结果按钮
                     if (historyItem != null && (historyItem.animeId != null || historyItem.episodeId != null))
                       IconButton(
-                        icon: const Icon(Icons.clear, color: secondaryColor, size: 20),
+                        icon: Icon(Icons.clear, color: _secondaryColor, size: 20),
                         onPressed: () => _showRemoveScanResultDialog(entity.path, fileName, historyItem),
                       ),
                   ],
@@ -702,8 +706,8 @@ style: TextStyle(
           const SizedBox(height: 16),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: mutedColor)),
+            child: Text('取消', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _mutedColor)),
           ),
         ],
       ),
@@ -815,8 +819,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要重置存储路径吗？这将清除您之前设置的自定义路径，并使用系统默认位置。\n\n注意：这不会删除您已添加到媒体库的视频文件。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+          child: Text('取消', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -881,8 +885,8 @@ style: TextStyle(color: Colors.redAccent)),
           content: content.toString(),
           actions: <Widget>[
             TextButton(
-              child: const Text('关闭', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+              child: Text('关闭', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -931,8 +935,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           content: "NipaPlay需要访问媒体文件权限才能扫描视频文件。\n\n请在系统设置中允许NipaPlay访问照片、视频和音频权限。",
           actions: <Widget>[
             TextButton(
-              child: const Text("稍后再说", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+              child: Text("稍后再说", locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -1011,8 +1015,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           content: "无法找到系统视频文件夹。建议使用\"管理所有文件\"权限或手动选择文件夹。",
           actions: <Widget>[
             TextButton(
-              child: const Text("取消", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+              child: Text("取消", locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -1244,7 +1248,7 @@ style: TextStyle(color: secondaryColor, fontSize: 16),
                         content: '这将清理所有文件夹的变化检测缓存，下次扫描时将重新检查所有文件夹。\n\n适用于：\n• 怀疑智能扫描遗漏了某些变化\n• 想要强制重新扫描所有文件夹\n\n确定要清理缓存吗？',
                         actions: <Widget>[
                           TextButton(
-                            child: const Text('取消', locale:Locale("zh-Hans","zh"),
+                            child: Text('取消', locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor)),
                             onPressed: () => Navigator.of(context).pop(false),
                           ),
@@ -1275,7 +1279,7 @@ style: TextStyle(color: Colors.orangeAccent)),
                               content: '将使用智能扫描技术重新检查所有已添加的媒体文件夹：\n\n• 自动检测文件夹内容变化\n• 只扫描有新增、删除或修改文件的文件夹\n• 跳过无变化的文件夹，大幅提升扫描速度\n• 可选择跳过已匹配且未观看的文件\n\n这可能需要一些时间，但比传统全量扫描快很多。',
                               actions: <Widget>[
                                 TextButton(
-                                  child: const Text('取消', locale:Locale("zh-Hans","zh"),
+                                  child: Text('取消', locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor)),
                                   onPressed: () => Navigator.of(context).pop(false),
                                 ),
@@ -1410,7 +1414,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(scanService.scanMessage, style: const TextStyle(color: secondaryColor)),
+                Text(scanService.scanMessage, style: TextStyle(color: secondaryColor)),
                 if (scanService.isScanning && scanService.scanProgress > 0)
                   Padding(
                     padding: const EdgeInsets.only(top: 4.0),
@@ -1467,7 +1471,7 @@ style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 16
                         const Spacer(),
                         TextButton(
                           onPressed: () => scanService.clearDetectedChanges(),
-                          child: const Text("忽略", locale:Locale("zh-Hans","zh"),
+                          child: Text("忽略", locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor)),
                         ),
                       ],
@@ -1475,7 +1479,7 @@ style: TextStyle(color: secondaryColor)),
                     const SizedBox(height: 8),
                     Text(
                       scanService.getChangeDetectionSummary(),
-                      style: const TextStyle(color: secondaryColor, fontSize: 14),
+                      style: TextStyle(color: secondaryColor, fontSize: 14),
                     ),
                     const SizedBox(height: 12),
                     ...scanService.detectedChanges.map((change) => Padding(
@@ -1492,7 +1496,7 @@ style: TextStyle(color: secondaryColor)),
                                 ),
                                 Text(
                                   change.changeDescription,
-                                  style: const TextStyle(color: mutedColor.withOpacity(0.8), fontSize: 12),
+                                  style: TextStyle(color: mutedColor.withOpacity(0.8), fontSize: 12),
                                 ),
                               ],
                             ),
@@ -1548,7 +1552,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Row(
               children: [
-                const Text('排序方式：', locale:Locale("zh-Hans","zh"),
+                Text('排序方式：', locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor, fontSize: 14)),
                 const SizedBox(width: 8),
                 TextButton.icon(
@@ -1577,7 +1581,7 @@ style: TextStyle(color: secondaryColor, fontSize: 14)),
           child: _showWebDAVFolders
               ? _buildWebDAVFoldersList() 
               : (scanService.scannedFolders.isEmpty && !scanService.isScanning
-                  ? const Center(child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。', textAlign: TextAlign.center, locale:Locale("zh-Hans","zh"),
+                  ? Center(child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。', textAlign: TextAlign.center, locale:Locale("zh-Hans","zh"),
 style: TextStyle(color: secondaryColor)))
                   : _buildResponsiveFolderList(scanService)),
         ),
@@ -1711,8 +1715,8 @@ style: TextStyle(color: secondaryColor)))
       content: '确定要移除文件 "$fileName" 的扫描结果吗？\n\n当前扫描信息：\n$currentInfo\n\n移除后将清除动画名称、集数信息和弹幕ID，但保留观看进度。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+          child: Text('取消', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -1937,7 +1941,7 @@ style: TextStyle(color: Colors.redAccent)),
           ),
           child: ExpansionTile(
               key: PageStorageKey<String>(folderPath),
-              leading: const Icon(Icons.folder_open_outlined, color: secondaryColor),
+              leading: Icon(Icons.folder_open_outlined, color: _secondaryColor),
               title: Row(
                 children: [
                   Expanded(
@@ -1984,8 +1988,8 @@ style: TextStyle(color: Colors.redAccent)),
                               content: '将对文件夹 "${p.basename(folderPath)}" 进行智能扫描：\n\n• 检测文件夹内容是否有变化\n• 如无变化将快速跳过\n• 如有变化将进行全面扫描\n\n开始扫描？',
                               actions: <Widget>[
                                 TextButton(
-                                  child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: secondaryColor)),
+                                  child: Text('取消', locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: _secondaryColor)),
                                   onPressed: () => Navigator.of(context).pop(false),
                                 ),
                                 TextButton(
@@ -2029,18 +2033,18 @@ style: TextStyle(color: Colors.lightBlueAccent)),
   // 构建WebDAV文件夹列表
   Widget _buildWebDAVFoldersList() {
     if (_webdavConnections.isEmpty) {
-      return const Center(
+      return Center(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.cloud_off, size: 64, color: mutedColor),
-              SizedBox(height: 16),
+              Icon(Icons.cloud_off, size: 64, color: _mutedColor),
+              const SizedBox(height: 16),
               Text(
                 '尚未添加任何WebDAV服务器。\n点击上方"添加WebDAV服务器"按钮开始。',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: secondaryColor, fontSize: 16),
+                style: TextStyle(color: _secondaryColor, fontSize: 16),
               ),
             ],
           ),
@@ -2112,15 +2116,15 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.edit, color: secondaryColor, size: 20),
+              icon: Icon(Icons.edit, color: _secondaryColor, size: 20),
               onPressed: () => _editWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.delete_outline, color: secondaryColor, size: 20),
+              icon: Icon(Icons.delete_outline, color: _secondaryColor, size: 20),
               onPressed: () => _removeWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.refresh, color: secondaryColor, size: 20),
+              icon: Icon(Icons.refresh, color: _secondaryColor, size: 20),
               onPressed: () => _testWebDAVConnection(connection),
             ),
           ],
@@ -2133,11 +2137,11 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         children: connection.isConnected
             ? _buildWebDAVFileNodes(connection, '/')
             : [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     '连接未建立，无法浏览文件。请点击刷新按钮重新连接。',
-                    style: TextStyle(color: mutedColor),
+                    style: TextStyle(color: _mutedColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -2164,11 +2168,11 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     
     if (files.isEmpty) {
       return [
-        const Padding(
-          padding: EdgeInsets.all(16.0),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Text(
             '文件夹为空或无法访问',
-            style: TextStyle(color: mutedColor),
+            style: TextStyle(color: _mutedColor),
             textAlign: TextAlign.center,
           ),
         ),
@@ -2181,7 +2185,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           padding: const EdgeInsets.only(left: 16.0),
           child: ExpansionTile(
             key: PageStorageKey<String>('${connection.name}:${file.path}'),
-            leading: const Icon(Icons.folder_outlined, color: secondaryColor),
+            leading: Icon(Icons.folder_outlined, color: _secondaryColor),
             title: Text(
               file.name,
               style: const TextStyle(color: Colors.white),
@@ -2213,7 +2217,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             subtitle: file.size != null
                 ? Text(
                     '${(file.size! / 1024 / 1024).toStringAsFixed(1)} MB',
-                    style: const TextStyle(color: mutedColor, fontSize: 12),
+                    style: TextStyle(color: _mutedColor, fontSize: 12),
                   )
                 : null,
             onTap: () => _playWebDAVFile(connection, file),
@@ -2264,7 +2268,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要扫描WebDAV文件夹 "$folderName" 吗？\n\n这将把该文件夹中的视频文件添加到媒体库中。',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: secondaryColor)),
+          child: Text('取消', style: TextStyle(color: _secondaryColor)),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
@@ -2368,7 +2372,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要删除WebDAV连接 "${connection.name}" 吗？',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: secondaryColor)),
+          child: Text('取消', style: TextStyle(color: _secondaryColor)),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
