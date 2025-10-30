@@ -188,7 +188,7 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
           actions: <Widget>[
             TextButton(
               child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -303,7 +303,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       actions: <Widget>[
         TextButton(
           child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -497,7 +497,7 @@ style: TextStyle(color: Colors.redAccent)),
       return [Padding(
         padding: EdgeInsets.only(left: depth * 16.0 + 16.0, top: 8.0, bottom: 8.0),
         child: const Text("文件夹为空", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54)),
+style: TextStyle(color: mutedColor)),
       )];
     }
     
@@ -509,7 +509,7 @@ style: TextStyle(color: Colors.white54)),
           padding: indent,
           child: ExpansionTile(
             key: PageStorageKey<String>(dirPath),
-            leading: const Icon(Icons.folder_outlined, color: Colors.white70),
+            leading: const Icon(Icons.folder_outlined, color: secondaryColor),
             title: Text(p.basename(dirPath), style: const TextStyle(color: Colors.white)),
             onExpansionChanged: (isExpanded) {
               if (isExpanded && _expandedFolderContents[dirPath] == null && !_loadingFolders.contains(dirPath)) {
@@ -587,13 +587,13 @@ style: TextStyle(
                   children: [
                     // 手动匹配弹幕按钮
                     IconButton(
-                      icon: const Icon(Icons.subtitles, color: Colors.white70, size: 20),
+                      icon: const Icon(Icons.subtitles, color: secondaryColor, size: 20),
                       onPressed: () => _showManualDanmakuMatchDialog(entity.path, fileName, historyItem),
                     ),
                     // 移除扫描结果按钮
                     if (historyItem != null && (historyItem.animeId != null || historyItem.episodeId != null))
                       IconButton(
-                        icon: const Icon(Icons.clear, color: Colors.white70, size: 20),
+                        icon: const Icon(Icons.clear, color: secondaryColor, size: 20),
                         onPressed: () => _showRemoveScanResultDialog(entity.path, fileName, historyItem),
                       ),
                   ],
@@ -703,7 +703,7 @@ style: TextStyle(
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
             child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54)),
+style: TextStyle(color: mutedColor)),
           ),
         ],
       ),
@@ -816,7 +816,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       actions: <Widget>[
         TextButton(
           child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -882,7 +882,7 @@ style: TextStyle(color: Colors.redAccent)),
           actions: <Widget>[
             TextButton(
               child: const Text('关闭', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -932,7 +932,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           actions: <Widget>[
             TextButton(
               child: const Text("稍后再说", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -1012,7 +1012,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           actions: <Widget>[
             TextButton(
               child: const Text("取消", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -1224,19 +1224,19 @@ style: TextStyle(color: secondaryColor, fontSize: 16),
                     IconButton(
                       icon: const Icon(Icons.settings_backup_restore),
                       tooltip: '重置存储路径',
-                      color: Colors.white70,
+                      color: secondaryColor,
                       onPressed: scanService.isScanning ? null : _clearCustomStoragePath,
                     ),
                   if (io.Platform.isAndroid)
                     IconButton(
                       icon: const Icon(Icons.security),
                       tooltip: '检查权限状态',
-                      color: Colors.white70,
+                      color: secondaryColor,
                       onPressed: scanService.isScanning ? null : _checkAndShowPermissionStatus,
                     ),
                   IconButton(
                     icon: const Icon(Icons.cleaning_services),
-                    color: Colors.white70,
+                    color: secondaryColor,
                     onPressed: scanService.isScanning ? null : () async {
                       final confirm = await BlurDialog.show<bool>(
                         context: context,
@@ -1245,7 +1245,7 @@ style: TextStyle(color: secondaryColor, fontSize: 16),
                         actions: <Widget>[
                           TextButton(
                             child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
                             onPressed: () => Navigator.of(context).pop(false),
                           ),
                           TextButton(
@@ -1265,7 +1265,7 @@ style: TextStyle(color: Colors.orangeAccent)),
                   ),
                   IconButton(
                     icon: const Icon(Ionicons.refresh_outline),
-                    color: Colors.white70,
+                    color: secondaryColor,
                     onPressed: scanService.isScanning 
                         ? null 
                         : () async {
@@ -1276,7 +1276,7 @@ style: TextStyle(color: Colors.orangeAccent)),
                               actions: <Widget>[
                                 TextButton(
                                   child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
                                   onPressed: () => Navigator.of(context).pop(false),
                                 ),
                                 TextButton(
@@ -1410,7 +1410,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(scanService.scanMessage, style: const TextStyle(color: Colors.white70)),
+                Text(scanService.scanMessage, style: const TextStyle(color: secondaryColor)),
                 if (scanService.isScanning && scanService.scanProgress > 0)
                   Padding(
                     padding: const EdgeInsets.only(top: 4.0),
@@ -1468,14 +1468,14 @@ style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 16
                         TextButton(
                           onPressed: () => scanService.clearDetectedChanges(),
                           child: const Text("忽略", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
                         ),
                       ],
                     ),
                     const SizedBox(height: 8),
                     Text(
                       scanService.getChangeDetectionSummary(),
-                      style: const TextStyle(color: Colors.white70, fontSize: 14),
+                      style: const TextStyle(color: secondaryColor, fontSize: 14),
                     ),
                     const SizedBox(height: 12),
                     ...scanService.detectedChanges.map((change) => Padding(
@@ -1492,7 +1492,7 @@ style: TextStyle(color: Colors.white70)),
                                 ),
                                 Text(
                                   change.changeDescription,
-                                  style: const TextStyle(color: Colors.white60, fontSize: 12),
+                                  style: const TextStyle(color: mutedColor.withOpacity(0.8), fontSize: 12),
                                 ),
                               ],
                             ),
@@ -1549,7 +1549,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             child: Row(
               children: [
                 const Text('排序方式：', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 14)),
+style: TextStyle(color: secondaryColor, fontSize: 14)),
                 const SizedBox(width: 8),
                 TextButton.icon(
                   onPressed: _showSortOptionsDialog,
@@ -1578,7 +1578,7 @@ style: TextStyle(color: Colors.white70, fontSize: 14)),
               ? _buildWebDAVFoldersList() 
               : (scanService.scannedFolders.isEmpty && !scanService.isScanning
                   ? const Center(child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。', textAlign: TextAlign.center, locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)))
+style: TextStyle(color: secondaryColor)))
                   : _buildResponsiveFolderList(scanService)),
         ),
       ],
@@ -1712,7 +1712,7 @@ style: TextStyle(color: Colors.white70)))
       actions: <Widget>[
         TextButton(
           child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
@@ -1937,7 +1937,7 @@ style: TextStyle(color: Colors.redAccent)),
           ),
           child: ExpansionTile(
               key: PageStorageKey<String>(folderPath),
-              leading: const Icon(Icons.folder_open_outlined, color: Colors.white70),
+              leading: const Icon(Icons.folder_open_outlined, color: secondaryColor),
               title: Row(
                 children: [
                   Expanded(
@@ -1985,7 +1985,7 @@ style: TextStyle(color: Colors.redAccent)),
                               actions: <Widget>[
                                 TextButton(
                                   child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+style: TextStyle(color: secondaryColor)),
                                   onPressed: () => Navigator.of(context).pop(false),
                                 ),
                                 TextButton(
@@ -2035,12 +2035,12 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.cloud_off, size: 64, color: Colors.white54),
+              Icon(Icons.cloud_off, size: 64, color: mutedColor),
               SizedBox(height: 16),
               Text(
                 '尚未添加任何WebDAV服务器。\n点击上方"添加WebDAV服务器"按钮开始。',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white70, fontSize: 16),
+                style: TextStyle(color: secondaryColor, fontSize: 16),
               ),
             ],
           ),
@@ -2112,15 +2112,15 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.edit, color: Colors.white70, size: 20),
+              icon: const Icon(Icons.edit, color: secondaryColor, size: 20),
               onPressed: () => _editWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.delete_outline, color: Colors.white70, size: 20),
+              icon: const Icon(Icons.delete_outline, color: secondaryColor, size: 20),
               onPressed: () => _removeWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.refresh, color: Colors.white70, size: 20),
+              icon: const Icon(Icons.refresh, color: secondaryColor, size: 20),
               onPressed: () => _testWebDAVConnection(connection),
             ),
           ],
@@ -2137,7 +2137,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   padding: EdgeInsets.all(16.0),
                   child: Text(
                     '连接未建立，无法浏览文件。请点击刷新按钮重新连接。',
-                    style: TextStyle(color: Colors.white54),
+                    style: TextStyle(color: mutedColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -2168,7 +2168,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           padding: EdgeInsets.all(16.0),
           child: Text(
             '文件夹为空或无法访问',
-            style: TextStyle(color: Colors.white54),
+            style: TextStyle(color: mutedColor),
             textAlign: TextAlign.center,
           ),
         ),
@@ -2181,7 +2181,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           padding: const EdgeInsets.only(left: 16.0),
           child: ExpansionTile(
             key: PageStorageKey<String>('${connection.name}:${file.path}'),
-            leading: const Icon(Icons.folder_outlined, color: Colors.white70),
+            leading: const Icon(Icons.folder_outlined, color: secondaryColor),
             title: Text(
               file.name,
               style: const TextStyle(color: Colors.white),
@@ -2213,7 +2213,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             subtitle: file.size != null
                 ? Text(
                     '${(file.size! / 1024 / 1024).toStringAsFixed(1)} MB',
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                    style: const TextStyle(color: mutedColor, fontSize: 12),
                   )
                 : null,
             onTap: () => _playWebDAVFile(connection, file),
@@ -2264,7 +2264,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要扫描WebDAV文件夹 "$folderName" 吗？\n\n这将把该文件夹中的视频文件添加到媒体库中。',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: Colors.white70)),
+          child: const Text('取消', style: TextStyle(color: secondaryColor)),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
@@ -2368,7 +2368,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要删除WebDAV连接 "${connection.name}" 吗？',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: Colors.white70)),
+          child: const Text('取消', style: TextStyle(color: secondaryColor)),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
