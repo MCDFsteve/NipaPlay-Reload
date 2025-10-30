@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/developer_options_provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 
 /// 系统资源显示组件
 /// 用于在界面右上角显示当前CPU使用率、内存使用和帧率
@@ -21,7 +22,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
   // 用于定期刷新UI的计时器
   Timer? _refreshTimer;
   bool _registered = false; // 是否已向监控器注册为消费者
-  
+
   // 资源指标
   double _cpuUsage = 0.0;
   double _memoryUsageMB = 0.0;
@@ -30,17 +31,25 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
   String _mdkVersion = "未知"; // 添加MDK版本号
   String _playerKernelType = "未知"; // 添加播放器内核类型
   String _danmakuKernelType = "未知"; // 添加弹幕内核类型
-  
+
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
+  Color _secondaryForeground(BuildContext context) =>
+      ThemeColorUtils.secondaryForeground(context);
+
   @override
   void initState() {
     super.initState();
-    
+
     // 移除桌面平台限制，在所有平台启用
     if (!kIsWeb) {
       // 不在这里直接启动更新，等到真正需要显示时再注册与启动
     }
   }
-  
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -71,7 +80,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
     }
     super.dispose();
   }
-  
+
   /// 开始定期更新资源信息
   void _startUpdating() {
     // 每0.5秒刷新一次UI
@@ -90,7 +99,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
       }
     });
   }
-  
+
   /// 获取CPU使用率的颜色（根据负载程度变色）
   Color _getCpuColor() {
     if (_cpuUsage < 50) {
@@ -101,7 +110,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
       return Colors.red;
     }
   }
-  
+
   /// 获取内存使用量的颜色
   Color _getMemoryColor() {
     if (_memoryUsageMB < 200) {
@@ -112,7 +121,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
       return Colors.red;
     }
   }
-  
+
   /// 获取帧率的颜色
   Color _getFpsColor() {
     if (_fps >= 55) {
@@ -130,7 +139,7 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
     if (kIsWeb) {
       return const SizedBox.shrink();
     }
-    
+
     // 使用Consumer检查开发者选项中的设置
     return Consumer<DeveloperOptionsProvider>(
       builder: (context, devOptions, child) {
@@ -138,19 +147,31 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
         if (!devOptions.showSystemResources) {
           return const SizedBox.shrink();
         }
-        
+        final baseColor = _foregroundColor(context);
+        final secondaryColor = _secondaryForeground(context);
+
         // 否则显示系统资源信息（带毛玻璃效果）
         return ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0),
+            filter: ImageFilter.blur(
+                sigmaX: context
+                        .watch<AppearanceSettingsProvider>()
+                        .enableWidgetBlurEffect
+                    ? 25
+                    : 0,
+                sigmaY: context
+                        .watch<AppearanceSettingsProvider>()
+                        .enableWidgetBlurEffect
+                    ? 25
+                    : 0),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.2),
+                color: baseColor.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.2),
+                  color: baseColor.withOpacity(0.2),
                   width: 0.5,
                 ),
               ),
@@ -164,12 +185,12 @@ class _SystemResourceDisplayState extends State<SystemResourceDisplay> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.memory, size: 22, color: Colors.white70),
+                          Icon(Icons.memory, size: 22, color: secondaryColor),
                           const SizedBox(width: 4),
                           Text(
                             '${_cpuUsage.toStringAsFixed(1)}%',
-                            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                            locale: Locale("zh-Hans", "zh"),
+                            style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: _getCpuColor(),
@@ -179,17 +200,18 @@ style: TextStyle(
                         ],
                       ),
                       const SizedBox(width: 10),
-                      
+
                       // 内存使用量
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.sd_storage_outlined, size: 22, color: Colors.white70),
+                          Icon(Icons.sd_storage_outlined,
+                              size: 22, color: secondaryColor),
                           const SizedBox(width: 4),
                           Text(
                             '${_memoryUsageMB.toStringAsFixed(1)}MB',
-                            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                            locale: Locale("zh-Hans", "zh"),
+                            style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: _getMemoryColor(),
@@ -199,17 +221,17 @@ style: TextStyle(
                         ],
                       ),
                       const SizedBox(width: 10),
-                      
+
                       // 帧率
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.speed, size: 22, color: Colors.white70),
+                          Icon(Icons.speed, size: 22, color: secondaryColor),
                           const SizedBox(width: 4),
                           Text(
                             '${_fps.toStringAsFixed(1)} FPS',
-                            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                            locale: Locale("zh-Hans", "zh"),
+                            style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: _getFpsColor(),
@@ -221,7 +243,7 @@ style: TextStyle(
                     ],
                   ),
                   const SizedBox(height: 4),
-                  
+
                   // 播放器内核信息 (原解码器和MDK版本信息)
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -249,7 +271,7 @@ style: TextStyle(
                       //     ],
                       //   ),
                       // ),
-                      
+
                       // // 分隔符 - REMOVED as only one item now in this row part
                       // Padding(
                       //   padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -259,22 +281,23 @@ style: TextStyle(
                       //     color: Colors.white30,
                       //   ),
                       // ),
-                      
+
                       // 播放器内核信息
                       Flexible(
                         flex: 1,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.developer_board, size: 16, color: Colors.white70),
+                            Icon(Icons.developer_board,
+                                size: 16, color: secondaryColor),
                             const SizedBox(width: 4),
                             Flexible(
                               child: Text(
                                 '播放器: $_playerKernelType', // 使用变量显示当前播放器内核
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: baseColor,
                                   decoration: TextDecoration.none,
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -283,32 +306,33 @@ style: TextStyle(
                           ],
                         ),
                       ),
-                      
+
                       // 分隔符
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Container(
                           height: 16,
                           width: 1,
-                          color: Colors.white30,
+                          color: baseColor.withOpacity(0.3),
                         ),
                       ),
-                      
+
                       // 弹幕内核信息
                       Flexible(
                         flex: 1,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.subtitles, size: 16, color: Colors.white70),
+                            Icon(Icons.subtitles,
+                                size: 16, color: secondaryColor),
                             const SizedBox(width: 4),
                             Flexible(
                               child: Text(
                                 '弹幕: $_danmakuKernelType',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: baseColor,
                                   decoration: TextDecoration.none,
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -327,4 +351,4 @@ style: TextStyle(
       },
     );
   }
-} 
+}
