@@ -4,6 +4,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:kmbal_ionicons/kmbal_ionicons.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 import 'package:nipaplay/utils/theme_utils.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/hover_tooltip_bubble.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
@@ -98,6 +99,7 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.nipaplayColors;
     // Use the key provided to the parent Row for positioning calculations
     return Row(
       key: widget.dropdownKey, // Apply the key here
@@ -127,9 +129,9 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                 RotationTransition(
                   turns:
                       Tween(begin: 0.0, end: 0.5).animate(_animationController),
-                  child: const Icon(
+                  child: Icon(
                     Ionicons.chevron_down_outline,
-                    color: Colors.white,
+                    color: colors.iconSecondary,
                   ),
                 ),
               ],
@@ -188,12 +190,18 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
     final safeRight = (right < 10.0) ? 10.0 : right;
     final left = position.dx;
 
-    final Color borderColor = Theme.of(context).brightness == Brightness.light
-        ? const Color.fromARGB(255, 201, 201, 201)
-        : const Color.fromARGB(255, 130, 130, 130);
-
     _overlayEntry = OverlayEntry(
       builder: (context) {
+        final colors = context.nipaplayColors;
+        final isDark = context.isDarkMode;
+        final appearance = Provider.of<AppearanceSettingsProvider>(context);
+        final dropdownBackground = isDark
+            ? colors.surface.withOpacity(0.85)
+            : colors.surface.withOpacity(0.96);
+        final hoverHighlight = colors.accent.withOpacity(isDark ? 0.24 : 0.12);
+        final dividerColor = colors.divider.withOpacity(isDark ? 0.6 : 0.8);
+        final borderColor = colors.border.withOpacity(isDark ? 0.6 : 0.45);
+
         return Stack(
           children: [
             Positioned.fill(
@@ -233,15 +241,14 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(color: borderColor, width: 0.5),
-                    color: const Color.fromARGB(255, 130, 130, 130)
-                        .withOpacity(0.5),
+                    color: dropdownBackground,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 5,
+                        color: Colors.black.withOpacity(isDark ? 0.45 : 0.08),
+                        blurRadius: 16,
                         spreadRadius: 1,
-                        offset: const Offset(1, 1),
+                        offset: const Offset(0, 6),
                       ),
                     ],
                   ),
@@ -250,14 +257,8 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                     borderRadius: BorderRadius.circular(10),
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
-                        sigmaX: Provider.of<AppearanceSettingsProvider>(context)
-                                .enableWidgetBlurEffect
-                            ? 25
-                            : 0,
-                        sigmaY: Provider.of<AppearanceSettingsProvider>(context)
-                                .enableWidgetBlurEffect
-                            ? 25
-                            : 0,
+                        sigmaX: appearance.enableWidgetBlurEffect ? 25 : 0,
+                        sigmaY: appearance.enableWidgetBlurEffect ? 25 : 0,
                       ),
                       child: ListView.builder(
                         shrinkWrap: true,
@@ -282,11 +283,11 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                               ),
                               decoration: BoxDecoration(
                                 color: item.value == _currentSelectedValue
-                                    ? Colors.white.withOpacity(0.1)
+                                    ? hoverHighlight
                                     : Colors.transparent,
                                 border: Border(
                                   bottom: BorderSide(
-                                    color: Colors.white.withOpacity(0.1),
+                                    color: dividerColor,
                                     width: 0.5,
                                   ),
                                 ),
@@ -382,23 +383,26 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
         borderRadius:
             BorderRadius.circular(4), // Optional: for InkWell splash shape
         child: Container(
-          width: double.infinity, // Ensure item takes full width
+          width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          color: isSelected
-              ? Colors.white.withOpacity(0.1)
-              : Colors.transparent, // Subtle selection highlight
+          decoration: BoxDecoration(
+            color: isSelected
+                ? (context.isDarkMode
+                    ? context.nipaplayColors.accent.withOpacity(0.24)
+                    : context.nipaplayColors.accent.withOpacity(0.12))
+                : Colors.transparent,
+          ),
           child: Text(
             item.title,
             locale: Locale("zh-Hans", "zh"),
             style: TextStyle(
               fontSize: 15,
-              color: Colors.white
-                  .withOpacity(isSelected ? 1.0 : 0.8), // Adjust opacity
-              fontWeight: isSelected
-                  ? FontWeight.w900
-                  : FontWeight.normal, // Adjust font weight
+              color: isSelected
+                  ? context.nipaplayColors.textPrimary
+                  : context.nipaplayColors.textSecondary,
+              fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal,
             ),
-            textAlign: TextAlign.start, // Ensure text aligns left
+            textAlign: TextAlign.start,
           ),
         ),
       ),

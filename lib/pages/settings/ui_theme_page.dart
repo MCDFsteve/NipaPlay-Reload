@@ -11,6 +11,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
 import 'package:window_manager/window_manager.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class UIThemePage extends StatefulWidget {
   const UIThemePage({super.key});
@@ -26,6 +27,8 @@ class _UIThemePageState extends State<UIThemePage> {
   Widget build(BuildContext context) {
     return Consumer<UIThemeProvider>(
       builder: (context, uiThemeProvider, child) {
+        final colors = context.nipaplayColors;
+        final textSecondary = colors.textSecondary;
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
@@ -34,21 +37,21 @@ class _UIThemePageState extends State<UIThemePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // 标题
-                const Text(
+                Text(
                   '控件主题',
                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                    color: Colors.white,
+                    color: colors.textPrimary,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
+                Text(
                   '选择应用的控件主题风格',
                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                    color: Colors.white70,
+                    color: textSecondary,
                     fontSize: 14,
                   ),
                 ),
@@ -70,6 +73,7 @@ style: TextStyle(
   }
 
   Widget _buildThemeSelector(UIThemeProvider uiThemeProvider) {
+    final colors = context.nipaplayColors;
     final availableThemes = UIThemeType.values.where((theme) {
       if (theme == UIThemeType.cupertino) {
         return globals.isPhone;
@@ -84,11 +88,11 @@ style: TextStyle(
 
     return Row(
       children: [
-        const Text(
+        Text(
           '主题风格',
           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-            color: Colors.white,
+            color: colors.textPrimary,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
@@ -116,17 +120,18 @@ style: TextStyle(
   }
 
   Widget _buildThemePreview(UIThemeProvider uiThemeProvider) {
+    final colors = context.nipaplayColors;
     return SettingsCard(
       padding: const EdgeInsets.all(20),
       backgroundOpacity: 0.25,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '当前主题预览',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white,
+              color: colors.textPrimary,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
@@ -139,16 +144,19 @@ style: TextStyle(
   }
 
   Widget _buildThemeDescription(UIThemeType theme) {
+    final colors = context.nipaplayColors;
+    final textPrimary = colors.textPrimary;
+    final textSecondary = colors.textSecondary;
     switch (theme) {
       case UIThemeType.nipaplay:
-        return const Column(
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'NipaPlay 主题',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white,
+                color: textPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -158,7 +166,7 @@ style: TextStyle(
               '• 磨砂玻璃效果\n• 渐变背景\n• 圆角设计\n• 适合多媒体应用',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white70,
+                color: textSecondary,
                 fontSize: 14,
                 height: 1.5,
               ),
@@ -166,14 +174,14 @@ style: TextStyle(
           ],
         );
       case UIThemeType.fluentUI:
-        return const Column(
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Fluent UI 主题',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white,
+                color: textPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -183,7 +191,7 @@ style: TextStyle(
               '• Microsoft 设计语言\n• 亚克力材质\n• 现代化界面\n• 统一的交互体验',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white70,
+                color: textSecondary,
                 fontSize: 14,
                 height: 1.5,
               ),
@@ -191,14 +199,14 @@ style: TextStyle(
           ],
         );
       case UIThemeType.cupertino:
-        return const Column(
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Cupertino 主题',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white,
+                color: textPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -208,7 +216,7 @@ style: TextStyle(
               '• 贴近原生 iOS 体验\n• 自适应平台控件\n• 支持浅色/深色模式\n• 底部导航布局',
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white70,
+                color: textSecondary,
                 fontSize: 14,
                 height: 1.5,
               ),
@@ -220,6 +228,7 @@ style: TextStyle(
 
   /// 显示主题切换确认弹窗
   void _showThemeChangeConfirmDialog(UIThemeType newTheme, UIThemeProvider provider) {
+    final colors = context.nipaplayColors;
     BlurDialog.show(
       context: context,
       title: '主题切换提示',
@@ -230,8 +239,11 @@ style: TextStyle(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.grey)),
+          child: Text(
+            '取消',
+            locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: colors.textSecondary),
+          ),
         ),
         TextButton(
           onPressed: () async {
@@ -241,8 +253,11 @@ style: TextStyle(color: Colors.grey)),
             // 退出应用
             _exitApplication();
           },
-          child: const Text('重启应用', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white)),
+          child: Text(
+            '重启应用',
+            locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: colors.accent),
+          ),
         ),
       ],
     );

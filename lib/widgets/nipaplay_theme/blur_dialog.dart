@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_dialog.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 
@@ -51,9 +52,15 @@ class BlurDialog {
     return showDialog<T>(
       context: context,
       barrierDismissible: barrierDismissible,
-      barrierColor: Colors.black.withOpacity(0.5),
+      barrierColor: Colors.black.withOpacity(
+        Theme.of(context).brightness == Brightness.dark ? 0.5 : 0.2,
+      ),
       builder: (BuildContext context) {
         final screenSize = MediaQuery.of(context).size;
+        final colors = context.nipaplayColors;
+        final isDark = context.isDarkMode;
+        final bool enableBlur =
+            context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect;
         
         // 使用预计算的对话框宽度
         final dialogWidth = globals.DialogSizes.getDialogWidth(screenSize.width);
@@ -78,19 +85,20 @@ class BlurDialog {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white.withOpacity(0.15),
-                  Colors.white.withOpacity(0.05),
+                  colors.surface.withOpacity(isDark ? 0.7 : 0.98),
+                  colors.surfaceMuted.withOpacity(isDark ? 0.6 : 0.94),
                 ],
               ),
               border: Border.all(
-                color: Colors.white.withOpacity(0.3),
+                color: colors.border.withOpacity(isDark ? 0.55 : 0.7),
                 width: 1,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withOpacity(isDark ? 0.45 : 0.12),
                   blurRadius: 20,
                   spreadRadius: 1,
+                  offset: const Offset(0, 8),
                 ),
               ],
             ),
@@ -98,8 +106,8 @@ class BlurDialog {
               borderRadius: BorderRadius.circular(20),
               child: BackdropFilter(
                 filter: ImageFilter.blur(
-                  sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
-                  sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0
+                  sigmaX: enableBlur ? 25 : 0,
+                  sigmaY: enableBlur ? 25 : 0,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(24),
@@ -111,8 +119,8 @@ class BlurDialog {
                       if (hasTitle) ...[
                         Text(
                           title,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: colors.textPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -125,12 +133,12 @@ class BlurDialog {
                             if (content != null)
                               Text(
                                 content,
-                                style: const TextStyle(
-                                  color: Colors.white,
+                                style: TextStyle(
+                                  color: colors.textSecondary,
                                   fontSize: 15,
                                   height: 1.4,
                                 ),
-                                textAlign: TextAlign.center, // 内容文本居中
+                                textAlign: TextAlign.center,
                               ),
                             if (contentWidget != null)
                               contentWidget,

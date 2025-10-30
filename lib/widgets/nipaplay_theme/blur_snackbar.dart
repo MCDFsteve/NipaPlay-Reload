@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 import 'package:provider/provider.dart';
 
 class BlurSnackBar {
@@ -30,7 +31,16 @@ class BlurSnackBar {
     );
     
     overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
+      builder: (context) {
+        final colors = context.nipaplayColors;
+        final isDark = context.isDarkMode;
+        final bool enableBlur = context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect;
+        final backgroundColor = isDark
+            ? colors.surface.withOpacity(0.4)
+            : colors.surface.withOpacity(0.92);
+        final borderColor = colors.border.withOpacity(isDark ? 0.5 : 0.7);
+
+        return Positioned(
         bottom: 16,
         left: 16,
         right: 16,
@@ -41,16 +51,26 @@ class BlurSnackBar {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0),
+                filter: ImageFilter.blur(
+                  sigmaX: enableBlur ? 10 : 0,
+                  sigmaY: enableBlur ? 10 : 0,
+                ),
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: borderColor,
                       width: 1,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(isDark ? 0.35 : 0.1),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -58,14 +78,18 @@ class BlurSnackBar {
                       Expanded(
                         child: Text(
                           content,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: colors.textPrimary,
                             fontSize: 14,
                           ),
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.close, color: Colors.white70, size: 20),
+                        icon: Icon(
+                          Icons.close,
+                          color: colors.iconSecondary,
+                          size: 20,
+                        ),
                         onPressed: () {
               _controller?.reverse().then((_) {
                             overlayEntry.remove();
@@ -86,7 +110,8 @@ class BlurSnackBar {
             ),
           ),
         ),
-      ),
+      );
+      },
     );
 
     overlay.insert(overlayEntry);

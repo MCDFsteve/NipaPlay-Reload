@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 import 'package:provider/provider.dart';
 
 class SettingsSlider extends StatefulWidget {
@@ -66,49 +67,63 @@ class _SettingsSliderState extends State<SettingsSlider> {
     final bubbleY = position.dy - 40;
     final value = _getValueFromProgress(progress);
     _overlayEntry = OverlayEntry(
-      builder: (context) => Material(
-        type: MaterialType.transparency,
-        child: Stack(
-          children: [
-            Positioned(
-              left: bubbleX,
-              top: bubbleY,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0, sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 10 : 0),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
-                        width: 0.5,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 8,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
+      builder: (context) {
+        final colors = context.nipaplayColors;
+        final isDark = context.isDarkMode;
+        final bool enableBlur =
+            Provider.of<AppearanceSettingsProvider>(context).enableWidgetBlurEffect;
+        final bubbleColor = isDark
+            ? colors.surface.withOpacity(0.55)
+            : colors.surface.withOpacity(0.95);
+        final borderColor = colors.border.withOpacity(isDark ? 0.6 : 0.75);
+
+        return Material(
+          type: MaterialType.transparency,
+          child: Stack(
+            children: [
+              Positioned(
+                left: bubbleX,
+                top: bubbleY,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: enableBlur ? 10 : 0,
+                      sigmaY: enableBlur ? 10 : 0,
                     ),
-                    child: Text(
-                      widget.displayTextBuilder(value),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: bubbleColor,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: borderColor,
+                          width: 0.5,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(isDark ? 0.35 : 0.12),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        widget.displayTextBuilder(value),
+                        style: TextStyle(
+                          color: colors.textPrimary,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     );
     Overlay.of(context).insert(_overlayEntry!);
   }
@@ -132,14 +147,23 @@ class _SettingsSliderState extends State<SettingsSlider> {
     final thumbSizeHovered = globals.isPhone ? 24.0 : 16.0;
     final thumbHitArea = globals.isPhone ? 12.0 : 8.0;
     final thumbHitAreaHovered = globals.isPhone ? 12.0 : 8.0;
-    
+
+    final colors = context.nipaplayColors;
+    final isDark = context.isDarkMode;
+    final Color labelColor = colors.textSecondary;
+    final Color baseTrackColor = colors.surfaceMuted.withOpacity(isDark ? 0.6 : 0.5);
+    final Color activeTrackColor = colors.accent.withOpacity(isDark ? 0.9 : 0.85);
+    final Color thumbColor = colors.accent;
+    final Color thumbShadowColor = Colors.black.withOpacity(isDark ? 0.35 : 0.12);
+    final Color activeGlowColor = colors.accent.withOpacity(isDark ? 0.45 : 0.2);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           widget.label,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: labelColor,
             fontSize: 14,
           ),
         ),
@@ -213,7 +237,7 @@ class _SettingsSliderState extends State<SettingsSlider> {
                       height: trackHeight,
                       margin: EdgeInsets.symmetric(vertical: verticalMargin),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: baseTrackColor,
                         borderRadius: BorderRadius.circular(trackHeight / 2),
                       ),
                     ),
@@ -225,19 +249,19 @@ class _SettingsSliderState extends State<SettingsSlider> {
                       child: FractionallySizedBox(
                         widthFactor: _progress,
                         alignment: Alignment.centerLeft,
-                        child: Container(
-                          height: trackHeight,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(trackHeight / 2),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.white.withOpacity(0.3),
-                                blurRadius: 2,
-                                spreadRadius: 0.5,
-                              ),
-                            ],
-                          ),
+                      child: Container(
+                        height: trackHeight,
+                        decoration: BoxDecoration(
+                          color: activeTrackColor,
+                          borderRadius: BorderRadius.circular(trackHeight / 2),
+                          boxShadow: [
+                            BoxShadow(
+                              color: activeGlowColor,
+                              blurRadius: 6,
+                              spreadRadius: 0.5,
+                            ),
+                          ],
+                        ),
                         ),
                       ),
                     ),
@@ -253,11 +277,11 @@ class _SettingsSliderState extends State<SettingsSlider> {
                           width: currentThumbSize,
                           height: currentThumbSize,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: thumbColor,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
+                                color: thumbShadowColor,
                                 blurRadius: _isThumbHovered || _isDragging ? 6 : 4,
                                 offset: const Offset(0, 2),
                               ),

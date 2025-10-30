@@ -16,6 +16,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/utils/storage_service.dart';
 import 'package:nipaplay/providers/settings_provider.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/settings_divider.dart';
 
 class ThemeModePage extends StatefulWidget {
   final ThemeNotifier themeNotifier;
@@ -199,7 +200,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
               },
               dropdownKey: _dropdownKey,
             ),
-            const Divider(color: Colors.white12, height: 1),
+            const SettingsDivider(),
             SettingsItem.dropdown(
               title: "背景毛玻璃效果",
               subtitle: "调整界面元素的模糊强度",
@@ -243,7 +244,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
               },
               dropdownKey: _blurDropdownKey,
             ),
-            const Divider(color: Colors.white12, height: 1),
+            const SettingsDivider(),
             SettingsItem.toggle(
               title: "控件毛玻璃效果",
               subtitle: "关闭后可提升性能，但会失去部分UI透明感",
@@ -253,7 +254,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
                 appearanceSettings.setEnableWidgetBlurEffect(value);
               },
             ),
-            const Divider(color: Colors.white12, height: 1),
+            const SettingsDivider(),
             SettingsItem.dropdown(
               title: "背景图像",
               subtitle: "设置应用主界面的背景图片",
@@ -291,7 +292,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
               },
               dropdownKey: _backgroundImageDropdownKey,
             ),
-            const Divider(color: Colors.white12, height: 1),
+            const SettingsDivider(),
             SettingsItem.toggle(
               title: "页面滑动动画",
               subtitle: "关闭可提升在低性能设备上的流畅度",
@@ -305,7 +306,7 @@ class _ThemeModePageState extends State<ThemeModePage> {
                 );
               },
             ),
-            const Divider(color: Colors.white12, height: 1),
+            const SettingsDivider(),
           ],
         ),
       ),

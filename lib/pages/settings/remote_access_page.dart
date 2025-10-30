@@ -8,6 +8,8 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:nipaplay/utils/nipaplay_colors.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/settings_divider.dart';
 
 class RemoteAccessPage extends StatefulWidget {
   const RemoteAccessPage({super.key});
@@ -128,6 +130,7 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
 
   void _showPortDialog() async {
     final portController = TextEditingController(text: _currentPort.toString());
+    final colors = context.nipaplayColors;
     final newPort = await BlurDialog.show<int>(
       context: context,
       title: '设置Web服务器端口',
@@ -135,25 +138,27 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
         controller: portController,
         keyboardType: TextInputType.number,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           labelText: '端口 (1-65535)',
-          labelStyle: TextStyle(color: Colors.white70),
+          labelStyle: TextStyle(color: colors.textSecondary),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: colors.accent),
           ),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white38),
+            borderSide: BorderSide(
+              color: colors.border.withOpacity(context.isDarkMode ? 0.6 : 0.7),
+            ),
           ),
         ),
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: colors.textPrimary),
       ),
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: Colors.white70)),
+          child: Text('取消', style: TextStyle(color: colors.textSecondary)),
           onPressed: () => Navigator.of(context).pop(),
         ),
         TextButton(
-          child: const Text('确定', style: TextStyle(color: Colors.white)),
+          child: Text('确定', style: TextStyle(color: colors.accent)),
           onPressed: () {
             final port = int.tryParse(portController.text);
             if (port != null && port > 0 && port < 65536) {
@@ -187,24 +192,28 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
   }
 
   Widget _buildWebServerSection() {
+    final colors = context.nipaplayColors;
+    final statusBackground = colors.accent.withOpacity(context.isDarkMode ? 0.25 : 0.15);
+    final statusBorder = colors.accent.withOpacity(context.isDarkMode ? 0.6 : 0.5);
+    final statusTextColor = colors.accent;
     return SettingsCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(
+              Icon(
                 Ionicons.globe_outline,
-                color: Colors.white,
+                color: colors.iconSecondary,
                 size: 24,
               ),
               const SizedBox(width: 12),
-              const Text(
+              Text(
                 '远程访问',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: colors.textPrimary,
                 ),
               ),
               const Spacer(),
@@ -212,14 +221,14 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
                 Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: statusBackground,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.white, width: 1),
+                        border: Border.all(color: statusBorder, width: 1),
                       ),
-                      child: const Text(
+                      child: Text(
                         '已启用',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: statusTextColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -230,10 +239,10 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
               
               const SizedBox(height: 16),
 
-              const Text(
+              Text(
                 '启用后可通过浏览器或其他NipaPlay客户端远程访问本机媒体库。此功能正在开发中，部分功能可能不完整。',
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: colors.textSecondary,
                   fontSize: 14,
                 ),
               ),
@@ -248,22 +257,22 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
                 trailing: Switch(
                   value: _webServerEnabled,
                   onChanged: _toggleWebServer,
-                  activeColor: Colors.white,
-                  inactiveThumbColor: Colors.white,
-                  inactiveTrackColor: const Color.fromARGB(255, 0, 0, 0),
+                  activeColor: colors.accent,
+                  inactiveThumbColor: colors.iconSecondary.withOpacity(0.4),
+                  inactiveTrackColor: colors.iconSecondary.withOpacity(0.2),
                 ),
               ),
               
               if (_webServerEnabled) ...[
                 const SizedBox(height: 8),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
                 const SizedBox(height: 8),
                 
                 // 访问地址
                 _buildAccessAddressSection(),
                 
                 const SizedBox(height: 8),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
                 const SizedBox(height: 8),
                 
                 // 端口设置
@@ -272,7 +281,7 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
                   title: '端口设置',
                   subtitle: '当前端口: $_currentPort',
                   trailing: IconButton(
-                    icon: const Icon(Icons.edit, color: Colors.white),
+                    icon: Icon(Icons.edit, color: colors.accent),
                     onPressed: _showPortDialog,
                   ),
                 ),
@@ -283,23 +292,24 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
   }
   
   Widget _buildAccessAddressSection() {
+    final colors = context.nipaplayColors;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             children: [
               Icon(
                 Icons.link,
-                color: Colors.white70,
+                color: colors.iconSecondary,
                 size: 20,
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Text(
                 '访问地址',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: colors.textPrimary,
                   fontWeight: FontWeight.w500,
                   fontSize: 15,
                 ),
@@ -308,15 +318,15 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
           ),
           const SizedBox(height: 12),
           if (_accessUrls.isEmpty)
-            const Text('正在获取地址...', style: TextStyle(color: Colors.white70))
+            Text('正在获取地址...', style: TextStyle(color: colors.textSecondary))
           else
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ..._accessUrls.map((url) => _buildAddressItem(url)),
                 if (_isLoadingPublicIp)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Row(
                       children: [
                         SizedBox(
@@ -324,15 +334,15 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
                           height: 16,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                            valueColor: AlwaysStoppedAnimation<Color>(colors.accent),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Text(
                           '正在获取公网IP...',
                           style: TextStyle(
                             fontFamily: 'monospace',
-                            color: Colors.white70
+                            color: colors.textSecondary,
                           )
                         ),
                       ],
@@ -348,34 +358,36 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
   }
   
   Widget _buildAddressItem(String url, {bool isPublic = false}) {
+    final colors = context.nipaplayColors;
+    final iconColor = colors.iconSecondary.withOpacity(0.7);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: [
           if (isPublic)
-            const Icon(
+            Icon(
               Icons.public,
-              color: Colors.white38,
+              color: iconColor,
               size: 14,
             )
           else
-            const Icon(
+            Icon(
               Icons.lan,
-              color: Colors.white38,
+              color: iconColor,
               size: 14,
             ),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               url,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'monospace',
-                color: Colors.white70
+                color: colors.textSecondary,
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.copy, color: Colors.white),
+            icon: Icon(Icons.copy, color: colors.iconSecondary),
             iconSize: 18,
             visualDensity: VisualDensity.compact,
             onPressed: () => _copyUrl(url),
@@ -392,6 +404,7 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
     required String subtitle,
     Widget? trailing,
   }) {
+    final colors = context.nipaplayColors;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -399,7 +412,7 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
         children: [
           Icon(
             icon,
-            color: Colors.white70,
+            color: colors.iconSecondary,
             size: 20,
           ),
           const SizedBox(width: 16),
@@ -409,8 +422,8 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: colors.textPrimary,
                     fontWeight: FontWeight.w500,
                     fontSize: 15,
                   ),
@@ -418,8 +431,8 @@ class _RemoteAccessPageState extends State<RemoteAccessPage> {
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: const TextStyle(
-                    color: Colors.white70,
+                  style: TextStyle(
+                    color: colors.textSecondary,
                     fontSize: 14,
                   ),
                 ),

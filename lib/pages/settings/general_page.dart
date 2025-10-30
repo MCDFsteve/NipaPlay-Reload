@@ -7,6 +7,8 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dropdown.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_item.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/settings_divider.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
@@ -113,7 +115,7 @@ class _GeneralPageState extends State<GeneralPage> {
                   },
                   dropdownKey: _defaultPageDropdownKey,
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
                 SettingsItem.dropdown(
                   title: "番剧卡片点击行为",
                   subtitle: "选择点击番剧卡片后默认展示的内容",
@@ -134,7 +136,7 @@ class _GeneralPageState extends State<GeneralPage> {
                     appearanceSettings.setAnimeCardAction(action);
                   },
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
                 if (!globals.isPhone)
                 SettingsItem.toggle(
                   title: "过滤成人内容 (全局)",
@@ -148,7 +150,7 @@ class _GeneralPageState extends State<GeneralPage> {
                     _saveFilterPreference(value);
                   },
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
                 SettingsItem.button(
                   title: "清除图片缓存",
                   subtitle: "清除所有缓存的图片文件",
@@ -156,24 +158,25 @@ class _GeneralPageState extends State<GeneralPage> {
                   trailingIcon: Ionicons.trash_outline,
                   isDestructive: true,
                   onTap: () async {
+                    final colors = context.nipaplayColors;
                     final bool? confirm = await BlurDialog.show<bool>(
                       context: context,
                       title: '确认清除缓存',
                       content: '确定要清除所有缓存的图片文件吗？',
                       actions: [
                         TextButton(
-                          child: const Text(
+                          child: Text(
                             '取消',
                             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+style: TextStyle(color: colors.textSecondary),
                           ),
                           onPressed: () => Navigator.of(context).pop(false),
                         ),
                         TextButton(
-                          child: const Text(
+                          child: Text(
                             '确定',
                             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white),
+style: TextStyle(color: colors.accent),
                           ),
                           onPressed: () => Navigator.of(context).pop(true),
                         ),
@@ -194,7 +197,7 @@ style: TextStyle(color: Colors.white),
                     }
                   },
                 ),
-                const Divider(color: Colors.white12, height: 1),
+                const SettingsDivider(),
               ],
             );
           },

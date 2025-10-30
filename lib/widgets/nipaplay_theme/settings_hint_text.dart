@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 
 class SettingsHintText extends StatelessWidget {
   final String text;
@@ -6,13 +7,14 @@ class SettingsHintText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.nipaplayColors;
     return Text(
       text,
-      style: const TextStyle(
-        color: Colors.white70,
+      style: TextStyle(
+        color: colors.textSecondary.withOpacity(0.75),
         fontSize: 12,
       ),
       textAlign: TextAlign.left,
     );
   }
-} 
+}
