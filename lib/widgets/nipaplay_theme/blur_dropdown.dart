@@ -40,6 +40,12 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
   late Animation<double> _scaleAnimation;
   final Duration _animationDuration = const Duration(milliseconds: 200);
 
+  Color get selectionOverlay => ThemeColorUtils.overlayColor(
+        context,
+        darkOpacity: 0.1,
+        lightOpacity: 0.08,
+      );
+
   @override
   void initState() {
     super.initState();

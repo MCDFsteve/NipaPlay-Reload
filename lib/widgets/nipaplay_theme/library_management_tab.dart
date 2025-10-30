@@ -23,6 +23,7 @@ import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPre
 import 'package:nipaplay/services/manual_danmaku_matcher.dart'; // 导入手动弹幕匹配器
 import 'package:nipaplay/services/webdav_service.dart'; // 导入WebDAV服务
 import 'package:nipaplay/widgets/nipaplay_theme/webdav_connection_dialog.dart'; // 导入WebDAV连接对话框
+import 'theme_color_utils.dart';
 
 class LibraryManagementTab extends StatefulWidget {
   final void Function(WatchHistoryItem item) onPlayEpisode;
@@ -34,18 +35,21 @@ class LibraryManagementTab extends StatefulWidget {
 }
 
 class _LibraryManagementTabState extends State<LibraryManagementTab> {
-  static const String _lastScannedDirectoryPickerPathKey = 'last_scanned_dir_picker_path';
-  static const String _librarySortOptionKey = 'library_sort_option'; // 新增键用于保存排序选项
+  static const String _lastScannedDirectoryPickerPathKey =
+      'last_scanned_dir_picker_path';
+  static const String _librarySortOptionKey =
+      'library_sort_option'; // 新增键用于保存排序选项
 
   final Map<String, List<io.FileSystemEntity>> _expandedFolderContents = {};
   final Set<String> _loadingFolders = {};
   final ScrollController _listScrollController = ScrollController();
-  
+
   // 存储ScanService引用
   ScanService? _scanService;
 
   // 排序相关状态
-  int _sortOption = 0; // 0: 文件名升序, 1: 文件名降序, 2: 修改时间升序, 3: 修改时间降序, 4: 大小升序, 5: 大小降序
+  int _sortOption =
+      0; // 0: 文件名升序, 1: 文件名降序, 2: 修改时间升序, 3: 修改时间降序, 4: 大小升序, 5: 大小降序
 
   // WebDAV相关状态
   bool _showWebDAVFolders = false; // 控制显示本地文件夹还是WebDAV文件夹
@@ -53,27 +57,32 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
   final Map<String, List<WebDAVFile>> _webdavFolderContents = {};
   final Set<String> _loadingWebDAVFolders = {};
 
+  Color _foregroundColor(BuildContext context, [double opacity = 1]) {
+    final base = ThemeColorUtils.primaryForeground(context);
+    return opacity >= 1 ? base : base.withOpacity(opacity);
+  }
+
   @override
   void initState() {
     super.initState();
-    
+
     // 延迟初始化，确保挂载完成
     _initScanServiceListener();
-    
+
     // 加载保存的排序选项
     _loadSortOption();
-    
+
     // 初始化WebDAV服务
     _initWebDAVService();
   }
-  
+
   // 提取为单独的方法，方便管理生命周期
   void _initScanServiceListener() {
     // 使用微任务确保在当前渲染帧结束后执行
     Future.microtask(() {
       // 确保组件仍然挂载
       if (!mounted) return;
-      
+
       try {
         final scanService = Provider.of<ScanService>(context, listen: false);
         _scanService = scanService; // 保存引用
@@ -85,7 +94,7 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
       }
     });
   }
-  
+
   // 初始化WebDAV服务
   Future<void> _initWebDAVService() async {
     try {
@@ -99,7 +108,7 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
       debugPrint('初始化WebDAV服务失败: $e');
     }
   }
-  
+
   // 显示WebDAV连接对话框
   Future<void> _showWebDAVConnectionDialog() async {
     final result = await WebDAVConnectionDialog.show(context);
@@ -133,68 +142,79 @@ class _LibraryManagementTabState extends State<LibraryManagementTab> {
     if (io.Platform.isIOS) {
       // 使用StorageService获取应用存储目录
       final io.Directory appDir = await StorageService.getAppStorageDirectory();
-      await scanService.startDirectoryScan(appDir.path, skipPreviouslyMatchedUnwatched: false); // Ensure full scan for new folder
-      return; 
+      await scanService.startDirectoryScan(appDir.path,
+          skipPreviouslyMatchedUnwatched:
+              false); // Ensure full scan for new folder
+      return;
     }
     // --- End iOS平台逻辑 ---
-    
+
     // Android和桌面平台分开处理
     if (io.Platform.isAndroid) {
       // 获取Android版本
       final int sdkVersion = await AndroidStorageHelper.getAndroidSDKVersion();
-      
+
       // Android 13+：使用媒体API扫描视频文件
       if (sdkVersion >= 33) {
         await _scanAndroidMediaFolders();
         return;
       }
-      
+
       // Android 13以下：允许自由选择文件夹
       // 检查并请求所有必要的权限...
       // 保留原来的权限请求代码
     }
-    
+
     // Android 13以下和桌面平台继续使用原来的文件选择器逻辑
     // 使用FilePickerService选择目录（适用于Android和桌面平台）
     String? selectedDirectory;
     try {
       final filePickerService = FilePickerService();
       selectedDirectory = await filePickerService.pickDirectory();
-      
+
       if (selectedDirectory == null) {
         if (mounted) {
           BlurSnackBar.show(context, "未选择文件夹。");
         }
         return;
       }
-      
-             // 验证选择的目录是否可访问
+
+      // 验证选择的目录是否可访问
       bool accessCheck = false;
       if (io.Platform.isAndroid) {
         // 使用原生方法检查目录权限
-        final dirCheck = await AndroidStorageHelper.checkDirectoryPermissions(selectedDirectory);
-        accessCheck = dirCheck['canRead'] == true && dirCheck['canWrite'] == true;
+        final dirCheck = await AndroidStorageHelper.checkDirectoryPermissions(
+            selectedDirectory);
+        accessCheck =
+            dirCheck['canRead'] == true && dirCheck['canWrite'] == true;
         debugPrint('Android目录权限检查结果: $dirCheck');
       } else {
         // 非Android平台使用Flutter方法检查
-        accessCheck = await StorageService.isValidStorageDirectory(selectedDirectory);
+        accessCheck =
+            await StorageService.isValidStorageDirectory(selectedDirectory);
       }
       if (!accessCheck && mounted) {
         BlurDialog.show<void>(
           context: context,
           title: "文件夹访问受限",
-          content: io.Platform.isAndroid ?"无法访问您选择的文件夹，可能是权限问题。\n\n如果您使用的是Android 11或更高版本，请考虑在设置中开启「管理所有文件」权限。" : "无法访问您选择的文件夹，可能是权限问题。",
+          content: io.Platform.isAndroid
+              ? "无法访问您选择的文件夹，可能是权限问题。\n\n如果您使用的是Android 11或更高版本，请考虑在设置中开启「管理所有文件」权限。"
+              : "无法访问您选择的文件夹，可能是权限问题。",
           actions: <Widget>[
             TextButton(
-              child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+              child: Text(
+                "知道了",
+                locale: const Locale("zh-Hans", "zh"),
+                style: TextStyle(color: _foregroundColor(context, 0.7)),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text("打开设置", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+              child: const Text("打开设置",
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: Colors.lightBlueAccent)),
               onPressed: () {
                 Navigator.of(context).pop();
                 openAppSettings();
@@ -215,36 +235,41 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     if (io.Platform.isIOS) {
       final io.Directory appDir = await StorageService.getAppStorageDirectory();
       final String appPath = appDir.path;
-  
+
       // Normalize paths to handle potential '/private' prefix discrepancy on iOS
       String effectiveSelectedDir = selectedDirectory;
-      if (selectedDirectory.startsWith('/private') && !appPath.startsWith('/private')) {
+      if (selectedDirectory.startsWith('/private') &&
+          !appPath.startsWith('/private')) {
         // If selected has /private but appPath doesn't, selected might be /private/var... and appPath /var...
         // No change needed for selectedDirectory here, comparison logic will handle it.
-      } else if (!selectedDirectory.startsWith('/private') && appPath.startsWith('/private')) {
+      } else if (!selectedDirectory.startsWith('/private') &&
+          appPath.startsWith('/private')) {
         // If selected doesn't have /private but appPath does, this is unusual, but we adapt.
         // This case is less likely if appDir.path is from StorageService.
       }
-  
+
       // The core comparison: selected path must start with appPath OR /private + appPath
-      bool isInternalPath = selectedDirectory.startsWith(appPath) || 
-                            (appPath.startsWith('/var') && selectedDirectory.startsWith('/private$appPath'));
-  
+      bool isInternalPath = selectedDirectory.startsWith(appPath) ||
+          (appPath.startsWith('/var') &&
+              selectedDirectory.startsWith('/private$appPath'));
+
       if (!isInternalPath) {
         if (mounted) {
           String dialogContent = "您选择的文件夹位于应用外部。\n\n";
           dialogContent += "为了正常扫描和管理媒体文件，请将文件或文件夹拷贝到应用的专属文件夹中。\n\n";
-          dialogContent += "您可以在\"文件\"应用中，导航至\"我的 iPhone / iPad\" > \"NipaPlay\"找到此文件夹。\n\n";
+          dialogContent +=
+              "您可以在\"文件\"应用中，导航至\"我的 iPhone / iPad\" > \"NipaPlay\"找到此文件夹。\n\n";
           dialogContent += "这是由于iOS的安全和权限机制，确保应用仅能访问您明确置于其管理区域内的数据。";
-  
+
           BlurDialog.show<void>(
             context: context,
             title: "访问提示 ",
             content: dialogContent,
             actions: <Widget>[
               TextButton(
-                child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+                child: const Text("知道了",
+                    locale: Locale("zh-Hans", "zh"),
+                    style: TextStyle(color: Colors.lightBlueAccent)),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -255,13 +280,14 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         return;
       }
     }
-    
+
     // Android平台检查是否有访问所选文件夹的权限
     if (io.Platform.isAndroid) {
       try {
         // 尝试读取文件夹内容以检查权限
         final dir = io.Directory(selectedDirectory);
-        await dir.list().first.timeout(const Duration(seconds: 2), onTimeout: () {
+        await dir.list().first.timeout(const Duration(seconds: 2),
+            onTimeout: () {
           throw TimeoutException('无法访问文件夹');
         });
       } catch (e) {
@@ -269,11 +295,13 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           BlurDialog.show<void>(
             context: context,
             title: "访问错误",
-            content: "无法访问所选文件夹，可能是权限问题。\n\n建议选择您的个人文件夹或媒体文件夹，如Pictures、Download或Movies。\n\n错误: ${e.toString().substring(0, min(e.toString().length, 100))}",
+            content:
+                "无法访问所选文件夹，可能是权限问题。\n\n建议选择您的个人文件夹或媒体文件夹，如Pictures、Download或Movies。\n\n错误: ${e.toString().substring(0, min(e.toString().length, 100))}",
             actions: <Widget>[
               TextButton(
-                child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+                child: const Text("知道了",
+                    locale: Locale("zh-Hans", "zh"),
+                    style: TextStyle(color: Colors.lightBlueAccent)),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -289,7 +317,9 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     // [修改] 自定义目录会影响安卓缓存，先注释
     //await StorageService.saveCustomStoragePath(selectedDirectory);
     // 开始扫描目录
-    await scanService.startDirectoryScan(selectedDirectory, skipPreviouslyMatchedUnwatched: false); // Ensure full scan for new folder
+    await scanService.startDirectoryScan(selectedDirectory,
+        skipPreviouslyMatchedUnwatched:
+            false); // Ensure full scan for new folder
   }
 
   Future<void> _handleRemoveFolder(String folderPathToRemove) async {
@@ -301,15 +331,17 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要从列表中移除文件夹 "$folderPathToRemove" 吗？\n相关的媒体记录也会被清理。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+          child: Text('取消',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.7))),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
         ),
         TextButton(
-          child: const Text('移除', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.redAccent)),
+          child: const Text('移除',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: Colors.redAccent)),
           onPressed: () {
             Navigator.of(context).pop(true);
           },
@@ -336,7 +368,8 @@ style: TextStyle(color: Colors.redAccent)),
     final io.Directory directory = io.Directory(path);
     if (await directory.exists()) {
       try {
-        await for (var entity in directory.list(recursive: false, followLinks: false)) {
+        await for (var entity
+            in directory.list(recursive: false, followLinks: false)) {
           if (entity is io.Directory) {
             contents.add(entity);
           } else if (entity is io.File) {
@@ -366,16 +399,22 @@ style: TextStyle(color: Colors.redAccent)),
       // 总是优先显示文件夹
       if (a is io.Directory && b is io.File) return -1;
       if (a is io.File && b is io.Directory) return 1;
-      
+
       // 同种类型文件按选择的排序方式排序
       int result = 0;
-      
+
       switch (_sortOption) {
         case 0: // 文件名升序
-          result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+          result = p
+              .basename(a.path)
+              .toLowerCase()
+              .compareTo(p.basename(b.path).toLowerCase());
           break;
         case 1: // 文件名降序
-          result = p.basename(b.path).toLowerCase().compareTo(p.basename(a.path).toLowerCase());
+          result = p
+              .basename(b.path)
+              .toLowerCase()
+              .compareTo(p.basename(a.path).toLowerCase());
           break;
         case 2: // 修改时间升序（旧到新）
           try {
@@ -384,7 +423,10 @@ style: TextStyle(color: Colors.redAccent)),
             result = aModified.compareTo(bModified);
           } catch (e) {
             // 如果获取修改时间失败，回退到文件名排序
-            result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+            result = p
+                .basename(a.path)
+                .toLowerCase()
+                .compareTo(p.basename(b.path).toLowerCase());
           }
           break;
         case 3: // 修改时间降序（新到旧）
@@ -394,7 +436,10 @@ style: TextStyle(color: Colors.redAccent)),
             result = bModified.compareTo(aModified);
           } catch (e) {
             // 如果获取修改时间失败，回退到文件名排序
-            result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+            result = p
+                .basename(a.path)
+                .toLowerCase()
+                .compareTo(p.basename(b.path).toLowerCase());
           }
           break;
         case 4: // 大小升序（小到大）
@@ -404,7 +449,10 @@ style: TextStyle(color: Colors.redAccent)),
             result = aSize.compareTo(bSize);
           } catch (e) {
             // 如果获取大小失败，回退到文件名排序
-            result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+            result = p
+                .basename(a.path)
+                .toLowerCase()
+                .compareTo(p.basename(b.path).toLowerCase());
           }
           break;
         case 5: // 大小降序（大到小）
@@ -414,13 +462,19 @@ style: TextStyle(color: Colors.redAccent)),
             result = bSize.compareTo(aSize);
           } catch (e) {
             // 如果获取大小失败，回退到文件名排序
-            result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+            result = p
+                .basename(a.path)
+                .toLowerCase()
+                .compareTo(p.basename(b.path).toLowerCase());
           }
           break;
         default:
-          result = p.basename(a.path).toLowerCase().compareTo(p.basename(b.path).toLowerCase());
+          result = p
+              .basename(a.path)
+              .toLowerCase()
+              .compareTo(p.basename(b.path).toLowerCase());
       }
-      
+
       return result;
     });
   }
@@ -431,15 +485,28 @@ style: TextStyle(color: Colors.redAccent)),
     sortedPaths.sort((a, b) {
       int result = 0;
       switch (_sortOption) {
-        case 0: result = p.basename(a).toLowerCase().compareTo(p.basename(b).toLowerCase()); break;
-        case 1: result = p.basename(b).toLowerCase().compareTo(p.basename(a).toLowerCase()); break;
+        case 0:
+          result = p
+              .basename(a)
+              .toLowerCase()
+              .compareTo(p.basename(b).toLowerCase());
+          break;
+        case 1:
+          result = p
+              .basename(b)
+              .toLowerCase()
+              .compareTo(p.basename(a).toLowerCase());
+          break;
         case 2:
           try {
             final aModified = io.File(a).statSync().modified;
             final bModified = io.File(b).statSync().modified;
             result = aModified.compareTo(bModified);
           } catch (e) {
-            result = p.basename(a).toLowerCase().compareTo(p.basename(b).toLowerCase());
+            result = p
+                .basename(a)
+                .toLowerCase()
+                .compareTo(p.basename(b).toLowerCase());
           }
           break;
         case 3:
@@ -448,11 +515,18 @@ style: TextStyle(color: Colors.redAccent)),
             final bModified = io.File(b).statSync().modified;
             result = bModified.compareTo(aModified);
           } catch (e) {
-            result = p.basename(a).toLowerCase().compareTo(p.basename(b).toLowerCase());
+            result = p
+                .basename(a)
+                .toLowerCase()
+                .compareTo(p.basename(b).toLowerCase());
           }
           break;
-        case 4: result = 0.compareTo(0); break; // 文件夹大小排序对路径无效
-        case 5: result = 0.compareTo(0); break; // 文件夹大小排序对路径无效
+        case 4:
+          result = 0.compareTo(0);
+          break; // 文件夹大小排序对路径无效
+        case 5:
+          result = 0.compareTo(0);
+          break; // 文件夹大小排序对路径无效
       }
       return result;
     });
@@ -464,7 +538,7 @@ style: TextStyle(color: Colors.redAccent)),
     if (_loadingFolders.contains(folderPath)) {
       return;
     }
-    
+
     if (mounted) {
       setState(() {
         _loadingFolders.add(folderPath);
@@ -491,15 +565,20 @@ style: TextStyle(color: Colors.redAccent)),
     }
   }
 
-  List<Widget> _buildFileSystemNodes(List<io.FileSystemEntity> entities, String parentPath, int depth) {
+  List<Widget> _buildFileSystemNodes(
+      List<io.FileSystemEntity> entities, String parentPath, int depth) {
     if (entities.isEmpty && !_loadingFolders.contains(parentPath)) {
-      return [Padding(
-        padding: EdgeInsets.only(left: depth * 16.0 + 16.0, top: 8.0, bottom: 8.0),
-        child: const Text("文件夹为空", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54)),
-      )];
+      return [
+        Padding(
+          padding:
+              EdgeInsets.only(left: depth * 16.0 + 16.0, top: 8.0, bottom: 8.0),
+          child: Text("文件夹为空",
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.54))),
+        )
+      ];
     }
-    
+
     return entities.map<Widget>((entity) {
       final indent = EdgeInsets.only(left: depth * 16.0);
       if (entity is io.Directory) {
@@ -508,17 +587,27 @@ style: TextStyle(color: Colors.white54)),
           padding: indent,
           child: ExpansionTile(
             key: PageStorageKey<String>(dirPath),
-            leading: const Icon(Icons.folder_outlined, color: Colors.white70),
-            title: Text(p.basename(dirPath), style: const TextStyle(color: Colors.white)),
+            leading: Icon(Icons.folder_outlined,
+                color: _foregroundColor(context, 0.7)),
+            title: Text(p.basename(dirPath),
+                style: TextStyle(color: _foregroundColor(context))),
             onExpansionChanged: (isExpanded) {
-              if (isExpanded && _expandedFolderContents[dirPath] == null && !_loadingFolders.contains(dirPath)) {
+              if (isExpanded &&
+                  _expandedFolderContents[dirPath] == null &&
+                  !_loadingFolders.contains(dirPath)) {
                 // 使用 Future.microtask 确保在当前构建帧完成后执行
                 Future.microtask(() => _loadFolderChildren(dirPath));
               }
             },
             children: _loadingFolders.contains(dirPath)
-                ? [const Center(child: Padding(padding: EdgeInsets.all(8.0), child: CircularProgressIndicator()))]
-                : _buildFileSystemNodes(_expandedFolderContents[dirPath] ?? [], dirPath, depth + 1),
+                ? [
+                    const Center(
+                        child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CircularProgressIndicator()))
+                  ]
+                : _buildFileSystemNodes(
+                    _expandedFolderContents[dirPath] ?? [], dirPath, depth + 1),
           ),
         );
       } else if (entity is io.File) {
@@ -530,7 +619,7 @@ style: TextStyle(color: Colors.white54)),
               // 获取扫描到的动画信息
               final historyItem = snapshot.data;
               final String fileName = p.basename(entity.path);
-              
+
               // 调试信息
               if (historyItem != null) {
                 debugPrint('🎬 文件: $fileName');
@@ -540,41 +629,47 @@ style: TextStyle(color: Colors.white54)),
                 debugPrint('   动画ID: ${historyItem.animeId}');
                 debugPrint('   集数ID: ${historyItem.episodeId}');
               }
-              
+
               // 构建副标题（动画名称和集数）
               String? subtitleText;
               // 放宽条件：只要有历史记录且有动画信息就显示
-              if (historyItem != null && 
-                  (historyItem.animeId != null || historyItem.episodeId != null ||
-                   (historyItem.animeName.isNotEmpty && historyItem.animeName != p.basenameWithoutExtension(entity.path)))) {
+              if (historyItem != null &&
+                  (historyItem.animeId != null ||
+                      historyItem.episodeId != null ||
+                      (historyItem.animeName.isNotEmpty &&
+                          historyItem.animeName !=
+                              p.basenameWithoutExtension(entity.path)))) {
                 final List<String> subtitleParts = [];
-                
+
                 // 添加动画名称（如果存在且不是文件名）
-                if (historyItem.animeName.isNotEmpty && 
-                    historyItem.animeName != p.basenameWithoutExtension(entity.path)) {
+                if (historyItem.animeName.isNotEmpty &&
+                    historyItem.animeName !=
+                        p.basenameWithoutExtension(entity.path)) {
                   subtitleParts.add(historyItem.animeName);
                 }
-                
+
                 // 添加集数标题（如果存在）
-                if (historyItem.episodeTitle != null && 
+                if (historyItem.episodeTitle != null &&
                     historyItem.episodeTitle!.isNotEmpty) {
                   subtitleParts.add(historyItem.episodeTitle!);
                 }
-                
+
                 if (subtitleParts.isNotEmpty) {
                   subtitleText = subtitleParts.join(' - ');
                 }
               }
-              
+
               return ListTile(
-                leading: const Icon(Icons.videocam_outlined, color: Colors.white),
-                title: Text(fileName, style: const TextStyle(color: Colors.white)),
-                subtitle: subtitleText != null 
+                leading: Icon(Icons.videocam_outlined,
+                    color: _foregroundColor(context)),
+                title: Text(fileName,
+                    style: TextStyle(color: _foregroundColor(context))),
+                subtitle: subtitleText != null
                     ? Text(
                         subtitleText,
-                        locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
+                        locale: Locale("zh-Hans", "zh"),
+                        style: TextStyle(
+                          color: _foregroundColor(context, 0.7),
                           fontSize: 12,
                         ),
                         maxLines: 2,
@@ -586,28 +681,35 @@ style: TextStyle(
                   children: [
                     // 手动匹配弹幕按钮
                     IconButton(
-                      icon: const Icon(Icons.subtitles, color: Colors.white70, size: 20),
-                      onPressed: () => _showManualDanmakuMatchDialog(entity.path, fileName, historyItem),
+                      icon: Icon(Icons.subtitles,
+                          color: _foregroundColor(context, 0.7), size: 20),
+                      onPressed: () => _showManualDanmakuMatchDialog(
+                          entity.path, fileName, historyItem),
                     ),
                     // 移除扫描结果按钮
-                    if (historyItem != null && (historyItem.animeId != null || historyItem.episodeId != null))
+                    if (historyItem != null &&
+                        (historyItem.animeId != null ||
+                            historyItem.episodeId != null))
                       IconButton(
-                        icon: const Icon(Icons.clear, color: Colors.white70, size: 20),
-                        onPressed: () => _showRemoveScanResultDialog(entity.path, fileName, historyItem),
+                        icon: Icon(Icons.clear,
+                            color: _foregroundColor(context, 0.7), size: 20),
+                        onPressed: () => _showRemoveScanResultDialog(
+                            entity.path, fileName, historyItem),
                       ),
                   ],
                 ),
                 onTap: () {
                   // Use existing history item if available, otherwise create a minimal one
-                  final WatchHistoryItem itemToPlay = historyItem ?? WatchHistoryItem(
-                    filePath: entity.path,
-                    animeName: p.basenameWithoutExtension(entity.path),
-                    episodeTitle: '',
-                    duration: 0,
-                    lastPosition: 0,
-                    watchProgress: 0.0,
-                    lastWatchTime: DateTime.now(),
-                  );
+                  final WatchHistoryItem itemToPlay = historyItem ??
+                      WatchHistoryItem(
+                        filePath: entity.path,
+                        animeName: p.basenameWithoutExtension(entity.path),
+                        episodeTitle: '',
+                        duration: 0,
+                        lastPosition: 0,
+                        watchProgress: 0.0,
+                        lastWatchTime: DateTime.now(),
+                      );
                   widget.onPlayEpisode(itemToPlay);
                 },
               );
@@ -638,9 +740,9 @@ style: TextStyle(
         children: [
           Text(
             '选择文件夹中文件和子文件夹的排序方式：',
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+            locale: Locale("zh-Hans", "zh"),
+            style: TextStyle(
+              color: _foregroundColor(context, 0.8),
               fontSize: 14,
             ),
             textAlign: TextAlign.center,
@@ -658,13 +760,16 @@ style: TextStyle(
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(vertical: 1),
                     child: Material(
-                      color: isSelected ? Colors.white.withOpacity(0.1) : Colors.transparent,
+                      color: isSelected
+                          ? _foregroundColor(context, 0.1)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(6),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(6),
                         onTap: () => Navigator.of(context).pop(index),
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 10),
                           child: Row(
                             children: [
                               if (isSelected) ...[
@@ -680,10 +785,14 @@ style: TextStyle(
                               Expanded(
                                 child: Text(
                                   option,
-                                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                    color: isSelected ? Colors.lightBlueAccent : Colors.white70,
-                                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                  locale: Locale("zh-Hans", "zh"),
+                                  style: TextStyle(
+                                    color: isSelected
+                                        ? Colors.lightBlueAccent
+                                        : _foregroundColor(context, 0.7),
+                                    fontWeight: isSelected
+                                        ? FontWeight.bold
+                                        : FontWeight.normal,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -701,8 +810,9 @@ style: TextStyle(
           const SizedBox(height: 16),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54)),
+            child: Text('取消',
+                locale: Locale("zh-Hans", "zh"),
+                style: TextStyle(color: _foregroundColor(context, 0.54))),
           ),
         ],
       ),
@@ -714,10 +824,10 @@ style: TextStyle(color: Colors.white54)),
         // 清空已展开的文件夹内容，强制重新加载和排序
         _expandedFolderContents.clear();
       });
-      
+
       // 保存排序选项
       _saveSortOption(result);
-      
+
       BlurSnackBar.show(context, '排序方式已更改为：${sortOptions[result]}');
     }
   }
@@ -726,26 +836,30 @@ style: TextStyle(color: Colors.white54)),
   void _checkScanResults() {
     // 首先检查 mounted 状态
     if (!mounted) return;
-    
+
     try {
       // 使用保存的引用避免在组件销毁时访问Provider
       final scanService = _scanService;
       if (scanService == null) return;
-      
-      print('检查扫描结果: isScanning=${scanService.isScanning}, justFinishedScanning=${scanService.justFinishedScanning}, totalFilesFound=${scanService.totalFilesFound}, scannedFolders.isEmpty=${scanService.scannedFolders.isEmpty}');
-      
+
+      print(
+          '检查扫描结果: isScanning=${scanService.isScanning}, justFinishedScanning=${scanService.justFinishedScanning}, totalFilesFound=${scanService.totalFilesFound}, scannedFolders.isEmpty=${scanService.scannedFolders.isEmpty}');
+
       // 只在扫描刚结束时检查
       if (!scanService.isScanning && scanService.justFinishedScanning) {
         print('扫描刚结束，准备检查是否显示指导弹窗');
-        
+
         // 如果没有文件，或者扫描文件夹为空，显示指导弹窗
-        if ((scanService.totalFilesFound == 0 || scanService.scannedFolders.isEmpty) && mounted) {
+        if ((scanService.totalFilesFound == 0 ||
+                scanService.scannedFolders.isEmpty) &&
+            mounted) {
           print('符合条件，即将显示文件导入指导弹窗');
           _showFileImportGuideDialog();
         } else {
-          print('不符合显示条件: totalFilesFound=${scanService.totalFilesFound}, scannedFolders.isEmpty=${scanService.scannedFolders.isEmpty}');
+          print(
+              '不符合显示条件: totalFilesFound=${scanService.totalFilesFound}, scannedFolders.isEmpty=${scanService.scannedFolders.isEmpty}');
         }
-        
+
         // 重置标志
         scanService.resetJustFinishedScanning();
       }
@@ -753,13 +867,13 @@ style: TextStyle(color: Colors.white54)),
       print('检查扫描结果时出错: $e');
     }
   }
-  
+
   // 显示文件导入指导弹窗
   void _showFileImportGuideDialog() {
     if (!mounted) return;
-    
+
     String dialogContent = "未发现任何视频文件。以下是向NipaPlay添加视频的方法：\n\n";
-    
+
     if (io.Platform.isIOS) {
       dialogContent += "1. 打开iOS「文件」应用\n";
       dialogContent += "2. 浏览到包含您视频的文件夹\n";
@@ -777,21 +891,22 @@ style: TextStyle(color: Colors.white54)),
       dialogContent += "- 如果无法选择某个文件夹，可能是权限问题\n";
       dialogContent += "- 建议使用标准的媒体文件夹如Pictures、Movies或Documents\n";
     }
-    
+
     if (io.Platform.isIOS) {
       dialogContent += "\n添加完文件后，点击上方的「扫描NipaPlay文件夹」按钮刷新媒体库。";
     } else {
       dialogContent += "\n添加完文件后，点击上方的「添加并扫描文件夹」按钮选择您存放视频的文件夹。";
     }
-    
+
     BlurDialog.show<void>(
       context: context,
       title: "如何添加视频文件",
       content: dialogContent,
       actions: <Widget>[
         TextButton(
-          child: const Text("知道了", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+          child: const Text("知道了",
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: Colors.lightBlueAccent)),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -811,18 +926,21 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     final confirm = await BlurDialog.show<bool>(
       context: context,
       title: '重置存储路径',
-      content: '确定要重置存储路径吗？这将清除您之前设置的自定义路径，并使用系统默认位置。\n\n注意：这不会删除您已添加到媒体库的视频文件。',
+      content:
+          '确定要重置存储路径吗？这将清除您之前设置的自定义路径，并使用系统默认位置。\n\n注意：这不会删除您已添加到媒体库的视频文件。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+          child: Text('取消',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.7))),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
         ),
         TextButton(
-          child: const Text('重置', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.redAccent)),
+          child: const Text('重置',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: Colors.redAccent)),
           onPressed: () {
             Navigator.of(context).pop(true);
           },
@@ -843,35 +961,38 @@ style: TextStyle(color: Colors.redAccent)),
   // 检查并显示权限状态
   Future<void> _checkAndShowPermissionStatus() async {
     if (!io.Platform.isAndroid) return;
-    
+
     // 显示加载提示
     if (mounted) {
       BlurSnackBar.show(context, '正在检查权限状态...');
     }
-    
+
     try {
       // 获取权限状态
       final status = await AndroidStorageHelper.getAllStoragePermissionStatus();
       final int sdkVersion = status['androidVersion'] as int;
-      
+
       // 构建状态信息
       final StringBuffer content = StringBuffer();
       content.writeln('Android 版本: $sdkVersion');
       content.writeln('基本存储权限: ${status['storage']}');
-      
-      if (sdkVersion >= 30) { // Android 11+
+
+      if (sdkVersion >= 30) {
+        // Android 11+
         content.writeln('\n管理所有文件权限:');
         content.writeln('- 系统API: ${status['manageExternalStorageNative']}');
-        content.writeln('- permission_handler: ${status['manageExternalStorage']}');
+        content.writeln(
+            '- permission_handler: ${status['manageExternalStorage']}');
       }
-      
-      if (sdkVersion >= 33) { // Android 13+
+
+      if (sdkVersion >= 33) {
+        // Android 13+
         content.writeln('\nAndroid 13+ 分类媒体权限:');
         content.writeln('- 照片访问: ${status['mediaImages']}');
         content.writeln('- 视频访问: ${status['mediaVideo']}');
         content.writeln('- 音频访问: ${status['mediaAudio']}');
       }
-      
+
       // 显示权限状态对话框
       if (mounted) {
         BlurDialog.show<void>(
@@ -880,15 +1001,17 @@ style: TextStyle(color: Colors.redAccent)),
           content: content.toString(),
           actions: <Widget>[
             TextButton(
-              child: const Text('关闭', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+              child: Text('关闭',
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: _foregroundColor(context, 0.7))),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('申请权限', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+              child: const Text('申请权限',
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: Colors.lightBlueAccent)),
               onPressed: () async {
                 Navigator.of(context).pop();
                 await AndroidStorageHelper.requestAllRequiredPermissions();
@@ -917,28 +1040,30 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       await Permission.photos.request();
       await Permission.videos.request();
       await Permission.audio.request();
-      
-      bool hasMediaPermissions = 
-          await Permission.photos.isGranted && 
-          await Permission.videos.isGranted && 
+
+      bool hasMediaPermissions = await Permission.photos.isGranted &&
+          await Permission.videos.isGranted &&
           await Permission.audio.isGranted;
-      
+
       if (!hasMediaPermissions && mounted) {
         BlurDialog.show<void>(
           context: context,
           title: "需要媒体权限",
-          content: "NipaPlay需要访问媒体文件权限才能扫描视频文件。\n\n请在系统设置中允许NipaPlay访问照片、视频和音频权限。",
+          content:
+              "NipaPlay需要访问媒体文件权限才能扫描视频文件。\n\n请在系统设置中允许NipaPlay访问照片、视频和音频权限。",
           actions: <Widget>[
             TextButton(
-              child: const Text("稍后再说", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+              child: Text("稍后再说",
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: _foregroundColor(context, 0.7))),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text("打开设置", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+              child: const Text("打开设置",
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: Colors.lightBlueAccent)),
               onPressed: () {
                 Navigator.of(context).pop();
                 openAppSettings();
@@ -948,16 +1073,16 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         );
         return;
       }
-      
+
       // 显示加载提示
       if (mounted) {
         BlurSnackBar.show(context, '正在扫描视频文件夹，请稍候...');
       }
-      
+
       // 获取系统媒体文件夹
       final scanService = Provider.of<ScanService>(context, listen: false);
       String? moviesPath;
-      
+
       // 尝试获取Movies目录路径
       try {
         final externalDirs = await getExternalStorageDirectories();
@@ -965,7 +1090,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           String baseDir = externalDirs[0].path;
           baseDir = baseDir.substring(0, baseDir.indexOf('Android'));
           final moviesDir = io.Directory('${baseDir}Movies');
-          
+
           if (await moviesDir.exists()) {
             moviesPath = moviesDir.path;
             debugPrint('找到Movies目录: $moviesPath');
@@ -974,7 +1099,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       } catch (e) {
         debugPrint('无法获取Movies目录: $e');
       }
-      
+
       // 如果没有找到Movies目录，尝试其他常用媒体目录
       if (moviesPath == null) {
         try {
@@ -982,7 +1107,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           if (externalDirs != null && externalDirs.isNotEmpty) {
             String baseDir = externalDirs[0].path;
             baseDir = baseDir.substring(0, baseDir.indexOf('Android'));
-            
+
             // 检查DCIM目录
             final dcimDir = io.Directory('${baseDir}DCIM');
             if (await dcimDir.exists()) {
@@ -1001,7 +1126,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           debugPrint('无法获取备选媒体目录: $e');
         }
       }
-      
+
       // 如果仍然没有找到任何媒体目录，提示用户
       if (moviesPath == null && mounted) {
         BlurDialog.show<void>(
@@ -1010,15 +1135,17 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           content: "无法找到系统视频文件夹。建议使用\"管理所有文件\"权限或手动选择文件夹。",
           actions: <Widget>[
             TextButton(
-              child: const Text("取消", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+              child: Text("取消",
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: _foregroundColor(context, 0.7))),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text("开启完整权限", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
+              child: const Text("开启完整权限",
+                  locale: Locale("zh-Hans", "zh"),
+                  style: TextStyle(color: Colors.lightBlueAccent)),
               onPressed: () {
                 Navigator.of(context).pop();
                 AndroidStorageHelper.requestManageExternalStoragePermission();
@@ -1028,14 +1155,16 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         );
         return;
       }
-      
+
       // 扫描找到的文件夹
       if (moviesPath != null) {
         try {
           // 检查目录权限
-          final dirPerms = await AndroidStorageHelper.checkDirectoryPermissions(moviesPath);
+          final dirPerms =
+              await AndroidStorageHelper.checkDirectoryPermissions(moviesPath);
           if (dirPerms['canRead'] == true) {
-            await scanService.startDirectoryScan(moviesPath, skipPreviouslyMatchedUnwatched: false);
+            await scanService.startDirectoryScan(moviesPath,
+                skipPreviouslyMatchedUnwatched: false);
             if (mounted) {
               BlurSnackBar.show(context, '已扫描视频文件夹: ${p.basename(moviesPath)}');
             }
@@ -1046,13 +1175,15 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           }
         } catch (e) {
           if (mounted) {
-            BlurSnackBar.show(context, '扫描视频文件夹失败: ${e.toString().substring(0, min(e.toString().length, 50))}');
+            BlurSnackBar.show(context,
+                '扫描视频文件夹失败: ${e.toString().substring(0, min(e.toString().length, 50))}');
           }
         }
       }
     } catch (e) {
       if (mounted) {
-        BlurSnackBar.show(context, '扫描视频文件夹时出错: ${e.toString().substring(0, min(e.toString().length, 50))}');
+        BlurSnackBar.show(context,
+            '扫描视频文件夹时出错: ${e.toString().substring(0, min(e.toString().length, 50))}');
       }
     }
   }
@@ -1071,7 +1202,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       debugPrint('加载排序选项失败: $e');
     }
   }
-  
+
   // 保存排序选项
   Future<void> _saveSortOption(int sortOption) async {
     try {
@@ -1093,8 +1224,9 @@ style: TextStyle(color: Colors.lightBlueAccent)),
 此功能需要访问本地文件系统，但Web应用无法获取相关权限。
 请在Windows、macOS、Android或iOS客户端中使用此功能。''',
             textAlign: TextAlign.center,
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 16),
+            locale: Locale("zh-Hans", "zh"),
+            style:
+                TextStyle(color: _foregroundColor(context, 0.7), fontSize: 16),
           ),
         ),
       );
@@ -1116,16 +1248,21 @@ style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 16),
             children: [
               Row(
                 children: [
-                  const Text("媒体文件夹", locale:Locale("zh-Hans","zh"),
-style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+                  Text("媒体文件夹",
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: _foregroundColor(context),
+                          fontWeight: FontWeight.bold)),
                   const SizedBox(width: 16),
                   // 切换开关：本地文件夹 / WebDAV
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: _foregroundColor(context, 0.1),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.white.withOpacity(0.2)),
+                      border: Border.all(color: _foregroundColor(context, 0.2)),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -1137,19 +1274,24 @@ style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
                             });
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: !_showWebDAVFolders 
-                                  ? Colors.white.withOpacity(0.3) 
+                              color: !_showWebDAVFolders
+                                  ? _foregroundColor(context, 0.3)
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
                               '本地',
                               style: TextStyle(
-                                color: !_showWebDAVFolders ? Colors.white : Colors.white70,
+                                color: !_showWebDAVFolders
+                                    ? _foregroundColor(context)
+                                    : _foregroundColor(context, 0.7),
                                 fontSize: 12,
-                                fontWeight: !_showWebDAVFolders ? FontWeight.w600 : FontWeight.normal,
+                                fontWeight: !_showWebDAVFolders
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
                               ),
                             ),
                           ),
@@ -1162,19 +1304,24 @@ style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
                             });
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: _showWebDAVFolders 
-                                  ? Colors.white.withOpacity(0.3) 
+                              color: _showWebDAVFolders
+                                  ? _foregroundColor(context, 0.3)
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
                               'WebDAV',
                               style: TextStyle(
-                                color: _showWebDAVFolders ? Colors.white : Colors.white70,
+                                color: _showWebDAVFolders
+                                    ? _foregroundColor(context)
+                                    : _foregroundColor(context, 0.7),
                                 fontSize: 12,
-                                fontWeight: _showWebDAVFolders ? FontWeight.w600 : FontWeight.normal,
+                                fontWeight: _showWebDAVFolders
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
                               ),
                             ),
                           ),
@@ -1189,72 +1336,95 @@ style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
                   // 重置存储路径按钮 - 只在Android平台显示，macOS平台不支持自定义存储路径
                   if (io.Platform.isAndroid)
                     IconButton(
-                      icon: const Icon(Icons.settings_backup_restore),
+                      icon: Icon(Icons.settings_backup_restore),
                       tooltip: '重置存储路径',
-                      color: Colors.white70,
-                      onPressed: scanService.isScanning ? null : _clearCustomStoragePath,
+                      color: _foregroundColor(context, 0.7),
+                      onPressed: scanService.isScanning
+                          ? null
+                          : _clearCustomStoragePath,
                     ),
                   if (io.Platform.isAndroid)
                     IconButton(
-                      icon: const Icon(Icons.security),
+                      icon: Icon(Icons.security),
                       tooltip: '检查权限状态',
-                      color: Colors.white70,
-                      onPressed: scanService.isScanning ? null : _checkAndShowPermissionStatus,
+                      color: _foregroundColor(context, 0.7),
+                      onPressed: scanService.isScanning
+                          ? null
+                          : _checkAndShowPermissionStatus,
                     ),
                   IconButton(
-                    icon: const Icon(Icons.cleaning_services),
-                    color: Colors.white70,
-                    onPressed: scanService.isScanning ? null : () async {
-                      final confirm = await BlurDialog.show<bool>(
-                        context: context,
-                        title: '清理智能扫描缓存',
-                        content: '这将清理所有文件夹的变化检测缓存，下次扫描时将重新检查所有文件夹。\n\n适用于：\n• 怀疑智能扫描遗漏了某些变化\n• 想要强制重新扫描所有文件夹\n\n确定要清理缓存吗？',
-                        actions: <Widget>[
-                          TextButton(
-                            child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
-                            onPressed: () => Navigator.of(context).pop(false),
-                          ),
-                          TextButton(
-                            child: const Text('清理', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.orangeAccent)),
-                            onPressed: () => Navigator.of(context).pop(true),
-                          ),
-                        ],
-                      );
-                      if (confirm == true) {
-                        await scanService.clearAllFolderHashCache();
-                        if (mounted) {
-                          BlurSnackBar.show(context, '智能扫描缓存已清理');
-                        }
-                      }
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Ionicons.refresh_outline),
-                    color: Colors.white70,
-                    onPressed: scanService.isScanning 
-                        ? null 
+                    icon: Icon(Icons.cleaning_services),
+                    color: _foregroundColor(context, 0.7),
+                    onPressed: scanService.isScanning
+                        ? null
                         : () async {
                             final confirm = await BlurDialog.show<bool>(
                               context: context,
-                              title: '智能刷新确认',
-                              content: '将使用智能扫描技术重新检查所有已添加的媒体文件夹：\n\n• 自动检测文件夹内容变化\n• 只扫描有新增、删除或修改文件的文件夹\n• 跳过无变化的文件夹，大幅提升扫描速度\n• 可选择跳过已匹配且未观看的文件\n\n这可能需要一些时间，但比传统全量扫描快很多。',
+                              title: '清理智能扫描缓存',
+                              content:
+                                  '这将清理所有文件夹的变化检测缓存，下次扫描时将重新检查所有文件夹。\n\n适用于：\n• 怀疑智能扫描遗漏了某些变化\n• 想要强制重新扫描所有文件夹\n\n确定要清理缓存吗？',
                               actions: <Widget>[
                                 TextButton(
-                                  child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
-                                  onPressed: () => Navigator.of(context).pop(false),
+                                  child: Text('取消',
+                                      locale: Locale("zh-Hans", "zh"),
+                                      style: TextStyle(
+                                          color:
+                                              _foregroundColor(context, 0.7))),
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(false),
                                 ),
                                 TextButton(
-                                  child: const Text('智能刷新', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
-                                  onPressed: () => Navigator.of(context).pop(true),
+                                  child: const Text('清理',
+                                      locale: Locale("zh-Hans", "zh"),
+                                      style: TextStyle(
+                                          color: Colors.orangeAccent)),
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(true),
                                 ),
                               ],
                             );
                             if (confirm == true) {
-                              await scanService.rescanAllFolders(); // skipPreviouslyMatchedUnwatched defaults to true
+                              await scanService.clearAllFolderHashCache();
+                              if (mounted) {
+                                BlurSnackBar.show(context, '智能扫描缓存已清理');
+                              }
+                            }
+                          },
+                  ),
+                  IconButton(
+                    icon: Icon(Ionicons.refresh_outline),
+                    color: _foregroundColor(context, 0.7),
+                    onPressed: scanService.isScanning
+                        ? null
+                        : () async {
+                            final confirm = await BlurDialog.show<bool>(
+                              context: context,
+                              title: '智能刷新确认',
+                              content:
+                                  '将使用智能扫描技术重新检查所有已添加的媒体文件夹：\n\n• 自动检测文件夹内容变化\n• 只扫描有新增、删除或修改文件的文件夹\n• 跳过无变化的文件夹，大幅提升扫描速度\n• 可选择跳过已匹配且未观看的文件\n\n这可能需要一些时间，但比传统全量扫描快很多。',
+                              actions: <Widget>[
+                                TextButton(
+                                  child: Text('取消',
+                                      locale: Locale("zh-Hans", "zh"),
+                                      style: TextStyle(
+                                          color:
+                                              _foregroundColor(context, 0.7))),
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(false),
+                                ),
+                                TextButton(
+                                  child: const Text('智能刷新',
+                                      locale: Locale("zh-Hans", "zh"),
+                                      style: TextStyle(
+                                          color: Colors.lightBlueAccent)),
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(true),
+                                ),
+                              ],
+                            );
+                            if (confirm == true) {
+                              await scanService
+                                  .rescanAllFolders(); // skipPreviouslyMatchedUnwatched defaults to true
                             }
                           },
                   ),
@@ -1280,29 +1450,32 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.white.withOpacity(0.15),
-                      Colors.white.withOpacity(0.05),
+                      _foregroundColor(context, 0.15),
+                      _foregroundColor(context, 0.05),
                     ],
                   ),
                   borderGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.white.withOpacity(0.3),
-                      Colors.white.withOpacity(0.1),
+                      _foregroundColor(context, 0.3),
+                      _foregroundColor(context, 0.1),
                     ],
                   ),
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: scanService.isScanning ? null : _pickAndScanDirectory,
+                      onTap:
+                          scanService.isScanning ? null : _pickAndScanDirectory,
                       borderRadius: BorderRadius.circular(12),
                       child: Center(
                         child: FutureBuilder<bool>(
-                          future: io.Platform.isAndroid ? _isAndroid13Plus() : Future.value(false),
+                          future: io.Platform.isAndroid
+                              ? _isAndroid13Plus()
+                              : Future.value(false),
                           builder: (context, snapshot) {
                             String buttonText = '添加本地文件夹'; // 默认文本
-                            
+
                             if (io.Platform.isIOS) {
                               buttonText = '扫描NipaPlay文件夹';
                             } else if (io.Platform.isAndroid) {
@@ -1313,10 +1486,12 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                                 buttonText = '添加本地文件夹';
                               }
                             }
-                            
+
                             return Text(
                               buttonText,
-                              style: const TextStyle(color: Colors.white, fontSize: 16),
+                              style: TextStyle(
+                                  color: _foregroundColor(context),
+                                  fontSize: 16),
                             );
                           },
                         ),
@@ -1325,9 +1500,9 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   ),
                 ),
               ),
-              
+
               const SizedBox(width: 12), // 间距
-              
+
               // 右侧按钮：添加WebDAV服务器
               Expanded(
                 child: GlassmorphicContainer(
@@ -1341,27 +1516,30 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.white.withOpacity(0.15),
-                      Colors.white.withOpacity(0.05),
+                      _foregroundColor(context, 0.15),
+                      _foregroundColor(context, 0.05),
                     ],
                   ),
                   borderGradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.white.withOpacity(0.3),
-                      Colors.white.withOpacity(0.1),
+                      _foregroundColor(context, 0.3),
+                      _foregroundColor(context, 0.1),
                     ],
                   ),
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: scanService.isScanning ? null : _showWebDAVConnectionDialog,
+                      onTap: scanService.isScanning
+                          ? null
+                          : _showWebDAVConnectionDialog,
                       borderRadius: BorderRadius.circular(12),
                       child: const Center(
                         child: Text(
                           '添加WebDAV服务器',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(
+                              color: _foregroundColor(context), fontSize: 16),
                         ),
                       ),
                     ),
@@ -1373,18 +1551,21 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         ),
         if (scanService.isScanning || scanService.scanMessage.isNotEmpty)
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(scanService.scanMessage, style: const TextStyle(color: Colors.white70)),
+                Text(scanService.scanMessage,
+                    style: TextStyle(color: _foregroundColor(context, 0.7))),
                 if (scanService.isScanning && scanService.scanProgress > 0)
                   Padding(
                     padding: const EdgeInsets.only(top: 4.0),
                     child: LinearProgressIndicator(
                       value: scanService.scanProgress,
                       backgroundColor: Colors.grey[700],
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          Colors.lightBlueAccent),
                     ),
                   ),
               ],
@@ -1393,7 +1574,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         // 显示启动时检测到的变化
         if (scanService.detectedChanges.isNotEmpty && !scanService.isScanning)
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: GlassmorphicContainer(
               width: double.infinity,
               height: 50,
@@ -1424,60 +1606,76 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.notification_important, color: Colors.orange, size: 20),
+                        const Icon(Icons.notification_important,
+                            color: Colors.orange, size: 20),
                         const SizedBox(width: 8),
-                        const Text(
+                        Text(
                           "检测到文件夹变化",
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 16),
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ),
                         const Spacer(),
                         TextButton(
                           onPressed: () => scanService.clearDetectedChanges(),
-                          child: const Text("忽略", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+                          child: Text("忽略",
+                              locale: Locale("zh-Hans", "zh"),
+                              style: TextStyle(
+                                  color: _foregroundColor(context, 0.7))),
                         ),
                       ],
                     ),
                     const SizedBox(height: 8),
                     Text(
                       scanService.getChangeDetectionSummary(),
-                      style: const TextStyle(color: Colors.white70, fontSize: 14),
+                      style: TextStyle(
+                          color: _foregroundColor(context, 0.7), fontSize: 14),
                     ),
                     const SizedBox(height: 12),
                     ...scanService.detectedChanges.map((change) => Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  change.displayName,
-                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      change.displayName,
+                                      style: TextStyle(
+                                          color: _foregroundColor(context),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      change.changeDescription,
+                                      style: TextStyle(
+                                          color: _foregroundColor(context, 0.6),
+                                          fontSize: 12),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  change.changeDescription,
-                                  style: const TextStyle(color: Colors.white60, fontSize: 12),
-                                ),
-                              ],
-                            ),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  // 扫描这个有变化的文件夹
+                                  await scanService.startDirectoryScan(
+                                      change.folderPath,
+                                      skipPreviouslyMatchedUnwatched: false);
+                                  if (mounted) {
+                                    BlurSnackBar.show(context,
+                                        '已开始扫描: ${change.displayName}');
+                                  }
+                                },
+                                child: const Text("扫描",
+                                    locale: Locale("zh-Hans", "zh"),
+                                    style: TextStyle(
+                                        color: Colors.lightBlueAccent)),
+                              ),
+                            ],
                           ),
-                          TextButton(
-                            onPressed: () async {
-                              // 扫描这个有变化的文件夹
-                              await scanService.startDirectoryScan(change.folderPath, skipPreviouslyMatchedUnwatched: false);
-                              if (mounted) {
-                                BlurSnackBar.show(context, '已开始扫描: ${change.displayName}');
-                              }
-                            },
-                            child: const Text("扫描", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
-                          ),
-                        ],
-                      ),
-                    )),
+                        )),
                     const SizedBox(height: 8),
                     Row(
                       children: [
@@ -1485,9 +1683,12 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                           child: ElevatedButton(
                             onPressed: () async {
                               // 扫描所有有变化的文件夹
-                              for (final change in scanService.detectedChanges) {
+                              for (final change
+                                  in scanService.detectedChanges) {
                                 if (change.changeType != 'deleted') {
-                                  await scanService.startDirectoryScan(change.folderPath, skipPreviouslyMatchedUnwatched: false);
+                                  await scanService.startDirectoryScan(
+                                      change.folderPath,
+                                      skipPreviouslyMatchedUnwatched: false);
                                 }
                               }
                               scanService.clearDetectedChanges();
@@ -1496,7 +1697,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                               }
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.lightBlueAccent.withOpacity(0.2),
+                              backgroundColor:
+                                  Colors.lightBlueAccent.withOpacity(0.2),
                               foregroundColor: Colors.lightBlueAccent,
                             ),
                             child: const Text("扫描所有变化"),
@@ -1512,15 +1714,19 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         // 排序选项按钮
         if (scanService.scannedFolders.isNotEmpty || scanService.isScanning)
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Row(
               children: [
-                const Text('排序方式：', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 14)),
+                Text('排序方式：',
+                    locale: Locale("zh-Hans", "zh"),
+                    style: TextStyle(
+                        color: _foregroundColor(context, 0.7), fontSize: 14)),
                 const SizedBox(width: 8),
                 TextButton.icon(
                   onPressed: _showSortOptionsDialog,
-                  icon: const Icon(Icons.sort, color: Colors.white, size: 18),
+                  icon: Icon(Icons.sort,
+                      color: _foregroundColor(context), size: 18),
                   label: Text(
                     [
                       '文件名 (A→Z)',
@@ -1530,10 +1736,12 @@ style: TextStyle(color: Colors.white70, fontSize: 14)),
                       '文件大小 (小→大)',
                       '文件大小 (大→小)',
                     ][_sortOption],
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(
+                        color: _foregroundColor(context), fontSize: 14),
                   ),
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     minimumSize: Size.zero,
                   ),
                 ),
@@ -1542,10 +1750,14 @@ style: TextStyle(color: Colors.white70, fontSize: 14)),
           ),
         Expanded(
           child: _showWebDAVFolders
-              ? _buildWebDAVFoldersList() 
+              ? _buildWebDAVFoldersList()
               : (scanService.scannedFolders.isEmpty && !scanService.isScanning
-                  ? const Center(child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。', textAlign: TextAlign.center, locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)))
+                  ? const Center(
+                      child: Text('尚未添加任何扫描文件夹。\n点击上方按钮添加。',
+                          textAlign: TextAlign.center,
+                          locale: Locale("zh-Hans", "zh"),
+                          style:
+                              TextStyle(color: _foregroundColor(context, 0.7))))
                   : _buildResponsiveFolderList(scanService)),
         ),
       ],
@@ -1553,11 +1765,12 @@ style: TextStyle(color: Colors.white70)))
   }
 
   // 显示手动匹配弹幕对话框
-  Future<void> _showManualDanmakuMatchDialog(String filePath, String fileName, WatchHistoryItem? historyItem) async {
+  Future<void> _showManualDanmakuMatchDialog(
+      String filePath, String fileName, WatchHistoryItem? historyItem) async {
     try {
       // 使用文件名作为初始搜索关键词
       String initialSearchKeyword = fileName;
-      
+
       // 如果有历史记录，优先使用动画名称
       if (historyItem != null && historyItem.animeName.isNotEmpty) {
         initialSearchKeyword = historyItem.animeName;
@@ -1572,32 +1785,38 @@ style: TextStyle(color: Colors.white70)))
           initialSearchKeyword = baseName;
         }
       }
-      
+
       debugPrint('准备显示手动匹配弹幕对话框：$fileName');
       debugPrint('初始搜索关键词：$initialSearchKeyword');
-      
+
       // 调用手动匹配弹幕对话框
       final result = await ManualDanmakuMatcher.instance.showManualMatchDialog(
         context,
         initialVideoTitle: initialSearchKeyword,
       );
-      
+
       if (result != null && mounted) {
         final episodeId = result['episodeId']?.toString() ?? '';
         final animeId = result['animeId']?.toString() ?? '';
         final animeTitle = result['animeTitle']?.toString() ?? '';
         final episodeTitle = result['episodeTitle']?.toString() ?? '';
-        
+
         if (episodeId.isNotEmpty && animeId.isNotEmpty) {
           try {
             // 获取现有历史记录
-            final existingHistory = await WatchHistoryManager.getHistoryItem(filePath);
-            
+            final existingHistory =
+                await WatchHistoryManager.getHistoryItem(filePath);
+
             // 创建更新后的历史记录
             final updatedHistory = WatchHistoryItem(
               filePath: filePath,
-              animeName: animeTitle.isNotEmpty ? animeTitle : (existingHistory?.animeName ?? p.basenameWithoutExtension(fileName)),
-              episodeTitle: episodeTitle.isNotEmpty ? episodeTitle : existingHistory?.episodeTitle,
+              animeName: animeTitle.isNotEmpty
+                  ? animeTitle
+                  : (existingHistory?.animeName ??
+                      p.basenameWithoutExtension(fileName)),
+              episodeTitle: episodeTitle.isNotEmpty
+                  ? episodeTitle
+                  : existingHistory?.episodeTitle,
               episodeId: int.tryParse(episodeId),
               animeId: int.tryParse(animeId),
               watchProgress: existingHistory?.watchProgress ?? 0.0,
@@ -1608,21 +1827,21 @@ style: TextStyle(color: Colors.white70)))
               isFromScan: existingHistory?.isFromScan ?? false,
               videoHash: existingHistory?.videoHash,
             );
-            
+
             // 保存更新后的历史记录
             await WatchHistoryManager.addOrUpdateHistory(updatedHistory);
-            
+
             debugPrint('✅ 成功更新弹幕匹配信息：');
             debugPrint('   文件：$fileName');
             debugPrint('   动画：$animeTitle');
             debugPrint('   集数：$episodeTitle');
             debugPrint('   动画ID：$animeId');
             debugPrint('   集数ID：$episodeId');
-            
+
             // 显示成功提示
             if (mounted) {
               BlurSnackBar.show(context, '弹幕匹配成功：$animeTitle - $episodeTitle');
-              
+
               // 刷新UI以显示新的动画信息
               setState(() {
                 // 清空已展开的文件夹内容，强制重新加载
@@ -1651,15 +1870,17 @@ style: TextStyle(color: Colors.white70)))
   }
 
   // 显示移除扫描结果确认对话框
-  Future<void> _showRemoveScanResultDialog(String filePath, String fileName, WatchHistoryItem? historyItem) async {
+  Future<void> _showRemoveScanResultDialog(
+      String filePath, String fileName, WatchHistoryItem? historyItem) async {
     if (historyItem == null) return;
-    
+
     // 构建当前的动画信息描述
     String currentInfo = '';
     if (historyItem.animeName.isNotEmpty) {
       currentInfo += '动画：${historyItem.animeName}';
     }
-    if (historyItem.episodeTitle != null && historyItem.episodeTitle!.isNotEmpty) {
+    if (historyItem.episodeTitle != null &&
+        historyItem.episodeTitle!.isNotEmpty) {
       if (currentInfo.isNotEmpty) currentInfo += '\n';
       currentInfo += '集数：${historyItem.episodeTitle}';
     }
@@ -1671,22 +1892,25 @@ style: TextStyle(color: Colors.white70)))
       if (currentInfo.isNotEmpty) currentInfo += '\n';
       currentInfo += '集数ID：${historyItem.episodeId}';
     }
-    
+
     final confirm = await BlurDialog.show<bool>(
       context: context,
       title: '移除扫描结果',
-      content: '确定要移除文件 "$fileName" 的扫描结果吗？\n\n当前扫描信息：\n$currentInfo\n\n移除后将清除动画名称、集数信息和弹幕ID，但保留观看进度。',
+      content:
+          '确定要移除文件 "$fileName" 的扫描结果吗？\n\n当前扫描信息：\n$currentInfo\n\n移除后将清除动画名称、集数信息和弹幕ID，但保留观看进度。',
       actions: <Widget>[
         TextButton(
-          child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+          child: Text('取消',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: _foregroundColor(context, 0.7))),
           onPressed: () {
             Navigator.of(context).pop(false);
           },
         ),
         TextButton(
-          child: const Text('移除', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.redAccent)),
+          child: const Text('移除',
+              locale: Locale("zh-Hans", "zh"),
+              style: TextStyle(color: Colors.redAccent)),
           onPressed: () {
             Navigator.of(context).pop(true);
           },
@@ -1711,16 +1935,16 @@ style: TextStyle(color: Colors.redAccent)),
           isFromScan: false, // 标记为非扫描结果
           videoHash: historyItem.videoHash, // 保留视频哈希
         );
-        
+
         // 保存更新后的历史记录
         await WatchHistoryManager.addOrUpdateHistory(clearedHistory);
-        
+
         debugPrint('✅ 成功移除扫描结果：$fileName');
-        
+
         // 显示成功提示
         if (mounted) {
           BlurSnackBar.show(context, '已移除 "$fileName" 的扫描结果');
-          
+
           // 刷新UI
           setState(() {
             // 清空已展开的文件夹内容，强制重新加载
@@ -1794,7 +2018,12 @@ style: TextStyle(color: Colors.redAccent)),
   }
 
   // 真正的瀑布流布局组件
-  Widget _buildWaterfallLayout(ScanService scanService, List<String> sortedFolders, double maxWidth, double minItemWidth, double spacing) {
+  Widget _buildWaterfallLayout(
+      ScanService scanService,
+      List<String> sortedFolders,
+      double maxWidth,
+      double minItemWidth,
+      double spacing) {
     // 预留边距防止溢出
     final availableWidth = maxWidth - 16.0; // 留出16px的安全边距
 
@@ -1863,7 +2092,7 @@ style: TextStyle(color: Colors.redAccent)),
       try {
         final appDir = await StorageService.getAppStorageDirectory();
         final appPath = appDir.path;
-        
+
         // 如果路径在应用目录下，显示相对路径
         if (folderPath.startsWith(appPath)) {
           String relativePath = folderPath.substring(appPath.length);
@@ -1881,7 +2110,7 @@ style: TextStyle(color: Colors.redAccent)),
         debugPrint('获取相对路径失败: $e');
       }
     }
-    
+
     // 其他平台或获取相对路径失败时，返回完整路径
     return folderPath;
   }
@@ -1892,95 +2121,119 @@ style: TextStyle(color: Colors.redAccent)),
       future: _getDisplayPath(folderPath),
       builder: (context, snapshot) {
         final displayPath = snapshot.data ?? folderPath;
-        
+
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: _foregroundColor(context, 0.05),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.1),
+              color: _foregroundColor(context, 0.1),
               width: 0.5,
             ),
           ),
           child: ExpansionTile(
-              key: PageStorageKey<String>(folderPath),
-              leading: const Icon(Icons.folder_open_outlined, color: Colors.white70),
-              title: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      p.basename(folderPath),
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+            key: PageStorageKey<String>(folderPath),
+            leading: Icon(Icons.folder_open_outlined,
+                color: _foregroundColor(context, 0.7)),
+            title: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    p.basename(folderPath),
+                    style: TextStyle(
+                        color: _foregroundColor(context), fontSize: 16),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  displayPath,
-                  locale:Locale("zh-Hans","zh"),
-                  style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
-                  overflow: TextOverflow.ellipsis,
                 ),
-              ),
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.delete_outline, color: Colors.white, size: 22),
-                    padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                    constraints: const BoxConstraints(),
-                    onPressed: scanService.isScanning ? null : () => _handleRemoveFolder(folderPath),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.refresh_rounded, color: Colors.white, size: 22),
-                    padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                    constraints: const BoxConstraints(),
-                    onPressed: scanService.isScanning
-                        ? null
-                        : () async {
-                            if (scanService.isScanning) {
-                              BlurSnackBar.show(context, '已有扫描任务在进行中。');
-                              return;
-                            }
-                            final confirm = await BlurDialog.show<bool>(
-                              context: context,
-                              title: '确认扫描',
-                              content: '将对文件夹 "${p.basename(folderPath)}" 进行智能扫描：\n\n• 检测文件夹内容是否有变化\n• 如无变化将快速跳过\n• 如有变化将进行全面扫描\n\n开始扫描？',
-                              actions: <Widget>[
-                                TextButton(
-                                  child: const Text('取消', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
-                                  onPressed: () => Navigator.of(context).pop(false),
-                                ),
-                                TextButton(
-                                  child: const Text('扫描', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent)),
-                                  onPressed: () => Navigator.of(context).pop(true),
-                                ),
-                              ],
-                            );
-                            if (confirm == true) {
-                              await scanService.startDirectoryScan(folderPath, skipPreviouslyMatchedUnwatched: false);
-                              if (mounted) {
-                                BlurSnackBar.show(context, '已开始智能扫描: ${p.basename(folderPath)}');
-                              }
-                            }
-                          },
-                  ),
-                ],
-              ),
-              onExpansionChanged: (isExpanded) {
-                if (isExpanded && _expandedFolderContents[folderPath] == null && !_loadingFolders.contains(folderPath)) {
-                  Future.microtask(() => _loadFolderChildren(folderPath));
-                }
-              },
-              children: _loadingFolders.contains(folderPath)
-                  ? [const Center(child: Padding(padding: EdgeInsets.all(8.0), child: CircularProgressIndicator()))]
-                  : _buildFileSystemNodes(_expandedFolderContents[folderPath] ?? [], folderPath, 1),
+              ],
             ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+              child: Text(
+                displayPath,
+                locale: Locale("zh-Hans", "zh"),
+                style: TextStyle(
+                    color: _foregroundColor(context, 0.6), fontSize: 11),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.delete_outline,
+                      color: _foregroundColor(context), size: 22),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  constraints: const BoxConstraints(),
+                  onPressed: scanService.isScanning
+                      ? null
+                      : () => _handleRemoveFolder(folderPath),
+                ),
+                IconButton(
+                  icon: Icon(Icons.refresh_rounded,
+                      color: _foregroundColor(context), size: 22),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  constraints: const BoxConstraints(),
+                  onPressed: scanService.isScanning
+                      ? null
+                      : () async {
+                          if (scanService.isScanning) {
+                            BlurSnackBar.show(context, '已有扫描任务在进行中。');
+                            return;
+                          }
+                          final confirm = await BlurDialog.show<bool>(
+                            context: context,
+                            title: '确认扫描',
+                            content:
+                                '将对文件夹 "${p.basename(folderPath)}" 进行智能扫描：\n\n• 检测文件夹内容是否有变化\n• 如无变化将快速跳过\n• 如有变化将进行全面扫描\n\n开始扫描？',
+                            actions: <Widget>[
+                              TextButton(
+                                child: Text('取消',
+                                    locale: Locale("zh-Hans", "zh"),
+                                    style: TextStyle(
+                                        color: _foregroundColor(context, 0.7))),
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                              ),
+                              TextButton(
+                                child: const Text('扫描',
+                                    locale: Locale("zh-Hans", "zh"),
+                                    style: TextStyle(
+                                        color: Colors.lightBlueAccent)),
+                                onPressed: () =>
+                                    Navigator.of(context).pop(true),
+                              ),
+                            ],
+                          );
+                          if (confirm == true) {
+                            await scanService.startDirectoryScan(folderPath,
+                                skipPreviouslyMatchedUnwatched: false);
+                            if (mounted) {
+                              BlurSnackBar.show(context,
+                                  '已开始智能扫描: ${p.basename(folderPath)}');
+                            }
+                          }
+                        },
+                ),
+              ],
+            ),
+            onExpansionChanged: (isExpanded) {
+              if (isExpanded &&
+                  _expandedFolderContents[folderPath] == null &&
+                  !_loadingFolders.contains(folderPath)) {
+                Future.microtask(() => _loadFolderChildren(folderPath));
+              }
+            },
+            children: _loadingFolders.contains(folderPath)
+                ? [
+                    const Center(
+                        child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CircularProgressIndicator()))
+                  ]
+                : _buildFileSystemNodes(
+                    _expandedFolderContents[folderPath] ?? [], folderPath, 1),
+          ),
         );
       },
     );
@@ -1992,7 +2245,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     final int sdkVersion = await AndroidStorageHelper.getAndroidSDKVersion();
     return sdkVersion >= 33;
   }
-  
+
   // 构建WebDAV文件夹列表
   Widget _buildWebDAVFoldersList() {
     if (_webdavConnections.isEmpty) {
@@ -2002,19 +2255,21 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.cloud_off, size: 64, color: Colors.white54),
+              Icon(Icons.cloud_off,
+                  size: 64, color: _foregroundColor(context, 0.54)),
               SizedBox(height: 16),
               Text(
                 '尚未添加任何WebDAV服务器。\n点击上方"添加WebDAV服务器"按钮开始。',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white70, fontSize: 16),
+                style: TextStyle(
+                    color: _foregroundColor(context, 0.7), fontSize: 16),
               ),
             ],
           ),
         ),
       );
     }
-    
+
     return ListView.builder(
       itemCount: _webdavConnections.length,
       itemBuilder: (context, index) {
@@ -2023,16 +2278,16 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       },
     );
   }
-  
+
   // 构建WebDAV连接Tile
   Widget _buildWebDAVConnectionTile(WebDAVConnection connection) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: _foregroundColor(context, 0.05),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.white.withOpacity(0.3),
+          color: _foregroundColor(context, 0.3),
           width: 1,
         ),
       ),
@@ -2040,27 +2295,28 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         key: PageStorageKey<String>('webdav_${connection.name}'),
         leading: Icon(
           Icons.cloud,
-          color: Colors.white,
+          color: _foregroundColor(context),
         ),
         title: Row(
           children: [
             Expanded(
               child: Text(
                 connection.name,
-                style: const TextStyle(color: Colors.white, fontSize: 16),
+                style:
+                    TextStyle(color: _foregroundColor(context), fontSize: 16),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
+                color: _foregroundColor(context, 0.2),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
                 connection.isConnected ? '已连接' : '未连接',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: _foregroundColor(context),
                   fontSize: 10,
                 ),
               ),
@@ -2071,7 +2327,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           padding: const EdgeInsets.only(top: 4.0),
           child: Text(
             connection.url,
-            style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 11),
+            style:
+                TextStyle(color: _foregroundColor(context, 0.6), fontSize: 11),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -2079,15 +2336,18 @@ style: TextStyle(color: Colors.lightBlueAccent)),
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: const Icon(Icons.edit, color: Colors.white70, size: 20),
+              icon: Icon(Icons.edit,
+                  color: _foregroundColor(context, 0.7), size: 20),
               onPressed: () => _editWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.delete_outline, color: Colors.white70, size: 20),
+              icon: Icon(Icons.delete_outline,
+                  color: _foregroundColor(context, 0.7), size: 20),
               onPressed: () => _removeWebDAVConnection(connection),
             ),
             IconButton(
-              icon: const Icon(Icons.refresh, color: Colors.white70, size: 20),
+              icon: Icon(Icons.refresh,
+                  color: _foregroundColor(context, 0.7), size: 20),
               onPressed: () => _testWebDAVConnection(connection),
             ),
           ],
@@ -2104,7 +2364,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
                   padding: EdgeInsets.all(16.0),
                   child: Text(
                     '连接未建立，无法浏览文件。请点击刷新按钮重新连接。',
-                    style: TextStyle(color: Colors.white54),
+                    style: TextStyle(color: _foregroundColor(context, 0.54)),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -2112,12 +2372,12 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       ),
     );
   }
-  
+
   // 构建WebDAV文件节点
   List<Widget> _buildWebDAVFileNodes(WebDAVConnection connection, String path) {
     final key = '${connection.name}:$path';
     final files = _webdavFolderContents[key] ?? [];
-    
+
     if (_loadingWebDAVFolders.contains(key)) {
       return [
         const Center(
@@ -2128,36 +2388,38 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         ),
       ];
     }
-    
+
     if (files.isEmpty) {
       return [
         const Padding(
           padding: EdgeInsets.all(16.0),
           child: Text(
             '文件夹为空或无法访问',
-            style: TextStyle(color: Colors.white54),
+            style: TextStyle(color: _foregroundColor(context, 0.54)),
             textAlign: TextAlign.center,
           ),
         ),
       ];
     }
-    
+
     return files.map((file) {
       if (file.isDirectory) {
         return Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: ExpansionTile(
             key: PageStorageKey<String>('${connection.name}:${file.path}'),
-            leading: const Icon(Icons.folder_outlined, color: Colors.white70),
+            leading: Icon(Icons.folder_outlined,
+                color: _foregroundColor(context, 0.7)),
             title: Text(
               file.name,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: _foregroundColor(context)),
             ),
             trailing: TextButton(
-              onPressed: () => _scanWebDAVFolder(connection, file.path, file.name),
-              child: const Text(
+              onPressed: () =>
+                  _scanWebDAVFolder(connection, file.path, file.name),
+              child: Text(
                 '扫描',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: _foregroundColor(context)),
               ),
             ),
             onExpansionChanged: (isExpanded) {
@@ -2172,15 +2434,17 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         return Padding(
           padding: const EdgeInsets.only(left: 32.0),
           child: ListTile(
-            leading: const Icon(Icons.videocam_outlined, color: Colors.white),
+            leading:
+                Icon(Icons.videocam_outlined, color: _foregroundColor(context)),
             title: Text(
               file.name,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: _foregroundColor(context)),
             ),
             subtitle: file.size != null
                 ? Text(
                     '${(file.size! / 1024 / 1024).toStringAsFixed(1)} MB',
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
+                    style: TextStyle(
+                        color: _foregroundColor(context, 0.54), fontSize: 12),
                   )
                 : null,
             onTap: () => _playWebDAVFile(connection, file),
@@ -2189,13 +2453,14 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       }
     }).toList();
   }
-  
+
   // 加载WebDAV文件夹内容
-  Future<void> _loadWebDAVFolderChildren(WebDAVConnection connection, String path) async {
+  Future<void> _loadWebDAVFolderChildren(
+      WebDAVConnection connection, String path) async {
     final key = '${connection.name}:$path';
-    
+
     if (_loadingWebDAVFolders.contains(key)) return;
-    
+
     // 使用Future.microtask延迟setState调用，避免在build过程中调用
     Future.microtask(() {
       if (mounted) {
@@ -2204,9 +2469,10 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         });
       }
     });
-    
+
     try {
-      final files = await WebDAVService.instance.listDirectory(connection, path);
+      final files =
+          await WebDAVService.instance.listDirectory(connection, path);
       if (mounted) {
         setState(() {
           _webdavFolderContents[key] = files;
@@ -2222,33 +2488,36 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       }
     }
   }
-  
+
   // 扫描WebDAV文件夹
-  Future<void> _scanWebDAVFolder(WebDAVConnection connection, String folderPath, String folderName) async {
+  Future<void> _scanWebDAVFolder(
+      WebDAVConnection connection, String folderPath, String folderName) async {
     final confirm = await BlurDialog.show<bool>(
       context: context,
       title: '扫描WebDAV文件夹',
       content: '确定要扫描WebDAV文件夹 "$folderName" 吗？\n\n这将把该文件夹中的视频文件添加到媒体库中。',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: Colors.white70)),
+          child: Text('取消',
+              style: TextStyle(color: _foregroundColor(context, 0.7))),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
-          child: const Text('扫描', style: TextStyle(color: Colors.white)),
+          child: Text('扫描', style: TextStyle(color: _foregroundColor(context))),
           onPressed: () => Navigator.of(context).pop(true),
         ),
       ],
     );
-    
+
     if (confirm == true && mounted) {
       try {
         // 递归获取文件夹中的所有视频文件
         final files = await _getWebDAVVideoFiles(connection, folderPath);
-        
+
         // 将视频文件添加到媒体库
         for (final file in files) {
-          final fileUrl = WebDAVService.instance.getFileUrl(connection, file.path);
+          final fileUrl =
+              WebDAVService.instance.getFileUrl(connection, file.path);
           final historyItem = WatchHistoryItem(
             filePath: fileUrl,
             animeName: file.name.replaceAll(RegExp(r'\.[^.]+$'), ''), // 移除扩展名
@@ -2259,10 +2528,10 @@ style: TextStyle(color: Colors.lightBlueAccent)),
             lastWatchTime: DateTime.now(),
             isFromScan: true,
           );
-          
+
           await WatchHistoryManager.addOrUpdateHistory(historyItem);
         }
-        
+
         if (mounted) {
           BlurSnackBar.show(context, '已添加 ${files.length} 个视频文件到媒体库');
         }
@@ -2273,14 +2542,16 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       }
     }
   }
-  
+
   // 递归获取WebDAV文件夹中的视频文件
-  Future<List<WebDAVFile>> _getWebDAVVideoFiles(WebDAVConnection connection, String folderPath) async {
+  Future<List<WebDAVFile>> _getWebDAVVideoFiles(
+      WebDAVConnection connection, String folderPath) async {
     final List<WebDAVFile> videoFiles = [];
-    
+
     try {
-      final files = await WebDAVService.instance.listDirectory(connection, folderPath);
-      
+      final files =
+          await WebDAVService.instance.listDirectory(connection, folderPath);
+
       for (final file in files) {
         if (file.isDirectory) {
           // 递归获取子文件夹中的视频文件
@@ -2296,10 +2567,10 @@ style: TextStyle(color: Colors.lightBlueAccent)),
     } catch (e) {
       print('获取WebDAV视频文件失败: $e');
     }
-    
+
     return videoFiles;
   }
-  
+
   // 播放WebDAV文件
   void _playWebDAVFile(WebDAVConnection connection, WebDAVFile file) {
     final fileUrl = WebDAVService.instance.getFileUrl(connection, file.path);
@@ -2312,13 +2583,14 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       watchProgress: 0.0,
       lastWatchTime: DateTime.now(),
     );
-    
+
     widget.onPlayEpisode(historyItem);
   }
-  
+
   // 编辑WebDAV连接
   Future<void> _editWebDAVConnection(WebDAVConnection connection) async {
-    final result = await WebDAVConnectionDialog.show(context, editConnection: connection);
+    final result =
+        await WebDAVConnectionDialog.show(context, editConnection: connection);
     if (result == true && mounted) {
       setState(() {
         _webdavConnections = WebDAVService.instance.connections;
@@ -2326,7 +2598,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       BlurSnackBar.show(context, 'WebDAV连接已更新');
     }
   }
-  
+
   // 删除WebDAV连接
   Future<void> _removeWebDAVConnection(WebDAVConnection connection) async {
     final confirm = await BlurDialog.show<bool>(
@@ -2335,7 +2607,8 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       content: '确定要删除WebDAV连接 "${connection.name}" 吗？',
       actions: [
         TextButton(
-          child: const Text('取消', style: TextStyle(color: Colors.white70)),
+          child: Text('取消',
+              style: TextStyle(color: _foregroundColor(context, 0.7))),
           onPressed: () => Navigator.of(context).pop(false),
         ),
         TextButton(
@@ -2344,30 +2617,32 @@ style: TextStyle(color: Colors.lightBlueAccent)),
         ),
       ],
     );
-    
+
     if (confirm == true && mounted) {
       await WebDAVService.instance.removeConnection(connection.name);
       setState(() {
         _webdavConnections = WebDAVService.instance.connections;
         // 清理相关的文件夹内容缓存
-        _webdavFolderContents.removeWhere((key, value) => key.startsWith('${connection.name}:'));
+        _webdavFolderContents
+            .removeWhere((key, value) => key.startsWith('${connection.name}:'));
       });
       BlurSnackBar.show(context, 'WebDAV连接已删除');
     }
   }
-  
+
   // 测试WebDAV连接
   Future<void> _testWebDAVConnection(WebDAVConnection connection) async {
     try {
       BlurSnackBar.show(context, '正在测试连接...');
       await WebDAVService.instance.updateConnectionStatus(connection.name);
-      
+
       if (mounted) {
         setState(() {
           _webdavConnections = WebDAVService.instance.connections;
         });
-        
-        final updatedConnection = WebDAVService.instance.getConnection(connection.name);
+
+        final updatedConnection =
+            WebDAVService.instance.getConnection(connection.name);
         if (updatedConnection?.isConnected == true) {
           BlurSnackBar.show(context, '连接测试成功！');
         } else {
@@ -2380,4 +2655,4 @@ style: TextStyle(color: Colors.lightBlueAccent)),
       }
     }
   }
-} 
+}

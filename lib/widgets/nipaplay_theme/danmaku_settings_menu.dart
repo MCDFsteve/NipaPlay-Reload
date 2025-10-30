@@ -596,6 +596,20 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
   bool _isDragging = false;
   OverlayEntry? _overlayEntry;
 
+  Color get primaryTextColor => ThemeColorUtils.primaryForeground(context);
+
+  Color get surfaceColor => ThemeColorUtils.overlayColor(
+        context,
+        darkOpacity: 0.1,
+        lightOpacity: 0.06,
+      );
+
+  Color get borderColor => ThemeColorUtils.borderColor(
+        context,
+        darkOpacity: 0.3,
+        lightOpacity: 0.18,
+      );
+
   @override
   void dispose() {
     _removeOverlay();

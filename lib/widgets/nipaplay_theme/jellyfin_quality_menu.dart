@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart' show ThemeColorUtils;
 import 'package:provider/provider.dart';
 import 'base_settings_menu.dart';
 import 'settings_hint_text.dart';
@@ -228,22 +229,46 @@ class _JellyfinQualityMenuState extends State<JellyfinQualityMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final subtleTextColor = ThemeColorUtils.subtleForeground(context);
+    final surfaceColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.08,
+      lightOpacity: 0.05,
+    );
+    final borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.18,
+    );
+    final selectionOverlay = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.15,
+      lightOpacity: 0.1,
+    );
+
     return BaseSettingsMenu(
       title: '清晰度设置',
       onClose: widget.onClose,
       extraButton: TextButton(
         onPressed: _applySelection,
-        child: const Text('应用', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white)),
+        child: Text(
+          '应用',
+          locale: const Locale('zh', 'CN'),
+          style: TextStyle(color: primaryTextColor),
+        ),
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.all(16),
+            Padding(
+              padding: const EdgeInsets.all(16),
               child: Center(
-                child: CircularProgressIndicator(color: Colors.blue),
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(primaryTextColor),
+                ),
               ),
             )
           else ...[
@@ -266,14 +291,12 @@ style: TextStyle(color: Colors.white)),
                           child: Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: isSelected 
-                                  ? Colors.blue.withOpacity(0.2)
-                                  : Colors.white.withOpacity(0.05),
+                              color: isSelected ? selectionOverlay : surfaceColor,
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                color: isSelected 
-                                    ? Colors.blue
-                                    : Colors.white.withOpacity(0.1),
+                                color: isSelected
+                                    ? ThemeColorUtils.primaryForeground(context)
+                                    : borderColor,
                                 width: 1,
                               ),
                             ),
@@ -281,7 +304,9 @@ style: TextStyle(color: Colors.white)),
                               children: [
                                 Icon(
                                   isSelected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
-                                  color: isSelected ? Colors.blue : Colors.white70,
+                                  color: isSelected
+                                      ? ThemeColorUtils.primaryForeground(context)
+                                      : ThemeColorUtils.secondaryForeground(context),
                                   size: 20,
                                 ),
                                 const SizedBox(width: 12),
@@ -292,8 +317,8 @@ style: TextStyle(color: Colors.white)),
                                       Text(
                                         _getQualityDisplayName(quality),
                                         locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                          color: isSelected ? Colors.blue : Colors.white,
+                                        style: TextStyle(
+                                          color: isSelected ? primaryTextColor : secondaryTextColor,
                                           fontSize: 14,
                                           fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
                                         ),
@@ -302,8 +327,10 @@ style: TextStyle(
                                       Text(
                                         _getQualityDescription(quality),
                                         locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                                          color: isSelected ? Colors.blue.withOpacity(0.8) : Colors.white60,
+                                        style: TextStyle(
+                                          color: isSelected
+                                              ? ThemeColorUtils.primaryForeground(context).withOpacity(0.75)
+                                              : subtleTextColor,
                                           fontSize: 12,
                                         ),
                                       ),
@@ -337,12 +364,15 @@ style: TextStyle(
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('转码时烧录字幕', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 13)),
+                      Text(
+                        '转码时烧录字幕',
+                        locale: const Locale('zh', 'CN'),
+                        style: TextStyle(color: secondaryTextColor, fontSize: 13),
+                      ),
                       Switch(
                         value: _burnIn,
                         onChanged: (v) => setState(() => _burnIn = v),
-                        activeColor: Colors.blue,
+                        activeColor: primaryTextColor,
                       ),
                     ],
                   ),
@@ -356,6 +386,23 @@ style: TextStyle(color: Colors.white70, fontSize: 13)),
   }
 
   Widget _buildSubtitleOption({required String title, required bool selected, required VoidCallback onTap}) {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final surfaceColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.08,
+      lightOpacity: 0.05,
+    );
+    final selectionColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.18,
+      lightOpacity: 0.12,
+    );
+    final borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.18,
+    );
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -365,10 +412,10 @@ style: TextStyle(color: Colors.white70, fontSize: 13)),
           width: double.infinity,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: selected ? Colors.blue.withOpacity(0.2) : Colors.white.withOpacity(0.05),
+            color: selected ? selectionColor : surfaceColor,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: selected ? Colors.blue : Colors.white.withOpacity(0.1),
+              color: selected ? primaryTextColor : borderColor,
               width: 1,
             ),
           ),
@@ -376,7 +423,7 @@ style: TextStyle(color: Colors.white70, fontSize: 13)),
             children: [
               Icon(
                 selected ? Icons.radio_button_checked : Icons.radio_button_unchecked,
-                color: selected ? Colors.blue : Colors.white70,
+                color: selected ? primaryTextColor : secondaryTextColor,
                 size: 18,
               ),
               const SizedBox(width: 10),
@@ -385,7 +432,7 @@ style: TextStyle(color: Colors.white70, fontSize: 13)),
                   title,
                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                    color: selected ? Colors.blue : Colors.white,
+                    color: selected ? primaryTextColor : secondaryTextColor,
                     fontSize: 13,
                   ),
                   overflow: TextOverflow.ellipsis,

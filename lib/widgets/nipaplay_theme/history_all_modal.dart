@@ -389,9 +389,9 @@ style: TextStyle(
   }
 
   Widget _buildDefaultThumbnail() {
-    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final primaryTextColor = ThemeColorUtils.primaryForeground(path.context as BuildContext);
     final backgroundColor = ThemeColorUtils.overlayColor(
-      context,
+      path.context as BuildContext,
       darkOpacity: 0.4,
       lightOpacity: 0.15,
     );
