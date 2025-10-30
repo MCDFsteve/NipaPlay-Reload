@@ -18,6 +18,10 @@ class AccountPageSelectionSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.brightness == Brightness.dark;
+    final baseColor = isDarkTheme ? Colors.white : Colors.black;
+
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
       decoration: const BoxDecoration(
@@ -38,16 +42,16 @@ class AccountPageSelectionSheet extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.3),
-            Colors.white.withOpacity(0.25),
+            baseColor.withOpacity(0.3),
+            baseColor.withOpacity(0.25),
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.5),
-            Colors.white.withOpacity(0.5),
+            baseColor.withOpacity(0.5),
+            baseColor.withOpacity(0.5),
           ],
         ),
         child: Column(
@@ -60,20 +64,20 @@ class AccountPageSelectionSheet extends StatelessWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
+                  color: baseColor.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
             ),
 
             // 标题
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
               child: Text(
                 '选择账号页面',
-                locale: Locale("zh-Hans", "zh"),
+                locale: const Locale("zh-Hans", "zh"),
                 style: TextStyle(
-                  color: Colors.white,
+                  color: baseColor,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -92,6 +96,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
                       title: '弹弹play账号',
                       subtitle: '管理登录状态和用户活动',
                       color: const Color(0xFF53A8DC), // 弹弹play官方色调
+                      baseColor: baseColor,
                       onTap: () => Navigator.of(context).pop('dandanplay'),
                     ),
 
@@ -103,6 +108,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
                       title: 'Bangumi同步',
                       subtitle: '同步观看记录到Bangumi',
                       color: const Color(0xFFEB4994), // Bangumi官方色调
+                      baseColor: baseColor,
                       onTap: () => Navigator.of(context).pop('bangumi'),
                     ),
 
@@ -123,6 +129,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
     required String title,
     required String subtitle,
     required Color color,
+    required Color baseColor,
     required VoidCallback onTap,
   }) {
     return Material(
@@ -135,7 +142,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: baseColor.withOpacity(0.2),
               width: 0.5,
             ),
           ),
@@ -168,8 +175,8 @@ class AccountPageSelectionSheet extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: baseColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -179,7 +186,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
                       subtitle,
                       locale: const Locale("zh-Hans", "zh"),
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: baseColor.withOpacity(0.7),
                         fontSize: 14,
                       ),
                     ),
@@ -191,7 +198,7 @@ class AccountPageSelectionSheet extends StatelessWidget {
               Icon(
                 Ionicons.chevron_forward,
                 size: 16,
-                color: Colors.white.withOpacity(0.5),
+                color: baseColor.withOpacity(0.5),
               ),
             ],
           ),
