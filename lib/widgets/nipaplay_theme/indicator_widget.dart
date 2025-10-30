@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 
+import 'theme_color_utils.dart';
+
 class IndicatorWidget extends StatelessWidget {
   final bool Function(VideoPlayerState) isVisible;
   final double Function(VideoPlayerState) getValue;
@@ -37,10 +39,19 @@ class IndicatorWidget extends StatelessWidget {
                   width: 55,
                   padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.35),
+                    color: ThemeColorUtils.overlayColor(
+                      context,
+                      darkOpacity: 0.35,
+                      lightOpacity: 0.18,
+                    ),
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
-                        color: Colors.white.withOpacity(0.6), width: 0.5),
+                        color: ThemeColorUtils.borderColor(
+                          context,
+                          darkOpacity: 0.6,
+                          lightOpacity: 0.3,
+                        ),
+                        width: 0.5),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -48,7 +59,7 @@ class IndicatorWidget extends StatelessWidget {
                     children: [
                       Icon(
                         getIcon(videoState),
-                        color: Colors.white.withOpacity(0.8),
+                        color: ThemeColorUtils.primaryForeground(context).withOpacity(0.8),
                         size: 20,
                       ),
                       const SizedBox(height: 10),
@@ -62,9 +73,13 @@ class IndicatorWidget extends StatelessWidget {
                             height: 6,
                             child: LinearProgressIndicator(
                               value: getValue(videoState),
-                              backgroundColor: Colors.white.withOpacity(0.25),
+                              backgroundColor: ThemeColorUtils.overlayColor(
+                                context,
+                                darkOpacity: 0.25,
+                                lightOpacity: 0.15,
+                              ),
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                  Colors.white.withOpacity(0.9)),
+                                  ThemeColorUtils.primaryForeground(context).withOpacity(0.9)),
                               borderRadius: BorderRadius.circular(3),
                             ),
                           ),
@@ -77,7 +92,7 @@ class IndicatorWidget extends StatelessWidget {
                           "${(getValue(videoState) * 100).toInt()}%",
                           locale: const Locale("zh-Hans","zh"),
                           style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
+                              color: ThemeColorUtils.secondaryForeground(context),
                               fontSize: 10,
                               fontWeight: FontWeight.w500,
                               decoration: TextDecoration.none),

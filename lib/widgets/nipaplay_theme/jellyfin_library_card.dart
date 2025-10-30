@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:nipaplay/models/jellyfin_model.dart';
 import 'package:nipaplay/services/jellyfin_service.dart';
 
+import 'theme_color_utils.dart';
+
 class JellyfinLibraryCard extends StatelessWidget {
   final JellyfinLibrary library;
   final VoidCallback onTap;
@@ -19,6 +21,8 @@ class JellyfinLibraryCard extends StatelessWidget {
     final imageUrl = library.imageTagsPrimary != null
         ? jellyfinService.getImageUrl(library.id, width: 600)
         : '';
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
 
     return Card(
       elevation: 8,
@@ -82,14 +86,14 @@ class JellyfinLibraryCard extends StatelessWidget {
                           Icon(
                             _getLibraryIcon(library.type),
                             size: 24,
-                            color: Colors.white,
+                            color: primaryTextColor,
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(
                               library.name,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              style: TextStyle(
+                                color: primaryTextColor,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
                                 shadows: [
@@ -112,7 +116,7 @@ class JellyfinLibraryCard extends StatelessWidget {
                           '${library.totalItems} 项内容',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                            color: Colors.white.withOpacity(0.9),
+                            color: secondaryTextColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             shadows: const [

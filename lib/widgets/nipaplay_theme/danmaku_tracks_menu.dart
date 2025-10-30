@@ -7,6 +7,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_button.dart';
 import 'dart:convert';
 import 'dart:io' as io;
 import 'package:file_selector/file_selector.dart';
+import 'theme_color_utils.dart';
 
 class DanmakuTracksMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -216,6 +217,24 @@ class _DanmakuTracksMenuState extends State<DanmakuTracksMenu> {
         final trackEnabled = videoState.danmakuTrackEnabled;
         final totalDanmakuCount = videoState.totalDanmakuCount;
     final filteredDanmakuCount = videoState.danmakuList.length;
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final subtleTextColor = ThemeColorUtils.subtleForeground(context);
+        final overviewBackground = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.06,
+        );
+        final dividerColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.5,
+          lightOpacity: 0.25,
+        );
+        final trackActiveBackground = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.08,
+        );
 
         return BaseSettingsMenu(
           title: '弹幕轨道',
@@ -230,19 +249,19 @@ class _DanmakuTracksMenuState extends State<DanmakuTracksMenu> {
                   vertical: 12,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: overviewBackground,
                   border: Border(
                     bottom: BorderSide(
-                      color: Colors.white.withOpacity(0.5),
+                      color: dividerColor,
                       width: 0.5,
                     ),
                   ),
                 ),
                 child: Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.info_outline,
-                      color: Colors.white,
+                      color: primaryTextColor,
                       size: 20,
                     ),
                     const SizedBox(width: 12),
@@ -250,11 +269,11 @@ class _DanmakuTracksMenuState extends State<DanmakuTracksMenu> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             '弹幕轨道总览',
                             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                              color: Colors.white,
+                              color: primaryTextColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
@@ -264,7 +283,7 @@ style: TextStyle(
                             '共${tracks.length}个轨道，合计$totalDanmakuCount条弹幕',
                             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
+                              color: secondaryTextColor,
                               fontSize: 12,
                             ),
                           ),
@@ -317,10 +336,10 @@ style: TextStyle(
                         vertical: 12,
                       ),
                       decoration: BoxDecoration(
-                        color: isEnabled ? Colors.white.withOpacity(0.1) : Colors.transparent,
+                        color: isEnabled ? trackActiveBackground : Colors.transparent,
                         border: Border(
                           bottom: BorderSide(
-                            color: Colors.white.withOpacity(0.5),
+                            color: dividerColor,
                             width: 0.5,
                           ),
                         ),
@@ -329,13 +348,13 @@ style: TextStyle(
                         children: [
                           Icon(
                             isEnabled ? Icons.check_circle : Icons.radio_button_unchecked,
-                            color: Colors.white,
+                            color: isEnabled ? primaryTextColor : secondaryTextColor,
                             size: 20,
                           ),
                           const SizedBox(width: 12),
                           Icon(
                             trackIcon,
-                            color: Colors.white,
+                            color: primaryTextColor,
                             size: 16,
                           ),
                           const SizedBox(width: 8),
@@ -347,7 +366,7 @@ style: TextStyle(
                                   trackName,
                                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                    color: isEnabled ? Colors.white : Colors.white.withOpacity(0.7),
+                                    color: isEnabled ? primaryTextColor : secondaryTextColor,
                                     fontSize: 14,
                                     fontWeight: isEnabled ? FontWeight.w500 : FontWeight.normal,
                                   ),
@@ -356,7 +375,7 @@ style: TextStyle(
                                   '$count条弹幕',
                                   locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                    color: Colors.white.withOpacity(0.6),
+                                    color: secondaryTextColor,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -369,9 +388,9 @@ style: TextStyle(
                               onTap: () => videoState.removeDanmakuTrack(trackId),
                               child: Container(
                                 padding: const EdgeInsets.all(4),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.delete_outline,
-                                  color: Colors.white,
+                                  color: primaryTextColor,
                                   size: 18,
                                 ),
                               ),
@@ -389,12 +408,12 @@ style: TextStyle(
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                     child: Row(
                       children: [
-                        const SizedBox(
+                        SizedBox(
                           width: 24,
                           height: 24,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                            valueColor: AlwaysStoppedAnimation<Color>(primaryTextColor),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -402,7 +421,7 @@ style: TextStyle(
                           '正在加载弹幕文件...',
                           locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
+                            color: secondaryTextColor,
                             fontSize: 14,
                           ),
                         ),

@@ -6,6 +6,8 @@ import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'theme_color_utils.dart';
+
 class HistoryAllModal extends StatefulWidget {
   final List<WatchHistoryItem> history;
   final Function(WatchHistoryItem) onItemTap;
@@ -84,6 +86,34 @@ class _HistoryAllModalState extends State<HistoryAllModal> {
 
   @override
   Widget build(BuildContext context) {
+    final enableBlur = context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect;
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final dragHandleColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.7,
+      lightOpacity: 0.35,
+    );
+    final gradientStart = ThemeColorUtils.glassGradientStart(
+      context,
+      darkOpacity: enableBlur ? 0.3 : 0.15,
+      lightOpacity: enableBlur ? 0.22 : 0.12,
+    );
+    final gradientEnd = ThemeColorUtils.glassGradientEnd(
+      context,
+      darkOpacity: enableBlur ? 0.25 : 0.1,
+      lightOpacity: enableBlur ? 0.18 : 0.08,
+    );
+    final borderStart = ThemeColorUtils.glassBorderStart(
+      context,
+      darkOpacity: 0.5,
+      lightOpacity: 0.2,
+    );
+    final borderEnd = ThemeColorUtils.glassBorderEnd(
+      context,
+      darkOpacity: 0.35,
+      lightOpacity: 0.12,
+    );
     return Container(
       height: MediaQuery.of(context).size.height * 0.75,
       decoration: BoxDecoration(
@@ -97,23 +127,23 @@ class _HistoryAllModalState extends State<HistoryAllModal> {
         width: double.infinity,
         height: double.infinity,
         borderRadius: 20,
-        blur: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
+        blur: enableBlur ? 25 : 0,
         alignment: Alignment.center,
         border: 1,
         linearGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.3),
-            Colors.white.withOpacity(0.25),
+            gradientStart,
+            gradientEnd,
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.5),
-            Colors.white.withOpacity(0.5),
+            borderStart,
+            borderEnd,
           ],
         ),
         child: Column(
@@ -125,7 +155,7 @@ class _HistoryAllModalState extends State<HistoryAllModal> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
+                  color: dragHandleColor,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -134,8 +164,8 @@ class _HistoryAllModalState extends State<HistoryAllModal> {
               padding: const EdgeInsets.only(bottom: 16),
               child: Text(
                 "全部观看记录 (${_validHistory.length})",
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: primaryTextColor,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -201,16 +231,17 @@ class _HistoryAllModalState extends State<HistoryAllModal> {
   
   // 加载更多指示器
   Widget _buildLoadingIndicator() {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
       alignment: Alignment.center,
-      child: const CircularProgressIndicator(
+      child: CircularProgressIndicator(
         strokeWidth: 2,
-        valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+        valueColor: AlwaysStoppedAnimation<Color>(primaryTextColor),
       ),
     );
   }
-} 
+}
 
 /// 历史记录列表项组件
 /// 将列表项抽取为独立的StatelessWidget可以减少主状态组件的重建范围
@@ -226,6 +257,18 @@ class HistoryListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final surfaceColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.2,
+      lightOpacity: 0.1,
+    );
+    final borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.18,
+    );
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Container(
@@ -239,14 +282,14 @@ class HistoryListItem extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.white.withOpacity(0.2),
-              Colors.white.withOpacity(0.2),
+              surfaceColor,
+              surfaceColor,
             ],
           ),
           borderRadius: BorderRadius.circular(12),
           // 添加精细的边框增强立体感
           border: Border.all(
-            color: Colors.white.withOpacity(0.3),
+            color: borderColor,
             width: 0.5,
           ),
           // 添加阴影增强立体感
@@ -294,8 +337,8 @@ class HistoryListItem extends StatelessWidget {
                           item.animeName.isEmpty
                               ? path.basename(item.filePath)
                               : item.animeName,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: primaryTextColor,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -305,8 +348,8 @@ class HistoryListItem extends StatelessWidget {
                         const SizedBox(height: 4),
                         Text(
                           item.episodeTitle ?? path.basename(item.filePath),
-                          style: const TextStyle(
-                            color: Colors.white70,
+                          style: TextStyle(
+                            color: secondaryTextColor,
                             fontSize: 12,
                           ),
                           maxLines: 1,
@@ -346,11 +389,17 @@ style: TextStyle(
   }
 
   Widget _buildDefaultThumbnail() {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final backgroundColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.4,
+      lightOpacity: 0.15,
+    );
     return Container(
-      color: Colors.black54,
-      child: const Center(
-        child: Icon(Icons.video_library, color: Colors.white30, size: 24),
+      color: backgroundColor,
+      child: Center(
+        child: Icon(Icons.video_library, color: primaryTextColor.withOpacity(0.5), size: 24),
       ),
     );
   }
-} 
+}

@@ -3,6 +3,8 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 
+import 'theme_color_utils.dart';
+
 /// 通用的毛玻璃底部弹出菜单
 class GlassBottomSheet extends StatelessWidget {
   const GlassBottomSheet({
@@ -38,6 +40,32 @@ class GlassBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final enableBlur = context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect;
     final sheetHeight = height ?? MediaQuery.of(context).size.height * 0.6;
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final gradientStart = ThemeColorUtils.glassGradientStart(
+      context,
+      darkOpacity: enableBlur ? 0.3 : 0.18,
+      lightOpacity: enableBlur ? 0.2 : 0.12,
+    );
+    final gradientEnd = ThemeColorUtils.glassGradientEnd(
+      context,
+      darkOpacity: enableBlur ? 0.25 : 0.1,
+      lightOpacity: enableBlur ? 0.15 : 0.08,
+    );
+    final borderStart = ThemeColorUtils.glassBorderStart(
+      context,
+      darkOpacity: 0.5,
+      lightOpacity: 0.25,
+    );
+    final borderEnd = ThemeColorUtils.glassBorderEnd(
+      context,
+      darkOpacity: 0.35,
+      lightOpacity: 0.15,
+    );
+    final dragHandleColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.7,
+      lightOpacity: 0.4,
+    );
 
     return Container(
       height: sheetHeight,
@@ -59,16 +87,16 @@ class GlassBottomSheet extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.3),
-            Colors.white.withOpacity(0.25),
+            gradientStart,
+            gradientEnd,
           ],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.white.withOpacity(0.5),
-            Colors.white.withOpacity(0.5),
+            borderStart,
+            borderEnd,
           ],
         ),
         child: Column(
@@ -81,7 +109,7 @@ class GlassBottomSheet extends StatelessWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
+                  color: dragHandleColor,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -93,8 +121,8 @@ class GlassBottomSheet extends StatelessWidget {
               child: Text(
                 title,
                 locale: const Locale('zh', 'CN'),
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: primaryTextColor,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),

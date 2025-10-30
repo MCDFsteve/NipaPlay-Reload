@@ -4,6 +4,8 @@ import 'dart:async'; // 添加定时器支持
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'theme_color_utils.dart';
+
 // 全局气泡管理器 - 确保同一时间只有一个气泡显示
 class _TooltipManager {
   static final _TooltipManager _instance = _TooltipManager._internal();
@@ -344,8 +346,24 @@ class _HoverTooltipBubbleState extends State<HoverTooltipBubble> {
   }
 
   Widget _buildBubble(Size size) {
-    const textStyle = TextStyle(
-      color: Colors.white,
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryBorderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.2,
+    );
+    final gradientStart = ThemeColorUtils.glassGradientStart(
+      context,
+      darkOpacity: 0.25,
+      lightOpacity: 0.15,
+    );
+    final gradientEnd = ThemeColorUtils.glassGradientEnd(
+      context,
+      darkOpacity: 0.15,
+      lightOpacity: 0.08,
+    );
+    final textStyle = TextStyle(
+      color: primaryTextColor,
       fontSize: 14,
       height: 1.4,
       fontWeight: FontWeight.w400,
@@ -380,13 +398,13 @@ class _HoverTooltipBubbleState extends State<HoverTooltipBubble> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.white.withOpacity(0.25),
-                      Colors.white.withOpacity(0.15),
+                      gradientStart,
+                      gradientEnd,
                     ],
                   ),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: Colors.white.withOpacity(0.3),
+                    color: secondaryBorderColor,
                     width: 1,
                   ),
                 ),
