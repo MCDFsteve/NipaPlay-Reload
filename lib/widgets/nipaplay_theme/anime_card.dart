@@ -107,12 +107,18 @@ class _AnimeCardState extends State<AnimeCard> {
 
   // 占位图组件
   Widget _buildPlaceholder(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.brightness == Brightness.dark;
+    final backgroundColor = (isDarkTheme ? Colors.grey[800] : Colors.grey[200])?.withOpacity(0.5) ??
+        (isDarkTheme ? Colors.black.withOpacity(0.5) : Colors.black12);
+    final iconColor = isDarkTheme ? Colors.white30 : Colors.black26;
+
     return Container(
-      color: Colors.grey[800]?.withOpacity(0.5),
-      child: const Center(
+      color: backgroundColor,
+      child: Center(
         child: Icon(
           Ionicons.image_outline,
-          color: Colors.white30,
+          color: iconColor,
           size: 40,
         ),
       ),
@@ -158,10 +164,15 @@ class _AnimeCardState extends State<AnimeCard> {
 
   @override
   Widget build(BuildContext context) {
-  final settings = context.watch<AppearanceSettingsProvider>();
-  final bool enableBlur = settings.enableWidgetBlurEffect;
+    final settings = context.watch<AppearanceSettingsProvider>();
+    final bool enableBlur = settings.enableWidgetBlurEffect;
 
-  final Widget card = RepaintBoundary(
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.brightness == Brightness.dark;
+    final primaryForegroundColor = isDarkTheme ? Colors.white : Colors.black;
+    final overlayColor = isDarkTheme ? Colors.black : Colors.white;
+
+    final Widget card = RepaintBoundary(
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
@@ -169,7 +180,7 @@ class _AnimeCardState extends State<AnimeCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: primaryForegroundColor.withOpacity(0.2),
               width: 0.5,
             ),
             boxShadow: widget.enableShadow
@@ -202,7 +213,7 @@ class _AnimeCardState extends State<AnimeCard> {
               // 中间层：半透明遮罩，提高可读性
               Positioned.fill(
                 child: Container(
-                  color: const Color.fromARGB(255, 252, 252, 252).withOpacity(0.1),
+                  color: overlayColor.withOpacity(0.1),
                 ),
               ),
               
@@ -224,8 +235,8 @@ class _AnimeCardState extends State<AnimeCard> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Colors.black.withOpacity(0.1),
-                            Colors.black.withOpacity(0.3),
+                            overlayColor.withOpacity(0.1),
+                            overlayColor.withOpacity(0.3),
                           ],
                         ),
                       ),
@@ -236,7 +247,7 @@ class _AnimeCardState extends State<AnimeCard> {
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 fontSize: 12,
                                 height: 1.2,
-                                color: Colors.white,
+                                color: primaryForegroundColor,
                                 fontWeight: FontWeight.w600,
                               ),
                           maxLines: 2,
