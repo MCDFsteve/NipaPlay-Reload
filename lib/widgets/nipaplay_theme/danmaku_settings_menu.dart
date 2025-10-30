@@ -9,6 +9,7 @@ import 'blur_button.dart';
 import 'package:nipaplay/services/manual_danmaku_matcher.dart';
 import 'package:nipaplay/utils/danmaku_history_sync.dart';
 import 'package:nipaplay/danmaku_abstraction/danmaku_kernel_factory.dart';
+import 'theme_color_utils.dart';
 
 class DanmakuSettingsMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -74,13 +75,25 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
   Widget _buildBlockWordsList() {
     return Consumer<VideoPlayerState>(
       builder: (context, videoState, child) {
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final chipBackground = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.15,
+          lightOpacity: 0.1,
+        );
+        final chipBorderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.3,
+          lightOpacity: 0.2,
+        );
         if (videoState.danmakuBlockWords.isEmpty) {
           return Container(
             padding: const EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
             child: Text(
               '暂无屏蔽词',
-              style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 14),
+              style: TextStyle(color: secondaryTextColor, fontSize: 14),
             ),
           );
         }
@@ -95,10 +108,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: chipBackground,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: chipBorderColor,
                       width: 0.5,
                     ),
                   ),
@@ -109,12 +122,12 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                       children: [
                         Text(
                           word,
-                          style: const TextStyle(color: Colors.white, fontSize: 12),
+                          style: TextStyle(color: primaryTextColor, fontSize: 12),
                         ),
                         const SizedBox(width: 4),
                         InkWell(
                           onTap: () => videoState.removeDanmakuBlockWord(word),
-                          child: const Icon(Icons.close, size: 14, color: Colors.white70),
+                          child: Icon(Icons.close, size: 14, color: secondaryTextColor),
                         ),
                       ],
                     ),
@@ -132,6 +145,19 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
   Widget build(BuildContext context) {
     return Consumer<VideoPlayerState>(
       builder: (context, videoState, child) {
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final subtleTextColor = ThemeColorUtils.subtleForeground(context);
+        final surfaceColor = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.06,
+        );
+        final borderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.3,
+          lightOpacity: 0.18,
+        );
         return BaseSettingsMenu(
           title: '弹幕设置',
           onClose: widget.onClose,
@@ -147,10 +173,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           '显示弹幕',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: primaryTextColor,
                             fontSize: 14,
                           ),
                         ),
@@ -159,6 +185,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                           onChanged: (value) {
                             videoState.setDanmakuVisible(value);
                           },
+                          activeColor: primaryTextColor,
                         ),
                       ],
                     ),
@@ -304,10 +331,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
+                            Text(
                               '弹幕屏蔽词',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: primaryTextColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -329,28 +356,28 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                             child: Container(
                               height: 40, // 设置固定高度
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.1),
+                                color: surfaceColor,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: _hasBlockWordError 
                                     ? Colors.redAccent.withOpacity(0.8) 
-                                    : Colors.white.withOpacity(0.3),
+                                    : borderColor,
                                   width: 1,
                                 ),
                               ),
                               child: Center( // 使用Center包装确保垂直居中
                                 child: TextField(
                                   controller: _blockWordController,
-                                  style: const TextStyle(color: Colors.white, fontSize: 13),
+                                  style: TextStyle(color: primaryTextColor, fontSize: 13),
                                   textAlignVertical: TextAlignVertical.center,
                                   decoration: InputDecoration(
                                     hintText: '输入要屏蔽的关键词',
-                                    hintStyle: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 13),
+                                    hintStyle: TextStyle(color: secondaryTextColor, fontSize: 13),
                                     border: InputBorder.none,
                                     contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0), // 垂直padding设为0
                                     isDense: true,
                                     suffixIcon: IconButton(
-                                      icon: const Icon(Icons.clear, color: Colors.white70, size: 18),
+                                      icon: Icon(Icons.clear, color: secondaryTextColor, size: 18),
                                       onPressed: () => _blockWordController.clear(),
                                       tooltip: '',
                                       padding: EdgeInsets.zero,
@@ -388,24 +415,25 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            '弹幕堆叠',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '弹幕堆叠',
+                              style: TextStyle(
+                                color: primaryTextColor,
+                                fontSize: 14,
+                              ),
                             ),
-                          ),
-                          Switch(
-                            value: videoState.danmakuStacking,
-                            onChanged: (value) {
-                              videoState.setDanmakuStacking(value);
-                            },
-                          ),
-                        ],
-                      ),
+                            Switch(
+                              value: videoState.danmakuStacking,
+                              onChanged: (value) {
+                                videoState.setDanmakuStacking(value);
+                              },
+                              activeColor: primaryTextColor,
+                            ),
+                          ],
+                        ),
                       const SettingsHintText('允许多条弹幕重叠显示，适合弹幕密集场景'),
                     ],
                   ),
@@ -420,10 +448,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             '合并相同弹幕',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: primaryTextColor,
                               fontSize: 14,
                             ),
                           ),
@@ -432,6 +460,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                             onChanged: (value) {
                               videoState.setMergeDanmaku(value);
                             },
+                            activeColor: primaryTextColor,
                           ),
                         ],
                       ),
@@ -452,10 +481,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
+                            Text(
                               '屏蔽顶部弹幕',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: primaryTextColor,
                                 fontSize: 14,
                               ),
                             ),
@@ -464,6 +493,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                               onChanged: (value) {
                                 videoState.setBlockTopDanmaku(value);
                               },
+                              activeColor: primaryTextColor,
                             ),
                           ],
                         ),
@@ -471,10 +501,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
+                            Text(
                               '屏蔽底部弹幕',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: primaryTextColor,
                                 fontSize: 14,
                               ),
                             ),
@@ -483,6 +513,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                               onChanged: (value) {
                                 videoState.setBlockBottomDanmaku(value);
                               },
+                              activeColor: primaryTextColor,
                             ),
                           ],
                         ),
@@ -490,10 +521,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
+                            Text(
                               '屏蔽滚动弹幕',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: primaryTextColor,
                                 fontSize: 14,
                               ),
                             ),
@@ -502,6 +533,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                               onChanged: (value) {
                                 videoState.setBlockScrollDanmaku(value);
                               },
+                              activeColor: primaryTextColor,
                             ),
                           ],
                         ),
@@ -520,10 +552,10 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           '时间轴告知',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: primaryTextColor,
                             fontSize: 14,
                           ),
                         ),
@@ -532,6 +564,7 @@ class _DanmakuSettingsMenuState extends State<DanmakuSettingsMenu> {
                           onChanged: (value) {
                             videoState.toggleTimelineDanmaku(value);
                           },
+                          activeColor: primaryTextColor,
                         ),
                       ],
                     ),
@@ -597,10 +630,10 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: surfaceColor,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: borderColor,
                         width: 0.5,
                       ),
                       boxShadow: [
@@ -613,8 +646,8 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
                     ),
                     child: Text(
                       '${(widget.videoState.danmakuOpacity * 100).toInt()}%',
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: primaryTextColor,
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -644,10 +677,10 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '弹幕不透明度',
           style: TextStyle(
-            color: Colors.white,
+            color: primaryTextColor,
             fontSize: 14,
           ),
         ),
@@ -714,11 +747,11 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
                   clipBehavior: Clip.none,
                   children: [
                     // 背景轨道
-                    Container(
-                      height: 4,
-                      margin: const EdgeInsets.symmetric(vertical: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                   Container(
+                     height: 4,
+                     margin: const EdgeInsets.symmetric(vertical: 20),
+                     decoration: BoxDecoration(
+                        color: surfaceColor,
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -730,14 +763,14 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
                       child: FractionallySizedBox(
                         widthFactor: widget.videoState.danmakuOpacity,
                         alignment: Alignment.centerLeft,
-                        child: Container(
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.5),
+                       child: Container(
+                         height: 4,
+                         decoration: BoxDecoration(
+                            color: primaryTextColor.withOpacity(0.6),
                             borderRadius: BorderRadius.circular(2),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white.withOpacity(0.3),
+                                color: primaryTextColor.withOpacity(0.3),
                                 blurRadius: 2,
                                 spreadRadius: 0.5,
                               ),
@@ -755,10 +788,10 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.easeOutBack,
-                          width: _isThumbHovered || _isDragging ? 16 : 12,
-                          height: _isThumbHovered || _isDragging ? 16 : 12,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
+                         width: _isThumbHovered || _isDragging ? 16 : 12,
+                         height: _isThumbHovered || _isDragging ? 16 : 12,
+                         decoration: BoxDecoration(
+                            color: primaryTextColor,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
@@ -777,7 +810,7 @@ class _DanmakuOpacitySliderState extends State<_DanmakuOpacitySlider> {
             ),
           ),
         ),
-        const SizedBox(height: 4),
+       const SizedBox(height: 4),
         const SettingsHintText('拖动滑块调整弹幕不透明度'),
       ],
     );
