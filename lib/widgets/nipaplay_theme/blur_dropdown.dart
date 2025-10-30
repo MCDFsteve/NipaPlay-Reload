@@ -8,6 +8,7 @@ import 'package:nipaplay/utils/theme_utils.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/hover_tooltip_bubble.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 // Assume getTitleTextStyle is defined elsewhere, e.g., in theme_utils.dart
 // import 'package:nipaplay/utils/theme_utils.dart';
 
@@ -127,9 +128,9 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                 RotationTransition(
                   turns:
                       Tween(begin: 0.0, end: 0.5).animate(_animationController),
-                  child: const Icon(
+                  child: Icon(
                     Ionicons.chevron_down_outline,
-                    color: Colors.white,
+                    color: ThemeColorUtils.primaryForeground(context),
                   ),
                 ),
               ],
@@ -188,9 +189,26 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
     final safeRight = (right < 10.0) ? 10.0 : right;
     final left = position.dx;
 
-    final Color borderColor = Theme.of(context).brightness == Brightness.light
-        ? const Color.fromARGB(255, 201, 201, 201)
-        : const Color.fromARGB(255, 130, 130, 130);
+    final Color borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.35,
+      lightOpacity: 0.25,
+    );
+    final Color dropdownBackground = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.5,
+      lightOpacity: 0.35,
+    );
+    final Color selectionOverlay = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.1,
+      lightOpacity: 0.08,
+    );
+    final Color dividerColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.1,
+      lightOpacity: 0.08,
+    );
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
@@ -233,8 +251,7 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(color: borderColor, width: 0.5),
-                    color: const Color.fromARGB(255, 130, 130, 130)
-                        .withOpacity(0.5),
+                    color: dropdownBackground,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
@@ -282,11 +299,11 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                               ),
                               decoration: BoxDecoration(
                                 color: item.value == _currentSelectedValue
-                                    ? Colors.white.withOpacity(0.1)
+                                    ? selectionOverlay
                                     : Colors.transparent,
                                 border: Border(
                                   bottom: BorderSide(
-                                    color: Colors.white.withOpacity(0.1),
+                                    color: dividerColor,
                                     width: 0.5,
                                   ),
                                 ),
@@ -385,15 +402,16 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
           width: double.infinity, // Ensure item takes full width
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           color: isSelected
-              ? Colors.white.withOpacity(0.1)
+              ? selectionOverlay
               : Colors.transparent, // Subtle selection highlight
           child: Text(
             item.title,
             locale: Locale("zh-Hans", "zh"),
             style: TextStyle(
               fontSize: 15,
-              color: Colors.white
-                  .withOpacity(isSelected ? 1.0 : 0.8), // Adjust opacity
+              color: ThemeColorUtils.primaryForeground(context).withOpacity(
+                isSelected ? 1.0 : 0.75,
+              ),
               fontWeight: isSelected
                   ? FontWeight.w900
                   : FontWeight.normal, // Adjust font weight

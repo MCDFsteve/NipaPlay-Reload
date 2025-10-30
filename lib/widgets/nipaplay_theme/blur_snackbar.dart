@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'theme_color_utils.dart';
+
 class BlurSnackBar {
   static OverlayEntry? _currentOverlayEntry;
   static AnimationController? _controller; // 防止泄漏：保存当前动画控制器
@@ -45,10 +47,18 @@ class BlurSnackBar {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: ThemeColorUtils.overlayColor(
+                      context,
+                      darkOpacity: 0.1,
+                      lightOpacity: 0.08,
+                    ),
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: ThemeColorUtils.borderColor(
+                        context,
+                        darkOpacity: 0.2,
+                        lightOpacity: 0.15,
+                      ),
                       width: 1,
                     ),
                   ),
@@ -58,14 +68,18 @@ class BlurSnackBar {
                       Expanded(
                         child: Text(
                           content,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: ThemeColorUtils.primaryForeground(context),
                             fontSize: 14,
                           ),
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.close, color: Colors.white70, size: 20),
+                        icon: Icon(
+                          Icons.close,
+                          color: ThemeColorUtils.secondaryForeground(context),
+                          size: 20,
+                        ),
                         onPressed: () {
               _controller?.reverse().then((_) {
                             overlayEntry.remove();

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'theme_color_utils.dart';
+
 class CountdownSnackBar {
   static OverlayEntry? _currentOverlayEntry;
   static Function()? _onCancel;
@@ -55,37 +57,45 @@ class CountdownSnackBar {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: ThemeColorUtils.overlayColor(
+                      context,
+                      darkOpacity: 0.1,
+                      lightOpacity: 0.08,
+                    ),
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: ThemeColorUtils.borderColor(
+                        context,
+                        darkOpacity: 0.2,
+                        lightOpacity: 0.15,
+                      ),
                       width: 1,
                     ),
                   ),
                   child: ValueListenableBuilder<String>(
                     valueListenable: _messageNotifier!,
                     builder: (context, currentMessage, child) {
-                      return Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.play_arrow,
-                            color: Colors.white70,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              currentMessage,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
+                          return Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.play_arrow,
+                                color: ThemeColorUtils.secondaryForeground(context),
+                                size: 20,
                               ),
-                            ),
-                          ),
-                          if (onCancel != null) ...[
-                            const SizedBox(width: 8),
-                            TextButton(
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  currentMessage,
+                                  style: TextStyle(
+                                    color: ThemeColorUtils.primaryForeground(context),
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              if (onCancel != null) ...[
+                                const SizedBox(width: 8),
+                                TextButton(
                               onPressed: () {
                                 onCancel();
                                 if (_controller != null) {
@@ -95,24 +105,32 @@ class CountdownSnackBar {
                               style: TextButton.styleFrom(
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                 minimumSize: Size.zero,
-                                backgroundColor: Colors.white.withOpacity(0.2),
+                                backgroundColor: ThemeColorUtils.overlayColor(
+                                  context,
+                                  darkOpacity: 0.2,
+                                  lightOpacity: 0.12,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                               ),
-                              child: const Text(
+                              child: Text(
                                 '取消',
                                 locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                  color: Colors.white,
+                                  color: ThemeColorUtils.primaryForeground(context),
                                   fontSize: 12,
                                 ),
                               ),
                             ),
-                          ],
-                          const SizedBox(width: 8),
-                          IconButton(
-                            icon: const Icon(Icons.close, color: Colors.white70, size: 20),
+                              ],
+                              const SizedBox(width: 8),
+                              IconButton(
+                            icon: Icon(
+                              Icons.close,
+                              color: ThemeColorUtils.secondaryForeground(context),
+                              size: 20,
+                            ),
                             onPressed: () {
                               if (onCancel != null) {
                                 onCancel();

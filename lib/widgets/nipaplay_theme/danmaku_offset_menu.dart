@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/settings_provider.dart';
 import 'base_settings_menu.dart';
 import 'settings_hint_text.dart';
+import 'theme_color_utils.dart';
 
 class DanmakuOffsetMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -28,11 +29,28 @@ class _DanmakuOffsetMenuState extends State<DanmakuOffsetMenu> {
 
   Widget _buildOffsetButton(double offset, double currentOffset) {
     final bool isSelected = (offset - currentOffset).abs() < 0.01;
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: isSelected ? 0.5 : 0.2,
+      lightOpacity: isSelected ? 0.35 : 0.15,
+    );
+    final backgroundColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: isSelected ? 0.15 : 0.05,
+      lightOpacity: isSelected ? 0.1 : 0.03,
+    );
     
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
       child: Material(
-        color: isSelected ? Colors.white.withOpacity(0.2) : Colors.transparent,
+        color: isSelected
+            ? ThemeColorUtils.overlayColor(
+                context,
+                darkOpacity: 0.2,
+                lightOpacity: 0.12,
+              )
+            : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
@@ -43,10 +61,10 @@ class _DanmakuOffsetMenuState extends State<DanmakuOffsetMenu> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(isSelected ? 0.15 : 0.05),
+              color: backgroundColor,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: Colors.white.withOpacity(isSelected ? 0.5 : 0.2),
+                color: borderColor,
                 width: 1,
               ),
             ),
@@ -54,7 +72,7 @@ class _DanmakuOffsetMenuState extends State<DanmakuOffsetMenu> {
               _formatOffset(offset),
               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                color: Colors.white,
+                color: primaryColor,
                 fontSize: 13,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
               ),
@@ -69,6 +87,19 @@ style: TextStyle(
   Widget build(BuildContext context) {
     return Consumer<SettingsProvider>(
       builder: (context, settingsProvider, child) {
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final subtleTextColor = ThemeColorUtils.subtleForeground(context);
+        final surfaceColor = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.06,
+        );
+        final borderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.3,
+          lightOpacity: 0.18,
+        );
         return BaseSettingsMenu(
           title: '弹幕偏移',
           onClose: widget.onClose,
@@ -81,11 +112,11 @@ style: TextStyle(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       '当前偏移',
                       locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                        color: Colors.white,
+                        color: primaryTextColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -94,10 +125,10 @@ style: TextStyle(
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
+                        color: surfaceColor,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.3),
+                          color: borderColor,
                           width: 1,
                         ),
                       ),
@@ -110,14 +141,14 @@ style: TextStyle(
                                 : settingsProvider.danmakuTimeOffset < 0
                                     ? Icons.fast_rewind
                                     : Icons.sync,
-                            color: Colors.white,
+                            color: primaryTextColor,
                             size: 20,
                           ),
                           const SizedBox(width: 8),
                           Text(
                             _formatOffset(settingsProvider.danmakuTimeOffset),
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: primaryTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -143,22 +174,22 @@ style: TextStyle(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       '快速设置',
                       locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                        color: Colors.white,
+                        color: primaryTextColor,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 12),
                     // 后退选项
-                    const Text(
+                    Text(
                       '弹幕后退',
                       locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                        color: Colors.white70,
+                        color: secondaryTextColor,
                         fontSize: 12,
                       ),
                     ),
@@ -173,11 +204,11 @@ style: TextStyle(
                     const SizedBox(height: 8),
                     
                     // 无偏移
-                    const Text(
+                    Text(
                       '默认',
                       locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                        color: Colors.white70,
+                        color: secondaryTextColor,
                         fontSize: 12,
                       ),
                     ),
@@ -186,11 +217,11 @@ style: TextStyle(
                     const SizedBox(height: 8),
                     
                     // 前进选项
-                    const Text(
+                    Text(
                       '弹幕前进',
                       locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                        color: Colors.white70,
+                        color: secondaryTextColor,
                         fontSize: 12,
                       ),
                     ),

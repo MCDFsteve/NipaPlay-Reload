@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 class CustomSlider extends StatefulWidget {
   final double value;
@@ -83,10 +84,18 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: ThemeColorUtils.overlayColor(
+                        context,
+                        darkOpacity: 0.2,
+                        lightOpacity: 0.12,
+                      ),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: ThemeColorUtils.borderColor(
+                          context,
+                          darkOpacity: 0.3,
+                          lightOpacity: 0.18,
+                        ),
                         width: 0.5,
                       ),
                       boxShadow: [
@@ -99,8 +108,8 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
                     ),
                     child: Text(
                       '${(widget.value * 100).toInt()}%',
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: ThemeColorUtils.primaryForeground(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -130,13 +139,23 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final trackBackgroundColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.2,
+      lightOpacity: 0.12,
+    );
+    final trackFillColor = ThemeColorUtils.primaryForeground(context).withOpacity(0.6);
+    final thumbColor = ThemeColorUtils.primaryForeground(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           widget.label,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: primaryTextColor,
             fontSize: 14,
           ),
         ),
@@ -185,7 +204,7 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
                       height: 4,
                       margin: const EdgeInsets.symmetric(vertical: 20),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: trackBackgroundColor,
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -199,11 +218,11 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
                         child: Container(
                           height: 4,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.5),
+                            color: trackFillColor,
                             borderRadius: BorderRadius.circular(2),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white.withOpacity(0.3),
+                                color: thumbColor.withOpacity(0.3),
                                 blurRadius: 2,
                                 spreadRadius: 0.5,
                               ),
@@ -231,7 +250,7 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
                           width: _isThumbHovered || _isDragging ? 16 : 12,
                           height: _isThumbHovered || _isDragging ? 16 : 12,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: thumbColor,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
@@ -253,12 +272,12 @@ class _CustomSliderState extends State<CustomSlider> with SingleTickerProviderSt
         const SizedBox(height: 8),
         Text(
           widget.hintText,
-          style: const TextStyle(
-            color: Colors.white70,
+          style: TextStyle(
+            color: secondaryTextColor,
             fontSize: 12,
           ),
         ),
       ],
     );
   }
-} 
+}

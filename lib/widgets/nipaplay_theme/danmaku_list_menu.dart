@@ -4,6 +4,7 @@ import 'package:nipaplay/utils/video_player_state.dart';
 import 'base_settings_menu.dart'; // Import the base menu
 import 'dart:async';
 import 'package:nipaplay/utils/globals.dart' as globals;
+import 'theme_color_utils.dart';
 
 // Convert to StatefulWidget
 class DanmakuListMenu extends StatefulWidget {
@@ -359,6 +360,23 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
         final totalDanmakuCount = videoState.totalDanmakuCount;
     final filteredDanmakuCount = videoState.danmakuList.length;
     final totalFilteredCount = totalDanmakuCount - filteredDanmakuCount;
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final borderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.08,
+        );
+        final currentHighlightColor = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.3,
+          lightOpacity: 0.18,
+        );
+        final listBackgroundOverlay = ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.12,
+          lightOpacity: 0.08,
+        );
         
         return BaseSettingsMenu(
           title: '弹幕列表 ${_allSortedDanmakus.isNotEmpty ? "(${_allSortedDanmakus.length}条)" : ""}',
@@ -375,8 +393,8 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
                     children: [
                       Text(
                         '显示被过滤的弹幕 ($totalFilteredCount条)',
-                        style: const TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(
+                          color: primaryTextColor,
                           fontSize: 14,
                         ),
                       ),
@@ -388,18 +406,18 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
                           });
                           _loadDanmakus();
                         },
-                        activeColor: const Color.fromARGB(255, 255, 255, 255),
+                        activeColor: primaryTextColor,
                       ),
                     ],
                   ),
                 ),
                 
               _isLoading
-              ? const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Center(
                     child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor: AlwaysStoppedAnimation<Color>(primaryTextColor),
                       strokeWidth: 2,
                     ),
                   ),
@@ -410,7 +428,7 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
                     child: Center(
                       child: Text(
                         _errorMessage.isEmpty ? '当前没有弹幕' : _errorMessage,
-                        style: const TextStyle(color: Colors.white70),
+                        style: TextStyle(color: secondaryTextColor),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -453,8 +471,8 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
                                 }
                                 
                                 return Material(
-                                  color: isCurrentDanmaku 
-                                      ? const Color.fromARGB(255, 255, 255, 255).withOpacity(0.3) 
+                                  color: isCurrentDanmaku
+                                      ? currentHighlightColor
                                       : Colors.transparent,
                                   child: InkWell(
                                     onTap: () => _seekToTime(timeInSeconds),
@@ -462,8 +480,8 @@ class _DanmakuListMenuState extends State<DanmakuListMenu> {
                                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(
-                                            color: Colors.white.withOpacity(0.1),
+                                         bottom: BorderSide(
+                                            color: borderColor,
                                             width: 0.5,
                                           ),
                                         ),
@@ -495,9 +513,9 @@ style: TextStyle(
                                                   color: Colors.grey.withOpacity(0.2),
                                                   borderRadius: BorderRadius.circular(4),
                                                 ),
-                                                child: Text(
-                                                  _getDanmakuTypeText(type),
-                                                  locale:Locale("zh-Hans","zh"),
+                                              child: Text(
+                                                _getDanmakuTypeText(type),
+                                                locale:Locale("zh-Hans","zh"),
 style: TextStyle(
                                                     color: Colors.grey.shade400,
                                                     fontSize: 10,
@@ -531,11 +549,11 @@ style: TextStyle(
                                               minHeight: 20,
                                               maxWidth: MediaQuery.of(context).size.width - 50,
                                             ),
-                                            child: Text(
+                                           child: Text(
                                               content,
                                               locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                                color: Colors.white,
+                                                color: primaryTextColor,
                                                 fontSize: 14,
                                                 fontWeight: isCurrentDanmaku ? FontWeight.bold : FontWeight.normal,
                                               ),
@@ -585,8 +603,8 @@ style: TextStyle(
                                   }
                                   
                                   return Material(
-                                    color: isCurrentDanmaku 
-                                        ? Colors.blueAccent.withOpacity(0.3) 
+                                    color: isCurrentDanmaku
+                                        ? currentHighlightColor
                                         : Colors.transparent,
                                     child: InkWell(
                                       onTap: () => _seekToTime(timeInSeconds),
@@ -595,7 +613,7 @@ style: TextStyle(
                                         decoration: BoxDecoration(
                                           border: Border(
                                             bottom: BorderSide(
-                                              color: Colors.white.withOpacity(0.1),
+                                              color: borderColor,
                                               width: 0.5,
                                             ),
                                           ),
@@ -663,14 +681,14 @@ style: TextStyle(
                                                 minHeight: 20,
                                                 maxWidth: MediaQuery.of(context).size.width - 50,
                                               ),
-                                              child: Text(
-                                                content,
-                                                locale:Locale("zh-Hans","zh"),
+                                           child: Text(
+                                             content,
+                                             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 14,
-                                                  fontWeight: isCurrentDanmaku ? FontWeight.bold : FontWeight.normal,
-                                                ),
+                                                color: primaryTextColor,
+                                                fontSize: 14,
+                                                fontWeight: isCurrentDanmaku ? FontWeight.bold : FontWeight.normal,
+                                              ),
                                                 softWrap: true,
                                                 overflow: TextOverflow.visible,
                                               ),
@@ -694,11 +712,11 @@ style: TextStyle(
                               color: Colors.black.withOpacity(0.7),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const SizedBox(
+                            child: SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                valueColor: AlwaysStoppedAnimation<Color>(primaryTextColor),
                                 strokeWidth: 2,
                               ),
                             ),

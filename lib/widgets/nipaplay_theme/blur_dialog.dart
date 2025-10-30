@@ -6,6 +6,8 @@ import 'package:nipaplay/widgets/fluent_ui/fluent_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 
+import 'theme_color_utils.dart';
+
 class BlurDialog {
   static Future<T?> show<T>({
     required BuildContext context,
@@ -65,7 +67,25 @@ class BlurDialog {
         final shortestSide = screenSize.width < screenSize.height ? screenSize.width : screenSize.height;
         final bool isRealPhone = globals.isPhone && shortestSide < 600;
         final bool hasTitle = title.isNotEmpty;
-        
+
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+        final gradientStart = ThemeColorUtils.glassGradientStart(
+          context,
+          darkOpacity: 0.15,
+          lightOpacity: 0.08,
+        );
+        final gradientEnd = ThemeColorUtils.glassGradientEnd(
+          context,
+          darkOpacity: 0.05,
+          lightOpacity: 0.03,
+        );
+        final borderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.3,
+          lightOpacity: 0.18,
+        );
+
         Widget dialogContent = ConstrainedBox(
           constraints: BoxConstraints(
             //maxHeight: screenSize.height * 0.8, // 降低到75%，避免溢出
@@ -77,13 +97,10 @@ class BlurDialog {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-                  Colors.white.withOpacity(0.15),
-                  Colors.white.withOpacity(0.05),
-                ],
+                colors: [gradientStart, gradientEnd],
               ),
               border: Border.all(
-                color: Colors.white.withOpacity(0.3),
+                color: borderColor,
                 width: 1,
               ),
               boxShadow: [
@@ -111,8 +128,8 @@ class BlurDialog {
                       if (hasTitle) ...[
                         Text(
                           title,
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: primaryTextColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -125,8 +142,8 @@ class BlurDialog {
                             if (content != null)
                               Text(
                                 content,
-                                style: const TextStyle(
-                                  color: Colors.white,
+                                style: TextStyle(
+                                  color: secondaryTextColor,
                                   fontSize: 15,
                                   height: 1.4,
                                 ),

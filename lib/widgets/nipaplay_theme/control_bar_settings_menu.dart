@@ -6,6 +6,7 @@ import 'base_settings_menu.dart';
 import 'settings_hint_text.dart';
 import 'settings_slider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 
 class ControlBarSettingsMenu extends StatefulWidget {
   final VoidCallback onClose;
@@ -65,10 +66,18 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: ThemeColorUtils.overlayColor(
+                        context,
+                        darkOpacity: 0.2,
+                        lightOpacity: 0.12,
+                      ),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: ThemeColorUtils.borderColor(
+                          context,
+                          darkOpacity: 0.3,
+                          lightOpacity: 0.18,
+                        ),
                         width: 0.5,
                       ),
                       boxShadow: [
@@ -81,8 +90,8 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
                     ),
                     child: Text(
                       '${widget.videoState.controlBarHeight.toInt()}px',
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: ThemeColorUtils.primaryForeground(context),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -134,7 +143,13 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
               color: Color(colorValue),
               shape: BoxShape.circle,
               border: Border.all(
-                color: isSelected ? Colors.white : Colors.white.withOpacity(0.3),
+                color: isSelected
+                    ? ThemeColorUtils.primaryForeground(context)
+                    : ThemeColorUtils.borderColor(
+                        context,
+                        darkOpacity: 0.3,
+                        lightOpacity: 0.2,
+                      ),
                 width: isSelected ? 3 : 1,
               ),
               boxShadow: [
@@ -156,6 +171,7 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
   Widget build(BuildContext context) {
     return Consumer<VideoPlayerState>(
       builder: (context, videoState, child) {
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
         return BaseSettingsMenu(
           title: '控件设置',
           onClose: widget.onClose,
@@ -185,10 +201,10 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           '底部进度条',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: primaryTextColor,
                             fontSize: 14,
                           ),
                         ),
@@ -208,10 +224,10 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           '弹幕密度曲线',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: primaryTextColor,
                             fontSize: 14,
                           ),
                         ),
@@ -223,14 +239,14 @@ class _ControlBarSettingsMenuState extends State<ControlBarSettingsMenu> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 4),
-                    const SettingsHintText('显示播放器底部弹幕密度曲线'),
-                    if (videoState.minimalProgressBarEnabled) ...[
-                      const SizedBox(height: 16),
-                      const Text(
+                      const SizedBox(height: 4),
+                      const SettingsHintText('显示播放器底部弹幕密度曲线'),
+                      if (videoState.minimalProgressBarEnabled) ...[
+                        const SizedBox(height: 16),
+                      Text(
                         '进度条和曲线颜色',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: primaryTextColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),

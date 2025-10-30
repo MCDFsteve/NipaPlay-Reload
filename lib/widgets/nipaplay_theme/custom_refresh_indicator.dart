@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:glassmorphism/glassmorphism.dart';
 
+import 'theme_color_utils.dart';
+
 class CustomRefreshIndicator extends StatefulWidget {
   final Widget child;
   final Future<void> Function() onRefresh;
@@ -99,7 +101,7 @@ class _CustomRefreshIndicatorState extends State<CustomRefreshIndicator>
               child: Container(
                 height: 40.0,
                 alignment: Alignment.center,
-                child: _buildRefreshIndicator(),
+                child: _buildRefreshIndicator(context),
               ),
             ),
         ],
@@ -107,9 +109,30 @@ class _CustomRefreshIndicatorState extends State<CustomRefreshIndicator>
     );
   }
 
-  Widget _buildRefreshIndicator() {
+  Widget _buildRefreshIndicator(BuildContext context) {
     final progress = math.min(1.0, _dragOffset / widget.displacement);
     final size = 40.0;
+    final gradientStart = ThemeColorUtils.glassGradientStart(
+      context,
+      darkOpacity: 0.1,
+      lightOpacity: 0.08,
+    );
+    final gradientEnd = ThemeColorUtils.glassGradientEnd(
+      context,
+      darkOpacity: 0.05,
+      lightOpacity: 0.03,
+    );
+    final borderStart = ThemeColorUtils.glassBorderStart(
+      context,
+      darkOpacity: 0.4,
+      lightOpacity: 0.15,
+    );
+    final borderEnd = ThemeColorUtils.glassBorderEnd(
+      context,
+      darkOpacity: 0.2,
+      lightOpacity: 0.1,
+    );
+    final indicatorColor = widget.color ?? ThemeColorUtils.primaryForeground(context);
     
     return Stack(
       alignment: Alignment.center,
@@ -125,18 +148,12 @@ class _CustomRefreshIndicatorState extends State<CustomRefreshIndicator>
           linearGradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              const Color(0xFFffffff).withOpacity(0.1),
-              const Color(0xFFFFFFFF).withOpacity(0.05),
-            ],
+            colors: [gradientStart, gradientEnd],
           ),
           borderGradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              const Color(0xFFffffff).withOpacity(0.5),
-              const Color((0xFFFFFFFF)).withOpacity(0.5),
-            ],
+            colors: [borderStart, borderEnd],
           ),
         ),
         // 白色圆角指示条
@@ -144,7 +161,7 @@ class _CustomRefreshIndicatorState extends State<CustomRefreshIndicator>
           size: Size(size, size),
           painter: CustomRefreshIndicatorPainter(
             value: _isRefreshing ? _animation.value : progress,
-            color: widget.color ?? Colors.white,
+            color: indicatorColor,
             strokeWidth: widget.strokeWidth,
             blur: widget.blur,
             opacity: widget.opacity,

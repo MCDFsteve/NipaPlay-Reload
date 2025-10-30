@@ -4,6 +4,7 @@ import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'theme_color_utils.dart';
 
 class BaseSettingsMenu extends StatelessWidget {
   final String title;
@@ -34,7 +35,13 @@ class BaseSettingsMenu extends StatelessWidget {
         final backgroundColor = isDarkMode
             ? const Color.fromARGB(255, 130, 130, 130).withOpacity(0.5)
             : const Color.fromARGB(255, 193, 193, 193).withOpacity(0.5);
-        final borderColor = Colors.white.withOpacity(0.5);
+        final borderColor = ThemeColorUtils.borderColor(
+          context,
+          darkOpacity: 0.5,
+          lightOpacity: 0.4,
+        );
+        final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryIconColor = ThemeColorUtils.tertiaryForeground(context);
 
         return Material(
           type: MaterialType.transparency,
@@ -103,8 +110,8 @@ class BaseSettingsMenu extends StatelessWidget {
                                       children: [
                                         Text(
                                           title,
-                                          style: const TextStyle(
-                                            color: Colors.white,
+                                          style: TextStyle(
+                                            color: primaryTextColor,
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -113,7 +120,7 @@ class BaseSettingsMenu extends StatelessWidget {
                                         if (extraButton != null) extraButton!,
                                         if (onClose != null)
                                           IconButton(
-                                            icon: const Icon(Icons.close, color: Colors.white),
+                                            icon: Icon(Icons.close, color: secondaryIconColor),
                                             onPressed: onClose,
                                             iconSize: 18,
                                             padding: EdgeInsets.zero,

@@ -4,6 +4,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'theme_color_utils.dart';
 
 /// 通用的毛玻璃登录对话框组件
 /// 基于弹弹play登录对话框的样式设计
@@ -139,6 +140,24 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
     // 获取模糊效果设置
     final appearanceSettings = context.watch<AppearanceSettingsProvider>();
     final blurValue = appearanceSettings.enableWidgetBlurEffect ? 25.0 : 0.0;
+    final primaryTextColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryTextColor = ThemeColorUtils.secondaryForeground(context);
+    final subtleTextColor = ThemeColorUtils.subtleForeground(context);
+    final surfaceColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.2,
+      lightOpacity: 0.12,
+    );
+    final borderColor = ThemeColorUtils.borderColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.18,
+    );
+    final highlightColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.1,
+      lightOpacity: 0.08,
+    );
     
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: blurValue, sigmaY: blurValue),
@@ -152,10 +171,10 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
             height: dialogHeight,
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: surfaceColor,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Colors.white.withOpacity(0.3),
+                color: borderColor,
                 width: 0.5,
               ),
               boxShadow: [
@@ -173,10 +192,10 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
                 // 固定标题区域
                 Text(
                   widget.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: primaryTextColor,
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -199,7 +218,7 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
                             child: TextField(
                               controller: _controllers[field.key],
                               focusNode: _focusNodes[field.key],
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(color: primaryTextColor),
                               obscureText: field.isPassword,
                               textInputAction: isLastField 
                                   ? TextInputAction.done 
@@ -217,13 +236,19 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
                               decoration: InputDecoration(
                                 labelText: field.label,
                                 hintText: field.hint,
-                                labelStyle: const TextStyle(color: Colors.white70),
-                                hintStyle: const TextStyle(color: Colors.white54),
-                                enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white30),
+                                labelStyle: TextStyle(color: secondaryTextColor),
+                                hintStyle: TextStyle(color: secondaryTextColor),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: ThemeColorUtils.borderColor(
+                                      context,
+                                      darkOpacity: 0.25,
+                                      lightOpacity: 0.18,
+                                    ),
+                                  ),
                                 ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: primaryTextColor),
                                 ),
                               ),
                             ),
@@ -240,10 +265,14 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: highlightColor,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: ThemeColorUtils.borderColor(
+                        context,
+                        darkOpacity: 0.2,
+                        lightOpacity: 0.15,
+                      ),
                       width: 0.5,
                     ),
                   ),
@@ -256,18 +285,20 @@ class _BlurLoginDialogState extends State<BlurLoginDialog> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: _isLoading
-                              ? const SizedBox(
+                              ? SizedBox(
                                   width: 20,
                                   height: 20,
                                   child: CircularProgressIndicator(
                                     strokeWidth: 2,
-                                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      primaryTextColor,
+                                    ),
                                   ),
                                 )
                               : Text(
                                     widget.loginButtonText,
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                                    style: TextStyle(
+                                      color: primaryTextColor,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
