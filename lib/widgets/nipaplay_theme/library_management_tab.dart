@@ -18,6 +18,7 @@ import 'package:permission_handler/permission_handler.dart'; // 导入权限处�
 import 'package:nipaplay/utils/android_storage_helper.dart'; // 导入Android存储辅助类
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/utils/globals.dart'; // 导入全局变量和设备检测函数
+import 'package:nipaplay/utils/nipaplay_colors.dart';
 // Import MethodChannel
 import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPreferences
 import 'package:nipaplay/services/manual_danmaku_matcher.dart'; // 导入手动弹幕匹配器
@@ -1084,6 +1085,25 @@ style: TextStyle(color: Colors.lightBlueAccent)),
 
   @override
   Widget build(BuildContext context) {
+    final nipaplayPalette = context.nipaplayColors;
+    final bool isDark = context.isDarkMode;
+    final Color primaryColor = isDark ? Colors.white : nipaplayPalette.textPrimary;
+    final Color secondaryColor = nipaplayPalette.textSecondary;
+    final Color mutedColor = nipaplayPalette.textMuted;
+    final Color accentColor = nipaplayPalette.accent;
+    final Color borderColor = isDark
+        ? Colors.white.withOpacity(0.25)
+        : nipaplayPalette.border.withOpacity(0.8);
+    final Color surfaceColor = isDark
+        ? Colors.white.withOpacity(0.08)
+        : nipaplayPalette.surface;
+    final Color surfaceMutedColor = isDark
+        ? Colors.white.withOpacity(0.05)
+        : nipaplayPalette.surfaceMuted;
+    final Color toggleSelectedColor = isDark
+        ? Colors.white.withOpacity(0.22)
+        : nipaplayPalette.accent.withOpacity(0.15);
+
     if (kIsWeb) {
       return Center(
         child: Padding(
@@ -1094,7 +1114,7 @@ style: TextStyle(color: Colors.lightBlueAccent)),
 请在Windows、macOS、Android或iOS客户端中使用此功能。''',
             textAlign: TextAlign.center,
             locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 16),
+style: TextStyle(color: secondaryColor, fontSize: 16),
           ),
         ),
       );
@@ -1116,16 +1136,25 @@ style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 16),
             children: [
               Row(
                 children: [
-                  const Text("媒体文件夹", locale:Locale("zh-Hans","zh"),
-style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+                  Text(
+                    "媒体文件夹",
+                    locale: const Locale("zh-Hans", "zh"),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(width: 16),
                   // 切换开关：本地文件夹 / WebDAV
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: isDark
+                          ? Colors.white.withOpacity(0.08)
+                          : surfaceMutedColor.withOpacity(0.9),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.white.withOpacity(0.2)),
+                      border: Border.all(color: borderColor.withOpacity(0.6)),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -1139,15 +1168,17 @@ style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: !_showWebDAVFolders 
-                                  ? Colors.white.withOpacity(0.3) 
+                              color: !_showWebDAVFolders
+                                  ? toggleSelectedColor
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
                               '本地',
                               style: TextStyle(
-                                color: !_showWebDAVFolders ? Colors.white : Colors.white70,
+                                color: !_showWebDAVFolders
+                                    ? (isDark ? Colors.white : nipaplayPalette.backgroundPrimary)
+                                    : secondaryColor,
                                 fontSize: 12,
                                 fontWeight: !_showWebDAVFolders ? FontWeight.w600 : FontWeight.normal,
                               ),
@@ -1164,15 +1195,17 @@ style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: _showWebDAVFolders 
-                                  ? Colors.white.withOpacity(0.3) 
+                              color: _showWebDAVFolders
+                                  ? toggleSelectedColor
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
                               'WebDAV',
                               style: TextStyle(
-                                color: _showWebDAVFolders ? Colors.white : Colors.white70,
+                                color: _showWebDAVFolders
+                                    ? (isDark ? Colors.white : nipaplayPalette.backgroundPrimary)
+                                    : secondaryColor,
                                 fontSize: 12,
                                 fontWeight: _showWebDAVFolders ? FontWeight.w600 : FontWeight.normal,
                               ),

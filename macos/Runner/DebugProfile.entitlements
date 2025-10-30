@@ -14,5 +14,12 @@
 	<true/>
 	<key>com.apple.security.network.client</key>
     	<true/>
+	<key>com.apple.security.files.downloads.read-write</key>
+	<true/>
+	<key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
+	<array>
+		<string>/tmp/</string>
+		<string>/var/folders/</string>
+	</array>
 </dict>
 </plist>

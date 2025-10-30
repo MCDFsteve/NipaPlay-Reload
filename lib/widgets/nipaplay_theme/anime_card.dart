@@ -173,8 +173,8 @@ class _AnimeCardState extends State<AnimeCard> {
       : palette.border.withOpacity(0.7);
 
   final Color overlayColor = isDark
-      ? Colors.black.withOpacity(0.25)
-      : palette.backgroundPrimary.withOpacity(0.65);
+      ? Colors.black.withOpacity(0.35)
+      : palette.backgroundPrimary.withOpacity(0.3);
 
   final Color shadowColor = isDark
       ? Colors.black.withOpacity(0.45)
@@ -227,9 +227,12 @@ class _AnimeCardState extends State<AnimeCard> {
               
               // 中间层：半透明遮罩，提高可读性
               Positioned.fill(
-                child: Container(
-                  color: overlayColor,
-                ),
+                child: enableBlur && widget.enableBackgroundBlur
+                    ? BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                        child: Container(color: overlayColor),
+                      )
+                    : Container(color: overlayColor),
               ),
               
               // 顶层：内容
@@ -244,30 +247,38 @@ class _AnimeCardState extends State<AnimeCard> {
                   // 标题部分
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            titleTopGradient,
-                            titleBottomGradient,
-                          ],
-                        ),
-                      ),
-                      padding: const EdgeInsets.all(6.0),
-                      child: Center(
-                        child: Text(
-                          widget.name,
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontSize: 12,
-                                height: 1.2,
-                                color: palette.textPrimary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.vertical(bottom: Radius.circular(6)),
+                      child: BackdropFilter(
+                        filter: enableBlur
+                            ? ImageFilter.blur(sigmaX: 12, sigmaY: 12)
+                            : ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                titleTopGradient,
+                                titleBottomGradient,
+                              ],
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(6.0),
+                          child: Center(
+                            child: Text(
+                              widget.name,
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontSize: 12,
+                                    height: 1.2,
+                                    color: isDark ? Colors.white : palette.textPrimary,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
                         ),
                       ),
                     ),
