@@ -89,11 +89,11 @@ class _WebDAVFormState extends State<_WebDAVForm> {
               hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -121,11 +121,11 @@ class _WebDAVFormState extends State<_WebDAVForm> {
               hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -158,11 +158,11 @@ class _WebDAVFormState extends State<_WebDAVForm> {
               hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -187,11 +187,11 @@ class _WebDAVFormState extends State<_WebDAVForm> {
               hintStyle: TextStyle(color: _foregroundColor(context, 0.5)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: _foregroundColor(context)30),
+                borderSide: BorderSide(color: _foregroundColor(context, 0.3)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
