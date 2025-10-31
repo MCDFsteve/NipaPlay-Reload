@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:nipaplay/providers/shared_remote_library_provider.dart';
-import 'package:nipaplay/widgets/nipaplay_theme/blur_button.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
@@ -21,6 +20,16 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
 
   Color _secondaryForeground(BuildContext context) =>
       ThemeColorUtils.secondaryForeground(context);
+
+  Color _panelBackground(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    return isDark ? Colors.white.withOpacity(0.08) : const Color(0xFFF5F5F8);
+  }
+
+  Color _panelBorder(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    return isDark ? Colors.white.withOpacity(0.18) : Colors.black.withOpacity(0.05);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,8 +107,9 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 24),
           decoration: BoxDecoration(
-            color: _foregroundColor(context, 0.05),
+            color: _panelBackground(context),
             borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: _panelBorder(context)),
           ),
           child: Column(
             children: [
@@ -133,20 +143,33 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
       children: [
         ...provider.hosts.map((host) {
           final isActive = provider.activeHostId == host.id;
+          final bool isDark = Theme.of(context).brightness == Brightness.dark;
+          final accentColor = Theme.of(context).colorScheme.primary;
           final statusColor =
-              host.isOnline ? Colors.greenAccent : Colors.orangeAccent;
+              host.isOnline ? accentColor : Colors.orangeAccent;
+          final containerBackground = _panelBackground(context);
+          final containerBorder = _panelBorder(context);
           return Container(
             margin: const EdgeInsets.only(bottom: 12),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: _foregroundColor(context, 0.05),
+              color: containerBackground,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: isActive
-                    ? Colors.blueAccent.withOpacity(0.4)
-                    : _foregroundColor(context, 0.08),
+                    ? accentColor.withOpacity(isDark ? 0.6 : 0.3)
+                    : containerBorder,
                 width: isActive ? 1.2 : 0.6,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: isDark
+                      ? Colors.black.withOpacity(0.28)
+                      : Colors.black.withOpacity(0.05),
+                  blurRadius: 18,
+                  offset: const Offset(0, 8),
+                ),
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,20 +200,22 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
                       TextButton(
                         onPressed: () => provider.setActiveHost(host.id),
                         child: Text('设为当前',
-                            style: TextStyle(
-                                color: _secondaryForeground(context))),
+                          style: TextStyle(
+                                color: accentColor)),
                       )
                     else
-                      const Text(
+                      Text(
                         '当前使用',
                         locale: Locale('zh', 'CN'),
                         style: TextStyle(
-                            color: Colors.lightBlueAccent, fontSize: 12),
+                            color: accentColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600),
                       ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                SelectableText(
+                ],
+              ),
+              const SizedBox(height: 8),
+              SelectableText(
                   host.baseUrl,
                   style: TextStyle(
                       color: _secondaryForeground(context), fontSize: 13),
@@ -210,23 +235,26 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
                     TextButton(
                       onPressed: () =>
                           provider.refreshLibrary(userInitiated: true),
-                      child: Text('刷新',
-                          style:
-                              TextStyle(color: _secondaryForeground(context))),
+                      style: TextButton.styleFrom(
+                        foregroundColor: accentColor,
+                      ),
+                      child: const Text('刷新'),
                     ),
                     TextButton(
                       onPressed: () => _showRenameDialog(
                           context, provider, host.id, host.displayName),
-                      child: Text('重命名',
-                          style:
-                              TextStyle(color: _secondaryForeground(context))),
+                      style: TextButton.styleFrom(
+                        foregroundColor: accentColor,
+                      ),
+                      child: const Text('重命名'),
                     ),
                     TextButton(
                       onPressed: () => _showUpdateUrlDialog(
                           context, provider, host.id, host.baseUrl),
-                      child: Text('修改地址',
-                          style:
-                              TextStyle(color: _secondaryForeground(context))),
+                      style: TextButton.styleFrom(
+                        foregroundColor: accentColor,
+                      ),
+                      child: const Text('修改地址'),
                     ),
                     const Spacer(),
                     TextButton(
@@ -409,47 +437,76 @@ class SharedRemoteLibrarySettingsSection extends StatelessWidget {
     required IconData icon,
     required String label,
   }) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
-          decoration: BoxDecoration(
-            color: _foregroundColor(context, 0.1),
+    return StatefulBuilder(
+      builder: (context, setState) {
+        bool isHovered = false;
+        final bool isDark = Theme.of(context).brightness == Brightness.dark;
+        final Color accentColor = Theme.of(context).colorScheme.primary;
+        final Color iconColor = accentColor;
+        final Color textColor =
+            isDark ? Colors.white : ThemeColorUtils.primaryForeground(context);
+        final Color baseBackground =
+            isDark ? Colors.white.withOpacity(0.16) : Colors.white;
+        final Color hoverBackground =
+            isDark ? Colors.white.withOpacity(0.22) : Colors.white;
+        final Color borderColor = isDark
+            ? Colors.white.withOpacity(isHovered ? 0.4 : 0.28)
+            : Colors.black.withOpacity(isHovered ? 0.14 : 0.08);
+        final BoxShadow shadow = BoxShadow(
+          color: isDark
+              ? Colors.black.withOpacity(isHovered ? 0.32 : 0.26)
+              : Colors.black.withOpacity(isHovered ? 0.16 : 0.1),
+          blurRadius: 18,
+          offset: const Offset(0, 8),
+        );
+
+        return MouseRegion(
+          onEnter: (_) => setState(() => isHovered = true),
+          onExit: (_) => setState(() => isHovered = false),
+          cursor: SystemMouseCursors.click,
+          child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: _foregroundColor(context, 0.2),
-              width: 0.5,
-            ),
-          ),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: onPressed,
-              borderRadius: BorderRadius.circular(8),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(icon, color: _foregroundColor(context), size: 18),
-                    const SizedBox(width: 8),
-                    Text(
-                      label,
-                      style: TextStyle(
-                        color: _foregroundColor(context),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 180),
+                decoration: BoxDecoration(
+                  color: isHovered ? hoverBackground : baseBackground,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: borderColor, width: 0.6),
+                  boxShadow: [shadow],
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: onPressed,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(icon, color: iconColor, size: 18),
+                          const SizedBox(width: 8),
+                          Text(
+                            label,
+                            style: TextStyle(
+                              color: textColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

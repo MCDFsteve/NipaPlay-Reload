@@ -37,6 +37,9 @@ class SettingsCard extends StatelessWidget {
   /// 自定义边框颜色，若提供则忽略边框透明度配置
   final Color? borderColor;
 
+  /// 自定义阴影
+  final List<BoxShadow>? boxShadow;
+
   const SettingsCard({
     super.key,
     required this.child,
@@ -47,12 +50,14 @@ class SettingsCard extends StatelessWidget {
     this.borderOpacity,
     this.backgroundColor,
     this.borderColor,
+    this.boxShadow,
   });
 
   @override
   Widget build(BuildContext context) {
     final appearanceProvider = context.watch<AppearanceSettingsProvider>();
     final isBlurEnabled = appearanceProvider.enableWidgetBlurEffect;
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final baseColor = ThemeColorUtils.primaryForeground(context);
 
     final effectiveBorderRadius = borderRadius ?? 12.0;
@@ -60,11 +65,25 @@ class SettingsCard extends StatelessWidget {
     final effectiveBackgroundOpacity = backgroundOpacity ?? 0.3;
     final effectiveBorderOpacity = borderOpacity ?? 0.2;
     final Color resolvedBackgroundColor = backgroundColor ??
-        baseColor.withOpacity(effectiveBackgroundOpacity);
+        (isDark
+            ? baseColor.withOpacity(effectiveBackgroundOpacity)
+            : Colors.white);
     final Color resolvedBorderColor = borderColor ??
-        baseColor.withOpacity(effectiveBorderOpacity);
+        (isDark
+            ? baseColor.withOpacity(effectiveBorderOpacity)
+            : Colors.black.withOpacity(0.08));
+    final List<BoxShadow>? resolvedBoxShadow = boxShadow ??
+        [
+          BoxShadow(
+            color: isDark
+                ? Colors.black.withOpacity(0.35)
+                : Colors.black.withOpacity(0.08),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ];
 
-    Widget cardContent = ClipRRect(
+    Widget surface = ClipRRect(
       borderRadius: BorderRadius.circular(effectiveBorderRadius),
       child: BackdropFilter(
         filter: ImageFilter.blur(
@@ -84,6 +103,14 @@ class SettingsCard extends StatelessWidget {
           child: child,
         ),
       ),
+    );
+
+    Widget cardContent = DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(effectiveBorderRadius),
+        boxShadow: resolvedBoxShadow,
+      ),
+      child: surface,
     );
 
     // 如果有外边距，包装在Container中

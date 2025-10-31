@@ -11,7 +11,6 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_library_settings_section.dart';
 
 class RemoteMediaLibraryPage extends StatefulWidget {
@@ -710,66 +709,42 @@ style: TextStyle(color: secondaryColor, fontSize: 14)),
   Widget _buildOtherServicesSection() {
     final primaryColor = ThemeColorUtils.primaryForeground(context);
     final secondaryColor = ThemeColorUtils.secondaryForeground(context);
-    final overlayBackground = ThemeColorUtils.overlayColor(context,
-        darkOpacity: 0.18, lightOpacity: 0.1);
-    final borderColor = ThemeColorUtils.borderColor(context,
-        darkOpacity: 0.28, lightOpacity: 0.16);
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
-          sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25 : 0,
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: overlayBackground,
-            border: Border.all(color: borderColor, width: 0.5),
-          ),
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return SettingsCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Icon(
-                    Ionicons.cloud_outline,
-                    color: primaryColor,
-                    size: 24,
-                  ),
-                  const SizedBox(width: 12),
-                  Text(
-                    '其他媒体服务',
-                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor,
-                    ),
-                  ),
-                ],
+              Icon(
+                Ionicons.cloud_outline,
+                color: primaryColor,
+                size: 24,
               ),
-              
-              const SizedBox(height: 16),
-              
+              const SizedBox(width: 12),
               Text(
-                '更多远程媒体服务支持正在开发中...',
+                '其他媒体服务',
                 locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-                  color: secondaryColor,
-                  fontSize: 14,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: primaryColor,
                 ),
               ),
-              
-              const SizedBox(height: 16),
-              
-              // 预留的服务列表
-              ..._buildFutureServices(),
             ],
           ),
-        ),
+          const SizedBox(height: 16),
+          Text(
+            '更多远程媒体服务支持正在开发中...',
+            locale:Locale("zh-Hans","zh"),
+style: TextStyle(
+              color: secondaryColor,
+              fontSize: 14,
+            ),
+          ),
+          const SizedBox(height: 16),
+          ..._buildFutureServices(),
+        ],
       ),
     );
   }

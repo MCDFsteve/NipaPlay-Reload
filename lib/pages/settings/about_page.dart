@@ -88,7 +88,7 @@ class _AboutPageState extends State<AboutPage> {
     final Color iconColor = isDarkTheme
         ? Colors.white.withOpacity(0.85)
         : Colors.black.withOpacity(0.65);
-    final Color linkColor = theme.colorScheme.primary;
+    final Color linkColor = isDarkTheme ? Colors.white.withOpacity(0.9) : Colors.black.withOpacity(0.75);
     final Color emphasisColor = isDarkTheme
         ? Colors.pinkAccent[100] ?? Colors.pinkAccent
         : theme.colorScheme.secondary;
@@ -377,10 +377,29 @@ style: TextStyle(
     final Color primaryTextColor = isDarkTheme ? Colors.white : Colors.black87;
     final Color secondaryTextColor =
         isDarkTheme ? Colors.white.withOpacity(0.9) : Colors.black.withOpacity(0.76);
+    final Color shadowColorPrimary =
+        isDarkTheme ? Colors.black.withOpacity(0.45) : Colors.black.withOpacity(0.18);
+    final Color shadowColorAmbient =
+        isDarkTheme ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.08);
+    final List<BoxShadow> cardShadows = [
+      BoxShadow(
+        color: shadowColorPrimary,
+        blurRadius: isDarkTheme ? 32 : 40,
+        spreadRadius: 0,
+        offset: const Offset(0, 22),
+      ),
+      BoxShadow(
+        color: shadowColorAmbient,
+        blurRadius: isDarkTheme ? 16 : 24,
+        spreadRadius: 0,
+        offset: const Offset(0, 6),
+      ),
+    ];
 
     return SettingsCard(
       backgroundColor: isDarkTheme ? null : Colors.white.withOpacity(0.92),
       borderColor: isDarkTheme ? null : Colors.black.withOpacity(0.08),
+      boxShadow: cardShadows,
       child: DefaultTextStyle.merge(
         style: theme.textTheme.bodyMedium?.copyWith(
               color: secondaryTextColor,
