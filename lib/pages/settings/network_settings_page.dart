@@ -5,6 +5,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/settings_item.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_card.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dropdown.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class NetworkSettingsPage extends StatefulWidget {
   const NetworkSettingsPage({super.key});
@@ -92,7 +93,14 @@ class _NetworkSettingsPageState extends State<NetworkSettingsPage> {
             onChanged: (serverUrl) => _changeServer(serverUrl),
             dropdownKey: _serverDropdownKey,
           ),
-          const Divider(color: Colors.white12, height: 1),
+          Divider(
+            color: ThemeColorUtils.borderColor(
+              context,
+              darkOpacity: 0.16,
+              lightOpacity: 0.08,
+            ),
+            height: 1,
+          ),
           // 显示当前服务器信息
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -100,18 +108,18 @@ class _NetworkSettingsPageState extends State<NetworkSettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       Icon(
                         Ionicons.information_circle_outline,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.primary,
                         size: 18,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         '当前服务器信息',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: ThemeColorUtils.primaryForeground(context),
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
@@ -121,16 +129,16 @@ class _NetworkSettingsPageState extends State<NetworkSettingsPage> {
                   const SizedBox(height: 8),
                   Text(
                     '服务器: ${_getServerDisplayName(_currentServer)}',
-                    style: const TextStyle(
-                      color: Colors.white70,
+                    style: TextStyle(
+                      color: ThemeColorUtils.secondaryForeground(context),
                       fontSize: 13,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'URL: $_currentServer',
-                    style: const TextStyle(
-                      color: Colors.white60,
+                    style: TextStyle(
+                      color: ThemeColorUtils.tertiaryForeground(context),
                       fontSize: 12,
                       fontFamily: 'monospace',
                     ),
@@ -140,8 +148,8 @@ class _NetworkSettingsPageState extends State<NetworkSettingsPage> {
             ),
           ),
           // 服务器说明
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: SettingsCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,33 +158,33 @@ class _NetworkSettingsPageState extends State<NetworkSettingsPage> {
                     children: [
                       Icon(
                         Ionicons.help_circle_outline,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.primary,
                         size: 18,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         '服务器说明',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: ThemeColorUtils.primaryForeground(context),
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     '• 主服务器：api.dandanplay.net（官方服务器，推荐使用）',
                     style: TextStyle(
-                      color: Colors.white70,
+                      color: ThemeColorUtils.secondaryForeground(context),
                       fontSize: 12,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     '• 备用服务器：139.217.235.62:16001（镜像服务器，主服务器无法访问时使用）',
                     style: TextStyle(
-                      color: Colors.white70,
+                      color: ThemeColorUtils.secondaryForeground(context),
                       fontSize: 12,
                     ),
                   ),
