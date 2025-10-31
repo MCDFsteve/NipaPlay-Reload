@@ -171,6 +171,15 @@ class _AnimeCardState extends State<AnimeCard> {
     final isDarkTheme = theme.brightness == Brightness.dark;
     final primaryForegroundColor = isDarkTheme ? Colors.white : Colors.black;
     final overlayColor = isDarkTheme ? Colors.black : Colors.white;
+    final List<Color> titleGradientColors = isDarkTheme
+        ? [
+            Colors.black.withOpacity(0.35),
+            Colors.black.withOpacity(0.6),
+          ]
+        : [
+            Colors.white.withOpacity(0.85),
+            Colors.white,
+          ];
 
     final Widget card = RepaintBoundary(
       child: GestureDetector(
@@ -234,10 +243,7 @@ class _AnimeCardState extends State<AnimeCard> {
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [
-                            overlayColor.withOpacity(0.1),
-                            overlayColor.withOpacity(0.3),
-                          ],
+                          colors: titleGradientColors,
                         ),
                       ),
                       padding: const EdgeInsets.all(6.0),

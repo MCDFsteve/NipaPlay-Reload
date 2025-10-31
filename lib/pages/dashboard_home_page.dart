@@ -1680,6 +1680,12 @@ class _DashboardHomePageState extends State<DashboardHomePage>
         darkOpacity: 0.45, lightOpacity: 0.22);
     final placeholderColor =
         ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color heroMaskColor =
+        isDark ? Colors.black.withOpacity(0.7) : Colors.white.withOpacity(0.7);
+    final Color heroTextShadowColor = isDark ? Colors.black : Colors.white;
+    final Color heroPlaceholderBackground =
+        isDark ? const Color(0xFF2C2C2C) : const Color(0xFFE0E0E0);
     return GestureDetector(
       onTap: () => _onRecommendedItemTap(item),
       child: Container(
@@ -1708,20 +1714,9 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                         Icon(Icons.broken_image, color: tertiaryColor, size: 32),
                   ),
                 ),
-              )
-            else
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Colors.blue.withOpacity(0.3),
-                      Colors.purple.withOpacity(0.3),
-                    ],
-                  ),
-                ),
-              ),
+          )
+        else
+          Container(color: heroPlaceholderBackground),
             
             // 遮罩层
             Container(
@@ -1731,7 +1726,7 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.7),
+                    heroMaskColor,
                   ],
                 ),
               ),
@@ -1858,9 +1853,9 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                         color: primaryColor,
                         fontSize: compact ? 22 : 24, // 手机端调整为20px，比18px稍大
                         fontWeight: FontWeight.bold,
-                        shadows: const [
+                        shadows: [
                           Shadow(
-                            color: Colors.black,
+                            color: heroTextShadowColor,
                             blurRadius: 8,
                           ),
                         ],
@@ -1882,7 +1877,7 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                             fontSize: 14,
                             shadows: [
                               Shadow(
-                                color: Colors.black,
+                                color: heroTextShadowColor,
                                 blurRadius: 4,
                               ),
                             ],
@@ -1912,6 +1907,11 @@ class _DashboardHomePageState extends State<DashboardHomePage>
         ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final shadowColor = isDark ? Colors.black.withOpacity(0.25) : Colors.black.withOpacity(0.1);
+    final Color smallCardMaskColor =
+        isDark ? Colors.black.withOpacity(0.7) : Colors.white.withOpacity(0.7);
+    final Color smallCardTextShadowColor = isDark ? Colors.black : Colors.white;
+    final Color smallCardPlaceholderBackground =
+        isDark ? const Color(0xFF2C2C2C) : const Color(0xFFE0E0E0);
     return GestureDetector(
       onTap: () => _onRecommendedItemTap(item),
       child: Container(
@@ -1946,20 +1946,9 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                     child: Icon(Icons.broken_image, color: tertiaryColor, size: 16),
                   ),
                 ),
-              )
-            else
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Colors.blue.withOpacity(0.3),
-                      Colors.purple.withOpacity(0.3),
-                    ],
-                  ),
-                ),
-              ),
+          )
+        else
+          Container(color: smallCardPlaceholderBackground),
             
             // 遮罩层
             Container(
@@ -1969,7 +1958,7 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.7),
+                    smallCardMaskColor,
                   ],
                 ),
               ),
@@ -2084,16 +2073,16 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                   color: primaryColor,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  shadows: const [
+                  shadows: [
                     Shadow(
-                      color: Colors.black,
+                      color: smallCardTextShadowColor,
                       blurRadius: 8,
-                      offset: Offset(1, 1),
+                      offset: const Offset(1, 1),
                     ),
                     Shadow(
-                      color: Colors.black,
+                      color: smallCardTextShadowColor,
                       blurRadius: 4,
-                      offset: Offset(0, 0),
+                      offset: const Offset(0, 0),
                     ),
                   ],
                 ),
