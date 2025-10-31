@@ -9,6 +9,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/cached_network_image_widget.dart
 import 'package:nipaplay/widgets/nipaplay_theme/blur_snackbar.dart';
 import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/switchable_view.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:nipaplay/services/jellyfin_dandanplay_matcher.dart';
@@ -443,11 +444,17 @@ class _MediaServerDetailPageState extends State<MediaServerDetailPage> with Sing
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final accentColor = widget.serverType == MediaServerType.jellyfin
+        ? const Color(0xFF4C9EFF)
+        : const Color(0xFFFFC857);
     Widget pageContent;
 
     if (_isLoading && _mediaDetail == null) {
-      pageContent = const Center(
-        child: CircularProgressIndicator(color: Colors.white),
+      pageContent = Center(
+        child: CircularProgressIndicator(color: primaryColor),
       );
     } else if (_error != null && _mediaDetail == null) {
       pageContent = Center(
@@ -458,13 +465,14 @@ class _MediaServerDetailPageState extends State<MediaServerDetailPage> with Sing
             children: [
               const Icon(Icons.error_outline, size: 48, color: Colors.redAccent),
               const SizedBox(height: 16),
-              Text('加载详情失败:', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white.withOpacity(0.8))),
+              Text('加载详情失败:',
+                  locale: const Locale('zh-Hans', 'zh'),
+                  style: TextStyle(color: primaryColor.withOpacity(0.85))),
               const SizedBox(height: 8),
               Text(
                 _error!,
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white.withOpacity(0.7)),
+                locale: const Locale('zh-Hans', 'zh'),
+                style: TextStyle(color: secondaryColor),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
@@ -478,8 +486,9 @@ style: TextStyle(color: Colors.white.withOpacity(0.7)),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const Text('关闭', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+                child: Text('关闭',
+                    locale: const Locale('zh-Hans', 'zh'),
+                    style: TextStyle(color: secondaryColor)),
               ),
             ],
           ),
@@ -487,8 +496,10 @@ style: TextStyle(color: Colors.white70)),
       );
     } else if (_mediaDetail == null) {
       // 理论上在成功加载后 _mediaDetail 不会为 null，除非发生意外
-      pageContent = const Center(child: Text('未找到媒体详情', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)));
+      pageContent = Center(
+          child: Text('未找到媒体详情',
+              locale: const Locale('zh-Hans', 'zh'),
+              style: TextStyle(color: secondaryColor)));
     } else {
       // 成功加载，构建详情UI
       final screenSize = MediaQuery.of(context).size;
@@ -507,13 +518,13 @@ style: TextStyle(color: Colors.white70)));
                   child: Text(
                     _mediaDetail!.name,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        color: primaryColor, fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Ionicons.close_circle_outline,
-                      color: Colors.white70, size: 28),
+                  icon: Icon(Ionicons.close_circle_outline,
+                      color: secondaryColor, size: 28),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
@@ -522,16 +533,15 @@ style: TextStyle(color: Colors.white70)));
           if (!_isMovie && _tabController != null) // 如果不是电影，才显示TabBar
             TabBar(
               controller: _tabController,
-              dividerColor: const Color.fromARGB(59, 255, 255, 255),
+              dividerColor:
+                  ThemeColorUtils.borderColor(context, darkOpacity: 0.25, lightOpacity: 0.15),
               dividerHeight: 3.0,
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white70,
+              labelColor: primaryColor,
+              unselectedLabelColor: secondaryColor,
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: const EdgeInsets.only(top: 46, left: 15, right: 15), // 根据实际TabBar高度调整
               indicator: BoxDecoration(
-                color: widget.serverType == MediaServerType.jellyfin 
-                    ? Colors.blueAccent // Jellyfin主题色
-                    : Colors.amberAccent, // Emby主题色
+                color: accentColor.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.25),
                 borderRadius: BorderRadius.circular(30),
               ),
               indicatorWeight: 3,
@@ -565,8 +575,19 @@ style: TextStyle(color: Colors.white70)));
       );
     }
 
+    final brightness = Theme.of(context).brightness;
+    final scaffoldBackground = brightness == Brightness.dark
+        ? Colors.black.withOpacity(0.3)
+        : Colors.white.withOpacity(0.65);
+    final glassStart = accentColor.withOpacity(brightness == Brightness.dark ? 0.28 : 0.14);
+    final glassEnd = accentColor.withOpacity(brightness == Brightness.dark ? 0.16 : 0.08);
+    final glassBorderStart = ThemeColorUtils.glassBorderStart(context,
+        darkOpacity: 0.5, lightOpacity: 0.18);
+    final glassBorderEnd = ThemeColorUtils.glassBorderEnd(context,
+        darkOpacity: 0.2, lightOpacity: 0.1);
+
     return Scaffold(
-      backgroundColor: Colors.transparent, // Dialog背景由showGeneralDialog的barrierColor控制
+      backgroundColor: scaffoldBackground, // Dialog背景由showGeneralDialog的barrierColor控制
       body: Padding(
         // 调整Padding以匹配AnimeDetailPage
         padding: EdgeInsets.fromLTRB(
@@ -581,24 +602,13 @@ style: TextStyle(color: Colors.white70)));
           linearGradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: widget.serverType == MediaServerType.jellyfin
-                ? [ // Jellyfin风格
-                    const Color.fromARGB(255, 60, 60, 80).withOpacity(0.2),
-                    const Color.fromARGB(255, 40, 40, 60).withOpacity(0.2),
-                  ]
-                : [ // Emby风格
-                    const Color.fromARGB(255, 50, 70, 50).withOpacity(0.2),
-                    const Color.fromARGB(255, 30, 50, 30).withOpacity(0.2),
-                  ],
+            colors: [glassStart, glassEnd],
             stops: const [0.1, 1],
           ),
           borderGradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [ // 与AnimeDetailPage一致
-              Colors.white.withOpacity(0.15),
-              Colors.white.withOpacity(0.15),
-            ],
+            colors: [glassBorderStart, glassBorderEnd],
           ),
           child: pageContent,
         ),
@@ -621,6 +631,14 @@ style: TextStyle(color: Colors.white70)));
       }
     }
 
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final overlayStrong = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.65, lightOpacity: 0.45);
+    final placeholderBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.14);
+
     // 注意：这里的返回按钮逻辑需要调整或移除，因为顶部已经有了全局关闭按钮
     return Stack(
       children: [
@@ -633,14 +651,14 @@ style: TextStyle(color: Colors.white70)));
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
                 return Container(
-                  color: Colors.grey[900],
-                  child: const Center(
-                    child: CircularProgressIndicator(color: Colors.white54),
+                  color: placeholderBackground,
+                  child: Center(
+                    child: CircularProgressIndicator(color: tertiaryColor),
                   ),
                 );
               },
               errorBuilder: (context, error, stackTrace) {
-                return Container(color: Colors.grey[900]);
+                return Container(color: placeholderBackground);
               },
             ),
           ),
@@ -648,7 +666,7 @@ style: TextStyle(color: Colors.white70)));
         // 背景暗化层
         Positioned.fill(
           child: Container(
-            color: Colors.black.withOpacity(0.75), // 可以稍微调整透明度
+            color: overlayStrong,
           ),
         ),
 
@@ -672,13 +690,13 @@ style: TextStyle(color: Colors.white70)));
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       '剧情简介',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                      locale: const Locale('zh-Hans', 'zh'),
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: primaryColor,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -687,28 +705,25 @@ style: TextStyle(
                           .replaceAll('<br>', ' ')
                           .replaceAll('<br/>', ' ')
                           .replaceAll('<br />', ' '),
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        height: 1.5,
-                      ),
+                      style: TextStyle(color: secondaryColor, height: 1.5),
                     ),
                   ],
                 ),
-                
+
               const SizedBox(height: 24),
-              
+
               // 演员信息
               if (_mediaDetail!.cast.isNotEmpty)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       '演员',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                      locale: const Locale('zh-Hans', 'zh'),
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: primaryColor,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -726,13 +741,13 @@ style: TextStyle(
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundColor: Colors.grey.shade800,
+                                  backgroundColor: placeholderBackground,
                                   backgroundImage: _getActorImageUrl(actor) != null
                                       ? NetworkImage(_getActorImageUrl(actor)!)
                                       : null,
                                   child: (widget.serverType == MediaServerType.jellyfin && actor.primaryImageTag == null) ||
                                          (widget.serverType == MediaServerType.emby && actor.imagePrimaryTag == null)
-                                      ? const Icon(Icons.person, color: Colors.white54)
+                                      ? Icon(Icons.person, color: tertiaryColor)
                                       : null,
                                 ),
                                 const SizedBox(height: 4),
@@ -740,7 +755,7 @@ style: TextStyle(
                                   width: 70,
                                   child: Text(
                                     actor.name,
-                                    style: const TextStyle(fontSize: 12, color: Colors.white70),
+                                    style: TextStyle(fontSize: 12, color: secondaryColor),
                                     textAlign: TextAlign.center,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -767,6 +782,11 @@ style: TextStyle(
     if (_mediaDetail == null) return const SizedBox.shrink();
     
     final posterUrl = _getPosterUrl();
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final placeholderBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.14);
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center, // 竖屏时内容居中
@@ -779,7 +799,8 @@ style: TextStyle(
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
+                  color: ThemeColorUtils.overlayColor(context,
+                      darkOpacity: 0.6, lightOpacity: 0.25),
                   blurRadius: 10,
                   offset: const Offset(0, 5),
                 ),
@@ -793,24 +814,24 @@ style: TextStyle(
                       fit: BoxFit.cover,
                       errorBuilder: (context, error) {
                         return Container(
-                          color: Colors.grey[800],
-                          child: const Center(
+                          color: placeholderBackground,
+                          child: Center(
                             child: Icon(
-                              Ionicons.image_outline, // 使用 Ionicons
+                              Ionicons.image_outline,
                               size: 40,
-                              color: Colors.white30,
+                              color: tertiaryColor,
                             ),
                           ),
                         );
                       },
                     )
                   : Container(
-                      color: Colors.grey[800],
-                      child: const Center(
+                      color: placeholderBackground,
+                      child: Center(
                         child: Icon(
-                          Ionicons.film_outline, // 使用 Ionicons
+                          Ionicons.film_outline,
                           size: 40,
-                          color: Colors.white30,
+                          color: tertiaryColor,
                         ),
                       ),
                     ),
@@ -823,10 +844,10 @@ style: TextStyle(
         Center( // 确保标题居中
           child: Text(
             _mediaDetail!.name,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.white, // 调整颜色
+              color: primaryColor,
             ),
             textAlign: TextAlign.center,
           ),
@@ -836,10 +857,10 @@ style: TextStyle(
           Center( // 确保年份居中
             child: Text(
               '(${_mediaDetail!.productionYear})',
-              locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+              locale: const Locale('zh-Hans', 'zh'),
+              style: TextStyle(
                 fontSize: 18,
-                color: Colors.grey[300], // 调整颜色
+                color: secondaryColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -856,7 +877,12 @@ style: TextStyle(
     if (_mediaDetail == null) return const SizedBox.shrink();
     
     final posterUrl = _getPosterUrl();
-    
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final placeholderBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.14);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -867,7 +893,8 @@ style: TextStyle(
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.5),
+                color: ThemeColorUtils.overlayColor(context,
+                    darkOpacity: 0.6, lightOpacity: 0.25),
                 blurRadius: 10,
                 offset: const Offset(0, 5),
               ),
@@ -881,24 +908,24 @@ style: TextStyle(
                     fit: BoxFit.cover,
                     errorBuilder: (context, error) {
                       return Container(
-                        color: Colors.grey[800],
-                        child: const Center(
+                        color: placeholderBackground,
+                        child: Center(
                           child: Icon(
-                            Ionicons.image_outline, // 使用 Ionicons
+                            Ionicons.image_outline,
                             size: 40,
-                            color: Colors.white30,
+                            color: tertiaryColor,
                           ),
                         ),
                       );
                     },
                   )
                 : Container(
-                    color: Colors.grey[800],
-                    child: const Center(
+                    color: placeholderBackground,
+                    child: Center(
                       child: Icon(
-                        Ionicons.film_outline, // 使用 Ionicons
+                        Ionicons.film_outline,
                         size: 40,
-                        color: Colors.white30,
+                        color: tertiaryColor,
                       ),
                     ),
                   ),
@@ -913,20 +940,20 @@ style: TextStyle(
             children: [
               Text(
                 _mediaDetail!.name,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 24, // 可以适当调大
                   fontWeight: FontWeight.bold,
-                  color: Colors.white, // 调整颜色
+                  color: primaryColor,
                 ),
               ),
               
               if (_mediaDetail!.productionYear != null)
                 Text(
                   '(${_mediaDetail!.productionYear})',
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
+                  locale: const Locale('zh-Hans', 'zh'),
+                  style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey[300], // 调整颜色
+                    color: secondaryColor,
                   ),
                 ),
               
@@ -942,7 +969,12 @@ style: TextStyle(
 
   Widget _buildDetailInfo() {
     if (_mediaDetail == null) return const SizedBox.shrink();
-    
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final chipBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.22, lightOpacity: 0.12);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -950,55 +982,49 @@ style: TextStyle(
           Row(
             children: [
               const Icon(
-                Ionicons.star, // 使用 Ionicons
+                Ionicons.star,
                 color: Colors.amber,
                 size: 20,
               ),
               const SizedBox(width: 4),
               Text(
                 _mediaDetail!.communityRating!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white, // 调整颜色
+                  color: primaryColor,
                 ),
               ),
               const SizedBox(width: 16),
-              
+
               if (_mediaDetail!.officialRating != null)
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white54),
+                    border: Border.all(color: tertiaryColor.withOpacity(0.6)),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
                     _mediaDetail!.officialRating!,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white70, // 调整颜色
+                      color: secondaryColor,
                     ),
                   ),
                 ),
             ],
           ),
-        
+
         const SizedBox(height: 8),
-        
+
         if (_mediaDetail!.runTimeTicks != null)
           Row(
             children: [
-              const Icon(
-                Ionicons.time_outline, // 使用 Ionicons
-                color: Colors.white54,
-                size: 16,
-              ),
+              Icon(Ionicons.time_outline, color: tertiaryColor, size: 16),
               const SizedBox(width: 4),
               Text(
                 _formatRuntime(_mediaDetail!.runTimeTicks),
-                style: const TextStyle(
-                  color: Colors.white70, // 调整颜色
-                ),
+                style: TextStyle(color: secondaryColor),
               ),
             ],
           ),
@@ -1008,18 +1034,12 @@ style: TextStyle(
         if (_mediaDetail!.seriesStudio != null && _mediaDetail!.seriesStudio!.isNotEmpty)
           Row(
             children: [
-              const Icon(
-                Ionicons.business_outline, // 使用 Ionicons
-                color: Colors.white54,
-                size: 16,
-              ),
+              Icon(Ionicons.business_outline, color: tertiaryColor, size: 16),
               const SizedBox(width: 4),
               Expanded(
                 child: Text(
                   _mediaDetail!.seriesStudio!,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                  ),
+                  style: TextStyle(color: secondaryColor),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -1037,15 +1057,12 @@ style: TextStyle(
               return Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15), // 调整颜色
+                  color: chipBackground,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   genre,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.white70, // 调整颜色
-                  ),
+                  style: TextStyle(fontSize: 13, color: secondaryColor),
                 ),
               );
             }).toList(),
@@ -1072,6 +1089,15 @@ style: TextStyle(
 
   Widget _buildEpisodesView(bool isPortrait) {
     // 移除原有的 Positioned 返回按钮，因为顶部已经有了全局关闭按钮
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final accentColor = widget.serverType == MediaServerType.jellyfin
+        ? const Color(0xFF4C9EFF)
+        : const Color(0xFFFFC857);
+    final chipBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.12);
+    final chipBorder = ThemeColorUtils.borderColor(context,
+        darkOpacity: 0.35, lightOpacity: 0.16);
     return Column( // 不再需要 Stack，因为返回按钮已全局处理
       children: [
         // const SizedBox(height: 16), // 顶部间距可以根据整体布局调整，TabBar外部已有间距
@@ -1094,10 +1120,11 @@ style: TextStyle(
                     child: OutlinedButton(
                       onPressed: () => _loadEpisodesForSeason(season.id),
                       style: OutlinedButton.styleFrom(
-                        backgroundColor: isSelected ? Colors.blueAccent.withOpacity(0.3) : Colors.transparent,
-                        foregroundColor: isSelected ? Colors.white : Colors.white70,
+                        backgroundColor:
+                            isSelected ? accentColor.withOpacity(0.3) : chipBackground,
+                        foregroundColor: isSelected ? primaryColor : secondaryColor,
                         side: BorderSide(
-                          color: isSelected ? Colors.blueAccent : Colors.white30,
+                          color: isSelected ? accentColor : chipBorder,
                         ),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                       ),
@@ -1110,7 +1137,13 @@ style: TextStyle(
           ),
         
         if (_seasons.isNotEmpty) // 仅当有季节选择器时显示分割线
-          const Divider(height: 1, thickness: 1, color: Colors.white12, indent: 16, endIndent: 16),
+          Divider(
+              height: 1,
+              thickness: 1,
+              color: ThemeColorUtils.borderColor(context,
+                  darkOpacity: 0.2, lightOpacity: 0.12),
+              indent: 16,
+              endIndent: 16),
         
         // 剧集列表
         Expanded(
@@ -1121,22 +1154,29 @@ style: TextStyle(
   }
   
   Widget _buildEpisodesListForSelectedSeason() {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final placeholderBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.14);
     if (_selectedSeasonId == null && _seasons.isNotEmpty) { // 如果有季但没有选择，提示选择
-      return const Center(
-        child: Text('请选择一个季', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+      return Center(
+        child: Text('请选择一个季',
+            locale: const Locale('zh-Hans', 'zh'),
+            style: TextStyle(color: secondaryColor)),
       );
     }
     if (_selectedSeasonId == null && _seasons.isEmpty && !_isLoading) { // 如果没有季且不在加载中
-        return const Center(
-        child: Text('该剧集没有季节信息', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+        return Center(
+        child: Text('该剧集没有季节信息',
+            locale: const Locale('zh-Hans', 'zh'),
+            style: TextStyle(color: secondaryColor)),
       );
     }
-    
+
     if (_isLoading && (_episodesBySeasonId[_selectedSeasonId ?? ''] == null || _episodesBySeasonId[_selectedSeasonId ?? '']!.isEmpty)) {
-      return const Center(
-        child: CircularProgressIndicator(color: Colors.white),
+      return Center(
+        child: CircularProgressIndicator(color: primaryColor),
       );
     }
     
@@ -1149,7 +1189,9 @@ style: TextStyle(color: Colors.white70)),
             children: [
               const Icon(Icons.error_outline, size: 48, color: Colors.redAccent),
               const SizedBox(height: 16),
-              Text('加载剧集失败: $_error', style: const TextStyle(color: Colors.white70), textAlign: TextAlign.center),
+              Text('加载剧集失败: $_error',
+                  style: TextStyle(color: secondaryColor),
+                  textAlign: TextAlign.center),
               const SizedBox(height: 16),
               BlurButton(
                 icon: Icons.refresh,
@@ -1167,17 +1209,20 @@ style: TextStyle(color: Colors.white70)),
     final episodes = _episodesBySeasonId[_selectedSeasonId] ?? [];
     
     if (episodes.isEmpty && !_isLoading && _selectedSeasonId != null) { // 确保不是在加载中，并且确实选择了季
-      return const Center(
-        child: Text('该季没有剧集', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)),
+      return Center(
+        child: Text('该季没有剧集',
+            locale: const Locale('zh-Hans', 'zh'),
+            style: TextStyle(color: secondaryColor)),
       );
     }
      if (episodes.isEmpty && _isLoading) { // 如果仍在加载，显示加载指示器
-      return const Center(child: CircularProgressIndicator(color: Colors.white));
+      return Center(child: CircularProgressIndicator(color: primaryColor));
     }
     if (episodes.isEmpty && _selectedSeasonId == null && _seasons.isEmpty) { // 处理没有季的情况
-        return const Center(child: Text('没有可显示的剧集', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70)));
+        return Center(
+            child: Text('没有可显示的剧集',
+                locale: const Locale('zh-Hans', 'zh'),
+                style: TextStyle(color: secondaryColor)));
     }
 
 
@@ -1211,24 +1256,24 @@ style: TextStyle(color: Colors.white70)));
                       fit: BoxFit.cover,
                       errorBuilder: (context, error) {
                         return Container(
-                          color: Colors.grey[800],
-                          child: const Center(
+                          color: placeholderBackground,
+                          child: Center(
                             child: Icon(
-                              Ionicons.image_outline, // 使用 Ionicons
+                              Ionicons.image_outline,
                               size: 24,
-                              color: Colors.white30,
+                              color: tertiaryColor,
                             ),
                           ),
                         );
                       },
                     )
                   : Container(
-                      color: Colors.grey[800],
-                      child: const Center(
+                      color: placeholderBackground,
+                      child: Center(
                         child: Icon(
-                          Ionicons.film_outline, // 使用 Ionicons
+                          Ionicons.film_outline,
                           size: 24,
-                          color: Colors.white30,
+                          color: tertiaryColor,
                         ),
                       ),
                     ),
@@ -1238,7 +1283,7 @@ style: TextStyle(color: Colors.white70)));
             episode.indexNumber != null
                 ? '${episode.indexNumber}. ${episode.name}'
                 : episode.name,
-            style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.white), // 调整颜色
+            style: TextStyle(fontWeight: FontWeight.w500, color: primaryColor),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -1248,10 +1293,10 @@ style: TextStyle(color: Colors.white70)));
               if (episode.runTimeTicks != null)
                 Text(
                   _formatRuntime(episode.runTimeTicks),
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(fontSize: 12, color: Colors.grey[400]), // 调整颜色
+                  locale: const Locale('zh-Hans', 'zh'),
+                  style: TextStyle(fontSize: 12, color: secondaryColor),
                 ),
-              
+
               if (episode.overview != null && episode.overview!.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(top: 2.0),
@@ -1262,13 +1307,14 @@ style: TextStyle(fontSize: 12, color: Colors.grey[400]), // 调整颜色
                         .replaceAll('<br />', ' '),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(fontSize: 12, color: Colors.grey[400]), // 调整颜色
+                    locale: const Locale('zh-Hans', 'zh'),
+                    style: TextStyle(fontSize: 12, color: tertiaryColor),
                   ),
                 ),
             ],
           ),
-          trailing: const Icon(Ionicons.play_circle_outline, color: Colors.white70, size: 22), // 添加播放按钮指示
+          trailing: Icon(Ionicons.play_circle_outline,
+              color: secondaryColor, size: 22),
           onTap: () async {
             try {
               BlurSnackBar.show(context, '准备播放: ${episode.name}');
