@@ -10,6 +10,7 @@ import 'package:nipaplay/providers/appearance_settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/services/debug_log_service.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 /// Material Design版本的账号页面
 class MaterialAccountPage extends StatefulWidget {
@@ -24,6 +25,16 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
 
   // 页面切换状态：true为弹弹play页面，false为Bangumi页面
   bool _showDandanplayPage = true;
+
+  Color get _primaryColor => ThemeColorUtils.primaryForeground(context);
+  Color get _secondaryColor => ThemeColorUtils.secondaryForeground(context);
+  Color get _tertiaryColor => ThemeColorUtils.tertiaryForeground(context);
+  Color _overlay(double darkOpacity, double lightOpacity) =>
+      ThemeColorUtils.overlayColor(context,
+          darkOpacity: darkOpacity, lightOpacity: lightOpacity);
+  Color _border(double darkOpacity, double lightOpacity) =>
+      ThemeColorUtils.borderColor(context,
+          darkOpacity: darkOpacity, lightOpacity: lightOpacity);
 
   @override
   void showMessage(String message) {
@@ -135,33 +146,33 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
           const Text(
             '警告：账号注销是不可逆操作！',
             style: TextStyle(
-              color: Colors.red,
+              color: Colors.redAccent,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
+          Text(
             '注销后将：',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: _primaryColor),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             '• 永久删除您的弹弹play账号\n• 清除所有个人数据和收藏\n• 无法恢复已发送的弹幕\n• 失去所有积分和等级',
-            style: TextStyle(color: Colors.white70),
+            style: TextStyle(color: _secondaryColor),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             '点击"继续注销"将在浏览器中打开注销页面，请在页面中完成最终确认。',
-            style: TextStyle(color: Colors.yellow),
+            style: TextStyle(color: Colors.amberAccent),
           ),
         ],
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text(
+          child: Text(
             '取消',
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: _tertiaryColor),
           ),
         ),
         TextButton(
@@ -190,7 +201,7 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
           },
           child: const Text(
             '继续注销',
-            style: TextStyle(color: Colors.red),
+            style: TextStyle(color: Colors.redAccent),
           ),
         ),
       ],
@@ -233,10 +244,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
         child: Container(
           height: 48,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
+            color: _overlay(0.18, 0.1),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: _border(0.28, 0.14),
               width: 0.5,
             ),
           ),
@@ -258,10 +269,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                     width: optionWidth,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
+                        color: _overlay(0.32, 0.18),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.3),
+                          color: _border(0.42, 0.2),
                           width: 1,
                         ),
                       ),
@@ -303,7 +314,7 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
           text,
           locale: const Locale("zh-Hans", "zh"),
           style: TextStyle(
-            color: isActive ? Colors.white : Colors.white70,
+            color: isActive ? _primaryColor : _secondaryColor,
             fontSize: 14,
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
           ),
@@ -320,10 +331,10 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: _overlay(0.24, 0.14),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.3),
+              color: _border(0.36, 0.18),
               width: 0.5,
             ),
           ),
@@ -338,18 +349,18 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                         height: 48,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return const Icon(
+                          return Icon(
                             Icons.account_circle,
                             size: 48,
-                            color: Colors.white60,
+                            color: _secondaryColor,
                           );
                         },
                       ),
                     )
-                  : const Icon(
+                  : Icon(
                       Icons.account_circle,
                       size: 48,
-                      color: Colors.white60,
+                      color: _secondaryColor,
                     ),
               const SizedBox(width: 16),
               // 用户信息
@@ -359,18 +370,18 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
                   children: [
                     Text(
                       username,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: _primaryColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    const Text(
+                    Text(
                       '已登录',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white60,
+                      locale: const Locale("zh-Hans","zh"),
+                      style: TextStyle(
+                        color: _secondaryColor,
                         fontSize: 12,
                       ),
                     ),
@@ -389,27 +400,27 @@ style: TextStyle(
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: _overlay(0.2, 0.12),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.2),
+                        color: _border(0.28, 0.14),
                         width: 0.5,
                       ),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
                           Icons.logout,
-                          color: Colors.white70,
+                          color: _secondaryColor,
                           size: 16,
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Text(
                           '退出',
-                          locale: Locale("zh-Hans", "zh"),
+                          locale: const Locale("zh-Hans", "zh"),
                           style: TextStyle(
-                            color: Colors.white70,
+                            color: _secondaryColor,
                             fontSize: 14,
                           ),
                         ),
@@ -431,10 +442,12 @@ style: TextStyle(
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.red.withOpacity(0.1),
+                      color: Colors.redAccent.withOpacity(
+                          Theme.of(context).brightness == Brightness.dark ? 0.18 : 0.12),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Colors.red.withOpacity(0.3),
+                        color: Colors.redAccent.withOpacity(
+                            Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.22),
                         width: 0.5,
                       ),
                     ),
@@ -447,13 +460,14 @@ style: TextStyle(
                             height: 16,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.redAccent),
                             ),
                           )
                         else
                           const Icon(
                             Icons.delete_forever,
-                            color: Colors.red,
+                            color: Colors.redAccent,
                             size: 16,
                           ),
                         const SizedBox(width: 4),
@@ -461,9 +475,7 @@ style: TextStyle(
                           isLoading ? '处理中...' : '注销账号',
                           locale: const Locale("zh-Hans", "zh"),
                           style: const TextStyle(
-                            color: Colors.red,
-                            fontSize: 14,
-                          ),
+                              color: Colors.redAccent, fontSize: 14),
                         ),
                       ],
                     ),
@@ -481,35 +493,35 @@ style: TextStyle(
     return Column(
       children: [
         ListTile(
-          title: const Text(
+          title: Text(
             "登录弹弹play账号",
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            locale: const Locale("zh-Hans","zh"),
+            style: TextStyle(color: _primaryColor, fontWeight: FontWeight.bold),
           ),
-          subtitle: const Text(
+          subtitle: Text(
             "登录后可以同步观看记录和个人设置",
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+            locale: const Locale("zh-Hans","zh"),
+            style: TextStyle(color: _secondaryColor),
           ),
-          trailing: const Icon(Icons.login, color: Colors.white),
+          trailing: Icon(Icons.login, color: _secondaryColor),
           onTap: showLoginDialog,
         ),
-        const Divider(color: Colors.white12, height: 1),
+        Divider(color: _border(0.2, 0.12), height: 1),
         ListTile(
-          title: const Text(
+          title: Text(
             "注册弹弹play账号",
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            locale: const Locale("zh-Hans","zh"),
+            style: TextStyle(color: _primaryColor, fontWeight: FontWeight.bold),
           ),
-          subtitle: const Text(
+          subtitle: Text(
             "创建新的弹弹play账号，享受完整功能",
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70),
+            locale: const Locale("zh-Hans","zh"),
+            style: TextStyle(color: _secondaryColor),
           ),
-          trailing: const Icon(Icons.person_add, color: Colors.white),
+          trailing: Icon(Icons.person_add, color: _secondaryColor),
           onTap: showRegisterDialog,
         ),
-        const Divider(color: Colors.white12, height: 1),
+        Divider(color: _border(0.2, 0.12), height: 1),
       ],
     );
   }
@@ -522,10 +534,10 @@ style: TextStyle(color: Colors.white70),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: _overlay(0.24, 0.14),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: Colors.white.withOpacity(0.3),
+              color: _border(0.36, 0.18),
               width: 0.5,
             ),
           ),
@@ -534,15 +546,15 @@ style: TextStyle(color: Colors.white70),
             children: [
               Row(
                 children: [
-                  const Icon(Icons.sync, color: Colors.white, size: 24),
+                  Icon(Icons.sync, color: _primaryColor, size: 24),
                   const SizedBox(width: 8),
-                  const Text(
+                  Text(
                     'Bangumi观看记录同步',
-                    locale: Locale("zh-Hans", "zh"),
+                    locale: const Locale("zh-Hans", "zh"),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: _primaryColor,
                     ),
                   ),
                 ],
@@ -571,10 +583,10 @@ style: TextStyle(color: Colors.white70),
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: _overlay(0.2, 0.12),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: _border(0.28, 0.14),
               width: 0.5,
             ),
           ),
@@ -589,8 +601,8 @@ style: TextStyle(color: Colors.white70),
                     Text(
                       '已连接到 ${bangumiUserInfo?['nickname'] ?? bangumiUserInfo?['username'] ?? 'Bangumi'}',
                       locale: const Locale("zh-Hans", "zh"),
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: _primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -598,8 +610,8 @@ style: TextStyle(color: Colors.white70),
                       Text(
                         '上次同步: ${_formatDateTime(lastBangumiSyncTime!)}',
                         locale: const Locale("zh-Hans", "zh"),
-                        style: const TextStyle(
-                          color: Colors.white70,
+                        style: TextStyle(
+                          color: _secondaryColor,
                           fontSize: 12,
                         ),
                       ),
@@ -616,21 +628,23 @@ style: TextStyle(color: Colors.white70),
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.2),
+              color: Colors.blueAccent.withOpacity(
+                  Theme.of(context).brightness == Brightness.dark ? 0.22 : 0.14),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: Colors.blue.withOpacity(0.3),
+                color: Colors.blueAccent.withOpacity(
+                    Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.2),
                 width: 0.5,
               ),
             ),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    valueColor: AlwaysStoppedAnimation<Color>(_primaryColor),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -638,7 +652,7 @@ style: TextStyle(color: Colors.white70),
                   child: Text(
                     bangumiSyncStatus,
                     locale: const Locale("zh-Hans", "zh"),
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(color: _primaryColor),
                   ),
                 ),
               ],
@@ -688,11 +702,11 @@ style: TextStyle(color: Colors.white70),
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '同步本地观看历史到Bangumi收藏',
-          locale: Locale("zh-Hans", "zh"),
+          locale: const Locale("zh-Hans", "zh"),
           style: TextStyle(
-            color: Colors.white,
+            color: _primaryColor,
             fontSize: 14,
           ),
         ),
@@ -701,11 +715,11 @@ style: TextStyle(color: Colors.white70),
         // 可点击的URL链接
         Row(
           children: [
-            const Text(
+            Text(
               '需要在 ',
-              locale: Locale("zh-Hans", "zh"),
+              locale: const Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white70,
+                color: _secondaryColor,
                 fontSize: 12,
               ),
             ),
@@ -733,10 +747,10 @@ style: TextStyle(color: Colors.white70),
                   }
                 }
               },
-              child: const Text(
+              child: Text(
                 'https://next.bgm.tv/demo/access-token',
-                locale: Locale("zh-Hans", "zh"),
-                style: TextStyle(
+                locale: const Locale("zh-Hans", "zh"),
+                style: const TextStyle(
                   color: Color(0xFF53A8DC), // 使用弹弹play的蓝色作为链接色
                   fontSize: 12,
                   decoration: TextDecoration.underline,
@@ -744,11 +758,11 @@ style: TextStyle(color: Colors.white70),
                 ),
               ),
             ),
-            const Text(
+            Text(
               ' 创建访问令牌',
-              locale: Locale("zh-Hans", "zh"),
+              locale: const Locale("zh-Hans", "zh"),
               style: TextStyle(
-                color: Colors.white70,
+                color: _secondaryColor,
                 fontSize: 12,
               ),
             ),
@@ -759,22 +773,22 @@ style: TextStyle(color: Colors.white70),
         // 令牌输入框
         Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: _overlay(0.2, 0.12),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(0.2),
+              color: _border(0.28, 0.14),
               width: 0.5,
             ),
           ),
           child: TextField(
             controller: bangumiTokenController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: '请输入Bangumi访问令牌',
-              hintStyle: TextStyle(color: Colors.white54),
+              hintStyle: TextStyle(color: _tertiaryColor),
               border: InputBorder.none,
               contentPadding: EdgeInsets.all(16),
             ),
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: _primaryColor),
             obscureText: true,
           ),
         ),
@@ -808,13 +822,15 @@ style: TextStyle(color: Colors.white70),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
             color: isDestructive 
-                ? Colors.red.withOpacity(0.2)
-                : Colors.white.withOpacity(0.1),
+                ? Colors.redAccent.withOpacity(
+                    Theme.of(context).brightness == Brightness.dark ? 0.18 : 0.12)
+                : _overlay(0.18, 0.1),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isDestructive
-                  ? Colors.red.withOpacity(0.3)
-                  : Colors.white.withOpacity(0.2),
+                  ? Colors.redAccent.withOpacity(
+                      Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.22)
+                  : _border(0.26, 0.14),
               width: 0.5,
             ),
           ),
@@ -824,8 +840,8 @@ style: TextStyle(color: Colors.white70),
               Icon(
                 icon,
                 color: onPressed != null 
-                    ? (isDestructive ? Colors.red : Colors.white)
-                    : Colors.white38,
+                    ? (isDestructive ? Colors.redAccent : _primaryColor)
+                    : _tertiaryColor,
                 size: 16,
               ),
               const SizedBox(width: 6),
@@ -834,8 +850,8 @@ style: TextStyle(color: Colors.white70),
                 locale: const Locale("zh-Hans", "zh"),
                 style: TextStyle(
                   color: onPressed != null 
-                      ? (isDestructive ? Colors.red : Colors.white)
-                      : Colors.white38,
+                      ? (isDestructive ? Colors.redAccent : _primaryColor)
+                      : _tertiaryColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
@@ -877,10 +893,10 @@ style: TextStyle(color: Colors.white70),
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
+                    color: _overlay(0.24, 0.14),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: _border(0.36, 0.18),
                       width: 0.5,
                     ),
                   ),
