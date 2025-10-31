@@ -23,6 +23,7 @@ import 'package:nipaplay/main.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/tag_search_widget.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:nipaplay/providers/appearance_settings_provider.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class NewSeriesPage extends StatefulWidget {
   const NewSeriesPage({super.key});
@@ -193,10 +194,13 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
   // Modified to accept weekdayKey for PageStorageKey
   Widget _buildAnimeSection(List<BangumiAnime> animes, int weekdayKey) {
     if (animes.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Center(child: Text("本日无新番", locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70))),
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+            child: Text("本日无新番",
+                locale: const Locale('zh-Hans', 'zh'),
+                style: TextStyle(
+                    color: ThemeColorUtils.secondaryForeground(context)))),
       );
     }
     return GridView.builder(
@@ -328,7 +332,11 @@ style: TextStyle(color: Colors.white70))),
                     }),
                     if (unknownWeekdays.isNotEmpty) ...[
                       const SizedBox(height: 24),
-                      const Divider(color: Colors.white24, indent: 16, endIndent: 16),
+                      Divider(
+                          color: ThemeColorUtils.borderColor(context,
+                              darkOpacity: 0.2, lightOpacity: 0.12),
+                          indent: 16,
+                          endIndent: 16),
                       const SizedBox(height: 12),
                       _buildCollapsibleSectionHeader(context, '更新时间未定', -1, false, false), // isHovering is false as it's not interactive
                       // For non-interactive 'unknown' section, direct visibility or no animation
@@ -508,13 +516,15 @@ style: TextStyle(color: Colors.white70))),
   // New method for the custom collapsible section header
   Widget _buildCollapsibleSectionHeader(BuildContext context, String title, int weekdayKey, bool isExpanded, bool isHovering) {
     // 根据悬停状态调整颜色
-    final Color backgroundColor = isHovering
-        ? Colors.white.withOpacity(0.2)
-        : Colors.white.withOpacity(0.1);
-    
-    final Color borderColor = isHovering
-        ? Colors.white.withOpacity(0.3)
-        : Colors.white.withOpacity(0.2);
+    final backgroundColor = isHovering
+        ? ThemeColorUtils.overlayColor(context,
+            darkOpacity: 0.3, lightOpacity: 0.16)
+        : ThemeColorUtils.overlayColor(context,
+            darkOpacity: 0.18, lightOpacity: 0.1);
+
+    final borderColor = ThemeColorUtils.borderColor(context,
+        darkOpacity: isHovering ? 0.35 : 0.22,
+        lightOpacity: isHovering ? 0.18 : 0.12);
 
     return GestureDetector(
       onTap: () {
@@ -559,18 +569,16 @@ style: TextStyle(color: Colors.white70))),
                         title,
                         style: Theme.of(context).textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: ThemeColorUtils.primaryForeground(context),
                             ),
                       ),
                     ),
                     AnimatedRotation(
                       turns: isExpanded ? 0.5 : 0.0,
                       duration: const Duration(milliseconds: 200),
-                      child: const Icon(
-                        Ionicons.chevron_down_outline,
-                        color: Colors.white70,
-                        size: 20,
-                      ),
+                      child: Icon(Ionicons.chevron_down_outline,
+                          color: ThemeColorUtils.secondaryForeground(context),
+                          size: 20),
                     ),
                   ],
                 ),
