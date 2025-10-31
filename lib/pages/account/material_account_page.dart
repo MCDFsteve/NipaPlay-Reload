@@ -527,48 +527,77 @@ class _MaterialAccountPageState extends State<MaterialAccountPage>
   }
 
   Widget _buildBangumiSyncSection(double blurValue) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: blurValue, sigmaY: blurValue),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: _overlay(0.24, 0.14),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: _border(0.36, 0.18),
-              width: 0.5,
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.sync, color: _primaryColor, size: 24),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Bangumi观看记录同步',
-                    locale: const Locale("zh-Hans", "zh"),
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: _primaryColor,
-                    ),
-                  ),
-                ],
+    final theme = Theme.of(context);
+    final bool isDarkTheme = theme.brightness == Brightness.dark;
+    final Color backgroundColor = isDarkTheme
+        ? _overlay(0.24, 0.14)
+        : Colors.white.withOpacity(0.96);
+    final Color borderColor = isDarkTheme
+        ? _border(0.36, 0.18)
+        : Colors.black.withOpacity(0.08);
+    final List<BoxShadow> cardShadows = [
+      BoxShadow(
+        color: isDarkTheme
+            ? Colors.black.withOpacity(0.4)
+            : Colors.black.withOpacity(0.18),
+        blurRadius: isDarkTheme ? 30 : 38,
+        offset: const Offset(0, 20),
+      ),
+      BoxShadow(
+        color: isDarkTheme
+            ? Colors.black.withOpacity(0.18)
+            : Colors.black.withOpacity(0.08),
+        blurRadius: isDarkTheme ? 16 : 24,
+        offset: const Offset(0, 8),
+      ),
+    ];
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: cardShadows,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: blurValue, sigmaY: blurValue),
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: borderColor,
+                width: 0.5,
               ),
-              const SizedBox(height: 16),
-              
-              if (isBangumiLoggedIn) ...[
-                // 已登录状态
-                _buildBangumiLoggedInView(),
-              ] else ...[
-                // 未登录状态
-                _buildBangumiLoggedOutView(),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.sync, color: _primaryColor, size: 24),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Bangumi观看记录同步',
+                      locale: const Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: _primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
+                if (isBangumiLoggedIn) ...[
+                  _buildBangumiLoggedInView(),
+                ] else ...[
+                  _buildBangumiLoggedOutView(),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),
