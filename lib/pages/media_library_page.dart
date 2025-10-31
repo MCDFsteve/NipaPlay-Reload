@@ -20,6 +20,7 @@ import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, Tar
 import 'package:nipaplay/providers/jellyfin_provider.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/floating_action_glass_button.dart';
 import 'package:kmbal_ionicons/kmbal_ionicons.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 import 'package:nipaplay/widgets/nipaplay_theme/media_server_selection_sheet.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_host_selection_sheet.dart';
@@ -539,24 +540,31 @@ class _MediaLibraryPageState extends State<MediaLibraryPage> {
   
   Widget _buildLocalMediaLibrary() {
     if (_isLoadingInitial) {
-      return const SizedBox(
-        height: 200, 
-        child: Center(child: CircularProgressIndicator()),
+      return SizedBox(
+        height: 200,
+        child: Center(
+          child: CircularProgressIndicator(
+            color: ThemeColorUtils.primaryForeground(context),
+          ),
+        ),
       );
     }
 
     if (_error != null) {
+      final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+      final primaryColor = ThemeColorUtils.primaryForeground(context);
       return Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('加载媒体库失败: $_error', style: const TextStyle(color: Colors.white70)),
+              Text('加载媒体库失败: $_error',
+                  style: TextStyle(color: secondaryColor)),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadInitialMediaLibraryData,
-                child: const Text('重试'),
+                child: Text('重试', style: TextStyle(color: primaryColor)),
               ),
             ],
           ),
@@ -571,11 +579,14 @@ class _MediaLibraryPageState extends State<MediaLibraryPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 '媒体库为空。\n观看过的动画将显示在这里。',
                 textAlign: TextAlign.center,
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.grey, fontSize: 16),
+                locale: const Locale('zh-Hans', 'zh'),
+                style: TextStyle(
+                  color: ThemeColorUtils.secondaryForeground(context),
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(height: 16),
               if (!_isJellyfinConnected)
