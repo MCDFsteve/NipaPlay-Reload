@@ -108,9 +108,12 @@ class _SettingsSliderState extends State<SettingsSlider> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 8,
-                          offset: const Offset(0, 2),
+                          color: Theme.of(context).colorScheme.primary.withOpacity(
+                              context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect
+                                  ? 0.25
+                                  : 0.18),
+                          blurRadius: 10,
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -153,6 +156,12 @@ class _SettingsSliderState extends State<SettingsSlider> {
     final thumbSizeHovered = globals.isPhone ? 24.0 : 16.0;
     final thumbHitArea = globals.isPhone ? 12.0 : 8.0;
     final thumbHitAreaHovered = globals.isPhone ? 12.0 : 8.0;
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color accentColor = Theme.of(context).colorScheme.primary;
+    final Color trackBackground = isDark
+        ? Colors.white.withOpacity(0.2)
+        : Colors.black.withOpacity(0.08);
+    final Color progressShadowColor = accentColor.withOpacity(isDark ? 0.25 : 0.2);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -236,8 +245,16 @@ class _SettingsSliderState extends State<SettingsSlider> {
                       height: trackHeight,
                       margin: EdgeInsets.symmetric(vertical: verticalMargin),
                       decoration: BoxDecoration(
-                        color: _foregroundColor(context, 0.2),
+                        color: trackBackground,
                         borderRadius: BorderRadius.circular(trackHeight / 2),
+                        border: Border.all(
+                          color: ThemeColorUtils.borderColor(
+                            context,
+                            darkOpacity: 0.22,
+                            lightOpacity: 0.18,
+                          ),
+                          width: 0.5,
+                        ),
                       ),
                     ),
                     // 进度轨道
@@ -251,14 +268,15 @@ class _SettingsSliderState extends State<SettingsSlider> {
                         child: Container(
                           height: trackHeight,
                           decoration: BoxDecoration(
-                            color: _foregroundColor(context, 0.5),
+                            color: accentColor,
                             borderRadius:
                                 BorderRadius.circular(trackHeight / 2),
                             boxShadow: [
                               BoxShadow(
-                                color: _foregroundColor(context, 0.3),
-                                blurRadius: 2,
-                                spreadRadius: 0.5,
+                                color: progressShadowColor,
+                                blurRadius: 12,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 4),
                               ),
                             ],
                           ),
@@ -277,14 +295,17 @@ class _SettingsSliderState extends State<SettingsSlider> {
                           width: currentThumbSize,
                           height: currentThumbSize,
                           decoration: BoxDecoration(
-                            color: _foregroundColor(context),
+                            color: accentColor,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
+                                color: accentColor.withOpacity(
+                                    _isThumbHovered || _isDragging
+                                        ? (isDark ? 0.45 : 0.3)
+                                        : (isDark ? 0.35 : 0.2)),
                                 blurRadius:
-                                    _isThumbHovered || _isDragging ? 6 : 4,
-                                offset: const Offset(0, 2),
+                                    _isThumbHovered || _isDragging ? 12 : 8,
+                                offset: const Offset(0, 4),
                               ),
                             ],
                           ),

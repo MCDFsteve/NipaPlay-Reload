@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_item.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 // 证书相关的主机快捷信任按钮应用户要求移除，仅保留全局开关
 
 /// 开发者选项设置页面
@@ -38,7 +39,14 @@ class DeveloperOptionsPage extends StatelessWidget {
               },
             ),
 
-            const Divider(color: Colors.white12, height: 1),
+            Divider(
+              color: ThemeColorUtils.borderColor(
+                context,
+                darkOpacity: 0.16,
+                lightOpacity: 0.08,
+              ),
+              height: 1,
+            ),
             // 显示系统资源监控开关（所有平台可用）
             SettingsItem.toggle(
               title: '显示系统资源监控',
@@ -50,7 +58,14 @@ class DeveloperOptionsPage extends StatelessWidget {
               },
             ),
             
-            const Divider(color: Colors.white12, height: 1),
+            Divider(
+              color: ThemeColorUtils.borderColor(
+                context,
+                darkOpacity: 0.16,
+                lightOpacity: 0.08,
+              ),
+              height: 1,
+            ),
             
             // 调试日志收集开关
             SettingsItem.toggle(
@@ -71,7 +86,14 @@ class DeveloperOptionsPage extends StatelessWidget {
               },
             ),
             
-            const Divider(color: Colors.white12, height: 1),
+            Divider(
+              color: ThemeColorUtils.borderColor(
+                context,
+                darkOpacity: 0.16,
+                lightOpacity: 0.08,
+              ),
+              height: 1,
+            ),
             
             // 终端输出查看器
             SettingsItem.button(
@@ -84,7 +106,14 @@ class DeveloperOptionsPage extends StatelessWidget {
               },
             ),
             
-            const Divider(color: Colors.white12, height: 1),
+            Divider(
+              color: ThemeColorUtils.borderColor(
+                context,
+                darkOpacity: 0.16,
+                lightOpacity: 0.08,
+              ),
+              height: 1,
+            ),
             
             // Linux存储迁移选项（仅Linux平台显示，Web环境下不显示）
             if (!kIsWeb && platform.Platform.isLinux) ...[

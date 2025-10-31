@@ -310,6 +310,14 @@ class SettingsItem extends StatelessWidget {
 
   /// 构建开关类型的设置项
   Widget _buildToggleItem(BuildContext context) {
+    final Color accentColor = Theme.of(context).colorScheme.primary;
+    final Color inactiveThumb = ThemeColorUtils.tertiaryForeground(context);
+    final Color inactiveTrack = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.3,
+      lightOpacity: 0.12,
+    );
+    final Color activeTrack = accentColor.withOpacity(0.5);
     return SwitchListTile(
       secondary: icon != null
           ? Icon(icon, color: _foregroundColor(context, 0.7))
@@ -337,9 +345,10 @@ class SettingsItem extends StatelessWidget {
           : null,
       value: switchValue ?? false,
       onChanged: enabled ? onSwitchChanged : null,
-      activeColor: _foregroundColor(context),
-      inactiveThumbColor: _foregroundColor(context),
-      inactiveTrackColor: const Color.fromARGB(255, 0, 0, 0),
+      activeColor: accentColor,
+      activeTrackColor: activeTrack,
+      inactiveThumbColor: inactiveThumb,
+      inactiveTrackColor: inactiveTrack,
     );
   }
 
@@ -385,6 +394,12 @@ class SettingsItem extends StatelessWidget {
 
   /// 构建滑块类型的设置项
   Widget _buildSliderItem(BuildContext context) {
+    final Color accentColor = Theme.of(context).colorScheme.primary;
+    final Color inactiveColor = ThemeColorUtils.overlayColor(
+      context,
+      darkOpacity: 0.26,
+      lightOpacity: 0.12,
+    );
     return Column(
       children: [
         ListTile(
@@ -432,8 +447,9 @@ class SettingsItem extends StatelessWidget {
             max: sliderMax ?? 1,
             divisions: sliderDivisions,
             onChanged: enabled ? onSliderChanged : null,
-            activeColor: _foregroundColor(context),
-            inactiveColor: _foregroundColor(context, 0.38),
+            activeColor: accentColor,
+            inactiveColor: inactiveColor,
+            thumbColor: accentColor,
           ),
         ),
       ],
