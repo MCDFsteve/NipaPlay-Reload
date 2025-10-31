@@ -31,6 +31,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/network_media_library_view.dart'
 import 'package:nipaplay/widgets/nipaplay_theme/shared_remote_library_view.dart';
 import 'package:nipaplay/services/playback_service.dart';
 import 'package:nipaplay/models/playable_item.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 // Custom ScrollBehavior for NoScrollbarBehavior is removed as NestedScrollView handles scrolling differently.
 
@@ -493,6 +494,12 @@ class _MediaLibraryTabsState extends State<_MediaLibraryTabs> with TickerProvide
         
         return LayoutBuilder(
           builder: (context, constraints) {
+            final primaryColor = ThemeColorUtils.primaryForeground(context);
+            final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+            final indicatorColor = ThemeColorUtils.overlayColor(context,
+                darkOpacity: 0.35, lightOpacity: 0.16);
+            final dividerColor = ThemeColorUtils.borderColor(context,
+                darkOpacity: 0.22, lightOpacity: 0.14);
             // 检查可用高度，如果太小则使用最小安全布局
             final availableHeight = constraints.maxHeight;
             final isHeightConstrained = availableHeight < 100; // 小于100像素视为高度受限
@@ -501,11 +508,11 @@ class _MediaLibraryTabsState extends State<_MediaLibraryTabs> with TickerProvide
               // 高度受限时，使用简化布局避免溢出
               return SizedBox(
                 height: availableHeight,
-                child: const Center(
+                child: Center(
                   child: Text(
                     '布局空间不足',
-                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white70, fontSize: 12),
+                    locale: Locale("zh-Hans", "zh"),
+                    style: TextStyle(color: secondaryColor, fontSize: 12),
                   ),
                 ),
               );
@@ -520,8 +527,8 @@ style: TextStyle(color: Colors.white70, fontSize: 12),
                     controller: _tabController,
                     isScrollable: true,
                     tabs: tabs,
-                    labelColor: Colors.white,
-                    unselectedLabelColor: Colors.white70,
+                    labelColor: primaryColor,
+                    unselectedLabelColor: secondaryColor,
                     labelStyle: const TextStyle(
                       fontSize: 24, 
                       fontWeight: FontWeight.bold
@@ -532,11 +539,11 @@ style: TextStyle(color: Colors.white70, fontSize: 12),
                       right: 0
                     ),
                     indicator: BoxDecoration(
-                      color: Colors.white,
+                      color: indicatorColor,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     tabAlignment: TabAlignment.start,
-                    dividerColor: const Color.fromARGB(59, 255, 255, 255),
+                    dividerColor: dividerColor,
                     dividerHeight: 3.0,
                     indicatorSize: TabBarIndicatorSize.tab,
                   ),
