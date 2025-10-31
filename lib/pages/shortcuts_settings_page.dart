@@ -7,6 +7,7 @@ import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/settings_item.dart';
 import 'package:nipaplay/utils/message_helper.dart';
 import 'dart:ui';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class ShortcutsSettingsPage extends StatefulWidget {
   const ShortcutsSettingsPage({super.key});
@@ -353,6 +354,8 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
 
     if (hasConflict) {
       // 显示冲突提示
+      final primaryColor = ThemeColorUtils.primaryForeground(context);
+      final secondaryColor = ThemeColorUtils.secondaryForeground(context);
       BlurDialog.show(
         context: context,
         title: '快捷键冲突',
@@ -363,9 +366,9 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
               Navigator.of(context).pop();
               _stopRecording();
             },
-            child: const Text('取消',
-                locale: Locale("zh", "CN"),
-                style: TextStyle(color: Colors.white70)),
+            child: Text('取消',
+                locale: const Locale("zh", "CN"),
+                style: TextStyle(color: secondaryColor)),
           ),
           TextButton(
             onPressed: () {
@@ -373,9 +376,9 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
               _updateShortcut(_recordingAction!, shortcut);
               _stopRecording();
             },
-            child: const Text('替换',
-                locale: Locale("zh", "CN"),
-                style: TextStyle(color: Colors.white)),
+            child: Text('替换',
+                locale: const Locale("zh", "CN"),
+                style: TextStyle(color: primaryColor)),
           ),
         ],
       );
@@ -388,13 +391,17 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final dividerColor =
+        ThemeColorUtils.borderColor(context, darkOpacity: 0.18, lightOpacity: 0.1);
     return RawKeyboardListener(
       focusNode: FocusNode()..requestFocus(),
       onKey: _handleKeyPress,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: _shortcuts == null
-            ? const Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator(color: primaryColor))
             : ListView(
                 children: [
                   // 恢复默认按钮作为单独的一栏
@@ -405,7 +412,7 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
                     trailingIcon: Ionicons.refresh_outline,
                     onTap: _resetToDefaults,
                   ),
-                  const Divider(color: Colors.white12, height: 1),
+                  Divider(color: dividerColor, height: 1),
 
                   // 快捷键列表
                   ..._actionLabels.keys.map((action) {
@@ -424,7 +431,7 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
                           isRecording: isRecording,
                           onTap: () => _startRecording(action),
                         ),
-                        const Divider(color: Colors.white12, height: 1),
+                        Divider(color: dividerColor, height: 1),
                       ],
                     );
                   }),
@@ -436,12 +443,17 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
 
   // 构建录制中的按钮
   Widget _buildRecordingButton() {
+    final accent = Colors.redAccent;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final backgroundColor = accent.withOpacity(isDark ? 0.25 : 0.16);
+    final borderColor = accent.withOpacity(isDark ? 0.55 : 0.4);
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.red.withOpacity(0.2),
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.red.withOpacity(0.6), width: 1),
+        border: Border.all(color: borderColor, width: 1),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -449,17 +461,15 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
           Container(
             width: 10,
             height: 10,
-            decoration: const BoxDecoration(
-              color: Colors.red,
+            decoration: BoxDecoration(
+              color: accent,
               shape: BoxShape.circle,
             ),
           ),
           const SizedBox(width: 8),
-          const Text(
-            '按下键位...',
-            locale: Locale("zh", "CN"),
-            style: TextStyle(color: Colors.white),
-          ),
+          Text('按下键位...',
+              locale: const Locale("zh", "CN"),
+              style: TextStyle(color: primaryColor, fontWeight: FontWeight.w500)),
         ],
       ),
     );
@@ -483,19 +493,24 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: isHovered
-                    ? Colors.white.withOpacity(0.4)
-                    : Colors.white.withOpacity(0.18),
+                    ? ThemeColorUtils.overlayColor(context,
+                        darkOpacity: 0.35, lightOpacity: 0.18)
+                    : ThemeColorUtils.overlayColor(context,
+                        darkOpacity: 0.2, lightOpacity: 0.1),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: isHovered
-                      ? Colors.white.withOpacity(0.7)
-                      : Colors.white.withOpacity(0.25),
+                      ? ThemeColorUtils.borderColor(context,
+                          darkOpacity: 0.5, lightOpacity: 0.22)
+                      : ThemeColorUtils.borderColor(context,
+                          darkOpacity: 0.28, lightOpacity: 0.14),
                   width: isHovered ? 1.0 : 0.5,
                 ),
                 boxShadow: isHovered
                     ? [
                         BoxShadow(
-                          color: Colors.white.withOpacity(0.25),
+                          color: ThemeColorUtils.overlayColor(context,
+                              darkOpacity: 0.4, lightOpacity: 0.2),
                           blurRadius: 10,
                           spreadRadius: 1,
                         )
@@ -508,8 +523,8 @@ class _ShortcutsSettingsPageState extends State<ShortcutsSettingsPage> {
                   duration: const Duration(milliseconds: 300),
                   style: TextStyle(
                     color: isHovered
-                        ? Colors.white
-                        : Colors.white.withOpacity(0.8),
+                        ? ThemeColorUtils.primaryForeground(context)
+                        : ThemeColorUtils.secondaryForeground(context),
                     fontSize: 14,
                     fontWeight: isHovered ? FontWeight.w500 : FontWeight.normal,
                   ),

@@ -21,6 +21,7 @@ import 'package:nipaplay/pages/settings/watch_history_page.dart';
 import 'package:nipaplay/pages/settings/backup_restore_page.dart';
 import 'package:nipaplay/pages/settings/network_settings_page.dart';
 import 'package:provider/provider.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -57,13 +58,19 @@ class _SettingsPageState extends State<SettingsPage>
 
   // 封装导航或更新状态的逻辑
   void _handleItemTap(Widget pageToShow, String title) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
     List<Widget> settingsTabLabels() {
       return [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(title,
-              style:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          child: Text(
+            title,
+            style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor) ??
+                TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor),
+          ),
         ),
       ];
     }
@@ -91,6 +98,10 @@ class _SettingsPageState extends State<SettingsPage>
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tileTitleStyle = TextStyle(color: primaryColor, fontWeight: FontWeight.bold);
+    final trailingIconColor = secondaryColor;
     // ResponsiveContainer 会根据 isDesktop 决定是否显示 currentPage
     return ResponsiveContainer(
       currentPage: currentPage ?? Container(), // 将当前页面状态传递给 ResponsiveContainer
@@ -98,23 +109,21 @@ class _SettingsPageState extends State<SettingsPage>
       child: ListView(
         children: [
           ListTile(
-            title: const Text("账号",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("账号",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const AccountPage(), "账号设置");
             },
           ),
           ListTile(
-            title: const Text("外观",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("外观",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               final themeNotifier =
                   context.read<ThemeNotifier>(); // 获取 Notifier
@@ -128,126 +137,115 @@ style: TextStyle(
           // 在Android平台隐藏主题设置
           if (!Platform.isAndroid)
             ListTile(
-              title: const Text("主题（实验性）",
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold)),
-              trailing: const Icon(Ionicons.chevron_forward_outline,
-                  color: Colors.white),
+              title: Text("主题（实验性）",
+                  locale: const Locale("zh-Hans","zh"),
+                  style: tileTitleStyle),
+              trailing: Icon(Ionicons.chevron_forward_outline,
+                  color: trailingIconColor),
               onTap: () {
                 _handleItemTap(const UIThemePage(), "主题设置");
               },
             ),
           ListTile(
-            title: const Text("通用",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("通用",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const GeneralPage(), "通用设置");
             },
           ),
           ListTile(
-            title: const Text("网络",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("网络",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const NetworkSettingsPage(), "网络设置");
             },
           ),
           ListTile(
-            title: const Text("观看记录",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("观看记录",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const WatchHistoryPage(), "观看记录");
             },
           ),
           if (!globals.isPhone)
             ListTile(
-              title: const Text("备份与恢复",
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold)),
-              trailing: const Icon(Ionicons.chevron_forward_outline,
-                  color: Colors.white),
+              title: Text("备份与恢复",
+                  locale: const Locale("zh-Hans","zh"),
+                  style: tileTitleStyle),
+              trailing: Icon(Ionicons.chevron_forward_outline,
+                  color: trailingIconColor),
               onTap: () {
                 _handleItemTap(const BackupRestorePage(), "备份与恢复");
               },
             ),
           ListTile(
-            title: const Text("播放器",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("播放器",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const PlayerSettingsPage(), "播放器设置");
             },
           ),
           if (!globals.isPhone)
             ListTile(
-              title: const Text("快捷键",
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold)),
-              trailing: const Icon(Ionicons.chevron_forward_outline,
-                  color: Colors.white),
+              title: Text("快捷键",
+                  locale: const Locale("zh-Hans","zh"),
+                  style: tileTitleStyle),
+              trailing: Icon(Ionicons.chevron_forward_outline,
+                  color: trailingIconColor),
               onTap: () {
                 _handleItemTap(const ShortcutsSettingsPage(), "快捷键设置");
               },
             ),
           if (!globals.isPhone)
             ListTile(
-              title: const Text("远程访问（实验性）",
-                  locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold)),
-              trailing: const Icon(Ionicons.chevron_forward_outline,
-                  color: Colors.white),
+              title: Text("远程访问（实验性）",
+                  locale: const Locale("zh-Hans","zh"),
+                  style: tileTitleStyle),
+              trailing: Icon(Ionicons.chevron_forward_outline,
+                  color: trailingIconColor),
               onTap: () {
                 _handleItemTap(const RemoteAccessPage(), "远程访问");
               },
             ),
           ListTile(
-            title: const Text("远程媒体库",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("远程媒体库",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const RemoteMediaLibraryPage(), "远程媒体库");
             },
           ),
           // 开发者选项
           ListTile(
-            title: const Text("开发者选项",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("开发者选项",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               _handleItemTap(const DeveloperOptionsPage(), "开发者选项");
             },
           ),
           ListTile(
-            title: const Text("关于",
-                locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
-            trailing: const Icon(Ionicons.chevron_forward_outline,
-                color: Colors.white),
+            title: Text("关于",
+                locale: const Locale("zh-Hans","zh"),
+                style: tileTitleStyle),
+            trailing:
+                Icon(Ionicons.chevron_forward_outline, color: trailingIconColor),
             onTap: () {
               // 调用通用处理函数
               _handleItemTap(
