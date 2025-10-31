@@ -34,6 +34,7 @@ import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/utils/tab_change_notifier.dart';
 import 'package:nipaplay/main.dart'; // 用于MainPageState
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class DashboardHomePage extends StatefulWidget {
   const DashboardHomePage({super.key});
@@ -1421,6 +1422,10 @@ class _DashboardHomePageState extends State<DashboardHomePage>
       backgroundColor: Colors.transparent,
       body: Consumer2<JellyfinProvider, EmbyProvider>(
         builder: (context, jellyfinProvider, embyProvider, child) {
+          final primaryColor = ThemeColorUtils.primaryForeground(context);
+          final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+          final overlayColor =
+              ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
           return SingleChildScrollView(
             controller: _mainScrollController,
             physics: const AlwaysScrollableScrollPhysics(),
@@ -1480,15 +1485,15 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                       margin: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.white10,
+                        color: overlayColor,
                       ),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.video_library_outlined,
-                              color: Colors.white54,
+                              color: secondaryColor,
                               size: 48,
                             ),
                             const SizedBox(height: 16),
@@ -1496,7 +1501,7 @@ class _DashboardHomePageState extends State<DashboardHomePage>
                               jellyfinProvider.isConnected || embyProvider.isConnected
                                   ? '正在加载内容...'
                                   : '连接媒体服务器或观看本地视频以查看内容',
-                              style: const TextStyle(color: Colors.white54, fontSize: 16),
+                              style: TextStyle(color: secondaryColor, fontSize: 16),
                             ),
                           ],
                         ),
@@ -1541,16 +1546,20 @@ class _DashboardHomePageState extends State<DashboardHomePage>
   }
 
   Widget _buildHeroBanner({required bool isPhone}) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final overlayColor =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
     if (_isLoadingRecommended) {
       return Container(
         height: isPhone ? 220 : 400, // 保持一致的高度
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.white10,
+          color: overlayColor,
         ),
-        child: const Center(
-          child: CircularProgressIndicator(),
+        child: Center(
+          child: CircularProgressIndicator(color: primaryColor),
         ),
       );
     }
@@ -1561,13 +1570,13 @@ class _DashboardHomePageState extends State<DashboardHomePage>
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.white10,
+          color: overlayColor,
         ),
-        child: const Center(
+        child: Center(
           child: Text(
             '暂无推荐内容',
-            locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54, fontSize: 16),
+            locale: const Locale('zh-Hans', 'zh'),
+            style: TextStyle(color: secondaryColor, fontSize: 16),
           ),
         ),
       );
@@ -1662,6 +1671,15 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
   }
 
   Widget _buildMainHeroBannerItem(RecommendedItem item, {bool compact = false}) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final badgeBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.18);
+    final badgeBorder = ThemeColorUtils.borderColor(context,
+        darkOpacity: 0.45, lightOpacity: 0.22);
+    final placeholderColor =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
     return GestureDetector(
       onTap: () => _onRecommendedItemTap(item),
       child: Container(
@@ -1684,9 +1702,10 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                 height: double.infinity,
                 delayLoad: _shouldDelayImageLoad(), // 根据推荐内容来源决定是否延迟
                 errorBuilder: (context, error) => Container(
-                  color: Colors.white10,
-                  child: const Center(
-                    child: Icon(Icons.broken_image, color: Colors.white30),
+                  color: placeholderColor,
+                  child: Center(
+                    child:
+                        Icon(Icons.broken_image, color: tertiaryColor, size: 32),
                   ),
                 ),
               )
@@ -1737,26 +1756,26 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: badgeBackground,
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: Colors.white.withOpacity(1.0),
+                          color: badgeBorder,
                           width: 1,
                         ),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.star_rounded,
-                            color: Colors.white,
+                            color: primaryColor,
                             size: 16,
                           ),
                           const SizedBox(width: 4),
                           Text(
                             item.rating!.toStringAsFixed(1),
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: primaryColor,
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
@@ -1834,9 +1853,9 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                     // 媒体名字（加粗显示）
                     Text(
                       item.title,
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white,
+                      locale: const Locale('zh-Hans', 'zh'),
+                      style: TextStyle(
+                        color: primaryColor,
                         fontSize: compact ? 22 : 24, // 手机端调整为20px，比18px稍大
                         fontWeight: FontWeight.bold,
                         shadows: const [
@@ -1858,8 +1877,8 @@ style: TextStyle(
                       if (item.subtitle.isNotEmpty)
                         Text(
                           item.subtitle.replaceAll('<br>', ' ').replaceAll('<br/>', ' ').replaceAll('<br />', ' '),
-                          style: const TextStyle(
-                            color: Colors.white70,
+                          style: TextStyle(
+                            color: secondaryColor,
                             fontSize: 14,
                             shadows: [
                               Shadow(
@@ -1883,6 +1902,16 @@ style: TextStyle(
   }
 
   Widget _buildSmallRecommendationCard(RecommendedItem item, int index) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
+    final badgeBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.18);
+    final badgeBorder = ThemeColorUtils.borderColor(context,
+        darkOpacity: 0.45, lightOpacity: 0.22);
+    final placeholderColor =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final shadowColor = isDark ? Colors.black.withOpacity(0.25) : Colors.black.withOpacity(0.1);
     return GestureDetector(
       onTap: () => _onRecommendedItemTap(item),
       child: Container(
@@ -1892,7 +1921,7 @@ style: TextStyle(
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: shadowColor,
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -1912,9 +1941,9 @@ style: TextStyle(
                 width: double.infinity,
                 height: double.infinity,
                 errorBuilder: (context, error) => Container(
-                  color: Colors.white10,
-                  child: const Center(
-                    child: Icon(Icons.broken_image, color: Colors.white30, size: 16),
+                  color: placeholderColor,
+                  child: Center(
+                    child: Icon(Icons.broken_image, color: tertiaryColor, size: 16),
                   ),
                 ),
               )
@@ -1965,26 +1994,26 @@ style: TextStyle(
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: badgeBackground,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.white.withOpacity(1.0),
+                          color: badgeBorder,
                           width: 1,
                         ),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.star_rounded,
-                            color: Colors.white,
+                            color: primaryColor,
                             size: 12,
                           ),
                           const SizedBox(width: 2),
                           Text(
                             item.rating!.toStringAsFixed(1),
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: primaryColor,
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                             ),
@@ -2051,11 +2080,11 @@ style: TextStyle(
               left: item.logoImageUrl != null ? 136 : 8, // 如果有Logo就避开它
               child: Text(
                 item.title,
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: primaryColor,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  shadows: [
+                  shadows: const [
                     Shadow(
                       color: Colors.black,
                       blurRadius: 8,
@@ -2080,6 +2109,11 @@ style: TextStyle(
   }
 
   Widget _buildServiceIcon(RecommendedItemSource source) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final badgeBackground =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.25, lightOpacity: 0.18);
+    final badgeBorder =
+        ThemeColorUtils.borderColor(context, darkOpacity: 0.5, lightOpacity: 0.22);
     Widget iconWidget;
     
     switch (source) {
@@ -2088,7 +2122,7 @@ style: TextStyle(
           'assets/jellyfin.svg',
           width: 20,
           height: 20,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(primaryColor, BlendMode.srcIn),
         );
         break;
       case RecommendedItemSource.emby:
@@ -2096,14 +2130,14 @@ style: TextStyle(
           'assets/emby.svg',
           width: 20,
           height: 20,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(primaryColor, BlendMode.srcIn),
         );
         break;
       case RecommendedItemSource.local:
         // 本地文件用一个文件夹图标
-        iconWidget = const Icon(
+        iconWidget = Icon(
           Icons.folder,
-          color: Colors.white,
+          color: primaryColor,
           size: 20,
         );
         break;
@@ -2118,10 +2152,10 @@ style: TextStyle(
         child: Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: badgeBackground,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(1.0),
+              color: badgeBorder,
               width: 1,
             ),
           ),
@@ -2137,19 +2171,24 @@ style: TextStyle(
         final history = historyProvider.history;
         final validHistory = history.where((item) => item.duration > 0).toList();
 
+        final primaryColor = ThemeColorUtils.primaryForeground(context);
+        final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+        final overlayColor =
+            ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       '继续播放',
-                      locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                        color: Colors.white,
+                      locale: const Locale('zh-Hans', 'zh'),
+                      style: TextStyle(
+                        color: primaryColor,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
@@ -2167,13 +2206,13 @@ style: TextStyle(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.white10,
+                  color: overlayColor,
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     '暂无播放记录',
-                    locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.white54, fontSize: 16),
+                    locale: const Locale('zh-Hans', 'zh'),
+                    style: TextStyle(color: secondaryColor, fontSize: 16),
                   ),
                 ),
               )
@@ -2201,6 +2240,12 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
   }
 
   Widget _buildContinueWatchingCard(WatchHistoryItem item, {bool compact = false}) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final shadowColor = isDark ? Colors.black.withOpacity(0.3) : Colors.black.withOpacity(0.12);
+    final progressBackground =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.28, lightOpacity: 0.18);
     return GestureDetector(
       onTap: () => _onWatchHistoryItemTap(item),
       child: SizedBox(
@@ -2216,7 +2261,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
+                    color: shadowColor,
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -2236,7 +2281,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                     right: 0,
                     child: LinearProgressIndicator(
                       value: item.watchProgress,
-                      backgroundColor: Colors.white24,
+                      backgroundColor: progressBackground,
                       valueColor: AlwaysStoppedAnimation<Color>(
                         Theme.of(context).colorScheme.secondary,
                       ),
@@ -2252,8 +2297,8 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
             // 媒体名称
             Text(
               item.animeName.isNotEmpty ? item.animeName : path.basename(item.filePath),
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: primaryColor,
                 fontSize: 16, // 增加字体大小
                 fontWeight: FontWeight.bold,
               ),
@@ -2267,8 +2312,8 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
             if (item.episodeTitle != null)
               Text(
                 item.episodeTitle!,
-                style: const TextStyle(
-                  color: Colors.white70,
+                style: TextStyle(
+                  color: secondaryColor,
                   fontSize: 14, // 增加字体大小
                 ),
                 maxLines: 1,
@@ -2287,6 +2332,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
     required Function(dynamic) onItemTap,
   }) {
     final bool isPhone = MediaQuery.of(context).size.shortestSide < 600;
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -2297,8 +2343,8 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: primaryColor,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -2382,6 +2428,9 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
 
   Widget _getVideoThumbnail(WatchHistoryItem item) {
     final now = DateTime.now();
+    final placeholderColor =
+        ThemeColorUtils.overlayColor(context, darkOpacity: 0.12, lightOpacity: 0.08);
+    final tertiaryColor = ThemeColorUtils.tertiaryForeground(context);
     
     // iOS平台特殊处理：检查截图文件的修改时间
     if (Platform.isIOS && item.thumbnailPath != null) {
@@ -2408,7 +2457,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
             future: thumbnailFile.readAsBytes(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Container(color: Colors.white10);
+                return Container(color: placeholderColor);
               }
               if (snapshot.hasError || !snapshot.hasData) {
                 return _buildDefaultThumbnail();
@@ -2456,7 +2505,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
           future: thumbnailFile.readAsBytes(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Container(color: Colors.white10);
+              return Container(color: placeholderColor);
             }
             if (snapshot.hasError || !snapshot.hasData) {
               return _buildDefaultThumbnail();
@@ -2497,9 +2546,11 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
 
   Widget _buildDefaultThumbnail() {
     return Container(
-      color: Colors.white10,
-      child: const Center(
-        child: Icon(Icons.video_library, color: Colors.white30, size: 32),
+      color: ThemeColorUtils.overlayColor(context,
+          darkOpacity: 0.12, lightOpacity: 0.08),
+      child: Center(
+        child: Icon(Icons.video_library,
+            color: ThemeColorUtils.tertiaryForeground(context), size: 32),
       ),
     );
   }
@@ -2798,6 +2849,8 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
   
   // 构建页面指示器（分离出来避免不必要的重建），支持点击和悬浮效果
   Widget _buildPageIndicator({bool fullWidth = false, int count = 5}) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
     return Positioned(
       bottom: 16,
       left: 0,
@@ -2849,10 +2902,10 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isSelected
-                            ? Colors.white
+                            ? primaryColor
                             : (isHovered
-                                ? Colors.white.withOpacity(0.8)
-                                : Colors.white.withOpacity(0.5)),
+                                ? primaryColor.withOpacity(0.7)
+                                : secondaryColor.withOpacity(0.5)),
                       ),
                     ),
                   ),
@@ -3384,6 +3437,16 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
     required VoidCallback? onTap,
     bool enabled = true,
   }) {
+    final primaryColor = ThemeColorUtils.primaryForeground(context);
+    final secondaryColor = ThemeColorUtils.secondaryForeground(context);
+    final enabledBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.25, lightOpacity: 0.18);
+    final disabledBackground = ThemeColorUtils.overlayColor(context,
+        darkOpacity: 0.15, lightOpacity: 0.1);
+    final enabledBorder = ThemeColorUtils.borderColor(context,
+        darkOpacity: 0.35, lightOpacity: 0.18);
+    final disabledBorder = ThemeColorUtils.borderColor(context,
+        darkOpacity: 0.2, lightOpacity: 0.12);
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: BackdropFilter(
@@ -3392,14 +3455,10 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
           width: 32,
           height: 32,
           decoration: BoxDecoration(
-            color: enabled 
-                ? Colors.white.withOpacity(0.2)
-                : Colors.white.withOpacity(0.1),
+            color: enabled ? enabledBackground : disabledBackground,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: enabled
-                  ? Colors.white.withOpacity(0.3)
-                  : Colors.white.withOpacity(0.15),
+              color: enabled ? enabledBorder : disabledBorder,
               width: 1,
             ),
           ),
@@ -3411,9 +3470,9 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
               child: Center(
                 child: Icon(
                   icon,
-                  color: enabled 
-                      ? Colors.white
-                      : Colors.white.withOpacity(0.5),
+                  color: enabled
+                      ? primaryColor
+                      : secondaryColor.withOpacity(0.6),
                   size: 18,
                 ),
               ),
