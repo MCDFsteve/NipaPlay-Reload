@@ -14,6 +14,7 @@ import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:nipaplay/widgets/nipaplay_theme/blur_dialog.dart';
+import 'package:nipaplay/widgets/nipaplay_theme/theme_color_utils.dart';
 
 class WatchHistoryPage extends StatefulWidget {
   const WatchHistoryPage({super.key});
@@ -36,8 +37,10 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
       body: Consumer<WatchHistoryProvider>(
         builder: (context, historyProvider, child) {
           if (historyProvider.isLoading && historyProvider.history.isEmpty) {
-            return const Center(
-              child: CircularProgressIndicator(color: Colors.white),
+            return Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).colorScheme.primary,
+              ),
             );
           }
 
@@ -64,6 +67,33 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
 
   Widget _buildWatchHistoryItem(WatchHistoryItem item) {
     final appearanceProvider = context.watch<AppearanceSettingsProvider>();
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color primaryText = ThemeColorUtils.primaryForeground(context);
+    final Color secondaryText = ThemeColorUtils.secondaryForeground(context);
+    final Color tertiaryText = ThemeColorUtils.tertiaryForeground(context);
+    final Color accentColor = Theme.of(context).colorScheme.primary;
+    final List<Color> surfaceGradient = isDark
+        ? [
+            Colors.white.withOpacity(0.12),
+            Colors.white.withOpacity(0.06),
+          ]
+        : [
+            Colors.white.withOpacity(0.96),
+            Colors.white.withOpacity(0.88),
+          ];
+    final List<Color> borderGradient = isDark
+        ? [
+            Colors.white.withOpacity(0.45),
+            Colors.white.withOpacity(0.35),
+          ]
+        : [
+            Colors.black.withOpacity(0.08),
+            Colors.black.withOpacity(0.05),
+          ];
+    final Color progressTrack = isDark
+        ? Colors.white.withOpacity(0.18)
+        : Colors.black.withOpacity(0.08);
+
     return GestureDetector(
       onLongPress: () => _showDeleteConfirmDialog(item),
       child: GlassmorphicContainer(
@@ -76,18 +106,12 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
         linearGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFFffffff).withOpacity(0.1),
-            const Color(0xFFFFFFFF).withOpacity(0.05),
-          ],
+          colors: surfaceGradient,
         ),
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFFffffff).withOpacity(0.5),
-            const Color(0xFFFFFFFF).withOpacity(0.5),
-          ],
+          colors: borderGradient,
         ),
         child: Material(
           color: Colors.transparent,
@@ -109,8 +133,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                       children: [
                         Text(
                           item.animeName.isNotEmpty ? item.animeName : path.basename(item.filePath),
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: primaryText,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -120,8 +144,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                         const SizedBox(height: 4),
                         Text(
                           item.episodeTitle ?? '未知集数',
-                          style: const TextStyle(
-                            color: Colors.white60,
+                          style: TextStyle(
+                            color: secondaryText,
                             fontSize: 12,
                           ),
                           maxLines: 1,
@@ -141,7 +165,7 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                           width: 40,
                           height: 4,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
+                            color: progressTrack,
                             borderRadius: BorderRadius.circular(2),
                           ),
                           child: FractionallySizedBox(
@@ -149,7 +173,7 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                             widthFactor: item.watchProgress,
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
+                                color: accentColor,
                                 borderRadius: BorderRadius.circular(2),
                               ),
                             ),
@@ -158,8 +182,8 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
                       const SizedBox(height: 4),
                       Text(
                         _formatTime(item.lastWatchTime),
-                        style: const TextStyle(
-                          color: Colors.white60,
+                        style: TextStyle(
+                          color: tertiaryText,
                           fontSize: 12,
                         ),
                       ),
@@ -208,33 +232,40 @@ class _WatchHistoryPageState extends State<WatchHistoryPage> {
       width: 80,
       height: 45, // 16:9 比例
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: ThemeColorUtils.overlayColor(
+          context,
+          darkOpacity: 0.1,
+          lightOpacity: 0.08,
+        ),
         borderRadius: BorderRadius.circular(6),
       ),
-      child: const Icon(
+      child: Icon(
         Ionicons.videocam_outline,
-        color: Colors.white60,
+        color: ThemeColorUtils.tertiaryForeground(context),
         size: 20,
       ),
     );
   }
 
   Widget _buildEmptyState() {
+    final Color primaryText = ThemeColorUtils.primaryForeground(context);
+    final Color secondaryText = ThemeColorUtils.secondaryForeground(context);
+    final Color iconColor = Theme.of(context).colorScheme.primary.withOpacity(0.8);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
+          Icon(
             Ionicons.time_outline,
-            color: Colors.white60,
+            color: iconColor,
             size: 64,
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             '暂无观看记录',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white,
+              color: primaryText,
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
@@ -244,7 +275,7 @@ style: TextStyle(
             '开始播放视频后，这里会显示观看记录',
             locale:Locale("zh-Hans","zh"),
 style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: secondaryText,
               fontSize: 14,
             ),
             textAlign: TextAlign.center,
@@ -356,14 +387,20 @@ style: TextStyle(
       content: '确定要删除 ${item.animeName} 的观看记录吗？',
       actions: [
         TextButton(
-          child: const Text('取消'),
+          child: Text(
+            '取消',
+            style: TextStyle(
+              color: ThemeColorUtils.secondaryForeground(context),
+            ),
+          ),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: const Text('删除', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.red)),
+          child: Text('删除',
+              locale:Locale("zh-Hans","zh"),
+style: TextStyle(color: Theme.of(context).colorScheme.error)),
           onPressed: () async {
             // 调用 Provider 的方法删除观看记录
             final watchHistoryProvider = Provider.of<WatchHistoryProvider>(context, listen: false);
