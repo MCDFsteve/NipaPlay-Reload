@@ -40,11 +40,14 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
   late Animation<double> _scaleAnimation;
   final Duration _animationDuration = const Duration(milliseconds: 200);
 
-  Color get selectionOverlay => ThemeColorUtils.overlayColor(
-        context,
-        darkOpacity: 0.1,
-        lightOpacity: 0.08,
-      );
+  Color get selectionOverlay {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    if (isDark) {
+      return Colors.white.withOpacity(0.14);
+    }
+    final Color accent = Theme.of(context).colorScheme.primary;
+    return accent.withOpacity(0.12);
+  }
 
   @override
   void initState() {
@@ -195,26 +198,20 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
     final safeRight = (right < 10.0) ? 10.0 : right;
     final left = position.dx;
 
-    final Color borderColor = ThemeColorUtils.borderColor(
-      context,
-      darkOpacity: 0.35,
-      lightOpacity: 0.25,
-    );
-    final Color dropdownBackground = ThemeColorUtils.overlayColor(
-      context,
-      darkOpacity: 0.5,
-      lightOpacity: 0.35,
-    );
-    final Color selectionOverlay = ThemeColorUtils.overlayColor(
-      context,
-      darkOpacity: 0.1,
-      lightOpacity: 0.08,
-    );
-    final Color dividerColor = ThemeColorUtils.borderColor(
-      context,
-      darkOpacity: 0.1,
-      lightOpacity: 0.08,
-    );
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color borderColor = isDark
+        ? ThemeColorUtils.borderColor(
+            context,
+            darkOpacity: 0.35,
+            lightOpacity: 0.0,
+          )
+        : Colors.black.withOpacity(0.08);
+    final Color dropdownBackground = isDark
+        ? Colors.white.withOpacity(0.16)
+        : Colors.white;
+    final Color dividerColor = isDark
+        ? Colors.white.withOpacity(0.08)
+        : Colors.black.withOpacity(0.05);
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
@@ -258,19 +255,20 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                   decoration: BoxDecoration(
                     border: Border.all(color: borderColor, width: 0.5),
                     color: dropdownBackground,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 5,
-                        spreadRadius: 1,
-                        offset: const Offset(1, 1),
+                        color: isDark
+                            ? Colors.black.withOpacity(0.35)
+                            : Colors.black.withOpacity(0.14),
+                        blurRadius: 24,
+                        offset: const Offset(0, 12),
                       ),
                     ],
                   ),
                   clipBehavior: Clip.hardEdge,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
                         sigmaX: Provider.of<AppearanceSettingsProvider>(context)
@@ -289,7 +287,19 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                         itemCount: widget.items.length,
                         itemBuilder: (context, index) {
                           final item = widget.items[index];
+                          final bool isSelected =
+                              item.value == _currentSelectedValue;
+                          final bool showDivider =
+                              index != widget.items.length - 1;
+                          final TextStyle titleStyle = getTitleTextStyle(context)
+                              .copyWith(
+                                  fontWeight:
+                                      isSelected ? FontWeight.w600 : FontWeight.normal,
+                                  color: ThemeColorUtils.primaryForeground(context)
+                                      .withOpacity(isSelected ? 1.0 : 0.78));
+
                           final Widget menuItem = InkWell(
+                            borderRadius: BorderRadius.circular(8),
                             onTap: () {
                               setState(() {
                                 _currentSelectedValue = item.value;
@@ -301,22 +311,41 @@ class _BlurDropdownState<T> extends State<BlurDropdown<T>>
                               width: double.infinity,
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 16,
-                                vertical: 8,
+                                vertical: 10,
                               ),
                               decoration: BoxDecoration(
-                                color: item.value == _currentSelectedValue
-                                    ? selectionOverlay
-                                    : Colors.transparent,
-                                border: Border(
-                                  bottom: BorderSide(
-                                    color: dividerColor,
-                                    width: 0.5,
-                                  ),
-                                ),
+                                color: isSelected ? selectionOverlay : Colors.transparent,
+                                borderRadius: BorderRadius.circular(8),
+                                border: showDivider
+                                    ? Border(
+                                        bottom: BorderSide(
+                                          color: dividerColor,
+                                          width: 0.5,
+                                        ),
+                                      )
+                                    : null,
                               ),
-                              child: Text(
-                                item.title,
-                                style: getTitleTextStyle(context),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item.title,
+                                    locale: const Locale('zh-Hans', 'zh'),
+                                    style: titleStyle,
+                                  ),
+                                  if (item.description != null &&
+                                      item.description!.isNotEmpty) ...[
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      item.description!,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: ThemeColorUtils.secondaryForeground(context)
+                                            .withOpacity(isDark ? 0.88 : 0.7),
+                                      ),
+                                    ),
+                                  ],
+                                ],
                               ),
                             ),
                           );
