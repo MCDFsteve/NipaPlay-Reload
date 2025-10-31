@@ -31,6 +31,12 @@ class SettingsCard extends StatelessWidget {
   /// 自定义边框透明度，如果不提供则使用默认的 0.2
   final double? borderOpacity;
 
+  /// 自定义背景颜色，若提供则忽略透明度配置
+  final Color? backgroundColor;
+
+  /// 自定义边框颜色，若提供则忽略边框透明度配置
+  final Color? borderColor;
+
   const SettingsCard({
     super.key,
     required this.child,
@@ -39,6 +45,8 @@ class SettingsCard extends StatelessWidget {
     this.margin,
     this.backgroundOpacity,
     this.borderOpacity,
+    this.backgroundColor,
+    this.borderColor,
   });
 
   @override
@@ -51,6 +59,10 @@ class SettingsCard extends StatelessWidget {
     final effectivePadding = padding ?? const EdgeInsets.all(16.0);
     final effectiveBackgroundOpacity = backgroundOpacity ?? 0.3;
     final effectiveBorderOpacity = borderOpacity ?? 0.2;
+    final Color resolvedBackgroundColor = backgroundColor ??
+        baseColor.withOpacity(effectiveBackgroundOpacity);
+    final Color resolvedBorderColor = borderColor ??
+        baseColor.withOpacity(effectiveBorderOpacity);
 
     Widget cardContent = ClipRRect(
       borderRadius: BorderRadius.circular(effectiveBorderRadius),
@@ -62,9 +74,9 @@ class SettingsCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(effectiveBorderRadius),
-            color: baseColor.withOpacity(effectiveBackgroundOpacity),
+            color: resolvedBackgroundColor,
             border: Border.all(
-              color: baseColor.withOpacity(effectiveBorderOpacity),
+              color: resolvedBorderColor,
               width: 0.5,
             ),
           ),

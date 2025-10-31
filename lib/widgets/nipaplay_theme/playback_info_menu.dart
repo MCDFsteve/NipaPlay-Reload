@@ -199,13 +199,21 @@ class _PlaybackInfoMenuState extends State<PlaybackInfoMenu> {
   }
 
   Widget _buildInfoCard(String title, List<InfoItem> items) {
+    final bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+    final Color backgroundColor = isDarkTheme
+        ? _foregroundColor(context, 0.05)
+        : Colors.white.withOpacity(0.92);
+    final Color borderColor = isDarkTheme
+        ? _foregroundColor(context, 0.1)
+        : Colors.black.withOpacity(0.06);
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: _foregroundColor(context, 0.05),
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: _foregroundColor(context, 0.1)),
+        border: Border.all(color: borderColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

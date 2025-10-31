@@ -80,11 +80,22 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Using a dark theme context for text styles as an example, 
-    // assuming the page is shown over a dark-ish blurred background from TabBarView
-    final textTheme = Theme.of(context).textTheme.apply(
-      bodyColor: Colors.white,
-      displayColor: Colors.white,
+    final theme = Theme.of(context);
+    final bool isDarkTheme = theme.brightness == Brightness.dark;
+    final Color primaryTextColor = isDarkTheme ? Colors.white : Colors.black87;
+    final Color secondaryTextColor =
+        isDarkTheme ? Colors.white.withOpacity(0.9) : Colors.black.withOpacity(0.75);
+    final Color iconColor = isDarkTheme
+        ? Colors.white.withOpacity(0.85)
+        : Colors.black.withOpacity(0.65);
+    final Color linkColor = theme.colorScheme.primary;
+    final Color emphasisColor = isDarkTheme
+        ? Colors.pinkAccent[100] ?? Colors.pinkAccent
+        : theme.colorScheme.secondary;
+
+    final textTheme = theme.textTheme.apply(
+      bodyColor: primaryTextColor,
+      displayColor: primaryTextColor,
     );
     // Use getTextStyle if it provides better themed styles
     // final baseTextStyle = getTextStyle(context);
@@ -103,7 +114,11 @@ class _AboutPageState extends State<AboutPage> {
               'assets/logo.png', // Ensure this path is correct
               height: 120, // Adjust size as needed
               errorBuilder: (context, error, stackTrace) {
-                return const Icon(Ionicons.image_outline, size: 100, color: Colors.white70); // Placeholder if logo fails
+                return Icon(
+                  Ionicons.image_outline,
+                  size: 100,
+                  color: iconColor,
+                ); // Placeholder if logo fails
               },
             ),
             const SizedBox(height: 24),
@@ -125,7 +140,7 @@ class _AboutPageState extends State<AboutPage> {
                         'NipaPlay Reload 当前版本: $_version',
                         style: textTheme.headlineMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: primaryTextColor,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -173,8 +188,15 @@ style: TextStyle(
                   context,
                   [
                     const TextSpan(text: 'NipaPlay,名字来自《寒蝉鸣泣之时》里古手梨花 (ふるて りか) 的标志性口头禅 "'),
-                    TextSpan(text: 'にぱ〜☆', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.pinkAccent[100], fontWeight: FontWeight.bold, fontStyle: FontStyle.italic)),
+                    TextSpan(
+                      text: 'にぱ〜☆',
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: emphasisColor,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
                     const TextSpan(text: '" \n为解决我 macOS和Linux 、IOS看番不便。我创造了 NipaPlay。'),
                   ],
                 ),
@@ -190,8 +212,14 @@ style: TextStyle(color: Colors.pinkAccent[100], fontWeight: FontWeight.bold, fon
                   context,
                   [
                     const TextSpan(text: '感谢弹弹play (DandanPlay) 和开发者 '),
-                    TextSpan(text: 'Kaedei', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold)),
+                    TextSpan(
+                      text: 'Kaedei',
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: linkColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const TextSpan(text: '！提供了 NipaPlay 相关api接口和开发帮助。'),
                   ]
                 ),
@@ -199,8 +227,14 @@ style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold
                   context,
                   [
                     const TextSpan(text: '感谢开发者 '),
-                    TextSpan(text: 'Sakiko', locale:Locale("zh-Hans","zh"),
-style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold)),
+                    TextSpan(
+                      text: 'Sakiko',
+                      locale: Locale("zh-Hans", "zh"),
+                      style: TextStyle(
+                        color: linkColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const TextSpan(text: '！提供了Emby和Jellyfin的媒体库支持。'),
                   ]
                 ),
@@ -226,15 +260,15 @@ style: TextStyle(color: Colors.lightBlueAccent[100], fontWeight: FontWeight.bold
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.logo_github, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.logo_github, color: iconColor, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'MCDFsteve/NipaPlay-Reload',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkColor.withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -249,15 +283,15 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.chatbubbles_outline, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.chatbubbles_outline, color: iconColor, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'QQ群: 961207150',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkColor.withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -272,15 +306,15 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.globe_outline, color: Colors.white.withOpacity(0.8), size: 20),
+                        Icon(Ionicons.globe_outline, color: iconColor, size: 20),
                         const SizedBox(width: 8),
                         Text(
                           'NipaPlay 官方网站',
-                          locale:Locale("zh-Hans","zh"),
-style: TextStyle(
-                            color: Colors.cyanAccent[100],
+                          locale: Locale("zh-Hans", "zh"),
+                          style: TextStyle(
+                            color: linkColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.cyanAccent[100]?.withOpacity(0.7),
+                            decorationColor: linkColor.withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -309,14 +343,18 @@ style: TextStyle(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Ionicons.heart, color: Colors.pinkAccent[100], size: 20),
+                        Icon(
+                          Ionicons.heart,
+                          color: emphasisColor,
+                          size: 20,
+                        ),
                         const SizedBox(width: 8),
                         Text(
                           '爱发电赞助页面',
                           style: TextStyle(
-                            color: Colors.pinkAccent[100],
+                            color: emphasisColor,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.pinkAccent[100]?.withOpacity(0.7),
+                            decorationColor: emphasisColor.withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -334,35 +372,60 @@ style: TextStyle(
   }
 
   Widget _buildInfoCard({required BuildContext context, String? title, required List<Widget> children}) {
+    final theme = Theme.of(context);
+    final bool isDarkTheme = theme.brightness == Brightness.dark;
+    final Color primaryTextColor = isDarkTheme ? Colors.white : Colors.black87;
+    final Color secondaryTextColor =
+        isDarkTheme ? Colors.white.withOpacity(0.9) : Colors.black.withOpacity(0.76);
+
     return SettingsCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (title != null) ...[
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Colors.white, 
-                fontWeight: FontWeight.bold,
+      backgroundColor: isDarkTheme ? null : Colors.white.withOpacity(0.92),
+      borderColor: isDarkTheme ? null : Colors.black.withOpacity(0.08),
+      child: DefaultTextStyle.merge(
+        style: theme.textTheme.bodyMedium?.copyWith(
+              color: secondaryTextColor,
+              height: 1.6,
+            ) ??
+            TextStyle(color: secondaryTextColor, height: 1.6),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (title != null) ...[
+              Text(
+                title,
+                style: theme.textTheme.titleLarge?.copyWith(
+                      color: primaryTextColor,
+                      fontWeight: FontWeight.bold,
+                    ) ??
+                    TextStyle(
+                      color: primaryTextColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
-            ),
-            const SizedBox(height: 12),
+              const SizedBox(height: 12),
+            ],
+            ...children,
           ],
-          ...children,
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildRichText(BuildContext context, List<InlineSpan> spans) {
+    final bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+    final Color textColor = isDarkTheme ? Colors.white.withOpacity(0.9) : Colors.black.withOpacity(0.78);
     return RichText(
       textAlign: TextAlign.start, // Or TextAlign.justify if preferred
       text: TextSpan(
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: Colors.white.withOpacity(0.9), 
-          height: 1.6, // Improved line spacing
-        ), // Default text style for spans
+              color: textColor,
+              height: 1.6, // Improved line spacing
+            ) ??
+            TextStyle(
+              color: textColor,
+              height: 1.6,
+            ), // Default text style for spans
         children: spans,
       ),
     );

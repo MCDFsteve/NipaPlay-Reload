@@ -515,16 +515,22 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
 
   // New method for the custom collapsible section header
   Widget _buildCollapsibleSectionHeader(BuildContext context, String title, int weekdayKey, bool isExpanded, bool isHovering) {
-    // 根据悬停状态调整颜色
-    final backgroundColor = isHovering
+    // 根据主题及悬停状态调整颜色
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color backgroundColor = isDark
         ? ThemeColorUtils.overlayColor(context,
-            darkOpacity: 0.3, lightOpacity: 0.16)
-        : ThemeColorUtils.overlayColor(context,
-            darkOpacity: 0.18, lightOpacity: 0.1);
+            darkOpacity: isHovering ? 0.3 : 0.18, lightOpacity: 0.0)
+        : Colors.white;
 
-    final borderColor = ThemeColorUtils.borderColor(context,
-        darkOpacity: isHovering ? 0.35 : 0.22,
-        lightOpacity: isHovering ? 0.18 : 0.12);
+    final Color borderColor = isDark
+        ? ThemeColorUtils.borderColor(context,
+            darkOpacity: isHovering ? 0.35 : 0.22,
+            lightOpacity: 0.0)
+        : Colors.black.withOpacity(isHovering ? 0.08 : 0.05);
+
+    final Color boxShadowColor = isDark
+        ? Colors.black.withOpacity(isHovering ? 0.26 : 0.22)
+        : Colors.black.withOpacity(isHovering ? 0.16 : 0.12);
 
     return GestureDetector(
       onTap: () {
@@ -532,55 +538,62 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
           _expansionStates[weekdayKey] = !isExpanded;
         });
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(
-            sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25.0 : 0.0,
-            sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25.0 : 0.0,
-          ),
-          child: Container(
-            width: double.infinity,
-            height: 48,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: borderColor,
-                width: 0.5,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 4,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: boxShadowColor,
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: ThemeColorUtils.primaryForeground(context),
-                            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25.0 : 0.0,
+              sigmaY: context.watch<AppearanceSettingsProvider>().enableWidgetBlurEffect ? 25.0 : 0.0,
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 48,
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: borderColor,
+                  width: 0.5,
+                ),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: ThemeColorUtils.primaryForeground(context),
+                              ),
+                        ),
                       ),
-                    ),
-                    AnimatedRotation(
-                      turns: isExpanded ? 0.5 : 0.0,
-                      duration: const Duration(milliseconds: 200),
-                      child: Icon(Ionicons.chevron_down_outline,
+                      AnimatedRotation(
+                        turns: isExpanded ? 0.5 : 0.0,
+                        duration: const Duration(milliseconds: 200),
+                        child: Icon(
+                          Ionicons.chevron_down_outline,
                           color: ThemeColorUtils.secondaryForeground(context),
-                          size: 20),
-                    ),
-                  ],
+                          size: 20,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -589,4 +602,4 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
       ),
     );
   }
-} 
+}

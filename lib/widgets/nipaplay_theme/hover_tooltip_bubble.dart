@@ -347,21 +347,28 @@ class _HoverTooltipBubbleState extends State<HoverTooltipBubble> {
 
   Widget _buildBubble(Size size) {
     final primaryTextColor = ThemeColorUtils.primaryForeground(context);
-    final secondaryBorderColor = ThemeColorUtils.borderColor(
-      context,
-      darkOpacity: 0.3,
-      lightOpacity: 0.2,
-    );
-    final gradientStart = ThemeColorUtils.glassGradientStart(
-      context,
-      darkOpacity: 0.25,
-      lightOpacity: 0.15,
-    );
-    final gradientEnd = ThemeColorUtils.glassGradientEnd(
-      context,
-      darkOpacity: 0.15,
-      lightOpacity: 0.08,
-    );
+    final bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+    final Color borderColor = isDarkTheme
+        ? ThemeColorUtils.borderColor(
+            context,
+            darkOpacity: 0.3,
+            lightOpacity: 0.2,
+          )
+        : Colors.black.withOpacity(0.05);
+    final Color gradientStart = isDarkTheme
+        ? ThemeColorUtils.glassGradientStart(
+            context,
+            darkOpacity: 0.25,
+            lightOpacity: 0.15,
+          )
+        : Colors.white.withOpacity(0.96);
+    final Color gradientEnd = isDarkTheme
+        ? ThemeColorUtils.glassGradientEnd(
+            context,
+            darkOpacity: 0.15,
+            lightOpacity: 0.08,
+          )
+        : Colors.white.withOpacity(0.9);
     final textStyle = TextStyle(
       color: primaryTextColor,
       fontSize: 14,
@@ -404,7 +411,7 @@ class _HoverTooltipBubbleState extends State<HoverTooltipBubble> {
                   ),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: secondaryBorderColor,
+                    color: borderColor,
                     width: 1,
                   ),
                 ),
