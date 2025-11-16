@@ -225,9 +225,11 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
         waitCount++;
 
         // 检查播放器状态
+        final hasSurfaceReady = player.textureId.value != null ||
+            player.getPlayerKernelName() == 'NipaPlay';
         if (player.state == PlaybackState.playing ||
             player.state == PlaybackState.paused ||
-            (player.mediaInfo.duration > 0 && player.textureId.value != null)) {
+            (player.mediaInfo.duration > 0 && hasSurfaceReady)) {
           debugPrint(
               'VideoPlayerState: 播放器准备完成，等待时间: ${waitCount * waitInterval}ms');
           break;

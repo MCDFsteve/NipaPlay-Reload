@@ -88,6 +88,9 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
       case PlayerKernelType.mediaKit:
         _playerCoreName = "Libmpv";
         break;
+      case PlayerKernelType.nipaPlay:
+        _playerCoreName = "NipaPlay";
+        break;
       default:
         _playerCoreName = "MDK";
     }
@@ -288,6 +291,8 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         return 'Video Player 官方播放器\n适用于简单视频播放，兼容性良好';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器\n基于MPV，功能强大，支持硬件解码，支持复杂媒体格式';
+      case PlayerKernelType.nipaPlay:
+        return 'NipaPlay 软解内核 (Rust+FFmpeg)\n实验性，使用软件解码 H.264 并通过内存帧渲染';
     }
   }
 
@@ -367,6 +372,14 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
               description:
                   _getPlayerKernelDescription(PlayerKernelType.mediaKit),
             ),
+            if (!kIsWeb && Platform.isMacOS)
+              DropdownMenuItemData(
+                title: "NipaPlay",
+                value: PlayerKernelType.nipaPlay,
+                isSelected: _selectedKernelType == PlayerKernelType.nipaPlay,
+                description:
+                    _getPlayerKernelDescription(PlayerKernelType.nipaPlay),
+              ),
           ],
           onChanged: (kernelType) {
             _savePlayerKernelSettings(kernelType);

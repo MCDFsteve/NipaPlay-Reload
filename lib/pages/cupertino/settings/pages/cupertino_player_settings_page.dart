@@ -163,6 +163,8 @@ class _CupertinoPlayerSettingsPageState
         return 'Video Player';
       case PlayerKernelType.mediaKit:
         return 'Libmpv';
+      case PlayerKernelType.nipaPlay:
+        return 'NipaPlay';
     }
   }
 
@@ -174,6 +176,8 @@ class _CupertinoPlayerSettingsPageState
         return 'Flutter 官方 Video Player，兼容性好。';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器，支持硬件解码与高级特性。';
+      case PlayerKernelType.nipaPlay:
+        return 'NipaPlay 实验性软解内核，基于 Rust + FFmpeg 的 H.264 解码。';
     }
   }
 
@@ -225,8 +229,18 @@ class _CupertinoPlayerSettingsPageState
     }
   }
 
+  Iterable<PlayerKernelType> _availableKernels() {
+    if (kIsWeb) {
+      return PlayerKernelType.values.where((k) => k != PlayerKernelType.nipaPlay);
+    }
+    if (!Platform.isMacOS) {
+      return PlayerKernelType.values.where((k) => k != PlayerKernelType.nipaPlay);
+    }
+    return PlayerKernelType.values;
+  }
+
   List<AdaptivePopupMenuEntry> _kernelMenuItems() {
-    return PlayerKernelType.values
+    return _availableKernels()
         .map(
           (kernel) => AdaptivePopupMenuItem<PlayerKernelType>(
             label: _kernelDisplayName(kernel),
@@ -332,7 +346,7 @@ class _CupertinoPlayerSettingsPageState
               child:
                   _buildMenuChip(context, _kernelDisplayName(_selectedKernelType)),
               onSelected: (index, entry) {
-                final kernel = entry.value ?? PlayerKernelType.values[index];
+                final kernel = entry.value ?? _availableKernels().elementAt(index);
                 if (kernel != _selectedKernelType) {
                   _savePlayerKernelSettings(kernel);
                 }

@@ -32,6 +32,8 @@ class _CupertinoPlayerSettingTileState
         return '当前：Video Player';
       case PlayerKernelType.mediaKit:
         return '当前：Libmpv';
+      case PlayerKernelType.nipaPlay:
+        return '当前：NipaPlay';
     }
   }
 

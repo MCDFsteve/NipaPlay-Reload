@@ -5,6 +5,7 @@ export './abstract_player.dart' show AbstractPlayer; // Export only AbstractPlay
 export './player_factory.dart' show PlayerKernelType; // Export PlayerKernelType enum
 
 import 'package:flutter/foundation.dart'; // For ValueListenable, used in AbstractPlayer
+import 'dart:ui' as ui;
 import './abstract_player.dart' as core_player; // Alias for the true AbstractPlayer
 import './player_enums.dart' as core_enums; // Alias for our pure enums
 import './player_data_models.dart';
@@ -12,6 +13,7 @@ import './player_factory.dart'; // Import PlayerFactory directly
 import './mdk_player_adapter.dart'; // 导入具体适配器类
 import './video_player_adapter.dart'; // 导入具体适配器类
 import './media_kit_player_adapter.dart'; // 导入MediaKit适配器类
+import './nipa_player_adapter.dart';
 
 /// MDK-compatible PlaybackState. 
 /// Code using the abstraction layer can use `PlaybackState.paused`.
@@ -146,9 +148,20 @@ class Player {
       return "Video Player";
     } else if (_delegate is MediaKitPlayerAdapter) {
       return "Media Kit";
+    } else if (_delegate is NipaPlayerAdapter) {
+      return "NipaPlay";
     } else {
       return "未知";
     }
+  }
+
+  bool get usesNipaKernel => _delegate is NipaPlayerAdapter;
+
+  ValueListenable<ui.Image?>? get nipaImageStream {
+    if (_delegate is NipaPlayerAdapter) {
+      return (_delegate as NipaPlayerAdapter).frameStream;
+    }
+    return null;
   }
   
   // 添加setPlaybackRate方法实现

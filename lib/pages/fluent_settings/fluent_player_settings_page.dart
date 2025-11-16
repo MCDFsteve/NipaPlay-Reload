@@ -168,6 +168,8 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
         return 'Video Player 官方播放器，适用于简单视频播放，兼容性良好';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器，基于MPV，功能强大，支持硬件解码，支持复杂媒体格式';
+      case PlayerKernelType.nipaPlay:
+        return 'NipaPlay 软解内核 (Rust+FFmpeg) 实验性，仅软件解码 H.264';
     }
   }
 
@@ -313,6 +315,11 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
                                   value: PlayerKernelType.mediaKit,
                                   child: const Text('Libmpv'),
                                 ),
+                                if (!kIsWeb && Platform.isMacOS)
+                                  ComboBoxItem<PlayerKernelType>(
+                                    value: PlayerKernelType.nipaPlay,
+                                    child: const Text('NipaPlay'),
+                                  ),
                               ],
                               onChanged: (value) {
                                 if (value != null) {

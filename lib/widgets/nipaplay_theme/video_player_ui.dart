@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
@@ -60,6 +61,29 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
       debugPrint('获取番剧封面失败: $e');
       return null;
     }
+  }
+
+  Widget _buildNipaSurface(VideoPlayerState videoState) {
+    final stream = videoState.nipaImageStream;
+    if (stream == null) {
+      return const Center(child: Text('NipaPlay内核未初始化'));
+    }
+    return ValueListenableBuilder<ui.Image?>(
+      valueListenable: stream,
+      builder: (context, image, _) {
+        if (image == null) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return FittedBox(
+          fit: BoxFit.contain,
+          child: SizedBox(
+            width: image.width.toDouble(),
+            height: image.height.toDouble(),
+            child: RawImage(image: image, fit: BoxFit.contain),
+          ),
+        );
+      },
+    );
   }
 
   // 更新封面URL（如果番剧ID变化）
@@ -325,6 +349,7 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
       builder: (context, videoState, child) {
         final uiThemeProvider = Provider.of<UIThemeProvider>(context);
         final textureId = videoState.player.textureId.value;
+        final isNipaKernel = videoState.isNipaKernel;
 
         // 更新番剧封面URL（如果有番剧ID）
         _updateAnimeCoverUrl(videoState.animeId);
@@ -360,7 +385,16 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
           return const SizedBox.shrink();
         }
 
-        if (textureId != null && textureId >= 0) {
+        if ((textureId != null && textureId >= 0) || isNipaKernel) {
+          Widget buildVideoSurface() {
+            if (isNipaKernel) {
+              return _buildNipaSurface(videoState);
+            }
+            return Texture(
+              textureId: textureId!,
+              filterQuality: FilterQuality.medium,
+            );
+          }
           return MouseRegion(
             onHover: _handleMouseMove,
             cursor: _isMouseVisible ? SystemMouseCursors.basic : SystemMouseCursors.none,
@@ -388,10 +422,7 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
                                   child: Center(
                                     child: AspectRatio(
                                       aspectRatio: videoState.aspectRatio,
-                                      child: Texture(
-                                        textureId: textureId,
-                                        filterQuality: FilterQuality.medium,
-                                      ),
+                                      child: buildVideoSurface(),
                                     ),
                                   ),
                                 ),
@@ -479,13 +510,10 @@ class _VideoPlayerUIState extends State<VideoPlayerUI> {
                                   child: ColoredBox(
                                     color: Colors.black,
                                     child: Center(
-                                      child: AspectRatio(
-                                        aspectRatio: videoState.aspectRatio,
-                                        child: Texture(
-                                          textureId: textureId,
-                                          filterQuality: FilterQuality.medium,
+                                        child: AspectRatio(
+                                          aspectRatio: videoState.aspectRatio,
+                                          child: buildVideoSurface(),
                                         ),
-                                      ),
                                     ),
                                   ),
                                 ),

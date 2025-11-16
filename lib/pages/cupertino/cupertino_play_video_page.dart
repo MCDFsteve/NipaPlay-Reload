@@ -1,6 +1,7 @@
 import 'package:adaptive_platform_ui/adaptive_platform_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui' as ui;
 import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
@@ -65,7 +66,17 @@ class _CupertinoPlayVideoPageState extends State<CupertinoPlayVideoPage> {
 
   Widget _buildBody(VideoPlayerState videoState) {
     final textureId = videoState.player.textureId.value;
-    final hasVideo = videoState.hasVideo && textureId != null && textureId >= 0;
+    final isNipa = videoState.isNipaKernel;
+    final hasTexture = textureId != null && textureId >= 0;
+    final hasVideo = videoState.hasVideo && (hasTexture || isNipa);
+    final videoSurface = isNipa
+        ? _buildNipaSurface(videoState)
+        : (hasTexture
+            ? Texture(
+                textureId: textureId!,
+                filterQuality: FilterQuality.medium,
+              )
+            : const SizedBox.shrink());
     final progressValue = _isDragging
         ? (_dragProgress ?? videoState.progress)
         : videoState.progress;
@@ -115,9 +126,7 @@ class _CupertinoPlayVideoPageState extends State<CupertinoPlayVideoPage> {
                   ? Center(
                       child: AspectRatio(
                         aspectRatio: videoState.aspectRatio,
-                        child: Texture(
-                          textureId: textureId,
-                        ),
+                        child: videoSurface,
                       ),
                     )
                   : _buildPlaceholder(videoState),
@@ -152,6 +161,29 @@ class _CupertinoPlayVideoPageState extends State<CupertinoPlayVideoPage> {
             const VolumeGestureArea(),
         ],
       ),
+    );
+  }
+
+  Widget _buildNipaSurface(VideoPlayerState videoState) {
+    final stream = videoState.nipaImageStream;
+    if (stream == null) {
+      return const Center(child: Text('NipaPlay内核未初始化'));
+    }
+    return ValueListenableBuilder<ui.Image?>(
+      valueListenable: stream,
+      builder: (context, image, _) {
+        if (image == null) {
+          return const Center(child: CupertinoActivityIndicator());
+        }
+        return FittedBox(
+          fit: BoxFit.contain,
+          child: SizedBox(
+            width: image.width.toDouble(),
+            height: image.height.toDouble(),
+            child: RawImage(image: image, fit: BoxFit.contain),
+          ),
+        );
+      },
     );
   }
 

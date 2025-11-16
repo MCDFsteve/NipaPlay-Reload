@@ -3,8 +3,10 @@ import './abstract_player.dart';
 import './mdk_player_adapter.dart';
 import './video_player_adapter.dart'; // 导入新的适配器
 import './media_kit_player_adapter.dart'; // 导入新的MediaKit适配器
+import './nipa_player_adapter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart'; // 用于 debugPrint
+import 'dart:io' show Platform;
 import 'package:nipaplay/utils/system_resource_monitor.dart'; // 导入系统资源监控器
 import 'dart:async'; // 导入dart:async库
 
@@ -12,9 +14,9 @@ import 'dart:async'; // 导入dart:async库
 // For now, it defaults to MDK or could take a parameter.
 enum PlayerKernelType {
   mdk,
-  videoPlayer, // 添加 video_player 内核类型
-  mediaKit, // 添加 media_kit 内核类型
-  // otherPlayer,
+  videoPlayer,
+  mediaKit,
+  nipaPlay,
 }
 
 class PlayerFactory {
@@ -40,6 +42,9 @@ class PlayerFactory {
       
       if (kernelTypeIndex != null && kernelTypeIndex < PlayerKernelType.values.length) {
         _cachedKernelType = PlayerKernelType.values[kernelTypeIndex];
+        if (_cachedKernelType == PlayerKernelType.nipaPlay && !_supportsNipaKernel()) {
+          _cachedKernelType = PlayerKernelType.mediaKit;
+        }
         debugPrint('[PlayerFactory] 预加载内核设置: ${_cachedKernelType.toString()}');
       } else {
         _cachedKernelType = PlayerKernelType.mediaKit;
@@ -66,6 +71,9 @@ class PlayerFactory {
         final kernelTypeIndex = prefs.getInt(_playerKernelTypeKey);
         if (kernelTypeIndex != null && kernelTypeIndex < PlayerKernelType.values.length) {
           _cachedKernelType = PlayerKernelType.values[kernelTypeIndex];
+          if (_cachedKernelType == PlayerKernelType.nipaPlay && !_supportsNipaKernel()) {
+            _cachedKernelType = PlayerKernelType.mediaKit;
+          }
           debugPrint('[PlayerFactory] 异步更新内核设置: ${_cachedKernelType.toString()}');
         }
       });
@@ -81,6 +89,9 @@ class PlayerFactory {
   static PlayerKernelType getKernelType() {
     if (!_hasLoadedSettings) {
       _loadSettingsSync();
+    }
+    if ((_cachedKernelType ?? PlayerKernelType.mediaKit) == PlayerKernelType.nipaPlay && !_supportsNipaKernel()) {
+      _cachedKernelType = PlayerKernelType.mediaKit;
     }
     return _cachedKernelType ?? PlayerKernelType.mediaKit;
   }
@@ -106,6 +117,13 @@ class PlayerFactory {
       case PlayerKernelType.mediaKit:
         debugPrint('[PlayerFactory] 创建 Media Kit 播放器');
         return MediaKitPlayerAdapter();
+      case PlayerKernelType.nipaPlay:
+        if (_supportsNipaKernel()) {
+          debugPrint('[PlayerFactory] 创建 NipaPlay 播放器');
+          return NipaPlayerAdapter();
+        }
+        debugPrint('[PlayerFactory] NipaPlay 内核当前平台不支持，回退 Media Kit');
+        return MediaKitPlayerAdapter();
       // case PlayerKernelType.otherPlayer:
       //   // return OtherPlayerAdapter(ThirdPartyPlayerApi());
       //   throw UnimplementedError('Other player types not yet supported.');
@@ -121,6 +139,10 @@ class PlayerFactory {
     if (kIsWeb) {
       debugPrint('[PlayerFactory] Web平台不支持更改播放器内核');
       return;
+    }
+    if (type == PlayerKernelType.nipaPlay && !_supportsNipaKernel()) {
+      debugPrint('[PlayerFactory] 当前平台不支持 NipaPlay，忽略设置');
+      type = PlayerKernelType.mediaKit;
     }
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -140,6 +162,9 @@ class PlayerFactory {
         case PlayerKernelType.mediaKit:
           kernelTypeName = "Libmpv";
           break;
+        case PlayerKernelType.nipaPlay:
+          kernelTypeName = "NipaPlay";
+          break;
         default:
           kernelTypeName = "未知";
       }
@@ -156,4 +181,6 @@ class PlayerFactory {
       debugPrint('[PlayerFactory] 保存内核设置出错: $e');
     }
   }
-} 
+
+  static bool _supportsNipaKernel() => !kIsWeb && Platform.isMacOS;
+}

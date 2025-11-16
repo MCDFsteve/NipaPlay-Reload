@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 // Added import for subtitle parser
 import 'dart:io';
 import 'dart:async';
+import 'dart:ui' as ui;
 import 'package:http/http.dart' as http;
 
 import 'globals.dart' as globals;
@@ -559,6 +560,9 @@ class VideoPlayerState extends ChangeNotifier implements WindowListener {
 
   // 获取播放器内核名称（通过静态方法）
   String get playerCoreName => player.getPlayerKernelName();
+
+  bool get isNipaKernel => playerCoreName == 'NipaPlay';
+  ValueListenable<ui.Image?>? get nipaImageStream => player.nipaImageStream;
 
   // 播放速度相关的getter
   double get playbackRate => _playbackRate;

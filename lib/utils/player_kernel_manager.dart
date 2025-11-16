@@ -119,6 +119,9 @@ class PlayerKernelManager {
   /// 获取支持的播放器内核列表
   static List<String> getSupportedPlayerKernels() {
     List<String> kernels = ['FVP', 'Media Kit', 'Video Player'];
+    if (!kIsWeb && Platform.isMacOS) {
+      kernels.add('NipaPlay');
+    }
 
     // 根据平台过滤支持的内核
     if (kIsWeb) {
@@ -130,8 +133,9 @@ class PlayerKernelManager {
     } else if (Platform.isAndroid) {
       // Android平台支持的内核
       return ['FVP', 'Media Kit', 'Video Player'];
-    } else if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
-      // 桌面平台支持所有内核
+    } else if (Platform.isWindows || Platform.isLinux) {
+      return kernels;
+    } else if (Platform.isMacOS) {
       return kernels;
     }
 
@@ -160,6 +164,9 @@ class PlayerKernelManager {
         break;
       case 'Video Player':
         kernelType = PlayerKernelType.videoPlayer;
+        break;
+      case 'NipaPlay':
+        kernelType = PlayerKernelType.nipaPlay;
         break;
       default:
         kernelType = PlayerKernelType.mdk;

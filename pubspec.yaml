@@ -95,6 +95,8 @@ dependencies:
   hotkey_manager: ^0.2.3
   fluent_ui: ^4.12.0
   adaptive_platform_ui: ^0.1.98
+  libnipa:
+    path: ../libnipa
 
 dev_dependencies:
   flutter_test:
@@ -221,6 +223,8 @@ dependency_overrides:
   # Fix fluent_ui ShuntingYardParser compatibility issue
   math_expressions: 2.3.1
   fluent_ui: 4.11.0
+  libnipa:
+    path: ../libnipa
   media_kit:
     git:
       url: https://github.com/Shinokawa/media-kit.git
