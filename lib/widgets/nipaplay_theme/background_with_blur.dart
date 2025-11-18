@@ -24,6 +24,15 @@ class BackgroundWithBlur extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<SettingsProvider>(
       builder: (context, settingsProvider, _) {
+        final bool isLight = Theme.of(context).brightness == Brightness.light;
+        final Color overlayBase = isLight ? Colors.white : Colors.black;
+        final List<Color> linearColors = isLight
+            ? [overlayBase.withOpacity(0.18), overlayBase.withOpacity(0.28)]
+            : [overlayBase.withOpacity(0), overlayBase.withOpacity(0)];
+        final List<Color> borderColors = isLight
+            ? [overlayBase.withOpacity(0.14), overlayBase.withOpacity(0.06)]
+            : [overlayBase.withOpacity(0.3), overlayBase.withOpacity(0.1)];
+
         return Stack(
           children: [
             // 背景图像
@@ -43,19 +52,13 @@ class BackgroundWithBlur extends StatelessWidget {
                   width: double.infinity,
                   linearGradient: LinearGradient(
                     // 添加线性渐变
-                    colors: [
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0),
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0),
-                    ],
+                    colors: linearColors,
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderGradient: LinearGradient(
                     // 添加边框渐变
-                    colors: [
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
-                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
-                    ],
+                    colors: borderColors,
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),

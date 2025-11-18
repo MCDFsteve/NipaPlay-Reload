@@ -85,12 +85,14 @@ class _CustomScaffoldState extends State<CustomScaffold> {
             : const Color.fromARGB(59, 255, 255, 255);
         final Color indicatorColor = activeTabColor;
 
+        final Color scaffoldOverlay = isLightTheme
+            ? Colors.white.withOpacity(0.12)
+            : Colors.black.withOpacity(0.7);
+
         return BackgroundWithBlur(
           child: Scaffold(
             primary: false,
-            backgroundColor: Theme.of(context).brightness == Brightness.dark
-                ? Colors.black.withOpacity(0.7)
-                : Colors.black.withOpacity(0.2),
+            backgroundColor: scaffoldOverlay,
             extendBodyBehindAppBar: false,
             appBar: videoState.shouldShowAppBar() && widget.tabPage.isNotEmpty ? AppBar(
               toolbarHeight: !widget.pageIsHome && !globals.isDesktop
