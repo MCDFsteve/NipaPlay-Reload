@@ -1,6 +1,6 @@
 // settings_page.dart
 import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/day_mode_material.dart';
 import 'package:kmbal_ionicons/kmbal_ionicons.dart';
 import 'package:nipaplay/pages/settings/theme_mode_page.dart'; // 导入 ThemeModePage
 import 'package:nipaplay/pages/settings/general_page.dart';

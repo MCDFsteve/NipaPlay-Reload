@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/day_mode_material.dart';
 import 'package:nipaplay/widgets/nipaplay_theme/video_player_widget.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/widgets/fluent_ui/fluent_send_danmaku_dialog.dart';

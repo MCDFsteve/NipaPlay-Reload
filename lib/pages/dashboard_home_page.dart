@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/day_mode_material.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:nipaplay/models/watch_history_model.dart';
@@ -1712,7 +1712,10 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.7),
+                    (Theme.of(context).brightness == Brightness.light
+                            ? Colors.white
+                            : Colors.black)
+                        .withOpacity(0.7),
                   ],
                 ),
               ),
@@ -1940,7 +1943,10 @@ style: TextStyle(
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.7),
+                    (Theme.of(context).brightness == Brightness.light
+                            ? Colors.white
+                            : Colors.black)
+                        .withOpacity(0.7),
                   ],
                 ),
               ),
@@ -2080,6 +2086,12 @@ style: TextStyle(
   }
 
   Widget _buildServiceIcon(RecommendedItemSource source) {
+    final bool isLight = Theme.of(context).brightness == Brightness.light;
+    final Color iconColor = isLight ? Colors.black : Colors.white;
+    final Color borderColor = isLight ? Colors.black : Colors.white;
+    final Color containerColor = isLight
+        ? Colors.white.withOpacity(0.2)
+        : Colors.white.withOpacity(0.2);
     Widget iconWidget;
     
     switch (source) {
@@ -2088,7 +2100,7 @@ style: TextStyle(
           'assets/jellyfin.svg',
           width: 20,
           height: 20,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
         );
         break;
       case RecommendedItemSource.emby:
@@ -2096,14 +2108,14 @@ style: TextStyle(
           'assets/emby.svg',
           width: 20,
           height: 20,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
         );
         break;
       case RecommendedItemSource.local:
         // 本地文件用一个文件夹图标
-        iconWidget = const Icon(
+        iconWidget = Icon(
           Icons.folder,
-          color: Colors.white,
+          color: iconColor,
           size: 20,
         );
         break;
@@ -2118,10 +2130,10 @@ style: TextStyle(
         child: Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: containerColor,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: Colors.white.withOpacity(1.0),
+              color: borderColor.withOpacity(1.0),
               width: 1,
             ),
           ),

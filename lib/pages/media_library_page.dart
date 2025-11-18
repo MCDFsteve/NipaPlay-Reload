@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/day_mode_material.dart';
 import 'package:nipaplay/models/bangumi_model.dart'; // Needed for _fetchedAnimeDetails
 import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:nipaplay/services/bangumi_service.dart'; // Needed for getAnimeDetails

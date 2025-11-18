@@ -76,6 +76,14 @@ class _CustomScaffoldState extends State<CustomScaffold> {
         final enableAnimation = appearanceSettings.enablePageAnimation;
 
         final currentIndex = widget.tabController!.index;
+        final bool isLightTheme = Theme.of(context).brightness == Brightness.light;
+        final Color activeTabColor = isLightTheme ? Colors.black : Colors.white;
+        final Color inactiveTabColor =
+            isLightTheme ? Colors.black.withOpacity(0.6) : Colors.white60;
+        final Color dividerColor = isLightTheme
+            ? Colors.black.withOpacity(0.2)
+            : const Color.fromARGB(59, 255, 255, 255);
+        final Color indicatorColor = activeTabColor;
 
         return BackgroundWithBlur(
           child: Scaffold(
@@ -105,16 +113,16 @@ class _CustomScaffoldState extends State<CustomScaffold> {
                 controller: widget.tabController,
                 isScrollable: true,
                 tabs: widget.tabPage,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.white60,
+                labelColor: activeTabColor,
+                unselectedLabelColor: inactiveTabColor,
                 labelPadding: const EdgeInsets.only(bottom: 15.0),
                 tabAlignment: TabAlignment.start,
                 // 恢复灰色背景条，并使用自定义指示器
-                dividerColor: const Color.fromARGB(59, 255, 255, 255),
+                dividerColor: dividerColor,
                 dividerHeight: 3.0,
-                indicator: const _CustomTabIndicator(
+                indicator: _CustomTabIndicator(
                   indicatorHeight: 3.0,
-                  indicatorColor: Colors.white,
+                  indicatorColor: indicatorColor,
                   radius: 30.0, // 使用大圆角形成药丸形状
                 ),
                 indicatorSize: TabBarIndicatorSize.label, // 与label宽度一致

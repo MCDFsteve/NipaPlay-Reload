@@ -1,5 +1,5 @@
 // tab_labels.dart
-import 'package:flutter/material.dart';
+import 'package:nipaplay/widgets/day_mode_material.dart';
 import 'dart:io';
 
 List<Widget> createTabLabels() {
