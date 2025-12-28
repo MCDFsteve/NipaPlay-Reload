@@ -1,17 +1,13 @@
-import 'package:flutter/cupertino.dart';
-import 'package:nipaplay/themes/cupertino/widgets/cupertino_bottom_sheet.dart';
-import 'package:nipaplay/themes/cupertino/widgets/player_menu/cupertino_pane_back_button.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 
-class CupertinoPlaybackInfoPane extends StatelessWidget {
-  const CupertinoPlaybackInfoPane({
+class FluentPlaybackInfoMenu extends StatelessWidget {
+  const FluentPlaybackInfoMenu({
     super.key,
     required this.videoState,
-    required this.onBack,
   });
 
   final VideoPlayerState videoState;
-  final VoidCallback onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +26,11 @@ class CupertinoPlaybackInfoPane extends StatelessWidget {
     }
 
     final String? danmakuAnimeId = dandanTrack?['animeId']?.toString() ??
-        (videoState.animeId != null ? videoState.animeId.toString() : null);
+        videoState.animeId?.toString();
     final String? danmakuEpisodeId = dandanTrack?['episodeId']?.toString() ??
-        (videoState.episodeId != null ? videoState.episodeId.toString() : null);
+        videoState.episodeId?.toString();
 
-    final List<_InfoRow> rows = [
+    final items = <_InfoRow>[
       _InfoRow('作品标题', videoState.animeTitle ?? '未知'),
       _InfoRow('剧集标题', videoState.episodeTitle ?? '未知'),
       _InfoRow(
@@ -55,32 +51,33 @@ class CupertinoPlaybackInfoPane extends StatelessWidget {
       _InfoRow('当前位置', _formatDuration(videoState.position)),
       _InfoRow('总时长', _formatDuration(videoState.duration)),
       _InfoRow('播放速度', '${videoState.playbackRate}x'),
-      _InfoRow('当前源', videoState.currentVideoPath ?? '未知'),
+      _InfoRow('当前源', _formatSource(videoState.currentVideoPath)),
     ];
 
-    return CupertinoBottomSheetContentLayout(
-      sliversBuilder: (context, topSpacing) => [
-        SliverPadding(
-          padding: EdgeInsets.only(top: topSpacing, bottom: 24),
-          sliver: SliverList(
-            delegate: SliverChildListDelegate([
-              CupertinoListSection.insetGrouped(
-                header: const Text('播放信息'),
-                children: rows
-                    .map(
-                      (row) => CupertinoListTile(
-                        title: Text(row.title),
-                        subtitle: Text(row.value),
-                      ),
-                    )
-                    .toList(),
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        Text(
+          '当前播放状态与弹幕匹配信息',
+          style: FluentTheme.of(context).typography.caption?.copyWith(
+                color: FluentTheme.of(context).resources.textFillColorSecondary,
               ),
-            ]),
-          ),
         ),
-        SliverToBoxAdapter(
-          child: CupertinoPaneBackButton(onPressed: onBack),
-        ),
+        const SizedBox(height: 12),
+        ...items.map((row) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: InfoLabel(
+              label: row.title,
+              child: Text(
+                row.value,
+                maxLines: row.title == '当前源' ? 2 : null,
+                overflow:
+                    row.title == '当前源' ? TextOverflow.ellipsis : TextOverflow.visible,
+              ),
+            ),
+          );
+        }),
       ],
     );
   }
@@ -96,6 +93,15 @@ class CupertinoPlaybackInfoPane extends StatelessWidget {
       return '${hours.toString().padLeft(2, '0')}:$minutes:$seconds';
     }
     return '$minutes:$seconds';
+  }
+
+  String _formatSource(String? source) {
+    if (source == null || source.isEmpty) return '未知';
+    final idx = source.lastIndexOf('/');
+    if (idx >= 0 && idx < source.length - 1) {
+      return source.substring(idx + 1);
+    }
+    return source;
   }
 }
 
