@@ -1,6 +1,7 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/utils/globals.dart' as globals;
 import 'fluent_playback_rate_menu.dart';
@@ -54,6 +55,12 @@ class _FluentRightEdgeMenuState extends State<FluentRightEdgeMenu>
     PlayerMenuPaneId.danmakuOffset,
     PlayerMenuPaneId.playbackInfo,
     PlayerMenuPaneId.playlist,
+  };
+
+  static const Set<PlayerMenuPaneId> _supportedPaneIdsWeb = {
+    PlayerMenuPaneId.seekStep,
+    PlayerMenuPaneId.playbackRate,
+    PlayerMenuPaneId.playbackInfo,
   };
 
   @override
@@ -156,7 +163,7 @@ class _FluentRightEdgeMenuState extends State<FluentRightEdgeMenu>
             videoState: videoState,
             kernelType: PlayerFactory.getKernelType(),
           ),
-          supportedPaneIds: _supportedPaneIds,
+          supportedPaneIds: kIsWeb ? _supportedPaneIdsWeb : _supportedPaneIds,
         ).build();
         final paneLookup = {
           for (final item in menuItems) item.paneId: item,

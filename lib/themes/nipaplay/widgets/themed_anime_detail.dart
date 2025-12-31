@@ -5,12 +5,13 @@ import 'package:flutter/foundation.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/pages/anime_detail_page.dart';
 import 'package:nipaplay/themes/fluent/pages/fluent_anime_detail_page.dart';
+import 'package:nipaplay/themes/material/pages/material_anime_detail_page.dart';
 import 'package:nipaplay/models/playable_item.dart';
 import 'package:nipaplay/models/shared_remote_library.dart';
 import 'package:nipaplay/models/watch_history_model.dart';
 
 /// 番剧详情页面的主题适配器
-/// 根据当前UI主题自动选择Material或Fluent版本
+/// 根据当前UI主题自动选择 Material / Fluent / 默认版本
 class ThemedAnimeDetail {
   /// 显示番剧详情页面，自动适配当前UI主题
   static Future<WatchHistoryItem?> show(
@@ -37,10 +38,11 @@ class ThemedAnimeDetail {
       // 使用 Fluent UI 版本
       debugPrint('[ThemedAnimeDetail] 使用 Fluent UI 版本显示番剧详情页面');
       return _showFluentDialog(context, animeId);
-    } else {
-      // 使用 Material 版本（保持原有逻辑）
+    }
+
+    if (uiThemeProvider.isMaterialTheme) {
       debugPrint('[ThemedAnimeDetail] 使用 Material 版本显示番剧详情页面');
-      return AnimeDetailPage.show(
+      return MaterialAnimeDetailPage.show(
         context,
         animeId,
         sharedSummary: sharedSummary,
@@ -49,6 +51,17 @@ class ThemedAnimeDetail {
         sharedSourceLabel: sharedSourceLabel,
       );
     }
+
+    // 默认版本（NipaPlay 主题）
+    debugPrint('[ThemedAnimeDetail] 使用默认版本显示番剧详情页面');
+    return AnimeDetailPage.show(
+      context,
+      animeId,
+      sharedSummary: sharedSummary,
+      sharedEpisodeLoader: sharedEpisodeLoader,
+      sharedEpisodeBuilder: sharedEpisodeBuilder,
+      sharedSourceLabel: sharedSourceLabel,
+    );
   }
 
   /// 显示 Fluent UI 版本的番剧详情对话框

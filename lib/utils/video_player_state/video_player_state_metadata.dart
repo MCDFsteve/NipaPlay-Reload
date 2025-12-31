@@ -320,6 +320,7 @@ extension VideoPlayerStateMetadata on VideoPlayerState {
   // 根据视频识别信息更新观看记录
   Future<void> _updateWatchHistoryWithVideoInfo(
       String path, Map<String, dynamic> videoInfo) async {
+    if (kIsWeb) return;
     try {
       //debugPrint('更新观看记录开始，视频路径: $path');
       // 获取现有记录

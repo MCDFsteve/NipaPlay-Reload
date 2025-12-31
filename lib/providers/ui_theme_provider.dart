@@ -26,7 +26,9 @@ class UIThemeProvider extends ChangeNotifier {
   String get currentThemeId => currentThemeDescriptor.id;
 
   bool get isNipaplayTheme => currentThemeId == ThemeIds.nipaplay;
-  bool get isFluentUITheme => currentThemeId == ThemeIds.fluent;
+  bool get isMaterialTheme => currentThemeId == ThemeIds.material;
+  bool get isFluentUITheme =>
+      currentThemeId == ThemeIds.fluent || currentThemeId == ThemeIds.webRemote;
   bool get isCupertinoTheme => currentThemeId == ThemeIds.cupertino;
 
   ThemeMode get fluentThemeMode => _fluentThemeMode;

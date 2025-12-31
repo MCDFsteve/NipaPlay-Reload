@@ -8,7 +8,10 @@ import 'package:nipaplay/models/playable_item.dart';
 import 'package:nipaplay/models/dandanplay_remote_model.dart';
 import 'package:nipaplay/models/shared_remote_library.dart';
 import 'package:nipaplay/providers/dandanplay_remote_provider.dart';
+import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/services/bangumi_service.dart';
+import 'package:nipaplay/themes/fluent/widgets/fluent_anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_button.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_snackbar.dart';
@@ -219,6 +222,29 @@ class _DandanplayRemoteLibraryViewState
     DandanplayRemoteProvider provider,
   ) {
     final coverUrl = _resolveCoverUrlForGroup(group, provider);
+
+    final uiThemeProvider = Provider.of<UIThemeProvider>(context, listen: false);
+
+    if (uiThemeProvider.isFluentUITheme) {
+      return FluentAnimeCard(
+        key: ValueKey('dandan_${group.animeId ?? group.title}'),
+        name: group.title,
+        imageUrl: coverUrl,
+        source: '弹弹play',
+        onTap: () => _openAnimeDetail(group, provider),
+      );
+    }
+
+    if (uiThemeProvider.isMaterialTheme) {
+      return MaterialAnimeCard(
+        key: ValueKey('dandan_${group.animeId ?? group.title}'),
+        name: group.title,
+        imageUrl: coverUrl,
+        source: '弹弹play',
+        enableShadow: false,
+        onTap: () => _openAnimeDetail(group, provider),
+      );
+    }
 
     return AnimeCard(
       key: ValueKey('dandan_${group.animeId ?? group.title}'),

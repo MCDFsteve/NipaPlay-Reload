@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:intl/intl.dart';
 import 'package:nipaplay/models/shared_remote_library.dart';
 import 'package:nipaplay/themes/web/models/web_playback_item.dart';
@@ -42,105 +42,112 @@ class _WebManagementPageState extends State<WebManagementPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: FutureBuilder<WebManagementData>(
-        future: _future,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return _ErrorView(
-              title: '加载失败',
-              message: snapshot.error.toString(),
-              onRetry: _refresh,
-            );
-          }
+    return ScaffoldPage(
+      header: PageHeader(
+        title: const Text('库管理'),
+        commandBar: CommandBar(
+          mainAxisAlignment: MainAxisAlignment.end,
+          primaryItems: [
+            CommandBarButton(
+              icon: const Icon(FluentIcons.refresh),
+              label: const Text('刷新'),
+              onPressed: _refresh,
+            ),
+            CommandBarButton(
+              icon: const Icon(FluentIcons.search),
+              label: const Text('重新扫描'),
+              onPressed: () async {
+                await widget.api.rescanAll();
+                _refresh();
+              },
+            ),
+          ],
+        ),
+      ),
+      content: Padding(
+        padding: const EdgeInsets.all(16),
+        child: FutureBuilder<WebManagementData>(
+          future: _future,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: ProgressRing());
+            }
+            if (snapshot.hasError) {
+              return _ErrorView(
+                title: '加载失败',
+                message: snapshot.error.toString(),
+                onRetry: _refresh,
+              );
+            }
 
-          final data = snapshot.data ?? const WebManagementData();
-          final status = data.scanStatus;
+            final data = snapshot.data ?? const WebManagementData();
+            final status = data.scanStatus;
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const Text(
-                    '库管理',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(width: 12),
-                  OutlinedButton.icon(
-                    onPressed: _refresh,
-                    icon: const Icon(Icons.refresh),
-                    label: const Text('刷新'),
-                  ),
-                  const SizedBox(width: 8),
-                  FilledButton.icon(
-                    onPressed: () async {
-                      await widget.api.rescanAll();
-                      _refresh();
-                    },
-                    icon: const Icon(Icons.manage_search),
-                    label: const Text('重新扫描'),
-                  ),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (status != null) ...[
+                  _ScanStatusCard(status: status),
+                  const SizedBox(height: 12),
                 ],
-              ),
-              const SizedBox(height: 12),
-              if (status != null) _ScanStatusCard(status: status),
-              const SizedBox(height: 12),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 6,
-                      child: _FoldersCard(
-                        folders: data.folders,
-                        onRemove: (path) async {
-                          await widget.api.removeFolder(path);
-                          _refresh();
-                        },
-                        onBrowse: (path) async {
-                          await showDialog<void>(
-                            context: context,
-                            builder: (_) => Dialog(
-                              insetPadding: const EdgeInsets.all(16),
-                              child: ConstrainedBox(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 980,
-                                  maxHeight: 720,
+                Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: _FoldersCard(
+                          folders: data.folders,
+                          onRemove: (path) async {
+                            await widget.api.removeFolder(path);
+                            _refresh();
+                          },
+                          onBrowse: (path) async {
+                            await showDialog<void>(
+                              context: context,
+                              builder: (_) => ContentDialog(
+                                title: const Text('远程浏览'),
+                                content: ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 980,
+                                    maxHeight: 720,
+                                  ),
+                                  child: _RemoteBrowser(
+                                    api: widget.api,
+                                    initialPath: path,
+                                    onPlay: widget.onPlay,
+                                  ),
                                 ),
-                                child: _RemoteBrowser(
-                                  api: widget.api,
-                                  initialPath: path,
-                                  onPlay: widget.onPlay,
-                                ),
+                                actions: [
+                                  Button(
+                                    child: const Text('关闭'),
+                                    onPressed: () => Navigator.of(context).pop(),
+                                  ),
+                                ],
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      flex: 4,
-                      child: _AddFolderCard(
-                        controller: _folderController,
-                        onAdd: (path) async {
-                          await widget.api.addFolder(path, scan: true);
-                          _folderController.clear();
-                          _refresh();
-                        },
+                      const SizedBox(width: 12),
+                      Expanded(
+                        flex: 4,
+                        child: _AddFolderCard(
+                          controller: _folderController,
+                          onAdd: (path) async {
+                            await widget.api.addFolder(path, scan: true);
+                            _folderController.clear();
+                            _refresh();
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -155,39 +162,35 @@ class _ScanStatusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool scanning = status.isScanning;
     final double progress = status.progress.clamp(0.0, 1.0);
+
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          children: [
-            Icon(scanning ? Icons.autorenew : Icons.check_circle_outline),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    scanning ? '扫描中' : '空闲',
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 6),
-                  LinearProgressIndicator(value: scanning ? progress : null),
-                  const SizedBox(height: 6),
-                  Text(
-                    [
-                      if (status.message.isNotEmpty) status.message,
-                      '已发现文件：${status.totalFilesFound}',
-                    ].join(' · '),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        children: [
+          Icon(scanning ? FluentIcons.sync : FluentIcons.completed),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  scanning ? '扫描中' : '空闲',
+                  style: FluentTheme.of(context).typography.bodyStrong,
+                ),
+                const SizedBox(height: 8),
+                ProgressBar(value: scanning ? progress * 100 : null),
+                const SizedBox(height: 8),
+                Text(
+                  [
+                    if (status.message.isNotEmpty) status.message,
+                    '已发现文件：${status.totalFilesFound}',
+                  ].join(' · '),
+                  style: FluentTheme.of(context).typography.caption,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -207,51 +210,55 @@ class _FoldersCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              '扫描文件夹',
-              style: TextStyle(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 8),
-            Expanded(
-              child: folders.isEmpty
-                  ? const Center(child: Text('暂无扫描文件夹'))
-                  : ListView.separated(
-                      itemCount: folders.length,
-                      separatorBuilder: (_, __) => const Divider(height: 1),
-                      itemBuilder: (context, index) {
-                        final folder = folders[index];
-                        return ListTile(
-                          leading: Icon(
-                            folder.exists ? Icons.folder : Icons.folder_off,
-                          ),
-                          title: Text(folder.name),
-                          subtitle: Text(folder.path),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                tooltip: '浏览',
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '扫描文件夹',
+            style: FluentTheme.of(context).typography.bodyStrong,
+          ),
+          const SizedBox(height: 8),
+          Expanded(
+            child: folders.isEmpty
+                ? const Center(child: Text('暂无扫描文件夹'))
+                : ListView.separated(
+                    itemCount: folders.length,
+                    separatorBuilder: (_, __) => const Divider(size: 1),
+                    itemBuilder: (context, index) {
+                      final folder = folders[index];
+                      return ListTile.selectable(
+                        leading: Icon(
+                          folder.exists
+                              ? FluentIcons.fabric_folder
+                              : FluentIcons.folder_open,
+                        ),
+                        title: Text(folder.name),
+                        subtitle: Text(folder.path),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Tooltip(
+                              message: '浏览',
+                              child: IconButton(
+                                icon: const Icon(FluentIcons.search),
                                 onPressed: () => onBrowse(folder.path),
-                                icon: const Icon(Icons.travel_explore),
                               ),
-                              IconButton(
-                                tooltip: '移除',
+                            ),
+                            Tooltip(
+                              message: '移除',
+                              child: IconButton(
+                                icon: const Icon(FluentIcons.delete),
                                 onPressed: () => onRemove(folder.path),
-                                icon: const Icon(Icons.delete_outline),
                               ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-            ),
-          ],
-        ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
       ),
     );
   }
@@ -269,47 +276,37 @@ class _AddFolderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              '添加文件夹（服务端路径）',
-              style: TextStyle(fontWeight: FontWeight.w700),
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '添加文件夹（服务端路径）',
+            style: FluentTheme.of(context).typography.bodyStrong,
+          ),
+          const SizedBox(height: 8),
+          TextBox(
+            controller: controller,
+            placeholder: '/Volumes/Media/Anime',
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () async {
+                final path = controller.text.trim();
+                if (path.isEmpty) return;
+                await onAdd(path);
+              },
+              child: const Text('添加并扫描'),
             ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                hintText: '/Volumes/Media/Anime',
-                border: OutlineInputBorder(),
-                isDense: true,
-              ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                onPressed: () async {
-                  final path = controller.text.trim();
-                  if (path.isEmpty) return;
-                  await onAdd(path);
-                },
-                icon: const Icon(Icons.add),
-                label: const Text('添加并扫描'),
-              ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              '提示：此处填写的是运行 NipaPlay 的机器上的绝对路径。',
-              style: TextStyle(
-                fontSize: 12,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '提示：此处填写的是运行 NipaPlay 的机器上的绝对路径。',
+            style: FluentTheme.of(context).typography.caption,
+          ),
+        ],
       ),
     );
   }
@@ -355,26 +352,13 @@ class _RemoteBrowserState extends State<_RemoteBrowser> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              const Text(
-                '远程浏览',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  _path,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              IconButton(
-                tooltip: '关闭',
-                onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(Icons.close),
-              ),
-            ],
+          InfoLabel(
+            label: '当前路径',
+            child: Text(
+              _path,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           const SizedBox(height: 8),
           Expanded(
@@ -382,7 +366,7 @@ class _RemoteBrowserState extends State<_RemoteBrowser> {
               future: _future,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(child: ProgressRing());
                 }
                 if (snapshot.hasError) {
                   return _ErrorView(
@@ -398,7 +382,7 @@ class _RemoteBrowserState extends State<_RemoteBrowser> {
 
                 return ListView.separated(
                   itemCount: entries.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  separatorBuilder: (_, __) => const Divider(size: 1),
                   itemBuilder: (context, index) {
                     final entry = entries[index];
                     final subtitle = <String>[
@@ -407,22 +391,24 @@ class _RemoteBrowserState extends State<_RemoteBrowser> {
                             .format(entry.modifiedTime!.toLocal()),
                       if (!entry.isDirectory && entry.size != null)
                         '${(entry.size! / (1024 * 1024)).toStringAsFixed(1)} MB',
-                      if (entry.animeName?.isNotEmpty == true)
-                        entry.animeName!,
+                      if (entry.animeName?.isNotEmpty == true) entry.animeName!,
                       if (entry.episodeTitle?.isNotEmpty == true)
                         entry.episodeTitle!,
                     ].join(' · ');
 
-                    return ListTile(
+                    return ListTile.selectable(
                       leading: Icon(
-                        entry.isDirectory ? Icons.folder : Icons.movie_outlined,
+                        entry.isDirectory
+                            ? FluentIcons.fabric_folder
+                            : FluentIcons.video,
                       ),
                       title: Text(entry.name),
                       subtitle: subtitle.isEmpty ? null : Text(subtitle),
-                      onTap: entry.isDirectory ? () => _open(entry.path) : null,
+                      onPressed:
+                          entry.isDirectory ? () => _open(entry.path) : null,
                       trailing: entry.isDirectory
-                          ? const Icon(Icons.chevron_right)
-                          : TextButton(
+                          ? const Icon(FluentIcons.chevron_right_small)
+                          : FilledButton(
                               onPressed: () {
                                 final uri =
                                     widget.api.resolveManageStream(entry.path);
@@ -464,25 +450,15 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8),
-              Text(
-                message,
-                style: TextStyle(color: Theme.of(context).colorScheme.error),
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                onPressed: onRetry,
-                icon: const Icon(Icons.refresh),
-                label: const Text('重试'),
-              ),
-            ],
+        constraints: const BoxConstraints(maxWidth: 560),
+        child: InfoBar(
+          title: Text(title),
+          content: Text(message),
+          severity: InfoBarSeverity.error,
+          isLong: true,
+          action: Button(
+            child: const Text('重试'),
+            onPressed: onRetry,
           ),
         ),
       ),

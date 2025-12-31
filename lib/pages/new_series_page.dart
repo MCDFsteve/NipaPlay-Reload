@@ -17,6 +17,7 @@ import 'package:nipaplay/themes/nipaplay/widgets/floating_action_glass_button.da
 import 'package:nipaplay/themes/nipaplay/widgets/blur_snackbar.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
 import 'package:nipaplay/themes/fluent/widgets/fluent_anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/themes/fluent/pages/fluent_new_series_page.dart';
 import 'package:nipaplay/main.dart';
@@ -391,9 +392,10 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
         ratingDetails: anime.ratingDetails,
         onTap: () => _showAnimeDetail(anime),
       );
-    } else {
-      // 使用 Material 版本（保持原有逻辑）
-      return AnimeCard(
+    }
+
+    if (uiThemeProvider.isMaterialTheme) {
+      return MaterialAnimeCard(
         key: key,
         name: anime.nameCn,
         imageUrl: anime.imageUrl,
@@ -404,6 +406,17 @@ class _NewSeriesPageState extends State<NewSeriesPage> with AutomaticKeepAliveCl
         onTap: () => _showAnimeDetail(anime),
       );
     }
+
+    return AnimeCard(
+      key: key,
+      name: anime.nameCn,
+      imageUrl: anime.imageUrl,
+      isOnAir: false,
+      source: 'Bangumi',
+      rating: anime.rating,
+      ratingDetails: anime.ratingDetails,
+      onTap: () => _showAnimeDetail(anime),
+    );
   }
 
   Future<void> _showAnimeDetail(BangumiAnime animeFromList) async {

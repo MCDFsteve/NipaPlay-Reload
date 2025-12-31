@@ -11,6 +11,9 @@ import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:nipaplay/pages/media_library_page.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/themed_anime_detail.dart';
 import 'package:nipaplay/providers/shared_remote_library_provider.dart';
+import 'package:nipaplay/providers/ui_theme_provider.dart';
+import 'package:nipaplay/themes/fluent/widgets/fluent_anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_login_dialog.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_snackbar.dart';
@@ -133,11 +136,38 @@ class _SharedRemoteLibraryViewState extends State<SharedRemoteLibraryView>
           itemCount: animeSummaries.length,
           itemBuilder: (context, index) {
             final anime = animeSummaries[index];
+            final uiTheme = context.read<UIThemeProvider>();
+            final title =
+                anime.nameCn?.isNotEmpty == true ? anime.nameCn! : anime.name;
+            final imageUrl = anime.imageUrl ?? '';
+            final source = provider.activeHost?.displayName;
+
+            if (uiTheme.isFluentUITheme) {
+              return FluentAnimeCard(
+                key: ValueKey('shared_${anime.animeId}'),
+                name: title,
+                imageUrl: imageUrl,
+                source: source,
+                onTap: () => _openEpisodeSheet(context, provider, anime),
+              );
+            }
+
+            if (uiTheme.isMaterialTheme) {
+              return MaterialAnimeCard(
+                key: ValueKey('shared_${anime.animeId}'),
+                name: title,
+                imageUrl: imageUrl,
+                source: source,
+                enableShadow: false,
+                onTap: () => _openEpisodeSheet(context, provider, anime),
+              );
+            }
+
             return AnimeCard(
               key: ValueKey('shared_${anime.animeId}'),
-              name: anime.nameCn?.isNotEmpty == true ? anime.nameCn! : anime.name,
-              imageUrl: anime.imageUrl ?? '',
-              source: provider.activeHost?.displayName,
+              name: title,
+              imageUrl: imageUrl,
+              source: source,
               enableShadow: false,
               backgroundBlurSigma: 10,
               onTap: () => _openEpisodeSheet(context, provider, anime),

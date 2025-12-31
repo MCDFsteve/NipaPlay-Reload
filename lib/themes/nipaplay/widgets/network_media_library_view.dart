@@ -13,6 +13,8 @@ import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/services/jellyfin_service.dart';
 import 'package:nipaplay/services/emby_service.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
+import 'package:nipaplay/themes/fluent/widgets/fluent_anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_button.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/network_media_server_dialog.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/floating_action_glass_button.dart';
@@ -596,6 +598,30 @@ class _NetworkMediaLibraryViewState extends State<NetworkMediaLibraryView>
             ? EmbyService.instance.getImageUrl(embyItem.id, width: 300)
             : '';
         break;
+    }
+
+    final uiThemeProvider = Provider.of<UIThemeProvider>(context, listen: false);
+
+    if (uiThemeProvider.isFluentUITheme) {
+      return FluentAnimeCard(
+        key: ValueKey(uniqueId),
+        name: item.title,
+        imageUrl: imageUrl,
+        source: _serverName,
+        onTap: () => _openMediaDetail(item),
+      );
+    }
+
+    if (uiThemeProvider.isMaterialTheme) {
+      return MaterialAnimeCard(
+        key: ValueKey(uniqueId),
+        name: item.title,
+        imageUrl: imageUrl,
+        source: _serverName,
+        useLegacyImageLoadMode: true,
+        enableShadow: false,
+        onTap: () => _openMediaDetail(item),
+      );
     }
 
     return AnimeCard(

@@ -3,6 +3,7 @@ part of video_player_state;
 extension VideoPlayerStateStreaming on VideoPlayerState {
   // 添加返回按钮处理
   Future<bool> handleBackButton() async {
+    if (kIsWeb) return true;
     if (_isFullscreen) {
       await toggleFullscreen();
       return false; // 不退出应用
@@ -29,6 +30,7 @@ extension VideoPlayerStateStreaming on VideoPlayerState {
 
   // 条件性截图方法
   Future<void> _captureConditionalScreenshot(String triggerEvent) async {
+    if (kIsWeb) return;
     if (_currentVideoPath == null || !hasVideo || _isCapturingFrame) return;
 
     _isCapturingFrame = true;

@@ -8,6 +8,7 @@ import 'package:nipaplay/themes/nipaplay/widgets/video_player_widget.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
 import 'package:nipaplay/themes/fluent/widgets/fluent_send_danmaku_dialog.dart';
 import 'package:nipaplay/themes/fluent/widgets/fluent_video_controls_overlay.dart';
+import 'package:nipaplay/themes/material/widgets/material_video_controls_overlay.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/vertical_indicator.dart';
@@ -286,7 +287,9 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
                   if (videoState.hasVideo)
                     uiThemeProvider.isFluentUITheme
                         ? const FluentVideoControlsOverlay()
-                        : _buildMaterialControls(videoState),
+                        : uiThemeProvider.isMaterialTheme
+                            ? _buildMaterialThemeControls(videoState)
+                            : _buildNipaplayControls(videoState),
                 ],
               ),
             ),
@@ -296,7 +299,35 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
     );
   }
 
-  Widget _buildMaterialControls(VideoPlayerState videoState) {
+  Widget _buildMaterialThemeControls(VideoPlayerState videoState) {
+    return Stack(
+      children: [
+        Consumer<VideoPlayerState>(
+          builder: (context, videoState, _) {
+            return VerticalIndicator(videoState: videoState);
+          },
+        ),
+        const MaterialVideoControlsOverlay(),
+        if (globals.isPhone && videoState.isFullscreen)
+          Positioned(
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: 60,
+            child: GestureDetector(
+              onHorizontalDragStart: _handleSideSwipeDragStart,
+              onHorizontalDragUpdate: _handleSideSwipeDragUpdate,
+              onHorizontalDragEnd: _handleSideSwipeDragEnd,
+              behavior: HitTestBehavior.translucent,
+              dragStartBehavior: DragStartBehavior.down,
+              child: Container(),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildNipaplayControls(VideoPlayerState videoState) {
     final bool uiLocked = globals.isPhone ? _isUiLocked : false;
     final bool showLockButton = globals.isPhone &&
         (videoState.showControls || (uiLocked && _showUiLockButton));

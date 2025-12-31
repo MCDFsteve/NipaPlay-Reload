@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:intl/intl.dart';
 import 'package:nipaplay/themes/web/models/web_playback_item.dart';
 import 'package:nipaplay/themes/web/services/web_remote_api_client.dart';
@@ -45,72 +45,63 @@ class _WebHistoryPageState extends State<WebHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              const Text(
-                '观看记录',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(width: 12),
-              OutlinedButton.icon(
-                onPressed: _refresh,
-                icon: const Icon(Icons.refresh),
-                label: const Text('刷新'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Expanded(
-            child: FutureBuilder<List<WebRemoteHistoryEntry>>(
-              future: _future,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                if (snapshot.hasError) {
-                  return _ErrorView(
-                    title: '加载失败',
-                    message: snapshot.error.toString(),
-                    onRetry: _refresh,
-                  );
-                }
-
-                final items = snapshot.data ?? const <WebRemoteHistoryEntry>[];
-                final filtered = _filter(items, widget.searchQuery);
-                if (filtered.isEmpty) {
-                  return const Center(child: Text('暂无观看记录'));
-                }
-
-                return ListView.separated(
-                  itemCount: filtered.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
-                  itemBuilder: (context, index) {
-                    return _HistoryCard(
-                      entry: filtered[index],
-                      onPlay: () {
-                        final uri = widget.api.resolveExternal(
-                          filtered[index].episode.streamPath,
-                        );
-                        widget.onPlay(
-                          WebPlaybackItem(
-                            uri: uri,
-                            title: filtered[index].episode.title,
-                            subtitle: filtered[index].animeName,
-                          ),
-                        );
-                      },
-                    );
-                  },
-                );
-              },
+    return ScaffoldPage(
+      header: PageHeader(
+        title: const Text('观看记录'),
+        commandBar: CommandBar(
+          mainAxisAlignment: MainAxisAlignment.end,
+          primaryItems: [
+            CommandBarButton(
+              icon: const Icon(FluentIcons.refresh),
+              label: const Text('刷新'),
+              onPressed: _refresh,
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      content: FutureBuilder<List<WebRemoteHistoryEntry>>(
+        future: _future,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: ProgressRing());
+          }
+          if (snapshot.hasError) {
+            return _ErrorView(
+              title: '加载失败',
+              message: snapshot.error.toString(),
+              onRetry: _refresh,
+            );
+          }
+
+          final items = snapshot.data ?? const <WebRemoteHistoryEntry>[];
+          final filtered = _filter(items, widget.searchQuery);
+          if (filtered.isEmpty) {
+            return const Center(child: Text('暂无观看记录'));
+          }
+
+          return ListView.separated(
+            padding: const EdgeInsets.all(16),
+            itemCount: filtered.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 10),
+            itemBuilder: (context, index) {
+              return _HistoryCard(
+                entry: filtered[index],
+                onPlay: () {
+                  final uri = widget.api.resolveExternal(
+                    filtered[index].episode.streamPath,
+                  );
+                  widget.onPlay(
+                    WebPlaybackItem(
+                      uri: uri,
+                      title: filtered[index].episode.title,
+                      subtitle: filtered[index].animeName,
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -146,46 +137,41 @@ class _HistoryCard extends StatelessWidget {
         .format((ep.lastWatchTime ?? DateTime.now()).toLocal());
 
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _Cover(imageUrl: entry.imageUrl),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    entry.animeName ?? '未知标题',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    ep.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 8),
-                  LinearProgressIndicator(value: progress),
-                  const SizedBox(height: 6),
-                  Text(
-                    '$timeText · ${(progress * 100).toStringAsFixed(1)}%',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _Cover(imageUrl: entry.imageUrl),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  entry.animeName ?? '未知标题',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: FluentTheme.of(context).typography.bodyStrong,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  ep.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 10),
+                ProgressBar(value: progress * 100),
+                const SizedBox(height: 6),
+                Text(
+                  '$timeText · ${(progress * 100).toStringAsFixed(1)}%',
+                  style: FluentTheme.of(context).typography.caption,
+                ),
+              ],
             ),
-            const SizedBox(width: 8),
-            TextButton(onPressed: onPlay, child: const Text('播放')),
-          ],
-        ),
+          ),
+          const SizedBox(width: 8),
+          FilledButton(onPressed: onPlay, child: const Text('播放')),
+        ],
       ),
     );
   }
@@ -199,7 +185,7 @@ class _Cover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(8),
       child: SizedBox(
         width: 112,
         height: 72,
@@ -209,12 +195,12 @@ class _Cover extends StatelessWidget {
                 fit: BoxFit.cover,
                 errorWidget: (_, __, ___) => const ColoredBox(
                   color: Color(0xFFE9ECEF),
-                  child: Center(child: Icon(Icons.broken_image_outlined)),
+                  child: Center(child: Icon(FluentIcons.warning)),
                 ),
               )
             : const ColoredBox(
                 color: Color(0xFFE9ECEF),
-                child: Center(child: Icon(Icons.image_not_supported_outlined)),
+                child: Center(child: Icon(FluentIcons.photo2)),
               ),
       ),
     );
@@ -236,25 +222,15 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8),
-              Text(
-                message,
-                style: TextStyle(color: Theme.of(context).colorScheme.error),
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                onPressed: onRetry,
-                icon: const Icon(Icons.refresh),
-                label: const Text('重试'),
-              ),
-            ],
+        constraints: const BoxConstraints(maxWidth: 560),
+        child: InfoBar(
+          title: Text(title),
+          content: Text(message),
+          severity: InfoBarSeverity.error,
+          isLong: true,
+          action: Button(
+            child: const Text('重试'),
+            onPressed: onRetry,
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:intl/intl.dart';
 import 'package:nipaplay/models/shared_remote_library.dart';
 import 'package:nipaplay/themes/web/models/web_playback_item.dart';
@@ -46,72 +46,61 @@ class _WebLibraryPageState extends State<WebLibraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              const Text(
-                '媒体库',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(width: 12),
-              OutlinedButton.icon(
-                onPressed: _refresh,
-                icon: const Icon(Icons.refresh),
-                label: const Text('刷新'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Expanded(
-            child: FutureBuilder<List<SharedRemoteAnimeSummary>>(
-              future: _future,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                if (snapshot.hasError) {
-                  return _ErrorView(
-                    title: '加载失败',
-                    message: snapshot.error.toString(),
-                    onRetry: _refresh,
-                  );
-                }
-                final data = snapshot.data ?? const <SharedRemoteAnimeSummary>[];
-                final filtered = _filter(data, widget.searchQuery);
-                if (filtered.isEmpty) {
-                  return const Center(child: Text('暂无数据'));
-                }
-
-                return LayoutBuilder(
-                  builder: (context, constraints) {
-                    return GridView.builder(
-                      gridDelegate:
-                          SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent:
-                            constraints.maxWidth >= 1200 ? 220 : 200,
-                        mainAxisSpacing: 12,
-                        crossAxisSpacing: 12,
-                        childAspectRatio: 0.62,
-                      ),
-                      itemCount: filtered.length,
-                      itemBuilder: (context, index) {
-                        final anime = filtered[index];
-                        return _AnimeCard(
-                          anime: anime,
-                          onTap: () => _openAnimeDetail(anime),
-                        );
-                      },
-                    );
-                  },
-                );
-              },
+    return ScaffoldPage(
+      header: PageHeader(
+        title: const Text('媒体库'),
+        commandBar: CommandBar(
+          mainAxisAlignment: MainAxisAlignment.end,
+          primaryItems: [
+            CommandBarButton(
+              icon: const Icon(FluentIcons.refresh),
+              label: const Text('刷新'),
+              onPressed: _refresh,
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      content: FutureBuilder<List<SharedRemoteAnimeSummary>>(
+        future: _future,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: ProgressRing());
+          }
+          if (snapshot.hasError) {
+            return _ErrorView(
+              title: '加载失败',
+              message: snapshot.error.toString(),
+              onRetry: _refresh,
+            );
+          }
+          final data = snapshot.data ?? const <SharedRemoteAnimeSummary>[];
+          final filtered = _filter(data, widget.searchQuery);
+          if (filtered.isEmpty) {
+            return const Center(child: Text('暂无数据'));
+          }
+
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              return GridView.builder(
+                padding: const EdgeInsets.all(16),
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: constraints.maxWidth >= 1200 ? 220 : 200,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 0.62,
+                ),
+                itemCount: filtered.length,
+                itemBuilder: (context, index) {
+                  final anime = filtered[index];
+                  return _AnimeCard(
+                    anime: anime,
+                    onPressed: () => _openAnimeDetail(anime),
+                  );
+                },
+              );
+            },
+          );
+        },
       ),
     );
   }
@@ -124,7 +113,8 @@ class _WebLibraryPageState extends State<WebLibraryPage> {
     if (normalized.isEmpty) return items;
 
     return items.where((anime) {
-      final title = (anime.nameCn?.isNotEmpty == true ? anime.nameCn : anime.name) ?? '';
+      final title =
+          (anime.nameCn?.isNotEmpty == true ? anime.nameCn : anime.name) ?? '';
       return title.toLowerCase().contains(normalized) ||
           anime.name.toLowerCase().contains(normalized);
     }).toList(growable: false);
@@ -134,9 +124,9 @@ class _WebLibraryPageState extends State<WebLibraryPage> {
     await showDialog<void>(
       context: context,
       builder: (context) {
-        return Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          child: ConstrainedBox(
+        return ContentDialog(
+          title: const Text('番剧详情'),
+          content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 980, maxHeight: 720),
             child: _AnimeDetailDialog(
               api: widget.api,
@@ -144,6 +134,12 @@ class _WebLibraryPageState extends State<WebLibraryPage> {
               onPlay: widget.onPlay,
             ),
           ),
+          actions: [
+            Button(
+              child: const Text('关闭'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
         );
       },
     );
@@ -153,110 +149,126 @@ class _WebLibraryPageState extends State<WebLibraryPage> {
 class _AnimeCard extends StatelessWidget {
   const _AnimeCard({
     required this.anime,
-    required this.onTap,
+    required this.onPressed,
   });
 
   final SharedRemoteAnimeSummary anime;
-  final VoidCallback onTap;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     final title = anime.nameCn?.isNotEmpty == true ? anime.nameCn! : anime.name;
     final dateText = DateFormat('yyyy-MM-dd').format(anime.lastWatchTime.toLocal());
 
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  if ((anime.imageUrl ?? '').isNotEmpty)
-                    CachedNetworkImage(
-                      imageUrl: anime.imageUrl!,
-                      fit: BoxFit.cover,
-                      errorWidget: (context, url, error) => const Center(
-                        child: Icon(Icons.broken_image_outlined),
-                      ),
-                    )
-                  else
-                    const ColoredBox(
-                      color: Color(0xFFE9ECEF),
-                      child: Center(child: Icon(Icons.image_not_supported_outlined)),
-                    ),
-                  Positioned(
-                    left: 8,
-                    right: 8,
-                    bottom: 8,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.55),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 6,
+    return HoverButton(
+      onPressed: onPressed,
+      builder: (context, states) {
+        final backgroundColor = states.isHovered
+            ? FluentTheme.of(context).resources.subtleFillColorSecondary
+            : FluentTheme.of(context).cardColor;
+
+        return Container(
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: FluentTheme.of(context).resources.controlStrokeColorDefault,
+            ),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    if ((anime.imageUrl ?? '').isNotEmpty)
+                      CachedNetworkImage(
+                        imageUrl: anime.imageUrl!,
+                        fit: BoxFit.cover,
+                        errorWidget: (context, url, error) => const Center(
+                          child: Icon(FluentIcons.warning),
                         ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.history, size: 14, color: Colors.white),
-                            const SizedBox(width: 6),
-                            Expanded(
-                              child: Text(
-                                dateText,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
+                      )
+                    else
+                      const ColoredBox(
+                        color: Color(0xFFE9ECEF),
+                        child: Center(
+                          child: Icon(FluentIcons.photo2),
+                        ),
+                      ),
+                    Positioned(
+                      left: 8,
+                      right: 8,
+                      bottom: 8,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.55),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 6,
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                FluentIcons.history,
+                                size: 14,
+                                color: Colors.white,
+                              ),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  dateText,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 6),
-              child: Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontWeight: FontWeight.w600),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 6),
+                child: Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-              child: Row(
-                children: [
-                  Text(
-                    '${anime.episodeCount} 集',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                child: Row(
+                  children: [
+                    Text(
+                      '${anime.episodeCount} 集',
+                      style: FluentTheme.of(context).typography.caption,
                     ),
-                  ),
-                  const Spacer(),
-                  if (anime.hasMissingFiles)
-                    const Tooltip(
-                      message: '存在缺失文件',
-                      child: Icon(Icons.warning_amber_rounded, size: 16),
-                    ),
-                ],
+                    const Spacer(),
+                    if (anime.hasMissingFiles)
+                      const Tooltip(
+                        message: '存在缺失文件',
+                        child: Icon(FluentIcons.warning, size: 16),
+                      ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -285,23 +297,25 @@ class _AnimeDetailDialogState extends State<_AnimeDetailDialog> {
     _future = widget.api.fetchSharedAnimeDetail(widget.animeId);
   }
 
+  void _refresh() {
+    setState(() {
+      _future = widget.api.fetchSharedAnimeDetail(widget.animeId);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<WebSharedAnimeDetail>(
       future: _future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: ProgressRing());
         }
         if (snapshot.hasError) {
           return _ErrorView(
             title: '加载详情失败',
             message: snapshot.error.toString(),
-            onRetry: () {
-              setState(() {
-                _future = widget.api.fetchSharedAnimeDetail(widget.animeId);
-              });
-            },
+            onRetry: _refresh,
           );
         }
         final detail = snapshot.data;
@@ -310,7 +324,7 @@ class _AnimeDetailDialogState extends State<_AnimeDetailDialog> {
         }
 
         return Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -321,26 +335,13 @@ class _AnimeDetailDialogState extends State<_AnimeDetailDialog> {
                       detail.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: FluentTheme.of(context).typography.subtitle,
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   IconButton(
-                    tooltip: '刷新',
-                    onPressed: () {
-                      setState(() {
-                        _future = widget.api.fetchSharedAnimeDetail(widget.animeId);
-                      });
-                    },
-                    icon: const Icon(Icons.refresh),
-                  ),
-                  IconButton(
-                    tooltip: '关闭',
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.close),
+                    icon: const Icon(FluentIcons.refresh, size: 16),
+                    onPressed: _refresh,
                   ),
                 ],
               ),
@@ -350,14 +351,14 @@ class _AnimeDetailDialogState extends State<_AnimeDetailDialog> {
                   detail.summary!.trim(),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: Theme.of(context).hintColor),
+                  style: FluentTheme.of(context).typography.caption,
                 ),
               ],
               const SizedBox(height: 12),
               Expanded(
                 child: ListView.separated(
                   itemCount: detail.episodes.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  separatorBuilder: (_, __) => const SizedBox(height: 8),
                   itemBuilder: (context, index) {
                     final ep = detail.episodes[index];
                     final double progress = (ep.progress ?? 0).clamp(0.0, 1.0);
@@ -366,42 +367,49 @@ class _AnimeDetailDialogState extends State<_AnimeDetailDialog> {
                         : DateFormat('yyyy-MM-dd HH:mm')
                             .format(ep.lastWatchTime!.toLocal());
 
-                    return ListTile(
-                      title: Text(ep.title),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    return Card(
+                      padding: const EdgeInsets.all(12),
+                      child: Row(
                         children: [
-                          const SizedBox(height: 6),
-                          LinearProgressIndicator(value: progress),
-                          const SizedBox(height: 6),
-                          Text(
-                            [
-                              if (lastWatchText != null) '上次观看：$lastWatchText',
-                              '进度：${(progress * 100).toStringAsFixed(1)}%',
-                            ].join(' · '),
-                            style: TextStyle(
-                              fontSize: 12,
-                              color:
-                                  Theme.of(context).colorScheme.onSurfaceVariant,
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  ep.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: FluentTheme.of(context)
+                                      .typography
+                                      .bodyStrong,
+                                ),
+                                const SizedBox(height: 8),
+                                ProgressBar(value: progress * 100),
+                                const SizedBox(height: 6),
+                                Text(
+                                  [
+                                    if (lastWatchText != null)
+                                      '上次观看：$lastWatchText',
+                                    '进度：${(progress * 100).toStringAsFixed(1)}%',
+                                  ].join(' · '),
+                                  style: FluentTheme.of(context).typography.caption,
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
+                          const SizedBox(width: 8),
                           if (ep.fileExists == false)
                             const Tooltip(
                               message: '文件不存在',
-                              child: Icon(Icons.warning_amber_rounded),
+                              child: Icon(FluentIcons.warning, size: 16),
                             ),
                           const SizedBox(width: 8),
-                          TextButton(
+                          FilledButton(
                             onPressed: ep.fileExists == false
                                 ? null
                                 : () {
-                                    final uri = widget.api
-                                        .resolveExternal(ep.streamPath);
+                                    final uri =
+                                        widget.api.resolveExternal(ep.streamPath);
                                     widget.onPlay(
                                       WebPlaybackItem(
                                         uri: uri,
@@ -442,25 +450,15 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8),
-              Text(
-                message,
-                style: TextStyle(color: Theme.of(context).colorScheme.error),
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                onPressed: onRetry,
-                icon: const Icon(Icons.refresh),
-                label: const Text('重试'),
-              ),
-            ],
+        constraints: const BoxConstraints(maxWidth: 560),
+        child: InfoBar(
+          title: Text(title),
+          content: Text(message),
+          severity: InfoBarSeverity.error,
+          isLong: true,
+          action: Button(
+            child: const Text('重试'),
+            onPressed: onRetry,
           ),
         ),
       ),

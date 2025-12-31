@@ -605,6 +605,7 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
     if (_currentVideoPath == null) {
       return;
     }
+    if (kIsWeb) return;
 
     // 防止在播放器重置过程中更新历史记录
     if (_isResetting && !forceRemoteSync) {

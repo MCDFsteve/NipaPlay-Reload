@@ -3,6 +3,8 @@ part of video_player_state;
 extension VideoPlayerStatePlayerSetup on VideoPlayerState {
   Future<void> initializePlayer(String videoPath,
       {WatchHistoryItem? historyItem,
+      String? displayAnimeTitle,
+      String? displayEpisodeTitle,
       String? historyFilePath,
       String? actualPlayUrl}) async {
     // 每次切换新视频时，重置自动连播倒计时状态，防止高强度测试下卡死
@@ -147,8 +149,8 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
     _currentVideoPath = videoPath;
     _currentActualPlayUrl = actualPlayUrl; // 存储实际播放URL
     print('historyItem: $historyItem');
-    _animeTitle = historyItem?.animeName; // 从历史记录获取动画标题
-    _episodeTitle = historyItem?.episodeTitle; // 从历史记录获取集数标题
+    _animeTitle = displayAnimeTitle ?? historyItem?.animeName; // 从历史记录获取动画标题
+    _episodeTitle = displayEpisodeTitle ?? historyItem?.episodeTitle; // 从历史记录获取集数标题
     _episodeId = historyItem?.episodeId; // 保存从历史记录传入的 episodeId
     _animeId = historyItem?.animeId; // 保存从历史记录传入的 animeId
     String message = '正在初始化播放器: ${p.basename(videoPath)}';
@@ -637,6 +639,7 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
 
   // 初始化观看记录
   Future<void> _initializeWatchHistory(String path) async {
+    if (kIsWeb) return;
     try {
       final sharedEpisodeId =
           SharedRemoteHistoryHelper.extractSharedEpisodeId(path);

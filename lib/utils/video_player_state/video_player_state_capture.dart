@@ -37,6 +37,7 @@ extension VideoPlayerStateCapture on VideoPlayerState {
   // 不暂停视频的截图方法
   Future<String?> _captureVideoFrameWithoutPausing() async {
     if (_currentVideoPath == null || !hasVideo) return null;
+    if (kIsWeb) return null;
 
     try {
       // 使用适当的宽高比计算图像尺寸

@@ -4,6 +4,7 @@ import 'package:nipaplay/models/watch_history_model.dart';
 import 'package:nipaplay/services/bangumi_service.dart'; // Needed for getAnimeDetails
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
 import 'package:nipaplay/themes/fluent/widgets/fluent_anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/themed_anime_detail.dart';
 import 'package:nipaplay/providers/watch_history_provider.dart';
 import 'package:nipaplay/providers/ui_theme_provider.dart';
@@ -782,8 +783,10 @@ style: TextStyle(color: Colors.grey, fontSize: 16),
         ratingDetails: ratingDetails,
         onTap: onTap,
       );
-    } else {
-      return AnimeCard(
+    }
+
+    if (uiThemeProvider.isMaterialTheme) {
+      return MaterialAnimeCard(
         key: key,
         name: name,
         imageUrl: imageUrl,
@@ -793,6 +796,16 @@ style: TextStyle(color: Colors.grey, fontSize: 16),
         onTap: onTap,
       );
     }
+
+    return AnimeCard(
+      key: key,
+      name: name,
+      imageUrl: imageUrl,
+      source: source,
+      rating: rating,
+      ratingDetails: ratingDetails,
+      onTap: onTap,
+    );
   }
 
 

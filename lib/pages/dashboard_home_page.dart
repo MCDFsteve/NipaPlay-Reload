@@ -22,10 +22,10 @@ import 'package:nipaplay/models/bangumi_model.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_snackbar.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/blur_dialog.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/anime_card.dart';
+import 'package:nipaplay/themes/material/widgets/material_anime_card.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/cached_network_image_widget.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/floating_action_glass_button.dart';
 import 'package:nipaplay/pages/media_server_detail_page.dart';
-import 'package:nipaplay/pages/anime_detail_page.dart';
 import 'package:nipaplay/services/playback_service.dart';
 import 'package:nipaplay/models/playable_item.dart';
 import 'package:nipaplay/models/dandanplay_remote_model.dart';
@@ -42,6 +42,7 @@ import 'package:nipaplay/services/server_history_sync_service.dart';
 import 'package:nipaplay/models/shared_remote_library.dart';
 import 'package:nipaplay/themes/nipaplay/widgets/themed_anime_detail.dart';
 import 'package:nipaplay/utils/watch_history_auto_match_helper.dart';
+import 'package:nipaplay/providers/ui_theme_provider.dart';
 
 class DashboardHomePage extends StatefulWidget {
   const DashboardHomePage({super.key});
@@ -2584,14 +2585,23 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
     return SizedBox(
       width: cardWidth,
       height: cardHeight,
-      child: AnimeCard(
-        key: ValueKey(uniqueId), // 添加唯一key防止widget复用导致的缓存混乱
-        name: name,
-        imageUrl: imageUrl,
-        onTap: () => onItemTap(item),
-        isOnAir: false,
-        delayLoad: _shouldDelayImageLoad(), // 使用与推荐卡片相同的延迟逻辑
-      ),
+      child: context.read<UIThemeProvider>().isMaterialTheme
+          ? MaterialAnimeCard(
+              key: ValueKey(uniqueId),
+              name: name,
+              imageUrl: imageUrl,
+              onTap: () => onItemTap(item),
+              isOnAir: false,
+              delayLoad: _shouldDelayImageLoad(),
+            )
+          : AnimeCard(
+              key: ValueKey(uniqueId), // 添加唯一key防止widget复用导致的缓存混乱
+              name: name,
+              imageUrl: imageUrl,
+              onTap: () => onItemTap(item),
+              isOnAir: false,
+              delayLoad: _shouldDelayImageLoad(), // 使用与推荐卡片相同的延迟逻辑
+            ),
     );
   }
 
@@ -2927,7 +2937,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
       if (item.id.contains(RegExp(r'^\d+$'))) {
         final animeId = int.tryParse(item.id);
         if (animeId != null) {
-          AnimeDetailPage.show(context, animeId).then((result) {
+          ThemedAnimeDetail.show(context, animeId).then((result) {
             if (result != null) {
               // 刷新观看历史
               Provider.of<WatchHistoryProvider>(context, listen: false).refresh();
@@ -2961,7 +2971,7 @@ style: TextStyle(color: Colors.white54, fontSize: 16),
 
   void _onLocalAnimeItemTap(LocalAnimeItem item) {
     // 打开动画详情页
-    AnimeDetailPage.show(context, item.animeId).then((result) {
+    ThemedAnimeDetail.show(context, item.animeId).then((result) {
       if (result != null) {
         // 刷新观看历史
         Provider.of<WatchHistoryProvider>(context, listen: false).refresh();

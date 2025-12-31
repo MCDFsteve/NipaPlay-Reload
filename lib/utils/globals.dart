@@ -25,9 +25,10 @@ bool get isMobile {
 
 bool get isPhone {
   if (kIsWeb) {
-    // 对于Web平台，我们总是认为它需要采用手机式的响应式布局逻辑，
-    // 这样就可以直接复用 isTablet 来判断横竖屏。
-    return true;
+    // Web 平台：仅当运行在移动端浏览器时才认为是「手机」，
+    // 否则按桌面交互（例如播放器右侧菜单/悬浮交互）处理。
+    return defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.android;
   }
   //移动平台
   return Platform.isIOS || Platform.isAndroid;
@@ -35,8 +36,8 @@ bool get isPhone {
 
 // 判断是否为平板设备（屏幕宽度大于高度的移动设备）
 bool get isTablet {
-  // 由于 isPhone 对于移动端和Web端现在都返回 true，
-  // 这个 getter 现在等同于一个纯粹的横屏方向检测器。
+  // 该 getter 目前等同于「横屏检测器」：在手机/移动端 Web 下，
+  // 用于区分横竖屏并复用部分平板布局逻辑。
   if (!isPhone) return false;
   final window = WidgetsBinding.instance.window;
   final size = window.physicalSize / window.devicePixelRatio;
