@@ -69,6 +69,7 @@ import 'storage_service.dart'; // Added import for StorageService
 import 'screen_orientation_manager.dart';
 import 'anime4k_shader_manager.dart';
 import 'crt_shader_manager.dart';
+import 'danmaku_glsl_shader_manager.dart';
 // 导入MediaKitPlayerAdapter
 import '../danmaku_abstraction/danmaku_kernel_factory.dart'; // 弹幕内核工厂
 import 'package:nipaplay/danmaku_gpu/lib/gpu_danmaku_overlay.dart'; // 导入GPU弹幕覆盖层
@@ -751,6 +752,12 @@ class VideoPlayerState extends ChangeNotifier implements WindowListener {
     _systemVolumeSubscription = null;
     _systemVolumeController?.removeListener();
     _systemVolumeController = null;
+    try {
+      danmakuController?.dispose();
+    } catch (_) {
+      // ignore
+    }
+    danmakuController = null;
     player.dispose();
     _focusNode.dispose();
     _uiUpdateTimer?.cancel(); // 清理UI更新定时器

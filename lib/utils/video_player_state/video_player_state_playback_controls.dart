@@ -428,9 +428,13 @@ extension VideoPlayerStatePlaybackControls on VideoPlayerState {
     _spoilerDanmakuPendingTexts = null;
     _spoilerDanmakuPendingTargetVideoPath = null;
     _subtitleManager.clearSubtitleTrackInfo();
-    danmakuController
-        ?.dispose(); // Assuming danmakuController has a dispose method
-    danmakuController = null;
+    // GLSL 弹幕控制器与播放器实例绑定，切换视频时不应直接销毁，避免后续无法渲染。
+    // 这里只清空弹幕数据，保留控制器以便新视频继续复用。
+    try {
+      danmakuController?.clearDanmaku();
+    } catch (_) {
+      // ignore
+    }
     _setAutoDanmakuOffset(0.0);
     _duration = Duration.zero;
     _position = Duration.zero;
@@ -479,9 +483,13 @@ extension VideoPlayerStatePlaybackControls on VideoPlayerState {
     _spoilerDanmakuPendingTexts = null;
     _spoilerDanmakuPendingTargetVideoPath = null;
     _subtitleManager.clearSubtitleTrackInfo();
-    danmakuController
-        ?.dispose(); // Assuming danmakuController has a dispose method
-    danmakuController = null;
+    // GLSL 弹幕控制器与播放器实例绑定，切换视频时不应直接销毁，避免后续无法渲染。
+    // 这里只清空弹幕数据，保留控制器以便新视频继续复用。
+    try {
+      danmakuController?.clearDanmaku();
+    } catch (_) {
+      // ignore
+    }
     _setAutoDanmakuOffset(0.0);
     _videoDuration = Duration.zero;
   }

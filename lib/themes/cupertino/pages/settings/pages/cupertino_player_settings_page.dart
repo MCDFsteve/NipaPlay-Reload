@@ -286,6 +286,8 @@ class _CupertinoPlayerSettingsPageState
         return 'GPU 渲染（实验性）：性能更高，但仍在开发中。';
       case DanmakuRenderEngine.canvas:
         return 'Canvas 弹幕（实验性）：高性能，低功耗。';
+      case DanmakuRenderEngine.glsl:
+        return 'MPV GLSL 弹幕（实验性）：弹幕可被 CRT 等后处理影响，仅支持 MediaKit (Libmpv)。';
     }
   }
 
@@ -349,6 +351,8 @@ class _CupertinoPlayerSettingsPageState
         return 'GPU 渲染 (实验性)';
       case DanmakuRenderEngine.canvas:
         return 'Canvas 弹幕 (实验性)';
+      case DanmakuRenderEngine.glsl:
+        return 'MPV GLSL 弹幕 (实验性)';
     }
   }
 

@@ -11,6 +11,9 @@ enum DanmakuRenderEngine {
 
   /// Canvas 弹幕渲染引擎
   canvas,
+
+  /// MPV GLSL 弹幕渲染引擎
+  glsl,
 }
 
 /// 负责读写弹幕渲染引擎设置的工厂类

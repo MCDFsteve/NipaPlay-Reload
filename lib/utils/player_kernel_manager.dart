@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import '../player_abstraction/player_factory.dart';
 import '../player_abstraction/player_abstraction.dart';
 import '../danmaku_abstraction/danmaku_kernel_factory.dart';
+import '../danmaku_mpv/mpv_glsl_danmaku_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'video_player_state.dart';
 import '../models/watch_history_model.dart';
@@ -94,7 +95,8 @@ class PlayerKernelManager {
     debugPrint('[PlayerKernelManager] 执行弹幕内核热切换: $newKernel');
 
     // 重新创建弹幕控制器
-    videoPlayerState.danmakuController = _createDanmakuController(newKernel);
+    videoPlayerState.danmakuController =
+        _createDanmakuController(videoPlayerState, newKernel);
 
     // 重新加载当前弹幕数据
     if (videoPlayerState.danmakuList.isNotEmpty) {
@@ -106,10 +108,13 @@ class PlayerKernelManager {
 
     // 通知UI刷新，以便DanmakuOverlay可以重建
     videoPlayerState.notifyListeners();
+
+    unawaited(videoPlayerState.applyAnime4KProfileToCurrentPlayer());
   }
 
   /// 创建弹幕控制器
-  static dynamic _createDanmakuController(DanmakuRenderEngine kernelType) {
+  static dynamic _createDanmakuController(
+      VideoPlayerState videoPlayerState, DanmakuRenderEngine kernelType) {
     // 根据内核类型创建不同的弹幕控制器
     switch (kernelType) {
       case DanmakuRenderEngine.cpu:
@@ -118,6 +123,12 @@ class PlayerKernelManager {
       case DanmakuRenderEngine.gpu:
         // GPU渲染在Widget层处理，这里不直接创建控制器
         return null;
+      case DanmakuRenderEngine.glsl:
+        if (videoPlayerState.player.getPlayerKernelName() != 'Media Kit') {
+          debugPrint('[PlayerKernelManager] 当前播放器不支持 MPV GLSL 弹幕');
+          return null;
+        }
+        return MpvGlslDanmakuController(player: videoPlayerState.player);
       default:
         return null;
     }
@@ -178,7 +189,7 @@ class PlayerKernelManager {
 
   /// 获取支持的弹幕内核列表
   static List<String> getSupportedDanmakuKernels() {
-    return ['Canvas 弹幕', 'GPU渲染', 'CPU渲染'];
+    return ['Canvas 弹幕', 'GPU渲染', 'CPU渲染', 'MPV GLSL 弹幕'];
   }
 
   /// 获取当前弹幕内核
@@ -200,6 +211,9 @@ class PlayerKernelManager {
         break;
       case 'CPU渲染':
         engine = DanmakuRenderEngine.cpu;
+        break;
+      case 'MPV GLSL 弹幕':
+        engine = DanmakuRenderEngine.glsl;
         break;
       case 'Canvas弹幕':
       case 'Canvas 弹幕':

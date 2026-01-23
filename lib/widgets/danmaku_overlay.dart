@@ -4,6 +4,7 @@ import 'danmaku_container.dart';
 import 'package:nipaplay/danmaku_gpu/lib/gpu_danmaku_overlay.dart';
 import 'package:nipaplay/danmaku_gpu/lib/gpu_danmaku_config.dart';
 import 'package:nipaplay/danmaku_canvas/canvas_danmaku_renderer.dart';
+import 'package:nipaplay/danmaku_mpv/mpv_glsl_danmaku_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:nipaplay/utils/video_player_state.dart';
 import 'package:nipaplay/providers/settings_provider.dart';
@@ -96,6 +97,60 @@ class _DanmakuOverlayState extends State<DanmakuOverlay> {
                 },
               ),
             ],
+          );
+        }
+
+        if (kernelType == DanmakuRenderEngine.glsl) {
+          final controller = videoState.danmakuController;
+          if (controller is MpvGlslDanmakuController) {
+            controller.updatePlaybackTime(widget.currentPosition / 1000);
+            controller.updateConfig(
+              fontSize: widget.fontSize,
+              opacity: widget.opacity,
+              timeOffset: combinedTimeOffset,
+              scrollDurationSeconds: scrollDuration,
+              playbackRate: videoState.playbackRate,
+              isPlaying: widget.isPlaying,
+              isVisible: widget.isVisible,
+            );
+          }
+
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              final Size size = Size(
+                constraints.maxWidth,
+                constraints.maxHeight,
+              );
+              final double pixelRatio =
+                  MediaQuery.of(context).devicePixelRatio;
+
+              return Stack(
+                children: [
+                  Offstage(
+                    offstage: true,
+                    child: DanmakuContainer(
+                      danmakuList: activeDanmakuList,
+                      currentTime: widget.currentPosition / 1000,
+                      videoDuration: widget.videoDuration / 1000,
+                      fontSize: widget.fontSize,
+                      isVisible: widget.isVisible,
+                      opacity: widget.opacity,
+                      status: videoState.status.toString(),
+                      playbackRate: videoState.playbackRate,
+                      displayArea: videoState.danmakuDisplayArea,
+                      timeOffset: combinedTimeOffset,
+                      scrollDurationSeconds: scrollDuration,
+                      onLayoutCalculated: (danmaku) {
+                        if (controller is MpvGlslDanmakuController) {
+                          controller.updateLayout(danmaku, size, pixelRatio);
+                        }
+                      },
+                    ),
+                  ),
+                  const SizedBox.expand(),
+                ],
+              );
+            },
           );
         }
 

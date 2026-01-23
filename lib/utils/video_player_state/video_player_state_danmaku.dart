@@ -317,8 +317,6 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
           return;
         }
 
-        // 加载弹幕到控制器
-        danmakuController?.loadDanmaku(cachedDanmaku);
         _setStatus(PlayerStatus.playing,
             message: '从缓存加载弹幕完成 (${cachedDanmaku.length}条)');
 
@@ -370,12 +368,6 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
 
       if (danmakuData['comments'] != null && danmakuData['comments'] is List) {
         debugPrint('成功从网络加载弹幕，共${danmakuData['count']}条');
-
-        // 加载弹幕到控制器
-        final filteredDanmaku = danmakuData['comments']
-            .where((d) => !shouldBlockDanmaku(d))
-            .toList();
-        danmakuController?.loadDanmaku(filteredDanmaku);
 
         // 解析弹幕数据并添加到弹弹play轨道
         final parsedDanmaku = await compute(parseDanmakuListInBackground,

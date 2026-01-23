@@ -380,6 +380,8 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         return 'GPU 渲染引擎 (实验性)\n使用自定义着色器和字体图集，性能更高，功耗更低，但目前仍在开发中。';
       case DanmakuRenderEngine.canvas:
         return 'Canvas 弹幕渲染引擎\n来自软件kazumi的开发者\n使用Canvas绘制弹幕，高性能，低功耗，支持大量弹幕同时显示。';
+      case DanmakuRenderEngine.glsl:
+        return 'MPV GLSL 弹幕渲染引擎\n通过 MPV 着色器合成弹幕，弹幕可被 CRT 等后处理影响，仅支持 MediaKit (Libmpv)。';
     }
   }
 
@@ -735,6 +737,14 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
                   _selectedDanmakuRenderEngine == DanmakuRenderEngine.canvas,
               description: _getDanmakuRenderEngineDescription(
                   DanmakuRenderEngine.canvas),
+            ),
+            DropdownMenuItemData(
+              title: "MPV GLSL 弹幕 (实验性)",
+              value: DanmakuRenderEngine.glsl,
+              isSelected:
+                  _selectedDanmakuRenderEngine == DanmakuRenderEngine.glsl,
+              description:
+                  _getDanmakuRenderEngineDescription(DanmakuRenderEngine.glsl),
             ),
           ],
           onChanged: (engine) {

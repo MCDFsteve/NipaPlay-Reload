@@ -315,6 +315,9 @@ class SystemResourceMonitor {
         case DanmakuRenderEngine.canvas:
           _danmakuKernelType = "Canvas";
           break;
+        case DanmakuRenderEngine.glsl:
+          _danmakuKernelType = "MPV GLSL";
+          break;
         default:
           _danmakuKernelType = "未知";
       }

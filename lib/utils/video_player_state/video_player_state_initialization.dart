@@ -59,6 +59,10 @@ extension VideoPlayerStateInitialization on VideoPlayerState {
 
     // 订阅内核切换事件
     _subscribeToKernelChanges();
+    PlayerKernelManager.performDanmakuKernelHotSwap(
+      this,
+      DanmakuKernelFactory.getKernelType(),
+    );
 
     // Ensure wakelock is disabled on initialization
     try {

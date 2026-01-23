@@ -236,6 +236,15 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
       _danmakuVisible = visible;
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(_danmakuVisibleKey, visible);
+      final controller = danmakuController;
+      try {
+        final setVisible = controller?.setVisible;
+        if (setVisible is Function) {
+          setVisible(visible);
+        }
+      } catch (_) {
+        // ignore
+      }
       notifyListeners();
     }
   }
@@ -504,6 +513,9 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
 
     final bool anime4kEnabled = _anime4kProfile != Anime4KProfile.off;
     final bool crtEnabled = _crtProfile != CrtProfile.off;
+    final bool danmakuEnabled =
+        DanmakuKernelFactory.getKernelType() == DanmakuRenderEngine.glsl &&
+            _supportsMpvDanmakuForCurrentPlayer();
 
     try {
       final List<String> shaderPaths = <String>[];
@@ -516,6 +528,14 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
         shaderPaths.addAll(anime4kPaths);
       } else {
         _anime4kShaderPaths = const <String>[];
+      }
+
+      if (danmakuEnabled) {
+        final String? shaderPath =
+            await DanmakuGlslShaderManager.getShaderPath();
+        if (shaderPath != null) {
+          shaderPaths.add(shaderPath);
+        }
       }
 
       if (crtEnabled) {
@@ -566,6 +586,17 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
   }
 
   bool _supportsAnime4KForCurrentPlayer() {
+    if (kIsWeb) {
+      return false;
+    }
+    try {
+      return player.getPlayerKernelName() == 'Media Kit';
+    } catch (_) {
+      return false;
+    }
+  }
+
+  bool _supportsMpvDanmakuForCurrentPlayer() {
     if (kIsWeb) {
       return false;
     }

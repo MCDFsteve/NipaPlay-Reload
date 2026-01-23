@@ -184,6 +184,8 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
         return '使用自定义着色器和字体图集，性能更高，功耗更低，但目前仍在开发中';
       case DanmakuRenderEngine.canvas:
         return '使用Canvas绘制弹幕，高性能，低功耗，支持大量弹幕同时显示';
+      case DanmakuRenderEngine.glsl:
+        return '通过 MPV 着色器合成弹幕，弹幕可被 CRT 等后处理影响，仅支持 MediaKit (Libmpv)';
     }
   }
 
@@ -775,6 +777,10 @@ class _FluentPlayerSettingsPageState extends State<FluentPlayerSettingsPage> {
                                 ComboBoxItem<DanmakuRenderEngine>(
                                   value: DanmakuRenderEngine.canvas,
                                   child: Text('Canvas 弹幕 (实验性)'),
+                                ),
+                                ComboBoxItem<DanmakuRenderEngine>(
+                                  value: DanmakuRenderEngine.glsl,
+                                  child: Text('MPV GLSL 弹幕 (实验性)'),
                                 ),
                               ],
                               onChanged: (value) {
