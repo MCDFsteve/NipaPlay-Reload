@@ -126,6 +126,9 @@ class SystemResourceMonitor {
         case PlayerKernelType.mediaKit:
           _playerKernelType = "Libmpv";
           break;
+        case PlayerKernelType.nipaplayNext:
+          _playerKernelType = "NipaPlay Next";
+          break;
         default:
           _playerKernelType = "未知";
       }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +103,21 @@ class _VideoPlayerUIState extends State<VideoPlayerUI>
       return VideoPlayer(controller);
     }
     if (textureId == null || textureId < 0) {
+      final frameNotifier = videoState.player.videoFrameNotifier;
+      if (frameNotifier != null) {
+        return ValueListenableBuilder(
+          valueListenable: frameNotifier,
+          builder: (context, frame, child) {
+            if (frame is ui.Image) {
+              return RawImage(
+                image: frame,
+                fit: BoxFit.contain,
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        );
+      }
       return const SizedBox.shrink();
     }
     return Texture(

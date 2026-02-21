@@ -1,0 +1,14 @@
+[workspace]
+members = [
+  "nipaplay-next",
+  "flutter_bridge",
+]
+resolver = "2"
+
+[workspace.dependencies]
+gstreamer = { version = "0.22", features = ["v1_18"] }
+gstreamer-video = { version = "0.22", features = ["v1_18"] }
+gstreamer-app = { version = "0.22", features = ["v1_18"] }
+log = "0.4"
+once_cell = "1.19"
+url = "2"

@@ -13,6 +13,7 @@ import './player_factory.dart'; // Import PlayerFactory directly
 import './mdk_player_adapter.dart'; // 导入具体适配器类
 import './video_player_adapter.dart'; // 导入具体适配器类
 import './media_kit_player_adapter.dart'; // 导入MediaKit适配器类
+import '../kernels/nipaplay_next_kernel.dart';
 
 /// MDK-compatible PlaybackState. 
 /// Code using the abstraction layer can use `PlaybackState.paused`.
@@ -150,6 +151,8 @@ class Player {
       return "Video Player";
     } else if (_delegate is MediaKitPlayerAdapter) {
       return "Media Kit";
+    } else if (_delegate is NipaPlayNextKernel) {
+      return "NipaPlay Next";
     } else {
       return "未知";
     }
@@ -160,6 +163,15 @@ class Player {
       final dyn = _delegate as dynamic;
       final ctrl = dyn.controller;
       if (ctrl is VideoPlayerController) return ctrl;
+    } catch (_) {}
+    return null;
+  }
+
+  ValueListenable<dynamic>? get videoFrameNotifier {
+    try {
+      final dyn = _delegate as dynamic;
+      final notifier = dyn.videoFrameNotifier;
+      if (notifier is ValueListenable) return notifier;
     } catch (_) {}
     return null;
   }

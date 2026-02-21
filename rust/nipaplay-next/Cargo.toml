@@ -1,0 +1,11 @@
+[package]
+name = "nipaplay-next"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gstreamer = { workspace = true }
+gstreamer-video = { workspace = true }
+gstreamer-app = { workspace = true }
+log = { workspace = true }
+url = { workspace = true }

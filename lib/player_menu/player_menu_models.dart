@@ -82,7 +82,8 @@ class PlayerMenuContext {
   });
 
   bool get supportsAdvancedTracks =>
-      kernelType != PlayerKernelType.videoPlayer;
+      kernelType == PlayerKernelType.mdk ||
+      kernelType == PlayerKernelType.mediaKit;
 
   bool get hasVideo => videoState.hasVideo;
 

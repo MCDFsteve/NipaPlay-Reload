@@ -245,6 +245,7 @@
 				33CC10EB2044A3C60003C045 /* Resources */,
 				33CC110E2044A8840003C045 /* Bundle Framework */,
 				3399D490228B24CF009A79C7 /* ShellScript */,
+				7F3B8E1A8C6D4C1C9B0A1234 /* Build Rust (flutter_bridge) */,
 				5B37853252ABE5D38BD93F49 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -388,6 +389,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/macos_assemble.sh && touch Flutter/ephemeral/tripwire";
+		};
+		7F3B8E1A8C6D4C1C9B0A1234 /* Build Rust (flutter_bridge) */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nexport PATH=\\\"$HOME/.cargo/bin:$PATH\\\"\nROOT_DIR=\\\"$PROJECT_DIR\\\"\nwhile [ \\\"$ROOT_DIR\\\" != \\\"/\\\" ] && [ ! -f \\\"$ROOT_DIR/rust/Cargo.toml\\\" ]; do\n  ROOT_DIR=`dirname \\\"$ROOT_DIR\\\"`\ndone\nRUST_MANIFEST=\\\"$ROOT_DIR/rust/Cargo.toml\\\"\necho \\\"[NipaPlayNext] Rust manifest: $RUST_MANIFEST\\\" \nif [ ! -f \\\"$RUST_MANIFEST\\\" ]; then\n  echo \\\"Rust workspace not found. PROJECT_DIR=$PROJECT_DIR\\\" >&2\n  exit 1\nfi\nif ! command -v cargo >/dev/null 2>&1; then\n  echo \\\"cargo not found in PATH\\\" >&2\n  exit 1\nfi\nPROFILE=debug\nCARGO_FLAGS=\nif [ \\\"$CONFIGURATION\\\" = \\\"Release\\\" ]; then\n  PROFILE=release\n  CARGO_FLAGS=--release\nfi\nLIB_NAME=libflutter_bridge.dylib\nSRC_PATH=\\\"$ROOT_DIR/rust/target/$PROFILE/$LIB_NAME\\\"\nif [ \\\"$NIPAPLAY_SKIP_RUST_BUILD\\\" = \\\"1\\\" ]; then\n  echo \\\"[NipaPlayNext] Skip rust build (NIPAPLAY_SKIP_RUST_BUILD=1)\\\" \nelif [ ! -f \\\"$SRC_PATH\\\" ] || [ -n \\\"$NIPAPLAY_FORCE_RUST_BUILD\\\" ]; then\n  echo \\\"[NipaPlayNext] cargo build -p flutter_bridge (profile=$PROFILE)\\\" \n  /usr/bin/env cargo build -p flutter_bridge --manifest-path \\\"$RUST_MANIFEST\\\" $CARGO_FLAGS\nelse\n  echo \\\"[NipaPlayNext] using existing $SRC_PATH\\\" \nfi\nif [ ! -f \\\"$SRC_PATH\\\" ]; then\n  echo \\\"[NipaPlayNext] Rust dylib not found at $SRC_PATH\\\" >&2\n  exit 1\nfi\nDEST_DIR=\\\"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\\\"\nmkdir -p \\\"$DEST_DIR\\\"\ncp \\\"$SRC_PATH\\\" \\\"$DEST_DIR/$LIB_NAME\\\"\nif [ \\\"$CODE_SIGNING_REQUIRED\\\" = \\\"YES\\\" ] && [ \\\"$NIPAPLAY_SKIP_CODESIGN\\\" != \\\"1\\\" ]; then\n  SIGN_ID=\\\"$EXPANDED_CODE_SIGN_IDENTITY\\\"\n  if [ \\\"$CONFIGURATION\\\" = \\\"Debug\\\" ] || [ \\\"$NIPAPLAY_ADHOC_SIGN\\\" = \\\"1\\\" ] || [ -z \\\"$SIGN_ID\\\" ]; then\n    SIGN_ID=\\\"-\\\"\n  fi\n  /usr/bin/codesign --force --sign \\\"$SIGN_ID\\\" --timestamp=none \\\"$DEST_DIR/$LIB_NAME\\\"\nfi\n";
 		};
 		442C1DF7965D693A774AB069 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

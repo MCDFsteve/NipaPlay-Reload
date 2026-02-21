@@ -125,6 +125,9 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
       case PlayerKernelType.mediaKit:
         _playerCoreName = "Libmpv";
         break;
+      case PlayerKernelType.nipaplayNext:
+        _playerCoreName = "NipaPlay Next";
+        break;
       default:
         _playerCoreName = "MDK";
     }
@@ -372,6 +375,8 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
         return 'Video Player 官方播放器\n适用于简单视频播放，兼容性良好';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器\n基于MPV，功能强大，支持硬件解码，支持复杂媒体格式';
+      case PlayerKernelType.nipaplayNext:
+        return 'NipaPlay Next (GStreamer)\n当前为 MVP，仅支持基础播放';
     }
   }
 
@@ -469,6 +474,13 @@ class _PlayerSettingsPageState extends State<PlayerSettingsPage> {
                 isSelected: _selectedKernelType == PlayerKernelType.mediaKit,
                 description:
                     _getPlayerKernelDescription(PlayerKernelType.mediaKit),
+              ),
+              DropdownMenuItemData(
+                title: "NipaPlay Next",
+                value: PlayerKernelType.nipaplayNext,
+                isSelected: _selectedKernelType == PlayerKernelType.nipaplayNext,
+                description:
+                    _getPlayerKernelDescription(PlayerKernelType.nipaplayNext),
               ),
             ],
             onChanged: (kernelType) {

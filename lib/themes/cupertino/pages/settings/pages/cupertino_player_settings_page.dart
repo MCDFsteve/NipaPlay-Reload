@@ -265,6 +265,8 @@ class _CupertinoPlayerSettingsPageState
         return 'Video Player';
       case PlayerKernelType.mediaKit:
         return 'Libmpv';
+      case PlayerKernelType.nipaplayNext:
+        return 'NipaPlay Next';
     }
   }
 
@@ -276,6 +278,8 @@ class _CupertinoPlayerSettingsPageState
         return 'Flutter 官方 Video Player，兼容性好。';
       case PlayerKernelType.mediaKit:
         return 'MediaKit (Libmpv) 播放器，支持硬件解码与高级特性。';
+      case PlayerKernelType.nipaplayNext:
+        return 'Rust + GStreamer 内核，当前为 MVP（仅基础播放）。';
     }
   }
 

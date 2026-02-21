@@ -132,7 +132,7 @@ class PlayerKernelManager {
 
   /// 获取支持的播放器内核列表
   static List<String> getSupportedPlayerKernels() {
-    List<String> kernels = ['FVP', 'Media Kit', 'Video Player'];
+    List<String> kernels = ['FVP', 'Media Kit', 'Video Player', 'NipaPlay Next'];
 
     // 根据平台过滤支持的内核
     if (kIsWeb) {
@@ -174,6 +174,9 @@ class PlayerKernelManager {
         break;
       case 'Video Player':
         kernelType = PlayerKernelType.videoPlayer;
+        break;
+      case 'NipaPlay Next':
+        kernelType = PlayerKernelType.nipaplayNext;
         break;
       default:
         kernelType = PlayerKernelType.mdk;
@@ -233,6 +236,9 @@ class PlayerKernelManager {
         break;
       case PlayerKernelType.videoPlayer:
         playerKernelName = 'Video Player';
+        break;
+      case PlayerKernelType.nipaplayNext:
+        playerKernelName = 'NipaPlay Next';
         break;
       default:
         playerKernelName = 'Unknown';
