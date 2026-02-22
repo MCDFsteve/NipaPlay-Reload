@@ -11,6 +11,8 @@ import 'danmaku_cache_manager.dart';
 import 'debug_log_service.dart';
 import 'package:nipaplay/utils/remote_media_fetcher.dart';
 import 'package:nipaplay/utils/media_filename_parser.dart';
+import 'package:nipaplay/danmaku_next/msdf_atlas_manager.dart';
+import 'package:nipaplay/utils/globals.dart' as globals;
 
 class DandanplayService {
   static const String appId = "nipaplayv1";
@@ -643,7 +645,12 @@ class DandanplayService {
           try {
             final episodeId = match['episodeId'].toString();
             final animeId = match['animeId'] as int;
-            final danmakuData = await getDanmaku(episodeId, animeId);
+            final danmakuData = await getDanmaku(
+              episodeId,
+              animeId,
+              prebuildMsdf: true,
+              prebuildReason: 'scan',
+            );
             cachedInfo['comments'] = danmakuData['comments'];
           } catch (e) {
             debugPrint('从缓存匹配信息获取弹幕失败: $e');
@@ -704,7 +711,12 @@ class DandanplayService {
             try {
               final episodeId = match['episodeId'].toString();
               final animeId = match['animeId'] as int;
-              final danmakuData = await getDanmaku(episodeId, animeId);
+              final danmakuData = await getDanmaku(
+                episodeId,
+                animeId,
+                prebuildMsdf: true,
+                prebuildReason: 'scan',
+              );
               data['comments'] = danmakuData['comments'];
             } catch (e) {
               debugPrint('获取弹幕失败: $e');
@@ -740,7 +752,12 @@ class DandanplayService {
                   try {
                     final episodeId = match['episodeId'].toString();
                     final animeId = match['animeId'] as int;
-                    final danmakuData = await getDanmaku(episodeId, animeId);
+                    final danmakuData = await getDanmaku(
+                      episodeId,
+                      animeId,
+                      prebuildMsdf: true,
+                      prebuildReason: 'scan',
+                    );
                     fallback['comments'] = danmakuData['comments'];
                   } catch (e) {
                     debugPrint('fallback 获取弹幕失败: $e');
@@ -994,7 +1011,11 @@ class DandanplayService {
   }
 
   static Future<Map<String, dynamic>> getDanmaku(
-      String episodeId, int animeId) async {
+    String episodeId,
+    int animeId, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }) async {
     try {
       debugPrint('开始获取弹幕: episodeId=$episodeId, animeId=$animeId');
 
@@ -1003,6 +1024,13 @@ class DandanplayService {
           await DanmakuCacheManager.getDanmakuFromCache(episodeId);
       if (cachedDanmaku != null) {
         ////debugPrint('从缓存加载弹幕成功: $episodeId, 数量: ${cachedDanmaku.length}');
+        if (prebuildMsdf) {
+          unawaited(_prebuildMsdfAfterDownload(
+            cachedDanmaku,
+            reason: prebuildReason,
+            source: 'cache',
+          ));
+        }
         return {
           'comments': cachedDanmaku,
           'fromCache': true,
@@ -1018,14 +1046,25 @@ class DandanplayService {
       final isBackupServer = currentServer == NetworkSettings.backupServer;
 
       try {
-        return await _fetchDanmakuFromServer(episodeId, animeId, currentServer);
+        return await _fetchDanmakuFromServer(
+          episodeId,
+          animeId,
+          currentServer,
+          prebuildMsdf: prebuildMsdf,
+          prebuildReason: prebuildReason,
+        );
       } catch (e) {
         debugPrint('从当前服务器($currentServer)获取弹幕失败: $e');
 
         if (isPrimaryServer) {
           debugPrint('尝试通过 nipaplay.aimes-soft.com 代理服务器获取弹幕...');
           try {
-            return await _fetchDanmakuViaProxy(episodeId, animeId);
+            return await _fetchDanmakuViaProxy(
+              episodeId,
+              animeId,
+              prebuildMsdf: prebuildMsdf,
+              prebuildReason: prebuildReason,
+            );
           } catch (proxyError) {
             debugPrint('通过代理服务器获取弹幕失败: $proxyError');
             throw Exception('主服务器与代理服务器均无法获取弹幕，请稍后再试。（$proxyError）');
@@ -1036,12 +1075,22 @@ class DandanplayService {
           debugPrint('尝试回退到主服务器获取弹幕...');
           try {
             return await _fetchDanmakuFromServer(
-                episodeId, animeId, NetworkSettings.primaryServer);
+              episodeId,
+              animeId,
+              NetworkSettings.primaryServer,
+              prebuildMsdf: prebuildMsdf,
+              prebuildReason: prebuildReason,
+            );
           } catch (fallbackError) {
             debugPrint('从主服务器获取弹幕也失败: $fallbackError');
             debugPrint('尝试通过 nipaplay.aimes-soft.com 代理服务器获取弹幕...');
             try {
-              return await _fetchDanmakuViaProxy(episodeId, animeId);
+              return await _fetchDanmakuViaProxy(
+                episodeId,
+                animeId,
+                prebuildMsdf: prebuildMsdf,
+                prebuildReason: prebuildReason,
+              );
             } catch (proxyError) {
               debugPrint('通过代理服务器获取弹幕失败: $proxyError');
               throw Exception('备用服务器、主服务器与代理服务器均无法获取弹幕，请检查网络连接。（$proxyError）');
@@ -1097,7 +1146,12 @@ class DandanplayService {
 
   /// 从指定服务器获取弹幕
   static Future<Map<String, dynamic>> _fetchDanmakuFromServer(
-      String episodeId, int animeId, String serverUrl) async {
+    String episodeId,
+    int animeId,
+    String serverUrl, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }) async {
     final appSecret = await getAppSecret();
     final timestamp =
         (DateTime.now().toUtc().millisecondsSinceEpoch / 1000).round();
@@ -1122,18 +1176,33 @@ class DandanplayService {
       },
     );
 
-    return _handleDanmakuResponse(response, episodeId, animeId);
+    return _handleDanmakuResponse(
+      response,
+      episodeId,
+      animeId,
+      prebuildMsdf: prebuildMsdf,
+      prebuildReason: prebuildReason,
+    );
   }
 
   static Map<String, dynamic> _handleDanmakuResponse(
     http.Response response,
     String episodeId,
-    int animeId,
+    int animeId, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }
   ) {
     ////debugPrint('弹幕API响应: 状态码=${response.statusCode}, 内容长度=${response.body.length}');
 
     if (response.statusCode == 200) {
-      return _parseDanmakuBody(response.body, episodeId, animeId);
+      return _parseDanmakuBody(
+        response.body,
+        episodeId,
+        animeId,
+        prebuildMsdf: prebuildMsdf,
+        prebuildReason: prebuildReason,
+      );
     }
 
     final errorMessage = response.headers['x-error-message'] ?? '请检查网络连接';
@@ -1144,7 +1213,10 @@ class DandanplayService {
   static Map<String, dynamic> _parseDanmakuBody(
     String responseBody,
     String episodeId,
-    int animeId,
+    int animeId, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }
   ) {
     final data = json.decode(responseBody);
     if (data['comments'] != null) {
@@ -1180,6 +1252,14 @@ class DandanplayService {
 
       debugPrint('从网络加载弹幕成功: $episodeId, 格式化后数量: ${formattedComments.length}');
 
+      if (prebuildMsdf) {
+        unawaited(_prebuildMsdfAfterDownload(
+          formattedComments,
+          reason: prebuildReason,
+          source: 'network',
+        ));
+      }
+
       // 异步保存到缓存
       DanmakuCacheManager.saveDanmakuToCache(
               episodeId, animeId, formattedComments)
@@ -1199,7 +1279,10 @@ class DandanplayService {
   /// 通过自建代理服务器获取弹幕
   static Future<Map<String, dynamic>> _fetchDanmakuViaProxy(
     String episodeId,
-    int animeId,
+    int animeId, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }
   ) async {
     final appSecret = await getAppSecret();
     final timestamp =
@@ -1224,7 +1307,55 @@ class DandanplayService {
       },
     );
 
-    return _handleDanmakuResponse(response, episodeId, animeId);
+    return _handleDanmakuResponse(
+      response,
+      episodeId,
+      animeId,
+      prebuildMsdf: prebuildMsdf,
+      prebuildReason: prebuildReason,
+    );
+  }
+
+  static Future<void> _prebuildMsdfAfterDownload(
+    List<dynamic> comments, {
+    required String reason,
+    required String source,
+  }) async {
+    if (comments.isEmpty) return;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final kernel = prefs.getString('danmaku_kernel') ?? 'Canvas 弹幕';
+      if (!kernel.contains('NipaPlay Next')) {
+        return;
+      }
+
+      final savedFontSize = prefs.getDouble('danmaku_font_size') ?? 0.0;
+      final fontSize =
+          savedFontSize > 0 ? savedFontSize : (globals.isPhone ? 20.0 : 30.0);
+
+      final List<Map<String, dynamic>> danmakuList = [];
+      for (final comment in comments) {
+        if (comment is Map) {
+          danmakuList.add(Map<String, dynamic>.from(comment));
+        }
+      }
+
+      if (danmakuList.isEmpty) return;
+
+      debugPrint(
+        'DandanplayService: MSDF 预构建开始 reason=$reason source=$source fontSize=$fontSize items=${danmakuList.length}',
+      );
+      await MsdfAtlasManager.prebuildFromDanmakuList(
+        danmakuList: danmakuList,
+        fontSize: fontSize,
+        reason: reason,
+      );
+      debugPrint(
+        'DandanplayService: MSDF 预构建完成 reason=$reason source=$source',
+      );
+    } catch (e) {
+      debugPrint('DandanplayService: MSDF 预构建失败: $e');
+    }
   }
 
   // 确保视频信息中包含格式化后的动画标题和集数标题

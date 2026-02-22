@@ -266,7 +266,8 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
     return '$candidate ($index)';
   }
 
-  Future<void> loadDanmaku(String episodeId, String animeIdStr) async {
+  Future<void> loadDanmaku(String episodeId, String animeIdStr,
+      {bool deferGpuPrebuild = false}) async {
     if (_isDisposed) return;
     final targetVideoPath = _currentVideoPath;
     bool canContinue() =>
@@ -342,8 +343,18 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
         if (!canContinue()) return;
         _updateMergedDanmakuList();
 
-        // 移除GPU弹幕字符集预构建调用
-        // await _prebuildGPUDanmakuCharsetIfNeeded();
+        if (!deferGpuPrebuild) {
+          if (canContinue()) {
+            await _prebuildGPUDanmakuCharsetIfNeeded(
+              showStatusMessage: true,
+              statusMessage: '正在准备弹幕...',
+              pauseIfPlaying: true,
+              targetVideoPath: targetVideoPath,
+            );
+          } else {
+            return;
+          }
+        }
 
         if (canContinue()) {
           notifyListeners();
@@ -398,10 +409,17 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
         _updateMergedDanmakuList();
 
         // 移除GPU弹幕字符集预构建调用
-        if (canContinue()) {
-          await _prebuildGPUDanmakuCharsetIfNeeded();
-        } else {
-          return;
+        if (!deferGpuPrebuild) {
+          if (canContinue()) {
+            await _prebuildGPUDanmakuCharsetIfNeeded(
+              showStatusMessage: true,
+              statusMessage: '正在准备弹幕...',
+              pauseIfPlaying: true,
+              targetVideoPath: targetVideoPath,
+            );
+          } else {
+            return;
+          }
         }
 
         _setStatus(PlayerStatus.playing,
@@ -496,6 +514,17 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
       // 重新计算合并后的弹幕列表
       if (!canContinue()) return;
       _updateMergedDanmakuList();
+
+      if (setStatusMessage && canContinue()) {
+        await _prebuildGPUDanmakuCharsetIfNeeded(
+          showStatusMessage: true,
+          statusMessage: '正在准备弹幕...',
+          pauseIfPlaying: true,
+          targetVideoPath: targetVideoPath,
+        );
+      } else if (!canContinue()) {
+        return;
+      }
 
       debugPrint('本地弹幕轨道添加完成: $finalTrackName，共${comments.length}条');
       if (canContinue()) {
@@ -921,9 +950,15 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
         _isSpoilerDanmakuAnalyzing = false;
       }
 
-      if (isCurrentRun && _spoilerPreventionEnabled && _currentVideoPath == targetVideoPath) {
+      if (isCurrentRun &&
+          _spoilerPreventionEnabled &&
+          _currentVideoPath == targetVideoPath) {
         _updateMergedDanmakuList();
-        unawaited(_prebuildGPUDanmakuCharsetIfNeeded());
+        unawaited(_prebuildGPUDanmakuCharsetIfNeeded(
+          showStatusMessage: false,
+          pauseIfPlaying: false,
+          targetVideoPath: targetVideoPath,
+        ));
       }
 
       if (isCurrentRun) {
@@ -932,32 +967,157 @@ extension VideoPlayerStateDanmaku on VideoPlayerState {
     }
   }
 
-  // GPU弹幕字符集预构建（如果需要）
-  Future<void> _prebuildGPUDanmakuCharsetIfNeeded() async {
+  bool _isGpuLikeDanmakuKernel(String kernel) {
+    if (kernel == 'GPU渲染') {
+      return true;
+    }
+    return kernel.contains('NipaPlay Next');
+  }
+
+  void _setDanmakuPrebuilding(bool value, {bool notify = true}) {
+    if (_isDanmakuPrebuilding == value) {
+      return;
+    }
+    _isDanmakuPrebuilding = value;
+    if (notify) {
+      notifyListeners();
+    }
+  }
+
+  // GPU/NipaPlay Next 弹幕字符集预构建（如果需要）
+  Future<void> _prebuildGPUDanmakuCharsetIfNeeded({
+    bool showStatusMessage = true,
+    String? statusMessage,
+    bool pauseIfPlaying = false,
+    String? targetVideoPath,
+    String? kernelOverride,
+  }) async {
+    bool didSetPrebuilding = false;
     try {
-      // 检查当前是否使用GPU弹幕内核
-      final currentKernel = await PlayerKernelManager.getCurrentDanmakuKernel();
-      if (currentKernel != 'GPU渲染') {
-        return; // 不是GPU内核，跳过
+      if (_isDisposed) return;
+      if (targetVideoPath != null && _currentVideoPath != targetVideoPath) {
+        return;
+      }
+
+      String currentKernel =
+          kernelOverride ?? await PlayerKernelManager.getCurrentDanmakuKernel();
+      bool isNipaPlayNextKernel = currentKernel.contains('NipaPlay Next');
+      bool isGpuLike = _isGpuLikeDanmakuKernel(currentKernel);
+
+      if (!isGpuLike) {
+        // 与实际渲染内核保持一致，避免配置键不一致导致误判
+        final engine = DanmakuKernelFactory.getKernelType();
+        if (engine == DanmakuRenderEngine.nipaplayNext) {
+          isNipaPlayNextKernel = true;
+          isGpuLike = true;
+          currentKernel = 'NipaPlay Next';
+        } else if (engine == DanmakuRenderEngine.gpu) {
+          isNipaPlayNextKernel = false;
+          isGpuLike = true;
+          currentKernel = 'GPU渲染';
+        }
+      }
+
+      if (!isGpuLike) {
+        return; // 不是GPU/NipaPlay Next内核，跳过
       }
 
       if (_danmakuList.isEmpty) {
         return; // 没有弹幕数据，跳过
       }
 
-      debugPrint('VideoPlayerState: 检测到GPU弹幕内核，开始预构建字符集');
-      _setStatus(PlayerStatus.recognizing, message: '正在优化GPU弹幕字符集...');
-
       // 使用过滤后的弹幕列表来预构建字符集，避免屏蔽词字符被包含
       final filteredDanmakuList = getFilteredDanmakuList();
+      if (filteredDanmakuList.isEmpty) {
+        return;
+      }
 
-      // 调用GPU弹幕覆盖层的预构建方法
-      await GPUDanmakuOverlay.prebuildDanmakuCharset(filteredDanmakuList);
+      if (isNipaPlayNextKernel &&
+          player.state == PlaybackState.playing &&
+          !pauseIfPlaying) {
+        debugPrint(
+            'VideoPlayerState: NipaPlay Next 弹幕预构建跳过（播放中且未允许暂停）');
+        return;
+      }
 
-      debugPrint('VideoPlayerState: GPU弹幕字符集预构建完成');
+      if (!_isDanmakuPrebuilding) {
+        _isDanmakuPrebuilding = true;
+        didSetPrebuilding = true;
+        if (!showStatusMessage) {
+          notifyListeners();
+        }
+      }
+
+      debugPrint(
+          'VideoPlayerState: 检测到GPU类弹幕内核($currentKernel)，开始预构建字符集');
+
+      bool shouldResume = false;
+      if (pauseIfPlaying && player.state == PlaybackState.playing) {
+        shouldResume = true;
+        try {
+          await player.pauseDirectly();
+        } catch (e) {
+          debugPrint('VideoPlayerState: 预构建前暂停失败: $e');
+          try {
+            player.state = PlaybackState.paused;
+          } catch (_) {}
+        }
+      }
+
+      if (showStatusMessage) {
+        final message = statusMessage ??
+            (currentKernel == 'GPU渲染'
+                ? '正在优化GPU弹幕字符集...'
+                : (isNipaPlayNextKernel
+                    ? '正在生成MSDF弹幕图集...'
+                    : '正在准备弹幕...'));
+        _setStatus(PlayerStatus.recognizing, message: message);
+        _isInFinalLoadingPhase = true;
+        notifyListeners();
+      }
+
+      final config = GPUDanmakuConfig.fromVideoPlayerState(this);
+      if (isNipaPlayNextKernel) {
+        final reason = statusMessage ?? 'loading';
+        final rebuildKey = targetVideoPath ?? _currentVideoPath;
+        final bool forceRebuild =
+            rebuildKey != null && rebuildKey != _msdfForceRebuildVideoPath;
+        if (forceRebuild) {
+          _msdfForceRebuildVideoPath = rebuildKey;
+        }
+        debugPrint(
+            'VideoPlayerState: NipaPlay Next MSDF 预构建开始 reason=$reason');
+        await MsdfAtlasManager.prebuildFromDanmakuList(
+          danmakuList: filteredDanmakuList,
+          fontSize: config.fontSize,
+          reason: reason,
+          forceRebuild: forceRebuild,
+        );
+        debugPrint('VideoPlayerState: NipaPlay Next MSDF 预构建完成');
+      } else {
+        await GPUDanmakuOverlay.prebuildDanmakuCharset(
+          filteredDanmakuList,
+          fontSize: config.fontSize,
+        );
+      }
+
+      debugPrint('VideoPlayerState: 弹幕字符集预构建完成');
+
+      if (shouldResume) {
+        if (_isDisposed) return;
+        if (targetVideoPath != null && _currentVideoPath != targetVideoPath) {
+          return;
+        }
+        _setStatus(PlayerStatus.ready, message: '准备就绪');
+        play();
+      }
     } catch (e) {
-      debugPrint('VideoPlayerState: GPU弹幕字符集预构建失败: $e');
+      debugPrint('VideoPlayerState: 弹幕字符集预构建失败: $e');
       // 不抛出异常，避免影响正常播放
+    } finally {
+      if (didSetPrebuilding) {
+        _setDanmakuPrebuilding(false);
+      }
     }
   }
 

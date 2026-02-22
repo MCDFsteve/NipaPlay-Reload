@@ -32,7 +32,6 @@ class MsdfDanmakuPainter extends CustomPainter {
     int drawn = 0;
     int pending = 0;
     for (final item in items) {
-      atlas.addText(item.content.text);
       if (!atlas.isTextReady(item.content.text)) {
         pending++;
         continue;

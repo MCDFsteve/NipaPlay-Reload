@@ -35,7 +35,8 @@ class GPUDanmakuOverlay extends StatefulWidget {
   /// 在视频初始化时调用，预扫描所有弹幕文本并生成完整字符图集
   /// 避免播放时的动态图集更新导致的延迟
   static Future<void> prebuildDanmakuCharset(
-      List<Map<String, dynamic>> danmakuList) async {
+      List<Map<String, dynamic>> danmakuList,
+      {double? fontSize}) async {
     if (danmakuList.isEmpty) return;
 
     debugPrint('GPUDanmakuOverlay: 开始预构建弹幕字符集');
@@ -55,7 +56,7 @@ class GPUDanmakuOverlay extends StatefulWidget {
     }
 
     // 使用全局字体图集管理器进行预构建
-    final config = GPUDanmakuConfig();
+    final config = GPUDanmakuConfig(fontSize: fontSize);
 
     try {
       // 使用全局管理器预构建弹幕字符集
@@ -136,7 +137,9 @@ class _GPUDanmakuOverlayState extends State<GPUDanmakuOverlay> {
   void dispose() {
     debugPrint('GPUDanmakuOverlay: 释放资源');
     _renderer?.dispose();
-    FontAtlasManager.disposeAll();
+    if (!FontAtlasManager.keepCacheAcrossSessions) {
+      FontAtlasManager.disposeAll();
+    }
     super.dispose();
   }
 

@@ -79,6 +79,8 @@ import 'crt_shader_manager.dart';
 // 导入MediaKitPlayerAdapter
 import '../danmaku_abstraction/danmaku_kernel_factory.dart'; // 弹幕内核工厂
 import 'package:nipaplay/danmaku_gpu/lib/gpu_danmaku_overlay.dart'; // 导入GPU弹幕覆盖层
+import 'package:nipaplay/danmaku_gpu/lib/gpu_danmaku_config.dart'; // 导入GPU弹幕配置
+import 'package:nipaplay/danmaku_next/msdf_atlas_manager.dart';
 import 'package:flutter/scheduler.dart'; // 添加Ticker导入
 import 'danmaku_dialog_manager.dart'; // 导入弹幕对话框管理器
 import 'player_kernel_manager.dart'; // 导入播放器内核管理器
@@ -306,6 +308,8 @@ class VideoPlayerState extends ChangeNotifier implements WindowListener {
   int _autoNextCountdownSeconds =
       AutoNextEpisodeService.defaultCountdownSeconds;
   List<Map<String, dynamic>> _danmakuList = [];
+  bool _isDanmakuPrebuilding = false;
+  String? _msdfForceRebuildVideoPath;
 
   // 多轨道弹幕系统
   final Map<String, Map<String, dynamic>> _danmakuTracks = {};
@@ -763,6 +767,7 @@ class VideoPlayerState extends ChangeNotifier implements WindowListener {
   String? get screenshotSaveDirectory => _screenshotSaveDirectory;
   ScreenshotSaveTarget get screenshotSaveTarget => _screenshotSaveTarget;
   List<Map<String, dynamic>> get danmakuList => _danmakuList;
+  bool get isDanmakuPrebuilding => _isDanmakuPrebuilding;
   Map<String, Map<String, dynamic>> get danmakuTracks => _danmakuTracks;
   Map<String, bool> get danmakuTrackEnabled => _danmakuTrackEnabled;
   double get controlBarHeight => _controlBarHeight;

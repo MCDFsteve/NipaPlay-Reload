@@ -343,7 +343,11 @@ extension VideoPlayerStateMetadata on VideoPlayerState {
           );
 
           _setStatus(PlayerStatus.recognizing, message: '正在加载弹幕...');
-          await loadDanmaku(episodeIdStr, animeIdStr);
+          await loadDanmaku(
+            episodeIdStr,
+            animeIdStr,
+            deferGpuPrebuild: true,
+          );
           return true;
         }
       }

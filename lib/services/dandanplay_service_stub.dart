@@ -613,7 +613,12 @@ class DandanplayService {
     }
   }
   
-  static Future<Map<String, dynamic>> getDanmaku(String episodeId, int animeId) async {
+  static Future<Map<String, dynamic>> getDanmaku(
+    String episodeId,
+    int animeId, {
+    bool prebuildMsdf = false,
+    String prebuildReason = 'download',
+  }) async {
     final webApiBaseUrl = await _getWebApiBaseUrl();
     if (webApiBaseUrl != null) {
       try {

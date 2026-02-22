@@ -47,11 +47,12 @@ class MsdfTextRenderer {
     double cursorX = item.x;
     final double cursorY = item.y;
 
+    int missing = 0;
     for (final rune in item.content.text.runes) {
       final charStr = String.fromCharCode(rune);
       final glyph = atlas.getGlyph(charStr);
       if (glyph == null) {
-        atlas.addText(charStr);
+        missing++;
         continue;
       }
 
@@ -85,6 +86,17 @@ class MsdfTextRenderer {
       canvas.drawRect(drawRect, _paint);
 
       cursorX += glyph.advance;
+    }
+
+    if (missing > 0) {
+      final preview = item.content.text.length > 20
+          ? '${item.content.text.substring(0, 20)}...'
+          : item.content.text;
+      DanmakuNextLog.d(
+        'Renderer',
+        'missing glyphs=$missing text="$preview"',
+        throttle: const Duration(seconds: 2),
+      );
     }
   }
 

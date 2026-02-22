@@ -308,7 +308,10 @@ extension VideoPlayerStateStreaming on VideoPlayerState {
           _setStatus(PlayerStatus.recognizing,
               message: '正在为Jellyfin流媒体加载弹幕...');
           await loadDanmaku(
-              historyItem.episodeId.toString(), historyItem.animeId.toString());
+            historyItem.episodeId.toString(),
+            historyItem.animeId.toString(),
+            deferGpuPrebuild: true,
+          );
 
           // 更新当前实例的弹幕ID
           _episodeId = historyItem.episodeId;

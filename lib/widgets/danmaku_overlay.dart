@@ -46,6 +46,12 @@ class _DanmakuOverlayState extends State<DanmakuOverlay> {
         final combinedTimeOffset =
             videoState.manualDanmakuOffset + videoState.autoDanmakuOffset;
 
+        if (videoState.isDanmakuPrebuilding &&
+            (kernelType == DanmakuRenderEngine.gpu ||
+                kernelType == DanmakuRenderEngine.nipaplayNext)) {
+          return const SizedBox.shrink();
+        }
+
         // 直接从videoState获取已处理好的弹幕列表
         final activeDanmakuList = videoState.danmakuList;
         final scrollDuration = videoState.danmakuScrollDurationSeconds;

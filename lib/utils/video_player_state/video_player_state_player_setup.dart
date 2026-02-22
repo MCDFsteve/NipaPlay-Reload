@@ -24,6 +24,7 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
           message: "取消了之前的加载任务", clearPreviousMessages: true);
     }
     _clearPreviousVideoState(); // 清理旧状态
+    _msdfForceRebuildVideoPath = null;
     _statusMessages.clear(); // <--- 新增行：确保消息列表在开始时是空的
     _initialHistoryItem = historyItem;
 
@@ -577,7 +578,11 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
               '检测到手动匹配的弹幕ID，直接加载: episodeId=$_episodeId, animeId=$_animeId');
           try {
             _setStatus(PlayerStatus.recognizing, message: '正在加载手动匹配的弹幕...');
-            await loadDanmaku(_episodeId.toString(), _animeId.toString());
+            await loadDanmaku(
+              _episodeId.toString(),
+              _animeId.toString(),
+              deferGpuPrebuild: true,
+            );
           } catch (e) {
             debugPrint('加载手动匹配的弹幕失败: $e');
             // 如果手动匹配的弹幕加载失败，清空弹幕列表但不重新识别
@@ -607,6 +612,13 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
       // 应用时间轴告知弹幕轨道：避免开关默认开启但轨道未生成导致“无效”
       _applyTimelineDanmakuTrackForCurrentVideo();
       _updateMergedDanmakuList();
+
+      await _prebuildGPUDanmakuCharsetIfNeeded(
+        showStatusMessage: true,
+        statusMessage: '正在准备弹幕...',
+        pauseIfPlaying: true,
+        targetVideoPath: videoPath,
+      );
 
       // 设置进入最终加载阶段，以优化动画性能
       _isInFinalLoadingPhase = true;

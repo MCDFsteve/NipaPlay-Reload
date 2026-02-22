@@ -1,23 +1,93 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'font_atlas_cache_stub.dart'
+    if (dart.library.io) 'font_atlas_cache_io.dart';
+
+class _FontAtlasKeyInfo {
+  final String key;
+  final double fontSize;
+  final Color color;
+
+  const _FontAtlasKeyInfo({
+    required this.key,
+    required this.fontSize,
+    required this.color,
+  });
+}
 
 /// 全局字体图集管理器
 /// 
 /// 管理不同配置的字体图集实例，避免重复生成
 class FontAtlasManager {
+  static bool enablePersistentCache = true;
+  static bool keepCacheAcrossSessions = true;
   static final Map<String, DynamicFontAtlas> _instances = {};
   static final Map<String, bool> _initialized = {};
+  static final Map<String, bool> _cacheLoaded = {};
+  static final Map<String, Timer> _cacheSaveTimers = {};
+  static final Map<DynamicFontAtlas, _FontAtlasKeyInfo> _instanceInfo = {};
 
   /// 确保特定 key 的实例和初始化标记存在
   static void _ensureKey({required String key, required double fontSize, required Color color, VoidCallback? onAtlasUpdated}) {
     if (!_instances.containsKey(key)) {
-      _instances[key] = DynamicFontAtlas(
+      final atlas = DynamicFontAtlas(
         fontSize: fontSize,
         color: color,
         onAtlasUpdated: onAtlasUpdated,
       );
+      _instances[key] = atlas;
+      _instanceInfo[atlas] = _FontAtlasKeyInfo(
+        key: key,
+        fontSize: fontSize,
+        color: color,
+      );
     }
     _initialized.putIfAbsent(key, () => false);
+  }
+
+  static Future<void> _ensureCacheLoaded({
+    required String key,
+    required double fontSize,
+    required Color color,
+  }) async {
+    if (!enablePersistentCache || kIsWeb) return;
+    if (_cacheLoaded[key] == true) return;
+    _cacheLoaded[key] = true;
+
+    final atlas = _instances[key];
+    if (atlas == null) return;
+
+    final cachedChars =
+        await FontAtlasCacheManager.loadChars(fontSize: fontSize, color: color);
+    if (cachedChars.isNotEmpty) {
+      atlas.seedChars(cachedChars);
+      debugPrint('FontAtlasManager: 已加载缓存字符集 ${cachedChars.length} 个');
+    }
+  }
+
+  static void _schedulePersist(DynamicFontAtlas atlas) {
+    if (!enablePersistentCache || kIsWeb) return;
+    final info = _instanceInfo[atlas];
+    if (info == null) return;
+
+    _cacheSaveTimers[info.key]?.cancel();
+    _cacheSaveTimers[info.key] =
+        Timer(const Duration(milliseconds: 800), () {
+      final current = _instances[info.key];
+      if (current == null) return;
+      final chars = current.allChars;
+      unawaited(FontAtlasCacheManager.saveChars(
+        fontSize: info.fontSize,
+        color: info.color,
+        chars: chars,
+      ));
+    });
+  }
+
+  static void _notifyAtlasUpdated(DynamicFontAtlas atlas) {
+    _schedulePersist(atlas);
   }
 
   /// 获取或创建字体图集实例
@@ -38,6 +108,7 @@ class FontAtlasManager {
   }) async {
     final key = '${fontSize}_${color.value}';
     _ensureKey(key: key, fontSize: fontSize, color: color);
+    await _ensureCacheLoaded(key: key, fontSize: fontSize, color: color);
     if (!_initialized[key]!) {
       final atlas = _instances[key]!;
       await atlas.generate();
@@ -54,6 +125,7 @@ class FontAtlasManager {
   }) async {
     final key = '${fontSize}_${color.value}';
     _ensureKey(key: key, fontSize: fontSize, color: color);
+    await _ensureCacheLoaded(key: key, fontSize: fontSize, color: color);
     if (!_initialized[key]!) {
       await preInitialize(fontSize: fontSize, color: color);
     }
@@ -70,6 +142,12 @@ class FontAtlasManager {
     }
     _instances.clear();
     _initialized.clear();
+    _cacheLoaded.clear();
+    _instanceInfo.clear();
+    for (final timer in _cacheSaveTimers.values) {
+      timer.cancel();
+    }
+    _cacheSaveTimers.clear();
     debugPrint('FontAtlasManager: 清理所有字体图集实例');
   }
 
@@ -81,6 +159,9 @@ class FontAtlasManager {
     final key = '${fontSize}_${color.value}';
     final atlas = _instances.remove(key);
     _initialized.remove(key);
+    _cacheLoaded.remove(key);
+    _instanceInfo.remove(atlas);
+    _cacheSaveTimers.remove(key)?.cancel();
     atlas?.dispose();
     debugPrint('FontAtlasManager: 清理字体图集实例 - 字体大小: $fontSize, 颜色: $color');
   }
@@ -106,6 +187,13 @@ class DynamicFontAtlas {
     this.onAtlasUpdated,
   });
 
+  Set<String> get allChars => Set<String>.from(_allChars);
+
+  void seedChars(Set<String> chars) {
+    if (chars.isEmpty) return;
+    _allChars.addAll(chars);
+  }
+
   // 初始化，生成一个包含基本字符的初始图集
   Future<void> generate() async {
     // 如果已经生成过，直接返回
@@ -122,38 +210,54 @@ class DynamicFontAtlas {
 
   // 预扫描大量文本并批量生成字符集（用于视频初始化时预处理）
   Future<void> prebuildFromTexts(List<String> texts) async {
-    if (_isUpdating) return;
-    _isUpdating = true;
-    
-    debugPrint('DynamicFontAtlas: 开始预扫描 ${texts.length} 条弹幕文本');
-    
-    final Set<String> newChars = {};
-    int totalChars = 0;
-    
-    // 批量提取所有唯一字符
-    for (final text in texts) {
-      for (final char in text.runes) {
-        final charStr = String.fromCharCode(char);
-        totalChars++;
-        if (!_allChars.contains(charStr)) {
-          newChars.add(charStr);
+    if (_isUpdating) {
+      final start = DateTime.now();
+      while (_isUpdating) {
+        await Future.delayed(const Duration(milliseconds: 16));
+        if (DateTime.now().difference(start) > const Duration(seconds: 3)) {
+          debugPrint('DynamicFontAtlas: 预构建等待超时，跳过本次预构建');
+          break;
         }
       }
+      if (_isUpdating) {
+        return;
+      }
     }
-    
-    if (newChars.isNotEmpty) {
-      debugPrint('DynamicFontAtlas: 发现 ${newChars.length} 个新字符（总计 $totalChars 个字符）');
-      
-      _allChars.addAll(newChars);
-      await _regenerateAtlas();
-      
-      debugPrint('DynamicFontAtlas: 预构建完成，图集包含 ${_allChars.length} 个字符');
-      onAtlasUpdated?.call();
-    } else {
-      debugPrint('DynamicFontAtlas: 所有字符已在图集中，无需重建');
+
+    _isUpdating = true;
+    try {
+      debugPrint('DynamicFontAtlas: 开始预扫描 ${texts.length} 条弹幕文本');
+
+      final Set<String> newChars = {};
+      int totalChars = 0;
+
+      // 批量提取所有唯一字符
+      for (final text in texts) {
+        for (final char in text.runes) {
+          final charStr = String.fromCharCode(char);
+          totalChars++;
+          if (!_allChars.contains(charStr)) {
+            newChars.add(charStr);
+          }
+        }
+      }
+
+      if (newChars.isNotEmpty) {
+        debugPrint(
+            'DynamicFontAtlas: 发现 ${newChars.length} 个新字符（总计 $totalChars 个字符）');
+
+        _allChars.addAll(newChars);
+        await _regenerateAtlas();
+
+        debugPrint('DynamicFontAtlas: 预构建完成，图集包含 ${_allChars.length} 个字符');
+        FontAtlasManager._notifyAtlasUpdated(this);
+        onAtlasUpdated?.call();
+      } else {
+        debugPrint('DynamicFontAtlas: 所有字符已在图集中，无需重建');
+      }
+    } finally {
+      _isUpdating = false;
     }
-    
-    _isUpdating = false;
   }
 
   // 从文本中提取新字符，并触发更新
@@ -186,6 +290,7 @@ class DynamicFontAtlas {
     await _regenerateAtlas();
     
     _isUpdating = false;
+    FontAtlasManager._notifyAtlasUpdated(this);
     onAtlasUpdated?.call(); // 触发回调
     //debugPrint('DynamicFontAtlas: 图集已动态更新');
   }

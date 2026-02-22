@@ -22,15 +22,18 @@ float median(float r, float g, float b) {
 void main() {
     vec2 fragCoord = FlutterFragCoord().xy;
     vec2 uv = (fragCoord - uRect.xy) / uRect.zw;
-    if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
-        discard;
+    float inside = step(0.0, uv.x) * step(0.0, uv.y) * step(uv.x, 1.0) * step(uv.y, 1.0);
+
+    vec2 atlasUv = uAtlasRect.xy + clamp(uv, 0.0, 1.0) * uAtlasRect.zw;
+    vec4 texel = texture(uTexture, atlasUv);
+    vec3 msdf = texel.rgb;
+    if (texel.a > 0.0001) {
+        msdf /= texel.a;
     }
+    msdf = clamp(msdf, 0.0, 1.0);
+    float dist = 1.0 - median(msdf.r, msdf.g, msdf.b);
 
-    vec2 atlasUv = uAtlasRect.xy + uv * uAtlasRect.zw;
-    vec3 texel = texture(uTexture, atlasUv).rgb;
-    float dist = median(texel.r, texel.g, texel.b);
-
-    float smoothing = fwidth(dist);
+    float smoothing = 0.5 / max(uSpread, 0.0001);
     float outline = uOutlinePx / max(uSpread, 0.0001);
 
     float fillAlpha = smoothstep(0.5 - smoothing, 0.5 + smoothing, dist);
@@ -38,5 +41,5 @@ void main() {
     float strokeAlpha = clamp(outlineAlpha - fillAlpha, 0.0, 1.0);
 
     vec4 color = uOutlineColor * strokeAlpha + uFillColor * fillAlpha;
-    fragColor = vec4(color.rgb, color.a * uOpacity);
+    fragColor = vec4(color.rgb, color.a * uOpacity * inside);
 }

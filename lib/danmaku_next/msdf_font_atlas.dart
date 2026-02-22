@@ -14,10 +14,19 @@ class MsdfFontAtlas {
   final int padding;
   final VoidCallback? onAtlasUpdated;
 
+  static const double _defaultAtlasWidth = 2048.0;
+  static const String _baselineSample = 'Ag你好😀yg|';
+
   ui.Image? atlasTexture;
   final Map<String, _MsdfGlyph> _glyphs = {};
   final Set<String> _allChars = {};
   final Set<String> _pendingChars = {};
+  double _atlasWidth = _defaultAtlasWidth;
+  double _atlasHeight = 0.0;
+  double _cursorX = 0.0;
+  double _cursorY = 0.0;
+  double _rowHeight = 0.0;
+  double? _baselineRef;
   bool _isUpdating = false;
   bool _disposed = false;
 
@@ -33,6 +42,14 @@ class MsdfFontAtlas {
   bool get isReady => atlasTexture != null;
 
   _MsdfGlyph? getGlyph(String char) => _glyphs[char];
+
+  bool containsChars(Set<String> chars) {
+    if (atlasTexture == null) return false;
+    for (final char in chars) {
+      if (!_glyphs.containsKey(char)) return false;
+    }
+    return true;
+  }
 
   bool isTextReady(String text) {
     if (atlasTexture == null) return false;
@@ -85,6 +102,126 @@ class MsdfFontAtlas {
         throttle: Duration.zero,
       );
       await _updateAtlas();
+      if (!_disposed) {
+        onAtlasUpdated?.call();
+      }
+    }
+  }
+
+  Map<String, dynamic>? exportCacheMeta() {
+    final texture = atlasTexture;
+    if (texture == null || _glyphs.isEmpty) return null;
+
+    final glyphs = <Map<String, dynamic>>[];
+    _glyphs.forEach((charStr, glyph) {
+      glyphs.add({
+        'c': charStr.runes.first,
+        'x': glyph.atlasRect.left,
+        'y': glyph.atlasRect.top,
+        'w': glyph.atlasRect.width,
+        'h': glyph.atlasRect.height,
+        'adv': glyph.advance,
+        'ox': glyph.offsetX,
+        'oy': glyph.offsetY,
+      });
+    });
+
+    return {
+      'fontSize': fontSize,
+      'renderScale': renderScale,
+      'atlasScale': atlasScale,
+      'spread': spread,
+      'padding': padding,
+      'baselineRef': _baselineRef,
+      'atlasWidth': _atlasWidth,
+      'atlasHeight': texture.height.toDouble(),
+      'cursorX': _cursorX,
+      'cursorY': _cursorY,
+      'rowHeight': _rowHeight,
+      'glyphs': glyphs,
+    };
+  }
+
+  bool applyCacheData(Map<String, dynamic> meta, ui.Image image) {
+    if (_disposed) return false;
+    final metaFontSize = (meta['fontSize'] as num?)?.toDouble();
+    final metaRenderScale = (meta['renderScale'] as num?)?.toDouble();
+    final metaSpread = (meta['spread'] as num?)?.toInt();
+    final metaPadding = (meta['padding'] as num?)?.toInt();
+    if (metaFontSize == null ||
+        metaRenderScale == null ||
+        metaSpread == null ||
+        metaPadding == null) {
+      return false;
+    }
+    if ((metaFontSize - fontSize).abs() > 0.01) return false;
+    if ((metaRenderScale - renderScale).abs() > 0.001) return false;
+    if (metaSpread != spread || metaPadding != padding) return false;
+
+    final rawGlyphs = meta['glyphs'];
+    if (rawGlyphs is! List || rawGlyphs.isEmpty) return false;
+
+    _baselineRef = (meta['baselineRef'] as num?)?.toDouble();
+    _atlasWidth =
+        (meta['atlasWidth'] as num?)?.toDouble() ?? _defaultAtlasWidth;
+    _atlasHeight = image.height.toDouble();
+    _cursorX = (meta['cursorX'] as num?)?.toDouble() ?? 0.0;
+    _cursorY = (meta['cursorY'] as num?)?.toDouble() ?? _atlasHeight;
+    _rowHeight = (meta['rowHeight'] as num?)?.toDouble() ?? 0.0;
+
+    final Map<String, _MsdfGlyph> newGlyphs = {};
+    final Set<String> newChars = <String>{};
+    for (final raw in rawGlyphs) {
+      if (raw is! Map) continue;
+      final code = (raw['c'] as num?)?.toInt();
+      if (code == null) continue;
+      final charStr = String.fromCharCode(code);
+
+      final double x = (raw['x'] as num?)?.toDouble() ?? 0.0;
+      final double y = (raw['y'] as num?)?.toDouble() ?? 0.0;
+      final double w = (raw['w'] as num?)?.toDouble() ?? 0.0;
+      final double h = (raw['h'] as num?)?.toDouble() ?? 0.0;
+      final double adv = (raw['adv'] as num?)?.toDouble() ?? 0.0;
+      final double ox = (raw['ox'] as num?)?.toDouble() ?? 0.0;
+      final double oy = (raw['oy'] as num?)?.toDouble() ?? 0.0;
+
+      if (w <= 0 || h <= 0) continue;
+
+      newGlyphs[charStr] = _MsdfGlyph(
+        atlasRect: Rect.fromLTWH(x, y, w, h),
+        advance: adv,
+        offsetX: ox,
+        offsetY: oy,
+      );
+      newChars.add(charStr);
+    }
+
+    if (newGlyphs.isEmpty) return false;
+
+    atlasTexture?.dispose();
+    atlasTexture = image;
+    _glyphs
+      ..clear()
+      ..addAll(newGlyphs);
+    _allChars
+      ..clear()
+      ..addAll(newChars);
+    _pendingChars.clear();
+    return true;
+  }
+
+  void reset({bool resetBaseline = false}) {
+    _pendingChars.clear();
+    _allChars.clear();
+    _glyphs.clear();
+    atlasTexture?.dispose();
+    atlasTexture = null;
+    _atlasHeight = 0.0;
+    _cursorX = 0.0;
+    _cursorY = 0.0;
+    _rowHeight = 0.0;
+    if (resetBaseline) {
+      _baselineRef = null;
     }
   }
 
@@ -120,16 +257,17 @@ class MsdfFontAtlas {
   Future<void> _updateAtlas() async {
     if (_disposed || _pendingChars.isEmpty) return;
 
-    _allChars.addAll(_pendingChars);
+    final newChars = Set<String>.from(_pendingChars);
+    _allChars.addAll(newChars);
     _pendingChars.clear();
 
     if (_disposed) return;
     DanmakuNextLog.d(
       'MSDF',
-      'atlas update start glyphs=${_allChars.length}',
+      'atlas update start glyphs=${_allChars.length} new=${newChars.length}',
       throttle: Duration.zero,
     );
-    await _regenerateAtlas();
+    await _appendAtlas(newChars);
     DanmakuNextLog.d(
       'MSDF',
       'atlas update done glyphs=${_allChars.length}',
@@ -137,50 +275,46 @@ class MsdfFontAtlas {
     );
   }
 
-  Future<void> _regenerateAtlas() async {
-    if (_disposed || _allChars.isEmpty) return;
+  Future<void> _appendAtlas(Set<String> newChars) async {
+    if (_disposed || newChars.isEmpty) return;
 
-    final oldTexture = atlasTexture;
     final stopwatch = Stopwatch()..start();
+    final oldTexture = atlasTexture;
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
 
-    double x = 0;
-    double y = 0;
-    double maxRowHeight = 0;
-    const atlasWidth = 2048.0;
+    if (oldTexture != null) {
+      canvas.drawImage(oldTexture, Offset.zero, Paint());
+      _atlasHeight = oldTexture.height.toDouble();
+      if (_cursorY < 0.0) _cursorY = 0.0;
+    } else {
+      _atlasWidth = _defaultAtlasWidth;
+      _atlasHeight = 0.0;
+      _cursorX = 0.0;
+      _cursorY = 0.0;
+      _rowHeight = 0.0;
+    }
 
     final Map<String, _MsdfGlyph> newGlyphs = {};
-
     bool aborted = false;
-    for (final charStr in _allChars) {
+
+    for (final charStr in newChars) {
       if (_disposed) {
         aborted = true;
         break;
       }
       final glyph = await _buildGlyph(charStr);
+      final rect = _packGlyph(glyph.pixelWidth, glyph.pixelHeight);
 
-      if (x + glyph.pixelWidth > atlasWidth) {
-        x = 0;
-        y += maxRowHeight;
-        maxRowHeight = 0;
-      }
-
-      canvas.drawImage(glyph.image, Offset(x, y), Paint());
+      canvas.drawImage(glyph.image, Offset(rect.left, rect.top), Paint());
       glyph.image.dispose();
 
-      final rect = Rect.fromLTWH(x, y, glyph.pixelWidth, glyph.pixelHeight);
       newGlyphs[charStr] = _MsdfGlyph(
         atlasRect: rect,
         advance: glyph.advance,
         offsetX: glyph.offsetX,
         offsetY: glyph.offsetY,
       );
-
-      x += glyph.pixelWidth;
-      if (glyph.pixelHeight > maxRowHeight) {
-        maxRowHeight = glyph.pixelHeight;
-      }
     }
 
     final picture = recorder.endRecording();
@@ -191,8 +325,8 @@ class MsdfFontAtlas {
     }
 
     final newTexture = await picture.toImage(
-      atlasWidth.toInt(),
-      max(1, (y + maxRowHeight).toInt()),
+      _atlasWidth.toInt(),
+      max(1, _atlasHeight.toInt()),
     );
 
     if (_disposed) {
@@ -202,19 +336,32 @@ class MsdfFontAtlas {
     }
 
     atlasTexture = newTexture;
-
-    _glyphs
-      ..clear()
-      ..addAll(newGlyphs);
-
+    _glyphs.addAll(newGlyphs);
     oldTexture?.dispose();
     stopwatch.stop();
+
     DanmakuNextLog.d(
       'MSDF',
-      'atlas regenerated glyphs=${_allChars.length} size=${atlasTexture?.width}x${atlasTexture?.height} '
-      'time=${stopwatch.elapsedMilliseconds}ms',
+      'atlas appended new=${newChars.length} total=${_allChars.length} '
+      'size=${atlasTexture?.width}x${atlasTexture?.height} time=${stopwatch.elapsedMilliseconds}ms',
       throttle: Duration.zero,
     );
+  }
+
+  Rect _packGlyph(double width, double height) {
+    if (_cursorX + width > _atlasWidth) {
+      _cursorX = 0.0;
+      _cursorY += _rowHeight;
+      _rowHeight = 0.0;
+    }
+
+    final rect = Rect.fromLTWH(_cursorX, _cursorY, width, height);
+    _cursorX += width;
+    if (height > _rowHeight) {
+      _rowHeight = height;
+    }
+    _atlasHeight = max(_atlasHeight, _cursorY + _rowHeight);
+    return rect;
   }
 
   void dispose() {
@@ -223,6 +370,31 @@ class MsdfFontAtlas {
     _allChars.clear();
     _glyphs.clear();
     atlasTexture?.dispose();
+    _atlasHeight = 0.0;
+    _cursorX = 0.0;
+    _cursorY = 0.0;
+    _rowHeight = 0.0;
+  }
+
+  double _computeBaselineRef(double scaledFontSize) {
+    final textPainter = TextPainter(
+      text: const TextSpan(text: _baselineSample),
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.text = TextSpan(
+      text: _baselineSample,
+      style: TextStyle(
+        fontSize: scaledFontSize,
+        color: Colors.white,
+      ),
+    );
+    textPainter.layout();
+    final baseline =
+        textPainter.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+    if (baseline != null && baseline.isFinite) {
+      return baseline;
+    }
+    return textPainter.height * 0.8;
   }
 
   Future<_GlyphBitmap> _buildGlyph(String charStr) async {
@@ -253,13 +425,27 @@ class MsdfFontAtlas {
 
     final glyphWidth = max(1, textPainter.width.ceil());
     final glyphHeight = max(1, textPainter.height.ceil());
+    _baselineRef ??= _computeBaselineRef(scaledFontSize);
+    final charBaseline = textPainter
+        .computeDistanceToActualBaseline(TextBaseline.alphabetic);
+    final baselineOffset = max(
+      0.0,
+      (_baselineRef ?? textPainter.height * 0.8) -
+          (charBaseline ?? textPainter.height * 0.8),
+    );
+
+    final int extraBottom = baselineOffset.ceil();
+    final int topPadding = padding;
+    final int bottomPadding = padding + extraBottom;
+
     final pixelWidth = glyphWidth + padding * 2;
-    final pixelHeight = glyphHeight + padding * 2;
+    final pixelHeight = glyphHeight + topPadding + bottomPadding;
 
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
     canvas.drawColor(Colors.transparent, BlendMode.src);
-    textPainter.paint(canvas, Offset(padding.toDouble(), padding.toDouble()));
+    final drawY = topPadding + baselineOffset;
+    textPainter.paint(canvas, Offset(padding.toDouble(), drawY));
 
     final picture = recorder.endRecording();
     final glyphImage = await picture.toImage(pixelWidth, pixelHeight);
@@ -287,7 +473,11 @@ class MsdfFontAtlas {
 
     final pixels = byteData.buffer.asUint8List();
     final msdf = _generateMsdf(pixels, pixelWidth, pixelHeight);
-    final msdfImage = await _imageFromMsdf(msdf, pixelWidth, pixelHeight);
+    final msdfImage = await _imageFromMsdf(
+      msdf,
+      pixelWidth,
+      pixelHeight,
+    );
 
     sw.stop();
     if (sw.elapsedMilliseconds >= 20) {
@@ -304,7 +494,7 @@ class MsdfFontAtlas {
       pixelHeight: pixelHeight.toDouble(),
       advance: textPainter.width * atlasScale,
       offsetX: padding * atlasScale,
-      offsetY: padding * atlasScale,
+      offsetY: topPadding * atlasScale,
     );
   }
 
@@ -791,15 +981,21 @@ class MsdfFontAtlas {
     }
   }
 
-  Future<ui.Image> _imageFromMsdf(Uint8List rgb, int width, int height) async {
+  Future<ui.Image> _imageFromMsdf(
+    Uint8List rgb,
+    int width,
+    int height, {
+    Uint8List? alpha,
+  }) async {
     final Uint8List pixels = Uint8List(width * height * 4);
+    final bool hasAlpha = alpha != null && alpha.length == width * height;
     for (int i = 0; i < width * height; i++) {
       final int src = i * 3;
       final int dst = i * 4;
       pixels[dst] = rgb[src];
       pixels[dst + 1] = rgb[src + 1];
       pixels[dst + 2] = rgb[src + 2];
-      pixels[dst + 3] = 255;
+      pixels[dst + 3] = hasAlpha ? alpha![i] : 255;
     }
 
     final completer = Completer<ui.Image>();
