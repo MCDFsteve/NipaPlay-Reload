@@ -2,50 +2,54 @@ import 'package:nipaplay/themes/cupertino/cupertino_adaptive_platform_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:nipaplay/themes/cupertino/cupertino_imports.dart';
 import 'package:nipaplay/themes/cupertino/widgets/cupertino_bottom_sheet.dart';
-import 'package:nipaplay/services/smb_service.dart';
+import 'package:nipaplay/services/webdav_service.dart';
 
-class CupertinoSmbConnectionDialog {
+class CupertinoWebDAVConnectionDialog {
   static Future<bool?> show(
     BuildContext context, {
-    SMBConnection? editConnection,
-    Future<bool> Function(SMBConnection)? onSave,
+    WebDAVConnection? editConnection,
+    Future<bool> Function(WebDAVConnection)? onSave,
+    Future<bool> Function(WebDAVConnection)? onTest,
   }) {
-    final title = editConnection == null ? '添加 SMB 服务器' : '编辑 SMB 服务器';
+    final title = editConnection == null ? '添加 WebDAV 服务器' : '编辑 WebDAV 服务器';
     return CupertinoBottomSheet.show<bool>(
       context: context,
       title: title,
       floatingTitle: true,
-      child: _CupertinoSmbConnectionSheet(
+      child: _CupertinoWebDAVConnectionSheet(
         editConnection: editConnection,
         onSave: onSave,
+        onTest: onTest,
       ),
     );
   }
 }
 
-class _CupertinoSmbConnectionSheet extends StatefulWidget {
-  const _CupertinoSmbConnectionSheet({
+class _CupertinoWebDAVConnectionSheet extends StatefulWidget {
+  const _CupertinoWebDAVConnectionSheet({
     required this.editConnection,
     required this.onSave,
+    required this.onTest,
   });
 
-  final SMBConnection? editConnection;
-  final Future<bool> Function(SMBConnection)? onSave;
+  final WebDAVConnection? editConnection;
+  final Future<bool> Function(WebDAVConnection)? onSave;
+  final Future<bool> Function(WebDAVConnection)? onTest;
 
   @override
-  State<_CupertinoSmbConnectionSheet> createState() =>
-      _CupertinoSmbConnectionSheetState();
+  State<_CupertinoWebDAVConnectionSheet> createState() =>
+      _CupertinoWebDAVConnectionSheetState();
 }
 
-class _CupertinoSmbConnectionSheetState
-    extends State<_CupertinoSmbConnectionSheet> {
-  final TextEditingController _hostController = TextEditingController();
-  final TextEditingController _portController = TextEditingController();
-  final TextEditingController _domainController = TextEditingController();
+class _CupertinoWebDAVConnectionSheetState
+    extends State<_CupertinoWebDAVConnectionSheet> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _urlController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   bool _isSaving = false;
+  bool _isTesting = false;
   String? _errorMessage;
 
   @override
@@ -53,62 +57,112 @@ class _CupertinoSmbConnectionSheetState
     super.initState();
     final edit = widget.editConnection;
     if (edit != null) {
-      _hostController.text = edit.host;
-      _portController.text = edit.port.toString();
-      _domainController.text = edit.domain;
+      _nameController.text = edit.name;
+      _urlController.text = edit.url;
       _usernameController.text = edit.username;
       _passwordController.text = edit.password;
+    } else {
+      _urlController.text = 'http://192.168.1.1:5244/';
     }
   }
 
   @override
   void dispose() {
-    _hostController.dispose();
-    _portController.dispose();
-    _domainController.dispose();
+    _nameController.dispose();
+    _urlController.dispose();
     _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
   String? _validateInputs() {
-    final host = _hostController.text.trim();
-    if (host.isEmpty) {
-      return '请输入主机或 IP 地址';
+    final url = _urlController.text.trim();
+    if (url.isEmpty) {
+      return '请输入 WebDAV 地址';
     }
-    final portText = _portController.text.trim();
-    if (portText.isNotEmpty) {
-      final port = int.tryParse(portText);
-      if (port == null || port <= 0 || port > 65535) {
-        return '端口无效，请输入 1-65535';
-      }
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      return '请输入有效的 URL（http/https）';
     }
     return null;
   }
 
-  SMBConnection _buildConnection() {
-    final host = _hostController.text.trim();
-    final portText = _portController.text.trim();
-    final port = portText.isEmpty ? 445 : int.parse(portText);
-    final domain = _domainController.text.trim();
-    final username = _usernameController.text.trim();
-    final password = _passwordController.text.trim();
+  String _resolveConnectionName() {
+    final input = _nameController.text.trim();
+    if (input.isNotEmpty) return input;
+    try {
+      final uri = Uri.parse(_urlController.text.trim());
+      final username = _usernameController.text.trim();
+      if (uri.host.isNotEmpty) {
+        return username.isNotEmpty ? '${uri.host}@$username' : uri.host;
+      }
+    } catch (_) {}
+    return 'WebDAV 连接';
+  }
 
-    final name = widget.editConnection?.name ??
-        (port == 445 ? host : '$host:$port');
-
-    return SMBConnection(
-      name: name,
-      host: host,
-      port: port,
-      username: username,
-      password: password,
-      domain: domain,
+  WebDAVConnection _buildConnection() {
+    return WebDAVConnection(
+      name: _resolveConnectionName(),
+      url: _urlController.text.trim(),
+      username: _usernameController.text.trim(),
+      password: _passwordController.text.trim(),
     );
   }
 
+  Future<void> _handleTest() async {
+    if (_isSaving || _isTesting) return;
+    final validation = _validateInputs();
+    if (validation != null) {
+      setState(() {
+        _errorMessage = validation;
+      });
+      return;
+    }
+
+    setState(() {
+      _isTesting = true;
+      _errorMessage = null;
+    });
+
+    final connection = _buildConnection();
+    bool success = false;
+    try {
+      success = widget.onTest != null
+          ? await widget.onTest!(connection)
+          : await WebDAVService.instance.testConnection(connection);
+    } catch (e) {
+      success = false;
+      if (mounted) {
+        AdaptiveSnackBar.show(
+          context,
+          message: '测试失败：$e',
+          type: AdaptiveSnackBarType.error,
+        );
+      }
+    }
+
+    if (!mounted) return;
+    setState(() {
+      _isTesting = false;
+      _errorMessage = success ? null : '连接测试失败，请检查地址和认证信息';
+    });
+
+    if (success) {
+      AdaptiveSnackBar.show(
+        context,
+        message: '连接测试成功',
+        type: AdaptiveSnackBarType.success,
+      );
+    } else {
+      AdaptiveSnackBar.show(
+        context,
+        message: '连接测试失败',
+        type: AdaptiveSnackBarType.error,
+      );
+    }
+  }
+
   Future<void> _handleSave() async {
-    if (_isSaving) return;
+    if (_isSaving || _isTesting) return;
     final validation = _validateInputs();
     if (validation != null) {
       setState(() {
@@ -127,11 +181,12 @@ class _CupertinoSmbConnectionSheetState
     try {
       if (widget.onSave != null) {
         success = await widget.onSave!(connection);
-      } else if (widget.editConnection != null) {
-        success = await SMBService.instance
-            .updateConnection(widget.editConnection!.name, connection);
       } else {
-        success = await SMBService.instance.addConnection(connection);
+        if (widget.editConnection != null) {
+          await WebDAVService.instance
+              .removeConnection(widget.editConnection!.name);
+        }
+        success = await WebDAVService.instance.addConnection(connection);
       }
     } catch (e) {
       success = false;
@@ -150,7 +205,7 @@ class _CupertinoSmbConnectionSheetState
     } else {
       setState(() {
         _isSaving = false;
-        _errorMessage = '连接失败，请检查地址和认证信息';
+        _errorMessage = '保存失败，请检查地址和认证信息';
       });
     }
   }
@@ -215,7 +270,7 @@ class _CupertinoSmbConnectionSheetState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '用户名/密码可留空以匿名访问；支持填写域名。',
+                    '连接 WebDAV 服务器后可浏览目录并选择媒体文件夹。',
                     style: TextStyle(fontSize: 13, color: secondaryLabel),
                   ),
                   if (_errorMessage != null) ...[
@@ -237,26 +292,17 @@ class _CupertinoSmbConnectionSheetState
                 children: [
                   _buildField(
                     context,
-                    label: '主机 / IP',
-                    controller: _hostController,
-                    placeholder: '例如：192.168.1.10 或 nas.local',
+                    label: '连接名称（可选）',
+                    controller: _nameController,
+                    placeholder: '留空自动生成',
+                  ),
+                  const SizedBox(height: 12),
+                  _buildField(
+                    context,
+                    label: 'WebDAV 地址',
+                    controller: _urlController,
+                    placeholder: 'https://your-server.com/webdav',
                     keyboardType: TextInputType.url,
-                  ),
-                  const SizedBox(height: 12),
-                  _buildField(
-                    context,
-                    label: '端口',
-                    controller: _portController,
-                    placeholder: '默认 445',
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
-                  const SizedBox(height: 12),
-                  _buildField(
-                    context,
-                    label: '域（可选）',
-                    controller: _domainController,
-                    placeholder: '例如：WORKGROUP',
                   ),
                   const SizedBox(height: 12),
                   _buildField(
@@ -280,12 +326,28 @@ class _CupertinoSmbConnectionSheetState
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-              child: CupertinoButton.filled(
-                onPressed: _isSaving ? null : _handleSave,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: _isSaving
-                    ? const CupertinoActivityIndicator(radius: 8)
-                    : const Text('保存'),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: CupertinoButton(
+                      onPressed: _isSaving || _isTesting ? null : _handleTest,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: _isTesting
+                          ? const CupertinoActivityIndicator(radius: 8)
+                          : const Text('测试连接'),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: CupertinoButton.filled(
+                      onPressed: _isSaving || _isTesting ? null : _handleSave,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: _isSaving
+                          ? const CupertinoActivityIndicator(radius: 8)
+                          : const Text('保存'),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
