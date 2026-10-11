@@ -1,0 +1,2084 @@
+[
+  {
+    "label": "start",
+    "value": {
+      "profile": "x19-downloads-15358",
+      "pid": 15361,
+      "root": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358",
+      "bytes": 4372373,
+      "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+      "transport": "native BT TCP via local tracker/seed peer"
+    }
+  },
+  {
+    "label": "download.add",
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "Downloader is disabled.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "status": "completed",
+            "key": "download.directory",
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+            "revision": 1,
+            "scope": "device",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.directory",
+              "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/downloads",
+              "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+              "changedAt": "2026-10-11T11:06:30.691489Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          },
+          {
+            "index": 1,
+            "status": "completed",
+            "key": "download.createFolderForTask",
+            "value": true,
+            "revision": 1,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.createFolderForTask",
+              "previousValue": true,
+              "value": true,
+              "changedAt": "2026-10-11T11:06:30.696348Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          },
+          {
+            "index": 2,
+            "status": "completed",
+            "key": "download.enabled",
+            "value": true,
+            "revision": 1,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.enabled",
+              "previousValue": false,
+              "value": true,
+              "changedAt": "2026-10-11T11:06:30.701972Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "settings.describe",
+    "value": {
+      "status": "completed",
+      "result": {
+        "settings": [
+          {
+            "key": "download.enabled",
+            "title": "启用下载器",
+            "description": "沿用 Classic 开关：关闭隐藏下载器 Tab，不暂停或删除已有任务。",
+            "type": "boolean",
+            "default": true,
+            "scope": "user",
+            "apply": "immediate",
+            "effect": "write",
+            "storage": {
+              "kind": "shared_preferences",
+              "key": "downloader_enabled",
+              "reader": "SettingsStorage.loadBool",
+              "writer": "DownloaderSettingsProvider.download.enabled"
+            },
+            "value": true,
+            "revision": 1,
+            "provenance": {
+              "key": "download.enabled",
+              "previousValue": false,
+              "value": true,
+              "changedAt": "2026-10-11T11:06:30.701972Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          },
+          {
+            "key": "download.createFolderForTask",
+            "title": "下载时创建同名文件夹",
+            "description": "用于新任务；download.add 可单次覆盖。",
+            "type": "boolean",
+            "default": true,
+            "scope": "user",
+            "apply": "immediate",
+            "effect": "write",
+            "storage": {
+              "kind": "shared_preferences",
+              "key": "downloader_create_folder_for_task",
+              "reader": "SettingsStorage.loadBool",
+              "writer": "DownloaderSettingsProvider.download.createFolderForTask"
+            },
+            "value": true,
+            "revision": 1,
+            "provenance": {
+              "key": "download.createFolderForTask",
+              "previousValue": true,
+              "value": true,
+              "changedAt": "2026-10-11T11:06:30.696348Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          },
+          {
+            "key": "download.autoScanCompletedTasks",
+            "title": "完成后自动加入媒体库",
+            "description": "复用 Classic 扫描与扫描记录。未识别文件不会伪造作品或剧集身份。",
+            "type": "boolean",
+            "default": true,
+            "scope": "user",
+            "apply": "immediate",
+            "effect": "write",
+            "storage": {
+              "kind": "shared_preferences",
+              "key": "downloader_auto_scan_completed_tasks",
+              "reader": "SettingsStorage.loadBool",
+              "writer": "DownloaderSettingsProvider.download.autoScanCompletedTasks"
+            },
+            "value": false,
+            "revision": 0,
+            "provenance": null
+          },
+          {
+            "key": "download.directory",
+            "title": "默认下载目录",
+            "description": "新任务的绝对路径；空字符串恢复应用默认目录。操作系统目录授权使用 playback.authorize_directory。不会移动已有任务。",
+            "type": "string",
+            "default": "",
+            "scope": "device",
+            "apply": "immediate",
+            "effect": "write",
+            "storage": {
+              "kind": "shared_preferences",
+              "key": "torrent_download_directory",
+              "reader": "TorrentDownloadService.getDownloadDirectory",
+              "writer": "TorrentDownloadService.setDownloadDirectory"
+            },
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+            "revision": 1,
+            "provenance": {
+              "key": "download.directory",
+              "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/downloads",
+              "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+              "changedAt": "2026-10-11T11:06:30.691489Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          }
+        ],
+        "nextOffset": null
+      }
+    }
+  },
+  {
+    "label": "download.add",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "source": "[redacted URL]",
+            "status": "completed",
+            "job": {
+              "backend": {
+                "kind": "builtin"
+              },
+              "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+              "type": "download",
+              "title": "sintel.torrent",
+              "state": "queued",
+              "phase": "downloading",
+              "progress": {
+                "completed": 0,
+                "unit": "items"
+              },
+              "createdAt": "2026-10-11T11:06:30.726659Z",
+              "updatedAt": "2026-10-11T11:06:30.726659Z",
+              "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+              "revision": 0
+            }
+          },
+          {
+            "index": 1,
+            "source": "magnet:?xt=urn:btih:invalid",
+            "status": "failed",
+            "error": {
+              "code": "invalid_input",
+              "message": "Invalid BT infoHash.",
+              "retryable": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "download.read",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:30.779767Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 3
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+          "title": "Sintel-trailer.mp4",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+          "local": true,
+          "completedBytes": 309141,
+          "totalBytes": 4372373,
+          "finished": false,
+          "paused": false,
+          "error": null,
+          "state": "live",
+          "downloadSpeedBytesPerSecond": 351990,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "local": true,
+              "expectedSize": 4372373,
+              "included": true,
+              "isVideo": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "download.pause",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "paused",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.756815Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 4
+        }
+      }
+    }
+  },
+  {
+    "label": "download.read",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "paused",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.756815Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 4
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+          "title": "Sintel-trailer.mp4",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+          "local": true,
+          "completedBytes": 309141,
+          "totalBytes": 4372373,
+          "finished": false,
+          "paused": true,
+          "error": null,
+          "state": "paused",
+          "downloadSpeedBytesPerSecond": 0,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "local": true,
+              "expectedSize": 4372373,
+              "included": true,
+              "isVideo": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "download.resume",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "interrupted",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.776015Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 5
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "interrupted",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.776015Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 5
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:31.783512Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 8
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 2144149,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:36.787476Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 9
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 4110229,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:41.792993Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 10
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:46.812184Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "native-transfer",
+    "value": {
+      "wire": {
+        "connections": 2,
+        "requests": 272,
+        "servedBytes": 4454293
+      },
+      "actualBytes": 4372373,
+      "sha256": "b670602fa00934ca27c4351bb0efe7ea7a07fae57284e44226025eeed7c51254",
+      "defaultDirectoryEmpty": true
+    }
+  },
+  {
+    "label": "download.play",
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+        "fileIndex": 0,
+        "finished": true
+      }
+    }
+  },
+  {
+    "label": "playback.state",
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+          "seriesTitle": "Sintel-trailer",
+          "episodeTitle": "Sintel-trailer.mp4",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2230,
+          "durationMs": 52208,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "download.import",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:46.812184Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+          "title": "Sintel-trailer.mp4",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+          "local": true,
+          "completedBytes": 4372373,
+          "totalBytes": 4372373,
+          "finished": true,
+          "paused": false,
+          "error": null,
+          "state": "live",
+          "downloadSpeedBytesPerSecond": 0,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "local": true,
+              "expectedSize": 4372373,
+              "included": true,
+              "isVideo": true,
+              "imported": false,
+              "identificationPending": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "classic-scan",
+    "value": [
+      {
+        "index": 0,
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+        "local": true,
+        "expectedSize": 4372373,
+        "included": true,
+        "isVideo": true,
+        "imported": false,
+        "identificationPending": true
+      }
+    ]
+  },
+  {
+    "label": "media.library.scan",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-c29e824f5a582ace6c1431cc83c8169cbcd9f5e0a71f470690d99d8e0953a314",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-c29e824f5a582ace6c1431cc83c8169cbcd9f5e0a71f470690d99d8e0953a314",
+          "type": "media.scan",
+          "title": "Scan media folder",
+          "state": "succeeded",
+          "phase": "enumerate",
+          "progress": {
+            "completed": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:50.616845Z",
+          "updatedAt": "2026-10-11T11:06:50.680990Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 6,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "indexed": 1,
+              "fileIds": [
+                "file-eb6262bd-9eda-492d-b81f-01201d63a1ec"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "media.identity.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "identity": {
+          "id": "file-eb6262bd-9eda-492d-b81f-01201d63a1ec",
+          "kind": "file",
+          "parentId": null,
+          "revision": 0,
+          "bindingRevision": 0,
+          "metadata": [],
+          "metadataView": {
+            "fields": {},
+            "provenance": {},
+            "ratings": []
+          },
+          "bindings": [],
+          "locations": [
+            {
+              "locationId": "location-4b6a2c2e-98be-48ba-bf3d-eca47ce7d0d4",
+              "source": "local",
+              "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+              "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "available": true
+            }
+          ],
+          "episodes": [],
+          "evidence": [],
+          "legacyEvidence": [
+            {
+              "locationId": "location-4b6a2c2e-98be-48ba-bf3d-eca47ce7d0d4",
+              "animeId": null,
+              "episodeId": null,
+              "animeName": "Sintel-trailer",
+              "episodeTitle": null,
+              "videoHash": null,
+              "provenance": "legacy_unknown"
+            }
+          ],
+          "classicObservations": [
+            {
+              "observationId": "classic-observation-1d2345bb-488e-4c2c-8551-9b74e6dd8ca9",
+              "locationId": "location-4b6a2c2e-98be-48ba-bf3d-eca47ce7d0d4",
+              "current": true,
+              "observedAt": "2026-10-11T11:06:48.417044Z",
+              "bindingId": null,
+              "animeId": null,
+              "episodeId": null,
+              "animeName": "Sintel-trailer",
+              "episodeTitle": null,
+              "videoHash": null,
+              "provenance": "legacy_unknown"
+            }
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  },
+  {
+    "label": "registered-file",
+    "value": {
+      "fileId": "file-eb6262bd-9eda-492d-b81f-01201d63a1ec",
+      "locations": [
+        {
+          "locationId": "location-4b6a2c2e-98be-48ba-bf3d-eca47ce7d0d4",
+          "source": "local",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+          "available": true
+        }
+      ],
+      "bindings": [],
+      "scanReceipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 1,
+          "fileIds": [
+            "file-eb6262bd-9eda-492d-b81f-01201d63a1ec"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "download.play",
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+        "fileIndex": 0,
+        "finished": true
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+          "seriesTitle": "Sintel-trailer",
+          "episodeTitle": "Sintel-trailer.mp4",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20000,
+          "durationMs": 52208,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.set_paused",
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+          "seriesTitle": "Sintel-trailer",
+          "episodeTitle": "Sintel-trailer.mp4",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 23751,
+          "durationMs": 52208,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.state",
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+          "seriesTitle": "Sintel-trailer",
+          "episodeTitle": "Sintel-trailer.mp4",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 23751,
+          "durationMs": 52208,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.capture",
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/sintel.jpg",
+        "bytes": 1821736,
+        "kind": "screenshot",
+        "danmakuRequested": false,
+        "danmakuIncluded": false,
+        "danmakuReason": "Danmaku was excluded by includeDanmaku or the screenshot setting."
+      }
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:46.812184Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "download.set_paused",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+            "status": "completed",
+            "job": {
+              "backend": {
+                "kind": "builtin"
+              },
+              "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+              "type": "download",
+              "title": "sintel.torrent",
+              "state": "succeeded",
+              "phase": "verifying",
+              "progress": {
+                "completed": 1,
+                "total": 1,
+                "unit": "files"
+              },
+              "createdAt": "2026-10-11T11:06:30.726659Z",
+              "updatedAt": "2026-10-11T11:06:46.812184Z",
+              "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+              "revision": 13,
+              "receipt": {
+                "verification": "verified",
+                "details": {
+                  "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+                  "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+                  "downloadComplete": true,
+                  "paused": false,
+                  "files": [
+                    {
+                      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                      "expectedSize": 4372373,
+                      "actualSize": 4372373,
+                      "local": true,
+                      "included": true,
+                      "imported": false,
+                      "reason": "auto_import_disabled",
+                      "identificationPending": true
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "download.enabled",
+        "value": false,
+        "revision": 2,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "download.enabled",
+          "previousValue": true,
+          "value": false,
+          "changedAt": "2026-10-11T11:06:57.360243Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791716817357727-60",
+          "revision": 2
+        }
+      }
+    }
+  },
+  {
+    "label": "download.read",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:46.812184Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+          "title": "Sintel-trailer.mp4",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+          "local": true,
+          "completedBytes": 4372373,
+          "totalBytes": 4372373,
+          "finished": true,
+          "paused": true,
+          "error": null,
+          "state": "paused",
+          "downloadSpeedBytesPerSecond": 0,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "local": true,
+              "expectedSize": 4372373,
+              "included": true,
+              "isVideo": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "settings.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "status": "completed",
+            "key": "download.enabled",
+            "value": false,
+            "revision": 2,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.enabled",
+              "previousValue": true,
+              "value": false,
+              "changedAt": "2026-10-11T11:06:57.360243Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716817357727-60",
+              "revision": 2
+            }
+          },
+          {
+            "index": 1,
+            "status": "completed",
+            "key": "download.directory",
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+            "revision": 1,
+            "scope": "device",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.directory",
+              "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/downloads",
+              "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+              "changedAt": "2026-10-11T11:06:30.691489Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "restart-stop",
+    "value": {
+      "pid": 15361,
+      "processStopped": true
+    }
+  },
+  {
+    "label": "download.read",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T11:06:30.726659Z",
+          "updatedAt": "2026-10-11T11:06:46.812184Z",
+          "ownerDeviceId": "device-393edf554fd0388cbf3428b875b65dbc",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "98250328f103ddfd8380a6631758f2bf76241626",
+          "title": "Sintel-trailer.mp4",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory",
+          "local": true,
+          "completedBytes": 4372373,
+          "totalBytes": 4372373,
+          "finished": true,
+          "paused": true,
+          "error": null,
+          "state": "paused",
+          "downloadSpeedBytesPerSecond": 0,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+              "local": true,
+              "expectedSize": 4372373,
+              "included": true,
+              "isVideo": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "settings.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "status": "completed",
+            "key": "download.enabled",
+            "value": false,
+            "revision": 2,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.enabled",
+              "previousValue": true,
+              "value": false,
+              "changedAt": "2026-10-11T11:06:57.360243Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716817357727-60",
+              "revision": 2
+            }
+          },
+          {
+            "index": 1,
+            "status": "completed",
+            "key": "download.directory",
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+            "revision": 1,
+            "scope": "device",
+            "apply": "immediate",
+            "provenance": {
+              "key": "download.directory",
+              "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/downloads",
+              "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/default-directory",
+              "changedAt": "2026-10-11T11:06:30.691489Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791716790674526-4",
+              "revision": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "restart",
+    "value": {
+      "pid": 15442,
+      "jobId": "job-87cb3838f6b50c64e5eb26f3101e99e1",
+      "receiptPreserved": true,
+      "nativePaused": true,
+      "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory"
+    }
+  },
+  {
+    "label": "roundtrip",
+    "value": {
+      "complete": true,
+      "receiptPreserved": true,
+      "classicIdentified": false,
+      "registeredFileId": "file-eb6262bd-9eda-492d-b81f-01201d63a1ec",
+      "playback": {
+        "player": "internal",
+        "status": "paused",
+        "hasVideo": true,
+        "paused": true,
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/data/task-directory/Sintel-trailer.mp4",
+        "seriesTitle": "Sintel-trailer",
+        "episodeTitle": "Sintel-trailer.mp4",
+        "animeId": null,
+        "episodeId": null,
+        "positionMs": 23751,
+        "durationMs": 52208,
+        "rate": 1.0,
+        "canPrevious": true,
+        "canNext": true
+      },
+      "screenshot": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x19-downloads-15358/sintel.jpg",
+        "bytes": 1821736,
+        "kind": "screenshot",
+        "danmakuRequested": false,
+        "danmakuIncluded": false,
+        "danmakuReason": "Danmaku was excluded by includeDanmaku or the screenshot setting."
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 15442,
+      "processStopped": true,
+      "profileDeleted": true
+    }
+  }
+]
