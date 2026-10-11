@@ -1,0 +1,3215 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": null,
+  "observedAt": "2026-10-11T14:23:18.924378Z",
+  "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+  "sources": {
+    "activity": "2026-10-11T14:23:18.923807Z"
+  },
+  "rows": [
+    {
+      "id": "followup:5",
+      "at": "2026-10-11T14:23:16.856949Z",
+      "type": "followup.finished",
+      "title": "Sintel 下载完成后入库 · completed",
+      "actor": "system",
+      "origin": "application",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": "followup-1791728233428934-9ab2d900",
+      "source": "followup_events",
+      "facts": {
+        "id": "followup-1791728233428934-9ab2d900",
+        "state": "completed",
+        "title": "Sintel 下载完成后入库",
+        "instruction": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 (sintel.torrent) 已到达终态。若 succeeded：先用 download.read 确认文件与校验状态，再调用 download.import（jobId 同上）把完成的视频文件导入媒体库，必要时用 media.library.scan 或 media.metadata.* 补全身份，然后告诉用户结果：入库的标题、文件路径、识别到的身份与来源。若 failed/cancelled：如实告诉用户失败原因与任务状态。",
+        "condition": {
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "threadId": "01a12b52-88f7-7172-a689-50e82b2e3243",
+        "turnId": "01a12b56-60cb-7c82-ad58-6bd7ee17fcab",
+        "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+        "invocationId": "inv-1791728233427475-58",
+        "createdAt": "2026-10-11T14:17:13.428928Z",
+        "updatedAt": "2026-10-11T14:23:16.856949Z",
+        "trigger": {
+          "kind": "task.terminal",
+          "occurredAt": "2026-10-11T14:20:43.554405Z",
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "revision": 48,
+          "createdAt": "2026-10-11T14:17:08.240074Z",
+          "updatedAt": "2026-10-11T14:20:43.554405Z",
+          "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "errorCode": null,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": null,
+              "provider": null,
+              "connected": null,
+              "loggedIn": null,
+              "method": null,
+              "event": null,
+              "objectId": null,
+              "exitCode": null,
+              "elapsedMs": null,
+              "reason": null,
+              "fileId": null,
+              "fileIds": null,
+              "bindingId": null,
+              "snapshotId": null,
+              "cacheKey": null,
+              "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "refreshed": null,
+              "identityChanged": null,
+              "userOverridesPreserved": null,
+              "projectionVerified": null,
+              "indexed": null,
+              "files": [
+                {
+                  "relativePath": null,
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                  "size": null,
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "retained": null,
+                  "selected": null,
+                  "media": null,
+                  "verified": null,
+                  "imported": false
+                }
+              ]
+            },
+            "cancellation": null
+          }
+        },
+        "reason": null,
+        "turnStatus": "completed"
+      }
+    },
+    {
+      "id": "git:07d4dd18f5c5960fb6d649312b779a6846b19389",
+      "at": "2026-10-11T14:23:07.000Z",
+      "type": "harness.commit",
+      "title": "Record environment facts and download-to-library workflow",
+      "actor": "NipaPlay Agent",
+      "origin": "git",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "07d4dd18f5c5960fb6d649312b779a6846b19389",
+      "source": "git log",
+      "facts": {
+        "hash": "07d4dd18f5c5960fb6d649312b779a6846b19389",
+        "author": "NipaPlay Agent",
+        "authoredAt": "2026-10-11T22:23:07+08:00",
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "subject": "Record environment facts and download-to-library workflow"
+      }
+    },
+    {
+      "id": "identity:evidence-248638da-24bb-4d1a-995c-30266bc4cc79",
+      "at": "2026-10-11T14:22:10.786930Z",
+      "type": "identity.bound",
+      "title": "file-7dd79c32-1161-49bd-b6dd-90e239c76fac · bangumi:912364 · bound",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "file-7dd79c32-1161-49bd-b6dd-90e239c76fac",
+      "entityIds": [
+        "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+      ],
+      "jobId": null,
+      "subjectId": "binding-df7128d57d93ea21e0bf73ec699c871f4b454e6e7c95c50fbb70603bbf60b8c9",
+      "source": "media_evidence",
+      "facts": {
+        "bindingId": "binding-df7128d57d93ea21e0bf73ec699c871f4b454e6e7c95c50fbb70603bbf60b8c9",
+        "objectId": "object-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+        "provider": "bangumi",
+        "externalId": "912364",
+        "objectType": "episode",
+        "relation": "exact",
+        "operation": "bound",
+        "reason": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 校验通过的视频文件，绑定到该作品的唯一一集"
+      }
+    },
+    {
+      "id": "identity:evidence-6abeb21c-c5e1-43e1-93f2-ae036547c5d0",
+      "at": "2026-10-11T14:22:10.784940Z",
+      "type": "identity.bound",
+      "title": "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25 · bangumi:912364 · bound",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+      "entityIds": [
+        "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25"
+      ],
+      "jobId": null,
+      "subjectId": "binding-c32411b2ec7666d061bb34d5426a994ffac008e36a73988e8e6a3d63c072828f",
+      "source": "media_evidence",
+      "facts": {
+        "bindingId": "binding-c32411b2ec7666d061bb34d5426a994ffac008e36a73988e8e6a3d63c072828f",
+        "objectId": "object-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+        "provider": "bangumi",
+        "externalId": "912364",
+        "objectType": "episode",
+        "relation": "exact",
+        "operation": "bound",
+        "reason": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 校验通过的视频文件，绑定到该作品的唯一一集"
+      }
+    },
+    {
+      "id": "snapshot:snapshot-1bf6ea03fea4ccea3ddb60239df71a746e8ee3f7c8e175a01d199fa163c31762",
+      "at": "2026-10-11T14:22:10.784869Z",
+      "type": "metadata.snapshot",
+      "title": "bangumi:912364 · 元数据快照",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+      "entityIds": [
+        "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+        "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+      ],
+      "jobId": null,
+      "subjectId": "snapshot-1bf6ea03fea4ccea3ddb60239df71a746e8ee3f7c8e175a01d199fa163c31762",
+      "source": "media_snapshots",
+      "facts": {
+        "snapshotId": "snapshot-1bf6ea03fea4ccea3ddb60239df71a746e8ee3f7c8e175a01d199fa163c31762",
+        "objectId": "object-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+        "provider": "bangumi",
+        "externalId": "912364",
+        "language": "zh-CN",
+        "metadata": {
+          "title": "",
+          "originalTitle": "",
+          "overview": null,
+          "imageUrl": null,
+          "year": null
+        },
+        "fetchedAt": "2026-10-11T14:22:10.696264Z",
+        "receivedAt": "2026-10-11T14:22:10.784869Z"
+      }
+    },
+    {
+      "id": "identity:evidence-cf01694d-af00-4f93-ad96-2401c8580462",
+      "at": "2026-10-11T14:22:10.783989Z",
+      "type": "identity.bound",
+      "title": "release-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c · bangumi:49694 · bound",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "release-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+      "entityIds": [
+        "release-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c"
+      ],
+      "jobId": null,
+      "subjectId": "binding-0ce7665c3a70db52aa854b6b6f4588ae8ac0d91bc4d79e792e8ca76da4fd39fb",
+      "source": "media_evidence",
+      "facts": {
+        "bindingId": "binding-0ce7665c3a70db52aa854b6b6f4588ae8ac0d91bc4d79e792e8ca76da4fd39fb",
+        "objectId": "object-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+        "provider": "bangumi",
+        "externalId": "49694",
+        "objectType": "subject",
+        "relation": "contains",
+        "operation": "bound",
+        "reason": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 校验通过的视频文件，绑定到该作品的唯一一集"
+      }
+    },
+    {
+      "id": "identity:evidence-522c51fd-eece-4dec-b141-3de39d51ef13",
+      "at": "2026-10-11T14:22:10.782697Z",
+      "type": "identity.bound",
+      "title": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c · bangumi:49694 · bound",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+      "entityIds": [
+        "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c"
+      ],
+      "jobId": null,
+      "subjectId": "binding-194097646e1b5195fd9924ab330773252ca9fc7465068025956fca7126dd5d86",
+      "source": "media_evidence",
+      "facts": {
+        "bindingId": "binding-194097646e1b5195fd9924ab330773252ca9fc7465068025956fca7126dd5d86",
+        "objectId": "object-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+        "provider": "bangumi",
+        "externalId": "49694",
+        "objectType": "subject",
+        "relation": "contains",
+        "operation": "bound",
+        "reason": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 校验通过的视频文件，绑定到该作品的唯一一集"
+      }
+    },
+    {
+      "id": "identity:evidence-7ea37577-63a0-4b0b-b033-3df97061bcdb",
+      "at": "2026-10-11T14:22:10.781454Z",
+      "type": "identity.bound",
+      "title": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c · bangumi:49694 · bound",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+      "entityIds": [
+        "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c"
+      ],
+      "jobId": null,
+      "subjectId": "binding-194097646e1b5195fd9924ab330773252ca9fc7465068025956fca7126dd5d86",
+      "source": "media_evidence",
+      "facts": {
+        "bindingId": "binding-194097646e1b5195fd9924ab330773252ca9fc7465068025956fca7126dd5d86",
+        "objectId": "object-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+        "provider": "bangumi",
+        "externalId": "49694",
+        "objectType": "subject",
+        "relation": "contains",
+        "operation": "bound",
+        "reason": "用户要求把下载完成的 Sintel 加入媒体库；文件名与 Bangumi 条目《辛特爾》(Sintel, 2010) 一致"
+      }
+    },
+    {
+      "id": "snapshot:snapshot-dd3c7620aa4e12aa04add7b075cd4cc8749539b9a52342844312e236d3d16fbf",
+      "at": "2026-10-11T14:22:10.780957Z",
+      "type": "metadata.snapshot",
+      "title": "bangumi:49694 · 元数据快照",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728530140968-374",
+      "entityId": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+      "entityIds": [
+        "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+        "release-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c"
+      ],
+      "jobId": null,
+      "subjectId": "snapshot-dd3c7620aa4e12aa04add7b075cd4cc8749539b9a52342844312e236d3d16fbf",
+      "source": "media_snapshots",
+      "facts": {
+        "snapshotId": "snapshot-dd3c7620aa4e12aa04add7b075cd4cc8749539b9a52342844312e236d3d16fbf",
+        "objectId": "object-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+        "provider": "bangumi",
+        "externalId": "49694",
+        "language": "zh-CN",
+        "metadata": {
+          "title": "辛特爾",
+          "originalTitle": "Sintel",
+          "overview": "　　《辛特爾》（又名《尋龍記》，英語：Sintel）是一部由 Blender 基金會創作的開放版權、創用CC 的動畫電影，代號 Durian。片長 15 分鐘，講述了一個吉普賽女孩尋找自己的寵物飛龍的故事。\r\n　　該電影全部使用開放源碼軟體製作（如 Blender、Linux），製作技術、流程和素材徹底公開。這部電影由Blender基金會董事長湯·羅森達爾和皮克斯動畫工作室的藝術家科林·利維執導。「辛特爾」這個名字來源於荷蘭語中的 sintel，意思是「灰渣」或「餘燼」，這一點在湯·羅森達爾德的博客評論中被證實：「\"Sintel\" 是一塊燒紅的煤塊或鐵塊，它燃燒著，閃耀著光芒，然後化為灰燼……」\r\n\r\n故事劇情\r\n\r\n　　在影片的開頭，一位名叫辛特爾的女孩正在尋找一個被她叫做斯蓋爾斯的小龍。隨後影片插敘了辛特爾發現翅膀受傷的小龍斯蓋爾斯並照顧它，從而逐漸建立了深厚的關係。然而，當斯蓋爾斯的翅膀完全恢復，能夠自由飛翔時，卻被一隻成年巨龍所抓走。辛特爾從此走上了尋找斯蓋爾斯的坎坷道路，與野獸和武士們戰鬥不斷。\r\n　　最終，她來到一個山洞，裡面有一隻巨龍——旁邊還有一隻十分熟悉的小龍。巨龍發現了辛特爾並向她發動攻擊，卻在要殺死她的一瞬間猶豫了。辛特爾趁著這個機會給了巨龍致命一擊，然而卻在其翼上發現了一道熟悉的傷痕，這才意識到這隻臨死的巨龍竟是已成年的斯蓋爾斯。再看看自己，亦已白髮蒼蒼，原來時光已在尋龍之路上飛逝。辛特爾悲傷欲絕地離開洞穴，卻不知，斯蓋爾斯的孩子——那隻幼龍——正步履蹣跚地跟隨著她。",
+          "imageUrl": "[redacted URL]",
+          "year": 2010
+        },
+        "fetchedAt": "2026-10-11T14:22:10.696272Z",
+        "receivedAt": "2026-10-11T14:22:10.780957Z"
+      }
+    },
+    {
+      "id": "invocation:inv-1791728504287268-347",
+      "at": "2026-10-11T14:21:44.287270Z",
+      "type": "invocation.result",
+      "title": "accounts.status · completed",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728504287268-347",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": null,
+      "source": "journal",
+      "facts": {
+        "action": "accounts.status",
+        "status": "completed",
+        "failureCode": null,
+        "provider": null,
+        "sourceId": null,
+        "result": {
+          "accounts": [
+            {
+              "provider": "dandanplay",
+              "loggedIn": false,
+              "username": null
+            },
+            {
+              "provider": "bangumi",
+              "loggedIn": false,
+              "username": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "receipt:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:6",
+      "at": "2026-10-11T14:21:21.130777Z",
+      "type": "task.receipt",
+      "title": "Scan media folder · 回执 verified",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": "file-7dd79c32-1161-49bd-b6dd-90e239c76fac",
+      "entityIds": [
+        "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+      ],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "state": "succeeded",
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": [
+              "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+            ],
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": null,
+            "outputDirectory": null,
+            "downloadComplete": null,
+            "paused": null,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": 1,
+            "files": null
+          },
+          "cancellation": null
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:6",
+      "at": "2026-10-11T14:21:21.130777Z",
+      "type": "task.changed",
+      "title": "Scan media folder · succeeded · enumerate",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": "file-7dd79c32-1161-49bd-b6dd-90e239c76fac",
+      "entityIds": [
+        "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+      ],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "succeeded",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "succeeded",
+        "phase": "enumerate",
+        "revision": 6,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.130777Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1,
+          "total": null,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": [
+              "file-7dd79c32-1161-49bd-b6dd-90e239c76fac"
+            ],
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": null,
+            "outputDirectory": null,
+            "downloadComplete": null,
+            "paused": null,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": 1,
+            "files": null
+          },
+          "cancellation": null
+        },
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:5",
+      "at": "2026-10-11T14:21:21.129515Z",
+      "type": "task.changed",
+      "title": "Scan media folder · running · enumerate",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "running",
+        "phase": "enumerate",
+        "revision": 5,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.129515Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1,
+          "total": null,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:4",
+      "at": "2026-10-11T14:21:21.128414Z",
+      "type": "task.changed",
+      "title": "Scan media folder · running · enumerate",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "running",
+        "phase": "enumerate",
+        "revision": 4,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.128414Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1,
+          "total": null,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:3",
+      "at": "2026-10-11T14:21:21.127470Z",
+      "type": "task.changed",
+      "title": "Scan media folder · running · enumerate",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "effect_committed",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "running",
+        "phase": "enumerate",
+        "revision": 3,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.127470Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:2",
+      "at": "2026-10-11T14:21:21.037392Z",
+      "type": "task.changed",
+      "title": "Scan media folder · running · enumerate",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "running",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "running",
+        "phase": "enumerate",
+        "revision": 2,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.037392Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:1",
+      "at": "2026-10-11T14:21:21.035469Z",
+      "type": "task.changed",
+      "title": "Scan media folder · running · queued",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "running",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "running",
+        "phase": "queued",
+        "revision": 1,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.035469Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "job:scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9:0",
+      "at": "2026-10-11T14:21:21.032986Z",
+      "type": "task.created",
+      "title": "Scan media folder · queued · queued",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728481031915-316",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "submitted",
+        "jobId": "scan-0d2024732ec1282c796c9f4f45e831d6afc89e0100f4b899defe82513153ade9",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "queued",
+        "phase": "queued",
+        "revision": 0,
+        "createdAt": "2026-10-11T14:21:21.032986Z",
+        "updatedAt": "2026-10-11T14:21:21.032986Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728481031915-316"
+        }
+      }
+    },
+    {
+      "id": "followup:4",
+      "at": "2026-10-11T14:20:43.596749Z",
+      "type": "followup.started",
+      "title": "Sintel 下载完成后入库 · started",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": "followup-1791728233428934-9ab2d900",
+      "source": "followup_events",
+      "facts": {
+        "id": "followup-1791728233428934-9ab2d900",
+        "state": "started",
+        "title": "Sintel 下载完成后入库",
+        "instruction": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 (sintel.torrent) 已到达终态。若 succeeded：先用 download.read 确认文件与校验状态，再调用 download.import（jobId 同上）把完成的视频文件导入媒体库，必要时用 media.library.scan 或 media.metadata.* 补全身份，然后告诉用户结果：入库的标题、文件路径、识别到的身份与来源。若 failed/cancelled：如实告诉用户失败原因与任务状态。",
+        "condition": {
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "threadId": "01a12b52-88f7-7172-a689-50e82b2e3243",
+        "turnId": "01a12b56-60cb-7c82-ad58-6bd7ee17fcab",
+        "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+        "invocationId": "inv-1791728233427475-58",
+        "createdAt": "2026-10-11T14:17:13.428928Z",
+        "updatedAt": "2026-10-11T14:20:43.596749Z",
+        "trigger": {
+          "kind": "task.terminal",
+          "occurredAt": "2026-10-11T14:20:43.554405Z",
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "revision": 48,
+          "createdAt": "2026-10-11T14:17:08.240074Z",
+          "updatedAt": "2026-10-11T14:20:43.554405Z",
+          "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "errorCode": null,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": null,
+              "provider": null,
+              "connected": null,
+              "loggedIn": null,
+              "method": null,
+              "event": null,
+              "objectId": null,
+              "exitCode": null,
+              "elapsedMs": null,
+              "reason": null,
+              "fileId": null,
+              "fileIds": null,
+              "bindingId": null,
+              "snapshotId": null,
+              "cacheKey": null,
+              "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "refreshed": null,
+              "identityChanged": null,
+              "userOverridesPreserved": null,
+              "projectionVerified": null,
+              "indexed": null,
+              "files": [
+                {
+                  "relativePath": null,
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                  "size": null,
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "retained": null,
+                  "selected": null,
+                  "media": null,
+                  "verified": null,
+                  "imported": false
+                }
+              ]
+            },
+            "cancellation": null
+          }
+        },
+        "reason": null,
+        "turnStatus": "inProgress"
+      }
+    },
+    {
+      "id": "followup:3",
+      "at": "2026-10-11T14:20:43.583122Z",
+      "type": "followup.dispatching",
+      "title": "Sintel 下载完成后入库 · dispatching",
+      "actor": "system",
+      "origin": "application",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": "followup-1791728233428934-9ab2d900",
+      "source": "followup_events",
+      "facts": {
+        "id": "followup-1791728233428934-9ab2d900",
+        "state": "dispatching",
+        "title": "Sintel 下载完成后入库",
+        "instruction": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 (sintel.torrent) 已到达终态。若 succeeded：先用 download.read 确认文件与校验状态，再调用 download.import（jobId 同上）把完成的视频文件导入媒体库，必要时用 media.library.scan 或 media.metadata.* 补全身份，然后告诉用户结果：入库的标题、文件路径、识别到的身份与来源。若 failed/cancelled：如实告诉用户失败原因与任务状态。",
+        "condition": {
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "threadId": "01a12b52-88f7-7172-a689-50e82b2e3243",
+        "turnId": null,
+        "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+        "invocationId": "inv-1791728233427475-58",
+        "createdAt": "2026-10-11T14:17:13.428928Z",
+        "updatedAt": "2026-10-11T14:20:43.583122Z",
+        "trigger": {
+          "kind": "task.terminal",
+          "occurredAt": "2026-10-11T14:20:43.554405Z",
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "revision": 48,
+          "createdAt": "2026-10-11T14:17:08.240074Z",
+          "updatedAt": "2026-10-11T14:20:43.554405Z",
+          "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "errorCode": null,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": null,
+              "provider": null,
+              "connected": null,
+              "loggedIn": null,
+              "method": null,
+              "event": null,
+              "objectId": null,
+              "exitCode": null,
+              "elapsedMs": null,
+              "reason": null,
+              "fileId": null,
+              "fileIds": null,
+              "bindingId": null,
+              "snapshotId": null,
+              "cacheKey": null,
+              "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "refreshed": null,
+              "identityChanged": null,
+              "userOverridesPreserved": null,
+              "projectionVerified": null,
+              "indexed": null,
+              "files": [
+                {
+                  "relativePath": null,
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                  "size": null,
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "retained": null,
+                  "selected": null,
+                  "media": null,
+                  "verified": null,
+                  "imported": false
+                }
+              ]
+            },
+            "cancellation": null
+          }
+        },
+        "reason": null,
+        "turnStatus": null
+      }
+    },
+    {
+      "id": "followup:2",
+      "at": "2026-10-11T14:20:43.565720Z",
+      "type": "followup.triggered",
+      "title": "Sintel 下载完成后入库 · ready",
+      "actor": "system",
+      "origin": "application",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": "followup-1791728233428934-9ab2d900",
+      "source": "followup_events",
+      "facts": {
+        "id": "followup-1791728233428934-9ab2d900",
+        "state": "ready",
+        "title": "Sintel 下载完成后入库",
+        "instruction": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 (sintel.torrent) 已到达终态。若 succeeded：先用 download.read 确认文件与校验状态，再调用 download.import（jobId 同上）把完成的视频文件导入媒体库，必要时用 media.library.scan 或 media.metadata.* 补全身份，然后告诉用户结果：入库的标题、文件路径、识别到的身份与来源。若 failed/cancelled：如实告诉用户失败原因与任务状态。",
+        "condition": {
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676"
+        },
+        "waitingFor": "Waiting for an idle chat host.",
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "threadId": "01a12b52-88f7-7172-a689-50e82b2e3243",
+        "turnId": null,
+        "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+        "invocationId": "inv-1791728233427475-58",
+        "createdAt": "2026-10-11T14:17:13.428928Z",
+        "updatedAt": "2026-10-11T14:20:43.565720Z",
+        "trigger": {
+          "kind": "task.terminal",
+          "occurredAt": "2026-10-11T14:20:43.554405Z",
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "revision": 48,
+          "createdAt": "2026-10-11T14:17:08.240074Z",
+          "updatedAt": "2026-10-11T14:20:43.554405Z",
+          "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "errorCode": null,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": null,
+              "provider": null,
+              "connected": null,
+              "loggedIn": null,
+              "method": null,
+              "event": null,
+              "objectId": null,
+              "exitCode": null,
+              "elapsedMs": null,
+              "reason": null,
+              "fileId": null,
+              "fileIds": null,
+              "bindingId": null,
+              "snapshotId": null,
+              "cacheKey": null,
+              "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "refreshed": null,
+              "identityChanged": null,
+              "userOverridesPreserved": null,
+              "projectionVerified": null,
+              "indexed": null,
+              "files": [
+                {
+                  "relativePath": null,
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                  "size": null,
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "retained": null,
+                  "selected": null,
+                  "media": null,
+                  "verified": null,
+                  "imported": false
+                }
+              ]
+            },
+            "cancellation": null
+          }
+        },
+        "reason": "Waiting for an idle chat host.",
+        "turnStatus": null
+      }
+    },
+    {
+      "id": "receipt:job-926a68237e3556ddfcbcad5d208c1676:48",
+      "at": "2026-10-11T14:20:43.554405Z",
+      "type": "task.receipt",
+      "title": "sintel.torrent · 回执 verified",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "state": "succeeded",
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": null,
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+            "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+            "downloadComplete": true,
+            "paused": false,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": null,
+            "files": [
+              {
+                "relativePath": null,
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                "size": null,
+                "expectedSize": 4372373,
+                "actualSize": 4372373,
+                "retained": null,
+                "selected": null,
+                "media": null,
+                "verified": null,
+                "imported": false
+              }
+            ]
+          },
+          "cancellation": null
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:48",
+      "at": "2026-10-11T14:20:43.554405Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · succeeded · verifying",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "succeeded",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "succeeded",
+        "phase": "verifying",
+        "revision": 48,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:43.554405Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1,
+          "total": 1,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": null,
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": "7abae3d331d97e8e61d8c107979cdd57534f78b7",
+            "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+            "downloadComplete": true,
+            "paused": false,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": null,
+            "files": [
+              {
+                "relativePath": null,
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads/Sintel-X25-online.mp4",
+                "size": null,
+                "expectedSize": 4372373,
+                "actualSize": 4372373,
+                "retained": null,
+                "selected": null,
+                "media": null,
+                "verified": null,
+                "imported": false
+              }
+            ]
+          },
+          "cancellation": null
+        },
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:47",
+      "at": "2026-10-11T14:20:43.546026Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · verifying",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "verifying",
+        "revision": 47,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:43.546026Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1,
+          "total": 1,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:46",
+      "at": "2026-10-11T14:20:43.538307Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · verifying",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "verifying",
+        "revision": 46,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:43.538307Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": 1,
+          "unit": "files"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:45",
+      "at": "2026-10-11T14:20:38.530553Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 45,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:38.530553Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 4241301,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:44",
+      "at": "2026-10-11T14:20:33.522990Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 44,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:33.522990Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 4110229,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:43",
+      "at": "2026-10-11T14:20:28.515423Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 43,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:28.515423Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3979157,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:42",
+      "at": "2026-10-11T14:20:23.507249Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 42,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:23.507249Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3848085,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:41",
+      "at": "2026-10-11T14:20:18.499015Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 41,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:18.499015Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3848085,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:40",
+      "at": "2026-10-11T14:20:13.492205Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 40,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:13.492205Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3717013,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:39",
+      "at": "2026-10-11T14:20:08.485311Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 39,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:08.485311Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3585941,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:38",
+      "at": "2026-10-11T14:20:03.478118Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 38,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:20:03.478118Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3454869,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:37",
+      "at": "2026-10-11T14:19:58.470116Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 37,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:58.470116Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3454869,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:36",
+      "at": "2026-10-11T14:19:53.463056Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 36,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:53.463056Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3323797,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:35",
+      "at": "2026-10-11T14:19:48.455818Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 35,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:48.455818Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3192725,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:34",
+      "at": "2026-10-11T14:19:43.448577Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 34,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:43.448577Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 3061653,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:33",
+      "at": "2026-10-11T14:19:38.440472Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 33,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:38.440472Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2930581,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:32",
+      "at": "2026-10-11T14:19:33.433336Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 32,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:33.433336Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2930581,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:31",
+      "at": "2026-10-11T14:19:28.425824Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 31,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:28.425824Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2799509,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:30",
+      "at": "2026-10-11T14:19:23.418329Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 30,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:23.418329Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2668437,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:29",
+      "at": "2026-10-11T14:19:18.411107Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 29,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:18.411107Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2537365,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:28",
+      "at": "2026-10-11T14:19:13.404093Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 28,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:13.404093Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2537365,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:27",
+      "at": "2026-10-11T14:19:08.396899Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 27,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:08.396899Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2406293,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:26",
+      "at": "2026-10-11T14:19:03.388844Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 26,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:19:03.388844Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2275221,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:25",
+      "at": "2026-10-11T14:18:58.380048Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 25,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:58.380048Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2144149,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:24",
+      "at": "2026-10-11T14:18:53.374550Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 24,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:53.374550Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2013077,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:23",
+      "at": "2026-10-11T14:18:48.368837Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 23,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:48.368837Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 2013077,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:22",
+      "at": "2026-10-11T14:18:43.362844Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 22,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:43.362844Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1882005,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:21",
+      "at": "2026-10-11T14:18:38.357215Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 21,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:38.357215Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1750933,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:20",
+      "at": "2026-10-11T14:18:33.351871Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 20,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:33.351871Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1619861,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:19",
+      "at": "2026-10-11T14:18:28.346792Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 19,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:28.346792Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1619861,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:18",
+      "at": "2026-10-11T14:18:23.341849Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 18,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:23.341849Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1488789,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:17",
+      "at": "2026-10-11T14:18:18.336653Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 17,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:18.336653Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1357717,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:16",
+      "at": "2026-10-11T14:18:13.332100Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 16,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:13.332100Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1226645,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:15",
+      "at": "2026-10-11T14:18:08.326996Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 15,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:08.326996Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1095573,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:14",
+      "at": "2026-10-11T14:18:03.320674Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 14,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:18:03.320674Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 1095573,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:13",
+      "at": "2026-10-11T14:17:58.316304Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 13,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:58.316304Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 964501,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:12",
+      "at": "2026-10-11T14:17:53.311456Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 12,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:53.311456Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 833429,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:11",
+      "at": "2026-10-11T14:17:48.306856Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 11,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:48.306856Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 702357,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:10",
+      "at": "2026-10-11T14:17:43.301743Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 10,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:43.301743Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 702357,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:9",
+      "at": "2026-10-11T14:17:38.296748Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 9,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:38.296748Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 571285,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:8",
+      "at": "2026-10-11T14:17:33.291668Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 8,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:33.291668Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 440213,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:7",
+      "at": "2026-10-11T14:17:28.287169Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 7,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:28.287169Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 309141,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:6",
+      "at": "2026-10-11T14:17:23.282398Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 6,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:23.282398Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 178069,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:5",
+      "at": "2026-10-11T14:17:18.276701Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 5,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:18.276701Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 178069,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "followup:1",
+      "at": "2026-10-11T14:17:13.428928Z",
+      "type": "followup.registered",
+      "title": "Sintel 下载完成后入库 · waiting",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728233427475-58",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": "followup-1791728233428934-9ab2d900",
+      "source": "followup_events",
+      "facts": {
+        "id": "followup-1791728233428934-9ab2d900",
+        "state": "waiting",
+        "title": "Sintel 下载完成后入库",
+        "instruction": "下载任务 job-926a68237e3556ddfcbcad5d208c1676 (sintel.torrent) 已到达终态。若 succeeded：先用 download.read 确认文件与校验状态，再调用 download.import（jobId 同上）把完成的视频文件导入媒体库，必要时用 media.library.scan 或 media.metadata.* 补全身份，然后告诉用户结果：入库的标题、文件路径、识别到的身份与来源。若 failed/cancelled：如实告诉用户失败原因与任务状态。",
+        "condition": {
+          "jobId": "job-926a68237e3556ddfcbcad5d208c1676"
+        },
+        "waitingFor": "task job-926a68237e3556ddfcbcad5d208c1676 enters succeeded/failed/cancelled",
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "threadId": "01a12b52-88f7-7172-a689-50e82b2e3243",
+        "turnId": null,
+        "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+        "invocationId": "inv-1791728233427475-58",
+        "createdAt": "2026-10-11T14:17:13.428928Z",
+        "updatedAt": "2026-10-11T14:17:13.428928Z",
+        "trigger": null,
+        "reason": null,
+        "turnStatus": null
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:4",
+      "at": "2026-10-11T14:17:13.272033Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 4,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:13.272033Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:3",
+      "at": "2026-10-11T14:17:08.267016Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "progress",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 3,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:08.267016Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": 4372373,
+          "unit": "bytes"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:2",
+      "at": "2026-10-11T14:17:08.263750Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "effect_committed",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 2,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:08.263750Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:1",
+      "at": "2026-10-11T14:17:08.251447Z",
+      "type": "task.changed",
+      "title": "sintel.torrent · running · downloading",
+      "actor": "system",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "running",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "revision": 1,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:08.251447Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "job:job-926a68237e3556ddfcbcad5d208c1676:0",
+      "at": "2026-10-11T14:17:08.240074Z",
+      "type": "task.created",
+      "title": "sintel.torrent · queued · downloading",
+      "actor": "agent",
+      "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728228230384-50",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+      "subjectId": null,
+      "source": "job_events",
+      "facts": {
+        "kind": "submitted",
+        "jobId": "job-926a68237e3556ddfcbcad5d208c1676",
+        "type": "download",
+        "title": "sintel.torrent",
+        "state": "queued",
+        "phase": "downloading",
+        "revision": 0,
+        "createdAt": "2026-10-11T14:17:08.240074Z",
+        "updatedAt": "2026-10-11T14:17:08.240074Z",
+        "ownerDeviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": null,
+        "initiatedBy": {
+          "actor": "agent",
+          "origin": "harness_cli:chat:nipa-1791728190736996-4bf812f",
+          "invocationId": "inv-1791728228230384-50"
+        }
+      }
+    },
+    {
+      "id": "setting:2",
+      "at": "2026-10-11T14:16:30.898420Z",
+      "type": "settings.changed",
+      "title": "下载时创建同名文件夹 · 设置修改",
+      "actor": "agent",
+      "origin": "harness_cli",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728190884623-9",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "download.createFolderForTask",
+      "source": "settings_changes",
+      "facts": {
+        "key": "download.createFolderForTask",
+        "revision": 1,
+        "reason": null,
+        "before": true,
+        "after": false
+      }
+    },
+    {
+      "id": "setting:1",
+      "at": "2026-10-11T14:16:30.892166Z",
+      "type": "settings.changed",
+      "title": "默认下载目录 · 设置修改",
+      "actor": "agent",
+      "origin": "harness_cli",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": "inv-1791728190884623-9",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "download.directory",
+      "source": "settings_changes",
+      "facts": {
+        "key": "download.directory",
+        "revision": 1,
+        "reason": null,
+        "before": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads",
+        "after": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/data/downloads"
+      }
+    },
+    {
+      "id": "git:cf592c7cfa137b2cfbcf83ccf6bb6fdbbe70d4ac",
+      "at": "2026-10-11T14:16:30.000Z",
+      "type": "harness.commit",
+      "title": "Update NipaPlay harness seed",
+      "actor": "NipaPlay",
+      "origin": "git",
+      "deviceId": "device-fa9f248676ae6689f9714d7b80f30c1f",
+      "originDeviceId": null,
+      "invocationId": null,
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "cf592c7cfa137b2cfbcf83ccf6bb6fdbbe70d4ac",
+      "source": "git log",
+      "facts": {
+        "hash": "cf592c7cfa137b2cfbcf83ccf6bb6fdbbe70d4ac",
+        "author": "NipaPlay",
+        "authoredAt": "2026-10-11T22:16:30+08:00",
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-online-39644/harness",
+        "subject": "Update NipaPlay harness seed"
+      }
+    }
+  ],
+  "nextCursor": null,
+  "truncated": false,
+  "warnings": []
+}

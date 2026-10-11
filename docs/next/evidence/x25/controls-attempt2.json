@@ -1,0 +1,169 @@
+[
+  {
+    "label": "launch",
+    "at": 1791728559.307863,
+    "value": {
+      "pid": 41151,
+      "hostExpected": false,
+      "profile": "x25-controls-41149"
+    }
+  },
+  {
+    "label": "host-unavailable",
+    "at": 1791728560.3807418,
+    "value": {
+      "id": "followup-1791728559867351-9e742bcd",
+      "state": "ready",
+      "title": "CLI terminal task followup",
+      "instruction": "请告诉用户：后台扫描已经结束。这次无需进一步操作。",
+      "condition": {
+        "jobId": "scan-50365c549cf60b7c22b3326036fa29edfd5c855d2b42ec857dcb219dbbac29c2"
+      },
+      "waitingFor": "Bad state: Prepare provider configuration inside the lab CODEX_HOME.",
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-controls-41149/harness",
+      "threadId": null,
+      "turnId": null,
+      "origin": "harness_cli",
+      "invocationId": "inv-1791728559865936-10",
+      "createdAt": "2026-10-11T14:22:39.867339Z",
+      "updatedAt": "2026-10-11T14:22:39.874250Z",
+      "trigger": {
+        "kind": "task.terminal",
+        "occurredAt": "2026-10-11T14:22:39.365888Z",
+        "jobId": "scan-50365c549cf60b7c22b3326036fa29edfd5c855d2b42ec857dcb219dbbac29c2",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "succeeded",
+        "phase": "enumerate",
+        "revision": 4,
+        "createdAt": "2026-10-11T14:22:39.337192Z",
+        "updatedAt": "2026-10-11T14:22:39.365888Z",
+        "ownerDeviceId": "device-ae4632124b906e4f150387fe6bc81a4f",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": [],
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": null,
+            "outputDirectory": null,
+            "downloadComplete": null,
+            "paused": null,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": 0,
+            "files": null
+          },
+          "cancellation": null
+        }
+      },
+      "reason": "Bad state: Prepare provider configuration inside the lab CODEX_HOME.",
+      "turnStatus": null
+    }
+  },
+  {
+    "label": "cancel",
+    "at": 1791728560.387779,
+    "value": {
+      "followup": {
+        "id": "followup-1791728560381754-fccc10f3",
+        "state": "cancelled",
+        "title": "This will be cancelled.",
+        "instruction": "This will be cancelled.",
+        "condition": {
+          "event": "playback.started"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-controls-41149/harness",
+        "threadId": null,
+        "turnId": null,
+        "origin": "harness_cli",
+        "invocationId": "inv-1791728560381462-13",
+        "createdAt": "2026-10-11T14:22:40.381747Z",
+        "updatedAt": "2026-10-11T14:22:40.385421Z",
+        "trigger": null,
+        "reason": "Cancelled by caller.",
+        "turnStatus": null
+      }
+    }
+  },
+  {
+    "label": "cancel-again",
+    "at": 1791728560.3897269,
+    "value": {
+      "followup": {
+        "id": "followup-1791728560381754-fccc10f3",
+        "state": "cancelled",
+        "title": "This will be cancelled.",
+        "instruction": "This will be cancelled.",
+        "condition": {
+          "event": "playback.started"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-controls-41149/harness",
+        "threadId": null,
+        "turnId": null,
+        "origin": "harness_cli",
+        "invocationId": "inv-1791728560381462-13",
+        "createdAt": "2026-10-11T14:22:40.381747Z",
+        "updatedAt": "2026-10-11T14:22:40.385421Z",
+        "trigger": null,
+        "reason": "Cancelled by caller.",
+        "turnStatus": null
+      }
+    }
+  },
+  {
+    "label": "stop",
+    "at": 1791728560.427846,
+    "value": {
+      "pid": 41151,
+      "returncode": -15
+    }
+  },
+  {
+    "label": "launch",
+    "at": 1791728562.4764569,
+    "value": {
+      "pid": 41203,
+      "hostExpected": true,
+      "profile": "x25-controls-41149"
+    }
+  },
+  {
+    "label": "stop",
+    "at": 1791728685.8441029,
+    "value": {
+      "pid": 41203,
+      "returncode": -15
+    }
+  },
+  {
+    "label": "cleanup",
+    "at": 1791728685.889987,
+    "value": {
+      "rootAbsent": true,
+      "pidStopped": true
+    }
+  }
+]

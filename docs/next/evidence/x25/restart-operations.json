@@ -1,0 +1,604 @@
+[
+  {
+    "label": "launch",
+    "at": 1791728243.690227,
+    "value": {
+      "profile": "x25-restart-40112",
+      "pid": 40113,
+      "chat": {
+        "header": {
+          "sessionId": "nipa-1791728243400860-deb1f799",
+          "threadId": null,
+          "model": null,
+          "provider": null,
+          "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness"
+        },
+        "liveness": {
+          "turnId": null,
+          "startedAt": null,
+          "endedAt": null,
+          "lastEventAt": "2026-10-11T14:17:23.638258Z",
+          "lastContentAt": null,
+          "status": null,
+          "elapsedMs": null,
+          "lastEventAgoMs": 47,
+          "lastContentAgoMs": null,
+          "hasContent": false,
+          "eventCount": 3,
+          "contentCount": 0,
+          "reasoningDeltaCount": 0,
+          "latestError": null
+        },
+        "environment": {
+          "PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sakiko/.codex/tmp/arg0/codex-arg0aE9eBa:/Users/sakiko/.local/bin:/Users/sakiko/.mimocode/bin:/opt/homebrew/share/google-cloud-sdk/bin:/Users/sakiko/.antigravity/antigravity/bin:/Users/admin/Documents/JDK/jdk-17.0.12.jdk/Contents/Home/bin:/Users/sakiko/development/flutter/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/sakiko/.cargo/bin",
+          "HTTP_PROXY": "[redacted URL]",
+          "HTTPS_PROXY": "[redacted URL]",
+          "NO_PROXY": "127.0.0.1,localhost,cpa.shinokawa.top",
+          "CODEX_HOME": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/codex-home",
+          "TMPDIR": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/temp",
+          "NIPAPLAY_CHAT": "nipa-1791728243400860-deb1f799"
+        }
+      },
+      "index": 0
+    }
+  },
+  {
+    "label": "settings",
+    "at": 1791728243.720922,
+    "value": {
+      "results": [
+        {
+          "index": 0,
+          "status": "completed",
+          "key": "download.directory",
+          "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads",
+          "revision": 1,
+          "scope": "device",
+          "apply": "immediate",
+          "provenance": {
+            "key": "download.directory",
+            "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads",
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads",
+            "changedAt": "2026-10-11T14:17:23.708231Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": null,
+            "invocationId": "inv-1791728243699297-9",
+            "revision": 1
+          }
+        },
+        {
+          "index": 1,
+          "status": "completed",
+          "key": "download.createFolderForTask",
+          "value": false,
+          "revision": 1,
+          "scope": "user",
+          "apply": "immediate",
+          "provenance": {
+            "key": "download.createFolderForTask",
+            "previousValue": true,
+            "value": false,
+            "changedAt": "2026-10-11T14:17:23.713874Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": null,
+            "invocationId": "inv-1791728243699297-9",
+            "revision": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "user-request",
+    "at": 1791728244.062613,
+    "value": {
+      "text": "帮我下载这个种子 http://127.0.0.1:55553/sintel.torrent ，下完以后加进媒体库，然后告诉我；下载时不用一直等着。",
+      "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc"
+    }
+  },
+  {
+    "label": "first-turn",
+    "at": 1791728244.066944,
+    "value": {
+      "turn": {
+        "id": "01a12b53-5561-7331-911b-37a96ea1b079",
+        "items": [],
+        "itemsView": "notLoaded",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": null,
+        "completedAt": null,
+        "durationMs": null
+      }
+    }
+  },
+  {
+    "label": "initial-turn-ended",
+    "at": 1791728274.205717,
+    "value": {
+      "at": 1791728274.2053518,
+      "header": {
+        "sessionId": "nipa-1791728243400860-deb1f799",
+        "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness"
+      },
+      "liveness": {
+        "turnId": "01a12b53-5561-7331-911b-37a96ea1b079",
+        "startedAt": "2026-10-11T14:17:24.065032Z",
+        "endedAt": "2026-10-11T14:17:53.575886Z",
+        "lastEventAt": "2026-10-11T14:17:53.575886Z",
+        "lastContentAt": "2026-10-11T14:17:53.426772Z",
+        "status": "completed",
+        "elapsedMs": 29510,
+        "lastEventAgoMs": 624,
+        "lastContentAgoMs": 773,
+        "hasContent": true,
+        "eventCount": 289,
+        "contentCount": 166,
+        "reasoningDeltaCount": 68,
+        "latestError": null
+      },
+      "downloads": [
+        {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-8f716119d5ec1b198cd20f1815d875ed",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 178069,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T14:17:41.911197Z",
+          "updatedAt": "2026-10-11T14:17:51.940607Z",
+          "ownerDeviceId": "device-abff39c2df972ac004edfc94797d887d",
+          "revision": 5
+        }
+      ],
+      "followups": [
+        {
+          "id": "followup-1791728267256796-a5ea91f7",
+          "state": "waiting",
+          "title": "sintel 下载完成后入库",
+          "instruction": "种子 [redacted URL] 的下载任务已到达终态。如果 succeeded：先 ./nipa call download.read 取回文件列表与本地路径，再 ./nipa call download.import 让 NipaPlay 扫描入库（自动识别会由 NipaPlay 进行，必要时用 media.metadata.* / media.identity.* 处理识别问题），确认媒体库中能看到该作品后，简短告诉用户已经下载并加入媒体库，附作品名与集数/文件数。如果 failed/cancelled：用 ./nipa call download.read 与 task.get 查看错误原因，简短告知用户失败原因与可选的下一步，不要自行重试下载。",
+          "condition": {
+            "jobId": "job-8f716119d5ec1b198cd20f1815d875ed"
+          },
+          "waitingFor": "task job-8f716119d5ec1b198cd20f1815d875ed enters succeeded/failed/cancelled",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness",
+          "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+          "turnId": null,
+          "origin": "harness_cli:chat:nipa-1791728243400860-deb1f799",
+          "invocationId": "inv-1791728267255294-39",
+          "createdAt": "2026-10-11T14:17:47.256786Z",
+          "updatedAt": "2026-10-11T14:17:47.256786Z",
+          "trigger": null,
+          "reason": null,
+          "turnStatus": null
+        }
+      ]
+    }
+  },
+  {
+    "label": "before-stop",
+    "at": 1791728282.2135391,
+    "value": {
+      "at": 1791728282.2132218,
+      "header": {
+        "sessionId": "nipa-1791728243400860-deb1f799",
+        "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness"
+      },
+      "liveness": {
+        "turnId": "01a12b53-5561-7331-911b-37a96ea1b079",
+        "startedAt": "2026-10-11T14:17:24.065032Z",
+        "endedAt": "2026-10-11T14:17:53.575886Z",
+        "lastEventAt": "2026-10-11T14:17:53.575886Z",
+        "lastContentAt": "2026-10-11T14:17:53.426772Z",
+        "status": "completed",
+        "elapsedMs": 29510,
+        "lastEventAgoMs": 8632,
+        "lastContentAgoMs": 8782,
+        "hasContent": true,
+        "eventCount": 289,
+        "contentCount": 166,
+        "reasoningDeltaCount": 68,
+        "latestError": null
+      },
+      "downloads": [
+        {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-8f716119d5ec1b198cd20f1815d875ed",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 309141,
+            "total": 4372373,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-11T14:17:41.911197Z",
+          "updatedAt": "2026-10-11T14:18:01.948786Z",
+          "ownerDeviceId": "device-abff39c2df972ac004edfc94797d887d",
+          "revision": 7
+        }
+      ],
+      "followups": [
+        {
+          "id": "followup-1791728267256796-a5ea91f7",
+          "state": "waiting",
+          "title": "sintel 下载完成后入库",
+          "instruction": "种子 [redacted URL] 的下载任务已到达终态。如果 succeeded：先 ./nipa call download.read 取回文件列表与本地路径，再 ./nipa call download.import 让 NipaPlay 扫描入库（自动识别会由 NipaPlay 进行，必要时用 media.metadata.* / media.identity.* 处理识别问题），确认媒体库中能看到该作品后，简短告诉用户已经下载并加入媒体库，附作品名与集数/文件数。如果 failed/cancelled：用 ./nipa call download.read 与 task.get 查看错误原因，简短告知用户失败原因与可选的下一步，不要自行重试下载。",
+          "condition": {
+            "jobId": "job-8f716119d5ec1b198cd20f1815d875ed"
+          },
+          "waitingFor": "task job-8f716119d5ec1b198cd20f1815d875ed enters succeeded/failed/cancelled",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness",
+          "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+          "turnId": null,
+          "origin": "harness_cli:chat:nipa-1791728243400860-deb1f799",
+          "invocationId": "inv-1791728267255294-39",
+          "createdAt": "2026-10-11T14:17:47.256786Z",
+          "updatedAt": "2026-10-11T14:17:47.256786Z",
+          "trigger": null,
+          "reason": null,
+          "turnStatus": null
+        }
+      ]
+    }
+  },
+  {
+    "label": "stopped",
+    "at": 1791728282.243701,
+    "value": {
+      "pid": 40113,
+      "returncode": -15
+    }
+  },
+  {
+    "label": "completed-while-offline",
+    "at": 1791728496.909455,
+    "value": {
+      "appStopped": true,
+      "transport": "independent BT TCP client to the same local seed peer",
+      "sha256Before": "5bcf322b181667f49e856eac74a62dab204b5da2b5604dc40980377f62bd3eb1",
+      "sha256After": "b670602fa00934ca27c4351bb0efe7ea7a07fae57284e44226025eeed7c51254",
+      "wire": {
+        "connections": 2,
+        "requests": 293,
+        "servedBytes": 4796202,
+        "metadataRequests": 0
+      }
+    }
+  },
+  {
+    "label": "launch",
+    "at": 1791728498.460205,
+    "value": {
+      "profile": "x25-restart-40112",
+      "pid": 40768,
+      "chat": {
+        "header": {
+          "sessionId": "nipa-1791728498257278-bfef221f",
+          "threadId": null,
+          "model": null,
+          "provider": null,
+          "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness"
+        },
+        "liveness": {
+          "turnId": null,
+          "startedAt": null,
+          "endedAt": null,
+          "lastEventAt": "2026-10-11T14:21:38.430692Z",
+          "lastContentAt": null,
+          "status": null,
+          "elapsedMs": null,
+          "lastEventAgoMs": 25,
+          "lastContentAgoMs": null,
+          "hasContent": false,
+          "eventCount": 4,
+          "contentCount": 0,
+          "reasoningDeltaCount": 0,
+          "latestError": null
+        },
+        "environment": {
+          "PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sakiko/.codex/tmp/arg0/codex-arg0aE9eBa:/Users/sakiko/.local/bin:/Users/sakiko/.mimocode/bin:/opt/homebrew/share/google-cloud-sdk/bin:/Users/sakiko/.antigravity/antigravity/bin:/Users/admin/Documents/JDK/jdk-17.0.12.jdk/Contents/Home/bin:/Users/sakiko/development/flutter/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/sakiko/.cargo/bin",
+          "HTTP_PROXY": "[redacted URL]",
+          "HTTPS_PROXY": "[redacted URL]",
+          "NO_PROXY": "127.0.0.1,localhost,cpa.shinokawa.top",
+          "CODEX_HOME": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/codex-home",
+          "TMPDIR": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/temp",
+          "NIPAPLAY_CHAT": "nipa-1791728498257278-bfef221f"
+        }
+      },
+      "index": 1
+    }
+  },
+  {
+    "label": "followups-finished",
+    "at": 1791728947.933957,
+    "value": {
+      "at": 1791728947.929513,
+      "header": {
+        "sessionId": "nipa-1791728498257278-bfef221f",
+        "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness"
+      },
+      "liveness": {
+        "turnId": "01a12b57-37b7-7272-af63-d8271a077bbb",
+        "startedAt": "2026-10-11T14:21:38.614080Z",
+        "endedAt": "2026-10-11T14:29:07.272889Z",
+        "lastEventAt": "2026-10-11T14:29:07.300132Z",
+        "lastContentAt": "2026-10-11T14:29:07.198314Z",
+        "status": "completed",
+        "elapsedMs": 448658,
+        "lastEventAgoMs": 624,
+        "lastContentAgoMs": 726,
+        "hasContent": true,
+        "eventCount": 2824,
+        "contentCount": 894,
+        "reasoningDeltaCount": 1467,
+        "latestError": null
+      },
+      "downloads": [
+        {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-8f716119d5ec1b198cd20f1815d875ed",
+          "type": "download",
+          "title": "sintel.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T14:17:41.911197Z",
+          "updatedAt": "2026-10-11T14:21:38.079583Z",
+          "ownerDeviceId": "device-abff39c2df972ac004edfc94797d887d",
+          "revision": 13,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "3cf005cb358ef3bf685dbbee22e06a10a1449cda",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads/Sintel-X25-restart.mp4",
+                  "expectedSize": 4372373,
+                  "actualSize": 4372373,
+                  "local": true,
+                  "included": true,
+                  "imported": false,
+                  "reason": "auto_import_disabled",
+                  "identificationPending": true
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "followups": [
+        {
+          "id": "followup-1791728267256796-a5ea91f7",
+          "state": "completed",
+          "title": "sintel 下载完成后入库",
+          "instruction": "种子 [redacted URL] 的下载任务已到达终态。如果 succeeded：先 ./nipa call download.read 取回文件列表与本地路径，再 ./nipa call download.import 让 NipaPlay 扫描入库（自动识别会由 NipaPlay 进行，必要时用 media.metadata.* / media.identity.* 处理识别问题），确认媒体库中能看到该作品后，简短告诉用户已经下载并加入媒体库，附作品名与集数/文件数。如果 failed/cancelled：用 ./nipa call download.read 与 task.get 查看错误原因，简短告知用户失败原因与可选的下一步，不要自行重试下载。",
+          "condition": {
+            "jobId": "job-8f716119d5ec1b198cd20f1815d875ed"
+          },
+          "waitingFor": null,
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/harness",
+          "threadId": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+          "turnId": "01a12b57-37b7-7272-af63-d8271a077bbb",
+          "origin": "harness_cli:chat:nipa-1791728243400860-deb1f799",
+          "invocationId": "inv-1791728267255294-39",
+          "createdAt": "2026-10-11T14:17:47.256786Z",
+          "updatedAt": "2026-10-11T14:29:07.301382Z",
+          "trigger": {
+            "kind": "task.terminal",
+            "occurredAt": "2026-10-11T14:21:38.079583Z",
+            "jobId": "job-8f716119d5ec1b198cd20f1815d875ed",
+            "type": "download",
+            "title": "sintel.torrent",
+            "state": "succeeded",
+            "phase": "verifying",
+            "revision": 13,
+            "createdAt": "2026-10-11T14:17:41.911197Z",
+            "updatedAt": "2026-10-11T14:21:38.079583Z",
+            "ownerDeviceId": "device-abff39c2df972ac004edfc94797d887d",
+            "progress": {
+              "completed": 1,
+              "total": 1,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": null,
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": "3cf005cb358ef3bf685dbbee22e06a10a1449cda",
+                "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads",
+                "downloadComplete": true,
+                "paused": false,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": null,
+                "files": [
+                  {
+                    "relativePath": null,
+                    "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads/Sintel-X25-restart.mp4",
+                    "size": null,
+                    "expectedSize": 4372373,
+                    "actualSize": 4372373,
+                    "retained": null,
+                    "selected": null,
+                    "media": null,
+                    "verified": null,
+                    "imported": false
+                  }
+                ]
+              },
+              "cancellation": null
+            }
+          },
+          "reason": null,
+          "turnStatus": "completed"
+        }
+      ]
+    }
+  },
+  {
+    "label": "download-content",
+    "at": 1791728947.938228,
+    "value": {
+      "size": 4372373,
+      "sha256": "b670602fa00934ca27c4351bb0efe7ea7a07fae57284e44226025eeed7c51254",
+      "wire": {
+        "connections": 3,
+        "requests": 293,
+        "servedBytes": 4796202,
+        "metadataRequests": 0
+      }
+    }
+  },
+  {
+    "label": "library",
+    "at": 1791728947.942034,
+    "value": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T14:29:07.940377Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "library.files": "2026-10-11T14:29:07.940314Z"
+      },
+      "rows": [
+        {
+          "fileId": "file-94229fd5-3679-4254-94b9-a583dd9e9165",
+          "episodeId": "episode-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+          "workId": "work-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+          "releaseId": "release-09944849752326e4ea1ddefc9f4b46fe7b7bbf9c2d71a927c12025d446ee048c",
+          "locationId": "location-91777d0e-d2e8-420d-bbda-1858d51db7c9",
+          "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-restart-40112/data/downloads/Sintel-X25-restart.mp4",
+          "source": "local",
+          "ownerDeviceId": "device-abff39c2df972ac004edfc94797d887d",
+          "available": true,
+          "revision": 0,
+          "bindingRevision": 1,
+          "relation": "exact",
+          "ordinal": 0,
+          "startMs": null,
+          "endMs": null,
+          "bindings": [
+            {
+              "bindingId": "binding-b625fc36c5b39282df491cfc11c6668a98fac2e17533e84bd81184fd5381fc90",
+              "entityId": "file-94229fd5-3679-4254-94b9-a583dd9e9165",
+              "objectId": "object-1860f00109d2d5fcb4bfbcdb1e0163e85a566790a637b5c79afd37f5d3935b25",
+              "provider": "bangumi",
+              "objectType": "episode",
+              "externalId": "912364",
+              "scope": "subject/49694",
+              "episodeScope": {
+                "order": "subject",
+                "season": null,
+                "cour": null,
+                "numbers": [
+                  "1"
+                ],
+                "startMs": null,
+                "endMs": null
+              },
+              "relation": "exact",
+              "status": "accepted",
+              "source": "explicit_binding",
+              "boundBy": "agent",
+              "revision": 1,
+              "invocationId": "inv-1791728649647807-199",
+              "jobId": null,
+              "createdAt": "2026-10-11T14:24:10.370457Z"
+            }
+          ],
+          "progress": null,
+          "historyStatus": "no_history"
+        }
+      ],
+      "nextCursor": null,
+      "truncated": false,
+      "warnings": []
+    }
+  },
+  {
+    "label": "activity",
+    "at": 1791728948.028367,
+    "value": {
+      "rows": 44,
+      "warnings": []
+    }
+  },
+  {
+    "label": "same-thread",
+    "at": 1791728948.028556,
+    "value": {
+      "initial": "01a12b53-54ac-7772-b930-e73c9980b0cc",
+      "followupThreads": [
+        "01a12b53-54ac-7772-b930-e73c9980b0cc"
+      ],
+      "followupTurns": [
+        "01a12b57-37b7-7272-af63-d8271a077bbb"
+      ]
+    }
+  },
+  {
+    "label": "stopped",
+    "at": 1791728948.0796149,
+    "value": {
+      "pid": 40768,
+      "returncode": -15
+    }
+  },
+  {
+    "label": "cleanup",
+    "at": 1791728948.911468,
+    "value": {
+      "profile": "x25-restart-40112",
+      "rootAbsent": true,
+      "appStopped": true
+    }
+  }
+]
