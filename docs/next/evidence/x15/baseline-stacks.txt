@@ -1,0 +1,136 @@
+Analysis of sampling NipaPlay (pid 42278) every 1 millisecond
+Process:         NipaPlay [42278]
+Path:            /Users/USER/Desktop/*/NipaPlay.app/Contents/MacOS/NipaPlay
+Load Address:    0x102dd4000
+Identifier:      com.aimessoft.nipaplay
+Version:         1.11.10 (1.11.10)
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  launchd [1]
+Target Type:     live task
+
+Date/Time:       2026-10-11 16:36:24.131 +0800
+Launch Time:     2026-10-11 16:35:34.358 +0800
+OS Version:      macOS 26.7 (25G229)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         930.3M
+Physical footprint (peak):  958.4M
+Idle exit:                  untracked
+----
+
+Call graph:
+    2116 Thread_13167058   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 2116 start  (in dyld) + 6992  [0x189a784e4]
+    +   2116 __debug_main_executable_dylib_entry_point  (in NipaPlay.debug.dylib) + 28  [0x1034da624]  /<compiler-generated>:0
+    +     2116 static AppDelegate.$main()  (in NipaPlay.debug.dylib) + 44  [0x1034da53c]  /<compiler-generated>:0
+    +       2116 static NSApplicationDelegate.main()  (in NipaPlay.debug.dylib) + 40  [0x1034da574]  /<compiler-generated>:0
+    +         2116 NSApplicationMain  (in AppKit) + 880  [0x18e3047b0]
+    +           2116 -[NSApplication run]  (in AppKit) + 368  [0x18e32c13c]
+    +             2116 -[NSApplication(NSEventRouting) nextEventMatchingMask:untilDate:inMode:dequeue:]  (in AppKit) + 72  [0x18eece678]
+    +               2116 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]  (in AppKit) + 688  [0x18eece96c]
+    +                 2116 _DPSNextEvent  (in AppKit) + 576  [0x18e339084]
+    +                   2116 _DPSBlockUntilNextEventMatchingListInMode  (in AppKit) + 228  [0x18e9e53d0]
+    +                     2116 _BlockUntilNextEventMatchingListInMode  (in HIToolbox) + 48  [0x196e7b14c]
+    +                       2116 ReceiveNextEventCommon  (in HIToolbox) + 488  [0x196cf18bc]
+    +                         2116 RunCurrentEventLoopInMode  (in HIToolbox) + 320  [0x196cee560]
+    +                           2116 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 532  [0x189fd2508]
+    +                             2116 __CFRunLoopRun  (in CoreFoundation) + 820  [0x189eff8d4]
+    +                               2116 __CFRunLoopDoSources0  (in CoreFoundation) + 232  [0x189f00cb0]
+    +                                 2116 __CFRunLoopDoSource0  (in CoreFoundation) + 172  [0x189f00f44]
+    +                                   2116 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__  (in CoreFoundation) + 28  [0x189f00fb0]
+    +                                     2116 @objc closure #1 in FlutterRunLoop.().init()  (in FlutterMacOS) + 12  [0x10790745c]
+    +                                       2116 closure #1 in FlutterRunLoop.().init()  (in FlutterMacOS) + 204  [0x107907038]
+    +                                         2116 FlutterRunLoop.performExpiredTasks()  (in FlutterMacOS) + 956  [0x107907414]
+    +                                           2116 thunk for @escaping @callee_unowned @convention(block) () -> ()  (in FlutterMacOS) + 16  [0x107908544]
+    +                                             2116 __60-[FlutterEngine postMainThreadTask:targetTimeInNanoseconds:]_block_invoke  (in FlutterMacOS) + 72  [0x1078a361c]
+    +                                               2116 FlutterEngineRunTask  (in FlutterMacOS) + 68  [0x108219bb0]
+    +                                                 2116 flutter::EmbedderEngine::RunTask(FlutterTask const*)  (in FlutterMacOS) + 56  [0x10822740c]
+    +                                                   2116 flutter::EmbedderTaskRunner::PostTask(unsigned long long)  (in FlutterMacOS) + 576  [0x108233438]
+    +                                                     2116 std::__fl::__function::__func<fml::internal::CopyableLambda<flutter::PlatformViewEmbedder::EmbedderPlatformMessageHandler::HandlePlatformMessage(std::__fl::unique_ptr<flutter::PlatformMessage, std::__fl::default_delete<flutter::PlatformMessage>>)::'lambda'()>, std::__fl::allocator<fml::internal::CopyableLambda<flutter::PlatformViewEmbedder::EmbedderPlatformMessageHandler::HandlePlatformMessage(std::__fl::unique_ptr<flutter::PlatformMessage, std::__fl::default_delete<flutter::PlatformMessage>>)::'lambda'()>>, void ()>::operator()()  (in FlutterMacOS) + 84  [0x1082372a0]
+    +                                                       2116 flutter::PlatformViewEmbedder::HandlePlatformMessage(std::__fl::unique_ptr<flutter::PlatformMessage, std::__fl::default_delete<flutter::PlatformMessage>>)  (in FlutterMacOS) + 76  [0x1082366b0]
+    +                                                         2116 std::__fl::__function::__func<FlutterEngineInitialize::$_3, std::__fl::allocator<FlutterEngineInitialize::$_3>, void (std::__fl::unique_ptr<flutter::PlatformMessage, std::__fl::default_delete<flutter::PlatformMessage>>)>::operator()(std::__fl::unique_ptr<flutter::PlatformMessage, std::__fl::default_delete<flutter::PlatformMessage>>&&)  (in FlutterMacOS) + 128  [0x108222740]
+    +                                                           2116 -[FlutterEngine engineCallbackOnPlatformMessage:]  (in FlutterMacOS) + 416  [0x10789fb1c]
+    +                                                             2116 __45-[FlutterMethodChannel setMethodCallHandler:]_block_invoke  (in FlutterMacOS) + 180  [0x10790d968]
+    +                                                               2116 @objc RustLibNipaplayPlugin.handle(_:result:)  (in rust_lib_nipaplay) + 140  [0x115096be0]
+    +                                                                 2116 RustLibNipaplayPlugin.handle(_:result:)  (in rust_lib_nipaplay) + 1120  [0x1150936a8]
+    +                                                                   2116 RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 2968  [0x115096714]
+    +                                                                     2116 String.withCString<A>(_:)  (in libswiftCore.dylib) + 96  [0x19d763c38]
+    +                                                                       2116 _StringGuts._slowWithCString<A>(_:)  (in libswiftCore.dylib) + 76  [0x19d5d42b4]
+    +                                                                         2116 partial apply for closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 56  [0x11509c30c]
+    +                                                                           2116 closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 256  [0x11509a3b4]
+    +                                                                             2116 String.withCString<A>(_:)  (in libswiftCore.dylib) + 72  [0x19d763c20]
+    +                                                                               2116 partial apply for closure #1 in closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 52  [0x11509c798]
+    +                                                                                 2116 closure #1 in closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 176  [0x11509a498]
+    +                                                                                   2116 String.withCString<A>(_:)  (in libswiftCore.dylib) + 72  [0x19d763c20]
+    +                                                                                     2116 partial apply for closure #1 in closure #1 in closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 48  [0x11509c7d4]
+    +                                                                                       2116 closure #1 in closure #1 in closure #1 in RustLibNipaplayPlugin.setFrame(arguments:result:)  (in rust_lib_nipaplay) + 112  [0x11509a52c]
+    +                                                                                         2116 next2_engine_set_frame  (in rust_lib_nipaplay) + 156  [0x1125ff9c8]
+    +                                                                                           2116 std::panic::catch_unwind::h6d1df36e714b3f0c  (in rust_lib_nipaplay) + 96  [0x1125d5d94]
+    +                                                                                             2116 __rust_try  (in rust_lib_nipaplay) + 32  [0x1125dd4d0]
+    +                                                                                               2116 std::panicking::catch_unwind::do_call::hbed9a09d662e8ce3  (in rust_lib_nipaplay) + 64  [0x11261fb48]
+    +                                                                                                 2116 _$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$::call_once::hf6d37cb004c7cd00  (in rust_lib_nipaplay) + 44  [0x1127a5c80]
+    +                                                                                                   2116 core::ops::function::FnOnce::call_once::h65596641cfce6f5c  (in rust_lib_nipaplay) + 16  [0x1126661ec]
+    +                                                                                                     2116 rust_lib_nipaplay::next2_engine::ffi::next2_engine_set_frame::_$u7b$$u7b$closure$u7d$$u7d$::hf0c440dcd8b3787f  (in rust_lib_nipaplay) + 868  [0x11272c6dc]
+    +                                                                                                       2116 std::sync::mpsc::Receiver$LT$T$GT$::recv::h4c96391f083de9c3  (in rust_lib_nipaplay) + 24  [0x11276b728]
+    +                                                                                                         2116 std::sync::mpmc::Receiver$LT$T$GT$::recv::h8a5139ed07c32fe2  (in rust_lib_nipaplay) + 140  [0x11276d500]
+    +                                                                                                           2116 std::sync::mpmc::list::Channel$LT$T$GT$::recv::ha8dcedad0d5889d6  (in rust_lib_nipaplay) + 252  [0x112758994]
+    +                                                                                                             2116 std::sync::mpmc::context::Context::with::h92cc92e1dc0303f1  (in rust_lib_nipaplay) + 52  [0x112577240]
+    +                                                                                                               2116 std::thread::local::LocalKey$LT$T$GT$::try_with::hc1191d06ffe49493  (in rust_lib_nipaplay) + 172  [0x11252fc80]
+    +                                                                                                                 2116 std::sync::mpmc::context::Context::with::_$u7b$$u7b$closure$u7d$$u7d$::h31c4558b0ea5977f  (in rust_lib_nipaplay) + 548  [0x1125790e0]
+    +                                                                                                                   2116 std::sync::mpmc::list::Channel$LT$T$GT$::recv::_$u7b$$u7b$closure$u7d$$u7d$::hccc90ba1af34dfc7  (in rust_lib_nipaplay) + 232  [0x1127594fc]
+    +                                                                                                                     2116 std::sync::mpmc::context::Context::wait_until::hc30fbe49b58dac88  (in rust_lib_nipaplay) + 472  [0x112534680]
+    +                                                                                                                       2116 std::thread::Thread::park::h1c9f2bf188115eb7  (in rust_lib_nipaplay) + 48  [0x115012bd4]
+    +                                                                                                                         2116 _dispatch_semaphore_wait_slow  (in libdispatch.dylib) + 132  [0x189c89b20]
+    +                                                                                                                           2116 _dispatch_sema4_wait  (in libdispatch.dylib) + 28  [0x189c89490]
+    +                                                                                                                             2116 semaphore_wait_trap  (in libsystem_kernel.dylib) + 8  [0x189dffbb0]
+    2116 Thread_13167123: com.apple.NSEventThread
+    + 2116 thread_start  (in libsystem_pthread.dylib) + 8  [0x189e3ec1c]
+    +   2116 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x189e43c58]
+    +     2116 _NSEventThread  (in AppKit) + 184  [0x18e45acac]
+    +       2116 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 532  [0x189fd2508]
+    +         2116 __CFRunLoopRun  (in CoreFoundation) + 1188  [0x189effa44]
+    +           2116 __CFRunLoopServiceMachPort  (in CoreFoundation) + 160  [0x189f01158]
+    +             2116 mach_msg  (in libsystem_kernel.dylib) + 24  [0x189dfffc0]
+
+--- renderer and glyph worker ---
+    2116 Thread_13168595: next2-engine
+    + 2116 thread_start  (in libsystem_pthread.dylib) + 8  [0x189e3ec1c]
+    +   2116 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x189e43c58]
+    +     2116 std::sys::thread::unix::Thread::new::thread_start::h98270432b6aefc44  (in rust_lib_nipaplay) + 52  [0x11500b42c]
+    +       2116 core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::he57c1e5bce7196a9  (in rust_lib_nipaplay) + 24  [0x11266489c]
+    +         2116 std::thread::Builder::spawn_unchecked_::_$u7b$$u7b$closure$u7d$$u7d$::ha7b9599263c0d5e1  (in rust_lib_nipaplay) + 692  [0x112524ee8]
+    +           2116 __rust_try  (in rust_lib_nipaplay) + 32  [0x112526274]
+    +             2116 std::panicking::catch_unwind::do_call::h164f37e594121a26  (in rust_lib_nipaplay) + 52  [0x11261be9c]
+    +               2116 _$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$::call_once::hc7e91a07e83adfcd  (in rust_lib_nipaplay) + 44  [0x1127a5064]
+    +                 2116 std::thread::Builder::spawn_unchecked_::_$u7b$$u7b$closure$u7d$$u7d$::_$u7b$$u7b$closure$u7d$$u7d$::he0097f00c4dad4e5  (in rust_lib_nipaplay) + 120  [0x112526094]
+    +                   2116 std::sys::backtrace::__rust_begin_short_backtrace::h5dd6933d8f1db51b  (in rust_lib_nipaplay) + 16  [0x1126c8d60]
+    +                     2116 rust_lib_nipaplay::next2_engine::engine::create_engine::_$u7b$$u7b$closure$u7d$$u7d$::h78dd51f00d49e5ec  (in rust_lib_nipaplay) + 104  [0x1125e1d68]
+    +                       2116 std::panic::catch_unwind::hbea207bcfe2542e2  (in rust_lib_nipaplay) + 92  [0x1125da154]
+    +                         2116 __rust_try  (in rust_lib_nipaplay) + 32  [0x1125dd4d0]
+    +                           2116 std::panicking::catch_unwind::do_call::h52950f23e6dfb60d  (in rust_lib_nipaplay) + 52  [0x11261d620]
+    +                             2116 _$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$::call_once::h98182ccf1f12f6d6  (in rust_lib_nipaplay) + 44  [0x1127a437c]
+    +                               2116 rust_lib_nipaplay::next2_engine::engine::create_engine::_$u7b$$u7b$closure$u7d$$u7d$::_$u7b$$u7b$closure$u7d$$u7d$::haa9dceee558a9dab  (in rust_lib_nipaplay) + 64  [0x1125e2008]
+    +                                 2116 rust_lib_nipaplay::next2_engine::engine::run_engine_loop::h712c1c6c26e51d7e  (in rust_lib_nipaplay) + 4448  [0x112739b20]
+    +                                   2116 rust_lib_nipaplay::next2_engine::engine::Next2Renderer::draw_to_present::hcdf990a1ffd21fb9  (in rust_lib_nipaplay) + 1148  [0x1127304c0]
+    +                                     2116 rust_lib_nipaplay::next2_engine::engine::Next2Renderer::draw_to_view::h313f8c42aaf8d6b1  (in rust_lib_nipaplay) + 564  [0x11272cd90]
+    +                                       2116 rust_lib_nipaplay::next2_engine::engine::Next2Renderer::build_vertices::h192155111341a84e  (in rust_lib_nipaplay) + 2560  [0x11272f580]
+    +                                         2116 rust_lib_nipaplay::next2_engine::engine::Next2GlyphAtlas::entry_for::h544d6823ccdc354f  (in rust_lib_nipaplay) + 148  [0x112738178]
+    +                                           2116 rust_lib_nipaplay::next2_engine::engine::Next2GlyphAtlas::rasterize_and_upload::h6857ab35b3c3d77c  (in rust_lib_nipaplay) + 84  [0x11273793c]
+    +                                             2116 rust_lib_nipaplay::next2_engine::engine::Next2GlyphAtlas::glyph_from_fonts::hc412ab8e269f606b  (in rust_lib_nipaplay) + 32  [0x1127374dc]
+    +                                               2116 rust_lib_nipaplay::next2_engine::engine::MsdfWorkerPool::rasterize_sync::ha11e13cac8c9ef13  (in rust_lib_nipaplay) + 336  [0x112734224]
+    +                                                 2116 std::sync::mpsc::Receiver$LT$T$GT$::recv_timeout::hb39171dde9373475  (in rust_lib_nipaplay) + 32  [0x11276b688]
+    +                                                   2116 std::sync::mpmc::Receiver$LT$T$GT$::recv_timeout::h826e2136ebcbed09  (in rust_lib_nipaplay) + 140  [0x11276cf90]
+    +                                                     2116 std::sync::mpmc::Receiver$LT$T$GT$::recv_deadline::hec343d76f6ce3077  (in rust_lib_nipaplay) + 132  [0x11276d314]
+    +                                                       2116 std::sync::mpmc::list::Channel$LT$T$GT$::recv::hfe34a1e3bb767b4c  (in rust_lib_nipaplay) + 264  [0x112758d1c]
+    +                                                         2116 std::sync::mpmc::context::Context::with::h391ae21dc9932ec6  (in rust_lib_nipaplay) + 52  [0x112576ae4]
+    +                                                           2116 std::thread::local::LocalKey$LT$T$GT$::try_with::h718f120ee8782d75  (in rust_lib_nipaplay) + 172  [0x11252c808]
+    +                                                             2116 std::sync::mpmc::context::Context::with::_$u7b$$u7b$closure$u7d$$u7d$::h8512ed96e1f184fb  (in rust_lib_nipaplay) + 548  [0x11257a974]
+    +                                                               2116 std::sync::mpmc::list::Channel$LT$T$GT$::recv::_$u7b$$u7b$closure$u7d$$u7d$::hb6da221725100716  (in rust_lib_nipaplay) + 232  [0x112759370]
+    +                                                                 2116 std::sync::mpmc::context::Context::wait_until::hc30fbe49b58dac88  (in rust_lib_nipaplay) + 676  [0x11253474c]
+    +                                                                   2116 std::thread::Thread::park_timeout::h76e4126481fb49ec  (in rust_lib_nipaplay) + 100  [0x1150129d8]
+    +                                                                     2116 _dispatch_semaphore_wait_slow  (in libdispatch.dylib) + 76  [0x189c89ae8]
+    +                                                                       2116 _dispatch_sema4_timedwait  (in libdispatch.dylib) + 64  [0x189cbcdb8]
+    +                                                                         2116 semaphore_timedwait_trap  (in libsystem_kernel.dylib) + 8  [0x189dffbc8]
+    2116 Thread_13168610: next2-msdf

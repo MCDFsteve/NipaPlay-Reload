@@ -1,0 +1,4157 @@
+[
+  {
+    "action": "media.sources.add",
+    "elapsedMs": 19.19,
+    "response": {
+      "status": "completed",
+      "result": {
+        "source": {
+          "sourceId": "jellyfin:1791707939346",
+          "type": "jellyfin",
+          "name": "X15 temporary Jellyfin",
+          "url": "[redacted URL]",
+          "username": "nipatest",
+          "connected": false,
+          "selectedLibraries": [],
+          "connectionState": "unverified"
+        }
+      }
+    }
+  },
+  {
+    "action": "media.sources.login",
+    "elapsedMs": 5.97,
+    "response": {
+      "status": "completed",
+      "result": {
+        "sourceId": "jellyfin:1791707939346",
+        "method": "password",
+        "jobId": "source-login-4c99d901-ebbd-4de6-bbab-f2fa8069d2b0"
+      }
+    }
+  },
+  {
+    "action": "task.get",
+    "elapsedMs": 3.74,
+    "response": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "source-login-4c99d901-ebbd-4de6-bbab-f2fa8069d2b0",
+          "type": "media.sources.login",
+          "title": "Log in to X15 temporary Jellyfin",
+          "state": "running",
+          "phase": "queued",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-11T08:38:59.353368Z",
+          "updatedAt": "2026-10-11T08:38:59.359461Z",
+          "ownerDeviceId": "device-df2e6c2127f7992df3b217fdde3bc81c",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "action": "task.get",
+    "elapsedMs": 2.74,
+    "response": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "source-login-4c99d901-ebbd-4de6-bbab-f2fa8069d2b0",
+          "type": "media.sources.login",
+          "title": "Log in to X15 temporary Jellyfin",
+          "state": "succeeded",
+          "phase": "awaiting_password",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-11T08:38:59.353368Z",
+          "updatedAt": "2026-10-11T08:38:59.475981Z",
+          "ownerDeviceId": "device-df2e6c2127f7992df3b217fdde3bc81c",
+          "revision": 4,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": "jellyfin:1791707939346",
+              "connected": true,
+              "method": "password"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "action": "media.sources.browse",
+    "elapsedMs": 48.03,
+    "response": {
+      "status": "completed",
+      "result": {
+        "sourceId": "jellyfin:1791707939346",
+        "entries": [
+          {
+            "id": "27ecb73cfb8fab575186e08e6fbdd58e",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 1,
+            "seasonNumber": null,
+            "fileId": "file-067cb543-ce51-4d63-a99b-2349ba900527"
+          },
+          {
+            "id": "82ed26abf469710c7b92e1f6e4bda55e",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://82ed26abf469710c7b92e1f6e4bda55e",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 2,
+            "seasonNumber": null,
+            "fileId": "file-4bed1251-bf0c-481d-b954-3443382dfe1d"
+          },
+          {
+            "id": "2ce0c5b5a0b373a0b678d89fdc3ca304",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://2ce0c5b5a0b373a0b678d89fdc3ca304",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 3,
+            "seasonNumber": null,
+            "fileId": "file-704a9a74-7cb9-4af9-98e8-48f449d07811"
+          },
+          {
+            "id": "fee0304c43efe74c18d7b2912c8d2e32",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://fee0304c43efe74c18d7b2912c8d2e32",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 4,
+            "seasonNumber": null,
+            "fileId": "file-e857287b-9019-4080-b95d-e57306bff254"
+          },
+          {
+            "id": "4701a0cb07e27035475a4a7902462dde",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://4701a0cb07e27035475a4a7902462dde",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 5,
+            "seasonNumber": null,
+            "fileId": "file-cbbc31c3-f64f-47e4-b1c1-99c20bbdc98f"
+          },
+          {
+            "id": "6b7ab63d0a66ee672287eec51671812e",
+            "name": "Lycoris Recoil 莉可麗絲：友誼是時間的竊賊",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://6b7ab63d0a66ee672287eec51671812e",
+            "parentId": null,
+            "seriesId": null,
+            "seasonId": null,
+            "number": 6,
+            "seasonNumber": null,
+            "fileId": "file-fcac8c29-0a3a-49a2-b6d1-d52dc9c6545a"
+          },
+          {
+            "id": "451a9136986724ae8bdc48a51b27ec11",
+            "name": "Sintel",
+            "kind": "Movie",
+            "isDirectory": false,
+            "size": null,
+            "path": "jellyfin://451a9136986724ae8bdc48a51b27ec11",
+            "parentId": "92fde71d0ec577b531e7b3427b223bed",
+            "seriesId": null,
+            "seasonId": null,
+            "number": null,
+            "seasonNumber": null,
+            "fileId": "file-e47feb14-a10f-4494-b63f-00743ac97051"
+          }
+        ],
+        "total": 7
+      }
+    }
+  },
+  {
+    "action": "playback.open",
+    "elapsedMs": 1437.62,
+    "response": {
+      "status": "completed",
+      "result": {
+        "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 229,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.63,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2220,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.84,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2231,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 48.09,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2231,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 4.74,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2231,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 18.49,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 10000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 21.01,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 10000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.79,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 11225,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.tracks",
+    "elapsedMs": 15.65,
+    "response": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "kind": "audio",
+            "origin": "embedded",
+            "index": 0,
+            "title": "Audio track 0",
+            "language": "jpn",
+            "selected": true
+          },
+          {
+            "kind": "audio",
+            "origin": "server",
+            "index": 1,
+            "title": "Japanese - AAC - Stereo - Default",
+            "language": "jpn",
+            "codec": "aac",
+            "external": false,
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.11,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 11232,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 45.29,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 11232,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.23,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 11232,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 22.36,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 15.17,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.1,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.58,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 49.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.86,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 12301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 19.77,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 19.15,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.06,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14314,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.18,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14314,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 46.69,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14319,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.98,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 14319,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 20.79,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 14.58,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16282,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.4,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16282,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 44.09,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16290,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.87,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 16290,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 22.78,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 15.55,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.54,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.55,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 44.4,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.19,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 18303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 15.14,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 19.23,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 4.37,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20291,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.tracks",
+    "elapsedMs": 14.72,
+    "response": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "kind": "audio",
+            "origin": "embedded",
+            "index": 0,
+            "title": "Audio track 0",
+            "language": "jpn",
+            "selected": true
+          },
+          {
+            "kind": "audio",
+            "origin": "server",
+            "index": 1,
+            "title": "Japanese - AAC - Stereo - Default",
+            "language": "jpn",
+            "codec": "aac",
+            "external": false,
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.64,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20297,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 47.61,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20297,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.15,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 20297,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 18.43,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 14.71,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 4.25,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22298,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.62,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 38.84,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.18,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 22307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 13.97,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 22.24,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.97,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 51.35,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.19,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 24301,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 18.62,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.97,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.54,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.51,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 56.85,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.52,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 26308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 11.98,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 19.83,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.67,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28299,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.86,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28299,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 42.22,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28299,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.8,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 28299,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 19.82,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 17.45,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.33,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30305,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.tracks",
+    "elapsedMs": 13.85,
+    "response": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "kind": "audio",
+            "origin": "embedded",
+            "index": 0,
+            "title": "Audio track 0",
+            "language": "jpn",
+            "selected": true
+          },
+          {
+            "kind": "audio",
+            "origin": "server",
+            "index": 1,
+            "title": "Japanese - AAC - Stereo - Default",
+            "language": "jpn",
+            "codec": "aac",
+            "external": false,
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.55,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30313,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 45.53,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30313,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.02,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 30313,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 15.28,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 16.85,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32293,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.36,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 45.0,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.62,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 32303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 17.48,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 17.58,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.17,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34291,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.17,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34291,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 44.06,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34291,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.84,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 34291,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 27.41,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 12.53,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.96,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36307,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.98,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 43.09,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.21,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 36312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 17.87,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.89,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.11,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.18,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 45.65,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.32,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 38303,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 9.65,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 19.51,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.71,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40286,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.tracks",
+    "elapsedMs": 10.39,
+    "response": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "kind": "audio",
+            "origin": "embedded",
+            "index": 0,
+            "title": "Audio track 0",
+            "language": "jpn",
+            "selected": true
+          },
+          {
+            "kind": "audio",
+            "origin": "server",
+            "index": 1,
+            "title": "Japanese - AAC - Stereo - Default",
+            "language": "jpn",
+            "codec": "aac",
+            "external": false,
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.41,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40294,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 41.43,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40294,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.3,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 40294,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 19.04,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 17.34,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.66,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42284,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 0.93,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42284,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 48.47,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.2,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 18.61,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.29,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.72,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44306,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 0.95,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44306,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 43.19,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44315,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.57,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 44315,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 19.1,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.69,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.47,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.24,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 43.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.17,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 46292,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 17.86,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 19.05,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.7,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.03,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 41.55,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48319,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 3.35,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 48319,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 13.56,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 20.19,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.4,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50299,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.tracks",
+    "elapsedMs": 10.77,
+    "response": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "kind": "audio",
+            "origin": "embedded",
+            "index": 0,
+            "title": "Audio track 0",
+            "language": "jpn",
+            "selected": true
+          },
+          {
+            "kind": "audio",
+            "origin": "server",
+            "index": 1,
+            "title": "Japanese - AAC - Stereo - Default",
+            "language": "jpn",
+            "codec": "aac",
+            "external": false,
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.27,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 40.47,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.08,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 50308,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 10.43,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.45,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.7,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52298,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.04,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52298,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 43.55,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52298,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.03,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52298,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 19.18,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 9.05,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.68,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.03,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 46.49,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 2.52,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 54312,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 18.58,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 18.34,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.47,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56281,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 0.94,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56281,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 48.31,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56289,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.97,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 56289,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.seek",
+    "elapsedMs": 17.15,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 58000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.set_paused",
+    "elapsedMs": 17.68,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 58000,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.state",
+    "elapsedMs": 1.77,
+    "response": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://27ecb73cfb8fab575186e08e6fbdd58e",
+          "seriesTitle": "27ecb73cfb8fab575186e08e6fbdd58e",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 58302,
+          "durationMs": 140036,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "action": "playback.close",
+    "elapsedMs": 36.87,
+    "response": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  }
+]
