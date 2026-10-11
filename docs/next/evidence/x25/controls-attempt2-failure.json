@@ -1,0 +1,96 @@
+{
+  "status": "completed",
+  "result": {
+    "followups": [
+      {
+        "id": "followup-1791728559867351-9e742bcd",
+        "state": "dispatching",
+        "title": "CLI terminal task followup",
+        "instruction": "请告诉用户：后台扫描已经结束。这次无需进一步操作。",
+        "condition": {
+          "jobId": "scan-50365c549cf60b7c22b3326036fa29edfd5c855d2b42ec857dcb219dbbac29c2"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-controls-41149/harness",
+        "threadId": "01a12b58-30f0-7f32-86e9-3e52f54133c2",
+        "turnId": null,
+        "origin": "harness_cli",
+        "invocationId": "inv-1791728559865936-10",
+        "createdAt": "2026-10-11T14:22:39.867339Z",
+        "updatedAt": "2026-10-11T14:22:42.732939Z",
+        "trigger": {
+          "kind": "task.terminal",
+          "occurredAt": "2026-10-11T14:22:39.365888Z",
+          "jobId": "scan-50365c549cf60b7c22b3326036fa29edfd5c855d2b42ec857dcb219dbbac29c2",
+          "type": "media.scan",
+          "title": "Scan media folder",
+          "state": "succeeded",
+          "phase": "enumerate",
+          "revision": 4,
+          "createdAt": "2026-10-11T14:22:39.337192Z",
+          "updatedAt": "2026-10-11T14:22:39.365888Z",
+          "ownerDeviceId": "device-ae4632124b906e4f150387fe6bc81a4f",
+          "progress": {
+            "completed": 0,
+            "total": null,
+            "unit": "items"
+          },
+          "errorCode": null,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "sourceId": null,
+              "provider": null,
+              "connected": null,
+              "loggedIn": null,
+              "method": null,
+              "event": null,
+              "objectId": null,
+              "exitCode": null,
+              "elapsedMs": null,
+              "reason": null,
+              "fileId": null,
+              "fileIds": [],
+              "bindingId": null,
+              "snapshotId": null,
+              "cacheKey": null,
+              "infoHash": null,
+              "outputDirectory": null,
+              "downloadComplete": null,
+              "paused": null,
+              "refreshed": null,
+              "identityChanged": null,
+              "userOverridesPreserved": null,
+              "projectionVerified": null,
+              "indexed": 0,
+              "files": null
+            },
+            "cancellation": null
+          }
+        },
+        "reason": "{\"code\":-32600,\"message\":\"thread 01a12b58-30f0-7f32-86e9-3e52f54133c2 is not materialized yet; includeTurns is unavailable before first user message\"}",
+        "turnStatus": null
+      },
+      {
+        "id": "followup-1791728560381754-fccc10f3",
+        "state": "cancelled",
+        "title": "This will be cancelled.",
+        "instruction": "This will be cancelled.",
+        "condition": {
+          "event": "playback.started"
+        },
+        "waitingFor": null,
+        "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x25-controls-41149/harness",
+        "threadId": null,
+        "turnId": null,
+        "origin": "harness_cli",
+        "invocationId": "inv-1791728560381462-13",
+        "createdAt": "2026-10-11T14:22:40.381747Z",
+        "updatedAt": "2026-10-11T14:22:40.385421Z",
+        "trigger": null,
+        "reason": "Cancelled by caller.",
+        "turnStatus": null
+      }
+    ]
+  }
+}
