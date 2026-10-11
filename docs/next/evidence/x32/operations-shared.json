@@ -1,0 +1,252 @@
+[
+  {
+    "label": "instance main",
+    "value": {
+      "profile": "x32-main-79312",
+      "pid": 79316,
+      "vmPid": 79316
+    }
+  },
+  {
+    "label": "instance peer",
+    "value": {
+      "profile": "x32-peer-79312",
+      "pid": 79464,
+      "vmPid": 79464
+    }
+  },
+  {
+    "label": "main call media.sources.add",
+    "value": {
+      "status": "completed",
+      "result": {
+        "source": {
+          "sourceId": "nipaplay:1791750705525",
+          "type": "nipaplay",
+          "name": "共享测试端",
+          "url": "[redacted URL]",
+          "username": "",
+          "connected": true,
+          "isActive": true,
+          "lastConnected": "2026-10-12T04:31:45.604239",
+          "error": null,
+          "selectedLibraries": [],
+          "connectionState": "connected"
+        }
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.login",
+    "value": {
+      "status": "completed",
+      "result": {
+        "sourceId": "nipaplay:1791750705525",
+        "method": "shared",
+        "connected": true
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.check",
+    "value": {
+      "status": "completed",
+      "result": {
+        "source": {
+          "sourceId": "nipaplay:1791750705525",
+          "type": "nipaplay",
+          "name": "共享测试端",
+          "url": "[redacted URL]",
+          "username": "",
+          "connected": true,
+          "isActive": true,
+          "lastConnected": "2026-10-12T04:31:46.154207",
+          "error": null,
+          "selectedLibraries": [],
+          "connectionState": "connected"
+        },
+        "checked": true
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.browse",
+    "value": {
+      "status": "completed",
+      "result": {
+        "sourceId": "nipaplay:1791750705525",
+        "entries": [
+          {
+            "id": "32002",
+            "name": "共享的蓝色天空",
+            "kind": "Series",
+            "isDirectory": true,
+            "size": null,
+            "path": null,
+            "metadata": {
+              "Overview": "一起看一片蓝色的天空。",
+              "imageUrl": "[redacted URL]",
+              "animeId": 32002,
+              "lastWatchTime": "2026-10-12T04:31:40.382632",
+              "episodeCount": 2,
+              "hasMissingFiles": false
+            },
+            "provenance": {
+              "sourceId": "nipaplay:1791750705525",
+              "type": "nipaplay",
+              "name": "共享测试端",
+              "url": "[redacted URL]",
+              "itemId": "32002",
+              "observedAt": "2026-10-11T20:31:46.357442Z"
+            },
+            "fileId": null
+          }
+        ],
+        "total": 1
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.browse",
+    "value": {
+      "status": "completed",
+      "result": {
+        "sourceId": "nipaplay:1791750705525",
+        "entries": [
+          {
+            "id": "ba1ba77b836cc0841bf8ed2fa6debe36b6b114bf",
+            "name": "第 2 集",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": 18512,
+            "path": "[redacted URL]",
+            "metadata": {
+              "animeId": 32002,
+              "episodeId": 3200202,
+              "duration": 120000,
+              "lastPosition": 48000,
+              "progress": 0.4,
+              "watched": null,
+              "lastWatchTime": "2026-10-12T04:31:40.382632",
+              "videoHash": null,
+              "fileExists": true,
+              "fileName": "episode-2.mp4"
+            },
+            "provenance": {
+              "sourceId": "nipaplay:1791750705525",
+              "type": "nipaplay",
+              "name": "共享测试端",
+              "url": "[redacted URL]",
+              "itemId": "ba1ba77b836cc0841bf8ed2fa6debe36b6b114bf",
+              "observedAt": "2026-10-11T20:31:46.619382Z"
+            },
+            "fileId": "file-52c817ab-2fb7-43d0-92d5-4f7ef44d6d29"
+          },
+          {
+            "id": "e8a0064321cd7933068a925c2e57083718334d55",
+            "name": "第 1 集",
+            "kind": "Episode",
+            "isDirectory": false,
+            "size": 18512,
+            "path": "[redacted URL]",
+            "metadata": {
+              "animeId": 32002,
+              "episodeId": 3200201,
+              "duration": 120000,
+              "lastPosition": 48000,
+              "progress": 0.4,
+              "watched": null,
+              "lastWatchTime": "2026-10-12T04:31:40.382293",
+              "videoHash": null,
+              "fileExists": true,
+              "fileName": "episode-1.mp4"
+            },
+            "provenance": {
+              "sourceId": "nipaplay:1791750705525",
+              "type": "nipaplay",
+              "name": "共享测试端",
+              "url": "[redacted URL]",
+              "itemId": "e8a0064321cd7933068a925c2e57083718334d55",
+              "observedAt": "2026-10-11T20:31:46.619382Z"
+            },
+            "fileId": "file-5a1dac77-52c9-45c2-bb0e-8a2df207758e"
+          }
+        ],
+        "total": 2
+      }
+    }
+  },
+  {
+    "label": "released duplicate fixture",
+    "value": {
+      "distinctFiles": 2,
+      "legacyEvidence": true,
+      "userEdit": true
+    }
+  },
+  {
+    "label": "instance main",
+    "value": {
+      "profile": "x32-main-79312",
+      "pid": 79539,
+      "vmPid": 79539
+    }
+  },
+  {
+    "label": "migration readback",
+    "value": {
+      "version": 12,
+      "distinctFiles": 1,
+      "aliasResolves": true,
+      "archivePreserved": true,
+      "legacyEvidenceCount": 1,
+      "editValue": "\"\\u65e7\\u8bb0\\u5f55\\u91cc\\u7684\\u5907\\u6ce8\\u3002\"",
+      "foreignKeyErrors": []
+    }
+  },
+  {
+    "label": "main call media.sources.check",
+    "value": {
+      "status": "completed",
+      "result": {
+        "source": {
+          "sourceId": "nipaplay:1791750705525",
+          "type": "nipaplay",
+          "name": "共享测试端",
+          "url": "[redacted URL]",
+          "username": "",
+          "connected": true,
+          "isActive": true,
+          "lastConnected": "2026-10-12T04:31:50.727266",
+          "error": null,
+          "selectedLibraries": [],
+          "connectionState": "connected"
+        },
+        "checked": true
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.play",
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "NipaPlay cannot start playback.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        79316,
+        79464,
+        79539
+      ],
+      "processesExited": true,
+      "profilesRemoved": true
+    }
+  }
+]
