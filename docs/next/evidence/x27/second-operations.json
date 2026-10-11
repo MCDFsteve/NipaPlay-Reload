@@ -1,0 +1,6243 @@
+[
+  {
+    "label": "nipa app.instance",
+    "at": 1791741070.420773,
+    "value": {
+      "status": "completed",
+      "result": {
+        "pid": 66012,
+        "viewId": 1,
+        "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+        "windowId": 48614,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+        "experimentalProfile": true,
+        "profileName": "x27-a-66010",
+        "version": "1.11.10"
+      }
+    }
+  },
+  {
+    "label": "instance",
+    "at": 1791741070.421338,
+    "value": {
+      "pid": 66012,
+      "viewId": 1,
+      "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+      "windowId": 48614,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+      "experimentalProfile": true,
+      "profileName": "x27-a-66010",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "label": "nipa describe window.control",
+    "at": 1791741070.5134091,
+    "value": {
+      "id": "window.control",
+      "title": "Control a window",
+      "description": "Control this connected instance. target defaults to main; player means the detached player. fullscreen/always_on_top/pip/detached require enabled:true/false. pip/detached require target:player; enabling detaches the same Classic player without restarting playback. Disabling pip leaves it detached; disabling detached returns it to main. fit_video requires main/player and an internal video. show focuses/restores main/player or creates external_controls/external_list for an active external session. close main hides it (the process and endpoint remain alive); close player returns playback to main; close external_controls also closes its list, retaining external playback. tray requires main and uses Classic tray/taskbar handling. Use app.quit to end the instance. No confirmation parameters.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "enum": [
+              "main",
+              "player",
+              "external_controls",
+              "external_list"
+            ]
+          },
+          "command": {
+            "type": "string",
+            "enum": [
+              "fullscreen",
+              "pip",
+              "detached",
+              "fit_video",
+              "always_on_top",
+              "show",
+              "minimize",
+              "maximize",
+              "restore",
+              "close",
+              "tray"
+            ]
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "nipa media.library.roots.add",
+    "at": 1791741070.596503,
+    "value": {
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "nipa media.library.roots.list",
+    "at": 1791741070.663286,
+    "value": {
+      "status": "completed",
+      "result": {
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "nipa media.library.scan_classic",
+    "at": 1791741070.753056,
+    "value": {
+      "status": "completed",
+      "result": {
+        "scanned": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "outcomes": [
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty",
+            "message": "在 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty 中没有找到 mp4 或 mkv 文件。",
+            "failedFiles": []
+          }
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "在 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty 中没有找到 mp4 或 mkv 文件。",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "fixture seed",
+    "at": 1791741070.7806542,
+    "value": {
+      "seeded": true
+    }
+  },
+  {
+    "label": "fixture seed",
+    "at": 1791741070.788843,
+    "value": {
+      "seeded": true
+    }
+  },
+  {
+    "label": "fixture seed",
+    "at": 1791741070.805351,
+    "value": {
+      "seeded": true
+    }
+  },
+  {
+    "label": "fixture seed",
+    "at": 1791741070.812475,
+    "value": {
+      "seeded": true
+    }
+  },
+  {
+    "label": "Classic seeded state",
+    "at": 1791741070.818378,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 1.0,
+      "playerVolume": 1.0,
+      "savedVolume": null,
+      "manualOffset": 0.0,
+      "opacity": 1.0,
+      "fontSize": 0.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.757482",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        }
+      ],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa playback.open",
+    "at": 1791741072.3539221,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "seriesTitle": "实验短片",
+          "episodeTitle": "第一集",
+          "animeId": 2701,
+          "episodeId": 270101,
+          "positionMs": 45,
+          "durationMs": 120000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.set_paused",
+    "at": 1791741075.466445,
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "seriesTitle": "实验短片",
+          "episodeTitle": "第一集",
+          "animeId": 2701,
+          "episodeId": 270101,
+          "positionMs": 3307,
+          "durationMs": 120000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.levels",
+    "at": 1791741075.5465012,
+    "value": {
+      "status": "completed",
+      "result": {
+        "volume": 0.25,
+        "brightness": null,
+        "brightnessSupported": false,
+        "volumeTarget": "internal_player",
+        "playerVolume": 0.25
+      }
+    }
+  },
+  {
+    "label": "Classic volume 25%",
+    "at": 1791741075.5497549,
+    "value": {
+      "hasVideo": true,
+      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+      "volume": 0.25,
+      "playerVolume": 0.25,
+      "savedVolume": 0.25,
+      "manualOffset": 0.0,
+      "opacity": 1.0,
+      "fontSize": 0.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:15.460210",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        }
+      ],
+      "tracks": {
+        "timeline": {
+          "name": "时间轴告知",
+          "source": "timeline",
+          "danmakuList": [
+            {
+              "time": 30.0,
+              "type": "scroll",
+              "content": "视频播放进度：25%",
+              "color": "rgb(255,255,255)",
+              "t": 30.0,
+              "c": "视频播放进度：25%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 60.0,
+              "type": "scroll",
+              "content": "视频播放进度：50%",
+              "color": "rgb(255,255,255)",
+              "t": 60.0,
+              "c": "视频播放进度：50%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 90.0,
+              "type": "scroll",
+              "content": "视频播放进度：75%",
+              "color": "rgb(255,255,255)",
+              "t": 90.0,
+              "c": "视频播放进度：75%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 108.0,
+              "type": "scroll",
+              "content": "视频播放进度：90%",
+              "color": "rgb(255,255,255)",
+              "t": 108.0,
+              "c": "视频播放进度：90%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            }
+          ],
+          "count": 4
+        }
+      },
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa playback.levels",
+    "at": 1791741075.6208708,
+    "value": {
+      "status": "completed",
+      "result": {
+        "volume": 0.8,
+        "brightness": null,
+        "brightnessSupported": false,
+        "volumeTarget": "internal_player",
+        "playerVolume": 0.8
+      }
+    }
+  },
+  {
+    "label": "nipa playback.state",
+    "at": 1791741075.6849658,
+    "value": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.8,
+          "brightness": null,
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "seriesTitle": "实验短片",
+          "episodeTitle": "第一集",
+          "animeId": 2701,
+          "episodeId": 270101,
+          "positionMs": 3307,
+          "durationMs": 120000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa settings.history",
+    "at": 1791741075.747788,
+    "value": {
+      "status": "completed",
+      "result": {
+        "changes": [
+          {
+            "key": "player.volume",
+            "previousValue": 0.25,
+            "value": 0.8,
+            "changedAt": "2026-10-11T17:51:15.610705Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": "实验音量回读",
+            "invocationId": "inv-1791741075607492-13",
+            "revision": 2
+          },
+          {
+            "key": "player.volume",
+            "previousValue": 0.5,
+            "value": 0.25,
+            "changedAt": "2026-10-11T17:51:15.536053Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": "实验音量",
+            "invocationId": "inv-1791741075532253-12",
+            "revision": 1
+          }
+        ],
+        "nextOffset": null
+      }
+    }
+  },
+  {
+    "label": "nipa playback.levels",
+    "at": 1791741075.809312,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "Playback brightness requires a mobile platform.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "nipa ui.capture",
+    "at": 1791741076.318194,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/temp/ui-captures/1791741076306534.png",
+        "bytes": 1330508,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1744,
+        "capturedAt": "2026-10-11T17:51:16.307729Z",
+        "instance": {
+          "pid": 66012,
+          "windowId": 48614,
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "viewId": 1,
+          "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+          "experimentalProfile": true,
+          "profileName": "x27-a-66010",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture playback",
+    "at": 1791741076.319393,
+    "value": {
+      "artifact": "docs/next/evidence/x27/playback.png",
+      "bytes": 1330508
+    }
+  },
+  {
+    "label": "nipa danmaku.send",
+    "at": 1791741076.388526,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "Complete Dandanplay login through accounts.login first.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "nipa danmaku.send",
+    "at": 1791741076.4552078,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "invalid_input",
+        "message": "Use an RGB hex color: #RRGGBB.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741076.594711,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": true,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 949.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741077.263231,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": true,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 949.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa ui.capture",
+    "at": 1791741077.651536,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/temp/ui-captures/1791741077643531.png",
+        "bytes": 1375192,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1898,
+        "capturedAt": "2026-10-11T17:51:17.644664Z",
+        "instance": {
+          "pid": 66012,
+          "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "windowId": 48614,
+          "viewId": 1,
+          "experimentalProfile": true,
+          "profileName": "x27-a-66010",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture fullscreen",
+    "at": 1791741077.65237,
+    "value": {
+      "artifact": "docs/next/evidence/x27/fullscreen.png",
+      "bytes": 1375192
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741077.804311,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741078.475436,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741078.535947,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": true,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741079.22458,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": true,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741079.282906,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741079.9705431,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741080.2964401,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741080.985335,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741081.130861,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741081.8153741,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "Classic detached state",
+    "at": 1791741081.818932,
+    "value": {
+      "hasVideo": true,
+      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 0.0,
+      "opacity": 1.0,
+      "fontSize": 0.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:15.460210",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        }
+      ],
+      "tracks": {
+        "timeline": {
+          "name": "时间轴告知",
+          "source": "timeline",
+          "danmakuList": [
+            {
+              "time": 30.0,
+              "type": "scroll",
+              "content": "视频播放进度：25%",
+              "color": "rgb(255,255,255)",
+              "t": 30.0,
+              "c": "视频播放进度：25%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 60.0,
+              "type": "scroll",
+              "content": "视频播放进度：50%",
+              "color": "rgb(255,255,255)",
+              "t": 60.0,
+              "c": "视频播放进度：50%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 90.0,
+              "type": "scroll",
+              "content": "视频播放进度：75%",
+              "color": "rgb(255,255,255)",
+              "t": 90.0,
+              "c": "视频播放进度：75%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 108.0,
+              "type": "scroll",
+              "content": "视频播放进度：90%",
+              "color": "rgb(255,255,255)",
+              "t": 108.0,
+              "c": "视频播放进度：90%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            }
+          ],
+          "count": 4
+        }
+      },
+      "detachedWindow": {
+        "size": {
+          "width": 960.0,
+          "height": 540.0
+        },
+        "active": true,
+        "fullscreen": false,
+        "alwaysOnTop": false
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741081.879452,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741082.5639539,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741082.6252701,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": true
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741083.313094,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": true
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741083.373162,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741084.0465732,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741084.105891,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741084.79634,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741084.8563,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741085.54119,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741085.6032481,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741086.273911,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741086.397516,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": true,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": true
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741087.08205,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": true,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": true
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "Classic picture in picture",
+    "at": 1791741087.084791,
+    "value": {
+      "hasVideo": true,
+      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 0.0,
+      "opacity": 1.0,
+      "fontSize": 0.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:15.460210",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        }
+      ],
+      "tracks": {
+        "timeline": {
+          "name": "时间轴告知",
+          "source": "timeline",
+          "danmakuList": [
+            {
+              "time": 30.0,
+              "type": "scroll",
+              "content": "视频播放进度：25%",
+              "color": "rgb(255,255,255)",
+              "t": 30.0,
+              "c": "视频播放进度：25%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 60.0,
+              "type": "scroll",
+              "content": "视频播放进度：50%",
+              "color": "rgb(255,255,255)",
+              "t": 60.0,
+              "c": "视频播放进度：50%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 90.0,
+              "type": "scroll",
+              "content": "视频播放进度：75%",
+              "color": "rgb(255,255,255)",
+              "t": 90.0,
+              "c": "视频播放进度：75%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 108.0,
+              "type": "scroll",
+              "content": "视频播放进度：90%",
+              "color": "rgb(255,255,255)",
+              "t": 108.0,
+              "c": "视频播放进度：90%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            }
+          ],
+          "count": 4
+        }
+      },
+      "detachedWindow": {
+        "size": {
+          "width": 518.0,
+          "height": 292.0
+        },
+        "active": true,
+        "fullscreen": false,
+        "alwaysOnTop": true
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741087.513072,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741088.179741,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": true,
+        "pictureInPicture": false,
+        "player": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741088.277518,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741088.9598458,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "Classic returned player",
+    "at": 1791741088.962346,
+    "value": {
+      "hasVideo": true,
+      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 0.0,
+      "opacity": 1.0,
+      "fontSize": 0.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:15.460210",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        }
+      ],
+      "tracks": {
+        "timeline": {
+          "name": "时间轴告知",
+          "source": "timeline",
+          "danmakuList": [
+            {
+              "time": 30.0,
+              "type": "scroll",
+              "content": "视频播放进度：25%",
+              "color": "rgb(255,255,255)",
+              "t": 30.0,
+              "c": "视频播放进度：25%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 60.0,
+              "type": "scroll",
+              "content": "视频播放进度：50%",
+              "color": "rgb(255,255,255)",
+              "t": 60.0,
+              "c": "视频播放进度：50%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 90.0,
+              "type": "scroll",
+              "content": "视频播放进度：75%",
+              "color": "rgb(255,255,255)",
+              "t": 90.0,
+              "c": "视频播放进度：75%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            },
+            {
+              "time": 108.0,
+              "type": "scroll",
+              "content": "视频播放进度：90%",
+              "color": "rgb(255,255,255)",
+              "t": 108.0,
+              "c": "视频播放进度：90%",
+              "y": "scroll",
+              "r": "rgb(255,255,255)",
+              "p": "",
+              "d": 1791741071,
+              "size": 25,
+              "weight": 1
+            }
+          ],
+          "count": 4
+        }
+      },
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa ui.capture",
+    "at": 1791741089.352373,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/temp/ui-captures/1791741089343646.png",
+        "bytes": 1321388,
+        "mimeType": "image/png",
+        "width": 3664,
+        "height": 1748,
+        "capturedAt": "2026-10-11T17:51:29.344635Z",
+        "instance": {
+          "pid": 66012,
+          "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+          "windowId": 48614,
+          "viewId": 1,
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+          "experimentalProfile": true,
+          "profileName": "x27-a-66010",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture returned",
+    "at": 1791741089.353417,
+    "value": {
+      "artifact": "docs/next/evidence/x27/returned.png",
+      "bytes": 1321388
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741089.412596,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741090.100424,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": true,
+          "maximized": false,
+          "visible": false,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741090.717702,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741091.396773,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741091.8475678,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741092.530508,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741092.9489012,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741093.643788,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": true,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741093.728207,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": false,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741094.405041,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": false,
+          "visible": false,
+          "size": {
+            "width": 1832.0,
+            "height": 874.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741094.4954581,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741095.1684868,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741095.2297862,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741095.911359,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": false,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741095.976479,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741096.661851,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.close",
+    "at": 1791741096.770771,
+    "value": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external_player_path",
+    "at": 1791741096.844629,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/opt/homebrew/bin/mpv",
+        "type": "mpv"
+      }
+    }
+  },
+  {
+    "label": "nipa settings.set",
+    "at": 1791741096.920321,
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "status": "completed",
+            "key": "player.externalPath",
+            "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/mpv",
+            "revision": 2,
+            "scope": "device",
+            "apply": "immediate",
+            "provenance": {
+              "key": "player.externalPath",
+              "previousValue": "/opt/homebrew/bin/mpv",
+              "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/mpv",
+              "changedAt": "2026-10-11T17:51:36.906184Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791741096903640-70",
+              "revision": 2
+            }
+          },
+          {
+            "index": 1,
+            "status": "completed",
+            "key": "player.externalType",
+            "value": "mpv",
+            "revision": 2,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "player.externalType",
+              "previousValue": "mpv",
+              "value": "mpv",
+              "changedAt": "2026-10-11T17:51:36.907424Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791741096903640-70",
+              "revision": 2
+            }
+          },
+          {
+            "index": 2,
+            "status": "completed",
+            "key": "player.externalEnabled",
+            "value": true,
+            "revision": 1,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "player.externalEnabled",
+              "previousValue": false,
+              "value": true,
+              "changedAt": "2026-10-11T17:51:36.909469Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791741096903640-70",
+              "revision": 1
+            }
+          },
+          {
+            "index": 3,
+            "status": "completed",
+            "key": "player.externalDanmakuOverlay",
+            "value": true,
+            "revision": 1,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": {
+              "key": "player.externalDanmakuOverlay",
+              "previousValue": true,
+              "value": true,
+              "changedAt": "2026-10-11T17:51:36.910636Z",
+              "changedBy": "harness_cli",
+              "origin": "harness_cli",
+              "reason": null,
+              "invocationId": "inv-1791741096903640-70",
+              "revision": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "nipa playback.open",
+    "at": 1791741097.011016,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+        "player": "external",
+        "state": {
+          "external": {
+            "player": "mpv",
+            "positionMs": null,
+            "paused": false
+          },
+          "player": "external",
+          "volume": null,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": null,
+          "seriesTitle": "实验短片",
+          "episodeTitle": "第一集",
+          "animeId": null,
+          "episodeId": 270101,
+          "positionMs": 0,
+          "durationMs": 0,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external_state",
+    "at": 1791741100.101815,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "player": "mpv",
+        "processId": 66198,
+        "paused": null,
+        "positionMs": null,
+        "telemetryAvailable": false,
+        "durationMs": null,
+        "fraction": null
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku_state",
+    "at": 1791741100.1691442,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 1.0,
+          "fontSize": 30.0,
+          "outlineWidth": 2.0,
+          "stacking": false
+        },
+        "offsetSeconds": 0.0,
+        "rules": [],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku",
+    "at": 1791741100.240659,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.55,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 40.125,
+        "rules": [
+          {
+            "type": "keyword",
+            "value": "蓝色"
+          },
+          {
+            "type": "regex",
+            "value": "^实验"
+          },
+          {
+            "type": "userId",
+            "value": "fixture-one"
+          }
+        ],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku_state",
+    "at": 1791741101.312955,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.55,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 40.125,
+        "rules": [
+          {
+            "type": "keyword",
+            "value": "蓝色"
+          },
+          {
+            "type": "regex",
+            "value": "^实验"
+          },
+          {
+            "type": "userId",
+            "value": "fixture-one"
+          }
+        ],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "Classic external ASS blocked",
+    "at": 1791741101.315569,
+    "value": [
+      {
+        "name": "danmaku_1791741096977.ass",
+        "dialogueCount": 0
+      }
+    ]
+  },
+  {
+    "label": "nipa playback.external.danmaku",
+    "at": 1791741101.376275,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "invalid_input",
+        "message": "Invalid block-rule regex.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku_state",
+    "at": 1791741101.440518,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.55,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 40.125,
+        "rules": [
+          {
+            "type": "keyword",
+            "value": "蓝色"
+          },
+          {
+            "type": "regex",
+            "value": "^实验"
+          },
+          {
+            "type": "userId",
+            "value": "fixture-one"
+          }
+        ],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "Classic external ASS restored",
+    "at": 1791741102.445088,
+    "value": [
+      {
+        "name": "danmaku_1791741096977.ass",
+        "dialogueCount": 0,
+        "hasFixtureOne": false,
+        "hasFixtureTwo": false
+      }
+    ]
+  },
+  {
+    "label": "nipa playback.external.danmaku",
+    "at": 1791741102.5333812,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.55,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 40.125,
+        "rules": [
+          {
+            "type": "keyword",
+            "value": "蓝色"
+          },
+          {
+            "type": "regex",
+            "value": "^实验"
+          },
+          {
+            "type": "userId",
+            "value": "fixture-one"
+          }
+        ],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "Classic external style written back",
+    "at": 1791741102.536299,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 40.125,
+      "opacity": 0.55,
+      "fontSize": 36.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:36.716411",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270102,
+          "animeId": 2701,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.783795",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Ftwo.mp4"
+        }
+      ],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa settings.history",
+    "at": 1791741102.601125,
+    "value": {
+      "status": "completed",
+      "result": {
+        "changes": [
+          {
+            "key": "danmaku.manualOffset",
+            "previousValue": 0.0,
+            "value": 40.125,
+            "changedAt": "2026-10-11T17:51:42.524267Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": "保存实验会话样式",
+            "invocationId": "inv-1791741102501958-78",
+            "revision": 1
+          },
+          {
+            "key": "danmaku.fontSize",
+            "previousValue": 0.0,
+            "value": 36.0,
+            "changedAt": "2026-10-11T17:51:42.519996Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": "保存实验会话样式",
+            "invocationId": "inv-1791741102501958-78",
+            "revision": 1
+          },
+          {
+            "key": "danmaku.opacity",
+            "previousValue": 1.0,
+            "value": 0.55,
+            "changedAt": "2026-10-11T17:51:42.504159Z",
+            "changedBy": "harness_cli",
+            "origin": "harness_cli",
+            "reason": "保存实验会话样式",
+            "invocationId": "inv-1791741102501958-78",
+            "revision": 1
+          }
+        ],
+        "nextOffset": null
+      }
+    }
+  },
+  {
+    "label": "nipa settings.set",
+    "at": 1791741102.667176,
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "danmaku.opacity",
+        "value": 0.75,
+        "revision": 2,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "danmaku.opacity",
+          "previousValue": 0.55,
+          "value": 0.75,
+          "changedAt": "2026-10-11T17:51:42.658430Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791741102656181-80",
+          "revision": 2
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku",
+    "at": 1791741102.735412,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.75,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 0.0,
+        "rules": [],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external.danmaku_state",
+    "at": 1791741102.8103108,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "style": {
+          "opacity": 0.75,
+          "fontSize": 36.0,
+          "outlineWidth": 2.0,
+          "stacking": true
+        },
+        "offsetSeconds": 0.0,
+        "rules": [],
+        "total": 0,
+        "items": [],
+        "nextOffset": null,
+        "refresh": "queued"
+      }
+    }
+  },
+  {
+    "label": "nipa settings.set",
+    "at": 1791741102.997476,
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "player.externalConsoleWindowMode",
+        "value": true,
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.externalConsoleWindowMode",
+          "previousValue": false,
+          "value": true,
+          "changedAt": "2026-10-11T17:51:42.877667Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791741102875180-83",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741104.0720158,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741104.185524,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741104.869308,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa ui.capture",
+    "at": 1791741105.114163,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/temp/ui-captures/1791741105103506.png",
+        "bytes": 159123,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1744,
+        "capturedAt": "2026-10-11T17:51:45.104171Z",
+        "instance": {
+          "pid": 66012,
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+          "viewId": 1,
+          "windowId": 48614,
+          "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+          "experimentalProfile": true,
+          "profileName": "x27-a-66010",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture external-console",
+    "at": 1791741105.115571,
+    "value": {
+      "artifact": "docs/next/evidence/x27/external-console.png",
+      "bytes": 159123
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741105.2083578,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741105.878738,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": true,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.control",
+    "at": 1791741105.948246,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa window.state",
+    "at": 1791741106.615606,
+    "value": {
+      "status": "completed",
+      "result": {
+        "main": {
+          "fullscreen": false,
+          "alwaysOnTop": false,
+          "minimized": false,
+          "maximized": true,
+          "visible": true,
+          "size": {
+            "width": 1512.0,
+            "height": 872.0
+          }
+        },
+        "detached": false,
+        "pictureInPicture": false,
+        "player": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_controls": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        },
+        "external_list": {
+          "open": false,
+          "fullscreen": false,
+          "alwaysOnTop": false
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.external_state",
+    "at": 1791741106.678344,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": true,
+        "player": "mpv",
+        "processId": 66198,
+        "paused": null,
+        "positionMs": null,
+        "telemetryAvailable": false,
+        "durationMs": null,
+        "fraction": null
+      }
+    }
+  },
+  {
+    "label": "nipa settings.set",
+    "at": 1791741106.745955,
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "player.externalConsoleWindowMode",
+        "value": false,
+        "revision": 2,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.externalConsoleWindowMode",
+          "previousValue": true,
+          "value": false,
+          "changedAt": "2026-10-11T17:51:46.735681Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791741106733689-93",
+          "revision": 2
+        }
+      }
+    }
+  },
+  {
+    "label": "nipa playback.close",
+    "at": 1791741106.81581,
+    "value": {
+      "status": "completed",
+      "result": {
+        "active": false,
+        "player": null,
+        "processId": null,
+        "paused": null,
+        "positionMs": null,
+        "telemetryAvailable": false,
+        "durationMs": null,
+        "fraction": null
+      }
+    }
+  },
+  {
+    "label": "nipa history.remove",
+    "at": 1791741106.8997781,
+    "value": {
+      "status": "completed",
+      "result": {
+        "removedPaths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4"
+        ],
+        "removedCount": 1
+      }
+    }
+  },
+  {
+    "label": "Classic after single deletion",
+    "at": 1791741106.902993,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 40.125,
+      "opacity": 0.75,
+      "fontSize": 36.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:36.716411",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270202,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.809245",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Ffour.mp4"
+        },
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270201,
+          "animeId": 2702,
+          "watchProgress": 0.1,
+          "lastPosition": 1000,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:10.799883",
+          "thumbnailPath": null,
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fb%2Fthree.mp4"
+        }
+      ],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa history.remove",
+    "at": 1791741106.972654,
+    "value": {
+      "status": "completed",
+      "result": {
+        "removedPaths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4"
+        ],
+        "removedCount": 2
+      }
+    }
+  },
+  {
+    "label": "Classic after series deletion",
+    "at": 1791741106.976671,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 40.125,
+      "opacity": 0.75,
+      "fontSize": 36.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [
+        {
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/one.mp4",
+          "animeName": "实验短片",
+          "episodeTitle": "第一集",
+          "episodeId": 270101,
+          "animeId": 2701,
+          "watchProgress": 0.027558333333333334,
+          "lastPosition": 3307,
+          "duration": 120000,
+          "lastWatchTime": "2026-10-12T01:51:36.716411",
+          "thumbnailPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/thumbnails/51594f14a489ff876c42b463f30a992b.jpg",
+          "isFromScan": false,
+          "videoHash": null,
+          "mediaKey": "local:filesystem:%2FUsers%2Fsakiko%2FLibrary%2FApplication%20Support%2FNipaPlay%2FLabProfiles%2Fx27-a-66010%2Fdata%2Fa%2Fone.mp4"
+        }
+      ],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa media.library.roots.remove",
+    "at": 1791741107.050755,
+    "value": {
+      "status": "completed",
+      "result": {
+        "removed": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已从扫描列表移除文件夹: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "Classic after root removal",
+    "at": 1791741107.063288,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 40.125,
+      "opacity": 0.75,
+      "fontSize": 36.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+      ],
+      "history": [],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa media.library.roots.cleanup",
+    "at": 1791741107.141012,
+    "value": {
+      "status": "completed",
+      "result": {
+        "removed": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已清理 1 个不存在的文件夹。",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "Classic after missing root cleanup",
+    "at": 1791741107.1435132,
+    "value": {
+      "hasVideo": false,
+      "path": null,
+      "volume": 0.8,
+      "playerVolume": 0.8,
+      "savedVolume": 0.8,
+      "manualOffset": 40.125,
+      "opacity": 0.75,
+      "fontSize": 36.0,
+      "roots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b"
+      ],
+      "savedRoots": [
+        "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b"
+      ],
+      "history": [],
+      "tracks": {},
+      "detachedWindow": null
+    }
+  },
+  {
+    "label": "nipa state.query",
+    "at": 1791741107.282214,
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-11T17:51:47.250653Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "activity": "2026-10-11T17:51:47.248114Z"
+        },
+        "rows": [
+          {
+            "type": "invocation.result",
+            "title": "清理失效目录完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "media.library.roots.cleanup",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "removed": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "roots": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b"
+                ],
+                "scanning": false,
+                "progress": 0.0,
+                "message": "已清理 1 个不存在的文件夹。",
+                "totalFilesFound": 0,
+                "failedFiles": []
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "移除扫描目录完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "media.library.roots.remove",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "removed": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a"
+                ],
+                "roots": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "scanning": false,
+                "progress": 0.0,
+                "message": "已从扫描列表移除文件夹: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+                "totalFilesFound": 0,
+                "failedFiles": []
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "删除观看历史完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "history.remove",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "removedPaths": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/four.mp4",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b/three.mp4"
+                ],
+                "removedCount": 2
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "删除观看历史完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "history.remove",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "removedPaths": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a/two.mp4"
+                ],
+                "removedCount": 1
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放独立弹幕窗口 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalConsoleWindowMode",
+              "revision": 2,
+              "reason": null,
+              "before": true,
+              "after": false
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放独立弹幕窗口 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalConsoleWindowMode",
+              "revision": 1,
+              "reason": null,
+              "before": false,
+              "after": true
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整外部播放器弹幕完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.external.danmaku",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "active": true,
+                "style": {
+                  "opacity": 0.75,
+                  "fontSize": 36.0,
+                  "outlineWidth": 2.0,
+                  "stacking": true
+                },
+                "offsetSeconds": 0.0,
+                "rules": [],
+                "total": 0,
+                "items": [],
+                "nextOffset": null,
+                "refresh": "queued"
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "弹幕透明度 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "danmaku.opacity",
+              "revision": 2,
+              "reason": null,
+              "before": 0.55,
+              "after": 0.75
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "弹幕手动偏移 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "danmaku.manualOffset",
+              "revision": 1,
+              "reason": "保存实验会话样式",
+              "before": 0.0,
+              "after": 40.125
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整外部播放器弹幕完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.external.danmaku",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "active": true,
+                "style": {
+                  "opacity": 0.55,
+                  "fontSize": 36.0,
+                  "outlineWidth": 2.0,
+                  "stacking": true
+                },
+                "offsetSeconds": 40.125,
+                "rules": [
+                  {
+                    "type": "keyword",
+                    "value": "蓝色"
+                  },
+                  {
+                    "type": "regex",
+                    "value": "^实验"
+                  },
+                  {
+                    "type": "userId",
+                    "value": "fixture-one"
+                  }
+                ],
+                "total": 0,
+                "items": [],
+                "nextOffset": null,
+                "refresh": "queued"
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "启用弹幕堆叠 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "danmaku.stacking",
+              "revision": 1,
+              "reason": "保存实验会话样式",
+              "before": false,
+              "after": true
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "弹幕字体大小 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "danmaku.fontSize",
+              "revision": 1,
+              "reason": "保存实验会话样式",
+              "before": 0.0,
+              "after": 36.0
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "弹幕透明度 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "danmaku.opacity",
+              "revision": 1,
+              "reason": "保存实验会话样式",
+              "before": 1.0,
+              "after": 0.55
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整外部播放器弹幕失败",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.external.danmaku",
+              "status": "failed",
+              "failureCode": "invalid_input",
+              "provider": null,
+              "sourceId": null,
+              "result": null
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整外部播放器弹幕完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.external.danmaku",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "active": true,
+                "style": {
+                  "opacity": 0.55,
+                  "fontSize": 36.0,
+                  "outlineWidth": 2.0,
+                  "stacking": true
+                },
+                "offsetSeconds": 40.125,
+                "rules": [
+                  {
+                    "type": "keyword",
+                    "value": "蓝色"
+                  },
+                  {
+                    "type": "regex",
+                    "value": "^实验"
+                  },
+                  {
+                    "type": "userId",
+                    "value": "fixture-one"
+                  }
+                ],
+                "total": 0,
+                "items": [],
+                "nextOffset": null,
+                "refresh": "queued"
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放器弹幕外挂 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalDanmakuOverlay",
+              "revision": 1,
+              "reason": null,
+              "before": true,
+              "after": true
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "使用外部播放器 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalEnabled",
+              "revision": 1,
+              "reason": null,
+              "before": false,
+              "after": true
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放器类型 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalType",
+              "revision": 2,
+              "reason": null,
+              "before": "mpv",
+              "after": "mpv"
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放器路径 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalPath",
+              "revision": 2,
+              "reason": null,
+              "before": "/opt/homebrew/bin/mpv",
+              "after": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/mpv"
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "选择外部播放器完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.external_player_path",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "path": "/opt/homebrew/bin/mpv",
+                "type": "mpv"
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放器类型 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalType",
+              "revision": 1,
+              "reason": null,
+              "before": "unset",
+              "after": "mpv"
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "外部播放器路径 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.externalPath",
+              "revision": 1,
+              "reason": null,
+              "before": "",
+              "after": "/opt/homebrew/bin/mpv"
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": false,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": true,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": true
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": true
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": true,
+                "pictureInPicture": false,
+                "player": {
+                  "open": true,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1832.0,
+                    "height": 874.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": true,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": false,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": true,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 872.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整窗口完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "window.control",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "main": {
+                  "fullscreen": true,
+                  "alwaysOnTop": false,
+                  "minimized": false,
+                  "maximized": false,
+                  "visible": true,
+                  "size": {
+                    "width": 1512.0,
+                    "height": 949.0
+                  }
+                },
+                "detached": false,
+                "pictureInPicture": false,
+                "player": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_controls": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                },
+                "external_list": {
+                  "open": false,
+                  "fullscreen": false,
+                  "alwaysOnTop": false
+                }
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "发送弹幕失败",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "danmaku.send",
+              "status": "failed",
+              "failureCode": "invalid_input",
+              "provider": null,
+              "sourceId": null,
+              "result": null
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "发送弹幕失败",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "danmaku.send",
+              "status": "failed",
+              "failureCode": "unavailable",
+              "provider": null,
+              "sourceId": null,
+              "result": null
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整音量和亮度失败",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.levels",
+              "status": "failed",
+              "failureCode": "unavailable",
+              "provider": null,
+              "sourceId": null,
+              "result": null
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整音量和亮度完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.levels",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "volume": 0.8,
+                "brightness": null,
+                "brightnessSupported": false,
+                "volumeTarget": "internal_player",
+                "playerVolume": 0.8
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "播放音量 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.volume",
+              "revision": 2,
+              "reason": "实验音量回读",
+              "before": 0.25,
+              "after": 0.8
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "调整音量和亮度完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "playback.levels",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "volume": 0.25,
+                "brightness": null,
+                "brightnessSupported": false,
+                "volumeTarget": "internal_player",
+                "playerVolume": 0.25
+              }
+            }
+          },
+          {
+            "type": "settings.changed",
+            "title": "播放音量 · 设置修改",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "key": "player.volume",
+              "revision": 1,
+              "reason": "实验音量",
+              "before": 0.5,
+              "after": 0.25
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:270202 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-b629a37d3e52fe87363b5fb7247490cea01cbf9ee0c880e299fae1a6f7d290ca",
+              "objectId": "object-8638ea778d55bccc6a0b0550b8b17a9e577d6910dc7d4412b9a27e1c598895c1",
+              "provider": "dandanplay",
+              "externalId": "270202",
+              "language": "und",
+              "metadata": {
+                "title": "第一集",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.117995Z",
+              "receivedAt": "2026-10-11T17:51:11.117995Z"
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:2702 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-1078ed133be8a0908b2af45d398087b5a9817b244ea84f599dcdc2932f69a68f",
+              "objectId": "object-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b",
+              "provider": "dandanplay",
+              "externalId": "2702",
+              "language": "und",
+              "metadata": {
+                "title": "实验短片",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.117995Z",
+              "receivedAt": "2026-10-11T17:51:11.117995Z"
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "episode-8638ea778d55bccc6a0b0550b8b17a9e577d6910dc7d4412b9a27e1c598895c1 · dandanplay:270202 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-3fe01209ce9e99f93b050cc88046f98c695a1fe0147882a70fa10f1193947384",
+              "objectId": "object-8638ea778d55bccc6a0b0550b8b17a9e577d6910dc7d4412b9a27e1c598895c1",
+              "provider": "dandanplay",
+              "externalId": "270202",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "file-bedbcb48-fc3c-4e13-9cd4-303646e78c34 · dandanplay:270202 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-7b31a14e7f4324b12657c748905735cdc8311bcbbc14e3cbc377382ffb898e3d",
+              "objectId": "object-8638ea778d55bccc6a0b0550b8b17a9e577d6910dc7d4412b9a27e1c598895c1",
+              "provider": "dandanplay",
+              "externalId": "270202",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:270201 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-95cf78fe06a61ddc199b4e4d11fb2a49133c567fc6a1baa57fd8bb4a1e9cbd34",
+              "objectId": "object-6ad806bc87b724c8cc925248985a50aff52c71f3f2f659711a48622600dd9c2c",
+              "provider": "dandanplay",
+              "externalId": "270201",
+              "language": "und",
+              "metadata": {
+                "title": "第一集",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.111538Z",
+              "receivedAt": "2026-10-11T17:51:11.111538Z"
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:2702 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-33cfa5ea559e09e591b989fc38348b0c3227d07b2a7a45c0b12993c0fac2c562",
+              "objectId": "object-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b",
+              "provider": "dandanplay",
+              "externalId": "2702",
+              "language": "und",
+              "metadata": {
+                "title": "实验短片",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.111538Z",
+              "receivedAt": "2026-10-11T17:51:11.111538Z"
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "file-e3b4a988-228a-451f-a5c7-19dee09913b9 · dandanplay:270201 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-ba52a01c7481b8b50c924f6d4e93174fc59d20d87b5dff419bedc0cd107d2c4b",
+              "objectId": "object-6ad806bc87b724c8cc925248985a50aff52c71f3f2f659711a48622600dd9c2c",
+              "provider": "dandanplay",
+              "externalId": "270201",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "episode-6ad806bc87b724c8cc925248985a50aff52c71f3f2f659711a48622600dd9c2c · dandanplay:270201 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-9e5bfb59231e11579d84a7940a85f7abc056e89b939dbceb87e946fb77e4b266",
+              "objectId": "object-6ad806bc87b724c8cc925248985a50aff52c71f3f2f659711a48622600dd9c2c",
+              "provider": "dandanplay",
+              "externalId": "270201",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "release-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b · dandanplay:2702 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-ff234d06c6f528da29761c96ce4b94f5e4c2d098447f09860a15efa66957b635",
+              "objectId": "object-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b",
+              "provider": "dandanplay",
+              "externalId": "2702",
+              "objectType": "anime",
+              "relation": "contains",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "work-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b · dandanplay:2702 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-c4725934bb5c392446b4f0ff7450100ed70db88c83b972b944ed7850bd7beec4",
+              "objectId": "object-b6ce322f2e3a39c2136158cc37c12a31b47066943a143aa61071d7be04999f2b",
+              "provider": "dandanplay",
+              "externalId": "2702",
+              "objectType": "anime",
+              "relation": "contains",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:270102 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-d4de7b7805d91e379f1348d70d1609721afe1d1725afa2c95e7960ac10077963",
+              "objectId": "object-ef5272b2bb5071402d25a29805aeae8f5caea523fd930d0b56128aa3e416edd7",
+              "provider": "dandanplay",
+              "externalId": "270102",
+              "language": "und",
+              "metadata": {
+                "title": "第一集",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.105419Z",
+              "receivedAt": "2026-10-11T17:51:11.105419Z"
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:2701 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-6b828722ad8985e701bc519eb1388abff87aa0be7200b0b8724958036b551469",
+              "objectId": "object-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808",
+              "provider": "dandanplay",
+              "externalId": "2701",
+              "language": "und",
+              "metadata": {
+                "title": "实验短片",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.105419Z",
+              "receivedAt": "2026-10-11T17:51:11.105419Z"
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "episode-ef5272b2bb5071402d25a29805aeae8f5caea523fd930d0b56128aa3e416edd7 · dandanplay:270102 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-1c476a9fccfb71ed875e4a0f24afc1fd555a632f398389bd5edd07532ee3397d",
+              "objectId": "object-ef5272b2bb5071402d25a29805aeae8f5caea523fd930d0b56128aa3e416edd7",
+              "provider": "dandanplay",
+              "externalId": "270102",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "file-d5ff48b4-86f7-4787-b7df-17e6e5bcbee3 · dandanplay:270102 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-8e92b2a47f9265e027f7027cb13aae4ce96421fb672ee1bd04e496d9bcbca0f7",
+              "objectId": "object-ef5272b2bb5071402d25a29805aeae8f5caea523fd930d0b56128aa3e416edd7",
+              "provider": "dandanplay",
+              "externalId": "270102",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:270101 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-ea6054ed764337d4c8d0a9aa91eb4e3f6a479c20ac210cc2782b9f58f9fec0c7",
+              "objectId": "object-e46f5d5e0eb7f40af6173bd652c50df5e943dbc6ec564f0964fd0cdfa1ca2e85",
+              "provider": "dandanplay",
+              "externalId": "270101",
+              "language": "und",
+              "metadata": {
+                "title": "第一集",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.096380Z",
+              "receivedAt": "2026-10-11T17:51:11.096380Z"
+            }
+          },
+          {
+            "type": "metadata.snapshot",
+            "title": "dandanplay:2701 · 元数据快照",
+            "actor": "system",
+            "origin": "classic_history",
+            "facts": {
+              "snapshotId": "classic-snapshot-c8e10d43aba1c9e38ba26ee0fab7d4bcfa8f97fca0cf613ee52bb677061bbd54",
+              "objectId": "object-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808",
+              "provider": "dandanplay",
+              "externalId": "2701",
+              "language": "und",
+              "metadata": {
+                "title": "实验短片",
+                "originalTitle": null,
+                "overview": null,
+                "imageUrl": null,
+                "year": null
+              },
+              "fetchedAt": "2026-10-11T17:51:11.096380Z",
+              "receivedAt": "2026-10-11T17:51:11.096380Z"
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "work-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808 · dandanplay:2701 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-efcc16b7dfe92d46a370b17d3a28c4ac928e234e90a2908dd0cb72faec15cf73",
+              "objectId": "object-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808",
+              "provider": "dandanplay",
+              "externalId": "2701",
+              "objectType": "anime",
+              "relation": "contains",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "release-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808 · dandanplay:2701 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-925be235497d72c8b9beca6a6c6a4d4f2aa33581174f02ffdf780cb3c9a0f3e3",
+              "objectId": "object-26f18b76f80a660aea314b5adc50d500c1e4e0de0012f776b6b6df085b8a8808",
+              "provider": "dandanplay",
+              "externalId": "2701",
+              "objectType": "anime",
+              "relation": "contains",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "file-0298da90-22ab-4655-9468-2fca893c19f4 · dandanplay:270101 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-f5fffabc69c687ffa1474ce7ef59c64026e5b1d5945a7c7d1806c387891cf42d",
+              "objectId": "object-e46f5d5e0eb7f40af6173bd652c50df5e943dbc6ec564f0964fd0cdfa1ca2e85",
+              "provider": "dandanplay",
+              "externalId": "270101",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "identity.bound",
+            "title": "episode-e46f5d5e0eb7f40af6173bd652c50df5e943dbc6ec564f0964fd0cdfa1ca2e85 · dandanplay:270101 · bound",
+            "actor": "unknown",
+            "origin": null,
+            "facts": {
+              "bindingId": "classic-binding-249dfeffcc03fd98576ef568ed5727d32b75782243aa42d108d89d9c024d63d0",
+              "objectId": "object-e46f5d5e0eb7f40af6173bd652c50df5e943dbc6ec564f0964fd0cdfa1ca2e85",
+              "provider": "dandanplay",
+              "externalId": "270101",
+              "objectType": "episode",
+              "relation": "exact",
+              "operation": "bound",
+              "reason": null
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "扫描媒体目录完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "media.library.scan_classic",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "scanned": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "outcomes": [
+                  {
+                    "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty",
+                    "message": "在 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty 中没有找到 mp4 或 mkv 文件。",
+                    "failedFiles": []
+                  }
+                ],
+                "roots": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "scanning": false,
+                "progress": 0.0,
+                "message": "在 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty 中没有找到 mp4 或 mkv 文件。",
+                "totalFilesFound": 0,
+                "failedFiles": []
+              }
+            }
+          },
+          {
+            "type": "invocation.result",
+            "title": "添加扫描目录完成",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "facts": {
+              "action": "media.library.roots.add",
+              "status": "completed",
+              "failureCode": null,
+              "provider": null,
+              "sourceId": null,
+              "result": {
+                "selected": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "roots": [
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/a",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/b",
+                  "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty"
+                ],
+                "scanning": false,
+                "progress": 0.0,
+                "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/data/empty",
+                "totalFilesFound": 0,
+                "failedFiles": []
+              }
+            }
+          },
+          {
+            "type": "harness.commit",
+            "title": "Update NipaPlay harness seed",
+            "actor": "NipaPlay",
+            "origin": "git",
+            "facts": {
+              "hash": "1f2a701a0add41fc7fb8493afa2d481ae377218b",
+              "author": "NipaPlay",
+              "authoredAt": "2026-10-12T01:51:08+08:00",
+              "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/harness",
+              "subject": "Update NipaPlay harness seed"
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "nipa ui.capture",
+    "at": 1791741107.792022,
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x27-a-66010/temp/ui-captures/1791741107782303.png",
+        "bytes": 656367,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1744,
+        "capturedAt": "2026-10-11T17:51:47.782983Z",
+        "instance": {
+          "pid": 66012,
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app",
+          "viewId": 1,
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-a/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "windowTitle": "NipaPlay · LAB [x27-a-66010]",
+          "windowId": 48614,
+          "experimentalProfile": true,
+          "profileName": "x27-a-66010",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture final",
+    "at": 1791741107.793619,
+    "value": {
+      "artifact": "docs/next/evidence/x27/final.png",
+      "bytes": 656367
+    }
+  },
+  {
+    "label": "nipa app.quit",
+    "at": 1791741107.85937,
+    "value": {
+      "status": "completed",
+      "result": {
+        "scheduled": true,
+        "processId": 66012,
+        "delayMs": 1000
+      }
+    }
+  },
+  {
+    "label": "quit observed",
+    "at": 1791741109.053264,
+    "value": {
+      "pid": 66012,
+      "exitCode": 0,
+      "journalHasQuit": true
+    }
+  },
+  {
+    "label": "cleanup",
+    "at": 1791741109.0630348,
+    "value": {
+      "profile": "x27-a-66010",
+      "removed": true,
+      "appExited": true
+    }
+  }
+]
