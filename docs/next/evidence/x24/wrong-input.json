@@ -1,0 +1,23 @@
+{
+  "requestId": "x24-wrong-scope",
+  "entries": [
+    {
+      "kind": "episode",
+      "workRef": {
+        "provider": "dandanplay",
+        "objectType": "anime",
+        "externalId": "7001",
+        "scope": ""
+      },
+      "episodeRefs": [
+        {
+          "provider": "dandanplay",
+          "objectType": "episode",
+          "externalId": "7101",
+          "scope": "release/7001"
+        }
+      ],
+      "reason": "用户提供已核实的第一集实际 episodeId=7101"
+    }
+  ]
+}

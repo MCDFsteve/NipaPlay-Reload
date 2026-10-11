@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "error": {
+    "code": "invalid_input",
+    "message": "Entry 0: Episode ref {\"provider\":\"dandanplay\",\"objectType\":\"episode\",\"externalId\":\"7101\",\"scope\":\"release/7001\"} is not a member of the selected release catalogue {\"provider\":\"dandanplay\",\"objectType\":\"anime\",\"externalId\":\"7001\",\"scope\":\"\"}. Expected episodeRefs to contain [{\"provider\":\"dandanplay\",\"objectType\":\"episode\",\"externalId\":\"7101\",\"scope\":\"anime/7001\"}]; scope is the provider namespace string, not a local release ID.",
+    "retryable": false,
+    "violations": [
+      {
+        "path": "/entries/0/episodeRefs/0",
+        "message": "Expected [{\"provider\":\"dandanplay\",\"objectType\":\"episode\",\"externalId\":\"7101\",\"scope\":\"anime/7001\"}]."
+      }
+    ]
+  }
+}
