@@ -1,0 +1,207 @@
+2026-10-12 02:12:00.296 NipaPlay[14898:15358376] Running with merged UI and platform thread. Experimental.
+0.33.1 (git 8da6cdd) - Multimedia Development Kit. Copyright (c) 2016-2025 WangBin(QtAV author) <wbsecg1 at gmail.com>
+Build for: macOS110000/26.7.0 16KB ARMv8 AArch64; libc++190102; Apple Clang17.0.0 (clang-1700.0.13.5); 15:48:44 Jul  5 2025. 
+[LabProfile] name=x30-main-14896 root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896 writeSandbox=true
+flutter: The Dart VM service is listening on http://127.0.0.1:62552/Zc4-XRLTO4k=/
+[AppDelegate] 应用启动
+flutter: LAB [x30-main-14896] root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896; external files are read-only
+flutter: *** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+flutter: media_kit: NativeReferenceHolder: Allocated 40979857408
+flutter: [PlayerFactory] 无有效内核设置，使用默认: mdk
+[nipaplay_torrent] init_session create session: download_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/downloads", session_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/support/torrent_session"
+flutter: [DesktopMultiWindow] main FlutterView=1, implicit=0, views=0:Size(0.0, 0.0), 1:Size(3024.0, 1676.0)
+flutter: [PlayerFactory] 创建 MDK 播放器
+flutter: 使用平台默认解码器设置: [VT, hap, dav1d, FFmpeg]
+flutter: [Decoder] 软解颜色格式: 自动（内核默认）
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=false), icon=null, ios=null, overlay=null
+flutter: [Startup] sync 7ms (after first frame)
+flutter: [Startup] token 10ms (after first frame)
+flutter: [Startup] services 66ms (after first frame)
+flutter: [Startup] danmaku-cache 95ms (after first frame)
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=true), icon=null, ios=null, overlay=null
+flutter: LargeScreenUiSfxService: 全局 AudioContext 已设置
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel dev.universal_gamepad/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel xyz.luan/audioplayers.global/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+[ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: MissingPluginException(No implementation found for method init on channel xyz.luan/audioplayers.global)
+#0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+<asynchronous suspension>
+#1      GlobalAudioScope.ensureInitialized (package:audioplayers/src/global_audio_scope.dart:39:9)
+<asynchronous suspension>
+#2      GlobalAudioScope.setAudioContext (package:audioplayers/src/global_audio_scope.dart:49:5)
+<asynchronous suspension>
+
+flutter: [SystemUI][AppBar] isDark=false, icon=dark, ios=light
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [Bangumi API] 服务初始化完成，登录状态: false
+flutter: DashboardHomePage: 延迟检查发现WatchHistoryProvider已加载但数据为空，重新加载数据
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=902ms hk=1251ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=941ms hk=1170ms => 香港
+flutter: [TrendingBangumiService] 排行榜请求失败，尝试旧缓存: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: 加载排行榜失败: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=867ms hk=1235ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=895ms hk=1253ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=896ms hk=1161ms => 香港
+flutter: [TabChangeNotifier] 请求切换到页面: video
+flutter: [TabChangeNotifier] 只清除主标签索引，保留子标签索引
+flutter: [updateMerged] 合并后的总弹幕: 0
+flutter: [updateMerged] 合并后类型: 滚动:0, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:0, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示0条，总计0条
+flutter: [updateMerged] 合并后的总弹幕: 0
+flutter: [updateMerged] 合并后类型: 滚动:0, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:0, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示0条，总计0条
+flutter: [AutoNext] cancelAutoNext called, _isCountingDown=false
+flutter: [自动播放] 已取消自动播放下一话
+flutter: [EP-SWITCH-DIAG] _clearPreviousVideoState ANCHOR RESET: ptm=0.0 smoothAnchorMs=0.0 smoothAnchorElapsedUs=0 seekTargetMs=null lastRawPlayerMs=-1 pausedPlaybackTimeMs=null  切集锚点已清理，新集将走正常首帧锚定
+flutter: SubtitleManager: 外部字幕状态已重置
+flutter: VideoPlayerState: 没有 historyItem，重置弹幕 ID
+flutter: historyItem: null
+flutter: [跳过片头] AniSkip 开始（开关=true，animeId=null，episodeId=null）
+flutter: [VideoPlayerState] 自动检测本地fonts结果: null
+flutter: VideoPlayerState: initializePlayer CALLED for path: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4
+flutter: 扫描状态变更: isScanning=true
+flutter: DashboardHomePage: 播放器活跃状态变化 - true (status: PlayerStatus.loading, hasVideo: false)
+flutter: DashboardHomePage: 播放器活跃中，跳过ScanService状态变化处理
+[nipaplay_rust_scan] diff_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture cached_hashes=0
+[nipaplay_rust_scan] scan_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture
+[nipaplay_rust_scan] scan_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture files=1 elapsed_ms=2
+[nipaplay_rust_scan] diff_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture current=1 cached=0 new=1 modified=0 deleted=0 elapsed_ms=4
+flutter: Rust 文件扫描完成 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture: 1 个视频文件
+flutter: ConcurrentVideoProcessor: 开始处理 1 个视频文件，并发数: 1
+flutter: ConcurrentVideoProcessor: 处理完成。成功: 0, 失败: 1, 跳过: 0
+flutter: 子文件夹hash缓存已保存，包含 1 个主文件夹
+flutter: 已使用扫描结果更新文件夹 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture 的hash缓存
+flutter: 扫描状态变更: isScanning=false
+flutter: 扫描完成标志已设置: _scanJustCompleted=true
+flutter: DashboardHomePage: 播放器活跃中，跳过ScanService状态变化处理
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: 播放器活跃状态变化 - true (status: PlayerStatus.loading, hasVideo: false)
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: [Startup] connectivity 2474ms (after first frame)
+flutter: MDK: 已设置 user-agent: (默认)
+flutter: [PlayerSetup] prepare 完成 kernel=MDK state=PlaybackState.stopped
+flutter: [PlayerSetup] 媒体已 prepare，内核自动进入播放
+flutter: DashboardHomePage: 播放器活跃状态变化 - true (status: PlayerStatus.loading, hasVideo: false)
+flutter: DashboardHomePage: 播放器重新激活，取消待处理的更新检查
+flutter: [PlayerSetup] 媒体就绪检查完成 state=PlaybackState.paused 进入纹理阶段
+flutter: [跳过片头] AniList 搜索 "删除实验" 返回 HTTP 404
+flutter: VideoPlayerState: 从mediaInfo设置视频宽高比: 1.7777777777777777 (320x180)
+flutter: 当前视频解码器: 硬解 - VT (配置)
+flutter: VideoPlayerState: lastPosition for /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4 = 0 (raw value from _getVideoPosition)
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: [弹幕自动匹配] 启动加载流程: path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4, strategy=local, skipMatching=true, existingAnimeId=null, existingEpisodeId=null
+flutter: [updateMerged] 合并后的总弹幕: 0
+flutter: [updateMerged] 合并后类型: 滚动:0, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:0, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示0条，总计0条
+flutter: [updateMerged] 合并后的总弹幕: 4
+flutter: [updateMerged] 合并后类型: 滚动:4, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:4, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示4条，总计4条
+flutter: [VideoPlayerState] play() called. hasVideo: true, _status: PlayerStatus.ready, currentMedia: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4
+flutter: [VideoPlayerState] play() -> _status set to PlayerStatus.playing. Notifying listeners.
+flutter: SubtitleManager: 自动检测字幕文件...
+flutter: [观看记录] 未登录弹弹play账号，跳过回传观看记录
+flutter: SubtitleManager: 获取视频对应的字幕路径 - 视频: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4, 字幕: null
+flutter: SubtitleManager: 目录中没有找到任何字幕文件
+flutter: [MKA_DEBUG] detectExternalAudioPath: videoPath=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4
+flutter: AudioTrackManager: 未找到同名MKA文件: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mka
+flutter: [播放列表] 后台预加载完成: 1 项, 3ms
+flutter: [VideoPlayerState] 跳过热键注册，由主页面统一管理
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: 获取到的截图尺寸: 427x240, 字节数: 409920
+flutter: 成功保存截图，大小: 3448 字节
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: 获取到的截图尺寸: 427x240, 字节数: 409920
+flutter: 成功保存截图，大小: 3448 字节
+flutter: 条件截图完成(暂停时): /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/thumbnails/7b4ad21cad5d3df16212a02781f468b7.jpg
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: 观看记录缩略图已更新: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/thumbnails/7b4ad21cad5d3df16212a02781f468b7.jpg
+flutter: [updateMerged] 合并后的总弹幕: 5
+flutter: [updateMerged] 合并后类型: 滚动:5, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:5, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示5条，总计5条
+flutter: [跳过片头] AniList 搜索 "删除实验 Season 1" 返回 HTTP 404
+flutter: [跳过片头] 所有候选标题都没能在 AniList 上定位: [删除实验]（含请求失败，结果不缓存）
+flutter: [跳过片头] 未能解析 MAL ID，AniSkip 这一路放弃
+flutter: 更新活跃解码器: 硬解 - VT
+flutter: 获取到的截图尺寸: 427x240, 字节数: 409920
+flutter: 成功保存截图，大小: 3448 字节
+flutter: 条件截图完成(首次播放时): /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/thumbnails/7b4ad21cad5d3df16212a02781f468b7.jpg
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: 观看记录缩略图已更新: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/thumbnails/7b4ad21cad5d3df16212a02781f468b7.jpg
+flutter: [updateMerged] 合并后的总弹幕: 5
+flutter: [updateMerged] 合并后类型: 滚动:5, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:5, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示5条，总计5条
+flutter: [updateMerged] 合并后的总弹幕: 6
+flutter: [updateMerged] 合并后类型: 滚动:6, 顶部:0, 底部:0
+flutter: [updateMerged] 被shouldBlockDanmaku过滤的: 顶部:0, 底部:0, 滚动:0
+flutter: [updateMerged] 过滤后: 滚动:6, 顶部:0, 底部:0
+flutter: 弹幕轨道合并及过滤完成，显示6条，总计6条
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: player active, skip WatchHistory refresh
+flutter: SubtitleManager: 外部字幕状态已重置
+flutter: [LOOP-RESTART-DIAG] _resetVideoState() CALLED: _status=PlayerStatus.paused _seekTargetMs=null _currentVideoPath=null
+flutter: SubtitleManager: 外部字幕状态已重置
+flutter: [PlayerFactory] 保存内核设置: PlayerKernelType.mdk
+flutter: DashboardHomePage: 播放器活跃状态变化 - false (status: PlayerStatus.idle, hasVideo: false)
+flutter: DashboardHomePage: 检测到播放器状态变为非活跃，启动延迟检查
+flutter: DashboardHomePage: 确认播放器已退出，刷新最近观看
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: 触发最近观看刷新 - 播放器退出
+flutter: 恢复了 1 项偏好设置
+flutter: 备份恢复完成
+flutter: 成功导出 1 条观看记录到: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/injected-history.nph
+flutter: 恢复截图: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/thumbnails/删除实验_7927b3f286d2b66b_thumbnail.jpg
+flutter: 已更新 SharedPreferences 播放位置: /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture/删除实验.mp4 -> 375ms
+flutter: 恢复观看记录: 删除实验 - 未知集数 进度: 0.01 位置: 375ms
+flutter: 成功恢复 1 条观看记录
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: 恢复设置项 danmaku_font_size 失败: Instance of 'Failure'
+flutter: 恢复了 0 项偏好设置
+flutter: 恢复设置项 timeline_preview_enabled 失败: Instance of 'Failure'
+flutter: 恢复了 0 项偏好设置
+flutter: DashboardHomePage: 触发最近观看刷新 - WatchHistory变化
+flutter: 备份恢复完成
+flutter: [TorrentDownloadService] addTorrentFile start: path="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/next/torrent_sources/b9c004fd6816f81766e0c66518d1e60c42717546.torrent", downloadDir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-main-14896/data/fixture", createFolderForTask=false
