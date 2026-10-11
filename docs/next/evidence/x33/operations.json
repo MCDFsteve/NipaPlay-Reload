@@ -1,0 +1,697 @@
+[
+  {
+    "label": "instance",
+    "value": {
+      "pid": 68225,
+      "vmPid": 68225,
+      "profile": "x33-68222"
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+      "turnId": "01a12cd6-c6be-7bd0-8880-db20ce39e563",
+      "liveness": {
+        "turnId": "01a12cd6-c6be-7bd0-8880-db20ce39e563",
+        "startedAt": "2026-10-11T21:20:35.517430Z",
+        "endedAt": "2026-10-11T21:20:35.587654Z",
+        "lastEventAt": "2026-10-11T21:20:35.587654Z",
+        "lastContentAt": "2026-10-11T21:20:35.587060Z",
+        "status": "completed",
+        "elapsedMs": 70,
+        "lastEventAgoMs": 188,
+        "lastContentAgoMs": 188,
+        "hasContent": true,
+        "eventCount": 25,
+        "contentCount": 3,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd6-c7c3-7a80-aa93-39580db41471",
+      "turnId": "01a12cd6-ce55-7ab2-88d5-57caaad60556",
+      "liveness": {
+        "turnId": "01a12cd6-ce55-7ab2-88d5-57caaad60556",
+        "startedAt": "2026-10-11T21:20:37.461446Z",
+        "endedAt": "2026-10-11T21:20:37.862852Z",
+        "lastEventAt": "2026-10-11T21:20:37.955712Z",
+        "lastContentAt": "2026-10-11T21:20:37.955712Z",
+        "status": "completed",
+        "elapsedMs": 401,
+        "lastEventAgoMs": 28,
+        "lastContentAgoMs": 28,
+        "hasContent": true,
+        "eventCount": 26,
+        "contentCount": 4,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+      "turnId": "01a12cd6-d06e-75e3-951a-05c1630c2f5d",
+      "liveness": {
+        "turnId": "01a12cd6-d06e-75e3-951a-05c1630c2f5d",
+        "startedAt": "2026-10-11T21:20:37.998205Z",
+        "endedAt": "2026-10-11T21:20:38.046693Z",
+        "lastEventAt": "2026-10-11T21:20:38.046693Z",
+        "lastContentAt": "2026-10-11T21:20:38.045907Z",
+        "status": "completed",
+        "elapsedMs": 48,
+        "lastEventAgoMs": 217,
+        "lastContentAgoMs": 217,
+        "hasContent": true,
+        "eventCount": 25,
+        "contentCount": 3,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "existing-real-cache",
+    "value": {
+      "source": "/tmp/danmaku-integration.HbRGnM/长安十二时辰 S01E01.xml",
+      "sha256": "138259884d9e4fa9eaa5ca09a1ec8bf4f9c2ee343affe306dd038c390269a500",
+      "entries": 16197,
+      "openingEntries": 1057
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "pid": 68597,
+      "vmPid": 68597,
+      "profile": "x33-68222"
+    }
+  },
+  {
+    "label": "chat.turn.process",
+    "value": {
+      "status": "completed",
+      "result": {
+        "found": true,
+        "process": {
+          "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+          "turnId": "01a12cd6-c6be-7bd0-8880-db20ce39e563",
+          "origin": "harness_cli:chat:nipa-1791753633491615-406def1c",
+          "startedAt": "2026-10-11T21:20:35.522136Z",
+          "status": "completed",
+          "items": [
+            {
+              "id": "rs_1",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:35.529441Z",
+              "endedAt": "2026-10-11T21:20:35.531092Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "先执行这条命令，再看看结果。"
+                }
+              ]
+            },
+            {
+              "id": "call_1",
+              "type": "commandExecution",
+              "status": "completed",
+              "startedAt": "2026-10-11T21:20:35.580546Z",
+              "endedAt": "2026-10-11T21:20:35.581541Z",
+              "command": "/bin/zsh -c \"python3 -c 'print(\\\"开头检查完成\\\"); print(\\\"cookie=[redacted]",
+              "exitCode": 0,
+              "durationMs": 0,
+              "aggregatedOutput": "开头检查完成\ncookie=[redacted]\n"
+            },
+            {
+              "id": "rs_2",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:35.585146Z",
+              "endedAt": "2026-10-11T21:20:35.586108Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "结果已经收到。"
+                }
+              ]
+            }
+          ],
+          "endedAt": "2026-10-11T21:20:35.587728Z",
+          "durationMs": 65
+        }
+      }
+    }
+  },
+  {
+    "label": "chat.turn.process",
+    "value": {
+      "status": "completed",
+      "result": {
+        "found": true,
+        "process": {
+          "threadId": "01a12cd6-c7c3-7a80-aa93-39580db41471",
+          "turnId": "01a12cd6-ce55-7ab2-88d5-57caaad60556",
+          "origin": "harness_cli:chat:nipa-1791753633491615-406def1c",
+          "startedAt": "2026-10-11T21:20:37.464768Z",
+          "status": "completed",
+          "items": [
+            {
+              "id": "rs_3",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:37.472306Z",
+              "endedAt": "2026-10-11T21:20:37.473411Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "先执行这条命令，再看看结果。"
+                }
+              ]
+            },
+            {
+              "id": "call_3",
+              "type": "commandExecution",
+              "status": "failed",
+              "startedAt": "2026-10-11T21:20:37.629832Z",
+              "endedAt": "2026-10-11T21:20:37.955724Z",
+              "command": "/bin/zsh -c \"python3 -c 'import time; time.sleep(0.35); print(\\\"退出状态已收到\\\"); raise SystemExit(7)'\"",
+              "exitCode": 7,
+              "durationMs": 325,
+              "aggregatedOutput": "退出状态已收到\n"
+            },
+            {
+              "id": "rs_4",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:37.859244Z",
+              "endedAt": "2026-10-11T21:20:37.860560Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "结果已经收到。"
+                }
+              ]
+            }
+          ],
+          "endedAt": "2026-10-11T21:20:37.862855Z",
+          "durationMs": 398
+        }
+      }
+    }
+  },
+  {
+    "label": "chat.turn.process",
+    "value": {
+      "status": "completed",
+      "result": {
+        "found": true,
+        "process": {
+          "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+          "turnId": "01a12cd6-d06e-75e3-951a-05c1630c2f5d",
+          "origin": "harness_cli:chat:nipa-1791753633491615-406def1c",
+          "startedAt": "2026-10-11T21:20:38.001923Z",
+          "status": "completed",
+          "items": [
+            {
+              "id": "rs_5",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:38.009204Z",
+              "endedAt": "2026-10-11T21:20:38.010413Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "先执行这条命令，再看看结果。"
+                }
+              ]
+            },
+            {
+              "id": "call_5",
+              "type": "commandExecution",
+              "status": "completed",
+              "startedAt": "2026-10-11T21:20:38.039377Z",
+              "endedAt": "2026-10-11T21:20:38.040317Z",
+              "command": "/bin/zsh -c \"printf '画面检查完成\\\\nAuthorization: CredentialRef(diagnostic, secret), secret), secret), authorization)\\\\n'\"",
+              "exitCode": 0,
+              "durationMs": 0,
+              "aggregatedOutput": "画面检查完成\nAuthorization: CredentialRef(diagnostic, secret), secret), secret), authorization)\n"
+            },
+            {
+              "id": "rs_6",
+              "type": "reasoning",
+              "status": null,
+              "startedAt": "2026-10-11T21:20:38.043867Z",
+              "endedAt": "2026-10-11T21:20:38.044885Z",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "结果已经收到。"
+                }
+              ]
+            }
+          ],
+          "endedAt": "2026-10-11T21:20:38.046695Z",
+          "durationMs": 44
+        }
+      }
+    }
+  },
+  {
+    "label": "history-rebuilt",
+    "value": [
+      {
+        "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+        "turnId": "01a12cd6-c6be-7bd0-8880-db20ce39e563",
+        "commands": 1,
+        "summaries": 3
+      },
+      {
+        "threadId": "01a12cd6-bfa1-7201-a53f-81c656ec1b7a",
+        "turnId": "01a12cd6-d06e-75e3-951a-05c1630c2f5d",
+        "commands": 1,
+        "summaries": 3
+      }
+    ]
+  },
+  {
+    "label": "history-rebuilt",
+    "value": [
+      {
+        "threadId": "01a12cd6-c7c3-7a80-aa93-39580db41471",
+        "turnId": "01a12cd6-ce55-7ab2-88d5-57caaad60556",
+        "commands": 1,
+        "summaries": 3
+      }
+    ]
+  },
+  {
+    "label": "media.library.import_history",
+    "value": {
+      "status": "completed",
+      "result": {
+        "imported": 1
+      }
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-11T21:20:39.983308Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.works": "2026-10-11T21:20:39.982436Z"
+        },
+        "rows": [
+          {
+            "id": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+            "parentId": null,
+            "workId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+            "releaseId": null,
+            "title": "长安十二时辰",
+            "revision": 0,
+            "kind": "work",
+            "number": null,
+            "order": "provider",
+            "type": "regular",
+            "metadata": [
+              {
+                "field": "title",
+                "value": "长安十二时辰",
+                "provider": "dandanplay",
+                "language": "und",
+                "fetchedAt": "2026-10-11T21:20:38.812194Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              }
+            ],
+            "bindings": [
+              {
+                "bindingId": "classic-binding-7bf2cb85297f9ad7d2d0d12279699b6cbe930de9b4953d7b95765ddbbf700b2f",
+                "entityId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+                "objectId": "object-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+                "provider": "dandanplay",
+                "objectType": "anime",
+                "externalId": "33001",
+                "scope": "",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "contains",
+                "status": "accepted",
+                "source": "classic_match",
+                "boundBy": null,
+                "revision": 0,
+                "invocationId": null,
+                "jobId": null,
+                "createdAt": "2026-10-11T21:20:38.812194Z"
+              }
+            ],
+            "metadataView": {
+              "fields": {
+                "title": "长安十二时辰"
+              },
+              "provenance": {
+                "title": {
+                  "provider": "dandanplay",
+                  "source": "classic_match",
+                  "language": "und",
+                  "fetchedAt": "2026-10-11T21:20:38.812194Z",
+                  "recordedAt": "2026-10-11T21:20:38.812194Z",
+                  "snapshotId": "classic-snapshot-f28c8e2b3b080586d5f9579c2c9656d3d126fdb932e4aee304db680873563ead",
+                  "entityId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                }
+              },
+              "ratings": []
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-e7e8b469-f6f7-40eb-aaf7-2cf4e6c9f65c",
+        "revision": 0,
+        "count": 16197,
+        "loaded": false,
+        "provenance": {
+          "platform": "bilibili",
+          "platformVideoId": "x33-existing-changan-episode-1",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-11T21:20:40.213066Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x33-68222/data/fixture/episode-1.xml",
+          "note": "已有临时集成实验的第一集真实弹幕缓存"
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.tracks",
+    "value": {
+      "status": "completed",
+      "result": {
+        "tracks": [
+          {
+            "origin": "agent_import",
+            "source": "bilibili",
+            "platform": "bilibili",
+            "platformVideoId": "x33-existing-changan-episode-1",
+            "bindingId": "danmaku-e7e8b469-f6f7-40eb-aaf7-2cf4e6c9f65c",
+            "entityId": "episode-e5d0c0796c69812d30315af4225a34d9041a6a466d0f8acdf622134ad19acdc0",
+            "revision": 0,
+            "status": "accepted",
+            "stale": false,
+            "video": {
+              "sourceId": "bilibili",
+              "videoId": "x33-existing-changan-episode-1",
+              "title": "x33-existing-changan-episode-1",
+              "durationMs": 0,
+              "objectType": "video"
+            },
+            "enabled": true,
+            "deduplicate": true,
+            "offsetMs": 0,
+            "alignment": {
+              "method": "identity",
+              "confirmed": false
+            },
+            "evidence": {
+              "reason": "已有临时集成实验的第一集真实弹幕缓存",
+              "url": null
+            },
+            "boundBy": "agent",
+            "provenance": {
+              "platform": "bilibili",
+              "platformVideoId": "x33-existing-changan-episode-1",
+              "actor": "agent",
+              "origin": "harness_cli",
+              "importedAt": "2026-10-11T21:20:40.213066Z",
+              "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x33-68222/data/fixture/episode-1.xml",
+              "note": "已有临时集成实验的第一集真实弹幕缓存"
+            },
+            "cacheKey": "danmaku-import-1a1c7f1c-33b9-4ed1-aedd-5fc528e23409",
+            "loaded": false,
+            "coverage": [
+              {
+                "chunk_index": 0,
+                "start_ms": 0,
+                "end_ms": 2699911,
+                "coverage": "importedPool",
+                "fetched_at": "2026-10-11T21:20:40.213066Z"
+              }
+            ],
+            "displayFold": true,
+            "bindingIds": [
+              "danmaku-e7e8b469-f6f7-40eb-aaf7-2cf4e6c9f65c"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "real-opening-comments",
+    "value": {
+      "workId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+      "title": "长安十二时辰",
+      "danmaku": [
+        "2019年06月29日打卡~",
+        "2019年07月03日举手~",
+        "2019年07月04日打卡~",
+        "周末举手~",
+        "四川人民发来贺电",
+        "坐标东北打卡"
+      ]
+    }
+  },
+  {
+    "label": "cache-chunks",
+    "value": {
+      "count": 1
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "next.heroOpeningSeconds",
+        "value": 120,
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "next.heroOpeningSeconds",
+          "previousValue": 180,
+          "value": 120,
+          "changedAt": "2026-10-11T21:20:40.641120Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791753640637733-10",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "two-minute-comments",
+    "value": [
+      "2019年06月29日打卡~",
+      "2019年07月03日举手~",
+      "2019年07月04日打卡~",
+      "周末举手~",
+      "四川人民发来贺电",
+      "坐标东北打卡"
+    ]
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "labs_use_next_interface",
+        "value": true,
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "labs_use_next_interface",
+          "previousValue": false,
+          "value": true,
+          "changedAt": "2026-10-11T21:20:40.889185Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791753640884034-11",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "ui.open",
+    "value": {
+      "status": "completed",
+      "result": {
+        "opened": true,
+        "interface": "next",
+        "target": {
+          "workId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e"
+        },
+        "actual": {
+          "kind": "work_detail",
+          "workId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e",
+          "interface": "next"
+        },
+        "reason": null,
+        "message": null
+      }
+    }
+  },
+  {
+    "label": "ui.capture",
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x33-68222/temp/ui-captures/1791753644047893.png",
+        "bytes": 2769725,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1736,
+        "capturedAt": "2026-10-11T21:20:44.049124Z",
+        "instance": {
+          "pid": 68597,
+          "windowTitle": "NipaPlay · LAB [x33-68222]",
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x33-replay/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x33-replay/build/macos/Build/Products/Debug/NipaPlay.app",
+          "viewId": 1,
+          "windowId": 51765,
+          "experimentalProfile": true,
+          "profileName": "x33-68222",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "status": "completed",
+      "result": {
+        "key": "labs_use_next_interface",
+        "value": false,
+        "revision": 2,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "labs_use_next_interface",
+          "previousValue": true,
+          "value": false,
+          "changedAt": "2026-10-11T21:20:44.060319Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791753644057478-14",
+          "revision": 2
+        }
+      }
+    }
+  },
+  {
+    "label": "ui.open",
+    "value": {
+      "status": "completed",
+      "result": {
+        "opened": true,
+        "interface": "classic",
+        "target": {
+          "entityId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e"
+        },
+        "actual": {
+          "kind": "work_detail",
+          "animeId": 33001,
+          "entityId": "work-e4fb5663cad1c6cfceea0af04c98fcf321e244e14a5c568226da962c38dfd27e"
+        },
+        "reason": null,
+        "message": null
+      }
+    }
+  },
+  {
+    "label": "ui.capture",
+    "value": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x33-68222/temp/ui-captures/1791753646657420.png",
+        "bytes": 731174,
+        "mimeType": "image/png",
+        "width": 3024,
+        "height": 1736,
+        "capturedAt": "2026-10-11T21:20:46.679577Z",
+        "instance": {
+          "pid": 68597,
+          "viewId": 1,
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x33-replay/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x33-replay/build/macos/Build/Products/Debug/NipaPlay.app",
+          "windowTitle": "NipaPlay · LAB [x33-68222]",
+          "windowId": 51765,
+          "experimentalProfile": true,
+          "profileName": "x33-68222",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        68225,
+        68597
+      ],
+      "processesExited": true,
+      "profileRemoved": true
+    }
+  }
+]

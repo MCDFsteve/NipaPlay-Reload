@@ -1,0 +1,100 @@
+[
+  {
+    "label": "instance",
+    "value": {
+      "pid": 55505,
+      "vmPid": 55505,
+      "profile": "x33-55502"
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd4-27a5-7600-bb9c-86d0af1b278f",
+      "turnId": "01a12cd4-2e91-7b33-94bb-f14e076b849a",
+      "liveness": {
+        "turnId": "01a12cd4-2e91-7b33-94bb-f14e076b849a",
+        "startedAt": "2026-10-11T21:17:45.487042Z",
+        "endedAt": "2026-10-11T21:17:45.572191Z",
+        "lastEventAt": "2026-10-11T21:17:45.572191Z",
+        "lastContentAt": "2026-10-11T21:17:45.560676Z",
+        "status": "completed",
+        "elapsedMs": 85,
+        "lastEventAgoMs": 183,
+        "lastContentAgoMs": 194,
+        "hasContent": true,
+        "eventCount": 25,
+        "contentCount": 3,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd4-27a5-7600-bb9c-86d0af1b278f",
+      "turnId": "01a12cd4-2f9e-79c1-a7ca-13df16cc78cb",
+      "liveness": {
+        "turnId": "01a12cd4-2f9e-79c1-a7ca-13df16cc78cb",
+        "startedAt": "2026-10-11T21:17:45.758019Z",
+        "endedAt": "2026-10-11T21:17:46.029022Z",
+        "lastEventAt": "2026-10-11T21:17:46.122735Z",
+        "lastContentAt": "2026-10-11T21:17:46.122735Z",
+        "status": "completed",
+        "elapsedMs": 271,
+        "lastEventAgoMs": 148,
+        "lastContentAgoMs": 148,
+        "hasContent": true,
+        "eventCount": 26,
+        "contentCount": 4,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "turn",
+    "value": {
+      "threadId": "01a12cd4-27a5-7600-bb9c-86d0af1b278f",
+      "turnId": "01a12cd4-31a5-7b91-9f8e-28af3b1e1850",
+      "liveness": {
+        "turnId": "01a12cd4-31a5-7b91-9f8e-28af3b1e1850",
+        "startedAt": "2026-10-11T21:17:46.276669Z",
+        "endedAt": "2026-10-11T21:17:46.348456Z",
+        "lastEventAt": "2026-10-11T21:17:46.348456Z",
+        "lastContentAt": "2026-10-11T21:17:46.347456Z",
+        "status": "completed",
+        "elapsedMs": 71,
+        "lastEventAgoMs": 194,
+        "lastContentAgoMs": 195,
+        "hasContent": true,
+        "eventCount": 25,
+        "contentCount": 3,
+        "reasoningDeltaCount": 2,
+        "latestError": null
+      }
+    }
+  },
+  {
+    "label": "danmaku.search",
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "dandanplay: authenticationRequired; HTTP unavailable; host=nipaplay.aimes-soft.com; path=/dandanplay/api/v2/search/episodes; content-type=unavailable",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        55505
+      ],
+      "processesExited": true,
+      "profileRemoved": true
+    }
+  }
+]
