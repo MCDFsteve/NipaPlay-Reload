@@ -1,0 +1,199 @@
+[
+  {
+    "label": "public-source",
+    "value": {
+      "title": "雪宝带你看电影",
+      "episode": "1",
+      "episodeTitle": "雪宝带你看《小美人鱼》",
+      "cid": 1034761585,
+      "bvid": "BV1WA411y7yS",
+      "catalogueUrl": "https://api.bilibili.com/pgc/view/web/season?season_id=44813",
+      "poolUrl": "https://comment.bilibili.com/1034761585.xml",
+      "sha256": "0273e385f9ddf86ac529d7f948c13c9adc0853ba0788c98068443520ccd1ef7e",
+      "entries": 161,
+      "openingEntries": 161
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "pid": 68890,
+      "vmPid": 68890,
+      "profile": "x33-68887"
+    }
+  },
+  {
+    "label": "media.library.import_history",
+    "value": {
+      "status": "completed",
+      "result": {
+        "imported": 1
+      }
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-11T21:22:06.021043Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.works": "2026-10-11T21:22:06.020064Z"
+        },
+        "rows": [
+          {
+            "id": "work-df10c01d542253cc02df823423a81f8e1e771843c04268315c86897cfde974ee",
+            "parentId": null,
+            "workId": "work-df10c01d542253cc02df823423a81f8e1e771843c04268315c86897cfde974ee",
+            "releaseId": null,
+            "title": "雪宝带你看电影",
+            "revision": 0,
+            "kind": "work",
+            "number": null,
+            "order": "provider",
+            "type": "regular",
+            "metadata": [
+              {
+                "field": "title",
+                "value": "雪宝带你看电影",
+                "provider": "dandanplay",
+                "language": "und",
+                "fetchedAt": "2026-10-11T21:22:03.041865Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              }
+            ],
+            "bindings": [
+              {
+                "bindingId": "classic-binding-f4abfd3e223faf4f5686ad73119a51a28517cedf2203ec3aafb3729219967d76",
+                "entityId": "work-df10c01d542253cc02df823423a81f8e1e771843c04268315c86897cfde974ee",
+                "objectId": "object-df10c01d542253cc02df823423a81f8e1e771843c04268315c86897cfde974ee",
+                "provider": "dandanplay",
+                "objectType": "anime",
+                "externalId": "33002",
+                "scope": "",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "contains",
+                "status": "accepted",
+                "source": "classic_match",
+                "boundBy": null,
+                "revision": 0,
+                "invocationId": null,
+                "jobId": null,
+                "createdAt": "2026-10-11T21:22:03.041865Z"
+              }
+            ],
+            "metadataView": {
+              "fields": {
+                "title": "雪宝带你看电影"
+              },
+              "provenance": {
+                "title": {
+                  "provider": "dandanplay",
+                  "source": "classic_match",
+                  "language": "und",
+                  "fetchedAt": "2026-10-11T21:22:03.041865Z",
+                  "recordedAt": "2026-10-11T21:22:03.041865Z",
+                  "snapshotId": "classic-snapshot-6266e6d72c804af6fe9d69bf386c47f00987fc12faab25869383e3a838183ea9",
+                  "entityId": "work-df10c01d542253cc02df823423a81f8e1e771843c04268315c86897cfde974ee",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                }
+              },
+              "ratings": []
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-aec38fcb-1ed7-4136-b615-0e713f96a3bb",
+        "revision": 0,
+        "count": 161,
+        "loaded": false,
+        "provenance": {
+          "platform": "bilibili",
+          "platformVideoId": "1034761585",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-11T21:22:06.073794Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x33-68887/data/fixture/episode-1.xml",
+          "note": "公开第一集弹幕缓存"
+        }
+      }
+    }
+  },
+  {
+    "label": "real-opening-comments",
+    "value": {
+      "title": "雪宝带你看电影",
+      "danmaku": [
+        "恭喜你挖到宝藏",
+        "恭喜宝藏发现我！！！",
+        "感谢宝藏发现了我",
+        "看我发现了什么好东西",
+        "看我发现了什么！",
+        "这是什么！"
+      ]
+    }
+  },
+  {
+    "label": "verified-source-matches",
+    "value": [
+      {
+        "text": "恭喜你挖到宝藏",
+        "timeSeconds": 0.0
+      },
+      {
+        "text": "恭喜宝藏发现我！！！",
+        "timeSeconds": 0.094
+      },
+      {
+        "text": "感谢宝藏发现了我",
+        "timeSeconds": 0.316
+      },
+      {
+        "text": "看我发现了什么好东西",
+        "timeSeconds": 1.313
+      },
+      {
+        "text": "看我发现了什么！",
+        "timeSeconds": 1.959
+      },
+      {
+        "text": "这是什么！",
+        "timeSeconds": 3.347
+      }
+    ]
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        68890
+      ],
+      "processesExited": true,
+      "profileRemoved": true
+    }
+  }
+]
