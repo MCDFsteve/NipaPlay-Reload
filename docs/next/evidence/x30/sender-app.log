@@ -1,0 +1,85 @@
+2026-10-12 02:12:17.622 NipaPlay[16618:15364890] Running with merged UI and platform thread. Experimental.
+0.33.1 (git 8da6cdd) - Multimedia Development Kit. Copyright (c) 2016-2025 WangBin(QtAV author) <wbsecg1 at gmail.com>
+Build for: macOS110000/26.7.0 16KB ARMv8 AArch64; libc++190102; Apple Clang17.0.0 (clang-1700.0.13.5); 15:48:44 Jul  5 2025. 
+[LabProfile] name=x30-sender-14896 root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896 writeSandbox=true
+flutter: The Dart VM service is listening on http://127.0.0.1:62832/CoJjyMIY69Y=/
+[AppDelegate] 应用启动
+flutter: LAB [x30-sender-14896] root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896; external files are read-only
+flutter: *** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+flutter: media_kit: NativeReferenceHolder: Allocated 33312522240
+flutter: [PlayerFactory] 无有效内核设置，使用默认: mdk
+[nipaplay_torrent] init_session create session: download_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/downloads", session_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/support/torrent_session"
+flutter: [DesktopMultiWindow] main FlutterView=1, implicit=0, views=0:Size(0.0, 0.0), 1:Size(3024.0, 1680.0)
+flutter: [PlayerFactory] 创建 MDK 播放器
+flutter: 使用平台默认解码器设置: [VT, hap, dav1d, FFmpeg]
+flutter: [Decoder] 软解颜色格式: 自动（内核默认）
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=false), icon=null, ios=null, overlay=null
+flutter: [Startup] sync 4ms (after first frame)
+flutter: [Startup] services 53ms (after first frame)
+flutter: [Startup] token 71ms (after first frame)
+flutter: [Startup] danmaku-cache 75ms (after first frame)
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=true), icon=null, ios=null, overlay=null
+flutter: LargeScreenUiSfxService: 全局 AudioContext 已设置
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel dev.universal_gamepad/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel xyz.luan/audioplayers.global/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+[ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: MissingPluginException(No implementation found for method init on channel xyz.luan/audioplayers.global)
+#0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+<asynchronous suspension>
+#1      GlobalAudioScope.ensureInitialized (package:audioplayers/src/global_audio_scope.dart:39:9)
+<asynchronous suspension>
+#2      GlobalAudioScope.setAudioContext (package:audioplayers/src/global_audio_scope.dart:49:5)
+<asynchronous suspension>
+
+flutter: [SystemUI][AppBar] isDark=false, icon=dark, ios=light
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [Bangumi API] 服务初始化完成，登录状态: false
+flutter: DashboardHomePage: 延迟检查发现WatchHistoryProvider已加载但数据为空，重新加载数据
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=929ms hk=1335ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=883ms hk=1160ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=918ms hk=1161ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=900ms hk=1206ms => 香港
+flutter: [TrendingBangumiService] 排行榜请求失败，尝试旧缓存: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: 加载排行榜失败: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=885ms hk=1219ms => 香港
+flutter: 扫描状态变更: isScanning=true
+flutter: DashboardHomePage: ScanService状态变化 - scanJustCompleted: false, mounted: true
+[nipaplay_rust_scan] diff_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture cached_hashes=0
+[nipaplay_rust_scan] scan_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture
+[nipaplay_rust_scan] scan_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture files=0 elapsed_ms=0
+[nipaplay_rust_scan] diff_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture current=0 cached=0 new=0 modified=0 deleted=0 elapsed_ms=0
+flutter: Rust 文件扫描完成 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture: 0 个视频文件
+flutter: 子文件夹hash缓存已保存，包含 1 个主文件夹
+flutter: 已使用扫描结果更新文件夹 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-sender-14896/data/fixture 的hash缓存
+flutter: 扫描状态变更: isScanning=false
+flutter: 扫描完成标志已设置: _scanJustCompleted=true
+flutter: DashboardHomePage: ScanService状态变化 - scanJustCompleted: true, mounted: true
+flutter: DashboardHomePage: 扫描完成，刷新WatchHistoryProvider和本地媒体库数据
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [TrendingBangumiService] 排行榜请求失败，尝试旧缓存: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: 加载排行榜失败: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: [Startup] connectivity 2508ms (after first frame)
+flutter: DashboardHomePage: 触发最近观看刷新 - WatchHistory变化

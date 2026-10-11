@@ -1,0 +1,14 @@
+Final verification, worktree gaps-b; no pub get, commit or push.
+
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy ~/development/flutter-3.44.6/bin/flutter test --no-pub test/next
+01:33 +401 ~4: All tests passed!
+
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy ~/development/flutter-3.44.6/bin/flutter test --no-pub test/media_server_service_base_test.dart test/media_server_pagination_integration_test.dart test/media_server_pagination_test.dart test/media_server_transport_test.dart test/network_media_server_dialog_test.dart test/shared_remote_library_connection_test.dart test/torrent_download_service_test.dart test/torrent_task_controller_test.dart test/torrent_completed_scan_test.dart test/lan_api_compatibility_test.dart test/security/backup_credentials_test.dart test/media_server_playback_sync_user_agent_test.dart
+00:02 +64: All tests passed!
+
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy ~/development/flutter-3.44.6/bin/flutter analyze --no-pub lib/next/media_sources lib/next/downloads/download_service.dart lib/next/next_core.dart lib/next/next_runtime.dart
+No issues found! (ran in 7.9s)
+
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy ERIKA_PREBUILT_CACHE_DIR=/tmp/nipa-next/x2-erika-cache ~/development/flutter-3.44.6/bin/flutter build macos --debug --no-pub
+✓ Built build/macos/Build/Products/Debug/NipaPlay.app
+

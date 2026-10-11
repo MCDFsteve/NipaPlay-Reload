@@ -1,0 +1,68 @@
+[
+  {
+    "at": 1791750672.7111528,
+    "label": "launch",
+    "value": {
+      "pid": 78564,
+      "header": {
+        "sessionId": "nipa-1791750670075892-1c41ee1a",
+        "threadId": "01a12ca9-88df-7282-9a9d-3e826345a40e",
+        "mainThreadId": "01a12ca9-88df-7282-9a9d-3e826345a40e",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-78561/harness"
+      }
+    }
+  },
+  {
+    "at": 1791750672.772588,
+    "label": "stop",
+    "value": {
+      "pid": 78564,
+      "returncode": -15
+    }
+  },
+  {
+    "at": 1791750677.3941782,
+    "label": "launch",
+    "value": {
+      "pid": 78896,
+      "header": {
+        "sessionId": "nipa-1791750677147514-d1aa803b",
+        "threadId": null,
+        "mainThreadId": "01a12ca9-88df-7282-9a9d-3e826345a40e",
+        "model": null,
+        "provider": null,
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-78561/harness"
+      }
+    }
+  },
+  {
+    "at": 1791750677.551968,
+    "label": "empty-main-restart",
+    "value": {
+      "before": "01a12ca9-88df-7282-9a9d-3e826345a40e",
+      "after": "01a12ca9-88df-7282-9a9d-3e826345a40e"
+    }
+  },
+  {
+    "at": 1791750677.587584,
+    "label": "stop",
+    "value": {
+      "pid": 78896,
+      "returncode": -15
+    }
+  },
+  {
+    "at": 1791750678.056193,
+    "label": "cleanup",
+    "value": {
+      "rootAbsent": true,
+      "lastPidStopped": true,
+      "pids": [
+        78564,
+        78896
+      ]
+    }
+  }
+]

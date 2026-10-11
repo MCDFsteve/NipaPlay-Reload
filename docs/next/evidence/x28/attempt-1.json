@@ -1,0 +1,40 @@
+[
+  {
+    "label": "instance main",
+    "value": {
+      "profile": "x28-main-61272",
+      "pid": 61274
+    }
+  },
+  {
+    "label": "instance peer",
+    "value": {
+      "profile": "x28-peer-61272",
+      "pid": 61378
+    }
+  },
+  {
+    "label": "experiment failure",
+    "value": {
+      "error": "{\"code\": 113, \"message\": \"Expression compilation error\", \"data\": {\"details\": \"_compileExpression: No compilation service available; cannot evaluate from source.\"}}",
+      "type": "RuntimeError"
+    }
+  },
+  {
+    "label": "remote cleanup",
+    "value": {
+      "httpStatus": 403
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        61274,
+        61378
+      ],
+      "processesExited": true,
+      "profilesRemoved": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+instance {"profile": "x30-main-63424", "pid": 63430, "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-d/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay"}
+cleanup {"profile": "x30-main-63424", "rootAbsent": true, "processExited": true}
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-d/docs/next/evidence/x30/experiment.py", line 179, in <module>
+    main.call(action, describe=True)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/gaps-d/docs/next/evidence/x30/experiment.py", line 91, in call
+    result = subprocess.run(command, cwd=self.root / 'harness', env=self.environment,
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=75)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/Users/sakiko/Desktop/nipaplay-next-wt/gaps-d/assets/next/harness/nipa'

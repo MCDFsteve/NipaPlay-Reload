@@ -1,0 +1,401 @@
+2026-10-12 02:12:19.512 NipaPlay[16671:15365332] Running with merged UI and platform thread. Experimental.
+0.33.1 (git 8da6cdd) - Multimedia Development Kit. Copyright (c) 2016-2025 WangBin(QtAV author) <wbsecg1 at gmail.com>
+Build for: macOS110000/26.7.0 16KB ARMv8 AArch64; libc++190102; Apple Clang17.0.0 (clang-1700.0.13.5); 15:48:44 Jul  5 2025. 
+[LabProfile] name=x30-receiver-14896 root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896 writeSandbox=true
+flutter: The Dart VM service is listening on http://127.0.0.1:62873/BRxBHlTkML0=/
+[AppDelegate] 应用启动
+flutter: LAB [x30-receiver-14896] root=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896; external files are read-only
+flutter: *** sqflite warning ***
+
+You are changing sqflite default factory.
+Be aware of the potential side effects. Any library using sqflite
+will have this factory as the default for all operations.
+
+*** sqflite warning ***
+
+flutter: media_kit: NativeReferenceHolder: Allocated 53542707200
+flutter: [PlayerFactory] 无有效内核设置，使用默认: mdk
+[nipaplay_torrent] init_session create session: download_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/downloads", session_dir="/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/support/torrent_session"
+flutter: [DesktopMultiWindow] main FlutterView=1, implicit=0, views=0:Size(0.0, 0.0), 1:Size(3024.0, 1684.0)
+flutter: [PlayerFactory] 创建 MDK 播放器
+flutter: 使用平台默认解码器设置: [VT, hap, dav1d, FFmpeg]
+flutter: [Decoder] 软解颜色格式: 自动（内核默认）
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=false), icon=null, ios=null, overlay=null
+flutter: [Startup] sync 4ms (after first frame)
+flutter: [Startup] services 60ms (after first frame)
+flutter: [Startup] token 61ms (after first frame)
+flutter: [Startup] danmaku-cache 84ms (after first frame)
+flutter: [SystemUI] Apply overlay: themeMode=system, platform=light, effective=light, uiTheme=desktop_tablet(init=true), icon=null, ios=null, overlay=null
+flutter: LargeScreenUiSfxService: 全局 AudioContext 已设置
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel dev.universal_gamepad/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+flutter: 应用发生错误: MissingPluginException(No implementation found for method listen on channel xyz.luan/audioplayers.global/events)
+flutter: 错误堆栈: #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+flutter: <asynchronous suspension>
+flutter: #1      EventChannel.receiveBroadcastStream.<anonymous closure> (package:flutter/src/services/platform_channel.dart:711:11)
+flutter: <asynchronous suspension>
+flutter: 
+[ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: MissingPluginException(No implementation found for method init on channel xyz.luan/audioplayers.global)
+#0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+<asynchronous suspension>
+#1      GlobalAudioScope.ensureInitialized (package:audioplayers/src/global_audio_scope.dart:39:9)
+<asynchronous suspension>
+#2      GlobalAudioScope.setAudioContext (package:audioplayers/src/global_audio_scope.dart:49:5)
+<asynchronous suspension>
+
+flutter: [SystemUI][AppBar] isDark=false, icon=dark, ios=light
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [Bangumi API] 服务初始化完成，登录状态: false
+flutter: DashboardHomePage: 延迟检查发现WatchHistoryProvider已加载但数据为空，重新加载数据
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=978ms hk=1418ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=902ms hk=1151ms => 香港
+flutter: [TrendingBangumiService] 排行榜请求失败，尝试旧缓存: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: 加载排行榜失败: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=891ms hk=1156ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=899ms hk=1175ms => 香港
+flutter: [网关路由] 自动判定: region=OVERSEAS ip=34.4.111.138 cn=889ms hk=1145ms => 香港
+flutter: 扫描状态变更: isScanning=true
+flutter: DashboardHomePage: ScanService状态变化 - scanJustCompleted: false, mounted: true
+[nipaplay_rust_scan] diff_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture cached_hashes=0
+[nipaplay_rust_scan] scan_video_files start path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture
+[nipaplay_rust_scan] scan_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture files=0 elapsed_ms=0
+[nipaplay_rust_scan] diff_video_files finish path=/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture current=0 cached=0 new=0 modified=0 deleted=0 elapsed_ms=0
+flutter: Rust 文件扫描完成 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture: 0 个视频文件
+flutter: 子文件夹hash缓存已保存，包含 1 个主文件夹
+flutter: 已使用扫描结果更新文件夹 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x30-receiver-14896/data/fixture 的hash缓存
+flutter: 扫描状态变更: isScanning=false
+flutter: 扫描完成标志已设置: _scanJustCompleted=true
+flutter: DashboardHomePage: ScanService状态变化 - scanJustCompleted: true, mounted: true
+flutter: DashboardHomePage: 扫描完成，刷新WatchHistoryProvider和本地媒体库数据
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: [DashboardHomePage] 推荐高清升级跳过: 无可升级项
+flutter: [TrendingBangumiService] 排行榜请求失败，尝试旧缓存: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: 加载排行榜失败: Bad state: 请先登录弹弹play账号后再使用弹弹play服务
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: DashboardHomePage: WatchHistory加载状态变化 - isLoaded: true, mounted: true
+flutter: [Startup] connectivity 2622ms (after first frame)
+flutter: DashboardHomePage: 触发最近观看刷新 - WatchHistory变化
+flutter: [RemoteControlAuth] 请求授权: 实验发送端, id=6PNN0aF_D1a9w1j2HYFdtXcthAyNNhvKi52S-VZdph8, platform=-
+flutter: 应用发生错误: No Material widget found.
+flutter: Checkbox widgets require a Material widget ancestor within the closest LookupBoundary.
+flutter: In Material Design, most widgets are conceptually "printed" on a sheet of material. In Flutter's material library, that material is represented by the Material widget. It is the Material widget that renders ink splashes, for instance. Because of this, many material library widgets require that there be a Material widget in the tree above them.
+flutter: To introduce a Material widget, you can either directly include one, or use a widget that contains Material itself, such as a Card, Dialog, Drawer, or Scaffold.
+flutter: The specific widget that could not find a Material ancestor was:
+flutter:   Checkbox
+flutter: The ancestors of this widget were:
+flutter:   Row
+flutter:   Column
+flutter:   DefaultTextStyle
+flutter:   Padding
+flutter:   Column
+flutter:   _SingleChildViewport
+flutter:   IgnorePointer-[GlobalKey#4f5b2]
+flutter:   Semantics
+flutter:   Listener
+flutter:   _GestureSemantics
+flutter:   RawGestureDetector-[LabeledGlobalKey<RawGestureDetectorState>#9d493]
+flutter:   Listener
+flutter:   _ScrollableScope
+flutter:   _ScrollSemantics-[GlobalKey#947ce]
+flutter:   NotificationListener<ScrollMetricsNotification>
+flutter:   Scrollable
+flutter:   SingleChildScrollView
+flutter:   RepaintBoundary
+flutter:   CustomPaint-[GlobalKey#0be59]
+flutter:   MouseRegion
+flutter:   Listener
+flutter:   _GestureSemantics
+flutter:   RawGestureDetector-[LabeledGlobalKey<RawGestureDetectorState>#325ab]
+flutter:   Listener
+flutter:   RepaintBoundary
+flutter:   NotificationListener<ScrollNotification>
+flutter:   NotificationListener<ScrollMetricsNotification>
+flutter:   CupertinoScrollbar
+flutter:   _CupertinoAlertContentSection
+flutter:   ColoredBox
+flutter:   _PriorityColumn
+flutter:   LayoutBuilder
+flutter:   MediaQuery
+flutter:   Semantics
+flutter:   BackdropFilter
+flutter:   ClipRSuperellipse
+flutter:   CupertinoPopupSurface
+flutter:   Listener
+flutter:   RawGestureDetector
+flutter:   _ActionSheetGestureDetector
+flutter:   SizedBox
+flutter:   Padding
+flutter:   Center
+flutter:   MediaQuery
+flutter:   Padding
+flutter:   AnimatedPadding
+flutter:   LayoutBuilder
+flutter:   ScrollConfiguration
+flutter:   MediaQuery
+flutter:   Builder
+flutter:   CupertinoUserInterfaceLevel
+flutter:   CupertinoAlertDialog
+flutter:   _AdaptiveAlertDialog
+flutter:   StatefulBuilder
+flutter:   MediaQuery
+flutter:   MediaQuery
+flutter:   DialogTheme#8acd6
+flutter:   _FullWindowDialogWrapper
+flutter:   Builder
+flutter:   Builder
+flutter:   RepaintBoundary-[GlobalKey#d34f7]
+flutter:   IgnorePointer
+flutter:   ListenableBuilder
+flutter:   ListenableBuilder
+flutter:   RepaintBoundary
+flutter:   _FocusInheritedScope
+flutter:   Semantics
+flutter:   _FocusScopeWithExternalFocusNode
+flutter:   PrimaryScrollController
+flutter:   _ActionsScope
+flutter:   Actions
+flutter:   Builder
+flutter:   PageStorage
+flutter:   Offstage
+flutter:   _ModalScopeStatus
+flutter:   UnmanagedRestorationScope
+flutter:   RestorationScope
+flutter:   AnimatedBuilder
+flutter:   _ModalScope<void>-[LabeledGlobalKey<_ModalScopeState<void>>#1761e]
+flutter:   Semantics
+flutter:   Builder
+flutter:   _RenderTheaterMarker
+flutter:   _EffectiveTickerMode
+flutter:   TickerMode
+flutter:   _OverlayEntryWidget-[LabeledGlobalKey<_OverlayEntryWidgetState>#4a2c8]
+flutter:   _Theater
+flutter:   Overlay-[LabeledGlobalKey<OverlayState>#01f84]
+flutter:   UnmanagedRestorationScope
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   FocusTraversalGroup
+flutter:   AbsorbPointer
+flutter:   Listener
+flutter:   NotificationListener<NavigationNotification>
+flutter:   HeroControllerScope
+flutter:   Navigator
+flutter:   HeroControllerScope
+flutter:   _NavigatorShim
+flutter:   Builder
+flutter:   PopScope<Object>
+flutter:   _DialogPopScope
+flutter:   MediaQuery
+flutter:   DefaultSelectionStyle
+flutter:   IconTheme
+flutter:   IconTheme
+flutter:   InheritedCupertinoTheme
+flutter:   CupertinoTheme
+flutter:   _InheritedTheme
+flutter:   Theme
+flutter:   Directionality
+flutter:   _FocusInheritedScope
+flutter:   _FocusScopeWithExternalFocusNode
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   FocusTraversalGroup
+flutter:   MediaQuery
+flutter:   _MediaQueryFromView
+flutter:   _PipelineOwnerScope
+flutter:   _ViewScope
+flutter:   _RawViewInternal-[_DeprecatedRawViewKey FlutterView#682f2]
+flutter:   RawView
+flutter:   View
+flutter:   WindowScope
+flutter:   ListenableBuilder
+flutter:   DialogWindow
+flutter:   ViewCollection
+flutter:   LookupBoundary
+flutter:   _MultiChildComponentWidget
+flutter:   ViewAnchor
+flutter:   ListenableBuilder
+flutter:   _WindowRegistryScope
+flutter:   WindowManager
+flutter:   DefaultTextStyle
+flutter:   ValueListenableBuilder<bool>
+flutter:   Semantics
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   Title
+flutter:   Directionality
+flutter:   _LocalizationsScope-[GlobalKey#87d1a]
+flutter:   Semantics
+flutter:   Localizations
+flutter:   ListenableBuilder
+flutter:   Semantics
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   Shortcuts
+flutter:   _ShortcutRegistrarScope
+flutter:   ShortcutRegistrar
+flutter:   TapRegionSurface
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   FocusTraversalGroup
+flutter:   _ActionsScope
+flutter:   Actions
+flutter:   Semantics
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   Shortcuts
+flutter:   Semantics
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   Shortcuts
+flutter:   DefaultTextEditingShortcuts
+flutter:   Semantics
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   Shortcuts
+flutter:   NotificationListener<NavigationNotification>
+flutter:   _SharedAppModel
+flutter:   SharedAppData
+flutter:   UnmanagedRestorationScope
+flutter:   RestorationScope
+flutter:   UnmanagedRestorationScope
+flutter:   RootRestorationScope
+flutter:   WidgetsApp-[GlobalObjectKey _MaterialAppState#82514]
+flutter:   HeroControllerScope
+flutter:   ScrollConfiguration
+flutter:   MaterialApp
+flutter:   Consumer<ThemeBackgroundRevealProvider>
+flutter:   Consumer3<ThemeNotifier, UIThemeProvider, AppLanguageProvider>
+flutter:   DropTarget
+flutter:   PlatformMenuBar#ae53e
+flutter:   MacosPlatformMenu
+flutter:   NipaPlayApp
+flutter:   LayoutBuilder
+flutter:   _PositiveViewSizeGate
+flutter:   _MultiChildComponentWidget
+flutter:   ViewAnchor
+flutter:   ListenableBuilder
+flutter:   DesktopMultiWindowHost
+flutter:   _InheritedProviderScope<NextRuntime?>
+flutter:   _InheritedProviderScope<LargeScreenUiSfxService?>
+flutter:   _InheritedProviderScope<DandanplayRemoteProvider?>
+flutter:   _InheritedProviderScope<EmbyProvider?>
+flutter:   _InheritedProviderScope<JellyfinProvider?>
+flutter:   _InheritedProviderScope<DebugLogService?>
+flutter:   _InheritedProviderScope<ThemeBackgroundRevealProvider?>
+flutter:   _InheritedProviderScope<EmbyTranscodeProvider?>
+flutter:   _InheritedProviderScope<JellyfinTranscodeProvider?>
+flutter:   _InheritedProviderScope<SharedRemoteLibraryProvider?>
+flutter:   _InheritedProviderScope<UIThemeProvider?>
+flutter:   _InheritedProviderScope<HomeSectionsSettingsProvider?>
+flutter:   _InheritedProviderScope<PluginService?>
+flutter:   _InheritedProviderScope<RemoteAccessSettingsProvider?>
+flutter:   _InheritedProviderScope<LabsSettingsProvider?>
+flutter:   _InheritedProviderScope<DownloaderSettingsProvider?>
+flutter:   _InheritedProviderScope<AppearanceSettingsProvider?>
+flutter:   _InheritedProviderScope<DeveloperOptionsProvider?>
+flutter:   _InheritedProviderScope<ScanService?>
+flutter:   _InheritedProviderScope<WatchHistoryProvider?>
+flutter:   _InheritedProviderScope<TabChangeNotifier?>
+flutter:   _InheritedProviderScope<ThemeNotifier?>
+flutter:   _InheritedProviderScope<VideoPlayerState?>
+flutter:   _InheritedProviderScope<SettingsProvider?>
+flutter:   _InheritedProviderScope<AppLanguageProvider?>
+flutter:   _InheritedProviderScope<WebDAVQuickAccessProvider?>
+flutter:   _InheritedProviderScope<BottomBarProvider?>
+flutter:   SingleChildBuilder
+flutter:   _NestedHook
+flutter:   MultiProvider
+flutter:   ImageCacheMemoryPressureHandler
+flutter:   _FocusInheritedScope
+flutter:   _FocusScopeWithExternalFocusNode
+flutter:   _FocusInheritedScope
+flutter:   Focus
+flutter:   FocusTraversalGroup
+flutter:   MediaQuery
+flutter:   _MediaQueryFromView
+flutter:   _PipelineOwnerScope
+flutter:   _ViewScope
+flutter:   _RawViewInternal-[_DeprecatedRawViewKey FlutterView#7149d]
+flutter:   RawView
+flutter:   View
+flutter:   [root]
+flutter: 错误堆栈: #0      debugCheckHasMaterial.<anonymous closure> (package:flutter/src/material/debug.dart:40:7)
+flutter: #1      debugCheckHasMaterial (package:flutter/src/material/debug.dart:67:4)
+flutter: #2      _CheckboxState.build (package:flutter/src/material/checkbox.dart:505:12)
+flutter: #3      StatefulElement.build (package:flutter/src/widgets/framework.dart:5931:27)
+flutter: #4      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5817:15)
+flutter: #5      StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+flutter: #6      Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+flutter: #7      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+flutter: #8      StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+flutter: #9      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+flutter: #10     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #11     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+flutter: #12     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+flutter: #13     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #14     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+flutter: #15     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+flutter: #16     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #17     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #18     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+flutter: #19     Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+flutter: #20     ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+flutter: #21     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+flutter: #22     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #23     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #24     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #25     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #26     MultiChildRenderObjectElement.inflateWidget (package:flutter/src/widgets/framework.dart:7264:36)
+flutter: #27     MultiChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7279:32)
+flutter: #28     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #29     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #30     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #31     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #32     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #33     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #34     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #35     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #36     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #37     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #38     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #39     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #40     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #41     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #42     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #43     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #44     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #45     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+flutter: #46     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5982:11)
+flutter: #47     Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+flutter: #48     ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+flutter: #49     StatefulElement._firstBuild (package:flutter/src/widgets/framework.dart:5973:11)
+flutter: #50     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+flutter: #51     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #52     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #53     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #54     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #55     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #56     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+flutter: #57     Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+flutter: #58     ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+flutter: #59     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+flutter: #60     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #61     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #62     SingleChildRenderObjectElement.mount (package:flutter/src/widgets/framework.dart:7115:14)
+flutter: #63     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #64     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
+flutter: #65     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5841:16)
+flutter: #66     Element.rebuild (package:flutter/src/widgets/framework.dart:5529:7)
+flutter: #67     ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5799:5)
+flutter: #68     ComponentElement.mount (package:flutter/src/widgets/framework.dart:5793:5)
+flutter: #69     Element.inflateWidget (package:flutter/src/widgets/framework.dart:4587:20)
+flutter: #70     Element.updateChild (package:flutter/src/widgets/framework.dart:4059:18)
