@@ -1,0 +1,2050 @@
+[
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.198887Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.196243Z"
+      },
+      "rows": [
+        {
+          "id": "identity:evidence-dfd30bf6-0d3a-485c-9e02-083bad90c929",
+          "at": "2026-10-11T12:51:31.508569Z",
+          "type": "identity.revoked",
+          "title": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1 · dandanplay:7001 · revoked",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723091507273-21",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78",
+          "source": "media_evidence",
+          "facts": {
+            "bindingId": "binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78",
+            "objectId": "object-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "provider": "dandanplay",
+            "externalId": "7001",
+            "objectType": "anime",
+            "relation": "contains",
+            "operation": "revoked",
+            "reason": "X22 unsupported-work window check"
+          }
+        },
+        {
+          "id": "identity:evidence-c8bd2e47-cf38-4b6a-a619-22aff12a2278",
+          "at": "2026-10-11T12:51:31.442681Z",
+          "type": "identity.bound",
+          "title": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1 · tmdb:x22-synthetic · bound",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723091440274-20",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "binding-637697fe9adf4b7589d65a3185efb853ad4054c303fdba5f95998cd914e49bb0",
+          "source": "media_evidence",
+          "facts": {
+            "bindingId": "binding-637697fe9adf4b7589d65a3185efb853ad4054c303fdba5f95998cd914e49bb0",
+            "objectId": "object-6da23225dbcf0898b9ff33eee941c3377d2c9d8d51b0436ba604632f6142a4f6",
+            "provider": "tmdb",
+            "externalId": "x22-synthetic",
+            "objectType": "tv",
+            "relation": "contains",
+            "operation": "bound",
+            "reason": "Prepare a work that Classic cannot display"
+          }
+        },
+        {
+          "id": "receipt:job-fddd817e49a6022d008f5bfd423f767f:4",
+          "at": "2026-10-11T12:50:44.793028Z",
+          "type": "hook.receipt",
+          "title": "Hook library.file_added · 回执 verified",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723044190330-17",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "state": "succeeded",
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": 0,
+                "elapsedMs": 600,
+                "reason": null,
+                "fileId": null,
+                "fileIds": null,
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": null,
+                "files": null
+              },
+              "cancellation": null
+            }
+          }
+        },
+        {
+          "id": "job:job-fddd817e49a6022d008f5bfd423f767f:4",
+          "at": "2026-10-11T12:50:44.793028Z",
+          "type": "hook.changed",
+          "title": "Hook library.file_added · succeeded · execute",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723044190330-17",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "succeeded",
+            "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+            "type": "harness.hook",
+            "title": "Hook library.file_added",
+            "state": "succeeded",
+            "phase": "execute",
+            "revision": 4,
+            "createdAt": "2026-10-11T12:50:44.186558Z",
+            "updatedAt": "2026-10-11T12:50:44.793028Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": 0,
+                "elapsedMs": 600,
+                "reason": null,
+                "fileId": null,
+                "fileIds": null,
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": null,
+                "files": null
+              },
+              "cancellation": null
+            },
+            "initiatedBy": {
+              "actor": "hook",
+              "origin": "hook:library.file_added",
+              "invocationId": null
+            },
+            "hook": {
+              "event": "library.file_added",
+              "objectId": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22-hook.mp4"
+            }
+          }
+        },
+        {
+          "id": "setting:2",
+          "at": "2026-10-11T12:50:44.781293Z",
+          "type": "settings.changed",
+          "title": "快进快退步长（秒） · 设置修改",
+          "actor": "hook",
+          "origin": "hook:job-fddd817e49a6022d008f5bfd423f767f",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723044774483-18",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "seek.stepSeconds",
+          "source": "settings_changes",
+          "facts": {
+            "key": "seek.stepSeconds",
+            "revision": 2,
+            "reason": "X22 library.file_added hook",
+            "before": 12.0,
+            "after": 13.0
+          }
+        },
+        {
+          "id": "receipt:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:8",
+          "at": "2026-10-11T12:50:44.218778Z",
+          "type": "task.receipt",
+          "title": "Scan media folder · 回执 verified",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "state": "succeeded",
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": [
+                  "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05",
+                  "file-b7797f64-b295-4358-89d1-bdf2ecc974eb"
+                ],
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": 2,
+                "files": null
+              },
+              "cancellation": null
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:8",
+          "at": "2026-10-11T12:50:44.218778Z",
+          "type": "task.changed",
+          "title": "Scan media folder · succeeded · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "succeeded",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "succeeded",
+            "phase": "enumerate",
+            "revision": 8,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.218778Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 2,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": [
+                  "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05",
+                  "file-b7797f64-b295-4358-89d1-bdf2ecc974eb"
+                ],
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": 2,
+                "files": null
+              },
+              "cancellation": null
+            },
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjcsInNvdXJjZU9mZnNldCI6MH0=",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.316684Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.316488Z"
+      },
+      "rows": [
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:7",
+          "at": "2026-10-11T12:50:44.216989Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 7,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.216989Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 2,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:job-fddd817e49a6022d008f5bfd423f767f:3",
+          "at": "2026-10-11T12:50:44.214945Z",
+          "type": "hook.changed",
+          "title": "Hook library.file_added · running · execute",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723044190330-17",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "effect_committed",
+            "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+            "type": "harness.hook",
+            "title": "Hook library.file_added",
+            "state": "running",
+            "phase": "execute",
+            "revision": 3,
+            "createdAt": "2026-10-11T12:50:44.186558Z",
+            "updatedAt": "2026-10-11T12:50:44.214945Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "hook",
+              "origin": "hook:library.file_added",
+              "invocationId": null
+            },
+            "hook": {
+              "event": "library.file_added",
+              "objectId": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22-hook.mp4"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:6",
+          "at": "2026-10-11T12:50:44.212758Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 6,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.212758Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 2,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:job-fddd817e49a6022d008f5bfd423f767f:2",
+          "at": "2026-10-11T12:50:44.193064Z",
+          "type": "hook.changed",
+          "title": "Hook library.file_added · running · execute",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723044190330-17",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+            "type": "harness.hook",
+            "title": "Hook library.file_added",
+            "state": "running",
+            "phase": "execute",
+            "revision": 2,
+            "createdAt": "2026-10-11T12:50:44.186558Z",
+            "updatedAt": "2026-10-11T12:50:44.193064Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "hook",
+              "origin": "hook:library.file_added",
+              "invocationId": null
+            },
+            "hook": {
+              "event": "library.file_added",
+              "objectId": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22-hook.mp4"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:5",
+          "at": "2026-10-11T12:50:44.191498Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "effect_committed",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 5,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.191498Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 1,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:job-fddd817e49a6022d008f5bfd423f767f:1",
+          "at": "2026-10-11T12:50:44.189104Z",
+          "type": "hook.changed",
+          "title": "Hook library.file_added · running · queued",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": null,
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+            "type": "harness.hook",
+            "title": "Hook library.file_added",
+            "state": "running",
+            "phase": "queued",
+            "revision": 1,
+            "createdAt": "2026-10-11T12:50:44.186558Z",
+            "updatedAt": "2026-10-11T12:50:44.189104Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "hook",
+              "origin": "hook:library.file_added",
+              "invocationId": null
+            },
+            "hook": {
+              "event": "library.file_added",
+              "objectId": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22-hook.mp4"
+            }
+          }
+        },
+        {
+          "id": "job:job-fddd817e49a6022d008f5bfd423f767f:0",
+          "at": "2026-10-11T12:50:44.186558Z",
+          "type": "hook.created",
+          "title": "Hook library.file_added · queued · queued",
+          "actor": "hook",
+          "origin": "hook:library.file_added",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": null,
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "submitted",
+            "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+            "type": "harness.hook",
+            "title": "Hook library.file_added",
+            "state": "queued",
+            "phase": "queued",
+            "revision": 0,
+            "createdAt": "2026-10-11T12:50:44.186558Z",
+            "updatedAt": "2026-10-11T12:50:44.186558Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "hook",
+              "origin": "hook:library.file_added",
+              "invocationId": null
+            },
+            "hook": {
+              "event": "library.file_added",
+              "objectId": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22-hook.mp4"
+            }
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjE0LCJzb3VyY2VPZmZzZXQiOjB9",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.422989Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.422817Z"
+      },
+      "rows": [
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:4",
+          "at": "2026-10-11T12:50:44.111764Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 4,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.111764Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 1,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:3",
+          "at": "2026-10-11T12:50:44.027072Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "effect_committed",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 3,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:44.027072Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:2",
+          "at": "2026-10-11T12:50:43.945025Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 2,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:43.945025Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:1",
+          "at": "2026-10-11T12:50:43.937850Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · queued",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "queued",
+            "revision": 1,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:43.937850Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "job:scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a:0",
+          "at": "2026-10-11T12:50:43.927415Z",
+          "type": "task.created",
+          "title": "Scan media folder · queued · queued",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723043923600-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "submitted",
+            "jobId": "scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "queued",
+            "phase": "queued",
+            "revision": 0,
+            "createdAt": "2026-10-11T12:50:43.927415Z",
+            "updatedAt": "2026-10-11T12:50:43.927415Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791723043923600-13"
+            }
+          }
+        },
+        {
+          "id": "git:af88fb8408790e18a8282c327533827147729d53",
+          "at": "2026-10-11T12:50:43.000Z",
+          "type": "harness.commit",
+          "title": "X22 record real activity experiment",
+          "actor": "X22 Agent",
+          "origin": "git",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": null,
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "af88fb8408790e18a8282c327533827147729d53",
+          "source": "git log",
+          "facts": {
+            "hash": "af88fb8408790e18a8282c327533827147729d53",
+            "author": "X22 Agent",
+            "authoredAt": "2026-10-11T20:50:43+08:00",
+            "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/harness",
+            "subject": "X22 record real activity experiment"
+          }
+        },
+        {
+          "id": "danmaku:danmaku-event-403af0041b5f25e6c0b4d14fd79bff2630c7c30bd5648c1bcee8ea49ff3d27d7",
+          "at": "2026-10-11T12:50:21.429470Z",
+          "type": "danmaku.import",
+          "title": "x22-fixture · local-video-1 · import",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021420847-12",
+          "entityId": "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05",
+          "entityIds": [
+            "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+          ],
+          "jobId": null,
+          "subjectId": "danmaku-b55c6ba2-7fc5-4783-b1ec-b928f8bc4b5d",
+          "source": "danmaku_binding_events",
+          "facts": {
+            "bindingId": "danmaku-b55c6ba2-7fc5-4783-b1ec-b928f8bc4b5d",
+            "revision": 0,
+            "video": {
+              "sourceId": "x22-fixture",
+              "videoId": "local-video-1",
+              "title": "local-video-1",
+              "durationMs": 0,
+              "objectType": "video"
+            },
+            "operation": "import",
+            "entryCount": 1,
+            "cacheKey": "danmaku-import-dadcbbba-0e76-4265-b5ba-2881ea46a741",
+            "platform": "x22-fixture",
+            "platformVideoId": "local-video-1",
+            "actor": "agent",
+            "origin": "harness_cli",
+            "importedAt": "2026-10-11T12:50:21.428574Z",
+            "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/comments.json",
+            "note": "X22 imported one real comment into isolated host"
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjIxLCJzb3VyY2VPZmZzZXQiOjB9",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.532125Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.531984Z"
+      },
+      "rows": [
+        {
+          "id": "identity:evidence-6960fc06-718b-4ef5-8143-739a433e9187",
+          "at": "2026-10-11T12:50:21.360416Z",
+          "type": "identity.revoked",
+          "title": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1 · tmdb:x22-synthetic · revoked",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021357998-11",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc",
+          "source": "media_evidence",
+          "facts": {
+            "bindingId": "binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc",
+            "objectId": "object-6da23225dbcf0898b9ff33eee941c3377d2c9d8d51b0436ba604632f6142a4f6",
+            "provider": "tmdb",
+            "externalId": "x22-synthetic",
+            "objectType": "tv",
+            "relation": "contains",
+            "operation": "revoked",
+            "reason": "Withdraw X22 temporary TMDB identity"
+          }
+        },
+        {
+          "id": "invocation:inv-1791723021296485-10",
+          "at": "2026-10-11T12:50:21.297489Z",
+          "type": "identity.conflict",
+          "title": "media.identity.bind_batch · failed · 冲突",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021296485-10",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": null,
+          "source": "journal",
+          "facts": {
+            "action": "media.identity.bind_batch",
+            "status": "failed",
+            "failureCode": "conflict",
+            "provider": null,
+            "sourceId": null,
+            "attempts": [
+              {
+                "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+                "kind": "work",
+                "ref": {
+                  "provider": "tmdb",
+                  "objectType": "tv",
+                  "externalId": "x22-conflicting",
+                  "scope": ""
+                },
+                "reason": "Deliberate conflicting identity"
+              }
+            ],
+            "result": null
+          }
+        },
+        {
+          "id": "snapshot:imported-snapshot-23e60ec201241d31db649a1e342eaba75093b7e95387c7e209ced69d4e26d195",
+          "at": "2026-10-11T12:50:21.236176Z",
+          "type": "metadata.snapshot",
+          "title": "tmdb:x22-synthetic · 元数据快照",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021235086-9",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "imported-snapshot-23e60ec201241d31db649a1e342eaba75093b7e95387c7e209ced69d4e26d195",
+          "source": "media_snapshots",
+          "facts": {
+            "snapshotId": "imported-snapshot-23e60ec201241d31db649a1e342eaba75093b7e95387c7e209ced69d4e26d195",
+            "objectId": "object-6da23225dbcf0898b9ff33eee941c3377d2c9d8d51b0436ba604632f6142a4f6",
+            "provider": "tmdb",
+            "externalId": "x22-synthetic",
+            "language": "zh-CN",
+            "metadata": {
+              "title": "X22 submitted snapshot",
+              "overview": "Snapshot survives identity revocation",
+              "rating": {
+                "value": 8.1,
+                "max": 10,
+                "count": 52,
+                "source": "tmdb"
+              }
+            },
+            "fetchedAt": "2026-10-10T00:00:00Z",
+            "receivedAt": "2026-10-11T12:50:21.236176Z"
+          }
+        },
+        {
+          "id": "identity:evidence-f4597c81-872d-4ac7-9569-d3203d641766",
+          "at": "2026-10-11T12:50:21.174474Z",
+          "type": "identity.bound",
+          "title": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1 · tmdb:x22-synthetic · bound",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021172081-8",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc",
+          "source": "media_evidence",
+          "facts": {
+            "bindingId": "binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc",
+            "objectId": "object-6da23225dbcf0898b9ff33eee941c3377d2c9d8d51b0436ba604632f6142a4f6",
+            "provider": "tmdb",
+            "externalId": "x22-synthetic",
+            "objectType": "tv",
+            "relation": "contains",
+            "operation": "bound",
+            "reason": "Temporary cross-source identity for X22"
+          }
+        },
+        {
+          "id": "identity:evidence-1cbed1b0-7656-451b-b330-34d9739901ab",
+          "at": "2026-10-11T12:50:21.110742Z",
+          "type": "identity.bound",
+          "title": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1 · dandanplay:7001 · bound",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021093277-7",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78",
+          "source": "media_evidence",
+          "facts": {
+            "bindingId": "binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78",
+            "objectId": "object-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "provider": "dandanplay",
+            "externalId": "7001",
+            "objectType": "anime",
+            "relation": "contains",
+            "operation": "bound",
+            "reason": "X22 local catalogue identity"
+          }
+        },
+        {
+          "id": "snapshot:snapshot-d73d97a1993a7e3d6d2ea2e3b88bd4d79dd9f5b432a2ba57cc2809398fee300e",
+          "at": "2026-10-11T12:50:21.110159Z",
+          "type": "metadata.snapshot",
+          "title": "dandanplay:7001 · 元数据快照",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791723021093277-7",
+          "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+          "entityIds": [
+            "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+          ],
+          "jobId": null,
+          "subjectId": "snapshot-d73d97a1993a7e3d6d2ea2e3b88bd4d79dd9f5b432a2ba57cc2809398fee300e",
+          "source": "media_snapshots",
+          "facts": {
+            "snapshotId": "snapshot-d73d97a1993a7e3d6d2ea2e3b88bd4d79dd9f5b432a2ba57cc2809398fee300e",
+            "objectId": "object-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "provider": "dandanplay",
+            "externalId": "7001",
+            "language": "zh-CN",
+            "metadata": {
+              "title": "X22 catalogue fixture",
+              "originalTitle": null,
+              "overview": "Local protocol fixture for X22; no real account.",
+              "imageUrl": null,
+              "year": null
+            },
+            "fetchedAt": "2026-10-11T12:50:21.104833Z",
+            "receivedAt": "2026-10-11T12:50:21.110159Z"
+          }
+        },
+        {
+          "id": "receipt:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:5",
+          "at": "2026-10-11T12:49:37.321743Z",
+          "type": "task.receipt",
+          "title": "Log in to dandanplay · 回执 verified",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "state": "succeeded",
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": "dandanplay",
+                "connected": null,
+                "loggedIn": true,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": null,
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": null,
+                "files": null
+              },
+              "cancellation": null
+            }
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjI4LCJzb3VyY2VPZmZzZXQiOjB9",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.638878Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.638674Z"
+      },
+      "rows": [
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:5",
+          "at": "2026-10-11T12:49:37.321743Z",
+          "type": "task.changed",
+          "title": "Log in to dandanplay · succeeded · authenticating",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "succeeded",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "succeeded",
+            "phase": "authenticating",
+            "revision": 5,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.321743Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": "dandanplay",
+                "connected": null,
+                "loggedIn": true,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": null,
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": null,
+                "files": null
+              },
+              "cancellation": null
+            },
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:4",
+          "at": "2026-10-11T12:49:37.320457Z",
+          "type": "task.changed",
+          "title": "Log in to dandanplay · running · authenticating",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "effect_committed",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "running",
+            "phase": "authenticating",
+            "revision": 4,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.320457Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "body:2",
+          "at": "2026-10-11T12:49:37.317749Z",
+          "type": "account.changed",
+          "title": "dandanplay · account.changed",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "dandanplay",
+          "source": "body_changes",
+          "facts": {
+            "before": {
+              "id": "dandanplay",
+              "loggedIn": false,
+              "username": null
+            },
+            "after": {
+              "id": "dandanplay",
+              "loggedIn": true,
+              "username": "x22-fixture"
+            }
+          }
+        },
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:3",
+          "at": "2026-10-11T12:49:37.305496Z",
+          "type": "task.changed",
+          "title": "Log in to dandanplay · running · authenticating",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "running",
+            "phase": "authenticating",
+            "revision": 3,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.305496Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:2",
+          "at": "2026-10-11T12:49:37.303359Z",
+          "type": "task.changed",
+          "title": "Log in to dandanplay · running · awaiting_credentials",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "running",
+            "phase": "awaiting_credentials",
+            "revision": 2,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.303359Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:1",
+          "at": "2026-10-11T12:49:37.300723Z",
+          "type": "task.changed",
+          "title": "Log in to dandanplay · running · queued",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "running",
+            "phase": "queued",
+            "revision": 1,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.300723Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "invocation:inv-1791722977284432-3",
+          "at": "2026-10-11T12:49:37.295803Z",
+          "type": "invocation.result",
+          "title": "accounts.login · completed",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "dandanplay",
+          "source": "journal",
+          "facts": {
+            "action": "accounts.login",
+            "status": "completed",
+            "failureCode": null,
+            "provider": "dandanplay",
+            "sourceId": null,
+            "result": {
+              "provider": "dandanplay",
+              "method": "provided",
+              "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70"
+            }
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjM1LCJzb3VyY2VPZmZzZXQiOjB9",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.744151Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.743996Z"
+      },
+      "rows": [
+        {
+          "id": "job:account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70:0",
+          "at": "2026-10-11T12:49:37.287528Z",
+          "type": "task.created",
+          "title": "Log in to dandanplay · queued · queued",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722977284432-3",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "submitted",
+            "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+            "type": "accounts.login",
+            "title": "Log in to dandanplay",
+            "state": "queued",
+            "phase": "queued",
+            "revision": 0,
+            "createdAt": "2026-10-11T12:49:37.287528Z",
+            "updatedAt": "2026-10-11T12:49:37.287528Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722977284432-3"
+            }
+          }
+        },
+        {
+          "id": "receipt:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:6",
+          "at": "2026-10-11T12:46:05.198189Z",
+          "type": "task.receipt",
+          "title": "Scan media folder · 回执 verified",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "state": "succeeded",
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": [
+                  "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+                ],
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": 1,
+                "files": null
+              },
+              "cancellation": null
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:6",
+          "at": "2026-10-11T12:46:05.198189Z",
+          "type": "task.changed",
+          "title": "Scan media folder · succeeded · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "succeeded",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "succeeded",
+            "phase": "enumerate",
+            "revision": 6,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.198189Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 1,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": {
+              "verification": "verified",
+              "details": {
+                "sourceId": null,
+                "provider": null,
+                "connected": null,
+                "loggedIn": null,
+                "method": null,
+                "event": null,
+                "objectId": null,
+                "exitCode": null,
+                "elapsedMs": null,
+                "reason": null,
+                "fileId": null,
+                "fileIds": [
+                  "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+                ],
+                "bindingId": null,
+                "snapshotId": null,
+                "cacheKey": null,
+                "infoHash": null,
+                "outputDirectory": null,
+                "downloadComplete": null,
+                "paused": null,
+                "refreshed": null,
+                "identityChanged": null,
+                "userOverridesPreserved": null,
+                "projectionVerified": null,
+                "indexed": 1,
+                "files": null
+              },
+              "cancellation": null
+            },
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:5",
+          "at": "2026-10-11T12:46:05.196489Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 5,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.196489Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 1,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:4",
+          "at": "2026-10-11T12:46:05.195140Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "progress",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 4,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.195140Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 1,
+              "total": null,
+              "unit": "files"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:3",
+          "at": "2026-10-11T12:46:05.193851Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "effect_committed",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 3,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.193851Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:2",
+          "at": "2026-10-11T12:46:05.168228Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · enumerate",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "enumerate",
+            "revision": 2,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.168228Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        }
+      ],
+      "nextCursor": "eyJxdWVyeSI6ImMzODI1YTNkYmJhOTI1MTQ3ZGY2NGVlYWFkM2RiNTUxNzA1YWE2OTYwNmRiMzY4ZDVhYTgzM2M4YmEzZDRjZGUiLCJvZmZzZXQiOjQyLCJzb3VyY2VPZmZzZXQiOjB9",
+      "truncated": true,
+      "warnings": []
+    }
+  },
+  {
+    "status": "completed",
+    "result": {
+      "schemaVersion": 1,
+      "snapshotId": null,
+      "observedAt": "2026-10-11T12:52:46.853096Z",
+      "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+      "sources": {
+        "activity": "2026-10-11T12:52:46.852959Z"
+      },
+      "rows": [
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:1",
+          "at": "2026-10-11T12:46:05.164816Z",
+          "type": "task.changed",
+          "title": "Scan media folder · running · queued",
+          "actor": "system",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "running",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "running",
+            "phase": "queued",
+            "revision": 1,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.164816Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "job:scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f:0",
+          "at": "2026-10-11T12:46:05.157736Z",
+          "type": "task.created",
+          "title": "Scan media folder · queued · queued",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765155260-15",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+          "subjectId": null,
+          "source": "job_events",
+          "facts": {
+            "kind": "submitted",
+            "jobId": "scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f",
+            "type": "media.scan",
+            "title": "Scan media folder",
+            "state": "queued",
+            "phase": "queued",
+            "revision": 0,
+            "createdAt": "2026-10-11T12:46:05.157736Z",
+            "updatedAt": "2026-10-11T12:46:05.157736Z",
+            "ownerDeviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+            "progress": {
+              "completed": 0,
+              "total": null,
+              "unit": "items"
+            },
+            "errorCode": null,
+            "receipt": null,
+            "initiatedBy": {
+              "actor": "agent",
+              "origin": "harness_cli",
+              "invocationId": "inv-1791722765155260-15"
+            }
+          }
+        },
+        {
+          "id": "invocation:inv-1791722765083208-13",
+          "at": "2026-10-11T12:46:05.094216Z",
+          "type": "invocation.result",
+          "title": "media.sources.add · completed",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765083208-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": null,
+          "source": "journal",
+          "facts": {
+            "action": "media.sources.add",
+            "status": "completed",
+            "failureCode": null,
+            "provider": null,
+            "sourceId": null,
+            "result": {
+              "source": {
+                "sourceId": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+                "type": "webdav",
+                "name": "X22 local source",
+                "url": "[redacted URL]",
+                "username": "x22-fixture",
+                "connected": false,
+                "selectedLibraries": [],
+                "connectionState": "unverified"
+              }
+            }
+          }
+        },
+        {
+          "id": "body:1",
+          "at": "2026-10-11T12:46:05.092044Z",
+          "type": "source.added",
+          "title": "X22 local source · source.added",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765083208-13",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+          "source": "body_changes",
+          "facts": {
+            "before": null,
+            "after": {
+              "id": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+              "type": "webdav",
+              "name": "X22 local source",
+              "url": "[redacted URL]",
+              "username": "x22-fixture",
+              "connected": false
+            }
+          }
+        },
+        {
+          "id": "setting:1",
+          "at": "2026-10-11T12:46:05.017819Z",
+          "type": "settings.changed",
+          "title": "快进快退步长（秒） · 设置修改",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": "inv-1791722765008855-12",
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "seek.stepSeconds",
+          "source": "settings_changes",
+          "facts": {
+            "key": "seek.stepSeconds",
+            "revision": 1,
+            "reason": "X22 real progress reconstruction",
+            "before": 10.0,
+            "after": 12.0
+          }
+        },
+        {
+          "id": "git:02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+          "at": "2026-10-11T12:45:18.000Z",
+          "type": "harness.commit",
+          "title": "Update NipaPlay harness seed",
+          "actor": "NipaPlay",
+          "origin": "git",
+          "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+          "originDeviceId": null,
+          "invocationId": null,
+          "entityId": null,
+          "entityIds": [],
+          "jobId": null,
+          "subjectId": "02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+          "source": "git log",
+          "facts": {
+            "hash": "02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+            "author": "NipaPlay",
+            "authoredAt": "2026-10-11T20:45:18+08:00",
+            "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/harness",
+            "subject": "Update NipaPlay harness seed"
+          }
+        }
+      ],
+      "nextCursor": null,
+      "truncated": false,
+      "warnings": []
+    }
+  }
+]
