@@ -1,0 +1,46 @@
+{
+  "id": "discover.trending",
+  "title": "Discover trending",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Complete Classic ranking with summary dates, ranks, heat/growth metrics. Defaults allHot/week/limit=20/filterAdultContent=true. allHot/allRising use week/month/quarter; newAnimeHot uses currentSeason/previousSeason. forceRefresh bypasses cache; Classic may return stale cache on network failure.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "kind": {
+        "type": "string",
+        "enum": [
+          "allHot",
+          "allRising",
+          "newAnimeHot"
+        ]
+      },
+      "range": {
+        "type": "string",
+        "enum": [
+          "week",
+          "month",
+          "quarter",
+          "currentSeason",
+          "previousSeason"
+        ]
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 50
+      },
+      "forceRefresh": {
+        "type": "boolean"
+      },
+      "filterAdultContent": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

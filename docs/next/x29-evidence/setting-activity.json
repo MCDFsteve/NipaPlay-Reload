@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "result": {
+    "schemaVersion": 1,
+    "snapshotId": null,
+    "observedAt": "2026-10-11T18:11:23.858531Z",
+    "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+    "sources": {
+      "activity": "2026-10-11T18:11:23.853781Z"
+    },
+    "rows": [
+      {
+        "at": "2026-10-11T18:01:21.236259Z",
+        "type": "settings.changed",
+        "title": "季度回顾排序 · 设置修改",
+        "origin": "harness_cli",
+        "invocationId": "inv-1791741681214819-20",
+        "facts": {
+          "key": "appearance.quarterlyReviewSort",
+          "revision": 1,
+          "reason": "X29 临时配置，验证季度回顾排序来源与 Classic 一致",
+          "before": "airDate",
+          "after": "ratingHigh"
+        }
+      }
+    ],
+    "nextCursor": null,
+    "truncated": false,
+    "warnings": []
+  }
+}

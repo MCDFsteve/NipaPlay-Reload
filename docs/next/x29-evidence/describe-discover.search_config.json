@@ -1,0 +1,20 @@
+{
+  "id": "discover.search_config",
+  "title": "Discover search_config",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Classic advanced search config: valid years, type/tag/sort IDs. forceRefresh clears its config cache.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "forceRefresh": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

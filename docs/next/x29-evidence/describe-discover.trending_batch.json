@@ -1,0 +1,58 @@
+{
+  "id": "discover.trending_batch",
+  "title": "Discover trending_batch",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Query multiple rankings in one call, in order with per-request errors. Same defaults and range rules as discover.trending; validates all requests first.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "requests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "allHot",
+                "allRising",
+                "newAnimeHot"
+              ]
+            },
+            "range": {
+              "type": "string",
+              "enum": [
+                "week",
+                "month",
+                "quarter",
+                "currentSeason",
+                "previousSeason"
+              ]
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "forceRefresh": {
+              "type": "boolean"
+            },
+            "filterAdultContent": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "requests"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

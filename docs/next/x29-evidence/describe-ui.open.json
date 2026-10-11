@@ -1,0 +1,206 @@
+{
+  "id": "ui.open",
+  "title": "Open a visible Classic target",
+  "description": "Supply exactly one page, dialog, animeId, serverItem, sourceItem, libraryItem, aboutLink, system, entityId or path. page=settings accepts subpage (defaults about); page=media_library accepts subpage for library section. Settings and dialogs use existing Classic forms; user enters secrets. Dialog connection forms add a server; no credentials accepted. serverItem={provider:jellyfin|emby,itemId} uses the currently active Classic server. animeId supports direct positive or custom negative Classic IDs. sourceItem={provider:nipaplay|dandanplay_remote,animeId} opens Classic shared/remote details with its episode loader on the active Classic source. libraryItem={source:local|webdav|smb,animeId} follows the Classic library card: records recently opened, clears NEW baseline and passes its episode context. dialog=quarterly_comment requires reviewAnimeId from discover.home.review; opens the existing Bangumi editor when signed in. aboutLink=community|repository|qq_group|website|sponsor uses the Classic URL; qr=true displays its QR dialog (TV defaults to QR). system=harness|logs dispatches the existing system folder opener. External URLs/folders report OS acceptance, not visible window verification. dialog=video_picker|video_gallery initiates the existing Classic selection/play flow; user selects or cancels. video_gallery is mobile-only. Native picker visibility is outside Flutter observation. Returns opened=false with the reason when no current interface can display the target. Multiple playable locations return an executable choice; nothing opens until chosen.",
+  "effect": "write",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "string",
+        "enum": [
+          "home",
+          "video",
+          "webdav",
+          "media_library",
+          "torrent",
+          "account",
+          "external_player_console",
+          "settings",
+          "new_series"
+        ]
+      },
+      "subpage": {
+        "type": "string",
+        "description": "For settings: appearance/language/general/storage/network/backup_restore/player/danmaku/external_player/shortcuts/remote_access/remote_media_library/downloader/developer_options/labs/plugins/about/webdav_quick. Only currently available Classic pages can open. For media_library: local_library/local_management/webdav_library/webdav_management/smb_library/smb_management/shared_library/shared_management/dandanplay/jellyfin/emby.",
+        "minLength": 1
+      },
+      "dialog": {
+        "type": "string",
+        "enum": [
+          "search",
+          "watch_history",
+          "trending",
+          "trending_filter",
+          "plugin_market",
+          "dependency_versions",
+          "ui_preview",
+          "build_info",
+          "logs",
+          "jellyfin_connection",
+          "emby_connection",
+          "webdav_connection",
+          "smb_connection",
+          "account_login",
+          "account_register",
+          "appreciation",
+          "plugin_readme",
+          "quarterly_comment",
+          "video_picker",
+          "video_gallery"
+        ]
+      },
+      "pluginId": {
+        "type": "string",
+        "description": "Required only for dialog=plugin_readme. Use plugins.market IDs.",
+        "minLength": 1
+      },
+      "reviewAnimeId": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "aboutLink": {
+        "type": "string",
+        "enum": [
+          "community",
+          "repository",
+          "qq_group",
+          "website",
+          "sponsor"
+        ]
+      },
+      "qr": {
+        "type": "boolean"
+      },
+      "system": {
+        "type": "string",
+        "enum": [
+          "harness",
+          "logs"
+        ]
+      },
+      "animeId": {
+        "type": "integer"
+      },
+      "serverItem": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "jellyfin",
+              "emby"
+            ]
+          },
+          "itemId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "provider",
+          "itemId"
+        ],
+        "additionalProperties": false
+      },
+      "sourceItem": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": [
+              "nipaplay",
+              "dandanplay_remote"
+            ]
+          },
+          "animeId": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "provider",
+          "animeId"
+        ],
+        "additionalProperties": false
+      },
+      "libraryItem": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "local",
+              "webdav",
+              "smb"
+            ]
+          },
+          "animeId": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "source",
+          "animeId"
+        ],
+        "additionalProperties": false
+      },
+      "entityId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "path": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "opened": {
+        "type": "boolean"
+      },
+      "interface": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "target": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      },
+      "actual": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {},
+        "additionalProperties": true
+      },
+      "reason": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "message": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "opened",
+      "interface",
+      "target",
+      "actual",
+      "reason",
+      "message"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,18 @@
+flutter test --no-pub --concurrency=1 test/next
+03:13 +402 ~4: All tests passed!
+
+Classic related test selection (see report):
+00:20 +70 -1: Some tests failed.
+
+00:05 +18 -1: /Users/sakiko/Desktop/nipaplay-next-wt/gaps-c/test/quarterly_review_cache_test.dart: initial collections are paced, deduplicated and resume after restart [E]
+  Expected: null
+    Actual: <100000>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/quarterly_review_cache_test.dart 304:5         main.<fn>
+  
+00:05 +18 -1: /Users/sakiko/Desktop/nipaplay-next-wt/gaps-c/test/quarterly_review_cache_test.dar
+
+analyze error/warning count: 0
+Build: ✓ Built build/macos/Build/Products/Debug/NipaPlay.app

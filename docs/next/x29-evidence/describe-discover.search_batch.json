@@ -1,0 +1,77 @@
+{
+  "id": "discover.search_batch",
+  "title": "Discover search_batch",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Run independent Classic searches in one call; per-request results or errors, in input order. All inputs validated before any request.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "requests": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "tags": {
+              "type": "array",
+              "description": "Text tags: 1–10, each at most 50 characters. Exclusive with advanced fields.",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "keyword": {
+              "type": "string"
+            },
+            "year": {
+              "type": "integer"
+            },
+            "minRate": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "maxRate": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "type": {
+              "type": "integer"
+            },
+            "tagIds": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "month": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            },
+            "restricted": {
+              "type": "boolean"
+            },
+            "sort": {
+              "type": "integer"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "requests"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}
