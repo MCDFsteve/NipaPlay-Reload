@@ -1,0 +1,90 @@
+[
+  {
+    "label": "instance",
+    "at": 1791735306.0718908,
+    "value": {
+      "profile": "x26-ui-82000",
+      "pid": 82001,
+      "subprocessPid": 82001
+    }
+  },
+  {
+    "label": "credential",
+    "at": 1791735306.0759501,
+    "value": {
+      "configured": true
+    }
+  },
+  {
+    "label": "call media.metadata.search_batch",
+    "at": 1791735308.06038,
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "records": [
+              {
+                "ref": {
+                  "provider": "tmdb",
+                  "objectType": "tv",
+                  "externalId": "209867",
+                  "scope": ""
+                },
+                "title": "葬送的芙莉莲",
+                "kind": "tv",
+                "originalTitle": "葬送のフリーレン",
+                "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+                "imageUrl": "[redacted URL]",
+                "year": 2023,
+                "number": null,
+                "season": null,
+                "episodeType": "regular",
+                "order": "aired",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-11T16:15:07.223116Z",
+                "episodes": []
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "records": [
+              {
+                "ref": {
+                  "provider": "tmdb",
+                  "objectType": "tv",
+                  "externalId": "119100",
+                  "scope": ""
+                },
+                "title": "孤独摇滚！",
+                "kind": "tv",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "imageUrl": "[redacted URL]",
+                "year": 2022,
+                "number": null,
+                "season": null,
+                "episodeType": "regular",
+                "order": "aired",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-11T16:15:08.042803Z",
+                "episodes": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "at": 1791735308.1077719,
+    "value": {
+      "pid": 82001,
+      "returncode": -15,
+      "profileRemoved": true
+    }
+  }
+]

@@ -1,0 +1,4342 @@
+[
+  {
+    "label": "instance",
+    "at": 1791736073.800898,
+    "value": {
+      "profile": "x26-ui-10324",
+      "pid": 10325,
+      "subprocessPid": 10325
+    }
+  },
+  {
+    "label": "credential",
+    "at": 1791736073.8063948,
+    "value": {
+      "configured": true
+    }
+  },
+  {
+    "label": "call media.metadata.search_batch",
+    "at": 1791736076.767752,
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "records": [
+              {
+                "ref": {
+                  "provider": "tmdb",
+                  "objectType": "tv",
+                  "externalId": "209867",
+                  "scope": ""
+                },
+                "title": "葬送的芙莉莲",
+                "kind": "tv",
+                "originalTitle": "葬送のフリーレン",
+                "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+                "imageUrl": "[redacted URL]",
+                "year": 2023,
+                "number": null,
+                "season": null,
+                "episodeType": "regular",
+                "order": "aired",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-11T16:27:55.756009Z",
+                "episodes": []
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "records": [
+              {
+                "ref": {
+                  "provider": "tmdb",
+                  "objectType": "tv",
+                  "externalId": "119100",
+                  "scope": ""
+                },
+                "title": "孤独摇滚！",
+                "kind": "tv",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "imageUrl": "[redacted URL]",
+                "year": 2022,
+                "number": null,
+                "season": null,
+                "episodeType": "regular",
+                "order": "aired",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-11T16:27:56.749715Z",
+                "episodes": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "call media.metadata.get_batch",
+    "at": 1791736078.7925131,
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "record": {
+              "ref": {
+                "provider": "tmdb",
+                "objectType": "tv",
+                "externalId": "209867",
+                "scope": ""
+              },
+              "title": "葬送的芙莉莲",
+              "kind": "tv",
+              "originalTitle": "葬送のフリーレン",
+              "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+              "imageUrl": "[redacted URL]",
+              "year": 2023,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "aired",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-11T16:27:57.740872Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "season",
+                    "externalId": "360492",
+                    "scope": "tv/209867/season/0"
+                  },
+                  "title": "特别篇",
+                  "kind": "season",
+                  "originalTitle": null,
+                  "overview": "",
+                  "imageUrl": "[redacted URL]",
+                  "year": 2023,
+                  "number": null,
+                  "season": 0,
+                  "episodeType": "special",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:57.740860Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "season",
+                    "externalId": "307972",
+                    "scope": "tv/209867/season/1"
+                  },
+                  "title": "第 1 季",
+                  "kind": "season",
+                  "originalTitle": null,
+                  "overview": "魔法师芙莉莲与勇者辛美尔等人一起，历经十年的冒险战胜魔王后，为世界带来了和平。她身为寿命超过一千年的精灵，与辛美尔等人约定再会后，独自踏上了旅途。五十年后，芙莉莲前来拜访辛美尔时却发现，和五十年容颜不改的她相比，辛美尔已经老去，人生也已所剩无几。之后，亲眼目睹了辛美尔离世，她深切地认识到自己不曾“了解人类”，为此懊悔无比的芙莉莲，踏上了“了解人类”的旅途。在这段旅途中，她将邂逅各式各样的人，遇见形形色色的事。",
+                  "imageUrl": "[redacted URL]",
+                  "year": 2023,
+                  "number": null,
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:57.740868Z",
+                  "episodes": []
+                }
+              ]
+            }
+          },
+          {
+            "index": 1,
+            "record": {
+              "ref": {
+                "provider": "tmdb",
+                "objectType": "tv",
+                "externalId": "119100",
+                "scope": ""
+              },
+              "title": "孤独摇滚！",
+              "kind": "tv",
+              "originalTitle": "ぼっち・ざ・ろっく！",
+              "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+              "imageUrl": "[redacted URL]",
+              "year": 2022,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "aired",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-11T16:27:58.776445Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "season",
+                    "externalId": "324957",
+                    "scope": "tv/119100/season/0"
+                  },
+                  "title": "特别篇",
+                  "kind": "season",
+                  "originalTitle": null,
+                  "overview": "",
+                  "imageUrl": "[redacted URL]",
+                  "year": 2022,
+                  "number": null,
+                  "season": 0,
+                  "episodeType": "special",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:58.776431Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "season",
+                    "externalId": "182218",
+                    "scope": "tv/119100/season/1"
+                  },
+                  "title": "第 1 季",
+                  "kind": "season",
+                  "originalTitle": null,
+                  "overview": "“ぼっちちゃん”，即后藤独自一人，是一个极度害羞、内向的少女，每次谈话开头总是加上“啊”字。虽然渴望通过乐队活动来闪耀，她开始学习弹吉他，但由于没有朋友，她在中学时期每天独自弹吉他六个小时。她幻想着将自己吉他演奏的视频发布在网上，被称为“吉他英雄”，在文化节上表演，但当她意识到自己在成为高中生时甚至没有交到一个朋友，更不用说找到乐队成员了！尽管她一度快要成为宅女，但有一天，“团结乐队”中担任鼓手的伊地知虹夏和她说话了，从那一刻起，她的日常生活开始慢慢改变。",
+                  "imageUrl": "[redacted URL]",
+                  "year": 2022,
+                  "number": null,
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:58.776436Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "season",
+                    "externalId": "442768",
+                    "scope": "tv/119100/season/2"
+                  },
+                  "title": "第 2 季",
+                  "kind": "season",
+                  "originalTitle": null,
+                  "overview": "",
+                  "imageUrl": "[redacted URL]",
+                  "year": null,
+                  "number": null,
+                  "season": 2,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:58.776442Z",
+                  "episodes": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "call media.metadata.get_batch",
+    "at": 1791736081.213779,
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "index": 0,
+            "record": {
+              "ref": {
+                "provider": "tmdb",
+                "objectType": "season",
+                "externalId": "307972",
+                "scope": "tv/209867/season/1"
+              },
+              "title": "第 1 季",
+              "kind": "season",
+              "originalTitle": null,
+              "overview": "魔法师芙莉莲与勇者辛美尔等人一起，历经十年的冒险战胜魔王后，为世界带来了和平。她身为寿命超过一千年的精灵，与辛美尔等人约定再会后，独自踏上了旅途。五十年后，芙莉莲前来拜访辛美尔时却发现，和五十年容颜不改的她相比，辛美尔已经老去，人生也已所剩无几。之后，亲眼目睹了辛美尔离世，她深切地认识到自己不曾“了解人类”，为此懊悔无比的芙莉莲，踏上了“了解人类”的旅途。在这段旅途中，她将邂逅各式各样的人，遇见形形色色的事。",
+              "imageUrl": "[redacted URL]",
+              "year": 2023,
+              "number": null,
+              "season": 1,
+              "episodeType": "regular",
+              "order": "aired",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-11T16:27:59.938711Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3946240",
+                    "scope": "tv/209867/season/1/episode/1"
+                  },
+                  "title": "冒险的结束",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "英雄辛美尔一行人击败了魔王，凯旋王都。当他们纷纷回顾过去十年的冒险并思考未来的生活时，精灵芙莉莲不为所动，并投入到另一场对魔法的研究。时光荏苒，同伴们相继老去，只有芙莉莲容颜不改。50年后的一天，与同伴相约再聚的芙莉莲回到首都。在这次重逢过后，她决定踏上新的旅程，去寻找自己新的意义。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "1",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938666Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698536",
+                    "scope": "tv/209867/season/1/episode/2"
+                  },
+                  "title": "也不一定要是魔法…",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲拜访了住在森林深处的海塔，并见到了与他住在一起的孤儿菲伦。海塔请芙莉莲教她魔法。后来，因为某件事，他们一起踏上了旅程。在旅行时，芙莉莲参观了一个有辛美尔雕像的村庄，并想起了辛美尔生前说过他喜欢的花……",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "2",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938679Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698538",
+                    "scope": "tv/209867/season/1/episode/3"
+                  },
+                  "title": "杀人魔法",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲和菲伦抵达贸易城市瓦尔姆。菲伦对芙莉莲的行为产生了怀疑，并决定跟踪她。芙莉莲的目的是什么？随后，两人来到了某个村庄。芙莉莲和辛美尔曾经战斗过的恶魔夸尔被封印在那里。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "3",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938681Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698539",
+                    "scope": "tv/209867/season/1/episode/4"
+                  },
+                  "title": "灵魂安眠之地",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲和菲伦拜访了艾泽。一番叙旧过后，艾泽请求他们帮助自己找到“大魔法师伏拉梅的回忆录”。于是他们三人来到森林深处，那里躺着海塔生前发现的回忆录。然而，他们被告知，大部分所谓的伏拉梅回忆录都是假的。那么，那个地方的回忆录到底是假的还是……？",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "4",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938682Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698540",
+                    "scope": "tv/209867/season/1/episode/5"
+                  },
+                  "title": "死者的幻影",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲与菲伦决定朝着伏拉梅留下的手记中所记载的地点“灵魂长眠之地”前进，便与艾泽道别并踏上旅途。究竟在如今魔王城所在的那个地方，能否与辛美尔说上话呢……途中，两人造访了某个村子后，听到村民说有好几个人遭到幽灵带走而失踪的消息……",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "5",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938683Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698541",
+                    "scope": "tv/209867/season/1/episode/6"
+                  },
+                  "title": "村子的英雄",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "休塔尔克居住在里格尔峡谷附近的村庄，他因为从红镜龙手中保护了村子而被誉为村子的英雄，但其实他是个胆小鬼。即使如此，芙莉莲仍对他的实力抱有期望，而向他提议要一起打倒红镜龙。休塔尔克有着能劈开巨石的力量，他的手却会不停发抖。究竟他会不会出现在战场上呢？",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "6",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938684Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698543",
+                    "scope": "tv/209867/season/1/episode/7"
+                  },
+                  "title": "童话故事般的人物",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等人来到了一座城镇，当地在举办名为“解放祭”的祭典前夜祭。那里是过去芙莉莲与辛美尔等人从魔族手中保护的城镇。芙莉莲见到他们的铜像被建造于城镇中，想起了某件事。之后，芙莉莲造访古拉纳特伯爵治理的城镇，她却在那里突然朝某个人物举起法杖！",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "7",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938685Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698544",
+                    "scope": "tv/209867/season/1/episode/8"
+                  },
+                  "title": "葬送的芙莉莲",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "侍奉魔族阿乌拉的琉古纳他们来向古拉纳特伯爵提出和谈，芙莉莲由于企图对他们施放魔法，而被逮捕并送入监牢。琉古纳将做出此举的芙莉莲视为危险人物，同样隶属于阿乌拉的多拉特则盯上了芙莉莲的性命。菲伦与修塔尔克也为了救出芙莉莲展开行动。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "8",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938686Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698545",
+                    "scope": "tv/209867/season/1/episode/9"
+                  },
+                  "title": "断头台阿乌拉",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲独自离开城镇，并与七崩贤“断头台阿乌拉”对峙。有着庞大魔力的阿乌拉操控死者军团，一个接一个向芙莉莲发起攻击。另一方面，菲伦与修塔尔克救出古拉纳特伯爵，但琉古纳与莉妮耶的魔爪也伸向了他们两人……芙莉莲一行人与阿乌拉军的战况即将白热化。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "9",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938687Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698546",
+                    "scope": "tv/209867/season/1/episode/10"
+                  },
+                  "title": "强大的魔法使",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "大魔法使伏拉梅，存活于千年以前，身为人类却是在历史上被誉为“英雄”的魔法使。她某天在遭到魔王军袭击而全灭的精灵聚落中，遇见了独自幸存下来的芙莉莲。伏拉梅教导芙莉莲的事物究竟是……然后，芙莉莲与阿乌拉的战斗终于分出胜负。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "10",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938688Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698547",
+                    "scope": "tv/209867/season/1/episode/11"
+                  },
+                  "title": "北方诸国的冬季",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲、菲伦以及修塔尔克打倒了阿乌拉等魔族。和平到来之后，古拉纳特伯爵吊唁了死后也受到阿乌拉操控的部下，并向芙莉莲表达最大的谢意。芙莉莲等人再次踏上旅程，但冬天的北方诸国道路比想象中还要严峻……而他们在那里遇见了一位武僧。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "11",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938688Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698548",
+                    "scope": "tv/209867/season/1/episode/12"
+                  },
+                  "title": "真正的勇者",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等人造访了剑之村。那里是辛美尔在80年前拔出“勇者之剑”的地方，而那把剑只有化解毁灭世界的巨大灾厄之人才拔得出来。芙莉莲为了尽到责任与村子四周涌现的魔物对峙，于是来到这个村子。然后在她的脑海中，浮现起80年前的过往回忆……",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "12",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938689Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698549",
+                    "scope": "tv/209867/season/1/episode/13"
+                  },
+                  "title": "同类厌恶",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "在北方诸国阿尔托森林的村庄教堂里，芙莉莲遇到了神父的弟弟——赞恩。赞恩轻而易举地解开了难以治愈的毒素，展示了他高超的魔法技能，令芙莉莲感到惊讶。据说，赞恩曾经梦想成为一名冒险者，但他并没有出发去旅行，而是留在了村里。赞恩的哥哥希望有人能带赞恩离开这里……",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "13",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938690Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698550",
+                    "scope": "tv/209867/season/1/episode/14"
+                  },
+                  "title": "年轻人的特权",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "僧侣赞因入伙，旅行到兰德地区后的某一天，菲伦和休塔尔克吵了起来。原来是休塔尔克没为菲伦的生日准备任何东西。赞因告知了二人如何和好的建议。之后，芙莉莲对着赞因说了几句话……",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "14",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938691Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698551",
+                    "scope": "tv/209867/season/1/episode/15"
+                  },
+                  "title": "麻烦事的气息",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等人来到了拉欧布丘陵的村子，村民们却因为某种“诅咒”而沉睡着。根据芙莉莲所说，僧侣由于有女神大人的加护，“诅咒”很难对他们生效。对“诅咒”拥有抗性与知识的赞恩查出诅咒的种类与源头，四人便前往消灭造成沉睡的魔物。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "15",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938692Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698553",
+                    "scope": "tv/209867/season/1/episode/16"
+                  },
+                  "title": "长寿的朋友",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等四人拜访了弗尔爷爷 ── 她过去与辛美尔等人冒险时遇见的矮人战士。那位爷爷一直守护着某个村子，不让它被魔物攻击。芙莉莲在与他聊天的过程中，回想起辛美尔说过的话……之后，他们造访某个聚落，那里有着过去与赞恩约好，要一起成为冒险者的亲友足迹。",
+                  "imageUrl": null,
+                  "year": 2023,
+                  "number": "16",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938692Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698554",
+                    "scope": "tv/209867/season/1/episode/17"
+                  },
+                  "title": "那就多保重了",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "赞恩问到了好友战士大猩猩的行踪，但他的去向却与芙莉莲等人的目的地不同方向。就在这时，四人驻足的聚落遇到寒流，被迫在那停留一个月，而他们用了各自的方式来享受这段日子。某天，菲伦跟修塔尔克吵架，芙莉莲去找赞恩帮忙，但是……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "17",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938693Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698555",
+                    "scope": "tv/209867/season/1/episode/18"
+                  },
+                  "title": "一级魔法使选拔测验",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等人与赞恩道别，来到了魔法都市欧伊沙斯特。想要进入前方的北部高原，就有义务要找一级魔法使同行。一级魔法使测验会出现无人合格的情况，也会出现伤亡，是个非常困难的考试。干练的魔法使们都齐聚到芙莉莲与菲伦前往的测验会场当中。",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "18",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938694Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698556",
+                    "scope": "tv/209867/season/1/episode/19"
+                  },
+                  "title": "周密的计划",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "一级魔法使考试的第一次考试是每三人分成一个队伍，在明天日落之前捕获在考试场栖息的陨铁鸟，而且队伍必须全员到达，有这两个合格条件。因为难以捕获陨铁鸟，考生之间的争夺也就化作一种幸存下去的方法。与康涅和拉比涅组队的芙莉莲的作战是……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "19",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938695Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698558",
+                    "scope": "tv/209867/season/1/episode/20"
+                  },
+                  "title": "必要的杀戮",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "一级魔法使测验的第一次测验，菲伦对上艾莉、威亚贝尔对上尤蓓尔，兰特则与夏尔夫对峙。威亚贝尔在和尤蓓尔各自用着自己的魔法战斗时，从她身上感受到了危险的气息……另一方面，芙莉莲小队捕获到陨铁鸟，却遭到邓肯、利希塔与拉欧芬这队锁定。",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "20",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938695Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698561",
+                    "scope": "tv/209867/season/1/episode/21"
+                  },
+                  "title": "魔法的世界",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "一级魔法使测验的第一次测验中，芙莉莲等人的陨铁鸟遭到邓肯小队夺走。康涅与拉比涅因为跟利希塔的魔力相差甚远而陷入苦战，芙莉莲则在与邓肯的战斗中筹划着某个计策。日落，第一次测验的时限逐渐逼近，究竟谁能进入第二次测验！？",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "21",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938696Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698563",
+                    "scope": "tv/209867/season/1/episode/22"
+                  },
+                  "title": "下次开始就是敌人",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "第一次测验有18人合格，芙莉莲与菲伦也晋级至第二次测验。测验将在三天后举办，合格者们各自解散，等待测验时间到来。芙莉莲等人也回到了旅馆，但修塔尔克因为某件事惹得菲伦不高兴。为了让她消气，三人一起走向欧伊沙斯特的街上。然后，考生们偶然地碰面……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "22",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938697Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698565",
+                    "scope": "tv/209867/season/1/episode/23"
+                  },
+                  "title": "攻略迷宫",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "一级魔法使测验第二次测验，主考官冉则准备的测验内容是攻略迷宫，并声称所有抵达“零落的王墓”最深处的人都算合格。然而那里是个未曾有人走遍，难以攻破的迷宫。芙莉莲等考生各自进入内部，在里头等待着他们的则是魔物、陷阱，以及惊人的“魔法”。",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "23",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938698Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4698570",
+                    "scope": "tv/209867/season/1/episode/24"
+                  },
+                  "title": "完美的复制体",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "考生们在第二次测验进入迷宫“零落的王墓”，而挡在众人面前的是他们的复制体。那些复制体是由魔法制成的实体，实力、魔力与技术都完全与本人相同。期间，尤蓓尔他们遭遇了自己的复制体。另一方面，邓肯等人则被阻挡在芙莉莲的复制体面前……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "24",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938699Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4810162",
+                    "scope": "tv/209867/season/1/episode/25"
+                  },
+                  "title": "致命破绽",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "要达成第二次测验的合格条件——前往迷宫最深处的话，就必须打倒芙莉莲的复制体。芙莉莲与菲伦跟在复制体前方的邓肯及拉比涅等人会合，魔法使们各自运用自己知道的情报和知识，拟定打倒复制体的作战计划。讨论过程中，芙莉莲的脑海中浮现了记忆……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "25",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938700Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4810163",
+                    "scope": "tv/209867/season/1/episode/26"
+                  },
+                  "title": "魔法的高深境界",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "神话时代的魔物施皮格尔，居住在荒落的王陵，并创造了进入王陵的人的复制体。为了打败施皮格尔，芙莉莲和菲伦与芙莉莲的复制体进行战斗，但战斗十分艰难。另一方面，登肯和拉比涅等人也与复制体进行战斗，但是，作为考官的一级魔法师赞泽的复制体的魔法正在大肆挥舞。",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "26",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938700Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4810164",
+                    "scope": "tv/209867/season/1/episode/27"
+                  },
+                  "title": "人类的时代",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "攻破零落的王墓后，以芙莉莲与菲伦为首的12名考生通过了第二次测验。芙莉莲为了修理菲伦在测验中被粉碎的法杖，造访了某个地方……而能否在一级魔法使选拔测验的最终测验中合格的关键，就掌握在弗兰梅的师傅——大陆魔法协会创始人赛莉耶手上。",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "27",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938701Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "4810165",
+                    "scope": "tv/209867/season/1/episode/28"
+                  },
+                  "title": "因为再见面时会很难为情",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "一级魔法使测验的最终测验，菲伦从赛莉耶口中得知自己合格。后续的邓肯、威亚贝尔以及尤蓓尔等人的测验结果会是……而在结束测验的考生们之间，产生了测验前所没有的奇妙感情……然后，芙莉莲等人从魔法都市欧伊沙斯特启程的时刻逐渐接近……",
+                  "imageUrl": null,
+                  "year": 2024,
+                  "number": "28",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938702Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855834",
+                    "scope": "tv/209867/season/1/episode/29"
+                  },
+                  "title": "那，走吧",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "离开魔法都市维萨斯特后，芙莉莲、菲伦与休塔尔克踏上了前往北方诸国的旅途。行进途中，他们因地面塌陷坠入洞穴。此处遍布着能无效化魔力的“封魔矿”。当芙莉莲与菲伦皆无法使用魔法，只能摸索通往地面的出路时——魔物悄然现出了身影……",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "29",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938702Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855835",
+                    "scope": "tv/209867/season/1/episode/30"
+                  },
+                  "title": "南之勇者",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲一行人在北方诸国的村子里接到了擦拭勇者雕像的委托。那尊雕像并非辛美尔，而是曾被誉为人类最强的“南之勇者”的雕像。芙莉莲回想起了与“南之勇者”相遇时的情景……随后，来到达哈伯爵领地的城镇时，芙莉莲一行又从领主那里接到了“希望从魔族手中夺回宝剑”的请求……",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "30",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938703Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855836",
+                    "scope": "tv/209867/season/1/episode/31"
+                  },
+                  "title": "喜欢的地方",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "在温泉胜地埃托维斯，芙莉莲一行人对温泉满怀期待，然而那座村庄却早已荒废。听说深山中有着“埃托维斯山的秘密温泉”，三人决定前往一探究竟。在险峻且栖息着魔物的山道前方，等待着他们的究竟是……随后，在抵达下一座城市时，菲伦收到了来自休塔尔克的意外邀约。",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "31",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938704Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855837",
+                    "scope": "tv/209867/season/1/episode/32"
+                  },
+                  "title": "他人的故乡",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "休塔尔克本是抱着捉弄的心态发出的邀请，结果真的变成了两人去约会。游览了城里各处的两人，最终来到了观景广场。在那里，菲伦说出了……几天后，三人离开了城市，踏入了环境严酷的北部高原。途经一个村落时，他们听说附近出现了强大的魔物……",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "32",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938705Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855838",
+                    "scope": "tv/209867/season/1/episode/33"
+                  },
+                  "title": "北部高原的物流",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "在某个酒吧小镇，芙莉莲与矮人法斯重逢。他极为嗜酒，两百多年来一直在寻找皇帝酒“博斯哈夫特”，声称那酒就沉睡在他亲自挖掘的坑道尽头，到底能不能找到呢……而在他们随后到访的诺尔姆商会领地，竟然发现芙莉莲从80年前就背负着一笔巨额债务……",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "33",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938706Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855839",
+                    "scope": "tv/209867/season/1/episode/34"
+                  },
+                  "title": "讨伐委托",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "在北部高原的一个村庄，接受了赛丽艾讨伐魔族委托的一级魔法使盖纳乌和梅特黛出现在那里。据说那个村庄是盖纳乌的故乡……随后，同样接到讨伐委托的菲伦一行人也来到了这里。村庄已经惨遭全灭，从牺牲者身上特征明显的伤痕中，某个魔族的身影若隐若现。",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "34",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938706Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855840",
+                    "scope": "tv/209867/season/1/episode/35"
+                  },
+                  "title": "神技的雷沃戴",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "使盖纳乌的村庄全灭的魔族，是拥有四只手臂，能够自如挥舞剑刃的强敌“神技的雷沃戴”及其手下。芙莉莲、菲伦、梅特黛三人为了寻找魔族进入森林，休塔尔克和盖纳乌则留在村庄，直到诺尔姆骑士团接收村民的遗体。就在此时，残忍的魔族也分别向他们逼近。",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "35",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938707Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855841",
+                    "scope": "tv/209867/season/1/episode/36"
+                  },
+                  "title": "壮烈的牺牲",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "迎战现身村庄的“神技的雷沃戴”的，是战士休塔尔克以及使用“控制黑金之翼的魔法”的盖纳乌。面对雷沃戴的猛烈攻势，两人能否取胜……！？另一边，芙莉莲、菲伦和梅特黛也与操控强力魔法的魔族佐莉达和海蒙正面对峙！",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "36",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938708Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855842",
+                    "scope": "tv/209867/season/1/episode/37"
+                  },
+                  "title": "辛美尔的自传",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "芙莉莲等人在旅途中造访了各种各样的地方。他们造访了受到龙群威胁折磨、男人仍不愿放弃故乡的村庄；造访了广阔的湖泊——科利多亚湖所在的港口城镇。芙莉莲等人原本想在科利多亚湖乘坐渡船，但旅费不足以支付船资，因此接受了船夫提出的交换条件——寻找沉睡在岛上修道院中的《辛美尔的自传》。",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "37",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938709Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "6855843",
+                    "scope": "tv/209867/season/1/episode/38"
+                  },
+                  "title": "美丽的光景",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "在托亚大溪谷上，横跨着一座由矮人葛恩历时200多年建造的巨大桥梁。在那座桥上，隐藏着辛美尔与葛恩当年不为人知的故事……随后，来到修马尔雪原的芙莉莲一行人为了赚取路费，接下了讨伐魔物的委托。与此同时，一位一级魔法使正前往某个地方……",
+                  "imageUrl": null,
+                  "year": 2026,
+                  "number": "38",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:27:59.938709Z",
+                  "episodes": []
+                }
+              ]
+            }
+          },
+          {
+            "index": 1,
+            "record": {
+              "ref": {
+                "provider": "tmdb",
+                "objectType": "season",
+                "externalId": "182218",
+                "scope": "tv/119100/season/1"
+              },
+              "title": "第 1 季",
+              "kind": "season",
+              "originalTitle": null,
+              "overview": "“ぼっちちゃん”，即后藤独自一人，是一个极度害羞、内向的少女，每次谈话开头总是加上“啊”字。虽然渴望通过乐队活动来闪耀，她开始学习弹吉他，但由于没有朋友，她在中学时期每天独自弹吉他六个小时。她幻想着将自己吉他演奏的视频发布在网上，被称为“吉他英雄”，在文化节上表演，但当她意识到自己在成为高中生时甚至没有交到一个朋友，更不用说找到乐队成员了！尽管她一度快要成为宅女，但有一天，“团结乐队”中担任鼓手的伊地知虹夏和她说话了，从那一刻起，她的日常生活开始慢慢改变。",
+              "imageUrl": "[redacted URL]",
+              "year": 2022,
+              "number": null,
+              "season": 1,
+              "episodeType": "regular",
+              "order": "aired",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-11T16:28:01.088299Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "2739157",
+                    "scope": "tv/119100/season/1/episode/1"
+                  },
+                  "title": "翻转孤独",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "后藤独虽然性格内向，却靠自学练出一手好吉他，在网络小有名气。升上高中的她决心要弥补初中的遗憾与人共组乐队，却频频以失败告终。某天放学后孤独背着吉他的她，却遇见其他学校的女生前来搭讪。",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "1",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088283Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989993",
+                    "scope": "tv/119100/season/1/episode/2"
+                  },
+                  "title": "明天见",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "首次演奏虽然以失败告终，大家还是相约在STARRY讨论乐队的将来。为了达成“业绩”三人决定开始打工。百般不愿意却无法拒绝，乖乖赴约的独在店门口犹豫不决时遇见了店长星歌。",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "2",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088289Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989994",
+                    "scope": "tv/119100/season/1/episode/3"
+                  },
+                  "title": "救星赶来",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "为了与队员之间的承诺，独背着吉他上学，却依然与班上同学没有对话交集。这样的她偶然听说隔壁班的喜多郁代歌喉好又会弹吉他，是乐队新成员的绝佳人选，于是鼓起勇气邀她加入。",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "3",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088290Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989995",
+                    "scope": "tv/119100/season/1/episode/4"
+                  },
+                  "title": "跳跃女孩（们）",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "喜多也再次加入了结束乐队，成员们也齐聚一堂，乐队正式开始。在这种情况下，凉负责作曲，独负责作词，独在作词的过程中，为乐队风格和自己风格的不同而感到烦恼…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "4",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088291Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989996",
+                    "scope": "tv/119100/season/1/episode/5"
+                  },
+                  "title": "不会飞的鱼",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "原创歌曲也做好了，终于要开演唱会了，4人干劲十足。虽然拜托了星歌的演出，但是被拒绝了先参加试镜。在一个回顾最近动荡的日子，下定决心参加试镜…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "5",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088292Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989997",
+                    "scope": "tv/119100/season/1/episode/6"
+                  },
+                  "title": "八景",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "为了参加演唱会，结束乐队都各有5张门票的定额。没有朋友的独发现只靠家人达不到定额而绝望不已。就在她为了宣传而分发传单的时候，遇到了醉倒在小巷里的广井菊里…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "6",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088292Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989998",
+                    "scope": "tv/119100/season/1/episode/7"
+                  },
+                  "title": "去你家",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "季节已经完全变成了夏天。为了考虑演唱会上穿的T恤的设计。喜多和虹夏决定到独的家里聚会。独第一次让别人来自己的家里，她能好好地招待这两个人吗！？",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "7",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088293Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3989999",
+                    "scope": "tv/119100/season/1/episode/8"
+                  },
+                  "title": "孤独摇滚",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "演唱会当天。由于台风的影响，原本叫来观看演唱会的家人和朋友都陆续打了退堂鼓。演唱会马上就要开始了，可是客人寥寥无几，在沉重的气氛中，结束乐队迎来了4人的首次演唱会…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "8",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088294Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3990000",
+                    "scope": "tv/119100/season/1/episode/9"
+                  },
+                  "title": "江之岛电扶梯",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "演唱会也成功举办，独本来以为可以度过一个充实的暑假。为了和结束乐队的大家一起玩而专门空出了时间（虽然本来也没有什么安排），但是却没有人来邀请她。看到独的样子变得很奇怪，察觉到这一点以后，大家提议去都去江之岛游玩…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "9",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088295Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3990001",
+                    "scope": "tv/119100/season/1/episode/10"
+                  },
+                  "title": "天黑以后",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "新学期开始了，独的学校开始了文化节的准备。独得知体育馆的舞台正在募集各种表演节目后，在希望乐队可以在上面演出的欲望和害怕因为紧张而失败的恐怖之间摇摆不定…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "10",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088296Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3990003",
+                    "scope": "tv/119100/season/1/episode/11"
+                  },
+                  "title": "十二进制的黄昏",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "文化祭的第一天，虹夏和凉来到了独班上的女仆咖啡店。跟喜多一起找到了独之后，4个人结伴逛起了文化祭。接着，他们又开始为第二天的演唱会筹备忙碌了起来…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "11",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088297Z",
+                  "episodes": []
+                },
+                {
+                  "ref": {
+                    "provider": "tmdb",
+                    "objectType": "episode",
+                    "externalId": "3990004",
+                    "scope": "tv/119100/season/1/episode/12"
+                  },
+                  "title": "晨光洒落你身",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": "组建乐队，遇到了各种各样的人，独看到了很多迄今为止没有见过的风景。很快进入了第一首歌倒计时，结束乐队四人的文化祭演唱会现在就要开始了…",
+                  "imageUrl": null,
+                  "year": 2022,
+                  "number": "12",
+                  "season": 1,
+                  "episodeType": "regular",
+                  "order": "aired",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-11T16:28:01.088297Z",
+                  "episodes": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "call media.identity.bind_batch",
+    "at": 1791736085.298003,
+    "value": {
+      "status": "completed",
+      "result": {
+        "entries": [
+          {
+            "index": 0,
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "releaseId": "release-cd36b4b0e0b3b4de02214358e93219098fef9a426c5209a21ec555b2c3538d29",
+            "episodeIds": [
+              "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde"
+            ],
+            "fileId": null,
+            "bindingIds": [
+              "binding-19580701a5cbaa88aa45895b9147dd8f92a27d39f0974128cd9d5b13a4660d6c",
+              "binding-47336a36037f40e6546be0f4477fa42885ce0308d0c5d2b327e4252a26b03f78",
+              "binding-415a064d2d7b1d68c5063c6920b5a5d96e943ecc3c8848ce1072db4af6187e03"
+            ]
+          },
+          {
+            "index": 1,
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "releaseId": "release-cd36b4b0e0b3b4de02214358e93219098fef9a426c5209a21ec555b2c3538d29",
+            "episodeIds": [
+              "episode-04f91d59a5404962bc1eb664e12f53d66e04e50a8572e88a866c9f9016c7fb5b"
+            ],
+            "fileId": null,
+            "bindingIds": [
+              "binding-19580701a5cbaa88aa45895b9147dd8f92a27d39f0974128cd9d5b13a4660d6c",
+              "binding-47336a36037f40e6546be0f4477fa42885ce0308d0c5d2b327e4252a26b03f78",
+              "binding-1f615cfceb307f664f0e2e992db4e6d2430397d9af84fe268a9ee8c43d9d01bf"
+            ]
+          },
+          {
+            "index": 2,
+            "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+            "releaseId": "release-d87c6f285ccacc4482469d53bfbf0463e6217ade1eea0e134828513495cc3e1c",
+            "episodeIds": [
+              "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3"
+            ],
+            "fileId": null,
+            "bindingIds": [
+              "binding-0661e8c1f7692c53058dbfa9197d2b586a34b9b2197e730b07d7df16d025294a",
+              "binding-6254c7dd4b7a144f90d784268a2fa3d3d794148f9ce666d0aab17b4258e73d06",
+              "binding-03c3e0c7f7749f01483eae0ddd064bccd1a1a82cba24c4a0a5971307fce5f07a"
+            ]
+          },
+          {
+            "index": 3,
+            "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+            "releaseId": "release-d87c6f285ccacc4482469d53bfbf0463e6217ade1eea0e134828513495cc3e1c",
+            "episodeIds": [
+              "episode-70ea77b23ee120a2bf85b95cab96257dd8de8b10832e65fa7c7fe57067395fb7"
+            ],
+            "fileId": null,
+            "bindingIds": [
+              "binding-0661e8c1f7692c53058dbfa9197d2b586a34b9b2197e730b07d7df16d025294a",
+              "binding-6254c7dd4b7a144f90d784268a2fa3d3d794148f9ce666d0aab17b4258e73d06",
+              "binding-4e54ade2fc8a495b6158fd6a91ed27670ad727e24eea5a0ccb58ae4d65b5864c"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "call media.library.scan",
+    "at": 1791736086.129387,
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "call task.get",
+    "at": 1791736086.2459981,
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+          "type": "media.scan",
+          "title": "Scan media folder",
+          "state": "succeeded",
+          "phase": "enumerate",
+          "progress": {
+            "completed": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-11T16:28:06.101830Z",
+          "updatedAt": "2026-10-11T16:28:06.175100Z",
+          "ownerDeviceId": "device-ce3a9fd62e11447c7be0061ac289fe64",
+          "revision": 6,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "indexed": 1,
+              "fileIds": [
+                "file-b71c920b-823a-4cc3-bb44-6597ef2f8b5a"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "call media.identity.bind_batch",
+    "at": 1791736088.409898,
+    "value": {
+      "status": "completed",
+      "result": {
+        "entries": [
+          {
+            "index": 0,
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "releaseId": "release-cd36b4b0e0b3b4de02214358e93219098fef9a426c5209a21ec555b2c3538d29",
+            "episodeIds": [
+              "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde"
+            ],
+            "fileId": "file-b71c920b-823a-4cc3-bb44-6597ef2f8b5a",
+            "classicProjectionId": null,
+            "bindingIds": [
+              "binding-19580701a5cbaa88aa45895b9147dd8f92a27d39f0974128cd9d5b13a4660d6c",
+              "binding-47336a36037f40e6546be0f4477fa42885ce0308d0c5d2b327e4252a26b03f78",
+              "binding-415a064d2d7b1d68c5063c6920b5a5d96e943ecc3c8848ce1072db4af6187e03",
+              "binding-b2700d19cb26b69bb1d923e479f47bd8c075de1506b47df7c7ef19e1086fbf8e"
+            ],
+            "classicProjection": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "Classic history fixture",
+    "at": 1791736088.419591,
+    "value": {
+      "recorded": true
+    }
+  },
+  {
+    "label": "home initial",
+    "at": 1791736105.3139331,
+    "value": {
+      "hero": {
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": null,
+            "playable": true
+          }
+        },
+        "note": null
+      },
+      "shelves": [
+        {
+          "id": "recent",
+          "title": "最近添加",
+          "kind": "recent",
+          "items": [
+            {
+              "work": {
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "title": "孤独摇滚！",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "year": 2022,
+                "genres": [
+                  "动画",
+                  "喜剧"
+                ],
+                "episodeCount": 12,
+                "studio": "CloverWorks",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.4
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                  "tint": 4294703862
+                },
+                "next": {
+                  "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                  "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                  "number": 1,
+                  "season": 1,
+                  "title": "翻转孤独",
+                  "runtimeMs": 1440000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                  "progress": null,
+                  "heat": null,
+                  "playable": false
+                }
+              },
+              "episode": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              },
+              "caption": "第 1 集",
+              "badge": null
+            },
+            {
+              "work": {
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "title": "葬送的芙莉莲",
+                "originalTitle": "葬送のフリーレン",
+                "year": 2023,
+                "genres": [
+                  "动画",
+                  "动作冒险",
+                  "剧情",
+                  "Sci-Fi & Fantasy"
+                ],
+                "episodeCount": 38,
+                "studio": "Madhouse",
+                "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.8
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+                  "tint": 4292327304
+                },
+                "next": {
+                  "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                  "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                  "number": 1,
+                  "season": 1,
+                  "title": "冒险的结束",
+                  "runtimeMs": 1560000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                  "progress": null,
+                  "heat": null,
+                  "playable": true
+                }
+              },
+              "episode": {
+                "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "number": 1,
+                "season": 1,
+                "title": "冒险的结束",
+                "runtimeMs": 1560000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": true
+              },
+              "caption": "第 1 集",
+              "badge": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "work work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+    "at": 1791736105.321833,
+    "value": {
+      "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+      "title": "葬送的芙莉莲",
+      "originalTitle": "葬送のフリーレン",
+      "year": 2023,
+      "genres": [
+        "动画",
+        "动作冒险",
+        "剧情",
+        "Sci-Fi & Fantasy"
+      ],
+      "episodeCount": 38,
+      "studio": "Madhouse",
+      "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+      "ratings": [
+        {
+          "source": "TMDB",
+          "value": 8.8
+        }
+      ],
+      "artwork": {
+        "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+        "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+        "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+        "tint": 4292327304
+      },
+      "next": {
+        "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+        "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+        "number": 1,
+        "season": 1,
+        "title": "冒险的结束",
+        "runtimeMs": 1560000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": true
+      }
+    }
+  },
+  {
+    "label": "episodes work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+    "at": 1791736105.326808,
+    "value": [
+      {
+        "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+        "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+        "number": 1,
+        "season": 1,
+        "title": "冒险的结束",
+        "runtimeMs": 1560000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": true
+      },
+      {
+        "episodeId": "episode-04f91d59a5404962bc1eb664e12f53d66e04e50a8572e88a866c9f9016c7fb5b",
+        "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+        "number": 2,
+        "season": 1,
+        "title": "也不一定要是魔法…",
+        "runtimeMs": 1560000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4e6a707d7efdb91bd16ac7724e623737d5c1fe50db89041355ba822ff8fc0512.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": false
+      }
+    ]
+  },
+  {
+    "label": "work work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+    "at": 1791736105.332835,
+    "value": {
+      "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+      "title": "孤独摇滚！",
+      "originalTitle": "ぼっち・ざ・ろっく！",
+      "year": 2022,
+      "genres": [
+        "动画",
+        "喜剧"
+      ],
+      "episodeCount": 12,
+      "studio": "CloverWorks",
+      "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+      "ratings": [
+        {
+          "source": "TMDB",
+          "value": 8.4
+        }
+      ],
+      "artwork": {
+        "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+        "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+        "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+        "tint": 4294703862
+      },
+      "next": {
+        "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+        "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+        "number": 1,
+        "season": 1,
+        "title": "翻转孤独",
+        "runtimeMs": 1440000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": false
+      }
+    }
+  },
+  {
+    "label": "episodes work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+    "at": 1791736105.337047,
+    "value": [
+      {
+        "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+        "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+        "number": 1,
+        "season": 1,
+        "title": "翻转孤独",
+        "runtimeMs": 1440000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": false
+      },
+      {
+        "episodeId": "episode-70ea77b23ee120a2bf85b95cab96257dd8de8b10832e65fa7c7fe57067395fb7",
+        "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+        "number": 2,
+        "season": 1,
+        "title": "明天见",
+        "runtimeMs": 1440000,
+        "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/defe497c25cc47b44adb32d52923b75a241a6ca7038ac0ac40e3fd28d8a1e634.jpg",
+        "progress": null,
+        "heat": null,
+        "playable": false
+      }
+    ]
+  },
+  {
+    "label": "call danmaku.import",
+    "at": 1791736105.45407,
+    "value": {
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-7a969848-42d5-431b-88c1-8674b60a253d",
+        "revision": 0,
+        "count": 4,
+        "loaded": false,
+        "provenance": {
+          "platform": "bilibili",
+          "platformVideoId": "fixture-a",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-11T16:28:25.443878Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/fixture/comments.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "heat first source",
+    "at": 1791736105.4623308,
+    "value": [
+      1.0,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "label": "call danmaku.import",
+    "at": 1791736105.51904,
+    "value": {
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-ba998f64-52af-4ab3-b8cd-00eccc87d4f5",
+        "revision": 0,
+        "count": 3,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "fixture-b",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-11T16:28:25.511438Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/fixture/comments.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "heat two sources",
+    "at": 1791736105.526113,
+    "value": [
+      1.0,
+      0.3333333333333333,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "label": "call danmaku.import",
+    "at": 1791736105.58238,
+    "value": {
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-7a969848-42d5-431b-88c1-8674b60a253d",
+        "revision": 1,
+        "count": 5,
+        "loaded": false,
+        "provenance": {
+          "platform": "bilibili",
+          "platformVideoId": "fixture-a",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-11T16:28:25.574372Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/fixture/comments.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "heat after refresh",
+    "at": 1791736105.589191,
+    "value": [
+      1.0,
+      0.0,
+      0.6,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "label": "changes after identity/artwork/danmaku",
+    "at": 1791736105.590348,
+    "value": [
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:05.409247Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.115440Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.118857Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "queued",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.123397Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.124936Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.126306Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.127503Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.163193Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.167800Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.170728Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.171757Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.173968Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.174827Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.177323Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.179293Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "finished",
+            "artwork": null,
+            "progress": 1.0,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:06.180452Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库",
+            "state": "finished",
+            "artwork": null,
+            "progress": 1.0,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:06.409771Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:08.409380Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:09.409939Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:13.159914Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:13.909806Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:14.659178Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:15.659988Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:16.659894Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:17.409124Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:21.909209Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:22.659482Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:23.659728Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:24.409657Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.409202Z"
+      }
+    ]
+  },
+  {
+    "label": "call ui.shelves.put",
+    "at": 1791736105.646944,
+    "value": {
+      "status": "completed",
+      "result": {
+        "id": "hero",
+        "removed": false
+      }
+    }
+  },
+  {
+    "label": "call ui.shelves.put",
+    "at": 1791736105.7026901,
+    "value": {
+      "status": "completed",
+      "result": {
+        "id": "tonight",
+        "removed": false
+      }
+    }
+  },
+  {
+    "label": "hook task",
+    "at": 1791736105.7073731,
+    "value": {
+      "jobId": "job-69f9991a8b69cb421a44ec68cd44bd59"
+    }
+  },
+  {
+    "label": "simulated session",
+    "at": 1791736105.708856,
+    "value": {
+      "event": "chat.turn_boundary",
+      "origin": "harness_cli:chat:x26-session",
+      "threadId": "x26-thread",
+      "turnId": "x26-turn",
+      "phase": "started",
+      "status": "inProgress",
+      "startedAt": "2026-10-11T16:28:25.708297Z"
+    }
+  },
+  {
+    "label": "call ui.present",
+    "at": 1791736105.770645,
+    "value": {
+      "status": "completed",
+      "result": {
+        "presentationId": 1,
+        "threadId": "x26-thread",
+        "turnId": "x26-turn",
+        "count": 5
+      }
+    }
+  },
+  {
+    "label": "cards running",
+    "at": 1791736105.800578,
+    "value": [
+      {
+        "kind": "work",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        }
+      },
+      {
+        "kind": "episode",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "episode": {
+          "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "number": 1,
+          "season": 1,
+          "title": "冒险的结束",
+          "runtimeMs": 1560000,
+          "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+          "progress": null,
+          "heat": [
+            1.0,
+            0.0,
+            0.6,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "playable": true
+        }
+      },
+      {
+        "kind": "candidates",
+        "items": [
+          {
+            "work": {
+              "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+              "title": "孤独摇滚！",
+              "originalTitle": "ぼっち・ざ・ろっく！",
+              "year": 2022,
+              "genres": [
+                "动画",
+                "喜剧"
+              ],
+              "episodeCount": 12,
+              "studio": "CloverWorks",
+              "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+              "ratings": [
+                {
+                  "source": "TMDB",
+                  "value": 8.4
+                }
+              ],
+              "artwork": {
+                "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                "tint": 4294703862
+              },
+              "next": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              }
+            },
+            "reason": "想听音乐的时候看。"
+          }
+        ]
+      },
+      {
+        "kind": "preparation",
+        "title": "正在准备",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "steps": [
+          {
+            "label": "找到作品",
+            "state": "done",
+            "detail": null,
+            "progress": null
+          },
+          {
+            "label": "整理好了",
+            "state": "running",
+            "detail": null,
+            "progress": null
+          }
+        ]
+      },
+      {
+        "kind": "task",
+        "task": {
+          "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+          "title": "处理后续",
+          "state": "running",
+          "artwork": null,
+          "progress": null,
+          "remainingMs": null
+        }
+      }
+    ]
+  },
+  {
+    "label": "call task.wait",
+    "at": 1791736105.857986,
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "event": "playback.started",
+          "objectId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "jobId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+          "type": "harness.hook",
+          "title": "Hook playback.started",
+          "state": "running",
+          "phase": "execute",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-11T16:28:25.705443Z",
+          "updatedAt": "2026-10-11T16:28:25.724595Z",
+          "ownerDeviceId": "device-ce3a9fd62e11447c7be0061ac289fe64",
+          "revision": 3
+        }
+      }
+    }
+  },
+  {
+    "label": "cards finished",
+    "at": 1791736118.185632,
+    "value": [
+      {
+        "kind": "work",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        }
+      },
+      {
+        "kind": "episode",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "episode": {
+          "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "number": 1,
+          "season": 1,
+          "title": "冒险的结束",
+          "runtimeMs": 1560000,
+          "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+          "progress": null,
+          "heat": [
+            1.0,
+            0.0,
+            0.6,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "playable": true
+        }
+      },
+      {
+        "kind": "candidates",
+        "items": [
+          {
+            "work": {
+              "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+              "title": "孤独摇滚！",
+              "originalTitle": "ぼっち・ざ・ろっく！",
+              "year": 2022,
+              "genres": [
+                "动画",
+                "喜剧"
+              ],
+              "episodeCount": 12,
+              "studio": "CloverWorks",
+              "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+              "ratings": [
+                {
+                  "source": "TMDB",
+                  "value": 8.4
+                }
+              ],
+              "artwork": {
+                "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                "tint": 4294703862
+              },
+              "next": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              }
+            },
+            "reason": "想听音乐的时候看。"
+          }
+        ]
+      },
+      {
+        "kind": "preparation",
+        "title": "正在准备",
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "steps": [
+          {
+            "label": "找到作品",
+            "state": "done",
+            "detail": null,
+            "progress": null
+          },
+          {
+            "label": "整理好了",
+            "state": "done",
+            "detail": null,
+            "progress": 1.0
+          }
+        ]
+      },
+      {
+        "kind": "task",
+        "task": {
+          "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+          "title": "处理后续",
+          "state": "finished",
+          "artwork": null,
+          "progress": 1.0,
+          "remainingMs": null
+        }
+      }
+    ]
+  },
+  {
+    "label": "home curated",
+    "at": 1791736118.204673,
+    "value": {
+      "hero": {
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "note": "今晚一起走进芙莉莲的旅途。"
+      },
+      "shelves": [
+        {
+          "id": "tonight",
+          "title": "适合今晚",
+          "kind": "agent",
+          "items": [
+            {
+              "work": {
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "title": "孤独摇滚！",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "year": 2022,
+                "genres": [
+                  "动画",
+                  "喜剧"
+                ],
+                "episodeCount": 12,
+                "studio": "CloverWorks",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.4
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                  "tint": 4294703862
+                },
+                "next": {
+                  "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                  "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                  "number": 1,
+                  "season": 1,
+                  "title": "翻转孤独",
+                  "runtimeMs": 1440000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                  "progress": null,
+                  "heat": null,
+                  "playable": false
+                }
+              },
+              "episode": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              },
+              "caption": "听一场热闹的演出。",
+              "badge": null
+            }
+          ]
+        },
+        {
+          "id": "recent",
+          "title": "最近添加",
+          "kind": "recent",
+          "items": [
+            {
+              "work": {
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "title": "孤独摇滚！",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "year": 2022,
+                "genres": [
+                  "动画",
+                  "喜剧"
+                ],
+                "episodeCount": 12,
+                "studio": "CloverWorks",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.4
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                  "tint": 4294703862
+                },
+                "next": {
+                  "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                  "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                  "number": 1,
+                  "season": 1,
+                  "title": "翻转孤独",
+                  "runtimeMs": 1440000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                  "progress": null,
+                  "heat": null,
+                  "playable": false
+                }
+              },
+              "episode": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              },
+              "caption": "第 1 集",
+              "badge": null
+            },
+            {
+              "work": {
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "title": "葬送的芙莉莲",
+                "originalTitle": "葬送のフリーレン",
+                "year": 2023,
+                "genres": [
+                  "动画",
+                  "动作冒险",
+                  "剧情",
+                  "Sci-Fi & Fantasy"
+                ],
+                "episodeCount": 38,
+                "studio": "Madhouse",
+                "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.8
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+                  "tint": 4292327304
+                },
+                "next": {
+                  "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                  "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                  "number": 1,
+                  "season": 1,
+                  "title": "冒险的结束",
+                  "runtimeMs": 1560000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                  "progress": null,
+                  "heat": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "playable": true
+                }
+              },
+              "episode": {
+                "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "number": 1,
+                "season": 1,
+                "title": "冒险的结束",
+                "runtimeMs": 1560000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                "progress": null,
+                "heat": [
+                  1.0,
+                  0.0,
+                  0.6,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "playable": true
+              },
+              "caption": "第 1 集",
+              "badge": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "changes after shelves/cards/task",
+    "at": 1791736118.206389,
+    "value": [
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.640479Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.658662Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.695993Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.706971Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.708464Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.710659Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.726667Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:25.727714Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库《葬送的芙莉莲》",
+            "state": "finished",
+            "artwork": {
+              "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+              "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+              "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+              "tint": 4292327304
+            },
+            "progress": 1.0,
+            "remainingMs": null
+          },
+          {
+            "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+            "title": "处理后续",
+            "state": "queued",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:25.729357Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库《葬送的芙莉莲》",
+            "state": "finished",
+            "artwork": {
+              "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+              "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+              "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+              "tint": 4292327304
+            },
+            "progress": 1.0,
+            "remainingMs": null
+          },
+          {
+            "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+            "title": "处理后续",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:25.730782Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库《葬送的芙莉莲》",
+            "state": "finished",
+            "artwork": {
+              "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+              "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+              "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+              "tint": 4292327304
+            },
+            "progress": 1.0,
+            "remainingMs": null
+          },
+          {
+            "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+            "title": "处理后续",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:25.732079Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库《葬送的芙莉莲》",
+            "state": "finished",
+            "artwork": {
+              "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+              "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+              "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+              "tint": 4292327304
+            },
+            "progress": 1.0,
+            "remainingMs": null
+          },
+          {
+            "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+            "title": "处理后续",
+            "state": "running",
+            "artwork": null,
+            "progress": null,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.764225Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:25.909405Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:38.078814Z"
+      },
+      {
+        "event": "tasks",
+        "at": "2026-10-11T16:28:38.080791Z",
+        "tasks": [
+          {
+            "taskId": "scan-c20d19d5110f3a7d446abe3af2604d34ad4603041d52970457e2ae686b9bc1e6",
+            "title": "整理片库《葬送的芙莉莲》",
+            "state": "finished",
+            "artwork": {
+              "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+              "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+              "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+              "tint": 4292327304
+            },
+            "progress": 1.0,
+            "remainingMs": null
+          },
+          {
+            "taskId": "job-69f9991a8b69cb421a44ec68cd44bd59",
+            "title": "处理后续",
+            "state": "finished",
+            "artwork": null,
+            "progress": 1.0,
+            "remainingMs": null
+          }
+        ]
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:38.159314Z"
+      }
+    ]
+  },
+  {
+    "label": "GUI removal",
+    "at": 1791736118.2100182,
+    "value": {
+      "removed": true
+    }
+  },
+  {
+    "label": "home after removal",
+    "at": 1791736118.225398,
+    "value": {
+      "hero": {
+        "work": {
+          "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+          "title": "葬送的芙莉莲",
+          "originalTitle": "葬送のフリーレン",
+          "year": 2023,
+          "genres": [
+            "动画",
+            "动作冒险",
+            "剧情",
+            "Sci-Fi & Fantasy"
+          ],
+          "episodeCount": 38,
+          "studio": "Madhouse",
+          "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+          "ratings": [
+            {
+              "source": "TMDB",
+              "value": 8.8
+            }
+          ],
+          "artwork": {
+            "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+            "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+            "tint": 4292327304
+          },
+          "next": {
+            "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+            "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+            "number": 1,
+            "season": 1,
+            "title": "冒险的结束",
+            "runtimeMs": 1560000,
+            "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+            "progress": null,
+            "heat": [
+              1.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "playable": true
+          }
+        },
+        "note": "今晚一起走进芙莉莲的旅途。"
+      },
+      "shelves": [
+        {
+          "id": "recent",
+          "title": "最近添加",
+          "kind": "recent",
+          "items": [
+            {
+              "work": {
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "title": "孤独摇滚！",
+                "originalTitle": "ぼっち・ざ・ろっく！",
+                "year": 2022,
+                "genres": [
+                  "动画",
+                  "喜剧"
+                ],
+                "episodeCount": 12,
+                "studio": "CloverWorks",
+                "overview": "作为网络吉他手“吉他英雄”而广受好评的后藤独，在现实中却是个什么都不会的沟通障碍者。独有着组建乐队的梦想，但因为不敢向人主动搭话而一直没有成功，直到一天在公园中被伊地知虹夏发现并邀请进入缺少吉他手的“结束乐队”。可是，完全没有和他人合作经历的独，在人前完全发挥不出原本的实力。为了努力克服沟通障碍，独与“结束乐队”的成员们一同开始努力……",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.4
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/165e95a57e0c139b907facfc16c0d38c8cf94721482504c448a33f0ab72be75f.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/e25bfa207b245184e07517afa55e7de04804ca3a21776d70722ba0ce855e5d6b.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/cbb4238cd150b4c5c4ce3b44442ef1c6e8d5080e026fd980fb816f92912251ff.png",
+                  "tint": 4294703862
+                },
+                "next": {
+                  "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                  "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                  "number": 1,
+                  "season": 1,
+                  "title": "翻转孤独",
+                  "runtimeMs": 1440000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                  "progress": null,
+                  "heat": null,
+                  "playable": false
+                }
+              },
+              "episode": {
+                "episodeId": "episode-6f858cd897e7075565407f25e047fa5d87521cadc866ddf926dd874be7f093a3",
+                "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                "number": 1,
+                "season": 1,
+                "title": "翻转孤独",
+                "runtimeMs": 1440000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/4fcbaad4271a5da156dab18650d962a645b115cc10d42816575a230ae1f071f1.jpg",
+                "progress": null,
+                "heat": null,
+                "playable": false
+              },
+              "caption": "第 1 集",
+              "badge": null
+            },
+            {
+              "work": {
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "title": "葬送的芙莉莲",
+                "originalTitle": "葬送のフリーレン",
+                "year": 2023,
+                "genres": [
+                  "动画",
+                  "动作冒险",
+                  "剧情",
+                  "Sci-Fi & Fantasy"
+                ],
+                "episodeCount": 38,
+                "studio": "Madhouse",
+                "overview": "打倒了魔王的勇者一行人的后日谈——在“那之后”的故事。身为魔法使的芙莉莲是一位精灵，她和另外三人有着不一样的地方。对于生活在“之后”的世界、感受到的事情有着不一样的看法……残存世间的人们所编织的，葬送与祈祷相伴的故事——从“冒险的结束”开始了。",
+                "ratings": [
+                  {
+                    "source": "TMDB",
+                    "value": 8.8
+                  }
+                ],
+                "artwork": {
+                  "backdrop": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/ce568bda25b8935b57b4651edf43476c9237d5e23df4b454900225120524aa9c.jpg",
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/314a8ac5b45ebeb1e4a4f299b36b061a3a9100bad4d5ba5895d51e5668ea8541.jpg",
+                  "logo": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/203903a079c260043b1cc70cd28c060246bcc2eb013665192c43be0ec6e11986.png",
+                  "tint": 4292327304
+                },
+                "next": {
+                  "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                  "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                  "number": 1,
+                  "season": 1,
+                  "title": "冒险的结束",
+                  "runtimeMs": 1560000,
+                  "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                  "progress": null,
+                  "heat": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "playable": true
+                }
+              },
+              "episode": {
+                "episodeId": "episode-de4e1006894a670c767c9fcde885cbbd05e289b1b3317c2f1a618139607a6fde",
+                "workId": "work-32d6f9e307c5aff347ca27bfe08441c7153d8146cf4e3cfbbaab48ec8fd05a26",
+                "number": 1,
+                "season": 1,
+                "title": "冒险的结束",
+                "runtimeMs": 1560000,
+                "still": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x26-ui-10324/data/next/artwork/daa46cedff872784c5a1d7bf3402af00062f65e90befc340ab35a44bb74fb0d4.jpg",
+                "progress": null,
+                "heat": [
+                  1.0,
+                  0.0,
+                  0.6,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "playable": true
+              },
+              "caption": "第 1 集",
+              "badge": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "query activity",
+    "at": 1791736118.334095,
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-11T16:28:38.323127Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "activity": "2026-10-11T16:28:38.320901Z"
+        },
+        "rows": [
+          {
+            "id": "body:3",
+            "at": "2026-10-11T16:28:38.208623Z",
+            "type": "ui.shelf_removed",
+            "title": "已从首页移除",
+            "actor": "user",
+            "origin": "gui",
+            "deviceId": "device-ce3a9fd62e11447c7be0061ac289fe64",
+            "originDeviceId": null,
+            "invocationId": "inv-1791736118208060-23",
+            "entityId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+            "entityIds": [
+              "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176"
+            ],
+            "jobId": null,
+            "subjectId": "tonight",
+            "source": "body_changes",
+            "facts": {
+              "title": "已从首页移除",
+              "before": {
+                "placement": "shelf",
+                "id": "tonight",
+                "title": "适合今晚",
+                "items": [
+                  {
+                    "workId": "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176",
+                    "note": "听一场热闹的演出。"
+                  }
+                ]
+              },
+              "after": null,
+              "entityIds": [
+                "work-4a9ec2bea7dd9876268b3236a9cb1f6aa448b2be63ecc0c0292dc1e05a08a176"
+              ]
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "call ui.shelves.put",
+    "at": 1791736118.391158,
+    "value": {
+      "status": "completed",
+      "result": {
+        "id": "hero",
+        "removed": true
+      }
+    }
+  },
+  {
+    "label": "call ui.shelves.put",
+    "at": 1791736118.446219,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "invalid_input",
+        "message": "items[].workId must reference an existing work. Use state.query library.works and copy the row id; an external provider ID or episode number is not a local ID.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "call ui.present",
+    "at": 1791736118.502038,
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "invalid_input",
+        "message": "taskId must be an existing task.list/task.get jobId, not a download handle or work ID.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "changes after removal",
+    "at": 1791736118.504233,
+    "value": [
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:38.209560Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:38.384969Z"
+      },
+      {
+        "event": "changes",
+        "at": "2026-10-11T16:28:38.408631Z"
+      }
+    ]
+  },
+  {
+    "label": "cleanup",
+    "at": 1791736118.52928,
+    "value": {
+      "pid": 10325,
+      "returncode": -15,
+      "profileRemoved": true
+    }
+  }
+]
