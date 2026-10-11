@@ -1,0 +1,214 @@
+[
+  {
+    "at": 1791750831.884908,
+    "label": "launch",
+    "value": {
+      "pid": 91624,
+      "header": {
+        "sessionId": "nipa-1791750829130216-4d69ed7f",
+        "threadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+        "mainThreadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-91622/harness"
+      }
+    }
+  },
+  {
+    "at": 1791750837.014601,
+    "label": "terminal-main-followup",
+    "value": {
+      "id": "followup-1791750832438138-fa4470f1",
+      "state": "completed",
+      "title": "终端默认主会话",
+      "instruction": "只回复：终端后续已回到主会话。",
+      "condition": {
+        "jobId": "scan-3ffe21ba7624ddda409080095f3944cfd0c7fdef8b54043631a85da81f6264f6"
+      },
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-91622/harness",
+      "threadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+      "turnId": "01a12cac-0145-7c60-b984-cc6d275a42ec",
+      "origin": "harness_cli",
+      "invocationId": "inv-1791750832435526-11",
+      "createdAt": "2026-10-11T20:33:52.438126Z",
+      "updatedAt": "2026-10-11T20:33:56.783181Z",
+      "trigger": {
+        "kind": "task.terminal",
+        "occurredAt": "2026-10-11T20:33:51.926291Z",
+        "jobId": "scan-3ffe21ba7624ddda409080095f3944cfd0c7fdef8b54043631a85da81f6264f6",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "succeeded",
+        "phase": "enumerate",
+        "revision": 4,
+        "createdAt": "2026-10-11T20:33:51.901695Z",
+        "updatedAt": "2026-10-11T20:33:51.926291Z",
+        "ownerDeviceId": "device-e4a08936a26505d2ff526ae6f4ea39c4",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": [],
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": null,
+            "outputDirectory": null,
+            "downloadComplete": null,
+            "paused": null,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": 0,
+            "files": null
+          },
+          "cancellation": null
+        }
+      },
+      "reason": null,
+      "turnStatus": "completed"
+    }
+  },
+  {
+    "at": 1791750837.0751,
+    "label": "stop",
+    "value": {
+      "pid": 91624,
+      "returncode": -15
+    }
+  },
+  {
+    "at": 1791750839.6700149,
+    "label": "launch",
+    "value": {
+      "pid": 92817,
+      "header": {
+        "sessionId": "nipa-1791750838940497-af2574e4",
+        "threadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+        "mainThreadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-91622/harness"
+      }
+    }
+  },
+  {
+    "at": 1791750839.672926,
+    "label": "restart-main",
+    "value": {
+      "before": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+      "after": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2"
+    }
+  },
+  {
+    "at": 1791750839.69712,
+    "label": "no-replay-after-restart",
+    "value": {
+      "id": "followup-1791750832438138-fa4470f1",
+      "state": "completed",
+      "title": "终端默认主会话",
+      "instruction": "只回复：终端后续已回到主会话。",
+      "condition": {
+        "jobId": "scan-3ffe21ba7624ddda409080095f3944cfd0c7fdef8b54043631a85da81f6264f6"
+      },
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x31-91622/harness",
+      "threadId": "01a12cab-f5b2-7ce3-973f-8d1c60198eb2",
+      "turnId": "01a12cac-0145-7c60-b984-cc6d275a42ec",
+      "origin": "harness_cli",
+      "invocationId": "inv-1791750832435526-11",
+      "createdAt": "2026-10-11T20:33:52.438126Z",
+      "updatedAt": "2026-10-11T20:33:56.783181Z",
+      "trigger": {
+        "kind": "task.terminal",
+        "occurredAt": "2026-10-11T20:33:51.926291Z",
+        "jobId": "scan-3ffe21ba7624ddda409080095f3944cfd0c7fdef8b54043631a85da81f6264f6",
+        "type": "media.scan",
+        "title": "Scan media folder",
+        "state": "succeeded",
+        "phase": "enumerate",
+        "revision": 4,
+        "createdAt": "2026-10-11T20:33:51.901695Z",
+        "updatedAt": "2026-10-11T20:33:51.926291Z",
+        "ownerDeviceId": "device-e4a08936a26505d2ff526ae6f4ea39c4",
+        "progress": {
+          "completed": 0,
+          "total": null,
+          "unit": "items"
+        },
+        "errorCode": null,
+        "receipt": {
+          "verification": "verified",
+          "details": {
+            "sourceId": null,
+            "provider": null,
+            "connected": null,
+            "loggedIn": null,
+            "method": null,
+            "event": null,
+            "objectId": null,
+            "exitCode": null,
+            "elapsedMs": null,
+            "reason": null,
+            "fileId": null,
+            "fileIds": [],
+            "bindingId": null,
+            "snapshotId": null,
+            "cacheKey": null,
+            "infoHash": null,
+            "outputDirectory": null,
+            "downloadComplete": null,
+            "paused": null,
+            "refreshed": null,
+            "identityChanged": null,
+            "userOverridesPreserved": null,
+            "projectionVerified": null,
+            "indexed": 0,
+            "files": null
+          },
+          "cancellation": null
+        }
+      },
+      "reason": null,
+      "turnStatus": "completed"
+    }
+  },
+  {
+    "at": 1791750839.811759,
+    "label": "stop",
+    "value": {
+      "pid": 92817,
+      "returncode": -15
+    }
+  },
+  {
+    "at": 1791750840.2054,
+    "label": "cleanup",
+    "value": {
+      "rootAbsent": true,
+      "lastPidStopped": true,
+      "pids": [
+        91624,
+        92817
+      ]
+    }
+  }
+]
