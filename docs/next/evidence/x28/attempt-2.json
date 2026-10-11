@@ -1,0 +1,509 @@
+[
+  {
+    "label": "instance main",
+    "value": {
+      "profile": "x28-main-63934",
+      "pid": 63938
+    }
+  },
+  {
+    "label": "instance peer",
+    "value": {
+      "profile": "x28-peer-63934",
+      "pid": 63984
+    }
+  },
+  {
+    "label": "main describe sync.configure",
+    "value": {
+      "id": "sync.configure",
+      "title": "设置多端同步",
+      "description": "Patch Classic incremental sync configuration. url is HTTP(S), remotePath is a directory on that server, intervalMinutes >= 5, categories is nonempty. Omitted fields stay unchanged. Changing url or username clears the old password; use sync.login. Does not enable synchronization.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "remotePath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "intervalMinutes": {
+            "type": "integer",
+            "minimum": 5
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "preferences",
+                "mediaLibraries",
+                "watchHistory",
+                "episodeMatches",
+                "accounts"
+              ]
+            }
+          },
+          "syncOnRecordChange": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe sync.enable",
+    "value": {
+      "id": "sync.enable",
+      "title": "设置自动同步",
+      "description": "Set enabled true or false. Enable immediately syncs like Classic. Returns jobId; use task.wait for its result. Disabling stops scheduled runs; an already active run completes.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe sync.login",
+    "value": {
+      "id": "sync.login",
+      "title": "登录同步服务器",
+      "description": "Open NipaPlay for the user to enter the sync server password. No secret input is accepted. Test before saving. Returns a jobId; use task.wait. task.cancel closes the password window.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe media.sources.addresses",
+    "value": {
+      "id": "media.sources.addresses",
+      "title": "管理服务器地址",
+      "description": "List or modify Classic server addresses in one batch. sourceId must be Jellyfin/Emby. Omit operations to list without connecting. Each operation: add(url,name), remove(addressId), switch(addressId), priority(addressId,priority), check(addressId). add verifies server identity. check probes public identity before reusing this profile session, records success/failure and does not switch. Cannot remove the last address; removing the current address first switches to a remaining enabled address. Results are in input order; failure stops the batch after earlier operations have applied.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "enum": [
+                    "add",
+                    "remove",
+                    "switch",
+                    "priority",
+                    "check"
+                  ]
+                },
+                "addressId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "priority": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "operation"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "sourceId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe media.sources.remote_admin.folders",
+    "value": {
+      "id": "media.sources.remote_admin.folders",
+      "title": "管理共享文件夹",
+      "description": "Manage peer scan roots in bulk. operation add takes folders[{path,scan=true,skipPreviouslyMatchedUnwatched=false}]; scan uses the same fields with scan=true. remove takes paths[]. rescan uses skipPreviouslyMatchedUnwatched=true by default; cleanup removes missing roots. These remove metadata, never disk files. No confirmation. Results are ordered; earlier successful operations remain if a later one fails.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "add",
+              "scan",
+              "remove",
+              "rescan",
+              "cleanup"
+            ]
+          },
+          "folders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scan": {
+                  "type": "boolean"
+                },
+                "skipPreviouslyMatchedUnwatched": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "skipPreviouslyMatchedUnwatched": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "sourceId",
+          "operation"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe media.sources.remote_admin.connections",
+    "value": {
+      "id": "media.sources.remote_admin.connections",
+      "title": "管理共享连接",
+      "description": "Manage peer WebDAV/SMB connections. operation configure takes connections[{type,name,url for WebDAV or host for SMB,username,port,domain}]; it opens NipaPlay for the user to enter credentials and returns jobId (task.wait/cancel). Existing same-name connections are replaced like Classic. Other operations take type and names[]: remove/test. browse/scan take type, name and paths[] (remote directories). browse forces fresh listing; scan uses Classic recognition. Passwords are never accepted or returned.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "configure",
+              "remove",
+              "test",
+              "browse",
+              "scan"
+            ]
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "webdav",
+                    "smb"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "host": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "port": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 65535
+                },
+                "username": {
+                  "type": "string"
+                },
+                "domain": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "webdav",
+              "smb"
+            ]
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "sourceId",
+          "operation"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe media.sources.play",
+    "value": {
+      "id": "media.sources.play",
+      "title": "Play an item from a source",
+      "description": "Play itemId returned by browse/query in the context of sourceId. Activates that Classic source first. Dandanplay remote and NipaPlay shared items retain Classic episode identity and resume context; credentials remain internal. Optional startPositionMs overrides resume. Returns the Classic player snapshot. Does not open a password prompt; log in first.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "itemId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "startPositionMs": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "sourceId",
+          "itemId"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "label": "main describe media.sources.scrape",
+    "value": {
+      "id": "media.sources.scrape",
+      "title": "Recognize remote media files",
+      "description": "Submit Classic WebDAV/SMB recursive video recognition from explicit paths[]. Uses Classic remote byte/hash matching, saved credentials and history. Requires the Classic Dandanplay matching account to be logged in. Preserves existing progress and migrates only previously cleared episode progress. Returns jobId; task.wait returns per-directory total/matched/failed counts. Cancellation stops between directories. This writes Classic matching/history; media.sources.sync only discovers files.",
+      "effect": "write",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "sourceId",
+          "paths"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "jobId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "label": "main call sync.status",
+    "value": {
+      "status": "completed",
+      "result": {
+        "configuration": {
+          "url": "[redacted URL]",
+          "username": "nipatest",
+          "remotePath": "/NipaPlay/x28-63934",
+          "intervalMinutes": 30,
+          "categories": [
+            "watchHistory",
+            "episodeMatches"
+          ],
+          "syncOnRecordChange": false
+        },
+        "enabled": false,
+        "syncing": false,
+        "phase": "idle",
+        "completedRunCount": 0,
+        "lastSyncAt": null,
+        "lastError": null
+      }
+    }
+  },
+  {
+    "label": "main call sync.configure",
+    "value": {
+      "status": "completed",
+      "result": {
+        "configuration": {
+          "url": "[redacted URL]",
+          "username": "nipatest",
+          "remotePath": "/NipaPlay/x28-63934",
+          "intervalMinutes": 5,
+          "categories": [
+            "watchHistory",
+            "episodeMatches"
+          ],
+          "syncOnRecordChange": true
+        }
+      }
+    }
+  },
+  {
+    "label": "main call sync.test",
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "unavailable",
+        "message": "WebDAV 下载同步文件失败（HTTP 401）：身份验证失败，请检查用户名和密码\n路径：/NipaPlay/x28-63934/manifest.version",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "experiment failure",
+    "value": {
+      "error": "nipa failed: sync.test",
+      "type": "RuntimeError"
+    }
+  },
+  {
+    "label": "remote cleanup",
+    "value": {
+      "httpStatus": 403
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        63938,
+        63984
+      ],
+      "processesExited": true,
+      "profilesRemoved": true
+    }
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "label": "main call playback.state",
+    "value": {
+      "status": "failed",
+      "error": {
+        "code": "conflict",
+        "message": "This path belongs to multiple sources; use the source browse fileId.",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "main call media.sources.remote_admin.folders",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": [
+          {
+            "removed": 0
+          }
+        ],
+        "state": {
+          "sourceId": "nipaplay:1791742297639",
+          "folders": [
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x28-peer-13831/data/fixture",
+              "name": "fixture",
+              "exists": true
+            },
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x28-peer-13831/data/extra",
+              "name": "extra",
+              "exists": false
+            }
+          ],
+          "webdav": [],
+          "smb": [
+            {
+              "name": "共享端测试 SMB",
+              "host": "127.0.0.1",
+              "port": 1445,
+              "username": "nipatest",
+              "domain": "",
+              "connected": true
+            }
+          ],
+          "scan": {
+            "scanning": false,
+            "progress": 1.0,
+            "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x28-peer-13831/data/extra",
+            "totalFilesFound": 0
+          }
+        }
+      }
+    }
+  }
+]
