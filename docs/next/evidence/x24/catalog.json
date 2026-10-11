@@ -1,0 +1,624 @@
+{
+  "actions": [
+    {
+      "id": "accounts.bangumi.sync",
+      "effect": "write",
+      "title": "Synchronize watch history to Bangumi"
+    },
+    {
+      "id": "accounts.bangumi.sync_status",
+      "effect": "read",
+      "title": "Read Bangumi sync statistics"
+    },
+    {
+      "id": "accounts.collections.get",
+      "effect": "read",
+      "title": "Read favorites, ratings and work status"
+    },
+    {
+      "id": "accounts.collections.update",
+      "effect": "write",
+      "title": "Update favorites, ratings and work status"
+    },
+    {
+      "id": "accounts.episodes.get",
+      "effect": "read",
+      "title": "Read account episode watch state"
+    },
+    {
+      "id": "accounts.episodes.update",
+      "effect": "write",
+      "title": "Update account episode watch state"
+    },
+    {
+      "id": "accounts.login",
+      "effect": "write",
+      "title": "Initiate account login"
+    },
+    {
+      "id": "accounts.logout",
+      "effect": "write",
+      "title": "Log out of an account"
+    },
+    {
+      "id": "accounts.status",
+      "effect": "read",
+      "title": "Read account login state"
+    },
+    {
+      "id": "app.instance",
+      "effect": "read",
+      "title": "Identify the connected NipaPlay process"
+    },
+    {
+      "id": "appearance.reset_home_sections",
+      "effect": "write",
+      "title": "重置首页分区"
+    },
+    {
+      "id": "backup.export",
+      "effect": "write",
+      "title": "导出全量备份"
+    },
+    {
+      "id": "backup.history_export",
+      "effect": "write",
+      "title": "导出观看进度"
+    },
+    {
+      "id": "backup.history_restore",
+      "effect": "destructive",
+      "title": "恢复观看进度"
+    },
+    {
+      "id": "backup.preview",
+      "effect": "read",
+      "title": "预览全量备份"
+    },
+    {
+      "id": "backup.restore",
+      "effect": "destructive",
+      "title": "恢复全量备份"
+    },
+    {
+      "id": "credentials.retry",
+      "effect": "write",
+      "title": "主动重试指定凭据"
+    },
+    {
+      "id": "credentials.status",
+      "effect": "read",
+      "title": "凭据保险库状态"
+    },
+    {
+      "id": "danmaku.align",
+      "effect": "write",
+      "title": "danmaku.align"
+    },
+    {
+      "id": "danmaku.align_apply",
+      "effect": "write",
+      "title": "danmaku.align_apply"
+    },
+    {
+      "id": "danmaku.align_keep",
+      "effect": "write",
+      "title": "danmaku.align_keep"
+    },
+    {
+      "id": "danmaku.analyze_alignment",
+      "effect": "read",
+      "title": "danmaku.analyze_alignment"
+    },
+    {
+      "id": "danmaku.attach",
+      "effect": "write",
+      "title": "danmaku.attach"
+    },
+    {
+      "id": "danmaku.cache_delete",
+      "effect": "destructive",
+      "title": "danmaku.cache_delete"
+    },
+    {
+      "id": "danmaku.detach",
+      "effect": "write",
+      "title": "danmaku.detach"
+    },
+    {
+      "id": "danmaku.episodes",
+      "effect": "read",
+      "title": "danmaku.episodes"
+    },
+    {
+      "id": "danmaku.export",
+      "effect": "write",
+      "title": "danmaku.export"
+    },
+    {
+      "id": "danmaku.fetch",
+      "effect": "write",
+      "title": "danmaku.fetch"
+    },
+    {
+      "id": "danmaku.import",
+      "effect": "write",
+      "title": "danmaku.import"
+    },
+    {
+      "id": "danmaku.offset",
+      "effect": "write",
+      "title": "danmaku.offset"
+    },
+    {
+      "id": "danmaku.resolve",
+      "effect": "read",
+      "title": "danmaku.resolve"
+    },
+    {
+      "id": "danmaku.search",
+      "effect": "read",
+      "title": "danmaku.search"
+    },
+    {
+      "id": "danmaku.set_dedup",
+      "effect": "write",
+      "title": "danmaku.set_dedup"
+    },
+    {
+      "id": "danmaku.set_enabled",
+      "effect": "write",
+      "title": "danmaku.set_enabled"
+    },
+    {
+      "id": "danmaku.sources",
+      "effect": "read",
+      "title": "danmaku.sources"
+    },
+    {
+      "id": "danmaku.tracks",
+      "effect": "read",
+      "title": "danmaku.tracks"
+    },
+    {
+      "id": "danmaku.update",
+      "effect": "write",
+      "title": "danmaku.update"
+    },
+    {
+      "id": "diagnostics.clear",
+      "effect": "destructive",
+      "title": "清空诊断日志"
+    },
+    {
+      "id": "diagnostics.directory",
+      "effect": "read",
+      "title": "查询日志目录"
+    },
+    {
+      "id": "diagnostics.export",
+      "effect": "write",
+      "title": "导出诊断日志"
+    },
+    {
+      "id": "diagnostics.logs",
+      "effect": "read",
+      "title": "读取诊断日志"
+    },
+    {
+      "id": "download.add",
+      "effect": "write",
+      "title": "add download"
+    },
+    {
+      "id": "download.delete",
+      "effect": "destructive",
+      "title": "delete download"
+    },
+    {
+      "id": "download.directories",
+      "effect": "read",
+      "title": "Download directories"
+    },
+    {
+      "id": "download.forget_directories",
+      "effect": "write",
+      "title": "Download forget_directories"
+    },
+    {
+      "id": "download.import",
+      "effect": "write",
+      "title": "import download"
+    },
+    {
+      "id": "download.pause",
+      "effect": "write",
+      "title": "pause download"
+    },
+    {
+      "id": "download.play",
+      "effect": "write",
+      "title": "Play a download file"
+    },
+    {
+      "id": "download.preview",
+      "effect": "read",
+      "title": "Download preview"
+    },
+    {
+      "id": "download.read",
+      "effect": "read",
+      "title": "read download"
+    },
+    {
+      "id": "download.remove",
+      "effect": "write",
+      "title": "remove download"
+    },
+    {
+      "id": "download.resume",
+      "effect": "write",
+      "title": "resume download"
+    },
+    {
+      "id": "download.set_paused",
+      "effect": "write",
+      "title": "set_paused download"
+    },
+    {
+      "id": "history.continue_watching",
+      "effect": "read",
+      "title": "Get continue watching"
+    },
+    {
+      "id": "media.files.list",
+      "effect": "read",
+      "title": "media.files.list"
+    },
+    {
+      "id": "media.hash.match",
+      "effect": "read",
+      "title": "media.hash.match"
+    },
+    {
+      "id": "media.identity.bind_batch",
+      "effect": "write",
+      "title": "media.identity.bind_batch"
+    },
+    {
+      "id": "media.identity.get",
+      "effect": "read",
+      "title": "media.identity.get"
+    },
+    {
+      "id": "media.identity.unbind_batch",
+      "effect": "write",
+      "title": "media.identity.unbind_batch"
+    },
+    {
+      "id": "media.library.import_history",
+      "effect": "write",
+      "title": "media.library.import_history"
+    },
+    {
+      "id": "media.library.scan",
+      "effect": "write",
+      "title": "media.library.scan"
+    },
+    {
+      "id": "media.library.search",
+      "effect": "read",
+      "title": "Search the media library"
+    },
+    {
+      "id": "media.library.series",
+      "effect": "read",
+      "title": "Get a library series"
+    },
+    {
+      "id": "media.library.work",
+      "effect": "read",
+      "title": "media.library.work"
+    },
+    {
+      "id": "media.library.works",
+      "effect": "read",
+      "title": "media.library.works"
+    },
+    {
+      "id": "media.metadata.get",
+      "effect": "read",
+      "title": "media.metadata.get"
+    },
+    {
+      "id": "media.metadata.get_batch",
+      "effect": "read",
+      "title": "media.metadata.get_batch"
+    },
+    {
+      "id": "media.metadata.import_batch",
+      "effect": "write",
+      "title": "media.metadata.import_batch"
+    },
+    {
+      "id": "media.metadata.override",
+      "effect": "write",
+      "title": "media.metadata.override"
+    },
+    {
+      "id": "media.metadata.refresh",
+      "effect": "write",
+      "title": "media.metadata.refresh"
+    },
+    {
+      "id": "media.metadata.search",
+      "effect": "read",
+      "title": "media.metadata.search"
+    },
+    {
+      "id": "media.metadata.search_batch",
+      "effect": "read",
+      "title": "media.metadata.search_batch"
+    },
+    {
+      "id": "media.metadata.snapshots",
+      "effect": "read",
+      "title": "media.metadata.snapshots"
+    },
+    {
+      "id": "media.sources.add",
+      "effect": "write",
+      "title": "Configure a media source"
+    },
+    {
+      "id": "media.sources.browse",
+      "effect": "write",
+      "title": "Browse remote content"
+    },
+    {
+      "id": "media.sources.check",
+      "effect": "write",
+      "title": "Check a media source connection"
+    },
+    {
+      "id": "media.sources.libraries",
+      "effect": "read",
+      "title": "List available source libraries"
+    },
+    {
+      "id": "media.sources.list",
+      "effect": "read",
+      "title": "List media sources"
+    },
+    {
+      "id": "media.sources.login",
+      "effect": "write",
+      "title": "Initiate media source login"
+    },
+    {
+      "id": "media.sources.query",
+      "effect": "read",
+      "title": "Query remote item metadata"
+    },
+    {
+      "id": "media.sources.remove",
+      "effect": "destructive",
+      "title": "Remove a media source"
+    },
+    {
+      "id": "media.sources.select",
+      "effect": "write",
+      "title": "Select source libraries"
+    },
+    {
+      "id": "media.sources.sync",
+      "effect": "write",
+      "title": "Synchronize source discovery"
+    },
+    {
+      "id": "media.sources.update",
+      "effect": "write",
+      "title": "Update a media source"
+    },
+    {
+      "id": "mesh.devices",
+      "effect": "read",
+      "title": "Mesh devices"
+    },
+    {
+      "id": "mesh.invoke",
+      "effect": "write",
+      "title": "Mesh invoke"
+    },
+    {
+      "id": "mesh.invoke_destructive",
+      "effect": "destructive",
+      "title": "Mesh invoke_destructive"
+    },
+    {
+      "id": "playback.authorize_directory",
+      "effect": "write",
+      "title": "Open directory permission picker"
+    },
+    {
+      "id": "playback.capture",
+      "effect": "write",
+      "title": "Save a screenshot or GIF"
+    },
+    {
+      "id": "playback.close",
+      "effect": "write",
+      "title": "Close current playback"
+    },
+    {
+      "id": "playback.external",
+      "effect": "write",
+      "title": "Control an external player session"
+    },
+    {
+      "id": "playback.external_state",
+      "effect": "read",
+      "title": "Read external playback telemetry"
+    },
+    {
+      "id": "playback.load_subtitle",
+      "effect": "write",
+      "title": "Load an external subtitle"
+    },
+    {
+      "id": "playback.open",
+      "effect": "write",
+      "title": "Open a video"
+    },
+    {
+      "id": "playback.remove_subtitle",
+      "effect": "write",
+      "title": "Unmount an external subtitle"
+    },
+    {
+      "id": "playback.seek",
+      "effect": "write",
+      "title": "Seek in the current video"
+    },
+    {
+      "id": "playback.select_stream",
+      "effect": "write",
+      "title": "Apply stream choices"
+    },
+    {
+      "id": "playback.select_track",
+      "effect": "write",
+      "title": "Select a player track"
+    },
+    {
+      "id": "playback.set_paused",
+      "effect": "write",
+      "title": "Set playback pause"
+    },
+    {
+      "id": "playback.state",
+      "effect": "read",
+      "title": "Get playback state"
+    },
+    {
+      "id": "playback.stream_options",
+      "effect": "read",
+      "title": "Read stream versions and quality"
+    },
+    {
+      "id": "playback.switch_episode",
+      "effect": "write",
+      "title": "Switch the current episode"
+    },
+    {
+      "id": "playback.tracks",
+      "effect": "read",
+      "title": "List player tracks"
+    },
+    {
+      "id": "plugins.delete",
+      "effect": "destructive",
+      "title": "删除插件"
+    },
+    {
+      "id": "plugins.install",
+      "effect": "destructive",
+      "title": "安装或更新插件"
+    },
+    {
+      "id": "plugins.invoke",
+      "effect": "destructive",
+      "title": "执行插件 UI 动作"
+    },
+    {
+      "id": "plugins.list",
+      "effect": "read",
+      "title": "查询已安装插件"
+    },
+    {
+      "id": "plugins.market",
+      "effect": "read",
+      "title": "查询市场与更新"
+    },
+    {
+      "id": "plugins.set_enabled",
+      "effect": "write",
+      "title": "启用或停用插件"
+    },
+    {
+      "id": "settings.describe",
+      "effect": "read",
+      "title": "Settings describe"
+    },
+    {
+      "id": "settings.get",
+      "effect": "read",
+      "title": "Settings get"
+    },
+    {
+      "id": "settings.history",
+      "effect": "read",
+      "title": "Settings history"
+    },
+    {
+      "id": "settings.reset",
+      "effect": "write",
+      "title": "Settings reset"
+    },
+    {
+      "id": "settings.set",
+      "effect": "write",
+      "title": "Settings set"
+    },
+    {
+      "id": "shortcuts.reset",
+      "effect": "write",
+      "title": "恢复默认快捷键"
+    },
+    {
+      "id": "state.describe",
+      "effect": "read",
+      "title": "Describe public state"
+    },
+    {
+      "id": "state.query",
+      "effect": "read",
+      "title": "Query public state"
+    },
+    {
+      "id": "task.cancel",
+      "effect": "write",
+      "title": "Cancel task"
+    },
+    {
+      "id": "task.get",
+      "effect": "read",
+      "title": "Get task"
+    },
+    {
+      "id": "task.list",
+      "effect": "read",
+      "title": "List task"
+    },
+    {
+      "id": "task.wait",
+      "effect": "read",
+      "title": "Wait task"
+    },
+    {
+      "id": "ui.capture",
+      "effect": "read",
+      "title": "Capture this NipaPlay main interface"
+    },
+    {
+      "id": "ui.open",
+      "effect": "write",
+      "title": "Open a visible Classic target"
+    },
+    {
+      "id": "webdav_quick.reset",
+      "effect": "destructive",
+      "title": "重置 WebDAV 快捷设置"
+    }
+  ]
+}

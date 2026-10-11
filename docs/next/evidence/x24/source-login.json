@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "result": {
+    "sourceId": "jellyfin:1791725929562",
+    "method": "quickConnect",
+    "jobId": "source-login-0fbcae4d-e719-46e9-b784-41eda68b354a",
+    "code": "246810",
+    "approval": {
+      "code": "246810",
+      "message": "Give this code to the user to approve in Jellyfin. Await the approval result with the returned task.",
+      "expiresAt": "2026-10-11T13:50:33.861115Z",
+      "wait": {
+        "action": "task.wait",
+        "input": {
+          "jobId": "source-login-0fbcae4d-e719-46e9-b784-41eda68b354a"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+仅依据 bind-describe.json 和任务提供的已核实事实生成；未读取代码或其他文档，未调用 API。
+不需要猜测任何身份字段。requestId 是为本次输入选择的非空请求标识，reason 根据任务事实填写。
+采用 catalogue mode，一批显式包含 work、release、episode 三条；每条均提供相同 workRef。不提供本地 entityId/workId/releaseId，describe 说明相同 provider refs 会在本批复用相同本地层级。
+层级为 work -> release -> episode。弹弹play anime 的剧集目录就是 release，因此依 describe 省略 releaseRef，由 workRef 表示该目录。
+作品引用：provider=dandanplay，objectType=anime，externalId="7001"，scope=""。
+单个剧集引用：provider=dandanplay，objectType=episode，externalId="7101"，scope="anime/7001"。7101 是实际 provider episodeId，而不是显示集数 1。
+未混用 direct mode；本次不涉及 file 层级。requestId 不应被用于提交不同输入。
+
+错误纠正观察：仅新增读取 wrong-input.json 与 bind-error.json，未调用 API。
+回执明确将 /entries/0/episodeRefs/0 标为 invalid_input：scope="release/7001" 不是所选 anime 目录的成员命名空间。错误消息与 violations 都给出预期引用，scope 应为 "anime/7001"，且说明 scope 是 provider namespace 字符串，不是本地 release ID。
+无需猜测修正字段；按回执仅将该 episodeRef 的 scope 改为 "anime/7001"，保留原请求的一条 episode entry、workRef、实际 episodeId="7101" 和 reason。按任务要求将 requestId 换为 "x24-error-corrected"，保存为 fresh-agent-corrected.json。
+retryable=false 表明不能直接重试同一错误输入；回执提供了明确的修正依据。修正结果是否被实际接受尚未验证，因为本任务不调用 API。

@@ -1,0 +1,306 @@
+{
+  "id": "media.identity.bind_batch",
+  "title": "media.identity.bind_batch",
+  "description": "Atomically accept explicit bindings in one batch. Local hierarchy is work -> release -> episode; files link to episodes. Two input modes must not be mixed within an entry. (1) Catalogue mode: every entry supplies workRef. kind=work binds/creates only the work; kind=release binds/creates the work and release; kind=episode binds/creates the work, release and exactly one episodeRef; kind=file also links an indexed file to one or more distinct episodeRefs. Without local IDs, the same provider refs reuse the same local hierarchy within this batch. For Dandanplay anime and Bangumi subject, omit releaseRef or repeat workRef: their episode catalogue is the release. TMDB TV requires releaseRef of objectType=season for all non-work entries. Work refs have scope=\"\"; Dandanplay episode scope=\"anime/<animeId>\", Bangumi episode scope=\"subject/<subjectId>\"; TMDB season scope=\"tv/<tvId>/season/<number>\" and episode scope adds \"/episode/<number>\". externalId is always the actual provider object ID, not the displayed episode number. Example (replace ANIME_ID and EPISODE_ID with verified provider IDs): {\"requestId\":\"chosen-series-1\",\"entries\":[{\"kind\":\"work\",\"workRef\":{\"provider\":\"dandanplay\",\"objectType\":\"anime\",\"externalId\":\"ANIME_ID\",\"scope\":\"\"},\"reason\":\"User selected this work\"},{\"kind\":\"release\",\"workRef\":{\"provider\":\"dandanplay\",\"objectType\":\"anime\",\"externalId\":\"ANIME_ID\",\"scope\":\"\"},\"reason\":\"This anime is its episode catalogue\"},{\"kind\":\"episode\",\"workRef\":{\"provider\":\"dandanplay\",\"objectType\":\"anime\",\"externalId\":\"ANIME_ID\",\"scope\":\"\"},\"episodeRefs\":[{\"provider\":\"dandanplay\",\"objectType\":\"episode\",\"externalId\":\"EPISODE_ID\",\"scope\":\"anime/ANIME_ID\"}],\"reason\":\"Verified episode identity\"}]}. (2) Direct mode: ref + existing entityId + kind binds an external work/release/episode without fetching metadata, creating parents or cascading. Direct file bindings also require exactly one localEpisodeIds target where this ref is already accepted (including an earlier entry). New direct provider namespaces must be HTTPS origins; host canonicalizes them. Indexed remote files use source browse fileId as entityId and need no local byte probing. Preserves reason/evidence; host derives boundBy. requestId is durable and cannot be reused with different input.",
+  "effect": "write",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "requestId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "entries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "work",
+                "release",
+                "episode",
+                "file"
+              ]
+            },
+            "entityId": {
+              "type": "string",
+              "description": "Existing local entity of this entry kind. Required in direct mode. Catalogue mode: optional for work/release/episode (omitted creates or reuses by ref); file requires exactly one entityId (browse fileId) or path.",
+              "minLength": 1
+            },
+            "path": {
+              "type": "string",
+              "description": "Catalogue file only: alternative to entityId; remote location must already be indexed.",
+              "minLength": 1
+            },
+            "workId": {
+              "type": "string",
+              "description": "Catalogue non-work entry: optional existing local parent work ID, not an external provider ID. Omit to reuse/create the work from workRef.",
+              "minLength": 1
+            },
+            "releaseId": {
+              "type": "string",
+              "description": "Catalogue episode/file: optional existing local parent release ID under workId. Omit to reuse/create from releaseRef (or workRef for anime/subject/movie).",
+              "minLength": 1
+            },
+            "localEpisodeIds": {
+              "type": "array",
+              "description": "Catalogue: existing local episode IDs corresponding one-to-one with episodeRefs under the selected release. For kind=episode use entityId instead. Direct file: exactly one existing episode with this accepted ref.",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "workRef": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "objectType": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "externalId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                }
+              },
+              "required": [
+                "provider",
+                "objectType",
+                "externalId",
+                "scope"
+              ],
+              "additionalProperties": false
+            },
+            "ref": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "objectType": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "externalId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                }
+              },
+              "required": [
+                "provider",
+                "objectType",
+                "externalId",
+                "scope"
+              ],
+              "additionalProperties": false
+            },
+            "releaseRef": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "objectType": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "externalId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                }
+              },
+              "required": [
+                "provider",
+                "objectType",
+                "externalId",
+                "scope"
+              ],
+              "additionalProperties": false
+            },
+            "episodeRefs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "externalId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                  }
+                },
+                "required": [
+                  "provider",
+                  "objectType",
+                  "externalId",
+                  "scope"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "detail": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "source",
+                  "detail"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "startMs": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "endMs": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "kind",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "requestId",
+      "entries"
+    ],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "entries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            },
+            "workId": {
+              "type": "string"
+            },
+            "releaseId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "episodeIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "fileId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "classicProjectionId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "bindingIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "classicProjection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "locator": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "restored": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "locator",
+                  "status",
+                  "restored"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "index",
+            "workId",
+            "releaseId",
+            "episodeIds",
+            "fileId",
+            "bindingIds"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "entries"
+    ],
+    "additionalProperties": false
+  }
+}

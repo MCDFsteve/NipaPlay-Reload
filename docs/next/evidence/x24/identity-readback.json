@@ -1,0 +1,104 @@
+{
+  "status": "completed",
+  "result": {
+    "identity": {
+      "id": "episode-7ea457eb0f136703b38cead2964a0d04375e6c258f42ba544a69ca6974234466",
+      "kind": "episode",
+      "parentId": "release-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+      "revision": 0,
+      "bindingRevision": null,
+      "metadata": [
+        {
+          "field": "title",
+          "value": "X24 first episode",
+          "provider": "dandanplay",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-11T13:40:33.534374Z",
+          "invocationId": "inv-1791726033514015-18",
+          "actor": null,
+          "origin": "harness_cli",
+          "mode": null
+        }
+      ],
+      "metadataView": {
+        "fields": {
+          "title": "X24 first episode"
+        },
+        "provenance": {
+          "title": {
+            "provider": "dandanplay",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-11T13:40:33.534374Z",
+            "recordedAt": "2026-10-11T13:40:33.534374Z",
+            "snapshotId": "snapshot-bfadb55552b1a4aa83ccd84c259ce628526c0c50b7f5d14d88f48052d1bf301b",
+            "entityId": "episode-7ea457eb0f136703b38cead2964a0d04375e6c258f42ba544a69ca6974234466",
+            "actor": null,
+            "origin": "harness_cli",
+            "invocationId": "inv-1791726033514015-18"
+          }
+        },
+        "ratings": []
+      },
+      "bindings": [
+        {
+          "bindingId": "binding-9e329cfb6a2d86b22ba49a1d5791c9e1d75756099eb81c0d9db66c34799424fa",
+          "ref": {
+            "provider": "dandanplay",
+            "objectType": "episode",
+            "externalId": "7101",
+            "scope": "anime/7001"
+          },
+          "relation": "exact",
+          "scope": {
+            "order": "provider",
+            "season": null,
+            "cour": null,
+            "numbers": [
+              "1"
+            ],
+            "startMs": null,
+            "endMs": null
+          },
+          "status": "accepted",
+          "source": "explicit_binding",
+          "boundBy": "agent",
+          "revision": 0,
+          "invocationId": "inv-1791726033514015-18",
+          "jobId": null,
+          "createdAt": "2026-10-11T13:40:33.567977Z"
+        }
+      ],
+      "locations": [],
+      "episodes": [],
+      "evidence": [
+        {
+          "evidenceId": "evidence-38322675-4bfa-488b-af82-843877cfd859",
+          "bindingId": "binding-9e329cfb6a2d86b22ba49a1d5791c9e1d75756099eb81c0d9db66c34799424fa",
+          "source": "explicit_binding",
+          "event": "bind",
+          "reason": "用户提供已核实的第一集实际 episodeId=7101",
+          "evidence": [],
+          "boundBy": "agent",
+          "invocationId": "inv-1791726033514015-18",
+          "origin": "harness_cli"
+        },
+        {
+          "evidenceId": "evidence-eb9a5afd-0c7f-4769-8d8d-903571a90d58",
+          "bindingId": "binding-9e329cfb6a2d86b22ba49a1d5791c9e1d75756099eb81c0d9db66c34799424fa",
+          "source": "explicit_binding",
+          "event": "bind",
+          "reason": "用户提供已核实的第一集实际 episodeId=7101",
+          "evidence": [],
+          "boundBy": "agent",
+          "invocationId": "inv-1791726152899672-39",
+          "origin": "harness_cli"
+        }
+      ],
+      "legacyEvidence": [],
+      "classicObservations": [],
+      "conflicts": []
+    }
+  }
+}

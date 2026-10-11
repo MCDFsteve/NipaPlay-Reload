@@ -1,0 +1,43 @@
+{
+  "requestId": "x24-fresh-agent-anime-7001-episode-7101",
+  "entries": [
+    {
+      "kind": "work",
+      "workRef": {
+        "provider": "dandanplay",
+        "objectType": "anime",
+        "externalId": "7001",
+        "scope": ""
+      },
+      "reason": "用户明确选择了已核实的弹弹play作品 animeId=7001"
+    },
+    {
+      "kind": "release",
+      "workRef": {
+        "provider": "dandanplay",
+        "objectType": "anime",
+        "externalId": "7001",
+        "scope": ""
+      },
+      "reason": "用户选择的版本就是 animeId=7001 的剧集目录"
+    },
+    {
+      "kind": "episode",
+      "workRef": {
+        "provider": "dandanplay",
+        "objectType": "anime",
+        "externalId": "7001",
+        "scope": ""
+      },
+      "episodeRefs": [
+        {
+          "provider": "dandanplay",
+          "objectType": "episode",
+          "externalId": "7101",
+          "scope": "anime/7001"
+        }
+      ],
+      "reason": "用户提供已核实的第一集实际 episodeId=7101"
+    }
+  ]
+}
