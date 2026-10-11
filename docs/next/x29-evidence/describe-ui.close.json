@@ -1,0 +1,16 @@
+{
+  "id": "ui.close",
+  "title": "Close current dialog",
+  "description": "Close the top Classic modal/page route, discarding unsaved drafts. No confirmation or secret submission. closed=false on the root page.",
+  "effect": "write",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

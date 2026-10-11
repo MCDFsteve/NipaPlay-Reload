@@ -1,0 +1,20 @@
+{
+  "id": "discover.recommendations",
+  "title": "Discover recommendations",
+  "description": "Returns official daily groups, tags, date, generatedAt and Classic active group. next=true switches Classic to its next cached nonempty group exactly like 换一组. Requires mounted home for next=true.",
+  "effect": "write",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "next": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

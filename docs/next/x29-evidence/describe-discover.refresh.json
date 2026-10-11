@@ -1,0 +1,16 @@
+{
+  "id": "discover.refresh",
+  "title": "Discover refresh",
+  "description": "Await Classic manual home refresh: remote Resume, history, hero/recent/calendar/random/ranking/review. Returns observed data and loading/errors. refreshed=false means busy/player active; refreshed=true means Classic loaders finished, not proof of fresh network data.",
+  "effect": "write",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

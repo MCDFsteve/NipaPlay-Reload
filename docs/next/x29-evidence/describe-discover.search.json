@@ -1,0 +1,65 @@
+{
+  "id": "discover.search",
+  "title": "Discover search",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Classic tag or advanced search; returns ALL results with rating and metadata. Supply tags alone, or advanced fields (keyword/year/minRate/maxRate/type/tagIds/month/restricted/sort/source). Defaults: rates 0–10, sort 0, source anidb. No UI draft or paging required.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "description": "Text tags: 1–10, each at most 50 characters. Exclusive with advanced fields.",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "keyword": {
+        "type": "string"
+      },
+      "year": {
+        "type": "integer"
+      },
+      "minRate": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 10
+      },
+      "maxRate": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 10
+      },
+      "type": {
+        "type": "integer"
+      },
+      "tagIds": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "month": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "restricted": {
+        "type": "boolean"
+      },
+      "sort": {
+        "type": "integer"
+      },
+      "source": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}

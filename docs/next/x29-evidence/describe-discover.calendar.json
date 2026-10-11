@@ -1,0 +1,23 @@
+{
+  "id": "discover.calendar",
+  "title": "Discover calendar",
+  "description": "Requires a signed-in Dandanplay account; accounts.login opens user login. Full Classic new-series calendar, today and weekday groups; 0=Sunday, 1–6=Monday–Saturday, -1=unknown. Defaults false/true; Classic can use cached data if network fails.",
+  "effect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "forceRefresh": {
+        "type": "boolean"
+      },
+      "filterAdultContent": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": true
+  }
+}
