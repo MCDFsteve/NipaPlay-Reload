@@ -1,0 +1,359 @@
+{
+  "profile": "x14-accounts-20261011",
+  "window": {
+    "width": 1512,
+    "height": 874,
+    "visible": true
+  },
+  "observations": {
+    "X14 accounts before": {
+      "accounts": [
+        {
+          "provider": "dandanplay",
+          "loggedIn": true,
+          "username": "<测试账号>"
+        },
+        {
+          "provider": "bangumi",
+          "loggedIn": false,
+          "username": null
+        }
+      ]
+    },
+    "X14 login initiated": {
+      "provider": "dandanplay",
+      "method": "provided",
+      "jobId": "account-login-e38e97db-5506-4025-b29b-df48e598cfa9"
+    },
+    "X14 login task": {
+      "jobId": "account-login-e38e97db-5506-4025-b29b-df48e598cfa9",
+      "type": "accounts.login",
+      "title": "Log in to dandanplay",
+      "state": "succeeded",
+      "phase": "authenticating",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-11T08:21:53.048740Z",
+      "updatedAt": "2026-10-11T08:21:53.969659Z",
+      "ownerDeviceId": "device-fcf88d5081ccd55548cc543d9e1f394d",
+      "revision": 5,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "provider": "dandanplay",
+          "loggedIn": true,
+          "username": "<测试账号>",
+          "verificationMeaning": "Classic authentication response accepted and local login state read back."
+        }
+      }
+    },
+    "X14 favorite and rate": {
+      "results": [
+        {
+          "index": 0,
+          "status": "completed",
+          "result": {
+            "provider": "dandanplay",
+            "workId": 17864,
+            "acknowledged": true
+          }
+        }
+      ]
+    },
+    "X14 readback": {
+      "results": [
+        {
+          "index": 0,
+          "status": "completed",
+          "result": {
+            "provider": "dandanplay",
+            "workId": 17864,
+            "collection": {
+              "animeId": 17864,
+              "bangumiId": "17864",
+              "animeTitle": "莉可丽丝 新作",
+              "type": "web",
+              "lastFavoriteTime": "2026-10-11T16:21:54.357",
+              "lastAirDate": "2025-05-21T00:00:00",
+              "lastWatchTime": "2026-10-11T16:17:51.74",
+              "imageUrl": "[redacted URL]",
+              "episodeTotal": 6,
+              "episodeWatched": 5,
+              "startDate": "2025-04-16T00:00:00",
+              "isOnAir": false,
+              "favoriteStatus": "favorited",
+              "userRating": 8,
+              "rating": 6.6
+            },
+            "rating": 8
+          }
+        }
+      ]
+    },
+    "X14 auto Quick Connect": {
+      "sourceId": "jellyfin:1791706407510",
+      "method": "quickConnect",
+      "jobId": "source-login-cb8d4871-e814-4f8b-82f5-c746be8eb004",
+      "code": "932977",
+      "approval": {
+        "code": "932977",
+        "message": "Give this code to the user to approve in Jellyfin. Await the approval result with the returned task.",
+        "expiresAt": "2026-10-11T08:25:46.643524Z",
+        "wait": {
+          "action": "task.wait",
+          "input": {
+            "jobId": "source-login-cb8d4871-e814-4f8b-82f5-c746be8eb004"
+          }
+        }
+      }
+    },
+    "X14 awaiting approval": "queued",
+    "X14 Jellyfin approved": true,
+    "X14 Quick Connect task": {
+      "code": "932977",
+      "jobId": "source-login-cb8d4871-e814-4f8b-82f5-c746be8eb004",
+      "type": "media.sources.login",
+      "title": "Log in to X14 Jellyfin",
+      "state": "succeeded",
+      "phase": "awaiting_approval",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-11T08:15:46.643551Z",
+      "updatedAt": "2026-10-11T08:15:48.837474Z",
+      "ownerDeviceId": "device-fcf88d5081ccd55548cc543d9e1f394d",
+      "revision": 4,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "sourceId": "jellyfin:1791706407510",
+          "connected": true,
+          "method": "quickConnect"
+        }
+      }
+    },
+    "X14 source live check": {
+      "source": {
+        "sourceId": "jellyfin:1791706407510",
+        "type": "jellyfin",
+        "name": "X14 Jellyfin",
+        "url": "[redacted URL]",
+        "username": "nipatest",
+        "connected": true,
+        "selectedLibraries": [],
+        "connectionState": "connected"
+      },
+      "checked": true
+    },
+    "X14 CAS fetch accepted": {
+      "bindingId": "danmaku-142b498b-4021-4062-aa18-165757b95ee2",
+      "jobId": "danmaku-fetch-16a0d7b832e4e2685e486fc9893d8576dd1fadbdccd89a97ea258cbb14fb7a65"
+    },
+    "X14 CAS fetch task": {
+      "jobId": "danmaku-fetch-16a0d7b832e4e2685e486fc9893d8576dd1fadbdccd89a97ea258cbb14fb7a65",
+      "type": "danmaku.fetch",
+      "title": "Fetch dandanplay danmaku",
+      "state": "succeeded",
+      "phase": "verify",
+      "progress": {
+        "completed": 1,
+        "total": 1,
+        "unit": "chunks"
+      },
+      "createdAt": "2026-10-11T08:21:54.185329Z",
+      "updatedAt": "2026-10-11T08:21:54.931472Z",
+      "ownerDeviceId": "device-fcf88d5081ccd55548cc543d9e1f394d",
+      "revision": 7,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "sourceId": "dandanplay",
+          "videoId": "178640001",
+          "cacheKey": "danmaku-cache-dff4570214e0238a526e19169971c5f18f21b18239a1230be08a22e99401352d",
+          "status": "complete",
+          "complete": true,
+          "localRangeComplete": true,
+          "localDurationMs": null,
+          "outOfRangeFailures": [],
+          "loaded": false,
+          "requestedRange": {
+            "startMs": 0,
+            "endMs": 140036
+          },
+          "coverageMeaning": "relatedPool",
+          "historyComplete": false,
+          "completedChunks": [
+            0
+          ],
+          "missingChunks": [],
+          "failures": [],
+          "alignmentVerified": false,
+          "verificationMeaning": "Response structure, requested pool coverage and cache readback; platform completeness and semantic matching remain unverified.",
+          "partial": false,
+          "rawCount": 615,
+          "cachedUniqueCount": 615,
+          "bindingId": "danmaku-142b498b-4021-4062-aa18-165757b95ee2"
+        }
+      }
+    },
+    "X14 logout": {
+      "provider": "dandanplay",
+      "loggedIn": false,
+      "username": null
+    },
+    "X14 accounts after logout": {
+      "accounts": [
+        {
+          "provider": "dandanplay",
+          "loggedIn": false,
+          "username": null
+        },
+        {
+          "provider": "bangumi",
+          "loggedIn": false,
+          "username": null
+        }
+      ]
+    },
+    "X14 refused fetch accepted": {
+      "bindingId": "danmaku-142b498b-4021-4062-aa18-165757b95ee2",
+      "jobId": "danmaku-fetch-761c5bf699563b4e267bf3b38b81caac085a10359f682c33fcc5d62c8163116d"
+    },
+    "X14 refused fetch task": {
+      "jobId": "danmaku-fetch-761c5bf699563b4e267bf3b38b81caac085a10359f682c33fcc5d62c8163116d",
+      "type": "danmaku.fetch",
+      "title": "Fetch dandanplay danmaku",
+      "state": "failed",
+      "phase": "fetch",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-11T08:21:55.038776Z",
+      "updatedAt": "2026-10-11T08:21:55.208666Z",
+      "ownerDeviceId": "device-fcf88d5081ccd55548cc543d9e1f394d",
+      "revision": 3,
+      "error": {
+        "code": "unavailable",
+        "message": "dandanplay: authenticationRequired; HTTP unavailable; host=nipaplay.aimes-soft.com; path=/dandanplay/api/v2/comment/178640001; content-type=unavailable",
+        "retryable": false
+      },
+      "receipt": {
+        "verification": "acknowledged",
+        "details": {
+          "sourceId": "dandanplay",
+          "videoId": "178640001",
+          "cacheKey": "danmaku-cache-57d56177ed64b148d13f1115d39391bf1acb5e1f8e7c3df093686f645cacb918",
+          "status": "authenticationRequired",
+          "complete": false,
+          "localRangeComplete": false,
+          "localDurationMs": null,
+          "outOfRangeFailures": [],
+          "loaded": false,
+          "requestedRange": {
+            "startMs": 0,
+            "endMs": 140036
+          },
+          "coverageMeaning": "relatedPool",
+          "historyComplete": false,
+          "completedChunks": [],
+          "missingChunks": [
+            {
+              "index": 0,
+              "startMs": 0,
+              "endMs": 140036
+            }
+          ],
+          "failures": [
+            {
+              "status": "authenticationRequired",
+              "diagnostics": "HTTP unavailable; host=nipaplay.aimes-soft.com; path=/dandanplay/api/v2/comment/178640001; content-type=unavailable"
+            }
+          ],
+          "alignmentVerified": false,
+          "verificationMeaning": "Response structure, requested pool coverage and cache readback; platform completeness and semantic matching remain unverified.",
+          "bindingId": "danmaku-142b498b-4021-4062-aa18-165757b95ee2",
+          "acquisitionSucceeded": false,
+          "available": {
+            "observedAt": "2026-10-11T08:21:55.207838Z",
+            "classicCache": {
+              "present": true,
+              "count": 584
+            },
+            "assignedCache": {
+              "cacheKey": "danmaku-cache-dff4570214e0238a526e19169971c5f18f21b18239a1230be08a22e99401352d",
+              "count": 615
+            },
+            "attemptedCache": {
+              "cacheKey": "danmaku-cache-57d56177ed64b148d13f1115d39391bf1acb5e1f8e7c3df093686f645cacb918",
+              "count": 0
+            },
+            "player": {
+              "loaded": false,
+              "count": 0,
+              "tracks": []
+            },
+            "meaning": "Cache and player availability observed at receipt time; existing comments do not verify this acquisition or requested coverage."
+          }
+        }
+      }
+    },
+    "X14 tracks after refusal": {
+      "tracks": [
+        {
+          "origin": "binding",
+          "source": "dandanplay",
+          "platform": "dandanplay",
+          "platformVideoId": "178640001",
+          "bindingId": "danmaku-142b498b-4021-4062-aa18-165757b95ee2",
+          "entityId": "file-775b1839-88be-49dd-bf0e-6f2315cfbe6d",
+          "revision": 0,
+          "status": "accepted",
+          "stale": false,
+          "video": {
+            "sourceId": "dandanplay",
+            "videoId": "178640001",
+            "title": "第1话 Take it easy",
+            "durationMs": 140036,
+            "objectType": "episode"
+          },
+          "enabled": true,
+          "deduplicate": true,
+          "offsetMs": 0,
+          "alignment": {
+            "method": "identity",
+            "confirmed": false
+          },
+          "evidence": {
+            "reason": "X14 verify real CAS comment redirect",
+            "url": null
+          },
+          "boundBy": "agent",
+          "cacheKey": "danmaku-cache-dff4570214e0238a526e19169971c5f18f21b18239a1230be08a22e99401352d",
+          "loaded": false,
+          "coverage": [
+            {
+              "chunk_index": 0,
+              "start_ms": 0,
+              "end_ms": 140036,
+              "coverage": "relatedPool",
+              "fetched_at": "2026-10-11T08:21:54.905270Z"
+            }
+          ],
+          "displayFold": true,
+          "bindingIds": [
+            "danmaku-142b498b-4021-4062-aa18-165757b95ee2"
+          ]
+        }
+      ]
+    },
+    "accounts.login": {
+      "provider": "dandanplay",
+      "method": "window",
+      "jobId": "account-login-daf32b41-2b48-48c2-af3c-0e8452a6ad14"
+    }
+  }
+}
