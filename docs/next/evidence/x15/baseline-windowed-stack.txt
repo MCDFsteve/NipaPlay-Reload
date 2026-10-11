@@ -1,0 +1,10 @@
+[ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Bad state: Too many elements
+#0      Iterable.single (dart:core/iterable.dart:696:24)
+#1      MethodChannelScreenRetriever._defaultArguments (package:screen_retriever_platform_interface/src/screen_retriever_method_channel.dart:30:56)
+#2      MethodChannelScreenRetriever.getPrimaryDisplay (package:screen_retriever_platform_interface/src/screen_retriever_method_channel.dart:54:7)
+#3      ScreenRetriever.getPrimaryDisplay (package:screen_retriever/src/screen_retriever.dart:47:22)
+#4      calcWindowPosition (package:window_manager/src/utils/calc_window_position.dart:8:50)
+#5      WindowManager.setAlignment (package:window_manager/src/window_manager.dart:335:29)
+<asynchronous suspension>
+#6      _main.<anonymous closure>.<anonymous closure> (package:nipaplay/main.dart:634:11)
+<asynchronous suspension>

@@ -1,0 +1,226 @@
+[
+  {
+    "kernel": "mdk",
+    "media": "local",
+    "calls": 158,
+    "failures": 0,
+    "timings": {
+      "playback.close": {
+        "count": 1,
+        "minMs": 13.69,
+        "medianMs": 13.69,
+        "maxMs": 13.69
+      },
+      "playback.open": {
+        "count": 1,
+        "minMs": 1527.48,
+        "medianMs": 1527.48,
+        "maxMs": 1527.48
+      },
+      "playback.seek": {
+        "count": 25,
+        "minMs": 4.3,
+        "medianMs": 18.82,
+        "maxMs": 27.76
+      },
+      "playback.set_paused": {
+        "count": 50,
+        "minMs": 12.88,
+        "medianMs": 33.3,
+        "maxMs": 48.73
+      },
+      "playback.state": {
+        "count": 76,
+        "minMs": 0.96,
+        "medianMs": 2.14,
+        "maxMs": 78.32
+      },
+      "playback.tracks": {
+        "count": 5,
+        "minMs": 0.87,
+        "medianMs": 1.23,
+        "maxMs": 3.78
+      }
+    }
+  },
+  {
+    "kernel": "mdk",
+    "media": "jellyfin",
+    "calls": 163,
+    "failures": 0,
+    "timings": {
+      "media.sources.add": {
+        "count": 1,
+        "minMs": 19.19,
+        "medianMs": 19.19,
+        "maxMs": 19.19
+      },
+      "media.sources.browse": {
+        "count": 1,
+        "minMs": 48.03,
+        "medianMs": 48.03,
+        "maxMs": 48.03
+      },
+      "media.sources.login": {
+        "count": 1,
+        "minMs": 5.97,
+        "medianMs": 5.97,
+        "maxMs": 5.97
+      },
+      "playback.close": {
+        "count": 1,
+        "minMs": 36.87,
+        "medianMs": 36.87,
+        "maxMs": 36.87
+      },
+      "playback.open": {
+        "count": 1,
+        "minMs": 1437.62,
+        "medianMs": 1437.62,
+        "maxMs": 1437.62
+      },
+      "playback.seek": {
+        "count": 25,
+        "minMs": 9.65,
+        "medianMs": 18.49,
+        "maxMs": 27.41
+      },
+      "playback.set_paused": {
+        "count": 50,
+        "minMs": 9.05,
+        "medianMs": 30.54,
+        "maxMs": 56.85
+      },
+      "playback.state": {
+        "count": 76,
+        "minMs": 0.93,
+        "medianMs": 2.1,
+        "maxMs": 4.74
+      },
+      "playback.tracks": {
+        "count": 5,
+        "minMs": 10.39,
+        "medianMs": 13.85,
+        "maxMs": 15.65
+      },
+      "task.get": {
+        "count": 2,
+        "minMs": 2.74,
+        "medianMs": 3.24,
+        "maxMs": 3.74
+      }
+    }
+  },
+  {
+    "kernel": "erika",
+    "media": "local",
+    "calls": 158,
+    "failures": 0,
+    "timings": {
+      "playback.close": {
+        "count": 1,
+        "minMs": 4.3,
+        "medianMs": 4.3,
+        "maxMs": 4.3
+      },
+      "playback.open": {
+        "count": 1,
+        "minMs": 1855.43,
+        "medianMs": 1855.43,
+        "maxMs": 1855.43
+      },
+      "playback.seek": {
+        "count": 25,
+        "minMs": 2.71,
+        "medianMs": 3.59,
+        "maxMs": 19.32
+      },
+      "playback.set_paused": {
+        "count": 50,
+        "minMs": 3.05,
+        "medianMs": 10.46,
+        "maxMs": 33.04
+      },
+      "playback.state": {
+        "count": 76,
+        "minMs": 1.07,
+        "medianMs": 2.75,
+        "maxMs": 18.7
+      },
+      "playback.tracks": {
+        "count": 5,
+        "minMs": 0.82,
+        "medianMs": 2.65,
+        "maxMs": 7.01
+      }
+    }
+  },
+  {
+    "kernel": "erika",
+    "media": "jellyfin",
+    "calls": 163,
+    "failures": 0,
+    "timings": {
+      "media.sources.add": {
+        "count": 1,
+        "minMs": 16.8,
+        "medianMs": 16.8,
+        "maxMs": 16.8
+      },
+      "media.sources.browse": {
+        "count": 1,
+        "minMs": 26.51,
+        "medianMs": 26.51,
+        "maxMs": 26.51
+      },
+      "media.sources.login": {
+        "count": 1,
+        "minMs": 5.36,
+        "medianMs": 5.36,
+        "maxMs": 5.36
+      },
+      "playback.close": {
+        "count": 1,
+        "minMs": 18.03,
+        "medianMs": 18.03,
+        "maxMs": 18.03
+      },
+      "playback.open": {
+        "count": 1,
+        "minMs": 1567.88,
+        "medianMs": 1567.88,
+        "maxMs": 1567.88
+      },
+      "playback.seek": {
+        "count": 25,
+        "minMs": 2.28,
+        "medianMs": 3.71,
+        "maxMs": 19.21
+      },
+      "playback.set_paused": {
+        "count": 50,
+        "minMs": 2.51,
+        "medianMs": 7.85,
+        "maxMs": 23.43
+      },
+      "playback.state": {
+        "count": 76,
+        "minMs": 1.0,
+        "medianMs": 2.13,
+        "maxMs": 6.44
+      },
+      "playback.tracks": {
+        "count": 5,
+        "minMs": 10.43,
+        "medianMs": 12.58,
+        "maxMs": 18.82
+      },
+      "task.get": {
+        "count": 2,
+        "minMs": 2.74,
+        "medianMs": 3.41,
+        "maxMs": 4.07
+      }
+    }
+  }
+]
