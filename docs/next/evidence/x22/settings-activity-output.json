@@ -1,0 +1,45 @@
+{
+  "status": "completed",
+  "result": {
+    "schemaVersion": 1,
+    "snapshotId": null,
+    "observedAt": "2026-10-11T13:02:25.549115Z",
+    "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+    "sources": {
+      "activity": "2026-10-11T13:02:25.548916Z"
+    },
+    "rows": [
+      {
+        "at": "2026-10-11T12:50:44.781293Z",
+        "type": "settings.changed",
+        "actor": "hook",
+        "origin": "hook:job-fddd817e49a6022d008f5bfd423f767f",
+        "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+        "facts": {
+          "key": "seek.stepSeconds",
+          "revision": 2,
+          "reason": "X22 library.file_added hook",
+          "before": 12.0,
+          "after": 13.0
+        }
+      },
+      {
+        "at": "2026-10-11T12:46:05.017819Z",
+        "type": "settings.changed",
+        "actor": "agent",
+        "origin": "harness_cli",
+        "jobId": null,
+        "facts": {
+          "key": "seek.stepSeconds",
+          "revision": 1,
+          "reason": "X22 real progress reconstruction",
+          "before": 10.0,
+          "after": 12.0
+        }
+      }
+    ],
+    "nextCursor": null,
+    "truncated": false,
+    "warnings": []
+  }
+}

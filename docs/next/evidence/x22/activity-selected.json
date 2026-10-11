@@ -1,0 +1,188 @@
+[
+  {
+    "id": "body:4",
+    "at": "2026-10-11T13:00:13.553791Z",
+    "type": "source.removed",
+    "title": "X22 local source · source.removed",
+    "actor": "agent",
+    "origin": "harness_cli",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": "inv-1791723613546454-15",
+    "entityId": null,
+    "entityIds": [],
+    "jobId": null,
+    "subjectId": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+    "source": "body_changes",
+    "facts": {
+      "before": {
+        "id": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+        "type": "webdav",
+        "name": "X22 local source",
+        "url": "[redacted URL]",
+        "username": "x22-fixture",
+        "connected": false
+      },
+      "after": null
+    }
+  },
+  {
+    "id": "body:3",
+    "at": "2026-10-11T12:59:22.360357Z",
+    "type": "account.logged_out",
+    "title": "dandanplay · account.logged_out",
+    "actor": "agent",
+    "origin": "harness_cli",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": "inv-1791723562348559-4",
+    "entityId": null,
+    "entityIds": [],
+    "jobId": null,
+    "subjectId": "dandanplay",
+    "source": "body_changes",
+    "facts": {
+      "before": {
+        "id": "dandanplay",
+        "loggedIn": true,
+        "username": "x22-fixture"
+      },
+      "after": {
+        "id": "dandanplay",
+        "loggedIn": false,
+        "username": null
+      }
+    }
+  },
+  {
+    "id": "setting:2",
+    "at": "2026-10-11T12:50:44.781293Z",
+    "type": "settings.changed",
+    "title": "快进快退步长（秒） · 设置修改",
+    "actor": "hook",
+    "origin": "hook:job-fddd817e49a6022d008f5bfd423f767f",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": "inv-1791723044774483-18",
+    "entityId": null,
+    "entityIds": [],
+    "jobId": "job-fddd817e49a6022d008f5bfd423f767f",
+    "subjectId": "seek.stepSeconds",
+    "source": "settings_changes",
+    "facts": {
+      "key": "seek.stepSeconds",
+      "revision": 2,
+      "reason": "X22 library.file_added hook",
+      "before": 12.0,
+      "after": 13.0
+    }
+  },
+  {
+    "id": "git:af88fb8408790e18a8282c327533827147729d53",
+    "at": "2026-10-11T12:50:43.000Z",
+    "type": "harness.commit",
+    "title": "X22 record real activity experiment",
+    "actor": "X22 Agent",
+    "origin": "git",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": null,
+    "entityId": null,
+    "entityIds": [],
+    "jobId": null,
+    "subjectId": "af88fb8408790e18a8282c327533827147729d53",
+    "source": "git log",
+    "facts": {
+      "hash": "af88fb8408790e18a8282c327533827147729d53",
+      "author": "X22 Agent",
+      "authoredAt": "2026-10-11T20:50:43+08:00",
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/harness",
+      "subject": "X22 record real activity experiment"
+    }
+  },
+  {
+    "id": "danmaku:danmaku-event-403af0041b5f25e6c0b4d14fd79bff2630c7c30bd5648c1bcee8ea49ff3d27d7",
+    "at": "2026-10-11T12:50:21.429470Z",
+    "type": "danmaku.import",
+    "title": "x22-fixture · local-video-1 · import",
+    "actor": "agent",
+    "origin": "harness_cli",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": "inv-1791723021420847-12",
+    "entityId": "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05",
+    "entityIds": [
+      "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+    ],
+    "jobId": null,
+    "subjectId": "danmaku-b55c6ba2-7fc5-4783-b1ec-b928f8bc4b5d",
+    "source": "danmaku_binding_events",
+    "facts": {
+      "bindingId": "danmaku-b55c6ba2-7fc5-4783-b1ec-b928f8bc4b5d",
+      "revision": 0,
+      "video": {
+        "sourceId": "x22-fixture",
+        "videoId": "local-video-1",
+        "title": "local-video-1",
+        "durationMs": 0,
+        "objectType": "video"
+      },
+      "operation": "import",
+      "entryCount": 1,
+      "cacheKey": "danmaku-import-dadcbbba-0e76-4265-b5ba-2881ea46a741",
+      "platform": "x22-fixture",
+      "platformVideoId": "local-video-1",
+      "actor": "agent",
+      "origin": "harness_cli",
+      "importedAt": "2026-10-11T12:50:21.428574Z",
+      "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/comments.json",
+      "note": "X22 imported one real comment into isolated host"
+    }
+  },
+  {
+    "id": "setting:1",
+    "at": "2026-10-11T12:46:05.017819Z",
+    "type": "settings.changed",
+    "title": "快进快退步长（秒） · 设置修改",
+    "actor": "agent",
+    "origin": "harness_cli",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": "inv-1791722765008855-12",
+    "entityId": null,
+    "entityIds": [],
+    "jobId": null,
+    "subjectId": "seek.stepSeconds",
+    "source": "settings_changes",
+    "facts": {
+      "key": "seek.stepSeconds",
+      "revision": 1,
+      "reason": "X22 real progress reconstruction",
+      "before": 10.0,
+      "after": 12.0
+    }
+  },
+  {
+    "id": "git:02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+    "at": "2026-10-11T12:45:18.000Z",
+    "type": "harness.commit",
+    "title": "Update NipaPlay harness seed",
+    "actor": "NipaPlay",
+    "origin": "git",
+    "deviceId": "device-291870e501383b40db7ca7424c8c8bb2",
+    "originDeviceId": null,
+    "invocationId": null,
+    "entityId": null,
+    "entityIds": [],
+    "jobId": null,
+    "subjectId": "02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+    "source": "git log",
+    "facts": {
+      "hash": "02c6bc59edcf5bdcb74393cb7c986d6456103eb1",
+      "author": "NipaPlay",
+      "authoredAt": "2026-10-11T20:45:18+08:00",
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/harness",
+      "subject": "Update NipaPlay harness seed"
+    }
+  }
+]

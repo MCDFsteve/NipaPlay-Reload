@@ -1,0 +1,371 @@
+[
+  {
+    "args": [
+      "call",
+      "state.describe",
+      "{\"view\":\"activity\"}"
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"views\": [\n      {\n        \"view\": \"activity\",\n        \"schemaVersion\": 1,\n        \"description\": \"Newest-first body changes derived from domain histories, invocation journal and active harness git log. entityId matches the primary entity; entityIds lists all related entities. Unknown legacy provenance stays unknown. Cursors paginate live observations; concurrent inserts may shift pages. No credentials or comment bodies.\",\n        \"fields\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"description\": \"Stable source-qualified event ID.\"\n            },\n            \"at\": {\n              \"type\": \"string\",\n              \"description\": \"UTC ISO-8601 event time, not query time.\"\n            },\n            \"type\": {\n              \"type\": \"string\",\n              \"description\": \"Domain.operation; filter with eq/in/contains.\"\n            },\n            \"title\": {\n              \"type\": \"string\",\n              \"description\": \"Display-ready statement of the recorded fact.\"\n            },\n            \"actor\": {\n              \"type\": \"string\",\n              \"description\": \"user, agent, hook, system or unknown.\"\n            },\n            \"origin\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"deviceId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"originDeviceId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"invocationId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"entityId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"entityIds\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"string\"\n              }\n            },\n            \"jobId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"subjectId\": {\n              \"type\": [\n                \"string\",\n                \"null\"\n              ]\n            },\n            \"source\": {\n              \"type\": \"string\",\n              \"description\": \"Original store, not a second event ledger.\"\n            },\n            \"facts\": {\n              \"type\": \"object\",\n              \"properties\": {},\n              \"additionalProperties\": true,\n              \"required\": []\n            }\n          },\n          \"additionalProperties\": false,\n          \"required\": []\n        },\n        \"relations\": {},\n        \"filterOperators\": [\n          \"eq\",\n          \"ne\",\n          \"in\",\n          \"contains\",\n          \"gt\",\n          \"gte\",\n          \"lt\",\n          \"lte\"\n        ]\n      }\n    ],\n    \"limits\": {\n      \"defaultLimit\": 50,\n      \"defaultTimeoutMs\": null,\n      \"maxInputBytes\": 65536\n    }\n  }\n}\n",
+    "error": ""
+  },
+  {
+    "args": [
+      "call",
+      "settings.set",
+      "{\"key\":\"seek.stepSeconds\",\"value\":12,\"reason\":\"X22 real progress reconstruction\"}"
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"key\": \"seek.stepSeconds\",\n    \"value\": 12.0,\n    \"revision\": 1,\n    \"scope\": \"user\",\n    \"apply\": \"immediate\",\n    \"provenance\": {\n      \"key\": \"seek.stepSeconds\",\n      \"previousValue\": 10.0,\n      \"value\": 12.0,\n      \"changedAt\": \"2026-10-11T12:46:05.017819Z\",\n      \"changedBy\": \"harness_cli\",\n      \"origin\": \"harness_cli\",\n      \"reason\": \"X22 real progress reconstruction\",\n      \"invocationId\": \"inv-1791722765008855-12\",\n      \"revision\": 1\n    }\n  }\n}\n",
+    "error": ""
+  },
+  {
+    "args": [
+      "call",
+      "media.sources.add",
+      "{\"type\":\"webdav\",\"name\":\"X22 local source\",\"url\":\"http://127.0.0.1:18922/dav\",\"username\":\"x22-fixture\"}"
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"source\": {\n      \"sourceId\": \"webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d\",\n      \"type\": \"webdav\",\n      \"name\": \"X22 local source\",\n      \"url\": \"[redacted URL]\",\n      \"username\": \"x22-fixture\",\n      \"connected\": false,\n      \"selectedLibraries\": [],\n      \"connectionState\": \"unverified\"\n    }\n  }\n}\n",
+    "error": ""
+  },
+  {
+    "args": [
+      "call",
+      "media.library.scan",
+      "{\"root\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media\", \"requestId\": \"x22-scan\"}"
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"job\": {\n      \"jobId\": \"scan-9a43eb8a116092cca79b91e1669b6b5771f61cc68fa63fe9c0316ed2c078309f\",\n      \"state\": \"queued\",\n      \"revision\": 0\n    }\n  }\n}\n",
+    "error": ""
+  },
+  {
+    "args": [
+      "media.identity.bind_batch",
+      {
+        "requestId": "x22-work",
+        "entries": [
+          {
+            "kind": "work",
+            "workRef": {
+              "provider": "dandanplay",
+              "objectType": "anime",
+              "externalId": "19768",
+              "scope": ""
+            },
+            "reason": "X22 progress experiment"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"failed\",\n  \"error\": {\n    \"code\": \"unavailable\",\n    \"message\": \"Entry 0: Dandanplay login is required. HTTP unavailable; host=nipaplay.aimes-soft.com; path=/dandanplay/api/v2/bangumi/19768; content-type=unavailable\",\n    \"retryable\": false,\n    \"violations\": [\n      {\n        \"path\": \"/entries/0\",\n        \"message\": \"Dandanplay login is required. HTTP unavailable; host=nipaplay.aimes-soft.com; path=/dandanplay/api/v2/bangumi/19768; content-type=unavailable\"\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "accounts.login",
+      {
+        "provider": "dandanplay",
+        "username": "x22-fixture",
+        "password": "<local fixture>"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"provider\": \"dandanplay\",\n    \"method\": \"provided\",\n    \"jobId\": \"account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70\"\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "task.wait",
+      {
+        "jobId": "account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70",
+        "timeoutMs": 3000
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"job\": {\n      \"jobId\": \"account-login-e7cf76fe-3727-401d-ae91-bdaeee01ef70\",\n      \"type\": \"accounts.login\",\n      \"title\": \"Log in to dandanplay\",\n      \"state\": \"succeeded\",\n      \"phase\": \"authenticating\",\n      \"progress\": {\n        \"completed\": 0,\n        \"unit\": \"items\"\n      },\n      \"createdAt\": \"2026-10-11T12:49:37.287528Z\",\n      \"updatedAt\": \"2026-10-11T12:49:37.321743Z\",\n      \"ownerDeviceId\": \"device-291870e501383b40db7ca7424c8c8bb2\",\n      \"revision\": 5,\n      \"receipt\": {\n        \"verification\": \"verified\",\n        \"details\": {\n          \"provider\": \"dandanplay\",\n          \"loggedIn\": true,\n          \"username\": \"x22-fixture\",\n          \"verificationMeaning\": \"Classic authentication response accepted and local login state read back.\"\n        }\n      }\n    }\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.bind_batch",
+      {
+        "requestId": "x22-work-success",
+        "entries": [
+          {
+            "kind": "work",
+            "workRef": {
+              "provider": "dandanplay",
+              "objectType": "anime",
+              "externalId": "7001",
+              "scope": ""
+            },
+            "reason": "X22 local catalogue identity"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"workId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\",\n        \"releaseId\": null,\n        \"episodeIds\": [],\n        \"fileId\": null,\n        \"bindingIds\": [\n          \"binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.bind_batch",
+      {
+        "requestId": "x22-identity",
+        "entries": [
+          {
+            "kind": "work",
+            "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "ref": {
+              "provider": "tmdb",
+              "objectType": "tv",
+              "externalId": "x22-synthetic",
+              "scope": ""
+            },
+            "reason": "Temporary cross-source identity for X22"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"workId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\",\n        \"releaseId\": null,\n        \"episodeIds\": [],\n        \"fileId\": null,\n        \"bindingIds\": [\n          \"binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.metadata.import_batch",
+      {
+        "requestId": "x22-snapshot",
+        "entries": [
+          {
+            "ref": {
+              "provider": "tmdb",
+              "objectType": "tv",
+              "externalId": "x22-synthetic",
+              "scope": ""
+            },
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-10T00:00:00Z",
+            "fields": {
+              "title": "X22 submitted snapshot",
+              "overview": "Snapshot survives identity revocation",
+              "rating": {
+                "value": 8.1,
+                "max": 10,
+                "count": 52
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"snapshotId\": \"imported-snapshot-23e60ec201241d31db649a1e342eaba75093b7e95387c7e209ced69d4e26d195\",\n        \"ref\": {\n          \"provider\": \"tmdb\",\n          \"objectType\": \"tv\",\n          \"externalId\": \"x22-synthetic\",\n          \"scope\": \"\"\n        },\n        \"metadata\": {\n          \"title\": \"X22 submitted snapshot\",\n          \"overview\": \"Snapshot survives identity revocation\",\n          \"rating\": {\n            \"value\": 8.1,\n            \"max\": 10,\n            \"count\": 52,\n            \"source\": \"tmdb\"\n          }\n        },\n        \"language\": \"zh-CN\",\n        \"fetchedAt\": \"2026-10-10T00:00:00Z\",\n        \"receivedAt\": \"2026-10-11T12:50:21.236176Z\",\n        \"source\": \"submitted_snapshot\",\n        \"actor\": \"agent\",\n        \"origin\": \"harness_cli\",\n        \"invocationId\": \"inv-1791723021235086-9\",\n        \"url\": null\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.bind_batch",
+      "deliberate conflicting tmdb identity"
+    ],
+    "output": "{\n  \"status\": \"failed\",\n  \"error\": {\n    \"code\": \"conflict\",\n    \"message\": \"Entry 0: Conflicting accepted identity from this source; unbind it explicitly.\",\n    \"retryable\": false,\n    \"violations\": [\n      {\n        \"path\": \"/entries/0\",\n        \"message\": \"Conflicting accepted identity from this source; unbind it explicitly.\"\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.unbind_batch",
+      {
+        "requestId": "x22-revoke",
+        "entries": [
+          {
+            "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "bindingIds": [
+              "binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc"
+            ],
+            "reason": "Withdraw X22 temporary TMDB identity"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\",\n        \"bindingIds\": [\n          \"binding-c4c43ac48f163891de01807835fd6d3c1423b71f67a489e6ec72d59b4b5482fc\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "danmaku.import",
+      {
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/comments.json",
+        "platform": "x22-fixture",
+        "platformVideoId": "local-video-1",
+        "entityId": "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05",
+        "note": "X22 imported one real comment into isolated host"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"bindingId\": \"danmaku-b55c6ba2-7fc5-4783-b1ec-b928f8bc4b5d\",\n    \"revision\": 0,\n    \"count\": 1,\n    \"loaded\": false,\n    \"provenance\": {\n      \"platform\": \"x22-fixture\",\n      \"platformVideoId\": \"local-video-1\",\n      \"actor\": \"agent\",\n      \"origin\": \"harness_cli\",\n      \"importedAt\": \"2026-10-11T12:50:21.428574Z\",\n      \"filePath\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/comments.json\",\n      \"note\": \"X22 imported one real comment into isolated host\"\n    }\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.library.scan",
+      {
+        "root": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media",
+        "requestId": "x22-scan-with-hook"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"job\": {\n      \"jobId\": \"scan-fb3b731b7f8e7097d22e6a84fa511ddb227073eb6905a1e6646c134f7299831a\",\n      \"state\": \"queued\",\n      \"revision\": 0\n    }\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": true,\n    \"interface\": \"classic\",\n    \"target\": {\n      \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\"\n    },\n    \"actual\": {\n      \"kind\": \"work_detail\",\n      \"animeId\": 7001,\n      \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\"\n    },\n    \"reason\": null,\n    \"message\": null\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "page": "home"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": true,\n    \"interface\": \"classic\",\n    \"target\": {\n      \"page\": \"home\"\n    },\n    \"actual\": {\n      \"kind\": \"page\",\n      \"page\": \"home\"\n    },\n    \"reason\": null,\n    \"message\": null\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.bind_batch",
+      {
+        "requestId": "x22-tmdb-only",
+        "entries": [
+          {
+            "kind": "work",
+            "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "ref": {
+              "provider": "tmdb",
+              "objectType": "tv",
+              "externalId": "x22-synthetic",
+              "scope": ""
+            },
+            "reason": "Prepare a work that Classic cannot display"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"workId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\",\n        \"releaseId\": null,\n        \"episodeIds\": [],\n        \"fileId\": null,\n        \"bindingIds\": [\n          \"binding-637697fe9adf4b7589d65a3185efb853ad4054c303fdba5f95998cd914e49bb0\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "media.identity.unbind_batch",
+      {
+        "requestId": "x22-remove-classic-identity",
+        "entries": [
+          {
+            "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1",
+            "bindingIds": [
+              "binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78"
+            ],
+            "reason": "X22 unsupported-work window check"
+          }
+        ]
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"entries\": [\n      {\n        \"index\": 0,\n        \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\",\n        \"bindingIds\": [\n          \"binding-801242b2fcd7bf763cdc9372bbaacc8750604a1b3b4281d7feb039a7f1bc8f78\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": false,\n    \"interface\": null,\n    \"target\": {\n      \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\"\n    },\n    \"actual\": null,\n    \"reason\": \"该work没有唯一已接受的弹弹play作品身份，Classic 作品详情仅支持弹弹play；Next 事实页尚未实现。\",\n    \"message\": \"目前没有界面能显示它：该work没有唯一已接受的弹弹play作品身份，Classic 作品详情仅支持弹弹play；Next 事实页尚未实现。\"\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "page": "external_player_console"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": false,\n    \"interface\": null,\n    \"target\": {\n      \"page\": \"external_player_console\"\n    },\n    \"actual\": null,\n    \"reason\": \"Classic 当前没有可见的 external_player_console 页面。\",\n    \"message\": \"目前没有界面能显示它：Classic 当前没有可见的 external_player_console 页面。\"\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "entityId": "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": true,\n    \"interface\": \"classic\",\n    \"target\": {\n      \"entityId\": \"file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05\"\n    },\n    \"actual\": {\n      \"kind\": \"playback\",\n      \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n      \"player\": \"internal\",\n      \"state\": {\n        \"player\": \"internal\",\n        \"status\": \"playing\",\n        \"hasVideo\": true,\n        \"paused\": false,\n        \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n        \"seriesTitle\": \"x22\",\n        \"episodeTitle\": null,\n        \"animeId\": null,\n        \"episodeId\": null,\n        \"positionMs\": 291,\n        \"durationMs\": 12000,\n        \"rate\": 1.0,\n        \"canPrevious\": true,\n        \"canNext\": true\n      }\n    },\n    \"reason\": null,\n    \"message\": null\n  }\n}\n"
+  },
+  {
+    "args": [
+      "call",
+      "accounts.logout",
+      {
+        "provider": "dandanplay"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"provider\": \"dandanplay\",\n    \"loggedIn\": false,\n    \"username\": null\n  }\n}\n",
+    "exitCode": 0
+  },
+  {
+    "args": [
+      "call",
+      "media.sources.remove",
+      {
+        "sourceId": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+        "confirm": true
+      }
+    ],
+    "output": "{\n  \"status\": \"preview\",\n  \"action\": \"media.sources.remove\",\n  \"effect\": \"destructive\",\n  \"input\": {\n    \"sourceId\": \"webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d\",\n    \"confirm\": true\n  },\n  \"executed\": false,\n  \"description\": \"Preview or remove a source connection. Indexed file identities, bindings and playback history remain.\",\n  \"violations\": []\n}\n",
+    "exitCode": 0
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "entityId": "file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": true,\n    \"interface\": \"classic\",\n    \"target\": {\n      \"entityId\": \"file-0cb75353-4b87-4da8-9dbc-7e8e6742ca05\"\n    },\n    \"actual\": {\n      \"kind\": \"playback\",\n      \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n      \"player\": \"internal\",\n      \"state\": {\n        \"player\": \"internal\",\n        \"status\": \"playing\",\n        \"hasVideo\": true,\n        \"paused\": false,\n        \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n        \"seriesTitle\": \"x22\",\n        \"episodeTitle\": null,\n        \"animeId\": null,\n        \"episodeId\": null,\n        \"positionMs\": 166,\n        \"durationMs\": 12000,\n        \"rate\": 1.0,\n        \"canPrevious\": true,\n        \"canNext\": true\n      }\n    },\n    \"reason\": null,\n    \"message\": null\n  }\n}\n",
+    "exitCode": 0
+  },
+  {
+    "args": [
+      "call",
+      "media.sources.remove",
+      {
+        "sourceId": "webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d",
+        "confirm": true
+      },
+      "--execute"
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"sourceId\": \"webdav:10d903ce-6bd0-4355-908c-027c79b9ff5d\",\n    \"removed\": true,\n    \"indexedFilesPreserved\": true\n  }\n}\n",
+    "exitCode": 0
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "entityId": "work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": false,\n    \"interface\": null,\n    \"target\": {\n      \"entityId\": \"work-ff948ed78c87cee1521ed4890da5025b27c71c57b5e2def8941a4b91003b22f1\"\n    },\n    \"actual\": null,\n    \"reason\": \"该work没有唯一已接受的弹弹play作品身份，Classic 作品详情仅支持弹弹play；Next 事实页尚未实现。\",\n    \"message\": \"目前没有界面能显示它：该work没有唯一已接受的弹弹play作品身份，Classic 作品详情仅支持弹弹play；Next 事实页尚未实现。\"\n  }\n}\n",
+    "exitCode": 0
+  },
+  {
+    "args": [
+      "call",
+      "ui.open",
+      {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4"
+      }
+    ],
+    "output": "{\n  \"status\": \"completed\",\n  \"result\": {\n    \"opened\": true,\n    \"interface\": \"classic\",\n    \"target\": {\n      \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\"\n    },\n    \"actual\": {\n      \"kind\": \"playback\",\n      \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n      \"player\": \"internal\",\n      \"state\": {\n        \"player\": \"internal\",\n        \"status\": \"playing\",\n        \"hasVideo\": true,\n        \"paused\": false,\n        \"path\": \"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x22activity/data/media/x22.mp4\",\n        \"seriesTitle\": \"x22\",\n        \"episodeTitle\": null,\n        \"animeId\": null,\n        \"episodeId\": null,\n        \"positionMs\": 291,\n        \"durationMs\": 12000,\n        \"rate\": 1.0,\n        \"canPrevious\": true,\n        \"canNext\": true\n      }\n    },\n    \"reason\": null,\n    \"message\": null\n  }\n}\n",
+    "exitCode": 0
+  }
+]
