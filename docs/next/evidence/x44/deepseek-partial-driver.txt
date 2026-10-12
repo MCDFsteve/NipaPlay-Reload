@@ -1,0 +1,27 @@
+legal-content {"license": "CC0-1.0", "sizes": [702145, 780978, 865025]}
+launch {"pid": 21194, "profile": "x44-deepseek-partial-21168", "header": {"sessionId": "nipa-1791825844906729-fa71f6c3", "threadId": "01a13124-9d28-7750-a8a4-077eded11dd4", "mainThreadId": "01a13124-9d28-7750-a8a4-077eded11dd4", "model": "deepseek-v4.1-flash", "provider": "cpa", "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/harness"}}
+user-prompt "把这套合集下下来，第一集好了就告诉我。种子在 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/harness/collection.torrent，许可证在同目录 CONTENT_LICENSE.txt。\n这是隔离实验，只使用当前 harness 和连接的实例；外部文件只读，不启动或查找其他应用，不访问钥匙串或真实应用数据，不激活窗口、不点击、不重启。"
+original-turn {"turn": {"id": "01a13124-a523-73c1-b4d1-24c3c6a59c67", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null, "startedAt": null, "completedAt": null, "durationMs": null}}
+download-submitted {"job": {"backend": {"kind": "builtin"}, "jobId": "job-c7dfca00e43b1b0d72fa9a4409862c23", "type": "download", "title": "collection.torrent", "state": "running", "phase": "downloading", "progress": {"completed": 16384, "total": 2348148, "unit": "bytes"}, "createdAt": "2026-10-12T17:24:40.851316Z", "updatedAt": "2026-10-12T17:24:40.914619Z", "ownerDeviceId": "device-c255340ec2d7857dd2e7019de2954317", "revision": 3}, "task": {"handle": "0", "infoHash": "a48e3d43748778c6dd11256b5d9628660d176c7c", "title": "X44 CC0 三集动画-deepseek-partial", "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/data/downloads/a48e3d43748778c6dd11256b5d9628660d176c7c", "local": true, "completedBytes": 98304, "totalBytes": 2348148, "finished": false, "paused": false, "error": null, "health": {"observedAt": "2026-10-12T17:24:41.069460Z", "observingSince": "2026-10-12T17:24:40.904622Z", "lastProgressAt": "2026-10-12T17:24:41.069460Z", "secondsWithoutProgress": 0, "sampleSeconds": 0.158, "checkedBytesChange": 81920, "connectedPeers": 1, "seenPeers": 1, "connectingPeers": 0, "queuedPeers": 0, "deadPeers": 0, "sources": {"connectedPeersWithCheckedPieces": 1, "connectedPeersWithFetchedBytes": 1, "peers": {"127.0.0.1:51587": {"client_name": null, "conn_kind": "tcp", "counters": {"connection_attempts": 1, "connections": 1, "downloaded_and_checked_pieces": 6, "errors": 0, "fetched_bytes": 98304, "fetched_chunks": 6, "incoming_connections": 0, "times_i_stole": 0, "times_stolen_from_me": 0, "total_piece_download_ms": 504, "total_time_connecting_ms": 0, "uploaded_bytes": 0}, "state": "live"}}}, "seeders": null, "pieceAvailability": null, "availabilityReason": "librqbit public API does not expose peer bitfields or tracker seed counts", "fileSelectionSupported": true, "filePrioritySupported": false}, "disk": {"availableBytes": 528356495360, "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/data/downloads/a48e3d43748778c6dd11256b5d9628660d176c7c"}, "state": "live", "downloadSpeedBytesPerSecond": 486145, "uploadSpeedBytesPerSecond": 0, "files": [{"index": 0, "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/data/downloads/a48e3d43748778c6dd11256b5d9628660d176c7c/第01集.mp4", "local": true, "expectedSize": 702145, "included": true, "isVideo": true, "completedBytes": 98304, "complete": false, "playable": false, "streamable": true}, {"index": 1, "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/data/downloads/a48e3d43748778c6dd11256b5d9628660d176c7c/第02集.mp4", "local": true, "expectedSize": 780978, "included": true, "isVideo": true, "completedBytes": 0, "complete": false, "playable": false, "streamable": true}, {"index": 2, "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-deepseek-partial-21168/data/downloads/a48e3d43748778c6dd11256b5d9628660d176c7c/第03集.mp4", "local": true, "expectedSize": 865025, "included": true, "isVideo": true, "completedBytes": 0, "complete": false, "playable": false, "streamable": true}]}}
+secret-check {"knownValues": 8, "matches": 0}
+cleanup {"pid": 21194, "exited": -15, "profileRemoved": true}
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x44-download-notify/docs/next/evidence/x44/experiment.py", line 168, in <module>
+    try: until(idle, 90)
+         ~~~~~^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x44-download-notify/docs/next/evidence/x44/experiment.py", line 69, in until
+    raise RuntimeError('observation deadline')
+RuntimeError: observation deadline
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x44-download-notify/docs/next/evidence/x44/experiment.py", line 171, in <module>
+    'interrupt': vm.chat('interrupt')})
+                 ~~~~~~~^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x44-download-notify/scripts/next/x23_vm.py", line 31, in chat
+    return self.rpc("ext.nipaplay.chat", isolateId=self.isolate, op=op, **params)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x44-download-notify/scripts/next/x23_vm.py", line 27, in rpc
+    raise RuntimeError(json.dumps(data["error"], ensure_ascii=False))
+RuntimeError: {"code": -32000, "message": "Server error", "data": {"details": "Bad state: Chat server is not running"}}
