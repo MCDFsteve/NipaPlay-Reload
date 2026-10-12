@@ -1,0 +1,158 @@
+{
+  "version": "codex-cli 0.144.1",
+  "pid": 29850,
+  "parent": "01a12f1b-e239-7160-80f0-4c67177edf81",
+  "children": [
+    "01a12f1b-e24f-7f63-97ae-d61b5a565c01",
+    "01a12f1b-e36f-7682-9fc2-113346a9f028"
+  ],
+  "defaultList": {
+    "data": [
+      {
+        "id": "01a12f1b-e239-7160-80f0-4c67177edf81",
+        "extra": null,
+        "sessionId": "01a12f1b-e239-7160-80f0-4c67177edf81",
+        "forkedFromId": null,
+        "parentThreadId": null,
+        "preview": "PROBE:spawn",
+        "ephemeral": false,
+        "historyMode": "legacy",
+        "modelProvider": "probe",
+        "createdAt": 1791791718,
+        "updatedAt": 1791791719,
+        "recencyAt": 1791791718,
+        "status": {
+          "type": "idle"
+        },
+        "path": "/private/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6/sessions/2026/10/12/rollout-2026-10-12T15-55-18-01a12f1b-e239-7160-80f0-4c67177edf81.jsonl",
+        "cwd": "/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6",
+        "cliVersion": "0.144.1",
+        "source": "vscode",
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": null,
+        "name": null,
+        "turns": []
+      }
+    ],
+    "nextCursor": null,
+    "backwardsCursor": "2026-10-12T07:55:18.968Z"
+  },
+  "nativeList": {
+    "data": [
+      {
+        "id": "01a12f1b-e24f-7f63-97ae-d61b5a565c01",
+        "extra": null,
+        "sessionId": "01a12f1b-e24f-7f63-97ae-d61b5a565c01",
+        "forkedFromId": null,
+        "parentThreadId": "01a12f1b-e239-7160-80f0-4c67177edf81",
+        "preview": "CHILD:HOLD",
+        "ephemeral": false,
+        "historyMode": "legacy",
+        "modelProvider": "probe",
+        "createdAt": 1791791718,
+        "updatedAt": 1791791719,
+        "recencyAt": 1791791719,
+        "status": {
+          "type": "active",
+          "activeFlags": []
+        },
+        "path": "/private/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6/sessions/2026/10/12/rollout-2026-10-12T15-55-18-01a12f1b-e24f-7f63-97ae-d61b5a565c01.jsonl",
+        "cwd": "/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6",
+        "cliVersion": "0.144.1",
+        "source": {
+          "subAgent": {
+            "thread_spawn": {
+              "parent_thread_id": "01a12f1b-e239-7160-80f0-4c67177edf81",
+              "depth": 1,
+              "agent_path": null,
+              "agent_nickname": "Halley",
+              "agent_role": "default"
+            }
+          }
+        },
+        "threadSource": null,
+        "agentNickname": "Halley",
+        "agentRole": "default",
+        "gitInfo": null,
+        "name": null,
+        "turns": []
+      }
+    ],
+    "nextCursor": null,
+    "backwardsCursor": "2026-10-12T07:55:18.990Z"
+  },
+  "parentEventsAfterChildRelease": [],
+  "parentTurnCount": 6,
+  "childHistory": {
+    "thread": {
+      "id": "01a12f1b-e36f-7682-9fc2-113346a9f028",
+      "extra": null,
+      "sessionId": "01a12f1b-e239-7160-80f0-4c67177edf81",
+      "forkedFromId": null,
+      "parentThreadId": "01a12f1b-e239-7160-80f0-4c67177edf81",
+      "preview": "CHILD:HOLD",
+      "ephemeral": false,
+      "historyMode": "legacy",
+      "modelProvider": "probe",
+      "createdAt": 1791791719,
+      "updatedAt": 1791791719,
+      "recencyAt": 1791791719,
+      "status": {
+        "type": "idle"
+      },
+      "path": "/private/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6/sessions/2026/10/12/rollout-2026-10-12T15-55-19-01a12f1b-e36f-7682-9fc2-113346a9f028.jsonl",
+      "cwd": "/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/x38-protocol-pvat6yb6",
+      "cliVersion": "0.144.1",
+      "source": {
+        "subAgent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a12f1b-e239-7160-80f0-4c67177edf81",
+            "depth": 1,
+            "agent_path": null,
+            "agent_nickname": "Hegel",
+            "agent_role": "default"
+          }
+        }
+      },
+      "threadSource": null,
+      "agentNickname": "Hegel",
+      "agentRole": "default",
+      "gitInfo": null,
+      "name": null,
+      "turns": [
+        {
+          "id": "01a12f1b-e38b-73b1-8746-2d51b0c20dc2",
+          "items": [
+            {
+              "type": "userMessage",
+              "id": "item-1",
+              "clientId": null,
+              "content": [
+                {
+                  "type": "text",
+                  "text": "CHILD:HOLD",
+                  "text_elements": []
+                }
+              ]
+            },
+            {
+              "type": "agentMessage",
+              "id": "item-2",
+              "text": "每集弹幕结果：第1集 17 条；第2集 0 条。",
+              "phase": null,
+              "memoryCitation": null
+            }
+          ],
+          "itemsView": "full",
+          "status": "completed",
+          "error": null,
+          "startedAt": 1791791719,
+          "completedAt": 1791791719,
+          "durationMs": 27
+        }
+      ]
+    }
+  }
+}
