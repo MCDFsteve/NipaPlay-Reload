@@ -1,0 +1,2757 @@
+{
+  "label": "x43-windows",
+  "mediaReadOnly": true,
+  "conversations": false,
+  "spawnedPid": 21040,
+  "status": {
+    "status": "running",
+    "instance": {
+      "pid": 17064,
+      "executablePath": "D:\\nipaplay-next\\x43-tools\\dart-sdk\\bin\\dart.exe",
+      "appBundlePath": null,
+      "windowTitle": null,
+      "windowId": null,
+      "viewId": null,
+      "experimentalProfile": false,
+      "profileName": null,
+      "version": "1.11.10-headless"
+    },
+    "version": "1.11.10-headless",
+    "repository": "D:\\nipaplay-next\\x43-windows-data\\harness",
+    "harnessSeed": {
+      "path": "D:\\nipaplay-next\\x43-windows-data/harness-seed",
+      "head": "7d4d01a413b565083c6c317eb89a5a5ca67b141b",
+      "remote": "D:\\nipaplay-next\\x43-windows-data/harness-seed",
+      "remoteMatchesSeed": true,
+      "trackingHead": "7d4d01a413b565083c6c317eb89a5a5ca67b141b",
+      "trackingBehindSeed": false,
+      "state": "current"
+    },
+    "actions": 65,
+    "tasks": {
+      "total": 3,
+      "byState": {
+        "succeeded": 3
+      },
+      "activeTotal": 0,
+      "active": []
+    }
+  },
+  "pythonNipa": true,
+  "catalog": {
+    "actions": [
+      {
+        "id": "activity.report",
+        "effect": "write",
+        "title": "记录有来源的发现"
+      },
+      {
+        "id": "agent.wake",
+        "effect": "write",
+        "title": "唤醒 Agent 的主会话或指定会话"
+      },
+      {
+        "id": "app.instance",
+        "effect": "read",
+        "title": "Identify the connected NipaPlay process"
+      },
+      {
+        "id": "danmaku.align",
+        "effect": "write",
+        "title": "danmaku.align"
+      },
+      {
+        "id": "danmaku.align_apply",
+        "effect": "write",
+        "title": "danmaku.align_apply"
+      },
+      {
+        "id": "danmaku.align_keep",
+        "effect": "write",
+        "title": "danmaku.align_keep"
+      },
+      {
+        "id": "danmaku.analyze_alignment",
+        "effect": "read",
+        "title": "danmaku.analyze_alignment"
+      },
+      {
+        "id": "danmaku.attach",
+        "effect": "write",
+        "title": "danmaku.attach"
+      },
+      {
+        "id": "danmaku.cache_delete",
+        "effect": "destructive",
+        "title": "danmaku.cache_delete"
+      },
+      {
+        "id": "danmaku.cache_prune",
+        "effect": "write",
+        "title": "danmaku.cache_prune"
+      },
+      {
+        "id": "danmaku.detach",
+        "effect": "write",
+        "title": "danmaku.detach"
+      },
+      {
+        "id": "danmaku.episodes",
+        "effect": "read",
+        "title": "danmaku.episodes"
+      },
+      {
+        "id": "danmaku.export",
+        "effect": "write",
+        "title": "danmaku.export"
+      },
+      {
+        "id": "danmaku.fetch",
+        "effect": "write",
+        "title": "danmaku.fetch"
+      },
+      {
+        "id": "danmaku.import",
+        "effect": "write",
+        "title": "danmaku.import"
+      },
+      {
+        "id": "danmaku.offset",
+        "effect": "write",
+        "title": "danmaku.offset"
+      },
+      {
+        "id": "danmaku.resolve",
+        "effect": "read",
+        "title": "danmaku.resolve"
+      },
+      {
+        "id": "danmaku.search",
+        "effect": "read",
+        "title": "danmaku.search"
+      },
+      {
+        "id": "danmaku.set_dedup",
+        "effect": "write",
+        "title": "danmaku.set_dedup"
+      },
+      {
+        "id": "danmaku.set_enabled",
+        "effect": "write",
+        "title": "danmaku.set_enabled"
+      },
+      {
+        "id": "danmaku.sources",
+        "effect": "read",
+        "title": "danmaku.sources"
+      },
+      {
+        "id": "danmaku.tracks",
+        "effect": "read",
+        "title": "danmaku.tracks"
+      },
+      {
+        "id": "danmaku.update",
+        "effect": "write",
+        "title": "danmaku.update"
+      },
+      {
+        "id": "download.add",
+        "effect": "write",
+        "title": "add download"
+      },
+      {
+        "id": "download.import",
+        "effect": "write",
+        "title": "import download"
+      },
+      {
+        "id": "download.pause",
+        "effect": "write",
+        "title": "pause download"
+      },
+      {
+        "id": "download.read",
+        "effect": "read",
+        "title": "read download"
+      },
+      {
+        "id": "download.remove",
+        "effect": "write",
+        "title": "remove download"
+      },
+      {
+        "id": "download.resume",
+        "effect": "write",
+        "title": "resume download"
+      },
+      {
+        "id": "download.set_paused",
+        "effect": "write",
+        "title": "set_paused download"
+      },
+      {
+        "id": "followup.cancel",
+        "effect": "write",
+        "title": "取消尚未执行的后续"
+      },
+      {
+        "id": "followup.list",
+        "effect": "read",
+        "title": "查询后续与等待条件"
+      },
+      {
+        "id": "followup.register",
+        "effect": "write",
+        "title": "登记任务结束或事件发生后的 Agent 后续"
+      },
+      {
+        "id": "media.artwork.set",
+        "effect": "write",
+        "title": "设置作品与剧集图片"
+      },
+      {
+        "id": "media.files.list",
+        "effect": "read",
+        "title": "media.files.list"
+      },
+      {
+        "id": "media.hash.match",
+        "effect": "read",
+        "title": "media.hash.match"
+      },
+      {
+        "id": "media.identity.bind_batch",
+        "effect": "write",
+        "title": "media.identity.bind_batch"
+      },
+      {
+        "id": "media.identity.get",
+        "effect": "read",
+        "title": "media.identity.get"
+      },
+      {
+        "id": "media.identity.unbind_batch",
+        "effect": "write",
+        "title": "media.identity.unbind_batch"
+      },
+      {
+        "id": "media.library.scan",
+        "effect": "write",
+        "title": "media.library.scan"
+      },
+      {
+        "id": "media.library.work",
+        "effect": "read",
+        "title": "media.library.work"
+      },
+      {
+        "id": "media.library.works",
+        "effect": "read",
+        "title": "media.library.works"
+      },
+      {
+        "id": "media.metadata.get",
+        "effect": "read",
+        "title": "media.metadata.get"
+      },
+      {
+        "id": "media.metadata.get_batch",
+        "effect": "read",
+        "title": "media.metadata.get_batch"
+      },
+      {
+        "id": "media.metadata.import_batch",
+        "effect": "write",
+        "title": "media.metadata.import_batch"
+      },
+      {
+        "id": "media.metadata.override",
+        "effect": "write",
+        "title": "media.metadata.override"
+      },
+      {
+        "id": "media.metadata.refresh",
+        "effect": "write",
+        "title": "media.metadata.refresh"
+      },
+      {
+        "id": "media.metadata.search",
+        "effect": "read",
+        "title": "media.metadata.search"
+      },
+      {
+        "id": "media.metadata.search_batch",
+        "effect": "read",
+        "title": "media.metadata.search_batch"
+      },
+      {
+        "id": "media.metadata.snapshots",
+        "effect": "read",
+        "title": "media.metadata.snapshots"
+      },
+      {
+        "id": "media.metadata.ui_facts",
+        "effect": "read",
+        "title": "读取界面元数据完整情况"
+      },
+      {
+        "id": "settings.describe",
+        "effect": "read",
+        "title": "Settings describe"
+      },
+      {
+        "id": "settings.get",
+        "effect": "read",
+        "title": "Settings get"
+      },
+      {
+        "id": "settings.history",
+        "effect": "read",
+        "title": "Settings history"
+      },
+      {
+        "id": "settings.reset",
+        "effect": "write",
+        "title": "Settings reset"
+      },
+      {
+        "id": "settings.set",
+        "effect": "write",
+        "title": "Settings set"
+      },
+      {
+        "id": "state.describe",
+        "effect": "read",
+        "title": "Describe public state"
+      },
+      {
+        "id": "state.query",
+        "effect": "read",
+        "title": "Query public state"
+      },
+      {
+        "id": "task.cancel",
+        "effect": "write",
+        "title": "Cancel task"
+      },
+      {
+        "id": "task.get",
+        "effect": "read",
+        "title": "Get task"
+      },
+      {
+        "id": "task.list",
+        "effect": "read",
+        "title": "List task"
+      },
+      {
+        "id": "task.wait",
+        "effect": "read",
+        "title": "Wait task"
+      },
+      {
+        "id": "ui.present",
+        "effect": "write",
+        "title": "把卡片放到当前对话"
+      },
+      {
+        "id": "ui.shelves.put",
+        "effect": "write",
+        "title": "把作品放到首页"
+      },
+      {
+        "id": "ui.shelves.remove",
+        "effect": "write",
+        "title": "从首页移除作品"
+      }
+    ]
+  },
+  "scan": {
+    "jobId": "scan-dda26dbdd60cf58eab39184c1af7e4fae7d8ad7f7ee65f03df7a746b21832e2f",
+    "type": "media.scan",
+    "title": "Scan media folder",
+    "state": "succeeded",
+    "phase": "enumerate",
+    "progress": {
+      "completed": 9,
+      "unit": "files"
+    },
+    "createdAt": "2026-10-12T17:22:43.034195Z",
+    "updatedAt": "2026-10-12T17:22:47.648449Z",
+    "ownerDeviceId": "device-fb37e37e64f0fa497b7486f19d737557",
+    "revision": 22,
+    "receipt": {
+      "verification": "verified",
+      "details": {
+        "indexed": 9,
+        "fileIds": [
+          "file-0cd4c82f-1624-40b1-bd16-b65623e3aa0f",
+          "file-3921e81e-a30a-4d1f-a9f6-e8f65cf44af0",
+          "file-54d1b00c-00cf-4470-a98a-9349a4a7e28d",
+          "file-74a3251a-83fc-4dd7-8f52-f92fb3115038",
+          "file-b754b663-ba9d-4420-8325-29705f139655",
+          "file-c1738016-95ef-48ee-ba84-73cab5f83eae",
+          "file-caa67eb9-fb70-46ac-af86-0d67153a7ce3",
+          "file-eb3207a0-0110-47aa-843a-daec3a482df8",
+          "file-fcbed088-b5b8-471b-9939-f661a91c44a7"
+        ]
+      }
+    }
+  },
+  "files": [
+    {
+      "fileId": "file-74a3251a-83fc-4dd7-8f52-f92fb3115038",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [01][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 341864171,
+      "durationMs": null,
+      "headMd5": "4f034ddab217a136d2697bdb53891696",
+      "modifiedAt": "2026-09-11T02:44:23.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-54d1b00c-00cf-4470-a98a-9349a4a7e28d",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [02V2][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 421906660,
+      "durationMs": null,
+      "headMd5": "f35520a38697756a37bbc0a1a3a20ddc",
+      "modifiedAt": "2026-09-11T02:31:46.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-fcbed088-b5b8-471b-9939-f661a91c44a7",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [03][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 391628566,
+      "durationMs": null,
+      "headMd5": "dc3164ed90596790880068e7287971d4",
+      "modifiedAt": "2026-09-11T02:25:54.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-3921e81e-a30a-4d1f-a9f6-e8f65cf44af0",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [04][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 552594980,
+      "durationMs": null,
+      "headMd5": "da7dcc2f3026fc01f09c605bbe62557d",
+      "modifiedAt": "2026-09-11T02:36:10.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-caa67eb9-fb70-46ac-af86-0d67153a7ce3",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [05][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 539319478,
+      "durationMs": null,
+      "headMd5": "174d8fb3e95193e1c721f93ae7b44a64",
+      "modifiedAt": "2026-09-11T02:28:02.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-c1738016-95ef-48ee-ba84-73cab5f83eae",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [06][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 480709718,
+      "durationMs": null,
+      "headMd5": "8d3c717363b5c280257f282e3acd45fa",
+      "modifiedAt": "2026-09-11T02:40:11.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-0cd4c82f-1624-40b1-bd16-b65623e3aa0f",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [07][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 521239714,
+      "durationMs": null,
+      "headMd5": "b88622ace5324f513a4f443123084db5",
+      "modifiedAt": "2026-09-11T02:38:13.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-eb3207a0-0110-47aa-843a-daec3a482df8",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [08][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 564958085,
+      "durationMs": null,
+      "headMd5": "f72d9dd14e92b8b558140b3fc5d478b6",
+      "modifiedAt": "2026-09-11T02:34:02.000Z",
+      "bindings": [],
+      "episodes": []
+    },
+    {
+      "fileId": "file-b754b663-ba9d-4420-8325-29705f139655",
+      "path": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [09][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+      "size": 497318435,
+      "durationMs": null,
+      "headMd5": "23938704bbbdc7f0c545844403c4ec7f",
+      "modifiedAt": "2026-09-11T02:30:03.000Z",
+      "bindings": [],
+      "episodes": []
+    }
+  ],
+  "providerRecord": {
+    "ref": {
+      "provider": "bangumi",
+      "objectType": "subject",
+      "externalId": "571784",
+      "scope": ""
+    },
+    "title": "在超市后门吸烟的二人",
+    "kind": "subject",
+    "originalTitle": "スーパーの裏でヤニ吸うふたり",
+    "overview": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+    "imageUrl": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+    "year": 2026,
+    "number": null,
+    "season": null,
+    "episodeType": "regular",
+    "order": "subject",
+    "language": "zh-CN",
+    "fetchedAt": "2026-10-12T17:22:49.522329Z",
+    "episodes": [
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699260",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门吸烟的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏でヤニ吸うふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "1",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699261",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门相伴的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で添えるふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "2",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699262",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门赠予的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で贈るふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "3",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699263",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门学习的一人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で学ぶひとり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "4",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699264",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门画画的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏でかけるふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "5",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699265",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门残留的气味",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏に残る匂い",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "6",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699266",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门与夏日的尽头",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏と夏の終わり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "7",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699267",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门寻找的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏から見つけるふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "8",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699268",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门相触的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で触れるひとり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "9",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699269",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门亮起光的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で光るふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "10",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699270",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门迎来的声音",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で迎える声",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "11",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      },
+      {
+        "ref": {
+          "provider": "bangumi",
+          "objectType": "episode",
+          "externalId": "1699271",
+          "scope": "subject/571784"
+        },
+        "title": "在超市后门继续的二人",
+        "kind": "episode",
+        "originalTitle": "スーパーの裏で続くふたり",
+        "overview": null,
+        "imageUrl": null,
+        "year": 2026,
+        "number": "12",
+        "season": null,
+        "episodeType": "regular",
+        "order": "subject",
+        "language": "zh-CN",
+        "fetchedAt": "2026-10-12T17:22:49.522329Z",
+        "episodes": []
+      }
+    ]
+  },
+  "bindings": {
+    "entries": [
+      {
+        "index": 0,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9"
+        ],
+        "fileId": "file-74a3251a-83fc-4dd7-8f52-f92fb3115038",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-86fb6612adb19e885c1700c6a151c80d87154126c43265cdd7419b1c5a708081",
+          "binding-95151512e6b79c69de43dbd35e2c95404eb5e88aef1fa40a0d85fcd09a5a5d61"
+        ]
+      },
+      {
+        "index": 1,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324"
+        ],
+        "fileId": "file-54d1b00c-00cf-4470-a98a-9349a4a7e28d",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-f3c5168adbe1542b890a443ce2a08c2b9a65991ba91c8b39864ea61849d425ee",
+          "binding-3df6dadae2986e88481986d4d82f64586edfadb92c5622b668252ec5a00ef1e2"
+        ]
+      },
+      {
+        "index": 2,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901"
+        ],
+        "fileId": "file-fcbed088-b5b8-471b-9939-f661a91c44a7",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-8d8368ee482ad39c46193c53366e41a32d8c2c60e13982c04a2ffa985079879a",
+          "binding-03fd243e41a2b1f4f9279207cba39dfc69b13eb5656d14d6243fc805e86898d0"
+        ]
+      },
+      {
+        "index": 3,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff"
+        ],
+        "fileId": "file-3921e81e-a30a-4d1f-a9f6-e8f65cf44af0",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-75e5b36431c9907deaf388ee6a68063c0e92d90d95193730cfacc04185b98af8",
+          "binding-63fa53eb815f0e87c2cb1778054965ef2c1c432cb406c3811d87be055f464cb9"
+        ]
+      },
+      {
+        "index": 4,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff"
+        ],
+        "fileId": "file-caa67eb9-fb70-46ac-af86-0d67153a7ce3",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-e8be9b8e59746cf696de498f4a895bd4d12190003c1c0b225933bd2e5f8ba57b",
+          "binding-1a786029a3f4b857648de83caeb3b5db4e45cb660d8899b51d150a10f53b8c90"
+        ]
+      },
+      {
+        "index": 5,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1"
+        ],
+        "fileId": "file-c1738016-95ef-48ee-ba84-73cab5f83eae",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-8f8cc4f479793b8014b2f820f1c47c6a3c8794d1f497f884da7e31f387e2b60a",
+          "binding-c15225cb37c5fb430e853f60aa4db974eb8ccca8598142b72900d015c5704b9e"
+        ]
+      },
+      {
+        "index": 6,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361"
+        ],
+        "fileId": "file-0cd4c82f-1624-40b1-bd16-b65623e3aa0f",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-3d235b345f470002b128a3e88697a82bf3d4a71dc4feaaa35646f4efb135e117",
+          "binding-042747f3d8d00241ebf303399e0a617d8081d62c49406734d90afee58ffd8d11"
+        ]
+      },
+      {
+        "index": 7,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04"
+        ],
+        "fileId": "file-eb3207a0-0110-47aa-843a-daec3a482df8",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-ac4a21c3f30502ca4b486cc5cb9406d4de2ce4c984e32dbda8f02ce969047c4c",
+          "binding-c32b0ad64500ade8c26a5c6ce91d683fdd95d263823ae7ebe0908fe83ebfc624"
+        ]
+      },
+      {
+        "index": 8,
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "episodeIds": [
+          "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce"
+        ],
+        "fileId": "file-b754b663-ba9d-4420-8325-29705f139655",
+        "classicProjectionId": null,
+        "bindingIds": [
+          "binding-2b84b8ea28f689c2686ad5da5047c34ac54a9a8879c85c893a47fdebc35091b3",
+          "binding-ac58b765bff37bc46f4e76c24beec2cf667931a343a6e1e6ed5107ea1b09b34c",
+          "binding-971d7b27a64eefe81c6facda92b35a664e3283b6c29d8f4254bdeb112db29ad8",
+          "binding-acb78f364105201db690c77390678ba31ba56bf9df416e78a90d7c93a4947ad2"
+        ]
+      }
+    ]
+  },
+  "library": {
+    "works": [
+      {
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门吸烟的二人",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门吸烟的二人",
+            "provider": "bangumi",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T17:22:50.253117Z",
+            "invocationId": "inv-1791825769554558-8",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏でヤニ吸うふたり",
+            "provider": "bangumi",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T17:22:50.253117Z",
+            "invocationId": "inv-1791825769554558-8",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          },
+          {
+            "field": "overview",
+            "value": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+            "provider": "bangumi",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T17:22:50.253117Z",
+            "invocationId": "inv-1791825769554558-8",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          },
+          {
+            "field": "imageUrl",
+            "value": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+            "provider": "bangumi",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T17:22:50.253117Z",
+            "invocationId": "inv-1791825769554558-8",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T17:22:50.253117Z",
+            "invocationId": "inv-1791825769554558-8",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门吸烟的二人",
+            "originalTitle": "スーパーの裏でヤニ吸うふたり",
+            "overview": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+            "imageUrl": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+              "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+              "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            },
+            "overview": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+              "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            },
+            "imageUrl": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+              "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+              "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "ratings": []
+        },
+        "releases": [
+          {
+            "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+            "title": "在超市后门吸烟的二人",
+            "metadata": [
+              {
+                "field": "title",
+                "value": "在超市后门吸烟的二人",
+                "provider": "bangumi",
+                "source": "provider_snapshot",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                "invocationId": "inv-1791825769554558-8",
+                "actor": null,
+                "origin": "harness_cli",
+                "mode": null
+              },
+              {
+                "field": "originalTitle",
+                "value": "スーパーの裏でヤニ吸うふたり",
+                "provider": "bangumi",
+                "source": "provider_snapshot",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                "invocationId": "inv-1791825769554558-8",
+                "actor": null,
+                "origin": "harness_cli",
+                "mode": null
+              },
+              {
+                "field": "overview",
+                "value": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+                "provider": "bangumi",
+                "source": "provider_snapshot",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                "invocationId": "inv-1791825769554558-8",
+                "actor": null,
+                "origin": "harness_cli",
+                "mode": null
+              },
+              {
+                "field": "imageUrl",
+                "value": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+                "provider": "bangumi",
+                "source": "provider_snapshot",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                "invocationId": "inv-1791825769554558-8",
+                "actor": null,
+                "origin": "harness_cli",
+                "mode": null
+              },
+              {
+                "field": "year",
+                "value": "2026",
+                "provider": "bangumi",
+                "source": "provider_snapshot",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                "invocationId": "inv-1791825769554558-8",
+                "actor": null,
+                "origin": "harness_cli",
+                "mode": null
+              }
+            ],
+            "metadataView": {
+              "fields": {
+                "title": "在超市后门吸烟的二人",
+                "originalTitle": "スーパーの裏でヤニ吸うふたり",
+                "overview": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+                "imageUrl": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+                "year": 2026
+              },
+              "provenance": {
+                "title": {
+                  "provider": "bangumi",
+                  "source": "provider_snapshot",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                  "recordedAt": "2026-10-12T17:22:50.253117Z",
+                  "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+                  "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+                  "actor": null,
+                  "origin": "harness_cli",
+                  "invocationId": "inv-1791825769554558-8"
+                },
+                "originalTitle": {
+                  "provider": "bangumi",
+                  "source": "provider_snapshot",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                  "recordedAt": "2026-10-12T17:22:50.253117Z",
+                  "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+                  "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+                  "actor": null,
+                  "origin": "harness_cli",
+                  "invocationId": "inv-1791825769554558-8"
+                },
+                "overview": {
+                  "provider": "bangumi",
+                  "source": "provider_snapshot",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                  "recordedAt": "2026-10-12T17:22:50.253117Z",
+                  "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+                  "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+                  "actor": null,
+                  "origin": "harness_cli",
+                  "invocationId": "inv-1791825769554558-8"
+                },
+                "imageUrl": {
+                  "provider": "bangumi",
+                  "source": "provider_snapshot",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                  "recordedAt": "2026-10-12T17:22:50.253117Z",
+                  "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+                  "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+                  "actor": null,
+                  "origin": "harness_cli",
+                  "invocationId": "inv-1791825769554558-8"
+                },
+                "year": {
+                  "provider": "bangumi",
+                  "source": "provider_snapshot",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                  "recordedAt": "2026-10-12T17:22:50.253117Z",
+                  "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+                  "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+                  "actor": null,
+                  "origin": "harness_cli",
+                  "invocationId": "inv-1791825769554558-8"
+                }
+              },
+              "ratings": []
+            },
+            "episodes": [
+              {
+                "episodeId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+                "title": "在超市后门吸烟的二人",
+                "number": "1",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门吸烟的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏でヤニ吸うふたり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门吸烟的二人",
+                    "originalTitle": "スーパーの裏でヤニ吸うふたり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-4d63173d3db591b3d9583b93b27505f7232b5920d0dc392cfe614bee1db3e208",
+                      "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-4d63173d3db591b3d9583b93b27505f7232b5920d0dc392cfe614bee1db3e208",
+                      "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-4d63173d3db591b3d9583b93b27505f7232b5920d0dc392cfe614bee1db3e208",
+                      "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-74a3251a-83fc-4dd7-8f52-f92fb3115038",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [01][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+                "title": "在超市后门相伴的二人",
+                "number": "2",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门相伴的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏で添えるふたり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门相伴的二人",
+                    "originalTitle": "スーパーの裏で添えるふたり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-e2ac507d15a82784fa2bbb9bf56f08b444cd8c3483cfdcc986b69f40e79aa06f",
+                      "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-e2ac507d15a82784fa2bbb9bf56f08b444cd8c3483cfdcc986b69f40e79aa06f",
+                      "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-e2ac507d15a82784fa2bbb9bf56f08b444cd8c3483cfdcc986b69f40e79aa06f",
+                      "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-54d1b00c-00cf-4470-a98a-9349a4a7e28d",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [02V2][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+                "title": "在超市后门赠予的二人",
+                "number": "3",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门赠予的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏で贈るふたり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门赠予的二人",
+                    "originalTitle": "スーパーの裏で贈るふたり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-ec307fc887ca73fe8309a9d08dc0afeccaecab5525fc86551dfe545e23aaeaea",
+                      "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-ec307fc887ca73fe8309a9d08dc0afeccaecab5525fc86551dfe545e23aaeaea",
+                      "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-ec307fc887ca73fe8309a9d08dc0afeccaecab5525fc86551dfe545e23aaeaea",
+                      "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-fcbed088-b5b8-471b-9939-f661a91c44a7",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [03][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+                "title": "在超市后门学习的一人",
+                "number": "4",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门学习的一人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏で学ぶひとり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门学习的一人",
+                    "originalTitle": "スーパーの裏で学ぶひとり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-668bafec8068dc823e17b43940fe7fb7330aa0eab4cd04b6c9d3d9092a0b6ec6",
+                      "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-668bafec8068dc823e17b43940fe7fb7330aa0eab4cd04b6c9d3d9092a0b6ec6",
+                      "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-668bafec8068dc823e17b43940fe7fb7330aa0eab4cd04b6c9d3d9092a0b6ec6",
+                      "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-3921e81e-a30a-4d1f-a9f6-e8f65cf44af0",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [04][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+                "title": "在超市后门画画的二人",
+                "number": "5",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门画画的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏でかけるふたり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门画画的二人",
+                    "originalTitle": "スーパーの裏でかけるふたり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-2e4b2c9caee55b655497e69448adcb58ed9a4ffe5d6dff7eaef71053f55ff1d3",
+                      "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-2e4b2c9caee55b655497e69448adcb58ed9a4ffe5d6dff7eaef71053f55ff1d3",
+                      "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-2e4b2c9caee55b655497e69448adcb58ed9a4ffe5d6dff7eaef71053f55ff1d3",
+                      "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-caa67eb9-fb70-46ac-af86-0d67153a7ce3",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [05][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+                "title": "在超市后门残留的气味",
+                "number": "6",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门残留的气味",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏に残る匂い",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门残留的气味",
+                    "originalTitle": "スーパーの裏に残る匂い",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-25e21ecb5cf9cc11a8712a9b8679ab48e02a64425520dcc0a976479c3dc4bb2d",
+                      "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-25e21ecb5cf9cc11a8712a9b8679ab48e02a64425520dcc0a976479c3dc4bb2d",
+                      "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-25e21ecb5cf9cc11a8712a9b8679ab48e02a64425520dcc0a976479c3dc4bb2d",
+                      "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-c1738016-95ef-48ee-ba84-73cab5f83eae",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [06][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+                "title": "在超市后门与夏日的尽头",
+                "number": "7",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门与夏日的尽头",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏と夏の終わり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门与夏日的尽头",
+                    "originalTitle": "スーパーの裏と夏の終わり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-c0eeddeef5a23ac205906cd57ccc94b5be4260275fae63f10bc9c47eed603556",
+                      "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-c0eeddeef5a23ac205906cd57ccc94b5be4260275fae63f10bc9c47eed603556",
+                      "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-c0eeddeef5a23ac205906cd57ccc94b5be4260275fae63f10bc9c47eed603556",
+                      "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-0cd4c82f-1624-40b1-bd16-b65623e3aa0f",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [07][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+                "title": "在超市后门寻找的二人",
+                "number": "8",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门寻找的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏から見つけるふたり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门寻找的二人",
+                    "originalTitle": "スーパーの裏から見つけるふたり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-f07d5b0965526a6db25bf00509aeee8362e466657d242ed1dd9796df552883f5",
+                      "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-f07d5b0965526a6db25bf00509aeee8362e466657d242ed1dd9796df552883f5",
+                      "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-f07d5b0965526a6db25bf00509aeee8362e466657d242ed1dd9796df552883f5",
+                      "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-eb3207a0-0110-47aa-843a-daec3a482df8",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [08][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              },
+              {
+                "episodeId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+                "title": "在超市后门相触的二人",
+                "number": "9",
+                "order": "subject",
+                "type": "regular",
+                "metadata": [
+                  {
+                    "field": "title",
+                    "value": "在超市后门相触的二人",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "originalTitle",
+                    "value": "スーパーの裏で触れるひとり",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  },
+                  {
+                    "field": "year",
+                    "value": "2026",
+                    "provider": "bangumi",
+                    "source": "provider_snapshot",
+                    "language": "zh-CN",
+                    "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                    "invocationId": "inv-1791825769554558-8",
+                    "actor": null,
+                    "origin": "harness_cli",
+                    "mode": null
+                  }
+                ],
+                "metadataView": {
+                  "fields": {
+                    "title": "在超市后门相触的二人",
+                    "originalTitle": "スーパーの裏で触れるひとり",
+                    "year": 2026
+                  },
+                  "provenance": {
+                    "title": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-66ef1b1e8cf71cefa4dc5ba557c69cc78adb72f3e677e2662a2d56bef350af54",
+                      "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "originalTitle": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-66ef1b1e8cf71cefa4dc5ba557c69cc78adb72f3e677e2662a2d56bef350af54",
+                      "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    },
+                    "year": {
+                      "provider": "bangumi",
+                      "source": "provider_snapshot",
+                      "language": "zh-CN",
+                      "fetchedAt": "2026-10-12T17:22:50.253117Z",
+                      "recordedAt": "2026-10-12T17:22:50.253117Z",
+                      "snapshotId": "snapshot-66ef1b1e8cf71cefa4dc5ba557c69cc78adb72f3e677e2662a2d56bef350af54",
+                      "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+                      "actor": null,
+                      "origin": "harness_cli",
+                      "invocationId": "inv-1791825769554558-8"
+                    }
+                  },
+                  "ratings": []
+                },
+                "files": [
+                  {
+                    "fileId": "file-b754b663-ba9d-4420-8325-29705f139655",
+                    "locator": "D:\\Anime\\躲在超市后门抽烟的两人\\[Studio GreenTea] Super no Ura de Yani Suu Futari [09][WebRip][HEVC-10bit 1080p AAC][JPSC].mp4",
+                    "source": "local",
+                    "relation": "exact",
+                    "ordinal": 0,
+                    "startMs": null,
+                    "endMs": null
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "total": 1
+  },
+  "uiFacts": {
+    "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+    "fields": {
+      "title": {
+        "available": true,
+        "value": "在超市后门吸烟的二人",
+        "source": {
+          "provider": "bangumi",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-12T17:22:50.253117Z",
+          "recordedAt": "2026-10-12T17:22:50.253117Z",
+          "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+          "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+          "actor": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791825769554558-8"
+        },
+        "language": "zh-CN",
+        "declaredLanguage": "zh-CN",
+        "languageBasis": "declared",
+        "fallback": false
+      },
+      "originalTitle": {
+        "available": true,
+        "value": "スーパーの裏でヤニ吸うふたり",
+        "source": {
+          "provider": "bangumi",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-12T17:22:50.253117Z",
+          "recordedAt": "2026-10-12T17:22:50.253117Z",
+          "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+          "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+          "actor": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791825769554558-8"
+        }
+      },
+      "overview": {
+        "available": true,
+        "value": "社畜街道をひた走る、くたびれ中年男性の佐々木。\r\n彼のひそやかな癒しといえば、日ごろから愛煙する煙草と、\r\n行きつけのスーパーで働く女性店員山田さんのにこやかな接客くらい。\r\n\r\n仕事に疲れたある夜、癒しを求めてスーパーに向かうが、\r\n目当ての山田さんはおらず、今どき煙草を吸える場所もなし…。\r\n意気消沈した佐々木に「ここなら吸える」と声をかけてきたのは、\r\n田山という女性だった――。",
+        "source": {
+          "provider": "bangumi",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-12T17:22:50.253117Z",
+          "recordedAt": "2026-10-12T17:22:50.253117Z",
+          "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+          "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+          "actor": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791825769554558-8"
+        },
+        "language": "ja",
+        "declaredLanguage": "zh-CN",
+        "languageBasis": "observed_kana"
+      },
+      "year": {
+        "available": true,
+        "value": 2026,
+        "source": {
+          "provider": "bangumi",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-12T17:22:50.253117Z",
+          "recordedAt": "2026-10-12T17:22:50.253117Z",
+          "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+          "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+          "actor": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791825769554558-8"
+        }
+      },
+      "genres": {
+        "available": false,
+        "value": null,
+        "source": null
+      },
+      "episodeCount": {
+        "available": true,
+        "value": 9,
+        "source": {
+          "source": "library_episode_count"
+        }
+      },
+      "studio": {
+        "available": false,
+        "value": null,
+        "source": null
+      },
+      "ratings": {
+        "available": false,
+        "value": [],
+        "source": []
+      },
+      "backdrop": {
+        "available": false,
+        "path": null,
+        "url": null,
+        "source": null
+      },
+      "poster": {
+        "available": true,
+        "path": "D:\\nipaplay-next\\x43-windows-data/artwork/f7d96260698b8445c14287f4a54d14a0d28ead17abd39728923171e6a5a2374f.jpg",
+        "url": "https://lain.bgm.tv/pic/cover/l/6f/42/571784_leRlL.jpg",
+        "source": {
+          "provider": "bangumi",
+          "source": "provider_snapshot",
+          "language": "zh-CN",
+          "fetchedAt": "2026-10-12T17:22:50.253117Z",
+          "recordedAt": "2026-10-12T17:22:50.253117Z",
+          "snapshotId": "snapshot-6b6feb68ca24663121832748b5f90c66b6808f50475188e34b0e5494fce62e12",
+          "entityId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+          "actor": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791825769554558-8"
+        }
+      },
+      "logo": {
+        "available": false,
+        "path": null,
+        "url": null,
+        "source": null
+      }
+    },
+    "heroImage": "poster",
+    "tint": 4279769365,
+    "episodes": {
+      "total": 9,
+      "titles": 9,
+      "stills": 0,
+      "danmaku": 0,
+      "items": [
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+          "number": 1,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门吸烟的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-4d63173d3db591b3d9583b93b27505f7232b5920d0dc392cfe614bee1db3e208",
+              "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+          "number": 2,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门相伴的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-e2ac507d15a82784fa2bbb9bf56f08b444cd8c3483cfdcc986b69f40e79aa06f",
+              "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+          "number": 3,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门赠予的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-ec307fc887ca73fe8309a9d08dc0afeccaecab5525fc86551dfe545e23aaeaea",
+              "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+          "number": 4,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门学习的一人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-668bafec8068dc823e17b43940fe7fb7330aa0eab4cd04b6c9d3d9092a0b6ec6",
+              "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+          "number": 5,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门画画的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-2e4b2c9caee55b655497e69448adcb58ed9a4ffe5d6dff7eaef71053f55ff1d3",
+              "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+          "number": 6,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门残留的气味",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-25e21ecb5cf9cc11a8712a9b8679ab48e02a64425520dcc0a976479c3dc4bb2d",
+              "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+          "number": 7,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门与夏日的尽头",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-c0eeddeef5a23ac205906cd57ccc94b5be4260275fae63f10bc9c47eed603556",
+              "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+          "number": 8,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门寻找的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-f07d5b0965526a6db25bf00509aeee8362e466657d242ed1dd9796df552883f5",
+              "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        {
+          "danmaku": {
+            "available": false,
+            "tracks": [],
+            "count": 0
+          },
+          "episodeId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+          "number": 9,
+          "season": null,
+          "title": {
+            "available": true,
+            "value": "在超市后门相触的二人",
+            "source": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T17:22:50.253117Z",
+              "recordedAt": "2026-10-12T17:22:50.253117Z",
+              "snapshotId": "snapshot-66ef1b1e8cf71cefa4dc5ba557c69cc78adb72f3e677e2662a2d56bef350af54",
+              "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791825769554558-8"
+            }
+          },
+          "still": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        }
+      ]
+    }
+  },
+  "followupRegistered": {
+    "followup": {
+      "id": "followup-1791825774724451-39b95feb",
+      "state": "waiting",
+      "title": "X43 indexing",
+      "instruction": "X43 experiment: record the indexing event; no model turn is authorized.",
+      "condition": {
+        "event": "library.file_added",
+        "objectId": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4"
+      },
+      "waitingFor": "library.file_added for D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4",
+      "repository": "D:\\nipaplay-next\\x43-windows-data\\harness",
+      "threadId": null,
+      "turnId": null,
+      "origin": "harness_cli",
+      "invocationId": "inv-1791825774721897-11",
+      "createdAt": "2026-10-12T17:22:54.724451Z",
+      "updatedAt": "2026-10-12T17:22:54.724451Z",
+      "trigger": null,
+      "reason": null,
+      "turnStatus": null
+    }
+  },
+  "fixtureScan": {
+    "jobId": "scan-2af4466dfa532f5af6eccd112a403f681d6ebf144eb1b2cc42b920d712b31ae5",
+    "type": "media.scan",
+    "title": "Scan media folder",
+    "state": "succeeded",
+    "phase": "enumerate",
+    "progress": {
+      "completed": 1,
+      "unit": "files"
+    },
+    "createdAt": "2026-10-12T17:22:54.835802Z",
+    "updatedAt": "2026-10-12T17:22:56.079997Z",
+    "ownerDeviceId": "device-fb37e37e64f0fa497b7486f19d737557",
+    "revision": 6,
+    "receipt": {
+      "verification": "verified",
+      "details": {
+        "indexed": 1,
+        "fileIds": [
+          "file-ebc43e4e-dc11-4e13-8fd9-75f21191d809"
+        ]
+      }
+    }
+  },
+  "sameNameDanmaku": {
+    "tracks": [
+      {
+        "origin": "sidecar",
+        "source": "local",
+        "localFile": {
+          "path": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.xml",
+          "available": true,
+          "platform": "bilibili",
+          "platformVideoId": "4243",
+          "size": 132,
+          "modifiedAt": "2026-10-12T17:22:54.000Z",
+          "readAt": "2026-10-12T17:22:55.534253Z",
+          "readMs": 38,
+          "count": 1
+        },
+        "count": 1,
+        "available": true,
+        "readAt": "2026-10-12T17:22:55.534253Z",
+        "filePath": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.xml",
+        "platform": "bilibili",
+        "platformVideoId": "4243",
+        "bindingId": "danmaku-sidecar-450db41c2714a5e293b6c172fc46f640c6ca259cff43cec493f99259e3e00c8c",
+        "entityId": "file-ebc43e4e-dc11-4e13-8fd9-75f21191d809",
+        "revision": 0,
+        "status": "accepted",
+        "stale": false,
+        "video": {
+          "sourceId": "local",
+          "videoId": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.xml",
+          "title": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.xml",
+          "durationMs": 0,
+          "objectType": "file"
+        },
+        "enabled": true,
+        "deduplicate": true,
+        "offsetMs": 0,
+        "alignment": {
+          "method": "identity",
+          "confirmed": false
+        },
+        "evidence": {
+          "reason": "Video sidecar file",
+          "url": null
+        },
+        "boundBy": "automatic",
+        "cacheKey": "sidecar:danmaku-sidecar-450db41c2714a5e293b6c172fc46f640c6ca259cff43cec493f99259e3e00c8c",
+        "loaded": false,
+        "coverage": [
+          {
+            "path": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.xml",
+            "available": true,
+            "platform": "bilibili",
+            "platformVideoId": "4243",
+            "size": 132,
+            "modifiedAt": "2026-10-12T17:22:54.000Z",
+            "readAt": "2026-10-12T17:22:55.534253Z",
+            "readMs": 38,
+            "count": 1
+          }
+        ],
+        "displayFold": true,
+        "bindingIds": [
+          "danmaku-sidecar-450db41c2714a5e293b6c172fc46f640c6ca259cff43cec493f99259e3e00c8c"
+        ]
+      }
+    ]
+  },
+  "exitCode": 0,
+  "stoppedPid": 21040,
+  "hookTasks": [
+    {
+      "event": "library.file_added",
+      "objectId": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4",
+      "jobId": "job-b9d18636135f74c5206db30a72a8c26a",
+      "type": "harness.hook",
+      "title": "Hook library.file_added",
+      "state": "succeeded",
+      "phase": "execute",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-12T17:22:55.260788Z",
+      "updatedAt": "2026-10-12T17:22:56.163265Z",
+      "ownerDeviceId": "device-fb37e37e64f0fa497b7486f19d737557",
+      "revision": 4,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "exitCode": 0,
+          "elapsedMs": 303,
+          "timedOut": false,
+          "stdoutTail": "{\"event\": \"library.file_added\", \"observed\": true}\r\n",
+          "stderrTail": ""
+        }
+      }
+    },
+    {
+      "event": "schedule",
+      "objectId": "x43-tick",
+      "jobId": "job-6ea892c2be9ef877eb64ff9380dd1b82",
+      "type": "harness.hook",
+      "title": "定时脚本 x43-tick",
+      "state": "succeeded",
+      "phase": "execute",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-12T17:24:01.785593Z",
+      "updatedAt": "2026-10-12T17:24:02.197026Z",
+      "ownerDeviceId": "device-fb37e37e64f0fa497b7486f19d737557",
+      "revision": 4,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "exitCode": 0,
+          "elapsedMs": 203,
+          "timedOut": false,
+          "stdoutTail": "{\"event\": \"schedule\", \"tick\": true}\r\n",
+          "stderrTail": ""
+        }
+      }
+    }
+  ],
+  "followups": {
+    "followups": [
+      {
+        "id": "followup-1791825774724451-39b95feb",
+        "state": "ready",
+        "title": "X43 indexing",
+        "instruction": "X43 experiment: record the indexing event; no model turn is authorized.",
+        "condition": {
+          "event": "library.file_added",
+          "objectId": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4"
+        },
+        "waitingFor": "Embedded chat host is not running.",
+        "repository": "D:\\nipaplay-next\\x43-windows-data\\harness",
+        "threadId": null,
+        "turnId": null,
+        "origin": "harness_cli",
+        "invocationId": "inv-1791825774721897-11",
+        "createdAt": "2026-10-12T17:22:54.724451Z",
+        "updatedAt": "2026-10-12T17:22:55.409354Z",
+        "trigger": {
+          "event": "library.file_added",
+          "objectId": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4",
+          "occurredAt": "2026-10-12T17:22:55.195875Z",
+          "data": {
+            "fileId": "file-ebc43e4e-dc11-4e13-8fd9-75f21191d809",
+            "path": "D:\\nipaplay-next\\x43-windows-data\\downloads\\x43-fixture\\same-name.mp4"
+          }
+        },
+        "reason": "Embedded chat host is not running.",
+        "turnStatus": null
+      }
+    ]
+  },
+  "checks": {
+    "scannedFiles": 9,
+    "boundFiles": 9,
+    "uiFactsRead": true,
+    "sameNameIndexed": true,
+    "scheduledHookSucceeded": true
+  }
+}
