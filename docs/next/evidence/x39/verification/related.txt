@@ -1,0 +1,213 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart
+test/next/sidecar_danmaku_test.dart:22:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    final indexer = SidecarIndexer(f.store, () async {});
+                                     ^^^^^
+test/next/sidecar_danmaku_test.dart:24:22: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    var b = (await f.store.bindings(id)).single;
+                     ^^^^^
+test/next/sidecar_danmaku_test.dart:29:20: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect(await f.store.db.query('danmaku_cache_chunks'), isEmpty);
+                   ^^^^^
+test/next/sidecar_danmaku_test.dart:30:31: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect(jsonEncode(await f.store.db.query('danmaku_bindings')), isNot(contains('SIDE-CAR-TEXT')));
+                              ^^^^^
+test/next/sidecar_danmaku_test.dart:31:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect((await f.store.entries(key)).single.text, 'SIDE-CAR-TEXT-ONE');
+                    ^^^^^
+test/next/sidecar_danmaku_test.dart:39:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect((await f.store.bindings(id)).single['revision'], revision);
+                    ^^^^^
+test/next/sidecar_danmaku_test.dart:43:18: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    b = (await f.store.bindings(id)).single;
+                 ^^^^^
+test/next/sidecar_danmaku_test.dart:46:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect((await f.store.entries(key)).single.text, 'SIDE-CAR-TEXT-TWO-LONGER');
+                    ^^^^^
+test/next/sidecar_danmaku_test.dart:49:18: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    b = (await f.store.bindings(id)).single;
+                 ^^^^^
+test/next/sidecar_danmaku_test.dart:57:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect((await f.store.bindings(id)).single['id'], b['id']);
+                    ^^^^^
+test/next/sidecar_danmaku_test.dart:58:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect((await f.store.bindings(id)).single['offset_ms'], 2000);
+                    ^^^^^
+test/next/sidecar_danmaku_test.dart:69:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    final indexer = SidecarIndexer(f.store, () async {});
+                                     ^^^^^
+test/next/sidecar_danmaku_test.dart:71:22: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect(((await f.store.bindings(id)).single['local_file'] as Map)['path'], '${f.root.path}/episode-comment.xml');
+                     ^^^^^
+test/next/sidecar_danmaku_test.dart:79:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    final indexer = SidecarIndexer(f.store, () async {});
+                                     ^^^^^
+test/next/sidecar_danmaku_test.dart:83:32: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect(await EpisodeHeat(f.store).load(id, 60000), isNotNull);
+                               ^^^^^
+test/next/sidecar_danmaku_test.dart:85:32: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+ - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+    expect(await EpisodeHeat(f.store).load(id, 60000), isNull);
+                               ^^^^^
+00:00 +0 -1: loading /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart":
+  Compilation failed for testPath=/Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: test/next/sidecar_danmaku_test.dart:22:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      final indexer = SidecarIndexer(f.store, () async {});
+                                       ^^^^^
+  test/next/sidecar_danmaku_test.dart:24:22: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      var b = (await f.store.bindings(id)).single;
+                       ^^^^^
+  test/next/sidecar_danmaku_test.dart:29:20: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect(await f.store.db.query('danmaku_cache_chunks'), isEmpty);
+                     ^^^^^
+  test/next/sidecar_danmaku_test.dart:30:31: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect(jsonEncode(await f.store.db.query('danmaku_bindings')), isNot(contains('SIDE-CAR-TEXT')));
+                                ^^^^^
+  test/next/sidecar_danmaku_test.dart:31:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect((await f.store.entries(key)).single.text, 'SIDE-CAR-TEXT-ONE');
+                      ^^^^^
+  test/next/sidecar_danmaku_test.dart:39:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect((await f.store.bindings(id)).single['revision'], revision);
+                      ^^^^^
+  test/next/sidecar_danmaku_test.dart:43:18: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      b = (await f.store.bindings(id)).single;
+                   ^^^^^
+  test/next/sidecar_danmaku_test.dart:46:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect((await f.store.entries(key)).single.text, 'SIDE-CAR-TEXT-TWO-LONGER');
+                      ^^^^^
+  test/next/sidecar_danmaku_test.dart:49:18: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      b = (await f.store.bindings(id)).single;
+                   ^^^^^
+  test/next/sidecar_danmaku_test.dart:57:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect((await f.store.bindings(id)).single['id'], b['id']);
+                      ^^^^^
+  test/next/sidecar_danmaku_test.dart:58:21: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect((await f.store.bindings(id)).single['offset_ms'], 2000);
+                      ^^^^^
+  test/next/sidecar_danmaku_test.dart:69:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      final indexer = SidecarIndexer(f.store, () async {});
+                                       ^^^^^
+  test/next/sidecar_danmaku_test.dart:71:22: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect(((await f.store.bindings(id)).single['local_file'] as Map)['path'], '${f.root.path}/episode-comment.xml');
+                       ^^^^^
+  test/next/sidecar_danmaku_test.dart:79:38: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      final indexer = SidecarIndexer(f.store, () async {});
+                                       ^^^^^
+  test/next/sidecar_danmaku_test.dart:83:32: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect(await EpisodeHeat(f.store).load(id, 60000), isNotNull);
+                                 ^^^^^
+  test/next/sidecar_danmaku_test.dart:85:32: Error: The getter 'store' isn't defined for the type 'DanmakuFixture'.
+   - 'DanmakuFixture' is from 'test/next/danmaku_test_support.dart'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'store'.
+      expect(await EpisodeHeat(f.store).load(id, 60000), isNull);
+                                 ^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: v2 upgrade preserves media and existing job snapshots and appends MB tables
+00:00 +1 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: read actions declare read and never persist cache bindings or tasks
+00:00 +2 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: resolution ambiguity has directly executable read-only options
+00:00 +3 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: multiple sources attach to the same MA file with host-derived provenance and player tracks
+00:00 +4 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: standalone fetch writes verified cache without modifying the current tracks
+00:00 +5 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: duplicate acquisitions share committed chunks
+00:00 +6 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: one malformed minute fails with persisted partial coverage and does not mount an incomplete track
+00:00 +7 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: an explicit empty pool succeeds and restores an empty enabled track
+00:00 +8 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: cancellation aborts a pending chunk and stops subsequent requests
+00:00 +9 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: cancelling a queued source job makes no request
+00:00 +10 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: engine shutdown and restart recover completed chunks without refetching them
+00:00 +11 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: source rate limiting persists bounded retry state with the completed checkpoint
+00:00 +12 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: media content revision changing mid-fetch prevents obsolete binding from mounting
+00:00 +13 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: changing video during fetch caches data but never loads into the other file
+00:00 +14 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: offsets and enable state persist independently and absolute offsets do not accumulate
+00:00 +15 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: detach preserves cache and history without touching Classic fixed track semantics
+00:00 +16 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: cache deletion removes its loaded track while preserving the accepted binding
+00:00 +17 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: alignment candidates wait for an exact explicit choice and recover across restart
+00:00 +18 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: stale alignment cannot overwrite a manual offset made during its decision
+00:00 +19 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: empty legacy alignment evidence can keep the existing mapping
+00:00 +20 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: Episode bindings rebuild on its MA file link without a Dandanplay identity
+00:00 +21 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: cache deletion rejects an active fetch rather than allowing silent repopulation
+00:00 +22 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: expired chunks are refetched and refresh a mounted track even with unchanged identity and offset
+00:00 +23 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: source identity dedup preserves different sender IDs and anonymous simultaneous comments
+00:00 +24 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: alignment requestId is idempotent before and after an explicit choice
+00:00 +25 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_flow_test.dart: export verifies original and mapped data in an authorized folder and rejects overwrite or escape
+00:00 +26 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart

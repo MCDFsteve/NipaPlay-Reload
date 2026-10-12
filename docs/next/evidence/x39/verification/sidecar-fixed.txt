@@ -1,0 +1,22 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart
+00:00 +0: sidecar references refresh without copied content and retain controls when missing
+00:30 +0 -1: sidecar references refresh without copied content and retain controls when missing [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+00:30 +0 -1: shared Classic ranking and parse fallback stay identical
+01:00 +0 -2: shared Classic ranking and parse fallback stay identical [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+01:00 +0 -2: episode heat uses saved timing facts after source removal without inventing text
+01:30 +0 -3: episode heat uses saved timing facts after source removal without inventing text [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+01:30 +0 -3: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: episode heat uses saved timing facts after source removal without inventing text
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: shared Classic ranking and parse fallback stay identical
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: sidecar references refresh without copied content and retain controls when missing
