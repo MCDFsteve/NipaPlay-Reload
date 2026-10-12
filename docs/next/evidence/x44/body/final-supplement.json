@@ -1,0 +1,786 @@
+{
+  "at": "2026-10-12T17:21:32.615544+00:00",
+  "followups": [
+    {
+      "id": "followup-download-job-0135b0bed5bae0e6201731617af19a6f-0",
+      "automatic": "download",
+      "state": "completed",
+      "title": "下载事实：collection.torrent",
+      "instruction": "由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。",
+      "condition": {
+        "downloadJobId": "job-0135b0bed5bae0e6201731617af19a6f"
+      },
+      "downloadObjects": [
+        "job-0135b0bed5bae0e6201731617af19a6f:0"
+      ],
+      "deliverAfter": "2026-10-12T17:17:33.547136Z",
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/harness",
+      "threadId": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+      "turnId": "01a1311e-a42c-72c3-97e4-13254239d4f5",
+      "origin": "harness_cli:chat:nipa-1791825446101193-78cf2587",
+      "invocationId": "inv-1791825448420866-9",
+      "createdAt": "2026-10-12T17:17:33.547136Z",
+      "updatedAt": "2026-10-12T17:17:34.173216Z",
+      "reason": null,
+      "turnStatus": "completed",
+      "trigger": {
+        "kind": "download.facts",
+        "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+        "title": "collection.torrent",
+        "facts": [
+          {
+            "event": "download.file_completed",
+            "objectId": "job-0135b0bed5bae0e6201731617af19a6f:0",
+            "occurredAt": "2026-10-12T17:17:33.539740Z",
+            "data": {
+              "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+              "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+              "title": "collection.torrent",
+              "file": {
+                "objectId": "job-0135b0bed5bae0e6201731617af19a6f:0",
+                "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+                "index": 0,
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+                "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+                "expectedSize": 702145,
+                "actualSize": 702145,
+                "completedBytes": 702145,
+                "complete": true,
+                "verification": "verified",
+                "local": true,
+                "included": true,
+                "isVideo": true,
+                "imported": true,
+                "media": {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+                  "fileId": "file-c4bd522e-6337-41ed-8c6a-30859fbba2fd",
+                  "workIds": [],
+                  "episodes": [],
+                  "identificationPending": true,
+                  "classicScanPending": true
+                },
+                "identificationPending": true,
+                "completedAt": "2026-10-12T17:17:33.539740Z",
+                "playable": true
+              }
+            }
+          }
+        ]
+      },
+      "dispatchedAt": "2026-10-12T17:17:34.108989Z"
+    },
+    {
+      "id": "followup-download-job-0135b0bed5bae0e6201731617af19a6f-1",
+      "automatic": "download",
+      "state": "completed",
+      "title": "下载事实：collection.torrent",
+      "instruction": "由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。",
+      "condition": {
+        "downloadJobId": "job-0135b0bed5bae0e6201731617af19a6f"
+      },
+      "downloadObjects": [
+        "job-0135b0bed5bae0e6201731617af19a6f:1"
+      ],
+      "deliverAfter": "2026-10-12T17:18:34.108989Z",
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/harness",
+      "threadId": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+      "turnId": "01a1311f-9145-7ee3-8918-95d50aa6d8f1",
+      "origin": "harness_cli:chat:nipa-1791825446101193-78cf2587",
+      "invocationId": "inv-1791825448420866-9",
+      "createdAt": "2026-10-12T17:17:43.576125Z",
+      "updatedAt": "2026-10-12T17:18:34.864681Z",
+      "reason": null,
+      "turnStatus": "completed",
+      "trigger": {
+        "kind": "download.facts",
+        "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+        "title": "collection.torrent",
+        "facts": [
+          {
+            "event": "download.file_completed",
+            "objectId": "job-0135b0bed5bae0e6201731617af19a6f:1",
+            "occurredAt": "2026-10-12T17:17:43.571718Z",
+            "data": {
+              "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+              "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+              "title": "collection.torrent",
+              "file": {
+                "objectId": "job-0135b0bed5bae0e6201731617af19a6f:1",
+                "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+                "index": 1,
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+                "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+                "expectedSize": 780978,
+                "actualSize": 780978,
+                "completedBytes": 780978,
+                "complete": true,
+                "verification": "verified",
+                "local": true,
+                "included": true,
+                "isVideo": true,
+                "imported": true,
+                "media": {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+                  "fileId": "file-7af14acd-a408-4857-ab75-1df1eb1828fc",
+                  "workIds": [],
+                  "episodes": [],
+                  "identificationPending": true,
+                  "classicScanPending": true
+                },
+                "identificationPending": true,
+                "completedAt": "2026-10-12T17:17:43.571718Z",
+                "playable": true
+              }
+            }
+          }
+        ]
+      },
+      "dispatchedAt": "2026-10-12T17:18:34.808971Z"
+    },
+    {
+      "id": "followup-download-job-0135b0bed5bae0e6201731617af19a6f-2",
+      "automatic": "download",
+      "state": "completed",
+      "title": "下载事实：collection.torrent",
+      "instruction": "由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。",
+      "condition": {
+        "downloadJobId": "job-0135b0bed5bae0e6201731617af19a6f"
+      },
+      "downloadObjects": [
+        "job-0135b0bed5bae0e6201731617af19a6f:2"
+      ],
+      "deliverAfter": "2026-10-12T17:19:34.808971Z",
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/harness",
+      "threadId": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+      "turnId": "01a13121-004e-7980-91ac-b267ddb29585",
+      "origin": "harness_cli:chat:nipa-1791825446101193-78cf2587",
+      "invocationId": "inv-1791825448420866-9",
+      "createdAt": "2026-10-12T17:20:08.755688Z",
+      "updatedAt": "2026-10-12T17:20:08.822909Z",
+      "reason": null,
+      "turnStatus": "completed",
+      "trigger": {
+        "kind": "download.facts",
+        "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+        "title": "collection.torrent",
+        "facts": [
+          {
+            "event": "download.file_completed",
+            "objectId": "job-0135b0bed5bae0e6201731617af19a6f:2",
+            "occurredAt": "2026-10-12T17:20:08.753215Z",
+            "data": {
+              "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+              "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+              "title": "collection.torrent",
+              "file": {
+                "objectId": "job-0135b0bed5bae0e6201731617af19a6f:2",
+                "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+                "index": 2,
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+                "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+                "expectedSize": 865025,
+                "actualSize": 865025,
+                "completedBytes": 865025,
+                "complete": true,
+                "verification": "verified",
+                "local": true,
+                "included": true,
+                "isVideo": true,
+                "imported": true,
+                "media": {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+                  "fileId": "file-5be0fcdb-350d-44b2-8b01-0766b8d65d53",
+                  "workIds": [],
+                  "episodes": [],
+                  "identificationPending": true,
+                  "classicScanPending": true
+                },
+                "identificationPending": true,
+                "completedAt": "2026-10-12T17:20:08.753215Z",
+                "playable": true
+              }
+            }
+          }
+        ]
+      },
+      "dispatchedAt": "2026-10-12T17:20:08.768638Z"
+    },
+    {
+      "id": "followup-download-job-0135b0bed5bae0e6201731617af19a6f-3",
+      "automatic": "download",
+      "state": "completed",
+      "title": "下载事实：collection.torrent",
+      "instruction": "由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。",
+      "condition": {
+        "downloadJobId": "job-0135b0bed5bae0e6201731617af19a6f"
+      },
+      "downloadObjects": [
+        "terminal:job-0135b0bed5bae0e6201731617af19a6f"
+      ],
+      "deliverAfter": "2026-10-12T17:20:08.787727Z",
+      "waitingFor": null,
+      "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/harness",
+      "threadId": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+      "turnId": "01a13121-0084-7f40-baf9-6436c0e74939",
+      "origin": "harness_cli:chat:nipa-1791825446101193-78cf2587",
+      "invocationId": "inv-1791825448420866-9",
+      "createdAt": "2026-10-12T17:20:08.787727Z",
+      "updatedAt": "2026-10-12T17:20:08.869397Z",
+      "reason": null,
+      "turnStatus": "completed",
+      "trigger": {
+        "kind": "download.facts",
+        "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+        "title": "collection.torrent",
+        "facts": [
+          {
+            "event": "task.terminal",
+            "objectId": "job-0135b0bed5bae0e6201731617af19a6f",
+            "occurredAt": "2026-10-12T17:20:08.775280Z",
+            "data": {
+              "source": null,
+              "parentThreadId": null,
+              "threadId": null,
+              "startedAt": null,
+              "currentActivity": null,
+              "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+              "type": "download",
+              "title": "collection.torrent",
+              "state": "succeeded",
+              "phase": "verifying",
+              "revision": 40,
+              "createdAt": "2026-10-12T17:17:28.447708Z",
+              "updatedAt": "2026-10-12T17:20:08.775280Z",
+              "ownerDeviceId": "device-b96c9de37d03245cbcf21bec347f061d",
+              "progress": {
+                "completed": 3,
+                "total": 3,
+                "unit": "files"
+              },
+              "errorCode": null,
+              "receipt": {
+                "verification": "verified",
+                "details": {
+                  "source": null,
+                  "completedAt": null,
+                  "summary": null,
+                  "resultVerification": null,
+                  "threadId": null,
+                  "turnId": null,
+                  "turnStatus": null,
+                  "sourceId": null,
+                  "provider": null,
+                  "connected": null,
+                  "loggedIn": null,
+                  "method": null,
+                  "event": null,
+                  "objectId": null,
+                  "exitCode": null,
+                  "elapsedMs": null,
+                  "reason": null,
+                  "fileId": null,
+                  "fileIds": [
+                    "file-c4bd522e-6337-41ed-8c6a-30859fbba2fd",
+                    "file-7af14acd-a408-4857-ab75-1df1eb1828fc",
+                    "file-5be0fcdb-350d-44b2-8b01-0766b8d65d53"
+                  ],
+                  "bindingId": null,
+                  "snapshotId": null,
+                  "cacheKey": null,
+                  "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+                  "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+                  "downloadComplete": true,
+                  "paused": false,
+                  "refreshed": null,
+                  "identityChanged": null,
+                  "userOverridesPreserved": null,
+                  "projectionVerified": null,
+                  "indexed": null,
+                  "files": [
+                    {
+                      "relativePath": null,
+                      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+                      "size": null,
+                      "expectedSize": 702145,
+                      "actualSize": 702145,
+                      "retained": null,
+                      "selected": null,
+                      "media": null,
+                      "verified": null,
+                      "imported": true
+                    },
+                    {
+                      "relativePath": null,
+                      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+                      "size": null,
+                      "expectedSize": 780978,
+                      "actualSize": 780978,
+                      "retained": null,
+                      "selected": null,
+                      "media": null,
+                      "verified": null,
+                      "imported": true
+                    },
+                    {
+                      "relativePath": null,
+                      "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+                      "size": null,
+                      "expectedSize": 865025,
+                      "actualSize": 865025,
+                      "retained": null,
+                      "selected": null,
+                      "media": null,
+                      "verified": null,
+                      "imported": true
+                    }
+                  ]
+                },
+                "cancellation": null
+              }
+            }
+          }
+        ]
+      },
+      "dispatchedAt": "2026-10-12T17:20:08.829954Z"
+    }
+  ],
+  "duplicateJobId": "job-0135b0bed5bae0e6201731617af19a6f",
+  "download": {
+    "job": {
+      "backend": {
+        "kind": "builtin"
+      },
+      "jobId": "job-0135b0bed5bae0e6201731617af19a6f",
+      "type": "download",
+      "title": "collection.torrent",
+      "state": "succeeded",
+      "phase": "verifying",
+      "progress": {
+        "completed": 3,
+        "total": 3,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T17:17:28.447708Z",
+      "updatedAt": "2026-10-12T17:20:08.775280Z",
+      "ownerDeviceId": "device-b96c9de37d03245cbcf21bec347f061d",
+      "revision": 40,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+          "downloadComplete": true,
+          "paused": false,
+          "files": [
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+              "expectedSize": 702145,
+              "actualSize": 702145,
+              "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+              "local": true,
+              "included": true,
+              "imported": true,
+              "media": {
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+                "fileId": "file-c4bd522e-6337-41ed-8c6a-30859fbba2fd",
+                "workIds": [],
+                "episodes": [],
+                "identificationPending": true,
+                "classicScanPending": true
+              },
+              "identificationPending": true,
+              "reason": "not_identified"
+            },
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+              "expectedSize": 780978,
+              "actualSize": 780978,
+              "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+              "local": true,
+              "included": true,
+              "imported": true,
+              "media": {
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+                "fileId": "file-7af14acd-a408-4857-ab75-1df1eb1828fc",
+                "workIds": [],
+                "episodes": [],
+                "identificationPending": true,
+                "classicScanPending": true
+              },
+              "identificationPending": true,
+              "reason": "not_identified"
+            },
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+              "expectedSize": 865025,
+              "actualSize": 865025,
+              "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+              "local": true,
+              "included": true,
+              "imported": true,
+              "media": {
+                "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+                "fileId": "file-5be0fcdb-350d-44b2-8b01-0766b8d65d53",
+                "workIds": [],
+                "episodes": [],
+                "identificationPending": true,
+                "classicScanPending": true
+              },
+              "identificationPending": true,
+              "reason": "not_identified"
+            }
+          ],
+          "fileIds": [
+            "file-c4bd522e-6337-41ed-8c6a-30859fbba2fd",
+            "file-7af14acd-a408-4857-ab75-1df1eb1828fc",
+            "file-5be0fcdb-350d-44b2-8b01-0766b8d65d53"
+          ],
+          "workIds": []
+        }
+      }
+    },
+    "task": {
+      "handle": "0",
+      "infoHash": "c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+      "title": "X44 CC0 三集动画-body",
+      "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42",
+      "local": true,
+      "completedBytes": 2348148,
+      "totalBytes": 2348148,
+      "finished": true,
+      "paused": false,
+      "error": null,
+      "health": {
+        "observedAt": "2026-10-12T17:21:32.618294Z",
+        "observingSince": "2026-10-12T17:17:28.506153Z",
+        "lastProgressAt": "2026-10-12T17:20:08.749171Z",
+        "secondsWithoutProgress": 83,
+        "sampleSeconds": 83.869,
+        "checkedBytesChange": 0,
+        "connectedPeers": 0,
+        "seenPeers": 1,
+        "connectingPeers": 0,
+        "queuedPeers": 0,
+        "deadPeers": 0,
+        "sources": {
+          "connectedPeersWithCheckedPieces": 0,
+          "connectedPeersWithFetchedBytes": 0,
+          "peers": {}
+        },
+        "seeders": null,
+        "pieceAvailability": null,
+        "availabilityReason": "librqbit public API does not expose peer bitfields or tracker seed counts",
+        "fileSelectionSupported": true,
+        "filePrioritySupported": false
+      },
+      "disk": {
+        "availableBytes": 529434300416,
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42"
+      },
+      "state": "live",
+      "downloadSpeedBytesPerSecond": 0,
+      "uploadSpeedBytesPerSecond": 0,
+      "files": [
+        {
+          "index": 0,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+          "local": true,
+          "expectedSize": 702145,
+          "included": true,
+          "isVideo": true,
+          "completedBytes": 702145,
+          "complete": true,
+          "playable": true,
+          "streamable": true,
+          "actualSize": 702145
+        },
+        {
+          "index": 1,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+          "local": true,
+          "expectedSize": 780978,
+          "included": true,
+          "isVideo": true,
+          "completedBytes": 780978,
+          "complete": true,
+          "playable": true,
+          "streamable": true,
+          "actualSize": 780978
+        },
+        {
+          "index": 2,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+          "local": true,
+          "expectedSize": 865025,
+          "included": true,
+          "isVideo": true,
+          "completedBytes": 865025,
+          "complete": true,
+          "playable": true,
+          "streamable": true,
+          "actualSize": 865025
+        }
+      ]
+    }
+  },
+  "library": {
+    "schemaVersion": 1,
+    "snapshotId": null,
+    "observedAt": "2026-10-12T17:21:32.627056Z",
+    "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+    "sources": {
+      "library.files": "2026-10-12T17:21:32.625906Z"
+    },
+    "rows": [
+      {
+        "fileId": "file-5be0fcdb-350d-44b2-8b01-0766b8d65d53",
+        "episodeId": null,
+        "workId": null,
+        "releaseId": null,
+        "locationId": "location-1ae39405-fc0c-412b-b3a2-63d6b29715df",
+        "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4",
+        "source": "local",
+        "ownerDeviceId": "device-b96c9de37d03245cbcf21bec347f061d",
+        "available": true,
+        "revision": 0,
+        "bindingRevision": 0,
+        "relation": null,
+        "ordinal": null,
+        "startMs": null,
+        "endMs": null,
+        "bindings": [],
+        "progress": null,
+        "historyStatus": "no_history"
+      },
+      {
+        "fileId": "file-7af14acd-a408-4857-ab75-1df1eb1828fc",
+        "episodeId": null,
+        "workId": null,
+        "releaseId": null,
+        "locationId": "location-be49a622-b70c-4fe6-970e-bee13d0c325d",
+        "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4",
+        "source": "local",
+        "ownerDeviceId": "device-b96c9de37d03245cbcf21bec347f061d",
+        "available": true,
+        "revision": 0,
+        "bindingRevision": 0,
+        "relation": null,
+        "ordinal": null,
+        "startMs": null,
+        "endMs": null,
+        "bindings": [],
+        "progress": null,
+        "historyStatus": "no_history"
+      },
+      {
+        "fileId": "file-c4bd522e-6337-41ed-8c6a-30859fbba2fd",
+        "episodeId": null,
+        "workId": null,
+        "releaseId": null,
+        "locationId": "location-5574db1c-08af-4b04-9a83-4c0d5aad0f76",
+        "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4",
+        "source": "local",
+        "ownerDeviceId": "device-b96c9de37d03245cbcf21bec347f061d",
+        "available": true,
+        "revision": 0,
+        "bindingRevision": 0,
+        "relation": null,
+        "ordinal": null,
+        "startMs": null,
+        "endMs": null,
+        "bindings": [],
+        "progress": null,
+        "historyStatus": "no_history"
+      }
+    ],
+    "nextCursor": null,
+    "truncated": false,
+    "warnings": []
+  },
+  "thread": {
+    "id": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+    "extra": null,
+    "sessionId": "01a1311e-864d-70e1-b2f9-029183a7ad4e",
+    "forkedFromId": null,
+    "parentThreadId": null,
+    "preview": "PROBE:busy",
+    "ephemeral": false,
+    "historyMode": "legacy",
+    "modelProvider": "fixture",
+    "createdAt": 1791825446,
+    "updatedAt": 1791825446,
+    "recencyAt": 1791825608,
+    "status": {
+      "type": "idle"
+    },
+    "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/codex-home/sessions/2026/10/13/rollout-2026-10-13T01-17-26-01a1311e-864d-70e1-b2f9-029183a7ad4e.jsonl",
+    "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/harness",
+    "cliVersion": "0.144.1",
+    "source": "vscode",
+    "threadSource": null,
+    "agentNickname": null,
+    "agentRole": null,
+    "gitInfo": null,
+    "name": "NipaPlay 主会话",
+    "turns": [
+      {
+        "id": "01a1311e-8dd8-7f20-bd68-88f8086bde71",
+        "items": [
+          {
+            "type": "userMessage",
+            "id": "item-1",
+            "clientId": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "PROBE:busy",
+                "text_elements": []
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "item-2",
+            "text": "主回合结束，不等待。",
+            "phase": null,
+            "memoryCitation": null
+          }
+        ],
+        "itemsView": "full",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791825448,
+        "completedAt": 1791825454,
+        "durationMs": 5679
+      },
+      {
+        "id": "01a1311e-a42c-72c3-97e4-13254239d4f5",
+        "items": [
+          {
+            "type": "userMessage",
+            "id": "item-3",
+            "clientId": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "[NipaPlay followup followup-download-job-0135b0bed5bae0e6201731617af19a6f-0]\n这是宿主派发的新回合。说明和触发事实如下，下一步由你决定。\n登记来源：harness_cli:chat:nipa-1791825446101193-78cf2587\n登记说明：\n由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。\n触发事实（任务终态不等于成功，请依据状态与回执判断）：\n{\"kind\":\"download.facts\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"title\":\"collection.torrent\",\"facts\":[{\"event\":\"download.file_completed\",\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:0\",\"occurredAt\":\"2026-10-12T17:17:33.539740Z\",\"data\":{\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"infoHash\":\"c7aca3730ca051f6d0f30b4a245bfc66dab26c42\",\"title\":\"collection.torrent\",\"file\":{\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:0\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"index\":0,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4\",\"canonicalPath\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4\",\"expectedSize\":702145,\"actualSize\":702145,\"completedBytes\":702145,\"complete\":true,\"verification\":\"verified\",\"local\":true,\"included\":true,\"isVideo\":true,\"imported\":true,\"media\":{\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4\",\"fileId\":\"file-c4bd522e-6337-41ed-8c6a-30859fbba2fd\",\"workIds\":[],\"episodes\":[],\"identificationPending\":true,\"classicScanPending\":true},\"identificationPending\":true,\"completedAt\":\"2026-10-12T17:17:33.539740Z\",\"playable\":true}}}]}",
+                "text_elements": []
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "item-4",
+            "text": "收到后台帮手的结果，已向用户交回。",
+            "phase": null,
+            "memoryCitation": null
+          }
+        ],
+        "itemsView": "full",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791825454,
+        "completedAt": 1791825454,
+        "durationMs": 17
+      },
+      {
+        "id": "01a1311f-9145-7ee3-8918-95d50aa6d8f1",
+        "items": [
+          {
+            "type": "userMessage",
+            "id": "item-5",
+            "clientId": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "[NipaPlay followup followup-download-job-0135b0bed5bae0e6201731617af19a6f-1]\n这是宿主派发的新回合。说明和触发事实如下，下一步由你决定。\n登记来源：harness_cli:chat:nipa-1791825446101193-78cf2587\n登记说明：\n由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。\n触发事实（任务终态不等于成功，请依据状态与回执判断）：\n{\"kind\":\"download.facts\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"title\":\"collection.torrent\",\"facts\":[{\"event\":\"download.file_completed\",\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:1\",\"occurredAt\":\"2026-10-12T17:17:43.571718Z\",\"data\":{\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"infoHash\":\"c7aca3730ca051f6d0f30b4a245bfc66dab26c42\",\"title\":\"collection.torrent\",\"file\":{\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:1\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"index\":1,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4\",\"canonicalPath\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4\",\"expectedSize\":780978,\"actualSize\":780978,\"completedBytes\":780978,\"complete\":true,\"verification\":\"verified\",\"local\":true,\"included\":true,\"isVideo\":true,\"imported\":true,\"media\":{\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4\",\"fileId\":\"file-7af14acd-a408-4857-ab75-1df1eb1828fc\",\"workIds\":[],\"episodes\":[],\"identificationPending\":true,\"classicScanPending\":true},\"identificationPending\":true,\"completedAt\":\"2026-10-12T17:17:43.571718Z\",\"playable\":true}}}]}",
+                "text_elements": []
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "item-6",
+            "text": "收到后台帮手的结果，已向用户交回。",
+            "phase": null,
+            "memoryCitation": null
+          }
+        ],
+        "itemsView": "full",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791825514,
+        "completedAt": 1791825514,
+        "durationMs": 20
+      },
+      {
+        "id": "01a13121-004e-7980-91ac-b267ddb29585",
+        "items": [
+          {
+            "type": "userMessage",
+            "id": "item-7",
+            "clientId": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "[NipaPlay followup followup-download-job-0135b0bed5bae0e6201731617af19a6f-2]\n这是宿主派发的新回合。说明和触发事实如下，下一步由你决定。\n登记来源：harness_cli:chat:nipa-1791825446101193-78cf2587\n登记说明：\n由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。\n触发事实（任务终态不等于成功，请依据状态与回执判断）：\n{\"kind\":\"download.facts\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"title\":\"collection.torrent\",\"facts\":[{\"event\":\"download.file_completed\",\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:2\",\"occurredAt\":\"2026-10-12T17:20:08.753215Z\",\"data\":{\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"infoHash\":\"c7aca3730ca051f6d0f30b4a245bfc66dab26c42\",\"title\":\"collection.torrent\",\"file\":{\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f:2\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"index\":2,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4\",\"canonicalPath\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4\",\"expectedSize\":865025,\"actualSize\":865025,\"completedBytes\":865025,\"complete\":true,\"verification\":\"verified\",\"local\":true,\"included\":true,\"isVideo\":true,\"imported\":true,\"media\":{\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4\",\"fileId\":\"file-5be0fcdb-350d-44b2-8b01-0766b8d65d53\",\"workIds\":[],\"episodes\":[],\"identificationPending\":true,\"classicScanPending\":true},\"identificationPending\":true,\"completedAt\":\"2026-10-12T17:20:08.753215Z\",\"playable\":true}}}]}",
+                "text_elements": []
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "item-8",
+            "text": "收到后台帮手的结果，已向用户交回。",
+            "phase": null,
+            "memoryCitation": null
+          }
+        ],
+        "itemsView": "full",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791825608,
+        "completedAt": 1791825608,
+        "durationMs": 19
+      },
+      {
+        "id": "01a13121-0084-7f40-baf9-6436c0e74939",
+        "items": [
+          {
+            "type": "userMessage",
+            "id": "item-9",
+            "clientId": null,
+            "content": [
+              {
+                "type": "text",
+                "text": "[NipaPlay followup followup-download-job-0135b0bed5bae0e6201731617af19a6f-3]\n这是宿主派发的新回合。说明和触发事实如下，下一步由你决定。\n登记来源：harness_cli:chat:nipa-1791825446101193-78cf2587\n登记说明：\n由此会话发起的下载有新事实。以下是完成时的校验、入库与播放事实；作品和剧集未知时保留未知。下一步由你决定。\n触发事实（任务终态不等于成功，请依据状态与回执判断）：\n{\"kind\":\"download.facts\",\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"title\":\"collection.torrent\",\"facts\":[{\"event\":\"task.terminal\",\"objectId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"occurredAt\":\"2026-10-12T17:20:08.775280Z\",\"data\":{\"source\":null,\"parentThreadId\":null,\"threadId\":null,\"startedAt\":null,\"currentActivity\":null,\"jobId\":\"job-0135b0bed5bae0e6201731617af19a6f\",\"type\":\"download\",\"title\":\"collection.torrent\",\"state\":\"succeeded\",\"phase\":\"verifying\",\"revision\":40,\"createdAt\":\"2026-10-12T17:17:28.447708Z\",\"updatedAt\":\"2026-10-12T17:20:08.775280Z\",\"ownerDeviceId\":\"device-b96c9de37d03245cbcf21bec347f061d\",\"progress\":{\"completed\":3,\"total\":3,\"unit\":\"files\"},\"errorCode\":null,\"receipt\":{\"verification\":\"verified\",\"details\":{\"source\":null,\"completedAt\":null,\"summary\":null,\"resultVerification\":null,\"threadId\":null,\"turnId\":null,\"turnStatus\":null,\"sourceId\":null,\"provider\":null,\"connected\":null,\"loggedIn\":null,\"method\":null,\"event\":null,\"objectId\":null,\"exitCode\":null,\"elapsedMs\":null,\"reason\":null,\"fileId\":null,\"fileIds\":[\"file-c4bd522e-6337-41ed-8c6a-30859fbba2fd\",\"file-7af14acd-a408-4857-ab75-1df1eb1828fc\",\"file-5be0fcdb-350d-44b2-8b01-0766b8d65d53\"],\"bindingId\":null,\"snapshotId\":null,\"cacheKey\":null,\"infoHash\":\"c7aca3730ca051f6d0f30b4a245bfc66dab26c42\",\"outputDirectory\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42\",\"downloadComplete\":true,\"paused\":false,\"refreshed\":null,\"identityChanged\":null,\"userOverridesPreserved\":null,\"projectionVerified\":null,\"indexed\":null,\"files\":[{\"relativePath\":null,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第01集.mp4\",\"size\":null,\"expectedSize\":702145,\"actualSize\":702145,\"retained\":null,\"selected\":null,\"media\":null,\"verified\":null,\"imported\":true},{\"relativePath\":null,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第02集.mp4\",\"size\":null,\"expectedSize\":780978,\"actualSize\":780978,\"retained\":null,\"selected\":null,\"media\":null,\"verified\":null,\"imported\":true},{\"relativePath\":null,\"path\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x44-body-12597/data/downloads/c7aca3730ca051f6d0f30b4a245bfc66dab26c42/第03集.mp4\",\"size\":null,\"expectedSize\":865025,\"actualSize\":865025,\"retained\":null,\"selected\":null,\"media\":null,\"verified\":null,\"imported\":true}]},\"cancellation\":null}}}]}",
+                "text_elements": []
+              }
+            ]
+          },
+          {
+            "type": "agentMessage",
+            "id": "item-10",
+            "text": "收到后台帮手的结果，已向用户交回。",
+            "phase": null,
+            "memoryCitation": null
+          }
+        ],
+        "itemsView": "full",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791825608,
+        "completedAt": 1791825608,
+        "durationMs": 18
+      }
+    ]
+  },
+  "assertions": {
+    "eachFileOnce": true,
+    "terminalOnce": true,
+    "duplicateAddNoNewReturn": true
+  }
+}
