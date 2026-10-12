@@ -1,0 +1,15 @@
+{
+  "related": {
+    "command": "lockf -k /tmp/nipa-next/flutter-test.lock env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy NO_PROXY=127.0.0.1,localhost ~/development/flutter-3.44.6/bin/flutter test --no-pub test/next/harness_repository_test.dart --reporter expanded",
+    "lastLine": "00:01 +3: All tests passed!"
+  },
+  "full": {
+    "command": "same lock/environment; flutter test --no-pub test/next --reporter expanded",
+    "lastLine": "01:56 +438 ~4: All tests passed!",
+    "runs": 1
+  },
+  "build": {
+    "command": "ERIKA_PREBUILT_CACHE_DIR=/tmp/nipa-next/x2-erika-cache ~/development/flutter-3.44.6/bin/flutter build macos --debug --no-pub",
+    "lastLine": "\u2713 Built build/macos/Build/Products/Debug/NipaPlay.app"
+  }
+}
