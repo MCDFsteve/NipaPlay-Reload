@@ -1,0 +1,145 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart
+00:00 +0: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: imports without a host session, mounts immediately and exposes provenance
+00:00 +0 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: sidecar references refresh without copied content and retain controls when missing
+00:00 +0 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: imports without a host session, mounts immediately and exposes provenance [E]
+  Bad state: Too many elements
+  dart:core                                  Iterable.single
+  test/next/danmaku_import_test.dart 172:47  main.<fn>
+  
+Warning: At least one test in this suite creates an HttpClient. When running a test suite that uses
+TestWidgetsFlutterBinding, all HTTP requests will return status code 400, and no network request
+will actually be made. Any test expecting a real network connection and status code will fail.
+To test code that needs an HttpClient, provide your own HttpClient implementation to the code under
+test, so that your test can consistently provide a testable response to the code under test.
+00:00 +1 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: reimport replaces one platform video and preserves display settings
+00:00 +1 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: reimport replaces one platform video and preserves display settings
+00:00 +1 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: explicit import of a discovered path replaces the pointer pool without a duplicate [E]
+  Expected: 'completed'
+    Actual: 'failed'
+     Which: is different.
+            Expected: completed
+              Actual: failed
+                      ^
+             Differ at offset 0
+  {"status":"failed","error":{"code":"internal","message":"danmaku.import failed: SqfliteFfiException(sqlite_error: 787, , SqliteException(787): while executing statement, FOREIGN KEY constraint failed, constraint failed (code 787)\n  Causing statement: UPDATE danmaku_bindings SET entity_id = ?, entity_revision = ?, object_id = ?, video = ?, status = ?, evidence = ?, bound_by = ?, invocation_id = ?, revision = ?, cache_key = ?, cache_revision = ?, cache_job_id = NULL, provenance = ?, local_file = NULL WHERE id = ?, parameters: file-59715be1-c65a-43cc-af07-6227bfa8fc00, 0, object-c8e4a55ca59b99f4ca38ed7d073ba81d7f98c8176fd43241ab49ad6cca54f4ed, {\"sourceId\":\"local\",\"videoId\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"title\":\"episode.xml\",\"durationMs\":0,\"objectType\":\"file\"}, accepted, {\"reason\":\"Imported danmaku\",\"url\":null}, agent, inv-1791816622557579-1, 1, danmaku-import-b56ad252-f422-4403-8541-47e4d5029e3a, 2, {\"platform\":\"local\",\"platformVideoId\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"actor\":\"agent\",\"origin\":\"mcp\",\"importedAt\":\"2026-10-12T14:50:22.565410Z\",\"filePath\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"note\":null}, danmaku-sidecar-04b2929dd375b88d52440e1afc41d496e89179f2ded215346a890d9a23b275e5}) DatabaseException(SqliteException(787): while executing statement, FOREIGN KEY constraint failed, constraint failed (code 787)\n  Causing statement: UPDATE danmaku_bindings SET entity_id = ?, entity_revision = ?, object_id = ?, video = ?, status = ?, evidence = ?, bound_by = ?, invocation_id = ?, revision = ?, cache_key = ?, cache_revision = ?, cache_job_id = NULL, provenance = ?, local_file = NULL WHERE id = ?, parameters: file-59715be1-c65a-43cc-af07-6227bfa8fc00, 0, object-c8e4a55ca59b99f4ca38ed7d073ba81d7f98c8176fd43241ab49ad6cca54f4ed, {\"sourceId\":\"local\",\"videoId\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"title\":\"episode.xml\",\"durationMs\":0,\"objectType\":\"file\"}, accepted, {\"reason\":\"Imported danmaku\",\"url\":null}, agent, inv-1791816622557579-1, 1, danmaku-import-b56ad252-f422-4403-8541-47e4d5029e3a, 2, {\"platform\":\"local\",\"platformVideoId\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"actor\":\"agent\",\"origin\":\"mcp\",\"importedAt\":\"2026-10-12T14:50:22.565410Z\",\"filePath\":\"/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/episode.xml\",\"note\":null}, danmaku-sidecar-04b2929dd375b88d52440e1afc41d496e89179f2ded215346a890d9a23b275e5) sql 'UPDATE danmaku_bindings SET entity_id = ?, entity_revision = ?, object_id = ?, video = ?, status = ?, evidence = ?, bound_by = ?, invocation_id = ?, revision = ?, cache_key = ?, cache_revision = ?, cache_job_id = NULL, provenance = ?, local_file = NULL WHERE id = ?' args [file-59715be1-c65a-43cc-af07-6227bfa8fc00, 0, object-c8e4a55ca59b99f4ca38ed7d073ba81d7f98c8176fd..., {\"sourceId\":\"local\",\"videoId\":\"/var/folders/7t/363..., accepted, {\"reason\":\"Imported danmaku\",\"url\":null}, agent, inv-1791816622557579-1, 1, danmaku-import-b56ad252-f422-4403-8541-47e4d5029e3..., 2, {\"platform\":\"local\",\"platformVideoId\":\"/var/folder..., danmaku-sidecar-04b2929dd375b88d52440e1afc41d496e8...] {details: {database: {path: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-danmaku-pjSeK3/next.db, id: 2, readOnly: false, singleInstance: true}}}","retryable":false}}
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/next/danmaku_test_support.dart 296:5           DanmakuFixture.call
+  
+00:00 +1 -3: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/sidecar_danmaku_test.dart: shared Classic ranking and parse fallback stay identical
+00:00 +1 -3: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: reimport replaces one platform video and preserves display settings [E]
+  Expected: an object with length of <1>
+    Actual: {
+              'danmaku-sidecar-11f446eb73328f2367f39df9bd19f363e211b64bc57dadd73ab8d6884c13187f': {
+                'bindingId': 'danmaku-sidecar-11f446eb73328f2367f39df9bd19f363e211b64bc57dadd73ab8d6884c13187f',
+                'entityId': 'file-51c7f4b4-152e-42ba-ba51-7846def06765',
+                'source': 'local',
+                'platform': 'local',
+                'platformVideoId': '/private/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-import-q5dS0n/pool.xml',
+                'origin': 'manual_import',
+                'provenance': null,
+                'revision': 0,
+                'deduplicate': true,
+                'offsetMs': 0,
+                'timeOffset': 0.0,
+                'danmakuList': [
+                  {
+                    'time': 1.25,
+                    'content': '旧弹幕',
+                    'type': 'top',
+                    'color': 'rgb(0,0,255)',
+                    'source': 'unknown',
+                    'sourceId': 'local',
+                    'platformVideoId': null,
+                    'platformDanmakuId': '9007199254740993',
+                    'sourceEntryId': null,
+                    'originSource': null,
+                    'senderId': 'sender',
+                    'sourceTimeMs': 1250,
+                    'originalMode': 5,
+                    'modeDowngraded': false,
+                    'fontSize': 25,
+                    'sentAt': '1700000000'
+                  }
+                ],
+                'count': 1
+              },
+              'danmaku-8b877e02-5ca9-49cb-937e-2b1d4b72c82b': {
+                'bindingId': 'danmaku-8b877e02-5ca9-49cb-937e-2b1d4b72c82b',
+                'entityId': 'file-51c7f4b4-152e-42ba-ba51-7846def06765',
+                'source': 'youku',
+                'platform': 'youku',
+                'platformVideoId': 'Xfixture',
+                'origin': 'agent_import',
+                'provenance': {
+                  'platform': 'youku',
+                  'platformVideoId': 'Xfixture',
+                  'actor': 'agent',
+                  'origin': 'mcp',
+                  'importedAt': '2026-10-12T14:50:22.582401Z',
+                  'filePath': '/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-import-q5dS0n/pool.xml',
+                  'note': null
+                },
+                'revision': 2,
+                'deduplicate': false,
+                'offsetMs': 250,
+                'timeOffset': 0.25,
+                'danmakuList': [
+                  {
+                    'time': 1.25,
+                    'content': '新弹幕',
+                    'type': 'top',
+                    'color': 'rgb(0,0,255)',
+                    'source': 'youku',
+                    'sourceId': 'youku',
+                    'platformVideoId': 'Xfixture',
+                    'platformDanmakuId': '9007199254740993',
+                    'sourceEntryId': null,
+                    'originSource': null,
+                    'senderId': 'sender',
+                    'sourceTimeMs': 1250,
+                    'originalMode': 5,
+                    'modeDowngraded': false,
+                    'fontSize': 25,
+                    'sentAt': '1700000000'
+                  }
+                ],
+                'count': 1
+              }
+            }
+     Which: has length of <2>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/next/danmaku_import_test.dart 213:5            main.<fn>
+  
+00:00 +2 -3: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic ARGB rows retain all entries and metadata after restoration
+00:00 +3 -3: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic ARGB rows retain all entries and metadata after restoration
+00:00 +3 -4: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic ARGB rows retain all entries and metadata after restoration [E]
+  PathNotFoundException: Cannot open file, path = '/private/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/next-import-GfW9lo/pool.xml' (OS Error: No such file or directory, errno = 2)
+  dart:async  _startMicrotaskLoop
+  
+00:00 +3 -4: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic JSON and byte encodings retain the same playable data
+00:00 +3 -5: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic JSON and byte encodings retain the same playable data [E]
+  Bad state: Too many elements
+  dart:core                                  Iterable.single
+  test/next/danmaku_import_test.dart 324:50  main.<fn>
+  
+00:00 +3 -5: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: a malformed file or transaction failure leaves the previous pool unchanged
+00:00 +3 -6: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: a malformed file or transaction failure leaves the previous pool unchanged [E]
+  Bad state: Too many elements
+  dart:core                                  Iterable.single
+  test/next/danmaku_import_test.dart 343:46  main.<fn>
+  
+00:00 +3 -6: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: full episode files keep all 50000 entries and empty refresh cannot erase them
+00:01 +4 -6: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: episode imports replace a loaded file track and survive playback restoration
+00:01 +5 -6: /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: an import does not allow an earlier in-flight fetch to overwrite it
+00:01 +6 -6: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic ARGB rows retain all entries and metadata after restoration
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: Classic JSON and byte encodings retain the same playable data
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: a malformed file or transaction failure leaves the previous pool unchanged
+  /Users/sakiko/Desktop/nipaplay-next-wt/x39-sidecar-danmaku/test/next/danmaku_import_test.dart: imports without a host session, mounts immediately and exposes provenance
+  ... and 2 more

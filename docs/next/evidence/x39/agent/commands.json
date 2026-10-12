@@ -1,0 +1,1050 @@
+[
+  {
+    "id": "call_01_RFIjhx87dgLYBPwaY8Ci2776",
+    "startedAt": "2026-10-12T22:37:45.494745",
+    "endedAt": "2026-10-12T22:37:45.497525",
+    "seconds": 0.00278,
+    "command": "/bin/zsh -lc 'ls -la; cat tools/README.md 2>/dev/null | head -50'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_uI3iNujn6PHIkIoAeGOj6490",
+    "startedAt": "2026-10-12T22:37:45.601073",
+    "endedAt": "2026-10-12T22:37:46.084873",
+    "seconds": 0.4838,
+    "command": "/bin/zsh -lc './nipa status'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_fBXBnpt8MeFP0Rqzd4Fr6302",
+    "startedAt": "2026-10-12T22:37:52.344908",
+    "endedAt": "2026-10-12T22:37:52.346621",
+    "seconds": 0.001713,
+    "command": "/bin/zsh -lc \"./nipa query state.query '{\\\"limit\\\": 50}' 2>&1 | head -100\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_TbyQvwmpgyvq3e6bxjSc7086",
+    "startedAt": "2026-10-12T22:37:52.345820",
+    "endedAt": "2026-10-12T22:37:52.348322",
+    "seconds": 0.002502,
+    "command": "/bin/zsh -lc './nipa list | head -100'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_6JEbiISkqaJ6hp6M1eg41718",
+    "startedAt": "2026-10-12T22:37:56.327472",
+    "endedAt": "2026-10-12T22:37:56.328906",
+    "seconds": 0.001434,
+    "command": "/bin/zsh -lc './nipa describe state.query 2>&1 | head -60'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_qkOV2tSV3qkrpR5HkWPU5859",
+    "startedAt": "2026-10-12T22:37:56.329969",
+    "endedAt": "2026-10-12T22:37:56.331970",
+    "seconds": 0.002001,
+    "command": "/bin/zsh -lc \"./nipa list | python3 -c \\\"import json,sys; d=json.load(sys.stdin); print('\\\\n'.join(a['id'] for a in d['actions']))\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_1xB6bbceUdshCd5EumtG7939",
+    "startedAt": "2026-10-12T22:37:59.869221",
+    "endedAt": "2026-10-12T22:37:59.870103",
+    "seconds": 0.000882,
+    "command": "/bin/zsh -lc \"./nipa query media.library.works '{\\\"limit\\\": 50}' 2>&1 | head -80\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_3GuO1G1vFumKcG1llvNq9635",
+    "startedAt": "2026-10-12T22:37:59.910888",
+    "endedAt": "2026-10-12T22:37:59.913276",
+    "seconds": 0.002388,
+    "command": "/bin/zsh -lc \"./nipa call state.describe '{}' 2>&1 | head -200\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_hJLHDS3vOFaAiLu6RRAc7880",
+    "startedAt": "2026-10-12T22:38:02.908822",
+    "endedAt": "2026-10-12T22:38:02.909752",
+    "seconds": 0.00093,
+    "command": "/bin/zsh -lc \"./nipa call media.library.works '{\\\"limit\\\": 50}' 2>&1 | head -120\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_1Cr4Y5ndiO6lyxGi9IhT9574",
+    "startedAt": "2026-10-12T22:38:02.921336",
+    "endedAt": "2026-10-12T22:38:02.922728",
+    "seconds": 0.001392,
+    "command": "/bin/zsh -lc \"./nipa call state.describe '{}' 2>&1 | python3 -c \\\"import json,sys; d=json.load(sys.stdin); print('\\\\n'.join(v['view'] for v in d['result']['views']))\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_BlJ1lD0Cv59D8ppv9Hd50683",
+    "startedAt": "2026-10-12T22:38:06.263605",
+    "endedAt": "2026-10-12T22:38:06.264862",
+    "seconds": 0.001257,
+    "command": "/bin/zsh -lc \"./nipa query downloads '{\\\"limit\\\": 20}' 2>&1 | head -120; echo ====; ./nipa query tasks '{\\\"limit\\\": 20}' 2>&1 | head -60\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_INsgLI5AvKcZ9En2FOTx1432",
+    "startedAt": "2026-10-12T22:38:06.305856",
+    "endedAt": "2026-10-12T22:38:06.307879",
+    "seconds": 0.002023,
+    "command": "/bin/zsh -lc \"./nipa query library.files '{\\\"limit\\\": 50}' 2>&1 | head -120\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_a0FHkziCVxTgiZ35etlC1077",
+    "startedAt": "2026-10-12T22:38:10.220825",
+    "endedAt": "2026-10-12T22:38:10.222525",
+    "seconds": 0.0017,
+    "command": "/bin/zsh -lc \"ls -la \\\"/Volumes/Anime/长安十二时辰/\\\" 2>&1; echo ====; ls \\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/\\\" 2>&1\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_xTjmEaAUmNQiTR2B4Tuy1475",
+    "startedAt": "2026-10-12T22:38:10.272128",
+    "endedAt": "2026-10-12T22:38:10.273652",
+    "seconds": 0.001524,
+    "command": "/bin/zsh -lc \"./nipa call media.library.roots.list '{}' 2>&1 | head -40; echo ====; ./nipa query library.episodes '{\\\"limit\\\": 20}' 2>&1 | head -60\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_fZfys7Ly5ISNw8qOiSY09904",
+    "startedAt": "2026-10-12T22:38:15.773504",
+    "endedAt": "2026-10-12T22:38:15.774765",
+    "seconds": 0.001261,
+    "command": "/bin/zsh -lc \"./nipa query library.episodes '{\\\"limit\\\": 20}' 2>&1 | head -60\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_6l52dRGd9LX9N5So1iA63509",
+    "startedAt": "2026-10-12T22:38:15.813983",
+    "endedAt": "2026-10-12T22:38:16.516398",
+    "seconds": 0.702415,
+    "command": "/bin/zsh -lc \"ls -la \\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_N52eg2qGJBMp7bqXFvjd5491",
+    "startedAt": "2026-10-12T22:38:23.209885",
+    "endedAt": "2026-10-12T22:38:23.212468",
+    "seconds": 0.002583,
+    "command": "/bin/zsh -lc 'cat hooks/README.md 2>/dev/null | head -60; echo ====; ls -la hooks tools records 2>&1'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_NyR8dggKFgNIVR36J3Fm5374",
+    "startedAt": "2026-10-12T22:38:23.338937",
+    "endedAt": "2026-10-12T22:38:23.344067",
+    "seconds": 0.00513,
+    "command": "/bin/zsh -lc 'for a in media.library.scan media.identity.bind_batch media.metadata.search media.metadata.import_batch media.metadata.override media.artwork.set media.metadata.ui_facts; do echo \"===== $a\"; ./nipa describe $a; done 2>&1 | head -300'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_cPzKirPIu4bkTRBjdhXh4214",
+    "startedAt": "2026-10-12T22:38:28.808892",
+    "endedAt": "2026-10-12T22:38:28.810750",
+    "seconds": 0.001858,
+    "command": "/bin/zsh -lc './nipa describe media.metadata.search 2>&1 | head -80'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_lgtX3OV010pP7eoOlHx84594",
+    "startedAt": "2026-10-12T22:38:28.825830",
+    "endedAt": "2026-10-12T22:38:28.827386",
+    "seconds": 0.001556,
+    "command": "/bin/zsh -lc \"./nipa query library.files '{\\\"limit\\\": 100, \\\"select\\\": [\\\"fileId\\\",\\\"locator\\\",\\\"workId\\\",\\\"episodeId\\\"]}' 2>&1 | python3 -c \\\"import json,sys;d=json.load(sys.stdin);print(len(d['result']['rows']));[print(r['locator'].split('/')[-1]) for r in d['result']['rows']]\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_rVrJZhPmgjy1RybVVOKt3493",
+    "startedAt": "2026-10-12T22:38:35.648401",
+    "endedAt": "2026-10-12T22:38:35.649839",
+    "seconds": 0.001438,
+    "command": "/bin/zsh -lc \"./nipa call settings.get '{}' 2>&1 | head -80\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_VegvAV2oop8Mwvy7yzbc7497",
+    "startedAt": "2026-10-12T22:38:35.692765",
+    "endedAt": "2026-10-12T22:38:36.140776",
+    "seconds": 0.448011,
+    "command": "/bin/zsh -lc \"echo \\\"=== tmdb\\\"; ./nipa call media.metadata.search '{\\\"provider\\\":\\\"tmdb\\\",\\\"query\\\":\\\"长安十二时辰\\\",\\\"kind\\\":\\\"tv\\\"}' 2>&1 | head -60; echo \\\"=== dandanplay\\\"; ./nipa call media.metadata.search '{\\\"provider\\\":\\\"dandanplay\\\",\\\"query\\\":\\\"长安十二时辰\\\"}' 2>&1 | head -60; echo \\\"=== bangumi\\\"; ./nipa call media.metadata.search '{\\\"provider\\\":\\\"bangumi\\\",\\\"query\\\":\\\"长安十二时辰\\\"}' 2>&1 | head -60\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_97RdcwUayPZAQ8KLwx9q1993",
+    "startedAt": "2026-10-12T22:38:40.057198",
+    "endedAt": "2026-10-12T22:38:40.058641",
+    "seconds": 0.001443,
+    "command": "/bin/zsh -lc \"./nipa call accounts.status '{}' 2>&1 | head -40; echo ====; ./nipa describe media.metadata.get 2>&1 | head -40\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_rf2AYS0i4voZ5rExRR3V9796",
+    "startedAt": "2026-10-12T22:38:40.102150",
+    "endedAt": "2026-10-12T22:38:40.419275",
+    "seconds": 0.317125,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.search '{\\\"provider\\\":\\\"bangumi\\\",\\\"query\\\":\\\"长安十二时辰\\\",\\\"kind\\\":\\\"tv\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nfor r in d['result']['results']:\n    print(r['ref']['externalId'], '|', r['title'], '|', r.get('year'), '|', r.get('language'), '|', (r.get('overview') or '')[:40])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_Dec1EVHHarFIi5pq4TwI1656",
+    "startedAt": "2026-10-12T22:38:49.355746",
+    "endedAt": "2026-10-12T22:38:49.358716",
+    "seconds": 0.00297,
+    "command": "/bin/zsh -lc \"./nipa call credentials.status '{}' 2>&1 | head -40; echo ====; ./nipa call settings.describe '{}' 2>&1 | head -120\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_NIagq5FncUYhbXGr3Wjx7479",
+    "startedAt": "2026-10-12T22:38:49.357318",
+    "endedAt": "2026-10-12T22:38:49.360462",
+    "seconds": 0.003144,
+    "command": "/bin/zsh -lc './nipa describe media.metadata.search_batch 2>&1 | head -50; echo ====; ./nipa describe media.metadata.import_batch 2>&1 | head -60'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_x5OlMgcagQP0OijRfpW38548",
+    "startedAt": "2026-10-12T22:38:53.374266",
+    "endedAt": "2026-10-12T22:38:53.726028",
+    "seconds": 0.351762,
+    "command": "/bin/zsh -lc 'python3 tools/api.py \"https://api.bgm.tv/search/subject/%E9%95%BF%E5%AE%89%E5%8D%81%E4%BA%8C%E6%97%B6%E8%BE%B0?type=2&responseGroup=large&max_results=10\" 2>&1 | head -80'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ZqceF1RJRhAXtLQFW6C14906",
+    "startedAt": "2026-10-12T22:38:53.376271",
+    "endedAt": "2026-10-12T22:38:53.754577",
+    "seconds": 0.378306,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.search '{\\\"provider\\\":\\\"bangumi\\\",\\\"query\\\":\\\"十二时辰\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nfor r in d['result']['results']:\n    print(r['ref']['externalId'], '|', r['title'], '|', r.get('year'), '|', r.get('kind'), '|', (r.get('overview') or '')[:50])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_HtysWClj8XgItugqpYk16702",
+    "startedAt": "2026-10-12T22:39:01.735393",
+    "endedAt": "2026-10-12T22:39:01.737097",
+    "seconds": 0.001704,
+    "command": "/bin/zsh -lc \"./nipa call media.library.scan '{\\\"root\\\":\\\"/Volumes/Anime/长安十二时辰\\\",\\\"requestId\\\":\\\"scan-changan-1\\\"}' 2>&1 | head -20\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_UIDJ5NTGJM0MpMxwEtrG6871",
+    "startedAt": "2026-10-12T22:39:01.811191",
+    "endedAt": "2026-10-12T22:39:02.155018",
+    "seconds": 0.343827,
+    "command": "/bin/zsh -lc \"python3 tools/api.py \\\"https://api.bgm.tv/search/subject/%E9%95%BF%E5%AE%89%E5%8D%81%E4%BA%8C%E6%97%B6%E8%BE%B0?type=6&responseGroup=large&max_results=10\\\" 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nprint('results', d['data']['results'])\nfor r in d['data']['list']:\n    print(r['id'], '|', r.get('name'), '|', r.get('name_cn'), '|', r.get('air_date'), '|', r.get('eps'))\n\\\" 2>&1 | head -30\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_tHyJ0mYXvph6VsxXJNsX9049",
+    "startedAt": "2026-10-12T22:39:06.785447",
+    "endedAt": "2026-10-12T22:39:06.787393",
+    "seconds": 0.001946,
+    "command": "/bin/zsh -lc './nipa watch scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb --seconds 120 2>&1 | tail -40'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_zHAh2AZwoxjNTc90EI3q4377",
+    "startedAt": "2026-10-12T22:39:06.832645",
+    "endedAt": "2026-10-12T22:39:07.150932",
+    "seconds": 0.318287,
+    "command": "/bin/zsh -lc 'python3 tools/api.py \"https://api.bgm.tv/v0/subjects/285493\" 2>&1 | head -60'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_tDgmdqZ9a0VXeJahbpZf6885",
+    "startedAt": "2026-10-12T22:39:10.851948",
+    "endedAt": "2026-10-12T22:39:10.853785",
+    "seconds": 0.001837,
+    "command": "/bin/zsh -lc \"./nipa watch --help 2>&1 | head -30; echo ====; ./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -60\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_F1pOTuZgjqSUWWit9uuK9903",
+    "startedAt": "2026-10-12T22:39:10.909249",
+    "endedAt": "2026-10-12T22:39:11.248621",
+    "seconds": 0.339372,
+    "command": "/bin/zsh -lc 'python3 tools/api.py \"https://api.bgm.tv/v0/subjects/285493/persons\" 2>&1 | head -40; echo ==== ; python3 tools/api.py \"https://api.bgm.tv/v0/episodes?subject_id=285493&type=0&limit=5&offset=0\" 2>&1 | head -60'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_ET_ZKoR25R4zwQobOfBaYoF7728",
+    "startedAt": "2026-10-12T22:39:15.352562",
+    "endedAt": "2026-10-12T22:39:15.354696",
+    "seconds": 0.002134,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -80\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_nNLF0lFK60O2ee33R8AE6063",
+    "startedAt": "2026-10-12T22:39:15.409328",
+    "endedAt": "2026-10-12T22:39:15.411821",
+    "seconds": 0.002493,
+    "command": "/bin/zsh -lc \"python3 tools/api.py \\\"https://api.bgm.tv/v0/subjects/285493\\\" 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['data']\nprint(json.dumps({k:d.get(k) for k in ['name','name_cn','date','platform','eps','total_episodes','rating','infobox','summary','images']}, ensure_ascii=False, indent=1))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_STAPqqfS4GECZjebtxsc2432",
+    "startedAt": "2026-10-12T22:39:24.059355",
+    "endedAt": "2026-10-12T22:39:24.168722",
+    "seconds": 0.109367,
+    "command": "/bin/zsh -lc \"./nipa call settings.describe '{}' 2>&1 | head -150\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_v1jMnp5M5PgxKSybXbcM6314",
+    "startedAt": "2026-10-12T22:39:24.062090",
+    "endedAt": "2026-10-12T22:39:24.376777",
+    "seconds": 0.314687,
+    "command": "/bin/zsh -lc \"python3 tools/api.py \\\"https://api.bgm.tv/v0/episodes?subject_id=285493&type=0&limit=100&offset=0\\\" 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['data']\nprint('total', len(d))\nfor e in d[:5]:\n    print(e['id'], '|', e.get('sort'), '|', e.get('name'), '|', e.get('name_cn'), '|', e.get('airdate'), '|', e.get('ep'), '|', e.get('duration'))\n\\\"\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_DLwROM3CafkYTcvkictC7999",
+    "startedAt": "2026-10-12T22:39:28.027254",
+    "endedAt": "2026-10-12T22:39:28.029432",
+    "seconds": 0.002178,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_a4PTOnM6IAk1Fa3H86HQ5508",
+    "startedAt": "2026-10-12T22:39:28.074112",
+    "endedAt": "2026-10-12T22:39:28.354209",
+    "seconds": 0.280097,
+    "command": "/bin/zsh -lc 'python3 tools/api.py \"https://api.bgm.tv/v0/episodes?subject_id=285493&type=0&limit=100&offset=0\" 2>&1 | head -50'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_UtPeqbme9JfD3R9Ns0SF9492",
+    "startedAt": "2026-10-12T22:39:38.049511",
+    "endedAt": "2026-10-12T22:39:38.052131",
+    "seconds": 0.00262,
+    "command": "/bin/zsh -lc './nipa describe media.artwork.set 2>&1 | head -120'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_PPBJfw1UYAo16H6Hnkyj8070",
+    "startedAt": "2026-10-12T22:39:38.108210",
+    "endedAt": "2026-10-12T22:39:38.377304",
+    "seconds": 0.269094,
+    "command": "/bin/zsh -lc \"which ffmpeg ffprobe; ffmpeg -version 2>&1 | head -2; echo ====; ./nipa call settings.describe '{}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nfor s in d['result']['settings']:\n    if any(k in s['key'].lower() for k in ['tmdb','metadata','credential','artwork','image','dandan','bangumi','fanart']):\n        print(s['key'], '|', s.get('value'), '|', s.get('title'))\n\\\"\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_imjXZCORr68JTGcr3UAm2745",
+    "startedAt": "2026-10-12T22:39:43.459660",
+    "endedAt": "2026-10-12T22:39:43.566540",
+    "seconds": 0.10688,
+    "command": "/bin/zsh -lc \"./nipa call settings.describe '{}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nfor s in d['result']['settings']:\n    k=s['key'].lower()\n    if any(t in k for t in ['tmdb','metadata','credential','artwork','image','dandan','bangumi','fanart','proxy','network','source']):\n        print(s['key'], '|', repr(s.get('value')), '|', s.get('title'))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_DV0zg9bJpDxSw0S0YjO15942",
+    "startedAt": "2026-10-12T22:39:47.172318",
+    "endedAt": "2026-10-12T22:39:47.174699",
+    "seconds": 0.002381,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_Gfxw6CTbQGoqndsygkzr5284",
+    "startedAt": "2026-10-12T22:39:47.169959",
+    "endedAt": "2026-10-12T22:39:47.176807",
+    "seconds": 0.006848,
+    "command": "/bin/zsh -lc \"./nipa call danmaku.sources '{}' 2>&1 | head -40; echo ====; ./nipa describe danmaku.import 2>&1 | head -80\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_dLPfLOnfNivB3uutrldk3901",
+    "startedAt": "2026-10-12T22:39:55.945131",
+    "endedAt": "2026-10-12T22:39:55.948031",
+    "seconds": 0.0029,
+    "command": "/bin/zsh -lc \"./nipa describe media.metadata.import_batch 2>&1 | sed -n '1,60p'; echo ====; ./nipa describe media.metadata.override 2>&1 | sed -n '1,60p'\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_dFi6o2Z7y2Z14tGWA2vT0912",
+    "startedAt": "2026-10-12T22:39:55.993086",
+    "endedAt": "2026-10-12T22:39:56.312544",
+    "seconds": 0.319458,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.search '{\\\"provider\\\":\\\"bangumi\\\",\\\"query\\\":\\\"长安十二时辰\\\",\\\"kind\\\":\\\"tv\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nfor r in d['result']['results']:\n    print(r['ref']['externalId'], '|', r['title'], '|', r.get('year'), '|', r.get('kind'))\nprint('count', len(d['result']['results']))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_3e42CdFM0eCq5Z7H7pEO1257",
+    "startedAt": "2026-10-12T22:40:06.365546",
+    "endedAt": "2026-10-12T22:40:06.367780",
+    "seconds": 0.002234,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_bBMgwRm0HUbaaquhqsuP6520",
+    "startedAt": "2026-10-12T22:40:06.402574",
+    "endedAt": "2026-10-12T22:40:06.720033",
+    "seconds": 0.317459,
+    "command": "/bin/zsh -lc \"mkdir -p records && python3 tools/api.py \\\"https://api.bgm.tv/v0/episodes?subject_id=285493&type=0&limit=100&offset=0\\\" > records/bangumi-285493-episodes.json 2>&1; python3 -c \\\"\nimport json\nd=json.load(open('records/bangumi-285493-episodes.json'))['data']['data']\nprint('count', len(d))\nfor e in d[:3]+d[-2:]:\n    print(e['id'], e['sort'], e['name'])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_dTfPgDN5HvR5JwqbfYxO3268",
+    "startedAt": "2026-10-12T22:40:19.130914",
+    "endedAt": "2026-10-12T22:40:19.133475",
+    "seconds": 0.002561,
+    "command": "/bin/zsh -lc 'git log --oneline | head -20; echo ====; ls -R tools hooks .codex 2>/dev/null | head -40; echo ====; ls records 2>/dev/null'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_2IgjoPE2nE55K0rtLPMh2647",
+    "startedAt": "2026-10-12T22:40:19.182403",
+    "endedAt": "2026-10-12T22:40:19.184811",
+    "seconds": 0.002408,
+    "command": "/bin/zsh -lc './nipa describe media.metadata.ui_facts 2>&1 | head -60'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_PCjEX4TwHquyp4kI2c389007",
+    "startedAt": "2026-10-12T22:40:29.516363",
+    "endedAt": "2026-10-12T22:40:29.518864",
+    "seconds": 0.002501,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/bangumi-285493-episodes.json'))['data']['data']\nfor e in d:\n    print(e['sort'], e['id'], e['name'])\n\\\" | head -50\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_hJRoMQTg8yJKCYVvqry53471",
+    "startedAt": "2026-10-12T22:40:29.618928",
+    "endedAt": "2026-10-12T22:40:29.621888",
+    "seconds": 0.00296,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40; ./nipa call plugins.list '{}' 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_3wPyHPbI9r13A32pkf2D9208",
+    "startedAt": "2026-10-12T22:40:34.576759",
+    "endedAt": "2026-10-12T22:40:34.580606",
+    "seconds": 0.003847,
+    "command": "/bin/zsh -lc \"ls -la tools; echo ====; ls -la .codex; find . -name '*.md' -not -path './.git/*' | head\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_IymdVzTaKnqZvI3Jz60U9891",
+    "startedAt": "2026-10-12T22:40:34.664596",
+    "endedAt": "2026-10-12T22:40:34.667255",
+    "seconds": 0.002659,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_f4QbpM54KSXQcMvA869w3731",
+    "startedAt": "2026-10-12T22:40:48.809952",
+    "endedAt": "2026-10-12T22:40:48.813120",
+    "seconds": 0.003168,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.search '{\\\"provider\\\":\\\"tmdb\\\",\\\"query\\\":\\\"The Longest Day in Chang'an\\\",\\\"kind\\\":\\\"tv\\\"}' 2>&1 | head -20; echo ====; ./nipa call plugins.market '{}' 2>&1 | head -60\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_VvT3aIVVG6s9GhCatqFL6009",
+    "startedAt": "2026-10-12T22:40:48.914016",
+    "endedAt": "2026-10-12T22:40:49.015434",
+    "seconds": 0.101418,
+    "command": "/bin/zsh -lc \"./nipa call task.get '{\\\"jobId\\\":\\\"scan-484aa8ee3776083e73143d909ead9e46a67395d1c5d7908d094212e45e9cd2bb\\\"}' 2>&1 | head -40; echo; ./nipa call credentials.status '{}' 2>&1\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_3o7xPwKFhB0sTCwzCwre8822",
+    "startedAt": "2026-10-12T22:40:58.058234",
+    "endedAt": "2026-10-12T22:40:58.060519",
+    "seconds": 0.002285,
+    "command": "/bin/zsh -lc \"./nipa query danmaku.tracks '{\\\"limit\\\": 100}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']\nprint('tracks', len(d['rows']))\nfor r in d['rows'][:10]: print(json.dumps(r, ensure_ascii=False)[:300])\n\\\"; echo ====; ./nipa query danmaku.bindings '{\\\"limit\\\": 20}' 2>&1 | head -40\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_EcBXAZk9IZqh7iR4ASsk7854",
+    "startedAt": "2026-10-12T22:40:58.101742",
+    "endedAt": "2026-10-12T22:40:58.477567",
+    "seconds": 0.375825,
+    "command": "/bin/zsh -lc \"./nipa query library.files '{\\\"limit\\\": 100, \\\"select\\\": [\\\"fileId\\\",\\\"locator\\\",\\\"available\\\"]}' 2>&1 | python3 -c \\\"\nimport json,sys,re\nd=json.load(sys.stdin)['result']['rows']\nprint('files', len(d))\nfor r in sorted(d, key=lambda x: x['locator']):\n    m=re.search(r'S01E(\\\\d+)', r['locator'])\n    print(r['fileId'], m.group(1) if m else '?', r['available'])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_cLL11tSyJxz8xsiVFwVr9373",
+    "startedAt": "2026-10-12T22:41:11.008863",
+    "endedAt": "2026-10-12T22:41:11.011995",
+    "seconds": 0.003132,
+    "command": "/bin/zsh -lc \"python3 - <<'PY'\nimport json\neps=json.load(open('records/bangumi-285493-episodes.json'))['data']['data']\nentries=[{\\\"kind\\\":\\\"work\\\",\\\"workRef\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\n          \\\"reason\\\":\\\"用户要求整理《长安十二时辰》；Bangumi 285493 为 2019 年剧集，48 集，与本地 S01E01–E48 完全对应\\\",\n          \\\"evidence\\\":[{\\\"source\\\":\\\"Bangumi API v0\\\",\\\"detail\\\":\\\"subject 285493 名称 长安十二时辰，首播 2019-06-27，eps=48\\\",\\\"url\\\":\\\"https://api.bgm.tv/v0/subjects/285493\\\"}]}]\nfor e in eps:\n    n=e['sort']\n    entries.append({\\\"kind\\\":\\\"episode\\\",\n        \\\"workRef\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\n        \\\"episodeRefs\\\":[{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"episode\\\",\\\"externalId\\\":str(e['id']),\\\"scope\\\":\\\"subject/285493\\\"}],\n        \\\"reason\\\":f\\\"第 {n} 集；Bangumi 分集标题：{e['name']}\\\",\n        \\\"evidence\\\":[{\\\"source\\\":\\\"Bangumi API v0\\\",\\\"detail\\\":f\\\"episode {e['id']} sort={n} name={e['name']}\\\",\\\"url\\\":f\\\"https://api.bgm.tv/v0/episodes?subject_id=285493\\\"}]})\njson.dump({\\\"requestId\\\":\\\"changan-identity-1\\\",\\\"entries\\\":entries}, open('records/bind-changan-identity.json','w'), ensure_ascii=False, indent=1)\nprint('entries', len(entries))\nPY\n./nipa call media.identity.bind_batch @records/bind-changan-identity.json 2>&1 | head -60\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_zP9NwaaSHcO0uegbKR5j2796",
+    "startedAt": "2026-10-12T22:41:16.185006",
+    "endedAt": "2026-10-12T22:41:16.978266",
+    "seconds": 0.79326,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport json\neps=json.load(open(\\\"records/bangumi-285493-episodes.json\\\"))[\\\"data\\\"][\\\"data\\\"]\nentries=[{\\\"kind\\\":\\\"work\\\",\\\"workRef\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\\\"reason\\\":\\\"用户要求整理《长安十二时辰》；Bangumi 285493 为 2019 年剧集，48 集，与本地 S01E01-E48 完全对应\\\",\\\"evidence\\\":[{\\\"source\\\":\\\"Bangumi API v0\\\",\\\"detail\\\":\\\"subject 285493 名称 长安十二时辰，首播 2019-06-27，eps=48\\\",\\\"url\\\":\\\"https://api.bgm.tv/v0/subjects/285493\\\"}]}]\nfor e in eps:\n    n=e[\\\"sort\\\"]\n    entries.append({\\\"kind\\\":\\\"episode\\\",\\\"workRef\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\\\"episodeRefs\\\":[{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"episode\\\",\\\"externalId\\\":str(e[\\\"id\\\"]),\\\"scope\\\":\\\"subject/285493\\\"}],\\\"reason\\\":\\\"第 %s 集；Bangumi 分集标题：%s\\\"%(n,e[\\\"name\\\"]),\\\"evidence\\\":[{\\\"source\\\":\\\"Bangumi API v0\\\",\\\"detail\\\":\\\"episode %s sort=%s name=%s\\\"%(e[\\\"id\\\"],n,e[\\\"name\\\"]),\\\"url\\\":\\\"https://api.bgm.tv/v0/episodes?subject_id=285493\\\"}]})\njson.dump({\\\"requestId\\\":\\\"changan-identity-1\\\",\\\"entries\\\":entries}, open(\\\"records/bind-changan-identity.json\\\",\\\"w\\\"), ensure_ascii=False, indent=1)\nprint(\\\"entries\\\", len(entries))\n'\n./nipa call media.identity.bind_batch @records/bind-changan-identity.json 2>&1 | head -80\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_0NigFI1KyJAa4pGS6diL9556",
+    "startedAt": "2026-10-12T22:41:24.108919",
+    "endedAt": "2026-10-12T22:42:29.266146",
+    "seconds": 65.157227,
+    "command": "/bin/zsh -lc \"./nipa query library.files '{\\\"limit\\\": 100, \\\"select\\\": [\\\"fileId\\\",\\\"locator\\\"]}' > records/files.json 2>&1\npython3 -c '\nimport json,re\nfiles=json.load(open(\\\"records/files.json\\\"))[\\\"result\\\"][\\\"rows\\\"]\neps=json.load(open(\\\"records/bangumi-285493-episodes.json\\\"))[\\\"data\\\"][\\\"data\\\"]\nepmap={e[\\\"sort\\\"]:e[\\\"id\\\"] for e in eps}\nentries=[]\nfor f in files:\n    m=re.search(r\\\"S01E(\\\\d+)\\\", f[\\\"locator\\\"])\n    n=int(m.group(1))\n    entries.append({\\\"kind\\\":\\\"file\\\",\\\"entityId\\\":f[\\\"fileId\\\"],\n      \\\"workRef\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\n      \\\"episodeRefs\\\":[{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"episode\\\",\\\"externalId\\\":str(epmap[n]),\\\"scope\\\":\\\"subject/285493\\\"}],\n      \\\"reason\\\":\\\"文件名 S01E%02d 与 Bangumi 第 %d 集对应\\\"%(n,n)})\njson.dump({\\\"requestId\\\":\\\"changan-file-bind-1\\\",\\\"entries\\\":entries}, open(\\\"records/bind-changan-files.json\\\",\\\"w\\\"), ensure_ascii=False, indent=1)\nprint(\\\"entries\\\", len(entries))\n'\n./nipa call media.identity.bind_batch @records/bind-changan-files.json 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nprint(d.get('status'))\nif d.get('status')\"'!='\"'completed': print(json.dumps(d,ensure_ascii=False)[:800]); raise SystemExit\nr=d['result']\nprint('entries', len(r['entries']))\nprint(json.dumps(r['entries'][0], ensure_ascii=False))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_hq1Zdy1JhG3DBKqrNF1t5919",
+    "startedAt": "2026-10-12T22:42:33.393263",
+    "endedAt": "2026-10-12T22:42:33.508725",
+    "seconds": 0.115462,
+    "command": "/bin/zsh -lc './nipa status 2>&1 | head -20'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_7yFljcku95yj4zIMQQTI9708",
+    "startedAt": "2026-10-12T22:42:33.390750",
+    "endedAt": "2026-10-12T22:42:36.220677",
+    "seconds": 2.829927,
+    "command": "/bin/zsh -lc \"./nipa query library.files '{\\\"limit\\\": 100, \\\"select\\\": [\\\"fileId\\\",\\\"locator\\\",\\\"workId\\\",\\\"episodeId\\\"]}' 2>&1 | python3 -c \\\"\nimport json,sys,re\nd=json.load(sys.stdin)['result']['rows']\nprint('files',len(d))\nbound=[r for r in d if r['episodeId']]\nprint('bound',len(bound))\n\\\" ; ./nipa query library.episodes '{\\\"limit\\\": 100}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']\nprint('episodes', len(d['rows']))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_RnA9Lth9Ox7wbQ4SHf7m8697",
+    "startedAt": "2026-10-12T22:42:40.633698",
+    "endedAt": "2026-10-12T22:42:40.636777",
+    "seconds": 0.003079,
+    "command": "/bin/zsh -lc 'timeout 240 ./nipa call media.identity.bind_batch @records/bind-changan-files.json > records/bind-files-result.json 2>&1; echo \"exit=$?\"; python3 -c \"\nimport json\nd=json.load(open('\"'records/bind-files-result.json'))\nprint(d.get('status'))\nprint(json.dumps(d, ensure_ascii=False)[:500])\n\\\"\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_4LB5h1JhMhCYtAgUsmjG2997",
+    "startedAt": "2026-10-12T22:42:45.472719",
+    "endedAt": "2026-10-12T22:43:02.631371",
+    "seconds": 17.158652,
+    "command": "/bin/zsh -lc './nipa call media.identity.bind_batch @records/bind-changan-files.json > records/bind-files-result.json 2>&1; echo \"exit=$?\"; head -c 400 records/bind-files-result.json'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_sIdc6G5BQIn0S4IIMWKW4389",
+    "startedAt": "2026-10-12T22:43:09.374607",
+    "endedAt": "2026-10-12T22:43:09.380781",
+    "seconds": 0.006174,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport json,re\nres=json.load(open(\\\"records/bind-files-result.json\\\"))[\\\"result\\\"][\\\"entries\\\"]\nfiles={f[\\\"fileId\\\"]:f[\\\"locator\\\"] for f in json.load(open(\\\"records/files.json\\\"))[\\\"result\\\"][\\\"rows\\\"]}\neps=json.load(open(\\\"records/bangumi-285493-episodes.json\\\"))[\\\"data\\\"][\\\"data\\\"]\n# map local episodeId -> bangumi sort via identity bind result\nidres=json.load(open(\\\"records/bind-changan-identity.json\\\"))\nbad=0\nfor i,e in enumerate(res):\n    loc=files.get(e.get(\\\"fileId\\\"),\\\"?\\\")\n    m=re.search(r\\\"S01E(\\\\d+)\\\",loc)\n    print(i, m.group(1) if m else \\\"?\\\", e[\\\"episodeIds\\\"][0][:20], e[\\\"fileId\\\"])\n' | head -50\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_NsyBGByErsU7SbbW9Wxy7427",
+    "startedAt": "2026-10-12T22:43:16.522065",
+    "endedAt": "2026-10-12T22:43:16.526899",
+    "seconds": 0.004834,
+    "command": "/bin/zsh -lc \"./nipa query library.episodes '{\\\"limit\\\": 5, \\\"orderBy\\\":[{\\\"field\\\":\\\"number\\\",\\\"direction\\\":\\\"asc\\\"}]}' 2>&1 | head -60\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_8iBQ7vuWWzkn5jka5Gka5132",
+    "startedAt": "2026-10-12T22:43:16.541684",
+    "endedAt": "2026-10-12T22:43:17.657195",
+    "seconds": 1.115511,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.ui_facts '{\\\"workId\\\":\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"}' > records/uifacts-1.json 2>&1; python3 -c \\\"\nimport json\nd=json.load(open('records/uifacts-1.json'))\nprint(json.dumps(d, ensure_ascii=False)[:3000])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_1ZuVzYH3LcAvP1n8eWHg6694",
+    "startedAt": "2026-10-12T22:43:26.735323",
+    "endedAt": "2026-10-12T22:43:26.738698",
+    "seconds": 0.003375,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/uifacts-1.json'))['result']\nf=d['fields']\nfor k,v in f.items():\n    if isinstance(v,dict) and 'available' in v:\n        print(k, '|', v.get('available'), '|', str(v.get('value'))[:60], '|', (v.get('source') or {}).get('provider') if isinstance(v.get('source'),dict) else v.get('source'))\n    else:\n        print(k, '|', json.dumps(v, ensure_ascii=False)[:120])\nprint('--- episodes sample')\nfor e in d.get('episodes',[])[:3]:\n    print(json.dumps(e, ensure_ascii=False)[:600])\nprint('--- keys', list(d.keys()))\nprint('--- coverage', json.dumps(d.get('coverage'), ensure_ascii=False)[:600])\n\\\"\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_h5ZEishfREfQZglbsND13415",
+    "startedAt": "2026-10-12T22:43:26.774547",
+    "endedAt": "2026-10-12T22:43:26.777358",
+    "seconds": 0.002811,
+    "command": "/bin/zsh -lc \"./nipa query danmaku.tracks '{\\\"limit\\\": 100}' 2>&1 | head -30; echo ====; ./nipa call danmaku.episodes '{}' 2>&1 | head -20\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_tnPnDnlGyfk1yxOJVaQx6216",
+    "startedAt": "2026-10-12T22:43:32.761927",
+    "endedAt": "2026-10-12T22:43:32.767079",
+    "seconds": 0.005152,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/uifacts-1.json'))['result']\nprint(list(d.keys()))\nfor k in d:\n    if k\"'!='\"'fields':\n        print('==',k, json.dumps(d[k], ensure_ascii=False)[:1500])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_8ds9qTANRxXt8BJjpb2x8957",
+    "startedAt": "2026-10-12T22:43:37.167507",
+    "endedAt": "2026-10-12T22:43:37.170951",
+    "seconds": 0.003444,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/uifacts-1.json'))['result']\nprint('episodes titles', d['episodes']['titles'], 'stills', d['episodes']['stills'], 'danmaku', d['episodes']['danmaku'])\ntot=sum(e['danmaku'].get('count',0) for e in d['episodes']['items'])\nprint('total danmaku', tot)\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_LQJ8hbBUyY4FQv8ba4XF2963",
+    "startedAt": "2026-10-12T22:43:37.263649",
+    "endedAt": "2026-10-12T22:43:37.373943",
+    "seconds": 0.110294,
+    "command": "/bin/zsh -lc \"python3 tools/api.py \\\"https://api.bgm.tv/v0/subjects/285493\\\" > records/bgm-285493.json 2>&1\npython3 -c \\\"\nimport json\nd=json.load(open('records/bgm-285493.json'))['data']\nprint(json.dumps({k:d.get(k) for k in ['id','name','name_cn','date','platform','eps','rating','images','tags']}, ensure_ascii=False)[:800])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_G4c8jww3UEIKYsF4m7Dv2954",
+    "startedAt": "2026-10-12T22:43:46.540634",
+    "endedAt": "2026-10-12T22:43:47.118853",
+    "seconds": 0.578219,
+    "command": "/bin/zsh -lc 'cd /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x39-agent-41072/harness\npython3 tools/api.py \"https://api.themoviedb.org/3/search/tv?query=The%20Longest%20Day%20in%20Chang%27an\" 2>&1 | head -20'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ylIkUWhLNri7VAs8H9cR8894",
+    "startedAt": "2026-10-12T22:43:46.544034",
+    "endedAt": "2026-10-12T22:43:47.217693",
+    "seconds": 0.673659,
+    "command": "/bin/zsh -lc \"curl -sS -m 20 -o /dev/null -w \\\"%{http_code}\\\\n\\\" \\\"https://www.themoviedb.org/search/tv?query=The+Longest+Day+in+Chang%27an\\\" ; curl -sS -m 20 -o /dev/null -w \\\"%{http_code}\\\\n\\\" \\\"https://fanart.tv/\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_vOPRUPfDB65xBJhShbEI5190",
+    "startedAt": "2026-10-12T22:43:56.024974",
+    "endedAt": "2026-10-12T22:43:56.028754",
+    "seconds": 0.00378,
+    "command": "/bin/zsh -lc \"D=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nF=\\\"\"'$D/长安十二时辰.The.Longest.Day.In.Chang'\"'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4\\\"\ntime ffprobe -v error -show_entries format=duration -show_entries stream=codec_type,width,height -of json \\\"\"'$F\" 2>&1 | head -40'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_DxMdujkwLi1EfTMdatEt9079",
+    "startedAt": "2026-10-12T22:43:56.025555",
+    "endedAt": "2026-10-12T22:43:57.062179",
+    "seconds": 1.036624,
+    "command": "/bin/zsh -lc \"curl -sS -m 25 -A \\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36\\\" \\\"https://www.themoviedb.org/search/tv?query=The%20Longest%20Day%20in%20Chang%27an\\\" -o records/tmdb-search.html; wc -c records/tmdb-search.html; grep -oE '/tv/[0-9]+[\"'^\"]*'\"' records/tmdb-search.html | head -10\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_xgxz6ddjLYPCrbwK2MiQ2280",
+    "startedAt": "2026-10-12T22:44:01.745275",
+    "endedAt": "2026-10-12T22:44:01.745853",
+    "seconds": 0.000578,
+    "command": "/bin/zsh -lc \"grep -oE '\\\"(backdrop_path|poster_path|name|original_name|first_air_date|overview)\\\":\\\"[\"'^\"]*\"'\"' records/tmdb-search.html | head -20; echo ====; grep -oE 'image\\\\.tmdb\\\\.org[\"'^\"]{0,120}'\"' records/tmdb-search.html | sort -u | head -20\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_o6NpGuapKHdMTxcdXNcX9757",
+    "startedAt": "2026-10-12T22:44:01.865845",
+    "endedAt": "2026-10-12T22:44:02.410619",
+    "seconds": 0.544774,
+    "command": "/bin/zsh -lc \"curl -sS -m 30 -A \\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36\\\" \\\"https://www.themoviedb.org/tv/90768\\\" -o records/tmdb-90768.html; wc -c records/tmdb-90768.html\ngrep -oE 'https://image\\\\.tmdb\\\\.org/t/p/[a-zA-Z0-9_]+/[A-Za-z0-9]+\\\\.(jpg|png)' records/tmdb-90768.html | sort -u | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_UJmpYiTCei2BRiC2wEMZ3633",
+    "startedAt": "2026-10-12T22:44:08.547825",
+    "endedAt": "2026-10-12T22:44:08.548434",
+    "seconds": 0.000609,
+    "command": "/bin/zsh -lc \"grep -oE '[\"'^\"'\"'\\\"'\\\"']*backdrop[\"'^\"'\"'\\\"'\\\"']*' records/tmdb-90768.html | sort -u | head -20; echo ==; grep -oE '/t/p/[a-zA-Z0-9_]+/[A-Za-z0-9._]+' records/tmdb-90768.html | sort -u | head -40\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_01_vQy0pFJCuCbjQPXql4im4098",
+    "startedAt": "2026-10-12T22:44:08.555047",
+    "endedAt": "2026-10-12T22:44:08.556041",
+    "seconds": 0.000994,
+    "command": "/bin/zsh -lc \"grep -oE '<title>[\"'^<]*'\"' records/tmdb-90768.html; grep -oE 'og:image[\"'^>]*'\"' records/tmdb-90768.html | head -5; grep -oE '\\\"name\\\":\\\"[\"'^\"]*\"'\"' records/tmdb-90768.html | head; grep -oE 'first_air_date[\"'^,]{0,40}'\"' records/tmdb-90768.html | head -3\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_fSYzM3HT8FU9SHlMpIWf7303",
+    "startedAt": "2026-10-12T22:44:15.580398",
+    "endedAt": "2026-10-12T22:44:16.713502",
+    "seconds": 1.133104,
+    "command": "/bin/zsh -lc \"D=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nmkdir -p records/stills\ntime ffmpeg -y -v error -ss 600 -i \\\"\"'$D/长安十二时辰.The.Longest.Day.In.Chang'\"'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4\\\" -frames:v 1 -vf scale=1280:-2 -q:v 3 records/stills/E01.jpg 2>&1 | tail -5\nls -la records/stills/\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_kyBE0NbTILgvKRV3iVF41390",
+    "startedAt": "2026-10-12T22:44:15.583918",
+    "endedAt": "2026-10-12T22:44:16.878201",
+    "seconds": 1.294283,
+    "command": "/bin/zsh -lc 'for p in backdrops posters logos; do curl -sS -m 30 -A \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36\" \"https://www.themoviedb.org/tv/90768/images/$p\" -o \"records/tmdb-90768-$p.html\"; echo \"$p $(wc -c < records/tmdb-90768-$p.html)\"; done\ngrep -ohE '\"'media\\\\.themoviedb\\\\.org/t/p/[a-zA-Z0-9_]+/[A-Za-z0-9._-]+' records/tmdb-90768-*.html | sort -u | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_VwIiktCCHyEj5HQ7I0S46766",
+    "startedAt": "2026-10-12T22:44:30.292810",
+    "endedAt": "2026-10-12T22:44:30.293787",
+    "seconds": 0.000977,
+    "command": "/bin/zsh -lc \"mkdir -p records/stills records/art\ncat > records/extract_stills.py <<'EOF'\nimport json, os, re, subprocess, sys\nfrom concurrent.futures import ThreadPoolExecutor\n\nROOT=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nOUT=\\\"records/stills\\\"\nos.makedirs(OUT, exist_ok=True)\nfiles=sorted(os.listdir(ROOT))\nvids=[f for f in files if f.endswith(\\\".mp4\\\")]\n\ndef dur(p):\n    r=subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-show_entries\\\",\\\"format=duration\\\",\\\"-of\\\",\\\"csv=p=0\\\",p],capture_output=True,text=True)\n    try: return float(r.stdout.strip())\n    except Exception: return 0.0\n\ndef grab(name):\n    n=int(re.search(r\\\"S01E(\\\\d+)\\\",name).group(1))\n    out=os.path.join(OUT,\\\"E%02d.jpg\\\"%n)\n    if os.path.exists(out) and os.path.getsize(out)>5000:\n        return n,\\\"cached\\\"\n    p=os.path.join(ROOT,name)\n    d=dur(p)\n    if d<=0: return n,\\\"nodur\\\"\n    for frac in (0.4,0.25,0.6,0.5):\n        t=max(30.0,d*frac)\n        r=subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(t),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=1280:-2\\\",\\\"-q:v\\\",\\\"3\\\",out],capture_output=True,text=True)\n        if os.path.exists(out) and os.path.getsize(out)>5000:\n            return n,\\\"ok@%.0f/%.0f\\\"%(t,d)\n    return n,\\\"fail\\\"\n\nwith ThreadPoolExecutor(max_workers=4) as ex:\n    for n,st in ex.map(grab, vids):\n        print(n, st, flush=True)\nEOF\nnohup python3 records/extract_stills.py > records/stills.log 2>&1 &\necho started \"'$!'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_AcP25Z1jyLY1X0TiXXSa9225",
+    "startedAt": "2026-10-12T22:44:30.409877",
+    "endedAt": "2026-10-12T22:44:31.122531",
+    "seconds": 0.712654,
+    "command": "/bin/zsh -lc 'cd records/art\nUA=\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36\"\ni=0\nfor id in 7sdQRPENLxmUqibo4zcFz6bJsnF 9kFpvLj4PSkRuRTJzgbrqnxTFVE a1axbiK2hSH6nBMavR5ogTQDZnl d8b8eVQrwzDKmutUCAGc8WpLEfb eZR5Ef7JsmiXYgtxQfuBlgfqklv hiuLLfhTSrLI7YIMp9tphAXuvcE jBNceC7kh5S9eir4aE1mLgdFNlu lGRL0OaHEYDDupDFprvFTq9W30u ptUr9ARA6tqoSAz2YQC78ukONlP tSTZb8D1chS8qeLMjGzF8TQe9xR yfVEGxgdQL609h70FnzoIY4NKPR; do\n  i=$((i+1)); curl -sS -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w1000_and_h563_face/$id.jpg\" -o \"backdrop-$i.jpg\"\ndone\nj=0\nfor id in 1AUfOM0G2wweofyAoaPsTCA9ih1 5ek7eecI7BxVMl5RB5j3ESZuyYf a1VvR8JrYROftJWbvor2kV3R5jO r1Hjr1ZMazaktL0LMP5ewBCIwIN rlHRw25eBswwerr1NnbB5YNibjb vVVKN1sU3tfoOMVmZ1d8rl9A5Vu; do\n  j=$((j+1)); curl -sS -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w1280/$id.png\" -o \"logo-$j.png\"\ndone\ncurl -sS -m 40 -A \"$UA\" \"[redacted URL]\" -o backdrop-hero.jpg\ncurl -sS -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w440_and_h660_face/dNHjTiwPUckKXey9KO85pxXQUBS.jpg\" -o poster-tmdb.jpg\nls -la; file *.jpg *.png 2>/dev/null | head -30'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_F2GwN2FBz6xhmT9Tghi11536",
+    "startedAt": "2026-10-12T22:44:35.331343",
+    "endedAt": "2026-10-12T22:44:35.332058",
+    "seconds": 0.000715,
+    "command": "/bin/zsh -lc 'cat records/art/backdrop-hero.jpg; echo; ls -la records/stills/ | head; cat records/stills.log 2>&1 | head'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_9TOGHDpHgKl3Oa8IrIPo4481",
+    "startedAt": "2026-10-12T22:44:35.444053",
+    "endedAt": "2026-10-12T22:44:36.302203",
+    "seconds": 0.85815,
+    "command": "/bin/zsh -lc \"curl -sS -m 30 -A \\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36\\\" -e \\\"https://www.themoviedb.org/tv/90768/images/backdrops\\\" \\\"https://media.themoviedb.org/t/p/w1000_and_h563_face/7sdQRPENLxmUqibo4zcFz6bJsnF.jpg\\\" -o /tmp/bd-test.jpg -w \\\"code=%{http_code} size=%{size_download}\\\\n\\\"; file /tmp/bd-test.jpg; head -c 200 /tmp/bd-test.jpg\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_ZJBWN7Z5e9Ezrsc8ZBtZ4097",
+    "startedAt": "2026-10-12T22:44:43.545242",
+    "endedAt": "2026-10-12T22:44:43.545887",
+    "seconds": 0.000645,
+    "command": "/bin/zsh -lc 'mkdir -p tmp; TMPDIR=\"$PWD/tmp\" bash -c '\"'cat > /tmp/hd_test.txt <<EOF\nhello\nEOF'; cat /tmp/hd_test.txt 2>&1; echo \\\"TMPDIR=\"'$TMPDIR\"'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_SHV1cvJ2RxZx90Oq9HEv6907",
+    "startedAt": "2026-10-12T22:44:43.655235",
+    "endedAt": "2026-10-12T22:44:44.428885",
+    "seconds": 0.77365,
+    "command": "/bin/zsh -lc \"cd records/art; curl -sSL -m 40 -A \\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36\\\" \\\"https://media.themoviedb.org/t/p/w1000_and_h563_face/7sdQRPENLxmUqibo4zcFz6bJsnF.jpg\\\" -o test1.jpg -w \\\"code=%{http_code} size=%{size_download} url=%{url_effective}\\\\n\\\"; file test1.jpg\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_NPr8k9SltQuaFfEae92Y0101",
+    "startedAt": "2026-10-12T22:44:50.264246",
+    "endedAt": "2026-10-12T22:44:50.264710",
+    "seconds": 0.000464,
+    "command": "/bin/zsh -lc 'ls records/stills/ | wc -l; tail -5 records/stills.log 2>/dev/null; ps aux | grep -c \"[e]xtract_stills\"'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_phAbY8uX5l6a0Avkyf8V2890",
+    "startedAt": "2026-10-12T22:45:04.227847",
+    "endedAt": "2026-10-12T22:45:04.228441",
+    "seconds": 0.000594,
+    "command": "/bin/zsh -lc 'ls -la records/stills.log 2>&1; cat records/stills.log 2>&1 | head; ls records/stills/; echo \"--- pgrep\"; pgrep -fl extract_stills 2>&1 | head'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_88em7TwzgZacUTIaWZCV0625",
+    "startedAt": "2026-10-12T22:44:50.373134",
+    "endedAt": "2026-10-12T22:45:04.934687",
+    "seconds": 14.561553,
+    "command": "/bin/zsh -lc 'cd records/art\nUA=\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36\"\ni=0\nfor id in 7sdQRPENLxmUqibo4zcFz6bJsnF 9kFpvLj4PSkRuRTJzgbrqnxTFVE a1axbiK2hSH6nBMavR5ogTQDZnl d8b8eVQrwzDKmutUCAGc8WpLEfb eZR5Ef7JsmiXYgtxQfuBlgfqklv hiuLLfhTSrLI7YIMp9tphAXuvcE jBNceC7kh5S9eir4aE1mLgdFNlu lGRL0OaHEYDDupDFprvFTq9W30u ptUr9ARA6tqoSAz2YQC78ukONlP tSTZb8D1chS8qeLMjGzF8TQe9xR yfVEGxgdQL609h70FnzoIY4NKPR; do\n  i=$((i+1)); curl -sSL -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w1280/$id.jpg\" -o \"backdrop-$i.jpg\"\ndone\nj=0\nfor id in 1AUfOM0G2wweofyAoaPsTCA9ih1 5ek7eecI7BxVMl5RB5j3ESZuyYf a1VvR8JrYROftJWbvor2kV3R5jO r1Hjr1ZMazaktL0LMP5ewBCIwIN rlHRw25eBswwerr1NnbB5YNibjb vVVKN1sU3tfoOMVmZ1d8rl9A5Vu; do\n  j=$((j+1)); curl -sSL -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w1280/$id.png\" -o \"logo-$j.png\"\ndone\ncurl -sSL -m 40 -A \"$UA\" \"[redacted URL]\" -o backdrop-hero.jpg\ncurl -sSL -m 40 -A \"$UA\" \"https://media.themoviedb.org/t/p/w440_and_h660_face/dNHjTiwPUckKXey9KO85pxXQUBS.jpg\" -o poster-tmdb.jpg\nfile *.jpg *.png | head -30'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_pONNQhCs57qm4sJTPrm75253",
+    "startedAt": "2026-10-12T22:45:09.161147",
+    "endedAt": "2026-10-12T22:45:09.161729",
+    "seconds": 0.000582,
+    "command": "/bin/zsh -lc 'ls -la records/extract_stills.py 2>&1; wc -l records/extract_stills.py 2>&1'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_R2cmIjgsoAfLeDduaK2c0118",
+    "startedAt": "2026-10-12T22:45:25.140036",
+    "endedAt": "2026-10-12T22:45:25.511033",
+    "seconds": 0.370997,
+    "command": "/bin/zsh -lc 'cd records/art\nfor f in logo-1 logo-2 logo-3 logo-4 logo-5 logo-6; do\n  ffmpeg -y -v error -f lavfi -i color=c=0x203040:s=1280x720 -i $f.png -filter_complex \"[1:v]scale=1100:-1[lg];[0:v][lg]overlay=(W-w)/2:(H-h)/2\" -frames:v 1 chk-$f.jpg\ndone\nls chk-*.jpg'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_MI0CRfreBIZfEpmnqOuw3290",
+    "startedAt": "2026-10-12T22:45:51.063821",
+    "endedAt": "2026-10-12T22:45:51.064970",
+    "seconds": 0.001149,
+    "command": "/bin/zsh -lc \"python3 - <<'PY'\ncode = r'''\nimport json, os, re, subprocess\nfrom concurrent.futures import ThreadPoolExecutor\n\nROOT = \\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nOUT = \\\"records/stills\\\"\nos.makedirs(OUT, exist_ok=True)\nvids = [f for f in sorted(os.listdir(ROOT)) if f.endswith(\\\".mp4\\\")]\n\ndef dur(p):\n    r = subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-show_entries\\\",\\\"format=duration\\\",\\\"-of\\\",\\\"csv=p=0\\\",p], capture_output=True, text=True)\n    try:\n        return float(r.stdout.strip())\n    except Exception:\n        return 0.0\n\ndef grab(name):\n    n = int(re.search(r\\\"S01E(\\\\d+)\\\", name).group(1))\n    out = os.path.join(OUT, \\\"E%02d.jpg\\\" % n)\n    if os.path.exists(out) and os.path.getsize(out) > 5000:\n        return n, \\\"cached\\\"\n    p = os.path.join(ROOT, name)\n    d = dur(p)\n    if d <= 0:\n        return n, \\\"nodur\\\"\n    for frac in (0.4, 0.25, 0.6, 0.5):\n        t = max(30.0, d * frac)\n        subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(t),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=1280:-2\\\",\\\"-q:v\\\",\\\"3\\\",out], capture_output=True, text=True)\n        if os.path.exists(out) and os.path.getsize(out) > 5000:\n            return n, \\\"ok\\\"\n    return n, \\\"fail\\\"\n\nwith ThreadPoolExecutor(max_workers=4) as ex:\n    for n, st in ex.map(grab, vids):\n        print(n, st, flush=True)\n'''\nopen(\\\"records/extract_stills.py\\\",\\\"w\\\").write(code)\nprint(\\\"written\\\", len(code))\nPY\nnohup python3 records/extract_stills.py > records/stills.log 2>&1 &\necho \\\"started pid=\"'$!\"'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_4lQLSGi9w6bxLPLaTxFW7378",
+    "startedAt": "2026-10-12T22:46:00.453857",
+    "endedAt": "2026-10-12T22:46:00.455032",
+    "seconds": 0.001175,
+    "command": "/bin/zsh -lc \"python3 -c '\ncode = \\\"import json, os, re, subprocess\\\\nfrom concurrent.futures import ThreadPoolExecutor\\\\n\\\\nROOT = \\\\\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang\\\\u0027an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\\\\\"\\\\nOUT = \\\\\\\"records/stills\\\\\\\"\\\\nos.makedirs(OUT, exist_ok=True)\\\\nvids = [f for f in sorted(os.listdir(ROOT)) if f.endswith(\\\\\\\".mp4\\\\\\\")]\\\\n\\\\ndef dur(p):\\\\n    r = subprocess.run([\\\\\\\"ffprobe\\\\\\\",\\\\\\\"-v\\\\\\\",\\\\\\\"error\\\\\\\",\\\\\\\"-show_entries\\\\\\\",\\\\\\\"format=duration\\\\\\\",\\\\\\\"-of\\\\\\\",\\\\\\\"csv=p=0\\\\\\\",p], capture_output=True, text=True)\\\\n    try:\\\\n        return float(r.stdout.strip())\\\\n    except Exception:\\\\n        return 0.0\\\\n\\\\ndef grab(name):\\\\n    n = int(re.search(r\\\\\\\"S01E(\\\\\\\\d+)\\\\\\\", name).group(1))\\\\n    out = os.path.join(OUT, \\\\\\\"E%02d.jpg\\\\\\\" % n)\\\\n    if os.path.exists(out) and os.path.getsize(out) > 5000:\\\\n        return n, \\\\\\\"cached\\\\\\\"\\\\n    p = os.path.join(ROOT, name)\\\\n    d = dur(p)\\\\n    if d <= 0:\\\\n        return n, \\\\\\\"nodur\\\\\\\"\\\\n    for frac in (0.4, 0.25, 0.6, 0.5):\\\\n        t = max(30.0, d * frac)\\\\n        subprocess.run([\\\\\\\"ffmpeg\\\\\\\",\\\\\\\"-y\\\\\\\",\\\\\\\"-v\\\\\\\",\\\\\\\"error\\\\\\\",\\\\\\\"-ss\\\\\\\",str(t),\\\\\\\"-i\\\\\\\",p,\\\\\\\"-frames:v\\\\\\\",\\\\\\\"1\\\\\\\",\\\\\\\"-vf\\\\\\\",\\\\\\\"scale=1280:-2\\\\\\\",\\\\\\\"-q:v\\\\\\\",\\\\\\\"3\\\\\\\",out], capture_output=True, text=True)\\\\n        if os.path.exists(out) and os.path.getsize(out) > 5000:\\\\n            return n, \\\\\\\"ok\\\\\\\"\\\\n    return n, \\\\\\\"fail\\\\\\\"\\\\n\\\\nwith ThreadPoolExecutor(max_workers=4) as ex:\\\\n    for n, st in ex.map(grab, vids):\\\\n        print(n, st, flush=True)\\\\n\\\"\nopen(\\\"records/extract_stills.py\\\",\\\"w\\\").write(code)\nprint(\\\"written\\\", len(code))\n'\nhead -3 records/extract_stills.py; wc -l records/extract_stills.py\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_xq193r2K1sS6fon9UyGb3544",
+    "startedAt": "2026-10-12T22:46:06.416757",
+    "endedAt": "2026-10-12T22:46:26.398815",
+    "seconds": 19.982058,
+    "command": "/bin/zsh -lc 'nohup python3 records/extract_stills.py > records/stills.log 2>&1 &\nsleep 20; ls records/stills/ | wc -l; head -20 records/stills.log'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_v80fPhsAobV9io3r5bit5605",
+    "startedAt": "2026-10-12T22:46:34.351490",
+    "endedAt": "2026-10-12T22:46:34.352400",
+    "seconds": 0.00091,
+    "command": "/bin/zsh -lc \"./nipa describe media.metadata.override 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nprint(json.dumps(d['inputSchema'], ensure_ascii=False, indent=1)[:2500])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_pVXmRPZa8lxi43osOaCB3377",
+    "startedAt": "2026-10-12T22:46:34.351988",
+    "endedAt": "2026-10-12T22:46:34.352869",
+    "seconds": 0.000881,
+    "command": "/bin/zsh -lc \"./nipa describe media.metadata.import_batch 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nprops=d['inputSchema']['properties']['entries']['items']['properties']['fields']['properties']\nfor k,v in props.items():\n    print(k,'|',v.get('type'),'|',str(v.get('description'))[:110])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_hcvkRHGDimi5mAC3BKIP7582",
+    "startedAt": "2026-10-12T22:46:40.150839",
+    "endedAt": "2026-10-12T22:46:40.151385",
+    "seconds": 0.000546,
+    "command": "/bin/zsh -lc \"./nipa describe media.metadata.import_batch 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\ne=d['inputSchema']['properties']['entries']['items']['properties']\nprint(json.dumps({k:v for k,v in e['fields'].items() if k in ['rating','directors','actors','genres']}, ensure_ascii=False, indent=1))\nprint('--- entry keys', list(e.keys()))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_tm95pBZKbdhUKjzDQDbu7750",
+    "startedAt": "2026-10-12T22:46:45.606735",
+    "endedAt": "2026-10-12T22:46:45.607468",
+    "seconds": 0.000733,
+    "command": "/bin/zsh -lc \"./nipa describe media.metadata.import_batch 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nf=d['inputSchema']['properties']['entries']['items']['properties']['fields']\nprint(json.dumps(f, ensure_ascii=False, indent=1)[:3000])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_EOe8kTDkRA45K64OKyag3733",
+    "startedAt": "2026-10-12T22:46:54.077965",
+    "endedAt": "2026-10-12T22:46:54.284169",
+    "seconds": 0.206204,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport json\nsub=json.load(open(\\\"records/bgm-285493.json\\\"))[\\\"data\\\"]\npers=json.load(open(\\\"records/bgm-285493-persons.json\\\"))[\\\"data\\\"] if False else None\n' 2>/dev/null\npython3 tools/api.py \\\"https://api.bgm.tv/v0/subjects/285493/persons\\\" > records/bgm-285493-persons.json 2>&1\npython3 -c '\nimport json\nsub=json.load(open(\\\"records/bgm-285493.json\\\"))[\\\"data\\\"]\npers=json.load(open(\\\"records/bgm-285493-persons.json\\\"))[\\\"data\\\"]\ninfo={i[\\\"key\\\"]: i[\\\"value\\\"] for i in sub[\\\"infobox\\\"]}\ndef flat(v):\n    if isinstance(v,list): return \\\"、\\\".join(x.get(\\\"v\\\",\\\"\\\") for x in v)\n    return v\ndirectors=[p[\\\"name\\\"] for p in pers if p.get(\\\"relation\\\")==\\\"导演\\\"]\nactors=[p[\\\"name\\\"] for p in pers if p.get(\\\"relation\\\") in (\\\"主演\\\",\\\"演员\\\")]\ngenres=[g.strip() for g in str(flat(info.get(\\\"类型\\\",\\\"\\\"))).split(\\\"/\\\") if g.strip()]\nentry={\\\"ref\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\n \\\"language\\\":\\\"zh-CN\\\",\n \\\"url\\\":\\\"https://bgm.tv/subject/285493\\\",\n \\\"fields\\\":{\\\"title\\\":sub[\\\"name_cn\\\"] or sub[\\\"name\\\"],\\\"originalTitle\\\":sub[\\\"name\\\"],\n   \\\"overview\\\":sub[\\\"summary\\\"],\\\"imageUrl\\\":sub[\\\"images\\\"][\\\"large\\\"],\n   \\\"year\\\":2019,\n   \\\"rating\\\":{\\\"value\\\":sub[\\\"rating\\\"][\\\"score\\\"],\\\"max\\\":10,\\\"count\\\":sub[\\\"rating\\\"][\\\"total\\\"],\\\"label\\\":\\\"Bangumi\\\"},\n   \\\"directors\\\":directors,\\\"actors\\\":actors,\\\"genres\\\":genres,\n   \\\"studio\\\":flat(info.get(\\\"出品公司\\\")),\\\"episodeDuration\\\":\\\"45分钟\\\",\\\"country\\\":\\\"中国大陆\\\",\n   \\\"airDate\\\":\\\"2019-06-27\\\",\\\"alias\\\":flat(info.get(\\\"别名\\\"))}}\njson.dump({\\\"requestId\\\":\\\"changan-metadata-1\\\",\\\"entries\\\":[entry]}, open(\\\"records/import-changan-metadata.json\\\",\\\"w\\\"), ensure_ascii=False, indent=1)\nprint(json.dumps(entry, ensure_ascii=False, indent=1)[:900])\n'\n./nipa call media.metadata.import_batch @records/import-changan-metadata.json 2>&1 | head -30\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_2Eb8FVmFo6QG4brX2NLf1865",
+    "startedAt": "2026-10-12T22:46:59.797438",
+    "endedAt": "2026-10-12T22:46:59.797958",
+    "seconds": 0.00052,
+    "command": "/bin/zsh -lc 'ls records/stills | wc -l; tail -3 records/stills.log'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_Wu1Q5eD32ceKhuGbnej80650",
+    "startedAt": "2026-10-12T22:46:59.809821",
+    "endedAt": "2026-10-12T22:46:59.810570",
+    "seconds": 0.000749,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/bgm-285493-persons.json'))['data']\nfor p in d: print(p.get('relation'),'|',p.get('name'))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_yHmEInfFXVKp9JUmyrzS1607",
+    "startedAt": "2026-10-12T22:47:08.044722",
+    "endedAt": "2026-10-12T22:47:09.355232",
+    "seconds": 1.31051,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.ui_facts '{\\\"workId\\\":\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']\nf=d['fields']\nfor k,v in f.items():\n    print(k,'|',v.get('available'),'|',str(v.get('value'))[:70])\nprint('hero', d['heroImage'])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_HDcVOpn79YeMlhMEM6fg7446",
+    "startedAt": "2026-10-12T22:47:08.037640",
+    "endedAt": "2026-10-12T22:47:38.050892",
+    "seconds": 30.013252,
+    "command": "/bin/zsh -lc 'sleep 30; ls records/stills | wc -l; tail -3 records/stills.log; pgrep -fl extract_stills | head'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_PMwSCB8WgoFb1t9TVWj30737",
+    "startedAt": "2026-10-12T22:47:44.034983",
+    "endedAt": "2026-10-12T22:47:44.035584",
+    "seconds": 0.000601,
+    "command": "/bin/zsh -lc 'pgrep -fl \"extract_stills|ffmpeg|ffprobe\" 2>&1 | head; echo \"---\"; ls -la records/stills | tail -5; wc -l records/stills.log'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_kc8WYtgYNmWRmtjF5sR78522",
+    "startedAt": "2026-10-12T22:47:50.997103",
+    "endedAt": "2026-10-12T22:48:07.795332",
+    "seconds": 16.798229,
+    "command": "/bin/zsh -lc 'python3 records/extract_stills.py 2>&1 | tail -50; echo \"=== count: $(ls records/stills | wc -l)\"'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_0ugYvwZ1WcwQQDCQv8l19305",
+    "startedAt": "2026-10-12T22:48:26.032367",
+    "endedAt": "2026-10-12T22:48:26.033260",
+    "seconds": 0.000893,
+    "command": "/bin/zsh -lc 'W=work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\nEP1=episode-e417b02728e953db6ec55717ad9a14bbc02ed8278141a0f4a43c7dceb3c2d6d1\nP=\"$PWD\"\npython3 -c \"\nimport json,os\np=os.environ['\"'PWD']\nentry={'entityId':'\"'$EP1'\"','kind':'still','file':p+'/records/stills/E01.jpg','source':{'label':'本地视频抽帧（S01E01）'}}\njson.dump({'entries':[entry]}, open('records/artwork-test.json','w'), ensure_ascii=False)\nprint(json.dumps(entry, ensure_ascii=False))\n\\\"\n./nipa call media.artwork.set @records/artwork-test.json 2>&1 | head -40\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_nTnERmEHIxAa8pw6JNrY3390",
+    "startedAt": "2026-10-12T22:48:35.394538",
+    "endedAt": "2026-10-12T22:48:35.549148",
+    "seconds": 0.15461,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport json, os, re\np=os.environ[\\\"PWD\\\"]\nW=\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"\nuif=json.load(open(\\\"records/uifacts-1.json\\\"))[\\\"result\\\"]\neps={e[\\\"number\\\"]:e[\\\"episodeId\\\"] for e in uif[\\\"episodes\\\"][\\\"items\\\"]}\nentries=[\n {\\\"entityId\\\":W,\\\"kind\\\":\\\"backdrop\\\",\\\"file\\\":p+\\\"/records/art/backdrop-11.jpg\\\",\\\"source\\\":{\\\"label\\\":\\\"TMDB 横版剧照\\\",\\\"url\\\":\\\"https://www.themoviedb.org/tv/90768/images/backdrops\\\"}},\n {\\\"entityId\\\":W,\\\"kind\\\":\\\"poster\\\",\\\"file\\\":p+\\\"/records/art/poster-tmdb.jpg\\\",\\\"source\\\":{\\\"label\\\":\\\"TMDB 海报\\\",\\\"url\\\":\\\"https://www.themoviedb.org/tv/90768\\\"}},\n {\\\"entityId\\\":W,\\\"kind\\\":\\\"logo\\\",\\\"file\\\":p+\\\"/records/art/logo-2.png\\\",\\\"source\\\":{\\\"label\\\":\\\"TMDB 透明片名 Logo\\\",\\\"url\\\":\\\"https://www.themoviedb.org/tv/90768/images/logos\\\"}},\n]\nfor n in range(1,49):\n    entries.append({\\\"entityId\\\":eps[str(n)] if str(n) in eps else eps[n],\\\"kind\\\":\\\"still\\\",\n      \\\"file\\\":p+\\\"/records/stills/E%02d.jpg\\\"%n,\n      \\\"source\\\":{\\\"label\\\":\\\"本地视频抽帧（S01E%02d）\\\"%n}})\njson.dump({\\\"entries\\\":entries}, open(\\\"records/artwork-all.json\\\",\\\"w\\\"), ensure_ascii=False, indent=1)\nprint(\\\"entries\\\", len(entries))\n'\n./nipa call media.artwork.set @records/artwork-all.json > records/artwork-result.json 2>&1; echo \\\"exit=\"'$?\"; head -c 700 records/artwork-result.json'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_WyeqbPM52fzh2KPDtQgV9072",
+    "startedAt": "2026-10-12T22:48:42.337625",
+    "endedAt": "2026-10-12T22:48:42.338096",
+    "seconds": 0.000471,
+    "command": "/bin/zsh -lc \"python3 -c \\\"\nimport json\nd=json.load(open('records/artwork-result.json'))['result']['entries']\nprint('total', len(d), 'saved', sum(1 for e in d if e.get('saved')))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_LUBgiWBmMokGIIOhXuOk9887",
+    "startedAt": "2026-10-12T22:48:42.441525",
+    "endedAt": "2026-10-12T22:48:43.528702",
+    "seconds": 1.087177,
+    "command": "/bin/zsh -lc \"./nipa call media.metadata.ui_facts '{\\\"workId\\\":\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"}' > records/uifacts-2.json 2>&1; python3 -c \\\"\nimport json\nd=json.load(open('records/uifacts-2.json'))['result']\nf=d['fields']\nfor k in ['title','overview','genres','studio','ratings','backdrop','poster','logo']:\n    v=f[k]; print(k,'|',v.get('available'),'|',str(v.get('value') or v.get('path') or v.get('url'))[:70])\nprint('hero', d['heroImage'])\nprint('episodes titles', d['episodes']['titles'],'stills',d['episodes']['stills'],'danmaku',d['episodes']['danmaku'])\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ZrzI0wrvLYXbAMcPEsoJ3061",
+    "startedAt": "2026-10-12T22:48:52.654217",
+    "endedAt": "2026-10-12T22:48:52.654877",
+    "seconds": 0.00066,
+    "command": "/bin/zsh -lc './nipa describe ui.shelves.put 2>&1 | head -70; echo ====; ./nipa describe ui.present 2>&1 | head -60'",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_vq7p1k0iuRTvK0CB0GHX2518",
+    "startedAt": "2026-10-12T22:48:52.674224",
+    "endedAt": "2026-10-12T22:48:52.675173",
+    "seconds": 0.000949,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport json\nsub=json.load(open(\\\"records/bgm-285493.json\\\"))[\\\"data\\\"]\ninfo={i[\\\"key\\\"]: i[\\\"value\\\"] for i in sub[\\\"infobox\\\"]}\ndef flat(v):\n    return \\\"、\\\".join(x.get(\\\"v\\\",\\\"\\\") for x in v) if isinstance(v,list) else v\nentry={\\\"ref\\\":{\\\"provider\\\":\\\"bangumi\\\",\\\"objectType\\\":\\\"subject\\\",\\\"externalId\\\":\\\"285493\\\",\\\"scope\\\":\\\"\\\"},\\\"language\\\":\\\"zh-CN\\\",\n \\\"url\\\":\\\"https://bgm.tv/subject/285493\\\",\n \\\"fields\\\":{\\\"title\\\":sub[\\\"name_cn\\\"] or sub[\\\"name\\\"],\\\"originalTitle\\\":sub[\\\"name\\\"],\\\"overview\\\":sub[\\\"summary\\\"],\n   \\\"imageUrl\\\":sub[\\\"images\\\"][\\\"large\\\"],\\\"year\\\":2019,\n   \\\"rating\\\":{\\\"value\\\":sub[\\\"rating\\\"][\\\"score\\\"],\\\"max\\\":10,\\\"count\\\":sub[\\\"rating\\\"][\\\"total\\\"],\\\"label\\\":\\\"Bangumi\\\"},\n   \\\"directors\\\":[flat(info.get(\\\"导演\\\"))],\\\"actors\\\":[\\\"易烊千玺\\\",\\\"雷佳音\\\"],\n   \\\"genres\\\":[\\\"悬疑\\\",\\\"历史\\\",\\\"古装\\\"],\\\"studio\\\":flat(info.get(\\\"出品公司\\\")),\n   \\\"episodeDuration\\\":\\\"45分钟\\\",\\\"country\\\":\\\"中国大陆\\\",\\\"airDate\\\":\\\"2019-06-27\\\",\\\"alias\\\":flat(info.get(\\\"别名\\\"))}}\njson.dump({\\\"requestId\\\":\\\"changan-metadata-2\\\",\\\"entries\\\":[entry]}, open(\\\"records/import-changan-metadata2.json\\\",\\\"w\\\"), ensure_ascii=False, indent=1)\nprint(\\\"directors\\\", entry[\\\"fields\\\"][\\\"directors\\\"])\n'\n./nipa call media.metadata.import_batch @records/import-changan-metadata2.json 2>&1 | head -6\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ET_Ut9tev5ZyWkg6tMzt2lp9119",
+    "startedAt": "2026-10-12T22:48:58.849885",
+    "endedAt": "2026-10-12T22:48:58.850309",
+    "seconds": 0.000424,
+    "command": "/bin/zsh -lc \"./nipa call ui.shelves.put '{\\\"placement\\\":\\\"hero\\\",\\\"note\\\":\\\"上元节前十二时辰，长安城的每一刻都在追查一个阴谋。\\\",\\\"items\\\":[{\\\"workId\\\":\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"}]}' 2>&1 | head -20\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_ET_twmdnzDYEezShzuohlTG8298",
+    "startedAt": "2026-10-12T22:48:58.849212",
+    "endedAt": "2026-10-12T22:48:58.850878",
+    "seconds": 0.001666,
+    "command": "/bin/zsh -lc './nipa describe ui.capture 2>&1 | head -50'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_I2hCnS39l0tBBISgmXSj9330",
+    "startedAt": "2026-10-12T22:49:06.925929",
+    "endedAt": "2026-10-12T22:49:07.641166",
+    "seconds": 0.715237,
+    "command": "/bin/zsh -lc \"./nipa call ui.capture '{}' 2>&1 | python3 -c \\\"import json,sys; d=json.load(sys.stdin); print(json.dumps(d.get('result',d), ensure_ascii=False)[:400])\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_3L8wxCASMxHYiVerzt4s9857",
+    "startedAt": "2026-10-12T22:49:22.753915",
+    "endedAt": "2026-10-12T22:49:22.755229",
+    "seconds": 0.001314,
+    "command": "/bin/zsh -lc './nipa describe ui.open 2>&1 | head -60'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_A5TxAnnEVrWahTlrMNrP1365",
+    "startedAt": "2026-10-12T22:49:29.853608",
+    "endedAt": "2026-10-12T22:49:33.232945",
+    "seconds": 3.379337,
+    "command": "/bin/zsh -lc \"./nipa call ui.open '{\\\"workId\\\":\\\"work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1\\\"}' 2>&1 | head -20; sleep 2; ./nipa call ui.capture '{}' 2>&1 | python3 -c \\\"import json,sys; print(json.load(sys.stdin)['result']['path'])\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_Z7ltHZauL5Gqli7M3owA6286",
+    "startedAt": "2026-10-12T22:49:50.301570",
+    "endedAt": "2026-10-12T22:49:50.302119",
+    "seconds": 0.000549,
+    "command": "/bin/zsh -lc 'cat .gitignore; echo \"---\"; du -sh records records/stills records/art 2>/dev/null'",
+    "exitCode": 0
+  },
+  {
+    "id": "call_01_j0U1j8Oyl3BGUrGDDNY84275",
+    "startedAt": "2026-10-12T22:49:50.437811",
+    "endedAt": "2026-10-12T22:49:50.706629",
+    "seconds": 0.268818,
+    "command": "/bin/zsh -lc \"./nipa call task.list '{\\\"limit\\\":5}' 2>&1 | head -30; ./nipa query activity '{\\\"limit\\\":8}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']['rows']\nfor r in d: print(r.get('createdAt'),'|',r.get('title'),'|',r.get('source'))\n\\\"\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_c9AwIhp1eGmuEyjqsfDa5127",
+    "startedAt": "2026-10-12T22:50:00.976718",
+    "endedAt": "2026-10-12T22:50:00.977633",
+    "seconds": 0.000915,
+    "command": "/bin/zsh -lc \"cp records/extract_stills.py tools/extract_stills.py\npython3 -c '\nimport re\np=\\\"tools/extract_stills.py\\\"\ns=open(p).read()\ns=s.replace(\\\"\\\\\\\"\\\\\\\"\\\\\\\"\\\", \\\"\\\\\\\"\\\\\\\"\\\\\\\"\\\")\nheader = \\\"#\"'!/usr/bin/env python3'\"\\\\n\\\\\\\"\\\\\\\"\\\\\\\"从本地剧集视频抽取每集截图。\\\\n\\\\n用法: python3 tools/extract_stills.py <剧集目录> <输出目录> [并发数]\\\\n\\\\n默认在每集 40% 处抽帧，失败时回退到 25%/60%/50%；输出 1280 宽 JPEG。\\\\n需要 ffmpeg/ffprobe。已存在且大于 5KB 的截图会跳过。\\\\n\\\\\\\"\\\\\\\"\\\\\\\"\\\\nimport sys\\\\n\\\"\ns = header + s.split(\\\"import json, os, re, subprocess\\\",1)[1]\ns = \\\"import json, os, re, subprocess\\\" + s.split(\\\"import json, os, re, subprocess\\\",1)[1]\n# parametrize\ns = s.replace(\\\"ROOT = \\\\\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang\\\\u0027an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\\\\\"\\\", \\\"ROOT = sys.argv[1]\\\")\ns = s.replace(\\\"OUT = \\\\\\\"records/stills\\\\\\\"\\\", \\\"OUT = sys.argv[2]\\\")\ns = s.replace(\\\"max_workers=4\\\", \\\"max_workers=int(sys.argv[3]) if len(sys.argv) > 3 else 4\\\")\ns = s.replace(\\\"re.search(r\\\\\\\"S01E(\\\\\\\\d+)\\\\\\\", name)\\\", \\\"re.search(r\\\\\\\"(?:S\\\\\\\\d+E|E)(\\\\\\\\d+)\\\\\\\", name)\\\")\nopen(p,\\\"w\\\").write(s)\nprint(s[:600])\n'\"",
+    "exitCode": 1
+  },
+  {
+    "id": "call_00_LgkfNFXkHp30yQRG1SLH9197",
+    "startedAt": "2026-10-12T22:50:12.753470",
+    "endedAt": "2026-10-12T22:50:12.754406",
+    "seconds": 0.000936,
+    "command": "/bin/zsh -lc \"cp records/extract_stills.py tools/extract_stills.py\npython3 -c '\np=\\\"tools/extract_stills.py\\\"\ns=open(p).read()\ns=s.replace(chr(39)+\\\"an.2019\\\", chr(39)+\\\"an.2019\\\")\nold_root=s.split(\\\"ROOT = \\\")[1].split(chr(10))[0]\ns=s.replace(\\\"ROOT = \\\"+old_root, \\\"ROOT = sys.argv[1]\\\")\ns=s.replace(\\\"OUT = \\\\\\\"records/stills\\\\\\\"\\\", \\\"OUT = sys.argv[2]\\\")\ns=s.replace(\\\"max_workers=4\\\", \\\"max_workers=int(sys.argv[3]) if len(sys.argv) > 3 else 4\\\")\ns=s.replace(\\\"re.search(r\\\\\\\"S01E(\\\\\\\\d+)\\\\\\\", name)\\\", \\\"re.search(r\\\\\\\"(?:S\\\\\\\\d+E|E)(\\\\\\\\d+)\\\\\\\", name)\\\")\nhdr = \\\"#\"'!/usr/bin/env python3'\"\\\\n\\\\\\\"\\\\\\\"\\\\\\\"从本地剧集视频抽取每集截图。\\\\n\\\\n用法: python3 tools/extract_stills.py <剧集目录> <输出目录> [并发数]\\\\n\\\\n默认在每集 40%% 处抽帧，失败时回退到 25%%/60%%/50%%；输出 1280 宽 JPEG。\\\\n需要 ffmpeg/ffprobe。已存在且大于 5KB 的截图会跳过。\\\\n\\\\\\\"\\\\\\\"\\\\\\\"\\\\nimport sys\\\\n\\\"\ns=hdr+s\nopen(p,\\\"w\\\").write(s)\n'\nhead -12 tools/extract_stills.py; echo ---; grep -n \\\"ROOT\\\\|OUT =\\\\|max_workers\\\\|re.search\\\" tools/extract_stills.py | head\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_RtFuCkWHkL7i4vorLatF8964",
+    "startedAt": "2026-10-12T22:50:22.050442",
+    "endedAt": "2026-10-12T22:50:22.189431",
+    "seconds": 0.138989,
+    "command": "/bin/zsh -lc \"python3 -m py_compile tools/extract_stills.py && echo \\\"compile ok\\\"\npython3 tools/extract_stills.py \\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\" records/stills 2>&1 | tail -3\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_i18ytYjJF12VjqnqT2Fb2421",
+    "startedAt": "2026-10-12T22:50:30.403041",
+    "endedAt": "2026-10-12T22:50:30.403787",
+    "seconds": 0.000746,
+    "command": "/bin/zsh -lc \"cat > /dev/null 2>&1 <<'EOF'\nEOF\npython3 -c '\np=\\\"tools/README.md\\\"\ns=open(p).read()\nadd = \\\"\\\"\\\"\n| \"'`extract_stills.py` | 从本地剧集视频抽每集截图：`python3 tools/extract_stills.py <剧集目录> <输出目录> [并发数]`。默认每集 40%% 处抽帧（回退 25%%/60%%/50%%），输出 1280 宽 JPEG，已存在且 >5KB 的跳过。需要 ffmpeg/ffprobe。配合 `media.artwork.set` 的 `kind=still` 使用。 |\n\"\"\"\ns=s.replace(\"| `danmaku.py` |\", add.strip()+ \"'\"\\\\n| \"'`danmaku.py` |\")\nopen(p,\"w\").write(s)\n'\"'\ngrep -n \\\"extract_stills\\\" tools/README.md\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_ncV6hNTlTAreVDLHVsIe4985",
+    "startedAt": "2026-10-12T22:50:45.801103",
+    "endedAt": "2026-10-12T22:50:45.802364",
+    "seconds": 0.001261,
+    "command": "/bin/zsh -lc \"python3 -c '\np=\\\"tools/README.md\\\"\ns=open(p).read().replace(\\\"40%%\\\",\\\"40%\\\").replace(\\\"25%%\\\",\\\"25%\\\").replace(\\\"60%%\\\",\\\"60%\\\").replace(\\\"50%%\\\",\\\"50%\\\")\nopen(p,\\\"w\\\").write(s)\n'\nsed -n '13p' tools/README.md\nmkdir -p notes\npython3 -c '\nimport os,datetime\nt=datetime.date.today().isoformat()\ntxt = \\\"\\\"\\\"# 环境与经验记录\n\n## 实例与环境（2026-10-12 确认）\n- 当前连接实例：NipaPlay 1.11.10，实验 profile \"'`x39-agent-41072`，Next 界面已开启。\n- 媒体根目录之一：`/Volumes/Anime`（只读 SMB）。片库根：`/Volumes/Anime/长安十二时辰`、`.../data/incoming`。\n- 本机可用：`ffmpeg` / `ffprobe` 7.1.1（/opt/homebrew/bin）。\n- 沙箱限制：写 `/tmp` 与 heredoc 临时文件被拒（`Operation not permitted`）；工作文件一律写在 harness 内，脚本用 python 落盘而不是 heredoc。\n- 后台 `nohup ... &` 进程会随命令会话结束被杀；耗时任务要前台运行（或用 `yield_time_ms` 拉长）。\n- 该 profile 未配置 TMDB 凭据、未登录弹弹play/Bangumi 账号。Bangumi 公共 API（`api.bgm.tv`）可直接查询。\n\n## 《长安十二时辰》(2019) 整理（2026-10-12）\n- 本地：48 个 mp4（S01E01–E48，2160p IQ WEB-DL）+ 每集同名 XML 弹幕（优酷来源，约 69.9 万条）。\n- 身份：Bangumi subject 285493（2019 华语剧，48 集，首播 2019-06-27）。`media.identity.bind_batch` 建立 work→release→48 episode，再逐集把文件绑到剧集。\n- 资料：`media.metadata.import_batch` 导入标题/原名/简介/年份/评分(Bangumi 7.2)/类型(悬疑·历史·古装)/出品公司/导演(曹盾)/演员。\n- 图片：TMDB 剧集页 90768（公开 HTML 可抓，无需凭据）。\n  - 横版背景：`/tv/90768/images/backdrops` 的 `media.themoviedb.org/t/p/w1280/<id>.jpg`。\n  - 透明片名 Logo：`/tv/90768/images/logos` 的 `.../w1280/<id>.png`（毛笔字款，logo-2）。\n  - 海报：`.../w440_and_h660_face/<poster>.jpg`。\n  - 注意：`media.themoviedb.org` 需跟随 301 到 `image.tmdb.org`，curl 用 `-L`；直连 `image.tmdb.org` 也可。\n- 每集截图：用 `tools/extract_stills.py` 从本地 mp4 抽 48 帧（约 1 秒/集），经 `media.artwork.set` 的 `kind=still` 写入（本地 `file` 字段可用）。\n- 结果：ui_facts 显示 标题/简介/类型/出品公司/评分/背景/海报/Logo 齐全，48 集标题、48 集截图、48 集弹幕轨道齐全。\n- 首页用 `ui.shelves.put` 把该作放为 hero。\n\n## 可复用要点\n- `media.identity.bind_batch` 批量较大时会较慢（48 条文件绑定约十几秒），期间偶发连接中断；用同一 `requestId` 重试是幂等的。\n- 一次性给 48 集设 still 等 51 条图片用单次 `media.artwork.set` 原子写入，本地文件路径放在 harness 内。\n- `./nipa query <view>` 的 `orderBy` 对 `library.episodes` 的 `number` 文本排序可用；默认返回 50 行。\n\"\"\"\nopen(\"notes/environment.md\",\"w\").write(txt)\nprint(\"written\")\n'\"'\nls notes; head -5 notes/environment.md\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_XC8fO8cZpggVKOzWTFg95954",
+    "startedAt": "2026-10-12T22:50:55.659729",
+    "endedAt": "2026-10-12T22:50:57.387110",
+    "seconds": 1.727381,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport os, subprocess, json\nd=\\\"records/stills\\\"\nrows=[]\nfor f in sorted(os.listdir(d)):\n    p=os.path.join(d,f)\n    r=subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-f\\\",\\\"lavfi\\\",\\\"-i\\\",\\\"movie=\\\"+p+\\\",signalstats\\\",\\\"-show_entries\\\",\\\"frame_tags=lavfi.signalstats.YAVG\\\",\\\"-of\\\",\\\"csv=p=0\\\"],capture_output=True,text=True)\n    try: y=float(r.stdout.strip().splitlines()[0].split(\\\",\\\")[-1])\n    except Exception: y=-1\n    rows.append((y,f))\nrows.sort()\nprint(\\\"darkest:\\\", rows[:6])\nprint(\\\"brightest:\\\", rows[-3:])\n'\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_R7t9gNxs2TfLYLkejCCv7776",
+    "startedAt": "2026-10-12T22:51:19.791444",
+    "endedAt": "2026-10-12T22:51:37.259673",
+    "seconds": 17.468229,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport subprocess, os, re\nROOT=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang\\\\u0027an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nfiles={int(re.search(r\\\"S01E(\\\\d+)\\\",f).group(1)):f for f in os.listdir(ROOT) if f.endswith(\\\".mp4\\\")}\ntargets=[1,19,23,26,34,46]\ndef yavg(p):\n    r=subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-f\\\",\\\"lavfi\\\",\\\"-i\\\",\\\"movie=\\\"+p+\\\",signalstats\\\",\\\"-show_entries\\\",\\\"frame_tags=lavfi.signalstats.YAVG\\\",\\\"-of\\\",\\\"csv=p=0\\\"],capture_output=True,text=True)\n    try: return float(r.stdout.strip().splitlines()[0].split(\\\",\\\")[-1])\n    except Exception: return -1\nfor n in targets:\n    p=os.path.join(ROOT,files[n])\n    d=float(subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-show_entries\\\",\\\"format=duration\\\",\\\"-of\\\",\\\"csv=p=0\\\",p],capture_output=True,text=True).stdout.strip())\n    best=None\n    for frac in [0.05,0.1,0.15,0.2,0.3,0.35,0.45,0.55,0.65,0.75,0.85]:\n        t=max(20.0,d*frac)\n        out=\\\"records/stills/_cand.jpg\\\"\n        subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(t),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=640:-2\\\",\\\"-q:v\\\",\\\"3\\\",out],capture_output=True,text=True)\n        y=yavg(out)\n        if best is None or y>best[0]: best=(y,t,frac)\n    print(n, \\\"best YAVG=%.1f t=%.0f frac=%.2f\\\"%(best[0],best[1],best[2]), flush=True)\n'\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_aY38XNcgi7oNuezejbJG8262",
+    "startedAt": "2026-10-12T22:51:46.652257",
+    "endedAt": "2026-10-12T22:51:47.739169",
+    "seconds": 1.086912,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport subprocess, os, re\nROOT=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang\\\\u0027an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nfiles={int(re.search(r\\\"S01E(\\\\d+)\\\",f).group(1)):f for f in os.listdir(ROOT) if f.endswith(\\\".mp4\\\")}\ntimes={1:2117,19:136,23:1511,26:1756,34:137,46:136}\nfor n,t in times.items():\n    p=os.path.join(ROOT,files[n])\n    subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(t),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=1280:-2\\\",\\\"-q:v\\\",\\\"3\\\",\\\"records/stills/E%02d.jpg\\\"%n],capture_output=True,text=True)\n    print(n,\\\"done\\\")\n'\nls -la records/stills/E01.jpg records/stills/E19.jpg records/stills/E23.jpg records/stills/E26.jpg records/stills/E34.jpg records/stills/E46.jpg\"",
+    "exitCode": 0
+  },
+  {
+    "id": "call_00_A0zT3QrKmXgzTLUldvLx8052",
+    "startedAt": "2026-10-12T22:52:08.235549",
+    "endedAt": "2026-10-12T22:52:19.880477",
+    "seconds": 11.644928,
+    "command": "/bin/zsh -lc \"python3 -c '\nimport subprocess, os, re\nROOT=\\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang\\\\u0027an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\"\nfiles={int(re.search(r\\\"S01E(\\\\d+)\\\",f).group(1)):f for f in os.listdir(ROOT) if f.endswith(\\\".mp4\\\")}\ntargets=[19,23,26,34,46]\ndef yavg(p):\n    r=subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-f\\\",\\\"lavfi\\\",\\\"-i\\\",\\\"movie=\\\"+p+\\\",signalstats\\\",\\\"-show_entries\\\",\\\"frame_tags=lavfi.signalstats.YAVG\\\",\\\"-of\\\",\\\"csv=p=0\\\"],capture_output=True,text=True)\n    try: return float(r.stdout.strip().splitlines()[0].split(\\\",\\\")[-1])\n    except Exception: return -1\nfor n in targets:\n    p=os.path.join(ROOT,files[n])\n    d=float(subprocess.run([\\\"ffprobe\\\",\\\"-v\\\",\\\"error\\\",\\\"-show_entries\\\",\\\"format=duration\\\",\\\"-of\\\",\\\"csv=p=0\\\",p],capture_output=True,text=True).stdout.strip())\n    best=None\n    for frac in [0.2,0.28,0.36,0.44,0.52,0.6,0.68,0.76,0.84]:\n        t=d*frac\n        out=\\\"records/stills/_c.jpg\\\"\n        subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(t),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=640:-2\\\",\\\"-q:v\\\",\\\"3\\\",out],capture_output=True,text=True)\n        y=yavg(out)\n        if best is None or y>best[0]: best=(y,t)\n    subprocess.run([\\\"ffmpeg\\\",\\\"-y\\\",\\\"-v\\\",\\\"error\\\",\\\"-ss\\\",str(best[1]),\\\"-i\\\",p,\\\"-frames:v\\\",\\\"1\\\",\\\"-vf\\\",\\\"scale=1280:-2\\\",\\\"-q:v\\\",\\\"3\\\",\\\"records/stills/E%02d.jpg\\\"%n],capture_output=True,text=True)\n    print(n,\\\"YAVG=%.1f t=%.0f\\\"%(best[0],best[1]),flush=True)\n'\nrm -f records/stills/_c.jpg records/stills/_cand.jpg\"",
+    "exitCode": 0
+  }
+]
