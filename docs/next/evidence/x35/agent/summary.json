@@ -1,0 +1,58 @@
+{
+  "workId": "work-f9d3585ec725b7e9e43503393849a9dc50452c6d38b1018d45f196a80879e5f1",
+  "title": "长安十二时辰",
+  "fields": {
+    "title": true,
+    "originalTitle": true,
+    "overview": true,
+    "year": true,
+    "genres": false,
+    "episodeCount": true,
+    "studio": false,
+    "ratings": false,
+    "backdrop": false,
+    "poster": true,
+    "logo": false
+  },
+  "episodeTotal": 48,
+  "episodeTitles": 48,
+  "episodeStills": 0,
+  "boundAvailableFiles": 48,
+  "heroImage": "poster",
+  "tint": 4278452756,
+  "continuationSeconds": 600.1742435420165,
+  "turnStatuses": [
+    "interrupted",
+    "interrupted"
+  ],
+  "commandCounts": [
+    20,
+    48
+  ],
+  "longCommands": [
+    {
+      "durationMs": 65073,
+      "command": "/bin/zsh -lc \"./nipa call media.files.list '{\\\"root\\\": \\\"/Volumes/Anime/长安十二时辰\\\"}' 2>&1 | head -150\""
+    },
+    {
+      "durationMs": 117617,
+      "command": "/bin/zsh -lc \"cd \\\"/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb\\\" && for f in *.xml; do ep=\"'$(echo \"$f\" | grep -o '\"'S01E[0-9]*'); cs=\"'$(grep -o '\"'<chatserver>[\"'^<]*'\"' \\\"\"'$f\" | head -1 | sed '\"'s/<chatserver>//'); cid=\"'$(grep -o '\"'<chatid>[\"'^<]*'\"' \\\"\"'$f\" | head -1 | sed '\"'s/<chatid>//'); n=\"'$(grep -c '\"'<d p=' \\\"\"'$f\"); echo \"$ep $cs $cid comments=$n\"; done'"
+    },
+    {
+      "durationMs": 40072,
+      "command": "/bin/zsh -lc \"sleep 40; ./nipa call task.get '{\\\"jobId\\\":\\\"scan-c4076d1511a4b788d32dee60cdcdb4d1a947cb42ee721a81fa8407d61b725981\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']['job']\nprint(d['state'], d.get('phase'), d.get('progress'))\nprint(json.dumps(d.get('receipt'), ensure_ascii=False)[:1500])\n\\\"\""
+    },
+    {
+      "durationMs": 30055,
+      "command": "/bin/zsh -lc \"sleep 30; ./nipa call task.get '{\\\"jobId\\\":\\\"scan-c4076d1511a4b788d32dee60cdcdb4d1a947cb42ee721a81fa8407d61b725981\\\"}' 2>&1 | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)['result']['job']\nprint(d['state'], d.get('phase'), d.get('progress'))\nprint(json.dumps(d.get('receipt'), ensure_ascii=False)[:1200])\n\\\"\""
+    },
+    {
+      "durationMs": 65088,
+      "command": "/bin/zsh -lc \"cd \\\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-agent-83287/harness\\\" && ./nipa call media.files.list '{\\\"root\\\": \\\"/Volumes/Anime/长安十二时辰\\\"}' > .x35_files.json 2>&1; python3 -c \\\"\nimport json\nd=json.load(open('.x35_files.json'))\nfiles=d['result']['files']\nprint('count',len(files))\nfor f in files[:2]:\n    print({k:f.get(k) for k in ('fileId','path','size','durationMs')})\n    print('  bindings:', json.dumps(f.get('bindings'), ensure_ascii=False)[:300])\n\\\"\""
+    }
+  ],
+  "cleanup": {
+    "pid": 96060,
+    "profileRemoved": true
+  }
+}
