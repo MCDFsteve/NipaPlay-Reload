@@ -1,0 +1,80 @@
+warning: version requirement `0.6.0+11769913` for dependency `ndk-sys` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion
+   Compiling rust_lib_nipaplay v0.1.0 (/Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/rust)
+warning: unused import: `Instant`
+ --> src/next2_engine/engine/command_channel.rs:3:27
+  |
+3 | use std::time::{Duration, Instant};
+  |                           ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: use of deprecated function `libc::mach_task_self`: Use the `mach2` crate instead
+   --> src/api/performance.rs:226:19
+    |
+226 |             libc::mach_task_self(),
+    |                   ^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: unused variable: `danmaku_type`
+   --> src/api/dfm_plus.rs:311:21
+    |
+311 |     for (type_idx, &danmaku_type) in type_order.iter().enumerate() {
+    |                     ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_danmaku_type`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `PDH_MORE_DATA` is never used
+   --> src/api/performance.rs:441:7
+    |
+441 | const PDH_MORE_DATA: u32 = 0x8000_07D2;
+    |       ^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `entry_right_at` is never used
+   --> src/dfm_core/retainer.rs:501:4
+    |
+501 | fn entry_right_at(entry: &TrackEntry, time_ms: i64, view_width: f32) -> f32 {
+    |    ^^^^^^^^^^^^^^
+
+warning: variants `DisplayTick` and `Vsync` are never constructed
+   --> src/next2_engine/engine/runtime.rs:106:5
+    |
+105 | pub enum EngineCommand {
+    |          ------------- variants in this enum
+106 |     DisplayTick {
+    |     ^^^^^^^^^^^
+...
+109 |     Vsync { arrived: std::time::Instant, elapsed_us: u64 },
+    |     ^^^^^
+
+warning: field `wake` is never read
+  --> src/next2_engine/engine/command_channel.rs:11:5
+   |
+ 9 | pub struct Receiver<T> {
+   |            -------- field in this struct
+10 |     inner: mpsc::Receiver<T>,
+11 |     wake: Arc<Wake>,
+   |     ^^^^
+
+warning: associated functions `entry`, `error`, `read_entry`, and `delete_entry` are never used
+   --> src/vault.rs:28:8
+    |
+  5 | impl VaultService {
+    | ----------------- associated functions in this implementation
+...
+ 28 |     fn entry(namespace: &str, key: &str) -> Result<keyring::Entry, String> {
+    |        ^^^^^
+...
+ 38 |     fn error(error: keyring::Error) -> String {
+    |        ^^^^^
+...
+ 72 |     fn read_entry(entry: &keyring::Entry) -> Result<Option<String>, String> {
+    |        ^^^^^^^^^^
+...
+122 |     fn delete_entry(entry: &keyring::Entry) -> Result<(), String> {
+    |        ^^^^^^^^^^^^
+
+warning: `rust_lib_nipaplay` (lib) generated 8 warnings (run `cargo fix --lib -p rust_lib_nipaplay` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.71s

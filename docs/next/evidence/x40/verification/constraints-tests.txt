@@ -1,0 +1,67 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/x40_constraints_test.dart
+00:00 +0: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_download_service_test.dart: concurrent initialization shares one future and failed initialization can retry
+00:00 +1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_download_service_test.dart: TorrentDownloadService.getDownloadDirectory repairs a stale saved iOS sandbox directory
+[TorrentDownloadService] saved iOS download directory no longer exists; recovering from "/old/Application/CONTAINER/Documents/downloads" to "/current/Application/CONTAINER/Documents/downloads"
+00:00 +2: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_download_service_test.dart: TorrentDownloadService.getDownloadDirectory keeps an existing saved iOS directory
+00:00 +3: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_download_service_test.dart: TorrentDownloadService.getDownloadDirectory does not reset missing saved directories on other platforms
+00:00 +4: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: scanner acknowledgement does not fabricate media or block download success
+00:00 +5: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: selection readback preserves hash identity, paths and prior completion evidence
+00:00 +6: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/x40_constraints_test.dart: file evidence survives restart, authorizes only checked files, and delivers once
+00:00 +6: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_completed_scan_test.dart: failed and throwing scans return failure and can be retried
+扫描状态变更: isScanning=true
+扫描状态变更: isScanning=false
+扫描完成标志已设置: _scanJustCompleted=true
+扫描状态变更: isScanning=true
+扫描状态变更: isScanning=false
+扫描状态变更: isScanning=true
+扫描状态变更: isScanning=false
+00:00 +7: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/x40_constraints_test.dart: file evidence survives restart, authorizes only checked files, and delivers once
+00:00 +7: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/torrent_completed_scan_test.dart: an occupied scanner does not claim the next task was imported
+扫描状态变更: isScanning=true
+扫描状态变更: isScanning=false
+扫描完成标志已设置: _scanJustCompleted=true
+00:00 +8: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/x40_constraints_test.dart: file evidence survives restart, authorizes only checked files, and delivers once
+00:00 +9: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/x40_constraints_test.dart: file evidence survives restart, authorizes only checked files, and delivers once
+00:00 +10: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: a checked first file is persisted while the parent remains incomplete
+00:30 +10 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: a checked first file is persisted while the parent remains incomplete [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+  Instance of 'Failure'
+  package:nipa_harness/src/tasks/engine.dart 143:9  TaskEngine._serial
+  
+00:30 +10 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: readding a removed success creates a new job and preserves its receipt
+00:30 +11 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: directory overrides survive persistence and duplicate adds do not move data
+00:30 +12 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: explicit completed scan preserves receipts and does not invent imported identity
+00:30 +13 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: all files are accounted for while only selected unmatched videos are scanned
+00:30 +14 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: registered unidentified entries succeed and await separate identification
+00:30 +15 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: batch add accepts distinct sources, keeps failures local and preserves old source calls
+00:30 +16 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: one call pauses and resumes multiple downloads, aliases and batch remove keep files
+00:30 +17 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: batch delete checks every item, continues after boundary failures and audits each attempt
+00:30 +18 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: Actions accept immediately, deduplicate concurrent content and expose the same backend
+00:30 +19 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: pause stops native work, resume keeps identity, completed controls only affect seeding
+00:30 +20 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: verification failure cannot succeed or import and its retry can be paused
+00:30 +21 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: download controls are idempotent through Actions for running and terminal jobs
+00:30 +22 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: resume retries a backend error instead of treating it as already running
+00:30 +23 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: resume cannot restart a torrent while cancellation is still stopping it
+00:30 +24 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: busy scanner retries, but unidentified files finish without recognition retries
+00:30 +25 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: restart reconciles a committed session without a checkpoint and a changed native handle
+00:30 +26 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: recovery never re-adds a missing committed session
+00:30 +27 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancellation before backend commit stops metadata work with a cancelled receipt
+00:30 +28 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancellation after native add pauses and verifies partial committed effects
+00:30 +29 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancellation during submitted import still reads back the media result
+00:30 +30 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancellation records every retained size and distinguishes missing files
+00:30 +31 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: unidentified in-flight import still finishes cancellation without error
+00:30 +32 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: a real backend error while stopping remains failed and unverified
+00:30 +33 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: restart reconciles committed cancellation and preserves partial files
+00:30 +34 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancellation during file verification does not submit a new import
+00:30 +35 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: cancel arriving before add returns records the effect that committed afterwards
+00:30 +36 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: legacy import registration prevents importing records the user later cleared
+00:30 +37 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: remove keeps downloaded files while delete removes only its own files
+00:30 +38 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: delete rejects lexical traversal and symlinks before calling the backend
+00:30 +39 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: remote files are verified through their backend and await transfer before local import
+00:30 +40 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: offline backends persist a retry without claiming completion or re-adding
+00:30 +41 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/test/next/download_executor_test.dart: a checked first file is persisted while the parent remains incomplete
