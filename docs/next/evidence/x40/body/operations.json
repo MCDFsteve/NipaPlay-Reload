@@ -1,0 +1,413 @@
+[
+  {
+    "at": "2026-10-12T16:22:42.478828+00:00",
+    "label": "legal-content",
+    "value": {
+      "license": "CC0-1.0",
+      "producer": "experimenter",
+      "files": [
+        {
+          "name": "第01集.mp4",
+          "bytes": 702145
+        },
+        {
+          "name": "第02集.mp4",
+          "bytes": 780978
+        },
+        {
+          "name": "第03集.mp4",
+          "bytes": 865025
+        }
+      ]
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:45.563588+00:00",
+    "label": "app.instance",
+    "value": {
+      "status": "completed",
+      "result": {
+        "pid": 43623,
+        "windowTitle": "NipaPlay · LAB [x40-body-43608]",
+        "windowId": 54856,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x40-downloads/build/macos/Build/Products/Debug/NipaPlay.app",
+        "viewId": 1,
+        "experimentalProfile": true,
+        "profileName": "x40-body-43608",
+        "version": "1.11.10"
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:45.593598+00:00",
+    "label": "download.add",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-5b88d29c210985b32c2b23b553e46466",
+          "type": "download",
+          "title": "collection.torrent",
+          "state": "queued",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-12T16:22:45.585644Z",
+          "updatedAt": "2026-10-12T16:22:45.585644Z",
+          "ownerDeviceId": "device-26c1e1ca420b9925f93b2b4f394311a4",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:45.599670+00:00",
+    "label": "followup.register",
+    "value": {
+      "status": "completed",
+      "result": {
+        "followup": {
+          "id": "followup-1791822165596070-64c1169d",
+          "state": "waiting",
+          "title": "等第一集",
+          "instruction": "报告这个文件的实际完成事实。",
+          "condition": {
+            "event": "download.file_completed",
+            "objectId": "job-5b88d29c210985b32c2b23b553e46466:0"
+          },
+          "waitingFor": "download.file_completed for job-5b88d29c210985b32c2b23b553e46466:0",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/harness",
+          "threadId": null,
+          "turnId": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791822165594503-12",
+          "createdAt": "2026-10-12T16:22:45.596064Z",
+          "updatedAt": "2026-10-12T16:22:45.596064Z",
+          "trigger": null,
+          "reason": null,
+          "turnStatus": null
+        }
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:45.927765+00:00",
+    "label": "initial-selection",
+    "value": {
+      "job": {
+        "backend": {
+          "kind": "builtin"
+        },
+        "jobId": "job-5b88d29c210985b32c2b23b553e46466",
+        "type": "download",
+        "title": "collection.torrent",
+        "state": "running",
+        "phase": "downloading",
+        "progress": {
+          "completed": 0,
+          "total": 1578100,
+          "unit": "bytes"
+        },
+        "createdAt": "2026-10-12T16:22:45.585644Z",
+        "updatedAt": "2026-10-12T16:22:45.615634Z",
+        "ownerDeviceId": "device-26c1e1ca420b9925f93b2b4f394311a4",
+        "revision": 3
+      },
+      "task": {
+        "handle": "0",
+        "infoHash": "d9e3d30cea8bf7df20c6a51075d6f4a0ec23069e",
+        "title": "X40 CC0 三集动画-body",
+        "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads",
+        "local": true,
+        "completedBytes": 0,
+        "totalBytes": 1578100,
+        "finished": false,
+        "paused": false,
+        "error": null,
+        "health": {
+          "observedAt": "2026-10-12T16:22:45.925006Z",
+          "observingSince": "2026-10-12T16:22:45.610228Z",
+          "lastProgressAt": "2026-10-12T16:22:45.610228Z",
+          "secondsWithoutProgress": 0,
+          "sampleSeconds": 0.31,
+          "checkedBytesChange": 0,
+          "connectedPeers": 1,
+          "seenPeers": 1,
+          "connectingPeers": 0,
+          "queuedPeers": 0,
+          "deadPeers": 0,
+          "seeders": null,
+          "pieceAvailability": null,
+          "availabilityReason": "librqbit public API does not expose peer bitfields or tracker seed counts",
+          "fileSelectionSupported": true,
+          "filePrioritySupported": false
+        },
+        "disk": {
+          "availableBytes": 197347655680,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads"
+        },
+        "state": "live",
+        "downloadSpeedBytesPerSecond": 0,
+        "uploadSpeedBytesPerSecond": 0,
+        "files": [
+          {
+            "index": 0,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第01集.mp4",
+            "local": true,
+            "expectedSize": 702145,
+            "included": true,
+            "isVideo": true,
+            "completedBytes": 0,
+            "complete": false,
+            "playable": false,
+            "streamable": true
+          },
+          {
+            "index": 1,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第02集.mp4",
+            "local": true,
+            "expectedSize": 780978,
+            "included": false,
+            "isVideo": true,
+            "completedBytes": 0,
+            "complete": false,
+            "playable": false,
+            "streamable": false
+          },
+          {
+            "index": 2,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第03集.mp4",
+            "local": true,
+            "expectedSize": 865025,
+            "included": true,
+            "isVideo": true,
+            "completedBytes": 0,
+            "complete": false,
+            "playable": false,
+            "streamable": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:45.940916+00:00",
+    "label": "download.select_files",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-5b88d29c210985b32c2b23b553e46466",
+          "type": "download",
+          "title": "collection.torrent",
+          "state": "interrupted",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 1578100,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-12T16:22:45.585644Z",
+          "updatedAt": "2026-10-12T16:22:45.935793Z",
+          "ownerDeviceId": "device-26c1e1ca420b9925f93b2b4f394311a4",
+          "revision": 5
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "d9e3d30cea8bf7df20c6a51075d6f4a0ec23069e",
+          "title": "X40 CC0 三集动画-body",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads",
+          "local": true,
+          "completedBytes": 0,
+          "totalBytes": 1490944,
+          "finished": false,
+          "paused": false,
+          "error": null,
+          "health": {
+            "observedAt": "2026-10-12T16:22:45.938169Z",
+            "observingSince": "2026-10-12T16:22:45.610228Z",
+            "lastProgressAt": "2026-10-12T16:22:45.610228Z",
+            "secondsWithoutProgress": 0,
+            "sampleSeconds": 0.004,
+            "checkedBytesChange": 0,
+            "connectedPeers": 1,
+            "seenPeers": 1,
+            "connectingPeers": 0,
+            "queuedPeers": 0,
+            "deadPeers": 0,
+            "seeders": null,
+            "pieceAvailability": null,
+            "availabilityReason": "librqbit public API does not expose peer bitfields or tracker seed counts",
+            "fileSelectionSupported": true,
+            "filePrioritySupported": false
+          },
+          "disk": {
+            "availableBytes": 197347643392,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads"
+          },
+          "state": "live",
+          "downloadSpeedBytesPerSecond": 0,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第01集.mp4",
+              "local": true,
+              "expectedSize": 702145,
+              "included": true,
+              "isVideo": true,
+              "completedBytes": 0,
+              "complete": false,
+              "playable": false,
+              "streamable": true
+            },
+            {
+              "index": 1,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第02集.mp4",
+              "local": true,
+              "expectedSize": 780978,
+              "included": true,
+              "isVideo": true,
+              "completedBytes": 0,
+              "complete": false,
+              "playable": false,
+              "streamable": true
+            },
+            {
+              "index": 2,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第03集.mp4",
+              "local": true,
+              "expectedSize": 865025,
+              "included": false,
+              "isVideo": true,
+              "completedBytes": 0,
+              "complete": false,
+              "playable": false,
+              "streamable": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:54.957464+00:00",
+    "label": "download.read",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-5b88d29c210985b32c2b23b553e46466",
+          "type": "download",
+          "title": "collection.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 1490944,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-12T16:22:45.585644Z",
+          "updatedAt": "2026-10-12T16:22:50.951134Z",
+          "ownerDeviceId": "device-26c1e1ca420b9925f93b2b4f394311a4",
+          "revision": 9
+        },
+        "task": {
+          "handle": "0",
+          "infoHash": "d9e3d30cea8bf7df20c6a51075d6f4a0ec23069e",
+          "title": "X40 CC0 三集动画-body",
+          "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads",
+          "local": true,
+          "completedBytes": 131072,
+          "totalBytes": 1490944,
+          "finished": false,
+          "paused": false,
+          "error": null,
+          "health": {
+            "observedAt": "2026-10-12T16:22:54.951628Z",
+            "observingSince": "2026-10-12T16:22:45.610228Z",
+            "lastProgressAt": "2026-10-12T16:22:54.951628Z",
+            "secondsWithoutProgress": 0,
+            "sampleSeconds": 4.001,
+            "checkedBytesChange": 131072,
+            "connectedPeers": 1,
+            "seenPeers": 1,
+            "connectingPeers": 0,
+            "queuedPeers": 0,
+            "deadPeers": 0,
+            "seeders": null,
+            "pieceAvailability": null,
+            "availabilityReason": "librqbit public API does not expose peer bitfields or tracker seed counts",
+            "fileSelectionSupported": true,
+            "filePrioritySupported": false
+          },
+          "disk": {
+            "availableBytes": 197654192128,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads"
+          },
+          "state": "live",
+          "downloadSpeedBytesPerSecond": 161091,
+          "uploadSpeedBytesPerSecond": 0,
+          "files": [
+            {
+              "index": 0,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第01集.mp4",
+              "local": true,
+              "expectedSize": 702145,
+              "included": true,
+              "isVideo": true,
+              "completedBytes": 131072,
+              "complete": false,
+              "playable": false,
+              "streamable": true
+            },
+            {
+              "index": 1,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第02集.mp4",
+              "local": true,
+              "expectedSize": 780978,
+              "included": true,
+              "isVideo": true,
+              "completedBytes": 0,
+              "complete": false,
+              "playable": false,
+              "streamable": true
+            },
+            {
+              "index": 2,
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x40-body-43608/data/downloads/第03集.mp4",
+              "local": true,
+              "expectedSize": 865025,
+              "included": false,
+              "isVideo": true,
+              "completedBytes": 0,
+              "complete": false,
+              "playable": false,
+              "streamable": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T16:22:55.482628+00:00",
+    "label": "cleanup",
+    "value": {
+      "pid": 43623,
+      "profileRemoved": true
+    }
+  }
+]
