@@ -1,0 +1,40 @@
+[
+  {
+    "threadId": "01a12ede-3fa5-7992-b23e-434742f55087",
+    "turnId": "01a12ede-47aa-7582-9b7b-3f8a635dc1ea",
+    "status": "completed",
+    "commands": 10,
+    "seedToolCommands": [
+      "/bin/zsh -lc \"python3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file /dev/stdin <<'EOF' 2>&1 | head -40\n{\\\"keyword\\\":\\\"无职转生 第三季\\\",\\\"filter\\\":{\\\"type\\\":[2]}}\nEOF\"",
+      "/bin/zsh -lc \"printf '%s' '{\\\"keyword\\\":\\\"无职转生\\\",\\\"filter\\\":{\\\"type\\\":[2]}}' > /tmp/q.json; python3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file /tmp/q.json 2>&1 | head -60\"",
+      "/bin/zsh -lc \"cd '/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x36-tools-15967/harness' && printf '%s' '{\\\"keyword\\\":\\\"无职转生\\\",\\\"filter\\\":{\\\"type\\\":[2]}}' > .q.tmp.json && python3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file .q.tmp.json 2>&1 | head -80; rm -f .q.tmp.json\""
+    ]
+  },
+  {
+    "threadId": "01a12edf-4917-75b3-8c8f-912d3a2444bc",
+    "turnId": "01a12edf-5152-72a0-8c38-1319c1317f7d",
+    "status": "interrupted",
+    "commands": 88,
+    "seedToolCommands": [
+      "/bin/zsh -lc 'python3 tools/danmaku.py --help; echo ---; python3 tools/danmaku.py search --help'",
+      "/bin/zsh -lc \"python3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file /dev/stdin <<'JSON'\n{\\\"keyword\\\":\\\"スーパーの裏でヤニ吸うふたり\\\",\\\"filter\\\":{\\\"type\\\":[2]}}\nJSON\"",
+      "/bin/zsh -lc \"mkdir -p records/tmp && cat > records/tmp/bgm_search.json <<'JSON'\n{\\\"keyword\\\":\\\"スーパーの裏でヤニ吸うふたり\\\",\\\"filter\\\":{\\\"type\\\":[2]}}\nJSON\npython3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file records/tmp/bgm_search.json\"",
+      "/bin/zsh -lc \"mkdir -p records/tmp && printf '%s' '{\\\"keyword\\\":\\\"スーパーの裏でヤニ吸うふたり\\\",\\\"filter\\\":{\\\"type\\\":[2]}}' > records/tmp/bgm_search.json && cat records/tmp/bgm_search.json && echo && python3 tools/api.py 'https://api.bgm.tv/v0/search/subjects' --json-file records/tmp/bgm_search.json\"",
+      "/bin/zsh -lc \"python3 tools/api.py 'https://api.bgm.tv/v0/subjects/571784' > records/tmp/bgm_subject.json; python3 -c \\\"import json;d=json.load(open('records/tmp/bgm_subject.json'))['data'];print(json.dumps({k:d.get(k) for k in ['id','name','name_cn','date','eps','platform','infobox']},ensure_ascii=False,indent=1)[:4000])\\\"\""
+    ]
+  },
+  {
+    "threadId": "01a12ee2-73ce-7c82-be39-c902d52a2dd5",
+    "turnId": "01a12ee2-7b04-7e20-8357-f0c660f17429",
+    "status": "completed",
+    "commands": 20,
+    "seedToolCommands": [
+      "/bin/zsh -lc 'python3 tools/mikan.py --help'",
+      "/bin/zsh -lc 'python3 tools/mikan.py search 无职转生 2>&1 | head -c 4000'",
+      "/bin/zsh -lc 'python3 tools/mikan.py releases 3995 --limit 0 > /tmp/s3.json 2>/tmp/s3.err; echo \"exit=$?\"; wc -c /tmp/s3.json; head -c 500 /tmp/s3.err'",
+      "/bin/zsh -lc 'python3 tools/mikan.py releases --help; mkdir -p records'",
+      "/bin/zsh -lc 'python3 tools/mikan.py releases 3995 --limit 0 > records/mikan-3995.json 2>records/mikan-3995.err; echo \"exit=$?\"; wc -c records/mikan-3995.json; head -c 300 records/mikan-3995.err'",
+      "/bin/zsh -lc \"python3 tools/discovery.py nyaa \\\"无职转生 第三季\\\" --limit 0 2>/dev/null | python3 -c \\\"\nimport json,sys\nd=json.load(sys.stdin)\nrs=d.get('results',d.get('candidates',[]))\nprint(len(rs))\nfor r in rs[:20]:\n    print(json.dumps(r,ensure_ascii=False)[:400])\n\\\"\""
+    ]
+  }
+]
