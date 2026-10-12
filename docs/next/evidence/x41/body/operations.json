@@ -1,0 +1,1900 @@
+[
+  {
+    "at": 1791824083.539329,
+    "label": "instance",
+    "value": {
+      "pid": 75702,
+      "windowId": 55292,
+      "windowTitle": "NipaPlay · LAB [x41-body-75698]",
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "viewId": 1,
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app",
+      "experimentalProfile": true,
+      "profileName": "x41-body-75698",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "at": 1791824083.543173,
+    "label": "chat-header",
+    "value": {
+      "sessionId": "nipa-1791824080604520-7209b7e1",
+      "threadId": "01a13109-b172-7513-a962-dbe4eef15f98",
+      "mainThreadId": "01a13109-b172-7513-a962-dbe4eef15f98",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/harness"
+    }
+  },
+  {
+    "at": 1791824083.9830358,
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK",
+          "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]",
+          "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb"
+        ]
+      },
+      "seconds": 0.0086413340177387,
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK",
+          "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]",
+          "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb"
+        ],
+        "roots": [
+          "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK",
+          "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]",
+          "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "at": 1791824084.006641,
+    "label": "media.library.scan",
+    "value": {
+      "input": {
+        "root": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK",
+        "requestId": "x41-body-75698-The Big Short 2015 1080p BluRay x264 DTS-JYK"
+      },
+      "seconds": 0.02334537508431822,
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-f856aa771f1ca783f1b2a13a333e97dd4f9fc71e18f6c0bafc43691bd73dec2e",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824086.5646698,
+    "label": "job-completed",
+    "value": {
+      "jobId": "scan-f856aa771f1ca783f1b2a13a333e97dd4f9fc71e18f6c0bafc43691bd73dec2e",
+      "type": "media.scan",
+      "title": "Scan media folder",
+      "state": "succeeded",
+      "phase": "enumerate",
+      "progress": {
+        "completed": 1,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T16:54:43.998843Z",
+      "updatedAt": "2026-10-12T16:54:46.097086Z",
+      "ownerDeviceId": "device-d4fbdb13b965921033b0bf104027b80c",
+      "revision": 6,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 1,
+          "fileIds": [
+            "file-4a775fe6-2d80-4421-af11-65e042c9f3cf"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824086.580367,
+    "label": "media.library.scan",
+    "value": {
+      "input": {
+        "root": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]",
+        "requestId": "x41-body-75698-[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]"
+      },
+      "seconds": 0.015423250035382807,
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-43d3f9d43aea9794af5876c40b539bea1f428e763a278512eac3e1cfa3918f8d",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824088.113825,
+    "label": "job-completed",
+    "value": {
+      "jobId": "scan-43d3f9d43aea9794af5876c40b539bea1f428e763a278512eac3e1cfa3918f8d",
+      "type": "media.scan",
+      "title": "Scan media folder",
+      "state": "succeeded",
+      "phase": "enumerate",
+      "progress": {
+        "completed": 1,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T16:54:46.577452Z",
+      "updatedAt": "2026-10-12T16:54:48.094311Z",
+      "ownerDeviceId": "device-d4fbdb13b965921033b0bf104027b80c",
+      "revision": 6,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 1,
+          "fileIds": [
+            "file-acded333-fe63-4513-ba44-3a2432dc24c9"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824088.124686,
+    "label": "media.identity.get",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv"
+      },
+      "seconds": 0.010481250006705523,
+      "status": "completed",
+      "result": {
+        "identity": {
+          "id": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+          "kind": "file",
+          "parentId": null,
+          "revision": 0,
+          "bindingRevision": 0,
+          "metadata": [],
+          "metadataView": {
+            "fields": {},
+            "provenance": {},
+            "ratings": []
+          },
+          "bindings": [],
+          "locations": [
+            {
+              "locationId": "location-d553e09b-b5ad-4bf7-bb30-33f199a29251",
+              "source": "local",
+              "ownerDeviceId": "device-d4fbdb13b965921033b0bf104027b80c",
+              "locator": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv",
+              "available": true
+            }
+          ],
+          "episodes": [],
+          "evidence": [],
+          "legacyEvidence": [],
+          "classicObservations": [],
+          "conflicts": []
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824088.1307929,
+    "label": "media.identity.get",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]/Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.mkv"
+      },
+      "seconds": 0.005709583987481892,
+      "status": "completed",
+      "result": {
+        "identity": {
+          "id": "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+          "kind": "file",
+          "parentId": null,
+          "revision": 0,
+          "bindingRevision": 0,
+          "metadata": [],
+          "metadataView": {
+            "fields": {},
+            "provenance": {},
+            "ratings": []
+          },
+          "bindings": [],
+          "locations": [
+            {
+              "locationId": "location-bda6dd0e-8971-4a09-8fc9-e206b3072ab6",
+              "source": "local",
+              "ownerDeviceId": "device-d4fbdb13b965921033b0bf104027b80c",
+              "locator": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]/Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.mkv",
+              "available": true
+            }
+          ],
+          "episodes": [],
+          "evidence": [],
+          "legacyEvidence": [],
+          "classicObservations": [],
+          "conflicts": []
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824088.148171,
+    "label": "media.identity.get",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4"
+      },
+      "seconds": 0.016981416032649577,
+      "status": "completed",
+      "result": {
+        "identity": {
+          "id": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+          "kind": "file",
+          "parentId": null,
+          "revision": 0,
+          "bindingRevision": 0,
+          "metadata": [],
+          "metadataView": {
+            "fields": {},
+            "provenance": {},
+            "ratings": []
+          },
+          "bindings": [],
+          "locations": [
+            {
+              "locationId": "location-cb5e0115-6f5d-4ba8-9ad2-6678ba2ebcb1",
+              "source": "local",
+              "ownerDeviceId": "device-d4fbdb13b965921033b0bf104027b80c",
+              "locator": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4",
+              "available": true
+            }
+          ],
+          "episodes": [],
+          "evidence": [],
+          "legacyEvidence": [],
+          "classicObservations": [],
+          "conflicts": []
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824088.794281,
+    "label": "subtitle-facts-ready",
+    "value": [
+      {
+        "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+        "tracks": [
+          {
+            "id": "subtitle-3f6e8357f8a353c6910080f1b0dd6502ff736ccc430b97d33b6ad4bbc3b7eb95",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English(SDH).srt",
+            "title": "English(SDH).srt",
+            "format": "srt",
+            "language": "en",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 194465,
+            "modifiedAt": "2026-10-05T14:10:16.751Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-248d35178d233ab789baea49bf98132454bf839fe2aa20e6c1e0db241a092b8e",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English.srt",
+            "title": "English.srt",
+            "format": "srt",
+            "language": "en",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 179164,
+            "modifiedAt": "2026-10-05T14:10:16.468Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-cbd7f62c93bf2b90af2518c8ff5c87397f358f710eddf83df3b891a638a31954",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/French.srt",
+            "title": "French.srt",
+            "format": "srt",
+            "language": "fr",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 159977,
+            "modifiedAt": "2026-10-05T14:10:17.268Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-1f8b5c51bc32df8a880ffa77ae6930c1b3a24053d0f805ca15f5e84c74a3082a",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Portuguese.srt",
+            "title": "Portuguese.srt",
+            "format": "srt",
+            "language": "pt",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 151478,
+            "modifiedAt": "2026-10-05T14:10:16.415Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-3753b77c872330508f91286dd2b9cca4be02e6bd30ffad7eea4cbf2f9e9143ac",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Spanish.srt",
+            "title": "Spanish.srt",
+            "format": "srt",
+            "language": "es",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 160472,
+            "modifiedAt": "2026-10-05T14:10:16.776Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          }
+        ],
+        "embeddedStatus": "ready",
+        "selection": {
+          "trackId": "subtitle-248d35178d233ab789baea49bf98132454bf839fe2aa20e6c1e0db241a092b8e",
+          "basis": "language_preference",
+          "preferredLanguages": [
+            "zh-Hans",
+            "zh-Hant",
+            "zh",
+            "en"
+          ],
+          "externalTextFirst": true
+        },
+        "fingerprint": "3523669707:2026-10-05T14:25:42.690Z",
+        "checkedAt": "2026-10-12T16:54:46.064412Z"
+      },
+      {
+        "fileId": "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+        "tracks": [
+          {
+            "id": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]/Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+            "title": "Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+            "format": "srt",
+            "language": "und",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 1395,
+            "matchBasis": "classic_filename_match",
+            "size": 133273,
+            "modifiedAt": "2026-10-08T20:00:15.403Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          }
+        ],
+        "embeddedStatus": "ready",
+        "selection": {
+          "trackId": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+          "basis": "language_preference",
+          "preferredLanguages": [
+            "zh-Hans",
+            "zh-Hant",
+            "zh",
+            "en"
+          ],
+          "externalTextFirst": true
+        },
+        "fingerprint": "5609048516:2026-10-08T20:21:39.541Z",
+        "checkedAt": "2026-10-12T16:54:48.090320Z"
+      },
+      {
+        "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+        "tracks": [
+          {
+            "id": "embedded:0",
+            "origin": "embedded",
+            "index": 0,
+            "streamIndex": 2,
+            "language": "und",
+            "title": null,
+            "format": "mov_text",
+            "declaredLanguage": "und",
+            "languageBasis": "container",
+            "available": true,
+            "source": {
+              "label": "container probe"
+            }
+          },
+          {
+            "id": "embedded:1",
+            "origin": "embedded",
+            "index": 1,
+            "streamIndex": 3,
+            "language": "en",
+            "title": null,
+            "format": "mov_text",
+            "declaredLanguage": "eng",
+            "languageBasis": "container",
+            "available": true,
+            "source": {
+              "label": "container probe"
+            }
+          },
+          {
+            "id": "embedded:2",
+            "origin": "embedded",
+            "index": 2,
+            "streamIndex": 4,
+            "language": "und",
+            "title": null,
+            "format": "mov_text",
+            "declaredLanguage": "und",
+            "languageBasis": "container",
+            "available": true,
+            "source": {
+              "label": "container probe"
+            }
+          }
+        ],
+        "embeddedStatus": "ready",
+        "selection": {
+          "trackId": "embedded:0",
+          "basis": "classic_choice"
+        },
+        "fingerprint": "1137238425:2026-09-12T07:41:52.906Z",
+        "checkedAt": "2026-10-12T16:54:48.491033Z"
+      }
+    ]
+  },
+  {
+    "at": 1791824091.248854,
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv"
+      },
+      "seconds": 2.454007042106241,
+      "status": "completed",
+      "result": {
+        "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv",
+          "seriesTitle": "The Big Short 2015 1080p BluRay x264 DTS-JYK",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 1012,
+          "durationMs": 7815850,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824091.323004,
+    "label": "loaded-playback-tracks",
+    "value": {
+      "tracks": [
+        {
+          "kind": "audio",
+          "origin": "embedded",
+          "index": 0,
+          "title": "Audio track 0",
+          "language": "eng",
+          "selected": true
+        },
+        {
+          "kind": "subtitle",
+          "origin": "external",
+          "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English.srt",
+          "title": "English.srt",
+          "selected": true
+        }
+      ]
+    }
+  },
+  {
+    "at": 1791824092.004438,
+    "label": "ui.capture",
+    "value": {
+      "input": {},
+      "seconds": 0.681094125029631,
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/temp/ui-captures/1791824092002376.png",
+        "bytes": 31088,
+        "mimeType": "image/png",
+        "width": 1280,
+        "height": 737,
+        "originalWidth": 3024,
+        "originalHeight": 1740,
+        "capturedAt": "2026-10-12T16:54:52.002985Z",
+        "instance": {
+          "pid": 75702,
+          "viewId": 1,
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app",
+          "windowTitle": "NipaPlay · LAB [x41-body-75698]",
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "windowId": 55292,
+          "experimentalProfile": true,
+          "profileName": "x41-body-75698",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791824092.1253388,
+    "label": "subtitle.import",
+    "value": {
+      "input": {
+        "entries": [
+          {
+            "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+            "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/harness/records/x41.zh-Hans.srt",
+            "language": "zh-Hans",
+            "title": "X41 实验中文字幕",
+            "source": {
+              "label": "X41 operator-authored persistence fixture"
+            }
+          }
+        ]
+      },
+      "seconds": 0.0909995420370251,
+      "status": "completed",
+      "result": {
+        "entries": [
+          {
+            "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+            "track": {
+              "id": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+              "origin": "import",
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/data/next/subtitles/90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5.srt",
+              "format": "srt",
+              "title": "X41 实验中文字幕",
+              "language": "zh-Hans",
+              "declaredLanguage": "zh-Hans",
+              "languageBasis": "declared",
+              "available": true,
+              "size": 103,
+              "source": {
+                "label": "X41 operator-authored persistence fixture"
+              },
+              "importedAt": "2026-10-12T16:54:52.120765Z",
+              "actor": "agent",
+              "originInvocation": "harness_cli",
+              "invocationId": "inv-1791824092035643-30"
+            },
+            "saved": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791824092.1345851,
+    "label": "subtitle.select",
+    "value": {
+      "input": {
+        "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+        "trackId": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5"
+      },
+      "seconds": 0.008683749940246344,
+      "status": "completed",
+      "result": {
+        "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+        "tracks": [
+          {
+            "id": "subtitle-3f6e8357f8a353c6910080f1b0dd6502ff736ccc430b97d33b6ad4bbc3b7eb95",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English(SDH).srt",
+            "title": "English(SDH).srt",
+            "format": "srt",
+            "language": "en",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 194465,
+            "modifiedAt": "2026-10-05T14:10:16.751Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-248d35178d233ab789baea49bf98132454bf839fe2aa20e6c1e0db241a092b8e",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English.srt",
+            "title": "English.srt",
+            "format": "srt",
+            "language": "en",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 179164,
+            "modifiedAt": "2026-10-05T14:10:16.468Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-cbd7f62c93bf2b90af2518c8ff5c87397f358f710eddf83df3b891a638a31954",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/French.srt",
+            "title": "French.srt",
+            "format": "srt",
+            "language": "fr",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 159977,
+            "modifiedAt": "2026-10-05T14:10:17.268Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-1f8b5c51bc32df8a880ffa77ae6930c1b3a24053d0f805ca15f5e84c74a3082a",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Portuguese.srt",
+            "title": "Portuguese.srt",
+            "format": "srt",
+            "language": "pt",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 151478,
+            "modifiedAt": "2026-10-05T14:10:16.415Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "subtitle-3753b77c872330508f91286dd2b9cca4be02e6bd30ffad7eea4cbf2f9e9143ac",
+            "origin": "sidecar",
+            "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Spanish.srt",
+            "title": "Spanish.srt",
+            "format": "srt",
+            "language": "es",
+            "languageBasis": "filename",
+            "available": true,
+            "matchScore": 100,
+            "matchBasis": "single_video_subdirectory",
+            "size": 160472,
+            "modifiedAt": "2026-10-05T14:10:16.776Z",
+            "source": {
+              "label": "adjacent subtitle"
+            }
+          },
+          {
+            "id": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+            "origin": "import",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/data/next/subtitles/90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5.srt",
+            "format": "srt",
+            "title": "X41 实验中文字幕",
+            "language": "zh-Hans",
+            "declaredLanguage": "zh-Hans",
+            "languageBasis": "declared",
+            "available": true,
+            "size": 103,
+            "source": {
+              "label": "X41 operator-authored persistence fixture"
+            },
+            "importedAt": "2026-10-12T16:54:52.120765Z",
+            "actor": "agent",
+            "originInvocation": "harness_cli",
+            "invocationId": "inv-1791824092035643-30"
+          }
+        ],
+        "embeddedStatus": "ready",
+        "selection": {
+          "trackId": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+          "basis": "explicit",
+          "selectedAt": "2026-10-12T16:54:52.128838Z"
+        },
+        "fingerprint": "3523669707:2026-10-05T14:25:42.690Z",
+        "checkedAt": "2026-10-12T16:54:46.064412Z"
+      }
+    }
+  },
+  {
+    "at": 1791824092.135108,
+    "label": "original-removed",
+    "value": {
+      "sourceExists": false,
+      "ownedCopyExists": true
+    }
+  },
+  {
+    "at": 1791824092.190815,
+    "label": "process-exit",
+    "value": {
+      "pid": 75702,
+      "exitCode": -15
+    }
+  },
+  {
+    "at": 1791824092.197085,
+    "label": "projection-fixture",
+    "value": {
+      "onlyOwnedProfile": true,
+      "basis": "Operator-labelled local work/episode projection for actual scanned files; no external identities declared",
+      "files": [
+        "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+        "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+        "file-690d6227-2314-47d3-b1ec-aa3b38916f02"
+      ]
+    }
+  },
+  {
+    "at": 1791824094.4291399,
+    "label": "instance",
+    "value": {
+      "pid": 76554,
+      "windowTitle": "NipaPlay · LAB [x41-body-75698]",
+      "viewId": 1,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app",
+      "windowId": 55293,
+      "experimentalProfile": true,
+      "profileName": "x41-body-75698",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "at": 1791824094.435231,
+    "label": "chat-header",
+    "value": {
+      "sessionId": "nipa-1791824093900957-2bedc495",
+      "threadId": "01a13109-b172-7513-a962-dbe4eef15f98",
+      "mainThreadId": "01a13109-b172-7513-a962-dbe4eef15f98",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/harness"
+    }
+  },
+  {
+    "at": 1791824094.486649,
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x41-body-work-0"
+      },
+      "seconds": 0.05093458294868469,
+      "status": "completed",
+      "result": {
+        "workId": "x41-body-work-0",
+        "fields": {
+          "title": {
+            "available": true,
+            "value": "The Big Short (2015)",
+            "source": {
+              "source": "entity_attributes"
+            },
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown",
+            "fallback": false
+          },
+          "originalTitle": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "overview": {
+            "available": false,
+            "value": null,
+            "source": null,
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown"
+          },
+          "year": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "genres": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "episodeCount": {
+            "available": true,
+            "value": 1,
+            "source": {
+              "source": "library_episode_count"
+            }
+          },
+          "studio": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "ratings": {
+            "available": false,
+            "value": [],
+            "source": []
+          },
+          "backdrop": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "poster": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "logo": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        "heroImage": null,
+        "tint": null,
+        "episodes": {
+          "total": 1,
+          "titles": 1,
+          "stills": 0,
+          "danmaku": 0,
+          "subtitles": 1,
+          "items": [
+            {
+              "subtitles": {
+                "files": [
+                  {
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "embeddedStatus": "ready",
+                    "selection": {
+                      "trackId": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+                      "basis": "explicit",
+                      "selectedAt": "2026-10-12T16:54:52.128838Z"
+                    },
+                    "fingerprint": "3523669707:2026-10-05T14:25:42.690Z",
+                    "checkedAt": "2026-10-12T16:54:46.064412Z"
+                  }
+                ],
+                "available": true,
+                "languages": [
+                  "en",
+                  "fr",
+                  "pt",
+                  "es",
+                  "zh-Hans"
+                ],
+                "tracks": [
+                  {
+                    "id": "subtitle-3f6e8357f8a353c6910080f1b0dd6502ff736ccc430b97d33b6ad4bbc3b7eb95",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English(SDH).srt",
+                    "title": "English(SDH).srt",
+                    "format": "srt",
+                    "language": "en",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 100,
+                    "matchBasis": "single_video_subdirectory",
+                    "size": 194465,
+                    "modifiedAt": "2026-10-05T14:10:16.751Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": false,
+                    "selectionBasis": "explicit"
+                  },
+                  {
+                    "id": "subtitle-248d35178d233ab789baea49bf98132454bf839fe2aa20e6c1e0db241a092b8e",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English.srt",
+                    "title": "English.srt",
+                    "format": "srt",
+                    "language": "en",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 100,
+                    "matchBasis": "single_video_subdirectory",
+                    "size": 179164,
+                    "modifiedAt": "2026-10-05T14:10:16.468Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": false,
+                    "selectionBasis": "explicit"
+                  },
+                  {
+                    "id": "subtitle-cbd7f62c93bf2b90af2518c8ff5c87397f358f710eddf83df3b891a638a31954",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/French.srt",
+                    "title": "French.srt",
+                    "format": "srt",
+                    "language": "fr",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 100,
+                    "matchBasis": "single_video_subdirectory",
+                    "size": 159977,
+                    "modifiedAt": "2026-10-05T14:10:17.268Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": false,
+                    "selectionBasis": "explicit"
+                  },
+                  {
+                    "id": "subtitle-1f8b5c51bc32df8a880ffa77ae6930c1b3a24053d0f805ca15f5e84c74a3082a",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Portuguese.srt",
+                    "title": "Portuguese.srt",
+                    "format": "srt",
+                    "language": "pt",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 100,
+                    "matchBasis": "single_video_subdirectory",
+                    "size": 151478,
+                    "modifiedAt": "2026-10-05T14:10:16.415Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": false,
+                    "selectionBasis": "explicit"
+                  },
+                  {
+                    "id": "subtitle-3753b77c872330508f91286dd2b9cca4be02e6bd30ffad7eea4cbf2f9e9143ac",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Spanish.srt",
+                    "title": "Spanish.srt",
+                    "format": "srt",
+                    "language": "es",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 100,
+                    "matchBasis": "single_video_subdirectory",
+                    "size": 160472,
+                    "modifiedAt": "2026-10-05T14:10:16.776Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": false,
+                    "selectionBasis": "explicit"
+                  },
+                  {
+                    "id": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+                    "origin": "import",
+                    "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/data/next/subtitles/90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5.srt",
+                    "format": "srt",
+                    "title": "X41 实验中文字幕",
+                    "language": "zh-Hans",
+                    "declaredLanguage": "zh-Hans",
+                    "languageBasis": "declared",
+                    "available": true,
+                    "size": 103,
+                    "source": {
+                      "label": "X41 operator-authored persistence fixture"
+                    },
+                    "importedAt": "2026-10-12T16:54:52.120765Z",
+                    "actor": "agent",
+                    "originInvocation": "harness_cli",
+                    "invocationId": "inv-1791824092035643-30",
+                    "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+                    "selected": true,
+                    "selectionBasis": "explicit"
+                  }
+                ]
+              },
+              "danmaku": {
+                "available": false,
+                "tracks": [],
+                "count": 0
+              },
+              "episodeId": "x41-body-episode-0",
+              "number": 1,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "The Big Short (2015)",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824095.023672,
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x41-body-work-1"
+      },
+      "seconds": 0.5359592089662328,
+      "status": "completed",
+      "result": {
+        "workId": "x41-body-work-1",
+        "fields": {
+          "title": {
+            "available": true,
+            "value": "Doctor-X FINAL",
+            "source": {
+              "source": "entity_attributes"
+            },
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown",
+            "fallback": false
+          },
+          "originalTitle": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "overview": {
+            "available": false,
+            "value": null,
+            "source": null,
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown"
+          },
+          "year": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "genres": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "episodeCount": {
+            "available": true,
+            "value": 1,
+            "source": {
+              "source": "library_episode_count"
+            }
+          },
+          "studio": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "ratings": {
+            "available": false,
+            "value": [],
+            "source": []
+          },
+          "backdrop": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "poster": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "logo": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        "heroImage": null,
+        "tint": null,
+        "episodes": {
+          "total": 1,
+          "titles": 1,
+          "stills": 0,
+          "danmaku": 0,
+          "subtitles": 1,
+          "items": [
+            {
+              "subtitles": {
+                "files": [
+                  {
+                    "fileId": "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+                    "embeddedStatus": "ready",
+                    "selection": {
+                      "trackId": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+                      "basis": "language_preference",
+                      "preferredLanguages": [
+                        "zh-Hans",
+                        "zh-Hant",
+                        "zh",
+                        "en"
+                      ],
+                      "externalTextFirst": true
+                    },
+                    "fingerprint": "5609048516:2026-10-08T20:21:39.541Z",
+                    "checkedAt": "2026-10-12T16:54:48.090320Z"
+                  }
+                ],
+                "available": true,
+                "languages": [
+                  "und"
+                ],
+                "tracks": [
+                  {
+                    "id": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+                    "origin": "sidecar",
+                    "path": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]/Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+                    "title": "Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+                    "format": "srt",
+                    "language": "und",
+                    "languageBasis": "filename",
+                    "available": true,
+                    "matchScore": 1395,
+                    "matchBasis": "classic_filename_match",
+                    "size": 133273,
+                    "modifiedAt": "2026-10-08T20:00:15.403Z",
+                    "source": {
+                      "label": "adjacent subtitle"
+                    },
+                    "fileId": "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+                    "selected": true,
+                    "selectionBasis": "language_preference"
+                  }
+                ]
+              },
+              "danmaku": {
+                "available": false,
+                "tracks": [],
+                "count": 0
+              },
+              "episodeId": "x41-body-episode-1",
+              "number": 1,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "Doctor-X FINAL",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824095.2152221,
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x41-body-work-2"
+      },
+      "seconds": 0.19069829094223678,
+      "status": "completed",
+      "result": {
+        "workId": "x41-body-work-2",
+        "fields": {
+          "title": {
+            "available": true,
+            "value": "长安十二时辰 第1集",
+            "source": {
+              "source": "entity_attributes"
+            },
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown",
+            "fallback": false
+          },
+          "originalTitle": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "overview": {
+            "available": false,
+            "value": null,
+            "source": null,
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown"
+          },
+          "year": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "genres": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "episodeCount": {
+            "available": true,
+            "value": 1,
+            "source": {
+              "source": "library_episode_count"
+            }
+          },
+          "studio": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "ratings": {
+            "available": false,
+            "value": [],
+            "source": []
+          },
+          "backdrop": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "poster": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "logo": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        "heroImage": null,
+        "tint": null,
+        "episodes": {
+          "total": 1,
+          "titles": 1,
+          "stills": 0,
+          "danmaku": 1,
+          "subtitles": 1,
+          "items": [
+            {
+              "subtitles": {
+                "files": [
+                  {
+                    "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+                    "embeddedStatus": "ready",
+                    "selection": {
+                      "trackId": "embedded:0",
+                      "basis": "classic_choice"
+                    },
+                    "fingerprint": "1137238425:2026-09-12T07:41:52.906Z",
+                    "checkedAt": "2026-10-12T16:54:48.491033Z"
+                  }
+                ],
+                "available": true,
+                "languages": [
+                  "und",
+                  "en"
+                ],
+                "tracks": [
+                  {
+                    "id": "embedded:0",
+                    "origin": "embedded",
+                    "index": 0,
+                    "streamIndex": 2,
+                    "language": "und",
+                    "title": null,
+                    "format": "mov_text",
+                    "declaredLanguage": "und",
+                    "languageBasis": "container",
+                    "available": true,
+                    "source": {
+                      "label": "container probe"
+                    },
+                    "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+                    "selected": true,
+                    "selectionBasis": "classic_choice"
+                  },
+                  {
+                    "id": "embedded:1",
+                    "origin": "embedded",
+                    "index": 1,
+                    "streamIndex": 3,
+                    "language": "en",
+                    "title": null,
+                    "format": "mov_text",
+                    "declaredLanguage": "eng",
+                    "languageBasis": "container",
+                    "available": true,
+                    "source": {
+                      "label": "container probe"
+                    },
+                    "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+                    "selected": false,
+                    "selectionBasis": "classic_choice"
+                  },
+                  {
+                    "id": "embedded:2",
+                    "origin": "embedded",
+                    "index": 2,
+                    "streamIndex": 4,
+                    "language": "und",
+                    "title": null,
+                    "format": "mov_text",
+                    "declaredLanguage": "und",
+                    "languageBasis": "container",
+                    "available": true,
+                    "source": {
+                      "label": "container probe"
+                    },
+                    "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+                    "selected": false,
+                    "selectionBasis": "classic_choice"
+                  }
+                ]
+              },
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-sidecar-33291fbbc6e4265540d0a95913099b7127855c6dcfe5320c04e9cbd41bd0dc5f",
+                    "source": "local",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDYyNjk1Mg==",
+                    "count": 16203,
+                    "enabled": true,
+                    "origin": "sidecar",
+                    "file": {
+                      "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+                      "available": true,
+                      "platform": "youku",
+                      "platformVideoId": "XNDI0NDYyNjk1Mg==",
+                      "size": 1272683,
+                      "modifiedAt": "2026-10-09T18:05:46.854Z",
+                      "readAt": "2026-10-12T16:54:48.588942Z",
+                      "readMs": 415,
+                      "count": 16203
+                    }
+                  }
+                ],
+                "count": 16203
+              },
+              "episodeId": "x41-body-episode-2",
+              "number": 1,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "长安十二时辰 第1集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824097.668681,
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv"
+      },
+      "seconds": 2.4526285419706255,
+      "status": "completed",
+      "result": {
+        "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/The Big Short 2015 1080p BluRay x264 DTS-JYK.mkv",
+          "seriesTitle": "The Big Short 2015 1080p BluRay x264 DTS-JYK",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 2954,
+          "durationMs": 7815850,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824097.749166,
+    "label": "loaded-playback-tracks",
+    "value": {
+      "tracks": [
+        {
+          "kind": "audio",
+          "origin": "embedded",
+          "index": 0,
+          "title": "Audio track 0",
+          "language": "eng",
+          "selected": true
+        },
+        {
+          "kind": "subtitle",
+          "origin": "external",
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/data/next/subtitles/90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5.srt",
+          "title": "X41 实验中文字幕",
+          "selected": true
+        }
+      ]
+    }
+  },
+  {
+    "at": 1791824098.3694248,
+    "label": "ui.capture",
+    "value": {
+      "input": {},
+      "seconds": 0.6196700410218909,
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/temp/ui-captures/1791824098347649.png",
+        "bytes": 386576,
+        "mimeType": "image/png",
+        "width": 1280,
+        "height": 737,
+        "originalWidth": 3024,
+        "originalHeight": 1740,
+        "capturedAt": "2026-10-12T16:54:58.367873Z",
+        "instance": {
+          "pid": 76554,
+          "windowId": 55293,
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app",
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "viewId": 1,
+          "windowTitle": "NipaPlay · LAB [x41-body-75698]",
+          "experimentalProfile": true,
+          "profileName": "x41-body-75698",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791824100.0309608,
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4"
+      },
+      "seconds": 1.6293073749402538,
+      "status": "completed",
+      "result": {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.mp4",
+          "seriesTitle": "长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 2822594,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "at": 1791824100.034174,
+    "label": "loaded-playback-tracks",
+    "value": {
+      "tracks": [
+        {
+          "kind": "audio",
+          "origin": "embedded",
+          "index": 0,
+          "title": "Audio track 0",
+          "language": "chi",
+          "selected": true
+        },
+        {
+          "kind": "subtitle",
+          "origin": "embedded",
+          "index": 0,
+          "title": "Subtitle track 0",
+          "language": "und",
+          "selected": true
+        },
+        {
+          "kind": "subtitle",
+          "origin": "embedded",
+          "index": 1,
+          "title": "Subtitle track 1",
+          "language": "eng",
+          "selected": false
+        },
+        {
+          "kind": "subtitle",
+          "origin": "embedded",
+          "index": 2,
+          "title": "Subtitle track 2",
+          "language": "und",
+          "selected": false
+        },
+        {
+          "kind": "danmaku",
+          "origin": "sidecar",
+          "trackId": "next:danmaku-sidecar-33291fbbc6e4265540d0a95913099b7127855c6dcfe5320c04e9cbd41bd0dc5f",
+          "bindingId": "danmaku-sidecar-33291fbbc6e4265540d0a95913099b7127855c6dcfe5320c04e9cbd41bd0dc5f",
+          "source": "local",
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDYyNjk1Mg==",
+          "filePath": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+          "count": 16203,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "at": 1791824100.238602,
+    "label": "ui.capture",
+    "value": {
+      "input": {},
+      "seconds": 0.20350320904981345,
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/temp/ui-captures/1791824100236668.png",
+        "bytes": 473341,
+        "mimeType": "image/png",
+        "width": 1280,
+        "height": 737,
+        "originalWidth": 3024,
+        "originalHeight": 1740,
+        "capturedAt": "2026-10-12T16:55:00.237168Z",
+        "instance": {
+          "pid": 76554,
+          "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app",
+          "windowId": 55293,
+          "viewId": 1,
+          "windowTitle": "NipaPlay · LAB [x41-body-75698]",
+          "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x41-subtitles/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+          "experimentalProfile": true,
+          "profileName": "x41-body-75698",
+          "version": "1.11.10"
+        },
+        "surface": "main_window_flutter_content",
+        "limitations": [
+          "Erika native danmaku is not included, as with playback.capture.",
+          "Native video overlays and platform views outside the Flutter scene are not included.",
+          "The OS window frame, other windows and external players are not included."
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791824100.289624,
+    "label": "persisted-facts",
+    "value": {
+      "files": [
+        {
+          "fileId": "file-4a775fe6-2d80-4421-af11-65e042c9f3cf",
+          "tracks": [
+            {
+              "id": "subtitle-3f6e8357f8a353c6910080f1b0dd6502ff736ccc430b97d33b6ad4bbc3b7eb95",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English(SDH).srt",
+              "title": "English(SDH).srt",
+              "format": "srt",
+              "language": "en",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 100,
+              "matchBasis": "single_video_subdirectory",
+              "size": 194465,
+              "modifiedAt": "2026-10-05T14:10:16.751Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            },
+            {
+              "id": "subtitle-248d35178d233ab789baea49bf98132454bf839fe2aa20e6c1e0db241a092b8e",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/English.srt",
+              "title": "English.srt",
+              "format": "srt",
+              "language": "en",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 100,
+              "matchBasis": "single_video_subdirectory",
+              "size": 179164,
+              "modifiedAt": "2026-10-05T14:10:16.468Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            },
+            {
+              "id": "subtitle-cbd7f62c93bf2b90af2518c8ff5c87397f358f710eddf83df3b891a638a31954",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/French.srt",
+              "title": "French.srt",
+              "format": "srt",
+              "language": "fr",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 100,
+              "matchBasis": "single_video_subdirectory",
+              "size": 159977,
+              "modifiedAt": "2026-10-05T14:10:17.268Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            },
+            {
+              "id": "subtitle-1f8b5c51bc32df8a880ffa77ae6930c1b3a24053d0f805ca15f5e84c74a3082a",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Portuguese.srt",
+              "title": "Portuguese.srt",
+              "format": "srt",
+              "language": "pt",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 100,
+              "matchBasis": "single_video_subdirectory",
+              "size": 151478,
+              "modifiedAt": "2026-10-05T14:10:16.415Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            },
+            {
+              "id": "subtitle-3753b77c872330508f91286dd2b9cca4be02e6bd30ffad7eea4cbf2f9e9143ac",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/The Big Short (2015)/The Big Short 2015 1080p BluRay x264 DTS-JYK/Subs/Spanish.srt",
+              "title": "Spanish.srt",
+              "format": "srt",
+              "language": "es",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 100,
+              "matchBasis": "single_video_subdirectory",
+              "size": 160472,
+              "modifiedAt": "2026-10-05T14:10:16.776Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            },
+            {
+              "id": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+              "origin": "import",
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x41-body-75698/data/next/subtitles/90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5.srt",
+              "format": "srt",
+              "title": "X41 实验中文字幕",
+              "language": "zh-Hans",
+              "declaredLanguage": "zh-Hans",
+              "languageBasis": "declared",
+              "available": true,
+              "size": 103,
+              "source": {
+                "label": "X41 operator-authored persistence fixture"
+              },
+              "importedAt": "2026-10-12T16:54:52.120765Z",
+              "actor": "agent",
+              "originInvocation": "harness_cli",
+              "invocationId": "inv-1791824092035643-30"
+            }
+          ],
+          "embeddedStatus": "ready",
+          "selection": {
+            "trackId": "import:90d26e00261bdbce2b06e17623f0db90c0633906669cd5e755a4ab47b6af3bf5",
+            "basis": "explicit",
+            "selectedAt": "2026-10-12T16:54:52.128838Z"
+          },
+          "fingerprint": "3523669707:2026-10-05T14:25:42.690Z",
+          "checkedAt": "2026-10-12T16:54:46.064412Z"
+        },
+        {
+          "fileId": "file-acded333-fe63-4513-ba44-3a2432dc24c9",
+          "tracks": [
+            {
+              "id": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+              "origin": "sidecar",
+              "path": "/Volumes/Anime/Doctor-X/Final/[MagicStar] Doctor-X FINAL [WEBDL] [1080p] [AMZN] [JPN_SUB]/Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+              "title": "Doctor.X.FINAL.2024.1080p.AMZN.WEB-DL.DDP5.1.H.264-MagicStar.srt",
+              "format": "srt",
+              "language": "und",
+              "languageBasis": "filename",
+              "available": true,
+              "matchScore": 1395,
+              "matchBasis": "classic_filename_match",
+              "size": 133273,
+              "modifiedAt": "2026-10-08T20:00:15.403Z",
+              "source": {
+                "label": "adjacent subtitle"
+              }
+            }
+          ],
+          "embeddedStatus": "ready",
+          "selection": {
+            "trackId": "subtitle-1e07c6105adace9eb5f6e03b380ec8fd3487bf886be54fa8e36d6a6de0c6bf5c",
+            "basis": "language_preference",
+            "preferredLanguages": [
+              "zh-Hans",
+              "zh-Hant",
+              "zh",
+              "en"
+            ],
+            "externalTextFirst": true
+          },
+          "fingerprint": "5609048516:2026-10-08T20:21:39.541Z",
+          "checkedAt": "2026-10-12T16:54:48.090320Z"
+        },
+        {
+          "fileId": "file-690d6227-2314-47d3-b1ec-aa3b38916f02",
+          "tracks": [
+            {
+              "id": "embedded:0",
+              "origin": "embedded",
+              "index": 0,
+              "streamIndex": 2,
+              "language": "und",
+              "title": null,
+              "format": "mov_text",
+              "declaredLanguage": "und",
+              "languageBasis": "container",
+              "available": true,
+              "source": {
+                "label": "container probe"
+              }
+            },
+            {
+              "id": "embedded:1",
+              "origin": "embedded",
+              "index": 1,
+              "streamIndex": 3,
+              "language": "en",
+              "title": null,
+              "format": "mov_text",
+              "declaredLanguage": "eng",
+              "languageBasis": "container",
+              "available": true,
+              "source": {
+                "label": "container probe"
+              }
+            },
+            {
+              "id": "embedded:2",
+              "origin": "embedded",
+              "index": 2,
+              "streamIndex": 4,
+              "language": "und",
+              "title": null,
+              "format": "mov_text",
+              "declaredLanguage": "und",
+              "languageBasis": "container",
+              "available": true,
+              "source": {
+                "label": "container probe"
+              }
+            }
+          ],
+          "embeddedStatus": "ready",
+          "selection": {
+            "trackId": "embedded:0",
+            "basis": "classic_choice"
+          },
+          "fingerprint": "1137238425:2026-09-12T07:41:52.906Z",
+          "checkedAt": "2026-10-12T16:54:48.491033Z"
+        }
+      ]
+    }
+  },
+  {
+    "at": 1791824100.370337,
+    "label": "process-exit",
+    "value": {
+      "pid": 76554,
+      "exitCode": -15
+    }
+  },
+  {
+    "at": 1791824100.384143,
+    "label": "cleanup",
+    "value": {
+      "pid": 76554,
+      "profileRemoved": true
+    }
+  }
+]
