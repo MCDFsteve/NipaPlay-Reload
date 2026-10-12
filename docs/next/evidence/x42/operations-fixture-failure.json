@@ -1,0 +1,418 @@
+[
+  {
+    "label": "read-only-sources",
+    "value": [
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-1.xml",
+        "bytes": 1272683,
+        "sha256": "4e067efcf9b97902424a6ef70cfe22f82017169677fc488063afd10ab39b4111",
+        "count": 16203,
+        "videoId": "XNDI0NDYyNjk1Mg=="
+      },
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E02.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-2.xml",
+        "bytes": 1363297,
+        "sha256": "3d75aa043bfa8783f3c99d10cafc87ea4de9d110ee57157094c8a60c8c2e1f7e",
+        "count": 17089,
+        "videoId": "XNDI0NDQ0ODEwNA=="
+      },
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E03.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-3.xml",
+        "bytes": 1066108,
+        "sha256": "12e793b4ee520f34b9daa97606bac3f6c8ca3a045593fbe412a903076cb6b11b",
+        "count": 13371,
+        "videoId": "XNDI0NDQ2MzU3Mg=="
+      }
+    ]
+  },
+  {
+    "label": "instance-bootstrap",
+    "value": {
+      "profile": "x42-files-29840",
+      "pid": 29857,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 3.390775749925524
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "media.library.scan",
+    "value": {
+      "input": {
+        "root": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media",
+        "requestId": "x42-files-29840-scan"
+      },
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-429861879e5e884f9e5f4dee50409d6159707458d34ca35e9802aef34f6bd676",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "job",
+    "value": {
+      "jobId": "scan-429861879e5e884f9e5f4dee50409d6159707458d34ca35e9802aef34f6bd676",
+      "type": "media.scan",
+      "title": "Scan media folder",
+      "state": "succeeded",
+      "phase": "enumerate",
+      "progress": {
+        "completed": 3,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T16:21:02.640295Z",
+      "updatedAt": "2026-10-12T16:21:02.751141Z",
+      "ownerDeviceId": "device-13d51f3ba0bc0c9d1f6bff11bd45293d",
+      "revision": 10,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 3,
+          "fileIds": [
+            "file-07c5f999-f7dd-46c3-a6de-6f4db78e5f0b",
+            "file-8dddc215-243d-458d-bf83-ec267c101450",
+            "file-d94ddc04-c4f3-4697-ae34-3047d9253aa4"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "input": {
+        "view": "library.files",
+        "limit": 20
+      },
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T16:21:02.964123Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.files": "2026-10-12T16:21:02.963060Z"
+        },
+        "rows": [
+          {
+            "fileId": "file-07c5f999-f7dd-46c3-a6de-6f4db78e5f0b",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-a2950b27-c1a0-45b4-a6c3-db2d3abac2e1",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media/episode-3.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-13d51f3ba0bc0c9d1f6bff11bd45293d",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          },
+          {
+            "fileId": "file-8dddc215-243d-458d-bf83-ec267c101450",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-52dba064-4303-46ea-b098-ceb90d10a023",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media/episode-2.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-13d51f3ba0bc0c9d1f6bff11bd45293d",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          },
+          {
+            "fileId": "file-d94ddc04-c4f3-4697-ae34-3047d9253aa4",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-194f6efe-0eae-49c6-be5f-00996c641f48",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/data/media/episode-1.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-13d51f3ba0bc0c9d1f6bff11bd45293d",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "instance-import",
+    "value": {
+      "profile": "x42-files-29840",
+      "pid": 29947,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 2.4628003330435604
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-1",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-1.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDYyNjk1Mg=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-e0d98875-4185-48c8-8812-79df629aa3ac",
+        "revision": 0,
+        "count": 16203,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDYyNjk1Mg==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:05.871326Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-1.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-2",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-2.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDQ0ODEwNA=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-ef129eda-23e5-4df9-a1a6-6ce785005de9",
+        "revision": 0,
+        "count": 17089,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDQ0ODEwNA==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:06.457082Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-2.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-3",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-3.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDQ2MzU3Mg=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-1ddfb593-0ca6-42fc-a14f-5c21db4b2f67",
+        "revision": 0,
+        "count": 13371,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDQ2MzU3Mg==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:06.853898Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-29840/harness/records/episode-3.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "imported-files",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-69a7dd09-7994-4e5a-ad7e-886675a206fa",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2699191,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:05.871326Z",
+          "file_path": "danmaku/61b86ebfe6fdb8f786f5ff13807c93df76b95cd345867ba986d6183ba95b3669.json",
+          "entry_count": 16203,
+          "byte_count": 4901548,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-97b2c535-5522-4a53-92ac-e470ca43ac97",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2879321,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:06.457082Z",
+          "file_path": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+          "entry_count": 17089,
+          "byte_count": 5190485,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-c59c2b77-a1cc-402a-be50-2955cecfc131",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2279031,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:06.853898Z",
+          "file_path": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+          "entry_count": 13371,
+          "byte_count": 4060405,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 311296,
+      "fileBytes": 14152438,
+      "files": 3
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "input": {
+        "view": "danmaku.datasets",
+        "limit": 20
+      },
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T16:21:07.111493Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "danmaku.datasets": "2026-10-12T16:21:07.110589Z"
+        },
+        "rows": [
+          {
+            "cacheKey": "danmaku-import-69a7dd09-7994-4e5a-ad7e-886675a206fa",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2699191,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:05.871326Z",
+            "entryCount": 16203,
+            "filePath": "danmaku/61b86ebfe6fdb8f786f5ff13807c93df76b95cd345867ba986d6183ba95b3669.json",
+            "byteCount": 4901548,
+            "storageKind": "imported"
+          },
+          {
+            "cacheKey": "danmaku-import-97b2c535-5522-4a53-92ac-e470ca43ac97",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2879321,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:06.457082Z",
+            "entryCount": 17089,
+            "filePath": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+            "byteCount": 5190485,
+            "storageKind": "imported"
+          },
+          {
+            "cacheKey": "danmaku-import-c59c2b77-a1cc-402a-be50-2955cecfc131",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2279031,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:06.853898Z",
+            "entryCount": 13371,
+            "filePath": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+            "byteCount": 4060405,
+            "storageKind": "imported"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x42-work"
+      },
+      "status": "failed",
+      "error": {
+        "code": "internal",
+        "message": "media.metadata.ui_facts failed: type 'int' is not a subtype of type 'String?' in type cast",
+        "retryable": false
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "profileRemoved": true,
+      "ownedPids": [
+        29857,
+        29947
+      ],
+      "lastProcessExited": true
+    }
+  }
+]

@@ -1,0 +1,336 @@
+[
+  {
+    "label": "instance-refresh-only",
+    "value": {
+      "profile": "x42-episode-refresh-44642",
+      "pid": 44644,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 2.482616416993551
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "media.library.scan",
+    "value": {
+      "input": {
+        "root": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media",
+        "requestId": "x42-episode-refresh-44642"
+      },
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-b0969312c01f72703401ed6817d746bd2876213447fc7da6ae76a2039c37a073",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "job",
+    "value": {
+      "jobId": "scan-b0969312c01f72703401ed6817d746bd2876213447fc7da6ae76a2039c37a073",
+      "type": "media.scan",
+      "title": "Scan media folder",
+      "state": "succeeded",
+      "phase": "enumerate",
+      "progress": {
+        "completed": 1,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T16:25:58.450240Z",
+      "updatedAt": "2026-10-12T16:25:58.512912Z",
+      "ownerDeviceId": "device-821a2900ed4496728eb8d42f899f2394",
+      "revision": 6,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 1,
+          "fileIds": [
+            "file-f944b890-0d71-4014-b450-828472af1e89"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "input": {
+        "view": "library.files",
+        "limit": 20
+      },
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T16:25:58.776410Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.files": "2026-10-12T16:25:58.775397Z"
+        },
+        "rows": [
+          {
+            "fileId": "file-f944b890-0d71-4014-b450-828472af1e89",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-200a52f8-b946-4318-86cb-29a729955912",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-821a2900ed4496728eb8d42f899f2394",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "instance-episode-refresh",
+    "value": {
+      "profile": "x42-episode-refresh-44642",
+      "pid": 44758,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 1.857152667012997
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/harness/records/pool.json",
+        "platform": "fixture",
+        "platformVideoId": "refresh"
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+        "revision": 0,
+        "count": 1,
+        "loaded": false,
+        "provenance": {
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:26:00.691454Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/harness/records/pool.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4"
+      },
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4",
+          "seriesTitle": "refresh",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 300000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "refresh-first-loaded",
+    "value": {
+      "tracks": [
+        {
+          "kind": "danmaku",
+          "origin": "agent_import",
+          "trackId": "next:danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+          "bindingId": "danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+          "source": "fixture",
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "filePath": null,
+          "count": 1,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "label": "playback.set_paused",
+    "value": {
+      "input": {
+        "paused": true
+      },
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4",
+          "seriesTitle": "refresh",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 300000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.export",
+    "value": {
+      "input": {
+        "bindingId": "danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/export.json",
+        "view": "raw"
+      },
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/export.json",
+        "count": 1,
+        "bytes": 669,
+        "sha256": "ef95bb655895275bde95d692715289ecd329d3657262609ea104c7acd99a24b5",
+        "view": "raw"
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/harness/records/pool.json",
+        "platform": "fixture",
+        "platformVideoId": "refresh"
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+        "revision": 1,
+        "count": 2,
+        "loaded": true,
+        "provenance": {
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:26:02.121924Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/harness/records/pool.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "refresh-current-state",
+    "value": {
+      "state": {
+        "player": "internal",
+        "volume": 0.0,
+        "brightness": null,
+        "status": "paused",
+        "hasVideo": true,
+        "paused": true,
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-episode-refresh-44642/data/media/refresh.mp4",
+        "seriesTitle": "refresh",
+        "episodeTitle": null,
+        "animeId": null,
+        "episodeId": null,
+        "positionMs": 0,
+        "durationMs": 300000,
+        "rate": 1.0,
+        "canPrevious": true,
+        "canNext": true
+      }
+    }
+  },
+  {
+    "label": "refresh-second-loaded",
+    "value": {
+      "tracks": [
+        {
+          "kind": "danmaku",
+          "origin": "agent_import",
+          "trackId": "next:danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+          "bindingId": "danmaku-8bc15fbd-4276-49e4-a73a-8a0be58536f7",
+          "source": "fixture",
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "filePath": null,
+          "count": 2,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "profileRemoved": true,
+      "ownedPids": [
+        44644,
+        44758
+      ],
+      "lastProcessExited": true
+    }
+  }
+]
