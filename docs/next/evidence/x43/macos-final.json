@@ -1,0 +1,91 @@
+{
+  "platform": "macos",
+  "aotExecutable": "/Users/sakiko/Desktop/nipaplay-next-wt/x43-headless/build/headless/nipaplay-headless",
+  "iterations": [
+    {
+      "pid": 46797,
+      "pythonNipaInstance": {
+        "pid": 46797,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x43-headless/build/headless/nipaplay-headless",
+        "appBundlePath": null,
+        "windowTitle": null,
+        "windowId": null,
+        "viewId": null,
+        "experimentalProfile": false,
+        "profileName": null,
+        "version": "1.11.10-headless"
+      },
+      "configuration": {
+        "format": 1,
+        "host": "nipaplay-headless",
+        "mediaRoots": [
+          "/Volumes/Anime/躲在超市后门抽烟的两人"
+        ],
+        "port": 0,
+        "ffprobe": null
+      },
+      "identityRetained": true,
+      "persistedUiFactsRead": true,
+      "downloadFailure": {
+        "backend": {
+          "kind": "builtin"
+        },
+        "jobId": "job-680f326f6992ca17b3082d5bd80b06f1",
+        "type": "download",
+        "title": "X43-unavailable",
+        "state": "failed",
+        "phase": "downloading",
+        "progress": {
+          "completed": 0,
+          "unit": "items"
+        },
+        "createdAt": "2026-10-12T17:34:02.488594Z",
+        "updatedAt": "2026-10-12T17:34:02.491037Z",
+        "ownerDeviceId": "device-a12a78dd884632624325af43ae105eb8",
+        "revision": 2,
+        "error": {
+          "code": "unavailable",
+          "message": "Headless downloads require a Rust initializer with isolated DHT persistence and explicit listener policy. The current Classic initializer cannot be used under the headless isolation contract.",
+          "retryable": false
+        },
+        "receipt": {
+          "verification": "unverified",
+          "details": {
+            "files": [],
+            "reason": "Headless downloads require a Rust initializer with isolated DHT persistence and explicit listener policy. The current Classic initializer cannot be used under the headless isolation contract."
+          }
+        }
+      },
+      "exitCode": 0,
+      "endpointRemoved": true
+    },
+    {
+      "pid": 46814,
+      "pythonNipaInstance": {
+        "pid": 46814,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x43-headless/build/headless/nipaplay-headless",
+        "appBundlePath": null,
+        "windowTitle": null,
+        "windowId": null,
+        "viewId": null,
+        "experimentalProfile": false,
+        "profileName": null,
+        "version": "1.11.10-headless"
+      },
+      "configuration": {
+        "format": 1,
+        "host": "nipaplay-headless",
+        "mediaRoots": [
+          "/Volumes/Anime/躲在超市后门抽烟的两人"
+        ],
+        "port": 0,
+        "ffprobe": null
+      },
+      "identityRetained": true,
+      "persistedUiFactsRead": true,
+      "exitCode": 0,
+      "endpointRemoved": true
+    }
+  ],
+  "noMediaRescan": true
+}
