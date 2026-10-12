@@ -1,0 +1,1088 @@
+{
+  "status": "completed",
+  "result": {
+    "schemaVersion": 1,
+    "snapshotId": null,
+    "observedAt": "2026-10-12T07:03:53.560676Z",
+    "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+    "sources": {
+      "library.episodes": "2026-10-12T07:03:53.558776Z"
+    },
+    "rows": [
+      {
+        "id": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门赠予的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "3",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门赠予的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903179Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏で贈るふたり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903179Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903179Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-513ffda20a42cbe286dc1db15bfc6e17abbc35d6e5d04c4943b2d47d6f91dbae",
+            "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+            "objectId": "object-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699262",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "3"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.367245Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门赠予的二人",
+            "originalTitle": "スーパーの裏で贈るふたり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903179Z",
+              "recordedAt": "2026-10-12T06:59:05.903179Z",
+              "snapshotId": "snapshot-4fa653a627f2eb45d4a165b159487a75c7d0cbdebcb20c6c2c6deceb3f0bf572",
+              "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903179Z",
+              "recordedAt": "2026-10-12T06:59:05.903179Z",
+              "snapshotId": "snapshot-4fa653a627f2eb45d4a165b159487a75c7d0cbdebcb20c6c2c6deceb3f0bf572",
+              "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903179Z",
+              "recordedAt": "2026-10-12T06:59:05.903179Z",
+              "snapshotId": "snapshot-4fa653a627f2eb45d4a165b159487a75c7d0cbdebcb20c6c2c6deceb3f0bf572",
+              "entityId": "episode-13630d2671597583dc42f44561a4929683512f07e76b758237a510c738373901",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门相触的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "9",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门相触的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903187Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏で触れるひとり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903187Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903187Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-212260f8e99660b9c7ee610ff60e5bc1a4c6e2365215695a555d4bc80e43f7ff",
+            "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+            "objectId": "object-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699268",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "9"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.389404Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门相触的二人",
+            "originalTitle": "スーパーの裏で触れるひとり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903187Z",
+              "recordedAt": "2026-10-12T06:59:05.903187Z",
+              "snapshotId": "snapshot-8c5ef00bc6da45d148102e622b24b85d7f0f8b591474b944cc5e927da273d145",
+              "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903187Z",
+              "recordedAt": "2026-10-12T06:59:05.903187Z",
+              "snapshotId": "snapshot-8c5ef00bc6da45d148102e622b24b85d7f0f8b591474b944cc5e927da273d145",
+              "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903187Z",
+              "recordedAt": "2026-10-12T06:59:05.903187Z",
+              "snapshotId": "snapshot-8c5ef00bc6da45d148102e622b24b85d7f0f8b591474b944cc5e927da273d145",
+              "entityId": "episode-403c8c69f5c9ae3ac12f39166f739814aca08acf20ae2bdacb6e2c57617560ce",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门寻找的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "8",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门寻找的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903185Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏から見つけるふたり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903185Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903185Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-83affb0fe1acce3288bb3d3cb8e72d597c45703fe3369ceccc3afd38182122ef",
+            "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+            "objectId": "object-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699267",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "8"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.386113Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门寻找的二人",
+            "originalTitle": "スーパーの裏から見つけるふたり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903185Z",
+              "recordedAt": "2026-10-12T06:59:05.903185Z",
+              "snapshotId": "snapshot-d4e9abac4ccfa2778241a6afa13eaa4a51944e6ad905b26d9ed0c0c9388d2131",
+              "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903185Z",
+              "recordedAt": "2026-10-12T06:59:05.903185Z",
+              "snapshotId": "snapshot-d4e9abac4ccfa2778241a6afa13eaa4a51944e6ad905b26d9ed0c0c9388d2131",
+              "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903185Z",
+              "recordedAt": "2026-10-12T06:59:05.903185Z",
+              "snapshotId": "snapshot-d4e9abac4ccfa2778241a6afa13eaa4a51944e6ad905b26d9ed0c0c9388d2131",
+              "entityId": "episode-47b5de97a4f6ccc84971ba191f6eec7d39ba23bc815565b225605ab578aaaf04",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门学习的一人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "4",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门学习的一人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903181Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏で学ぶひとり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903181Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903181Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-bb2bca49fb0733a0f5f8454e1aed66f9635e934ab90a8f589081aa8e7bb1979d",
+            "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+            "objectId": "object-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699263",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "4"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.371401Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门学习的一人",
+            "originalTitle": "スーパーの裏で学ぶひとり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903181Z",
+              "recordedAt": "2026-10-12T06:59:05.903181Z",
+              "snapshotId": "snapshot-645c826f0e8cdbfa061fdbecf7c68844e2b9951b402a10b39b50e1eb36f388d1",
+              "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903181Z",
+              "recordedAt": "2026-10-12T06:59:05.903181Z",
+              "snapshotId": "snapshot-645c826f0e8cdbfa061fdbecf7c68844e2b9951b402a10b39b50e1eb36f388d1",
+              "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903181Z",
+              "recordedAt": "2026-10-12T06:59:05.903181Z",
+              "snapshotId": "snapshot-645c826f0e8cdbfa061fdbecf7c68844e2b9951b402a10b39b50e1eb36f388d1",
+              "entityId": "episode-4b0d142fccddbc3849f0c819d4efbeba5df217e3cb80b4329cf10f85749df5ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门画画的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "5",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门画画的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903182Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏でかけるふたり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903182Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903182Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-8825f7e9998bd9c5ccd5839a8526c3aa0c1dd26a12e679ef1a2073e589576c1c",
+            "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+            "objectId": "object-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699264",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "5"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.374963Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门画画的二人",
+            "originalTitle": "スーパーの裏でかけるふたり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903182Z",
+              "recordedAt": "2026-10-12T06:59:05.903182Z",
+              "snapshotId": "snapshot-3fbacf03f821e7bad0d120de623061c75e0420add954c83e3796cb33ff782d83",
+              "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903182Z",
+              "recordedAt": "2026-10-12T06:59:05.903182Z",
+              "snapshotId": "snapshot-3fbacf03f821e7bad0d120de623061c75e0420add954c83e3796cb33ff782d83",
+              "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903182Z",
+              "recordedAt": "2026-10-12T06:59:05.903182Z",
+              "snapshotId": "snapshot-3fbacf03f821e7bad0d120de623061c75e0420add954c83e3796cb33ff782d83",
+              "entityId": "episode-50f569797b2d7f0774249309df9216711e82465dd45415fb8974137148a256ff",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门残留的气味",
+        "revision": 0,
+        "kind": "episode",
+        "number": "6",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门残留的气味",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903183Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏に残る匂い",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903183Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903183Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-09a3ef411d4986c7974d17945d843ce498d6fc0748c0fcc681836a89f39d6dad",
+            "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+            "objectId": "object-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699265",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "6"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.378981Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门残留的气味",
+            "originalTitle": "スーパーの裏に残る匂い",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903183Z",
+              "recordedAt": "2026-10-12T06:59:05.903183Z",
+              "snapshotId": "snapshot-4e72424f55347ce5e1a13c32517e85713862d4a1f44b55d16119317c8fada0d5",
+              "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903183Z",
+              "recordedAt": "2026-10-12T06:59:05.903183Z",
+              "snapshotId": "snapshot-4e72424f55347ce5e1a13c32517e85713862d4a1f44b55d16119317c8fada0d5",
+              "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903183Z",
+              "recordedAt": "2026-10-12T06:59:05.903183Z",
+              "snapshotId": "snapshot-4e72424f55347ce5e1a13c32517e85713862d4a1f44b55d16119317c8fada0d5",
+              "entityId": "episode-8574143ad936055457fae53f20ca40dde1f17998ab07a55e485e92ab87f8d0c1",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门与夏日的尽头",
+        "revision": 0,
+        "kind": "episode",
+        "number": "7",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门与夏日的尽头",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903184Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏と夏の終わり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903184Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903184Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-ce74ce058134487f4b0300fa64775d18ac8f513f359036ab2193700d1de673aa",
+            "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+            "objectId": "object-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699266",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "7"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.382601Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门与夏日的尽头",
+            "originalTitle": "スーパーの裏と夏の終わり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903184Z",
+              "recordedAt": "2026-10-12T06:59:05.903184Z",
+              "snapshotId": "snapshot-6a809fce6258e2fe0e4a71718570b7c399e7411e525ac9d7056c8efda5026107",
+              "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903184Z",
+              "recordedAt": "2026-10-12T06:59:05.903184Z",
+              "snapshotId": "snapshot-6a809fce6258e2fe0e4a71718570b7c399e7411e525ac9d7056c8efda5026107",
+              "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903184Z",
+              "recordedAt": "2026-10-12T06:59:05.903184Z",
+              "snapshotId": "snapshot-6a809fce6258e2fe0e4a71718570b7c399e7411e525ac9d7056c8efda5026107",
+              "entityId": "episode-87771bf11764c66b6629da4bd4201f6c5b216ba6a32693e33385c42b8e45d361",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门相伴的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "2",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门相伴的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903178Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏で添えるふたり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903178Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903178Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-069daa7036889f261516af09ed585ba13b1825444425890d60e7dba0d8724f3c",
+            "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+            "objectId": "object-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699261",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "2"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.363533Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门相伴的二人",
+            "originalTitle": "スーパーの裏で添えるふたり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903178Z",
+              "recordedAt": "2026-10-12T06:59:05.903178Z",
+              "snapshotId": "snapshot-75f59bc49f513135a6c20258f6d6cbea58af2d2e9d21af1d253c8b98c8fc162e",
+              "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903178Z",
+              "recordedAt": "2026-10-12T06:59:05.903178Z",
+              "snapshotId": "snapshot-75f59bc49f513135a6c20258f6d6cbea58af2d2e9d21af1d253c8b98c8fc162e",
+              "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903178Z",
+              "recordedAt": "2026-10-12T06:59:05.903178Z",
+              "snapshotId": "snapshot-75f59bc49f513135a6c20258f6d6cbea58af2d2e9d21af1d253c8b98c8fc162e",
+              "entityId": "episode-b9271c10f72ca502658df853c9b90baa9b150ceef5a4738c20621352b84fd324",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      },
+      {
+        "id": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+        "parentId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "workId": "work-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "releaseId": "release-98f90fd58b0f539ddb07e84f65fae8dfee6e4fd651513b537d92c295dca4ed23",
+        "title": "在超市后门吸烟的二人",
+        "revision": 0,
+        "kind": "episode",
+        "number": "1",
+        "order": "subject",
+        "type": "regular",
+        "metadata": [
+          {
+            "field": "title",
+            "value": "在超市后门吸烟的二人",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903164Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "originalTitle",
+            "value": "スーパーの裏でヤニ吸うふたり",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903164Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          },
+          {
+            "field": "year",
+            "value": "2026",
+            "provider": "bangumi",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-12T06:59:05.903164Z",
+            "invocationId": "inv-1791788345309193-671",
+            "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+            "mode": null
+          }
+        ],
+        "bindings": [
+          {
+            "bindingId": "binding-4ca804c9226e1fb42bb8aaaac9d46ecdfdefae0b914867a80854be784010dfde",
+            "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+            "objectId": "object-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+            "provider": "bangumi",
+            "objectType": "episode",
+            "externalId": "1699260",
+            "scope": "subject/571784",
+            "episodeScope": {
+              "order": "subject",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "1"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "relation": "exact",
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 0,
+            "invocationId": "inv-1791788345309193-671",
+            "jobId": null,
+            "createdAt": "2026-10-12T06:59:42.358294Z"
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "在超市后门吸烟的二人",
+            "originalTitle": "スーパーの裏でヤニ吸うふたり",
+            "year": 2026
+          },
+          "provenance": {
+            "title": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903164Z",
+              "recordedAt": "2026-10-12T06:59:05.903164Z",
+              "snapshotId": "snapshot-f1cf2cc56d1ae36262cac4ac5bae5701edb0fed722422c7da463725c8263a18d",
+              "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "originalTitle": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903164Z",
+              "recordedAt": "2026-10-12T06:59:05.903164Z",
+              "snapshotId": "snapshot-f1cf2cc56d1ae36262cac4ac5bae5701edb0fed722422c7da463725c8263a18d",
+              "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            },
+            "year": {
+              "provider": "bangumi",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-12T06:59:05.903164Z",
+              "recordedAt": "2026-10-12T06:59:05.903164Z",
+              "snapshotId": "snapshot-f1cf2cc56d1ae36262cac4ac5bae5701edb0fed722422c7da463725c8263a18d",
+              "entityId": "episode-fef019a06f91ca2747002ef3fbd8826f6bad6e4689659150e7e887ab82da0eb9",
+              "actor": null,
+              "origin": "harness_cli:helper:job-79dc3119c1fa5e06ec227938800e3abd",
+              "invocationId": "inv-1791788345309193-671"
+            }
+          },
+          "ratings": []
+        }
+      }
+    ],
+    "nextCursor": null,
+    "truncated": false,
+    "warnings": []
+  }
+}

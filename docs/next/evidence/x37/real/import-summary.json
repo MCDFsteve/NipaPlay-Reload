@@ -1,0 +1,24 @@
+{
+  "episodeCounts": {
+    "1": 228,
+    "2": 125,
+    "3": 134,
+    "4": 109,
+    "5": 111,
+    "6": 172,
+    "7": 116,
+    "8": 181,
+    "9": 233
+  },
+  "total": 1409,
+  "sourceBvid": "BV1HBpw6vEZH",
+  "trackCheck": [
+    {
+      "at": "2026-10-12T15:08:36.190817",
+      "command": "/bin/zsh -lc 'TMPDIR=$PWD/work bash -c '\"'cat > work/verify.py <<PY\nimport json, subprocess, os\nFILES = [\n (1,\\\"file-b8be78cf-3b86-4da7-8b10-75a56d8073f3\\\"),\n (2,\\\"file-a1e2cc4d-ea90-4189-b503-8b1ea6838e3c\\\"),\n (3,\\\"file-982c74b7-0437-43b5-add9-5cc3f975a107\\\"),\n (4,\\\"file-99701bcf-23ba-41ce-a938-dbf12ec4ba1a\\\"),\n (5,\\\"file-b181cefd-931c-4692-a340-560fe4be5a88\\\"),\n (6,\\\"file-50d9643b-82bd-4e7b-b0f4-ff35d22070e5\\\"),\n (7,\\\"file-96504305-29f9-43e3-854b-3f43379ce604\\\"),\n (8,\\\"file-5d8b94c3-74d0-45de-85ad-b09a9052ba40\\\"),\n (9,\\\"file-e08e02f5-d64a-4e4d-a3c4-90f548580422\\\"),\n]\nrows=[]\nfor ep, fid in FILES:\n    out=subprocess.run([\\\"./nipa\\\",\\\"call\\\",\\\"danmaku.tracks\\\",json.dumps({\\\"entityId\\\":fid})],capture_output=True,text=True)\n    d=json.loads(out.stdout)[\\\"result\\\"]\n    tr=d[\\\"tracks\\\"]\n    rows.append({\\\"ep\\\":ep,\\\"tracks\\\":len(tr),\\\"tracks\\\":tr})\n    for t in tr:\n        print(\\\"ep%02d origin=%s count=%s loaded=%s enabled=%s platform=%s vid=%s\\\" % (\n            ep, t.get(\\\"origin\\\"), t.get(\\\"count\\\"), t.get(\\\"loaded\\\"), t.get(\\\"enabled\\\"),\n            (t.get(\\\"provenance\\\") or {}).get(\\\"platform\\\"), (t.get(\\\"provenance\\\") or {}).get(\\\"platformVideoId\\\")))\njson.dump(rows, open(\\\"work/verify_tracks.json\\\",\\\"w\\\"), ensure_ascii=False, indent=2)\nPY\npython3 work/verify.py' 2>&1\"",
+      "exitCode": 0,
+      "output": "ep01 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p1\nep02 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p2\nep03 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p3\nep04 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p4\nep05 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p5\nep06 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p6\nep07 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p7\nep08 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p8\nep09 origin=agent_import count=None loaded=False enabled=True platform=bilibili vid=BV1HBpw6vEZH:p9\n"
+    }
+  ],
+  "limitation": "import return counts; original profile deleted at observation deadline before helper final reply"
+}
