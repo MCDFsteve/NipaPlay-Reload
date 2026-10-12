@@ -1,0 +1,849 @@
+[
+  {
+    "at": 1791788784.165424,
+    "label": "app.instance",
+    "value": {
+      "status": "completed",
+      "result": {
+        "pid": 72625,
+        "windowTitle": "NipaPlay · LAB [x35-done-72622]",
+        "windowId": 53324,
+        "viewId": 1,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x35-pipeline/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x35-pipeline/build/macos/Build/Products/Debug/NipaPlay.app",
+        "experimentalProfile": true,
+        "profileName": "x35-done-72622",
+        "version": "1.11.10"
+      }
+    }
+  },
+  {
+    "at": 1791788784.165741,
+    "label": "instance",
+    "value": {
+      "pid": 72625,
+      "windowTitle": "NipaPlay · LAB [x35-done-72622]",
+      "windowId": 53324,
+      "viewId": 1,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x35-pipeline/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x35-pipeline/build/macos/Build/Products/Debug/NipaPlay.app",
+      "experimentalProfile": true,
+      "profileName": "x35-done-72622",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "at": 1791788784.1691709,
+    "label": "chat-header",
+    "value": {
+      "sessionId": "nipa-1791788779857480-5a19341d",
+      "threadId": "01a12eef-0c9b-7322-a387-b6178231dfea",
+      "mainThreadId": "01a12eef-0c9b-7322-a387-b6178231dfea",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/harness"
+    }
+  },
+  {
+    "at": 1791788784.18622,
+    "label": "state.query",
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T07:06:24.181163Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.works": "2026-10-12T07:06:24.178939Z"
+        },
+        "rows": [
+          {
+            "id": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "parentId": null,
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "releaseId": null,
+            "title": "X35 CC0 色卡（合成 Classic 对照）",
+            "revision": 0,
+            "kind": "work",
+            "number": null,
+            "order": "provider",
+            "type": "regular",
+            "metadata": [
+              {
+                "field": "title",
+                "value": "X35 CC0 色卡（合成 Classic 对照）",
+                "provider": "dandanplay",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T07:06:16.490Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              },
+              {
+                "field": "originalTitle",
+                "value": "X35 CC0 色卡（合成 Classic 对照）",
+                "provider": "dandanplay",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T07:06:16.490Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              },
+              {
+                "field": "overview",
+                "value": "实验者生成并以 CC0 提供的两秒蓝色色卡。",
+                "provider": "dandanplay",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T07:06:16.490Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              },
+              {
+                "field": "imageUrl",
+                "value": "https://lycoris-recoil.com/shortmovie/assets/img/main.jpg",
+                "provider": "dandanplay",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T07:06:16.490Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              },
+              {
+                "field": "episodeCount",
+                "value": "1",
+                "provider": "dandanplay",
+                "language": "zh-CN",
+                "fetchedAt": "2026-10-12T07:06:16.490Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              }
+            ],
+            "bindings": [
+              {
+                "bindingId": "classic-binding-d81b8e16888a04818f5a2e407696aa5a69759183b957a78f52e5e07a889758d5",
+                "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                "objectId": "object-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                "provider": "dandanplay",
+                "objectType": "anime",
+                "externalId": "900001",
+                "scope": "",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "contains",
+                "status": "accepted",
+                "source": "classic_match",
+                "boundBy": null,
+                "revision": 0,
+                "invocationId": null,
+                "jobId": null,
+                "createdAt": "2026-10-12T07:06:18.556344Z"
+              }
+            ],
+            "metadataView": {
+              "fields": {
+                "title": "X35 CC0 色卡（合成 Classic 对照）",
+                "originalTitle": "X35 CC0 色卡（合成 Classic 对照）",
+                "overview": "实验者生成并以 CC0 提供的两秒蓝色色卡。",
+                "imageUrl": "https://lycoris-recoil.com/shortmovie/assets/img/main.jpg",
+                "episodeCount": 1
+              },
+              "provenance": {
+                "title": {
+                  "provider": "dandanplay",
+                  "source": "classic_cache",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T07:06:16.490Z",
+                  "recordedAt": "2026-10-12T07:06:16.490Z",
+                  "snapshotId": "classic-cache-6d2ca4f4d7a5585d8451749cd34e978c3829330c3a111d0b649f3928a141408b",
+                  "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                },
+                "originalTitle": {
+                  "provider": "dandanplay",
+                  "source": "classic_cache",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T07:06:16.490Z",
+                  "recordedAt": "2026-10-12T07:06:16.490Z",
+                  "snapshotId": "classic-cache-6d2ca4f4d7a5585d8451749cd34e978c3829330c3a111d0b649f3928a141408b",
+                  "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                },
+                "overview": {
+                  "provider": "dandanplay",
+                  "source": "classic_cache",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T07:06:16.490Z",
+                  "recordedAt": "2026-10-12T07:06:16.490Z",
+                  "snapshotId": "classic-cache-6d2ca4f4d7a5585d8451749cd34e978c3829330c3a111d0b649f3928a141408b",
+                  "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                },
+                "imageUrl": {
+                  "provider": "dandanplay",
+                  "source": "classic_cache",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T07:06:16.490Z",
+                  "recordedAt": "2026-10-12T07:06:16.490Z",
+                  "snapshotId": "classic-cache-6d2ca4f4d7a5585d8451749cd34e978c3829330c3a111d0b649f3928a141408b",
+                  "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                },
+                "episodeCount": {
+                  "provider": "dandanplay",
+                  "source": "classic_cache",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-12T07:06:16.490Z",
+                  "recordedAt": "2026-10-12T07:06:16.490Z",
+                  "snapshotId": "classic-cache-6d2ca4f4d7a5585d8451749cd34e978c3829330c3a111d0b649f3928a141408b",
+                  "entityId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                }
+              },
+              "ratings": []
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "at": 1791788784.20981,
+    "label": "download.add",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+          "type": "download",
+          "title": "cc0.torrent",
+          "state": "queued",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-12T07:06:24.200295Z",
+          "updatedAt": "2026-10-12T07:06:24.200295Z",
+          "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "at": 1791788784.210162,
+    "label": "download-return",
+    "value": {
+      "job": {
+        "backend": {
+          "kind": "builtin"
+        },
+        "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+        "type": "download",
+        "title": "cc0.torrent",
+        "state": "queued",
+        "phase": "downloading",
+        "progress": {
+          "completed": 0,
+          "unit": "items"
+        },
+        "createdAt": "2026-10-12T07:06:24.200295Z",
+        "updatedAt": "2026-10-12T07:06:24.200295Z",
+        "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+        "revision": 0
+      }
+    }
+  },
+  {
+    "at": 1791788784.210548,
+    "label": "job-return",
+    "value": {
+      "jobId": "job-4c236bad8d0eee01be3cd90d03583857"
+    }
+  },
+  {
+    "at": 1791788784.2467442,
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+          "type": "download",
+          "title": "cc0.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-12T07:06:24.200295Z",
+          "updatedAt": "2026-10-12T07:06:24.224423Z",
+          "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "at": 1791788786.256438,
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+          "type": "download",
+          "title": "cc0.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 2962,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-12T07:06:24.200295Z",
+          "updatedAt": "2026-10-12T07:06:24.258904Z",
+          "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+          "revision": 3
+        }
+      }
+    }
+  },
+  {
+    "at": 1791788788.269514,
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+          "type": "download",
+          "title": "cc0.torrent",
+          "state": "running",
+          "phase": "downloading",
+          "progress": {
+            "completed": 0,
+            "total": 2962,
+            "unit": "bytes"
+          },
+          "createdAt": "2026-10-12T07:06:24.200295Z",
+          "updatedAt": "2026-10-12T07:06:24.258904Z",
+          "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+          "revision": 3
+        }
+      }
+    }
+  },
+  {
+    "at": 1791788790.276908,
+    "label": "task.get",
+    "value": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "backend": {
+            "kind": "builtin"
+          },
+          "jobId": "job-4c236bad8d0eee01be3cd90d03583857",
+          "type": "download",
+          "title": "cc0.torrent",
+          "state": "succeeded",
+          "phase": "verifying",
+          "progress": {
+            "completed": 1,
+            "total": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-12T07:06:24.200295Z",
+          "updatedAt": "2026-10-12T07:06:29.294360Z",
+          "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+          "revision": 6,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "infoHash": "84abb3e7b6d0671ffe77d0a0dd7e503b0d36ced8",
+              "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads",
+              "downloadComplete": true,
+              "paused": false,
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+                  "expectedSize": 2962,
+                  "actualSize": 2962,
+                  "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+                  "local": true,
+                  "included": true,
+                  "imported": true,
+                  "media": {
+                    "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+                    "fileId": "file-42718880-fc94-4d96-82ce-c5ec89fce31f",
+                    "workIds": [],
+                    "identificationPending": true,
+                    "classicScanPending": true
+                  },
+                  "identificationPending": true,
+                  "reason": "not_identified"
+                }
+              ],
+              "fileIds": [
+                "file-42718880-fc94-4d96-82ce-c5ec89fce31f"
+              ],
+              "workIds": []
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "at": 1791788790.2773728,
+    "label": "download-completed",
+    "value": {
+      "infoHash": "84abb3e7b6d0671ffe77d0a0dd7e503b0d36ced8",
+      "outputDirectory": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads",
+      "downloadComplete": true,
+      "paused": false,
+      "files": [
+        {
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+          "expectedSize": 2962,
+          "actualSize": 2962,
+          "canonicalPath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+          "local": true,
+          "included": true,
+          "imported": true,
+          "media": {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+            "fileId": "file-42718880-fc94-4d96-82ce-c5ec89fce31f",
+            "workIds": [],
+            "identificationPending": true,
+            "classicScanPending": true
+          },
+          "identificationPending": true,
+          "reason": "not_identified"
+        }
+      ],
+      "fileIds": [
+        "file-42718880-fc94-4d96-82ce-c5ec89fce31f"
+      ],
+      "workIds": []
+    }
+  },
+  {
+    "at": 1791788790.2843032,
+    "label": "state.query",
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T07:06:30.281920Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.episodes": "2026-10-12T07:06:30.281746Z"
+        },
+        "rows": [
+          {
+            "id": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+            "parentId": "release-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "releaseId": "release-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "title": "第1集",
+            "revision": 0,
+            "kind": "episode",
+            "number": null,
+            "order": "provider",
+            "type": "regular",
+            "metadata": [
+              {
+                "field": "title",
+                "value": "第1集",
+                "provider": "dandanplay",
+                "language": "und",
+                "fetchedAt": "2026-10-12T07:06:18.556344Z",
+                "invocationId": null,
+                "origin": "classic_history",
+                "mode": null
+              }
+            ],
+            "bindings": [
+              {
+                "bindingId": "classic-binding-ad181029cab7051cf6b6e999b40df6832d88e7198a151840165fdf497c688a6d",
+                "entityId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                "objectId": "object-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                "provider": "dandanplay",
+                "objectType": "episode",
+                "externalId": "90000101",
+                "scope": "anime/900001",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "exact",
+                "status": "accepted",
+                "source": "classic_match",
+                "boundBy": null,
+                "revision": 0,
+                "invocationId": null,
+                "jobId": null,
+                "createdAt": "2026-10-12T07:06:18.556344Z"
+              }
+            ],
+            "metadataView": {
+              "fields": {
+                "title": "第1集"
+              },
+              "provenance": {
+                "title": {
+                  "provider": "dandanplay",
+                  "source": "classic_match",
+                  "language": "und",
+                  "fetchedAt": "2026-10-12T07:06:18.556344Z",
+                  "recordedAt": "2026-10-12T07:06:18.556344Z",
+                  "snapshotId": "classic-snapshot-a2854dec0b24ed46bb2cd697f4508eabd0ff6563b73e0a75d881872e4f0c5bbb",
+                  "entityId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                  "actor": null,
+                  "origin": "classic_history",
+                  "invocationId": null
+                }
+              },
+              "ratings": []
+            }
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "at": 1791788790.3804522,
+    "label": "media.identity.bind_batch",
+    "value": {
+      "status": "completed",
+      "result": {
+        "entries": [
+          {
+            "index": 0,
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "releaseId": "release-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "episodeIds": [
+              "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4"
+            ],
+            "fileId": "file-42718880-fc94-4d96-82ce-c5ec89fce31f",
+            "classicProjectionId": "projection-3fdc862794224563348bd9eb786fb6f1bd62215b0036edca365e2da7b36d877e",
+            "bindingIds": [
+              "binding-bf19f423a197c9783c2015d79ceaf63ce4600febc9b6beb64a3ebbe50511d45e"
+            ],
+            "classicProjection": [
+              {
+                "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+                "status": "written",
+                "restored": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791788790.38764,
+    "label": "state.query",
+    "value": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T07:06:30.384923Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.files": "2026-10-12T07:06:30.384534Z"
+        },
+        "rows": [
+          {
+            "fileId": "file-42718880-fc94-4d96-82ce-c5ec89fce31f",
+            "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "releaseId": "release-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "locationId": "location-067035c6-75f9-43bd-93a4-352732610fe8",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/downloads/delivered-cc0.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 1,
+            "relation": "exact",
+            "ordinal": 0,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [
+              {
+                "bindingId": "binding-bf19f423a197c9783c2015d79ceaf63ce4600febc9b6beb64a3ebbe50511d45e",
+                "entityId": "file-42718880-fc94-4d96-82ce-c5ec89fce31f",
+                "objectId": "object-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                "provider": "dandanplay",
+                "objectType": "episode",
+                "externalId": "90000101",
+                "scope": "anime/900001",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "exact",
+                "status": "accepted",
+                "source": "explicit_binding",
+                "boundBy": "agent",
+                "revision": 1,
+                "invocationId": "inv-1791788790286089-19",
+                "jobId": null,
+                "createdAt": "2026-10-12T07:06:30.326371Z"
+              }
+            ],
+            "progress": {
+              "positionMs": 0,
+              "durationMs": 0,
+              "progress": 0.0,
+              "lastWatchedAt": "2026-10-12T07:06:30.342365Z"
+            },
+            "historyStatus": "recorded"
+          },
+          {
+            "fileId": "file-f343b7b5-0759-48df-8f84-f6d164bb47b4",
+            "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "releaseId": "release-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "locationId": "location-46a61f6f-4ab3-4aa8-95fe-24b1190ddcad",
+            "locator": null,
+            "source": "local",
+            "ownerDeviceId": "device-a911ea4d3a8af4aece981f30bd17975b",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": "exact",
+            "ordinal": 0,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [
+              {
+                "bindingId": "classic-binding-1d77175e42333f7cc0876169ca87f27332d07d13e4e8082378c03bea9bde804f",
+                "entityId": "file-f343b7b5-0759-48df-8f84-f6d164bb47b4",
+                "objectId": "object-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                "provider": "dandanplay",
+                "objectType": "episode",
+                "externalId": "90000101",
+                "scope": "anime/900001",
+                "episodeScope": {
+                  "order": "provider",
+                  "season": null,
+                  "cour": null,
+                  "numbers": [],
+                  "startMs": null,
+                  "endMs": null
+                },
+                "relation": "exact",
+                "status": "accepted",
+                "source": "classic_match",
+                "boundBy": null,
+                "revision": 0,
+                "invocationId": null,
+                "jobId": null,
+                "createdAt": "2026-10-12T07:06:18.556344Z"
+              }
+            ],
+            "progress": {
+              "positionMs": 0,
+              "durationMs": 2000,
+              "progress": 0.0,
+              "lastWatchedAt": "2026-10-12T02:00:00.000Z"
+            },
+            "historyStatus": "recorded"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "at": 1791788790.418011,
+    "label": "download-ui-work",
+    "value": {
+      "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+      "title": "X35 CC0 色卡（合成 Classic 对照）",
+      "originalTitle": "X35 CC0 色卡（合成 Classic 对照）",
+      "year": null,
+      "genres": [],
+      "danmaku": [],
+      "episodeCount": 1,
+      "studio": null,
+      "overview": "实验者生成并以 CC0 提供的两秒蓝色色卡。",
+      "ratings": [],
+      "artwork": {
+        "backdrop": null,
+        "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/next/artwork/d0adba75ee97f50d076490cda598fa088b8aaefe99f79cb26c97fa9fd1ec84e7.jpg",
+        "logo": null,
+        "tint": 4294901502
+      },
+      "next": {
+        "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+        "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+        "number": 1,
+        "season": null,
+        "title": "第1集",
+        "runtimeMs": 0,
+        "still": null,
+        "progress": 0.0,
+        "heat": null,
+        "playable": true
+      }
+    }
+  },
+  {
+    "at": 1791788790.485517,
+    "label": "download-ui-home",
+    "value": {
+      "hero": {
+        "work": {
+          "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+          "title": "X35 CC0 色卡（合成 Classic 对照）",
+          "originalTitle": "X35 CC0 色卡（合成 Classic 对照）",
+          "year": null,
+          "genres": [],
+          "danmaku": [],
+          "episodeCount": 1,
+          "studio": null,
+          "overview": "实验者生成并以 CC0 提供的两秒蓝色色卡。",
+          "ratings": [],
+          "artwork": {
+            "backdrop": null,
+            "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/next/artwork/d0adba75ee97f50d076490cda598fa088b8aaefe99f79cb26c97fa9fd1ec84e7.jpg",
+            "logo": null,
+            "tint": 4294901502
+          },
+          "next": {
+            "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+            "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+            "number": 1,
+            "season": null,
+            "title": "第1集",
+            "runtimeMs": 0,
+            "still": null,
+            "progress": 0.0,
+            "heat": null,
+            "playable": true
+          }
+        },
+        "note": null
+      },
+      "shelves": [
+        {
+          "id": "recent",
+          "title": "最近添加",
+          "kind": "recent",
+          "items": [
+            {
+              "work": {
+                "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                "title": "X35 CC0 色卡（合成 Classic 对照）",
+                "originalTitle": "X35 CC0 色卡（合成 Classic 对照）",
+                "year": null,
+                "genres": [],
+                "danmaku": [],
+                "episodeCount": 1,
+                "studio": null,
+                "overview": "实验者生成并以 CC0 提供的两秒蓝色色卡。",
+                "ratings": [],
+                "artwork": {
+                  "backdrop": null,
+                  "poster": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x35-done-72622/data/next/artwork/d0adba75ee97f50d076490cda598fa088b8aaefe99f79cb26c97fa9fd1ec84e7.jpg",
+                  "logo": null,
+                  "tint": 4294901502
+                },
+                "next": {
+                  "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                  "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                  "number": 1,
+                  "season": null,
+                  "title": "第1集",
+                  "runtimeMs": 0,
+                  "still": null,
+                  "progress": 0.0,
+                  "heat": null,
+                  "playable": true
+                }
+              },
+              "episode": {
+                "episodeId": "episode-1a93b775ee7cfdef43d7d9ff52371e5747c496b92c1ab55b105d7a03b72b84f4",
+                "workId": "work-5d25b666fd92ec1fa35aa869a5f0f805c4ed45df5c9f1fd4ebc4668d49e2c61e",
+                "number": 1,
+                "season": null,
+                "title": "第1集",
+                "runtimeMs": 0,
+                "still": null,
+                "progress": 0.0,
+                "heat": null,
+                "playable": true
+              },
+              "caption": "第 1 集",
+              "badge": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "at": 1791788790.783187,
+    "label": "cleanup",
+    "value": {
+      "pid": 72625,
+      "profileRemoved": true
+    }
+  }
+]
