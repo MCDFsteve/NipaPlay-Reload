@@ -1,0 +1,1590 @@
+[
+  {
+    "label": "read-only-sources",
+    "value": [
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-1.xml",
+        "bytes": 1272683,
+        "sha256": "4e067efcf9b97902424a6ef70cfe22f82017169677fc488063afd10ab39b4111",
+        "count": 16203,
+        "videoId": "XNDI0NDYyNjk1Mg=="
+      },
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E02.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-2.xml",
+        "bytes": 1363297,
+        "sha256": "3d75aa043bfa8783f3c99d10cafc87ea4de9d110ee57157094c8a60c8c2e1f7e",
+        "count": 17089,
+        "videoId": "XNDI0NDQ0ODEwNA=="
+      },
+      {
+        "path": "/Volumes/Anime/长安十二时辰/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb/长安十二时辰.The.Longest.Day.In.Chang'an.2019.S01E03.2160p.IQ.WEB-DL.HEVC.AAC-ZmWeb.xml",
+        "copy": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-3.xml",
+        "bytes": 1066108,
+        "sha256": "12e793b4ee520f34b9daa97606bac3f6c8ca3a045593fbe412a903076cb6b11b",
+        "count": 13371,
+        "videoId": "XNDI0NDQ2MzU3Mg=="
+      }
+    ]
+  },
+  {
+    "label": "instance-bootstrap",
+    "value": {
+      "profile": "x42-files-33456",
+      "pid": 33629,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 2.479803125024773
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "media.library.scan",
+    "value": {
+      "input": {
+        "root": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media",
+        "requestId": "x42-files-33456-scan"
+      },
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-0dddb678aaab0fb6d28ec8b19bef7e1c565f751e90e7f28ae63de9fad57f6343",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "job",
+    "value": {
+      "jobId": "scan-0dddb678aaab0fb6d28ec8b19bef7e1c565f751e90e7f28ae63de9fad57f6343",
+      "type": "media.scan",
+      "title": "Scan media folder",
+      "state": "succeeded",
+      "phase": "enumerate",
+      "progress": {
+        "completed": 3,
+        "unit": "files"
+      },
+      "createdAt": "2026-10-12T16:21:44.458916Z",
+      "updatedAt": "2026-10-12T16:21:44.626297Z",
+      "ownerDeviceId": "device-a67f97a67b86c33c05b08d6478863dc2",
+      "revision": 10,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "indexed": 3,
+          "fileIds": [
+            "file-1a44a5d6-f18c-42cb-8098-ce216048f8e6",
+            "file-5542d227-9c18-4891-8672-9e8e093de47d",
+            "file-977fec05-224c-4cdd-a1f8-4aa3ad64f25a"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "input": {
+        "view": "library.files",
+        "limit": 20
+      },
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T16:21:44.788638Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.files": "2026-10-12T16:21:44.787458Z"
+        },
+        "rows": [
+          {
+            "fileId": "file-1a44a5d6-f18c-42cb-8098-ce216048f8e6",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-91c79383-10b7-48bf-aa59-afee6b0aa7c0",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-3.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-a67f97a67b86c33c05b08d6478863dc2",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          },
+          {
+            "fileId": "file-5542d227-9c18-4891-8672-9e8e093de47d",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-acc35bd3-398e-48a9-bdcb-120f4f4cc160",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-1.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-a67f97a67b86c33c05b08d6478863dc2",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          },
+          {
+            "fileId": "file-977fec05-224c-4cdd-a1f8-4aa3ad64f25a",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-c3cae6c2-c73a-47a1-b1bd-3e1e5295bed2",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-2.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-a67f97a67b86c33c05b08d6478863dc2",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "instance-import",
+    "value": {
+      "profile": "x42-files-33456",
+      "pid": 34553,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 1.8747719579841942
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-1",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-1.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDYyNjk1Mg=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+        "revision": 0,
+        "count": 16203,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDYyNjk1Mg==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:47.148452Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-1.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-2",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-2.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDQ0ODEwNA=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-432b9aeb-511c-419f-86d1-919d0c59b4ce",
+        "revision": 0,
+        "count": 17089,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDQ0ODEwNA==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:47.801050Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-2.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-3",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-3.xml",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDQ2MzU3Mg=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-b9592fba-2b76-4644-ad42-2160a23d2386",
+        "revision": 0,
+        "count": 13371,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDQ2MzU3Mg==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:48.373427Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/episode-3.xml",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "imported-files",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2279031,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:48.373427Z",
+          "file_path": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+          "entry_count": 13371,
+          "byte_count": 4060405,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2879321,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:47.801050Z",
+          "file_path": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+          "entry_count": 17089,
+          "byte_count": 5190485,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-ba219108-89e4-4652-9118-5e2c888873a4",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2699191,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:47.148452Z",
+          "file_path": "danmaku/61b86ebfe6fdb8f786f5ff13807c93df76b95cd345867ba986d6183ba95b3669.json",
+          "entry_count": 16203,
+          "byte_count": 4901548,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 311296,
+      "fileBytes": 14152438,
+      "files": 3
+    }
+  },
+  {
+    "label": "state.query",
+    "value": {
+      "input": {
+        "view": "danmaku.datasets",
+        "limit": 20
+      },
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-12T16:21:48.863893Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "danmaku.datasets": "2026-10-12T16:21:48.860901Z"
+        },
+        "rows": [
+          {
+            "cacheKey": "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2279031,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:48.373427Z",
+            "entryCount": 13371,
+            "filePath": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+            "byteCount": 4060405,
+            "storageKind": "imported"
+          },
+          {
+            "cacheKey": "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2879321,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:47.801050Z",
+            "entryCount": 17089,
+            "filePath": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+            "byteCount": 5190485,
+            "storageKind": "imported"
+          },
+          {
+            "cacheKey": "danmaku-import-ba219108-89e4-4652-9118-5e2c888873a4",
+            "chunkIndex": 0,
+            "startMs": 0,
+            "endMs": 2699191,
+            "coverage": "importedPool",
+            "fetchedAt": "2026-10-12T16:21:47.148452Z",
+            "entryCount": 16203,
+            "filePath": "danmaku/61b86ebfe6fdb8f786f5ff13807c93df76b95cd345867ba986d6183ba95b3669.json",
+            "byteCount": 4901548,
+            "storageKind": "imported"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x42-work"
+      },
+      "status": "completed",
+      "result": {
+        "workId": "x42-work",
+        "fields": {
+          "title": {
+            "available": true,
+            "value": "X42 三集弹幕存储实验",
+            "source": {
+              "source": "entity_attributes"
+            },
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown",
+            "fallback": false
+          },
+          "originalTitle": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "overview": {
+            "available": false,
+            "value": null,
+            "source": null,
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown"
+          },
+          "year": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "genres": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "episodeCount": {
+            "available": true,
+            "value": 3,
+            "source": {
+              "source": "library_episode_count"
+            }
+          },
+          "studio": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "ratings": {
+            "available": false,
+            "value": [],
+            "source": []
+          },
+          "backdrop": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "poster": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "logo": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        "heroImage": null,
+        "tint": null,
+        "episodes": {
+          "total": 3,
+          "titles": 3,
+          "stills": 0,
+          "danmaku": 3,
+          "items": [
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDYyNjk1Mg==",
+                    "count": 16203,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 16203
+              },
+              "episodeId": "x42-episode-1",
+              "number": 1,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第1集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            },
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-432b9aeb-511c-419f-86d1-919d0c59b4ce",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDQ0ODEwNA==",
+                    "count": 17089,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 17089
+              },
+              "episodeId": "x42-episode-2",
+              "number": 2,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第2集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            },
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-b9592fba-2b76-4644-ad42-2160a23d2386",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDQ2MzU3Mg==",
+                    "count": 13371,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 13371
+              },
+              "episodeId": "x42-episode-3",
+              "number": 3,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第3集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "heat-before",
+    "value": [
+      {
+        "episodeId": "x42-episode-1",
+        "workId": "x42-work",
+        "number": 1,
+        "season": 1,
+        "title": "第1集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          0.8613333333333333,
+          0.544,
+          0.664,
+          0.744,
+          0.8453333333333334,
+          0.5226666666666666,
+          0.88,
+          0.6346666666666667,
+          0.672,
+          0.6213333333333333,
+          1.0,
+          0.5973333333333334,
+          0.7306666666666667,
+          0.672,
+          0.7973333333333333,
+          0.6906666666666667,
+          0.6986666666666667,
+          0.8,
+          0.6533333333333333,
+          0.7306666666666667,
+          0.736,
+          0.6693333333333333,
+          0.7573333333333333,
+          0.72,
+          0.7973333333333333,
+          0.6346666666666667,
+          0.728,
+          0.7306666666666667,
+          0.7146666666666667,
+          0.752,
+          0.704,
+          0.7173333333333334,
+          0.6293333333333333,
+          0.8746666666666667,
+          0.6773333333333333,
+          0.7146666666666667,
+          0.7546666666666667,
+          0.632,
+          0.7626666666666667,
+          0.728,
+          0.7306666666666667,
+          0.6346666666666667,
+          0.7973333333333333,
+          0.7173333333333334,
+          0.68,
+          0.6453333333333333,
+          0.8586666666666667,
+          0.704,
+          0.768,
+          0.6906666666666667,
+          0.7466666666666667,
+          0.672,
+          0.656,
+          0.832,
+          0.6106666666666667,
+          0.7786666666666666,
+          0.7813333333333333,
+          0.7173333333333334,
+          0.7706666666666667,
+          0.6213333333333333
+        ],
+        "playable": true
+      },
+      {
+        "episodeId": "x42-episode-2",
+        "workId": "x42-work",
+        "number": 2,
+        "season": 1,
+        "title": "第2集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          0.8032786885245902,
+          0.5011709601873536,
+          0.6861826697892272,
+          0.7447306791569087,
+          0.6370023419203747,
+          0.7283372365339579,
+          0.7587822014051522,
+          0.45433255269320844,
+          0.7540983606557377,
+          0.6651053864168618,
+          0.7213114754098361,
+          0.5339578454332553,
+          0.6885245901639344,
+          0.7775175644028103,
+          0.667447306791569,
+          0.747072599531616,
+          0.5761124121779859,
+          0.7845433255269321,
+          0.5269320843091335,
+          0.7377049180327869,
+          0.7494145199063232,
+          0.6346604215456675,
+          0.639344262295082,
+          0.7728337236533958,
+          0.5831381733021077,
+          0.5995316159250585,
+          0.7704918032786885,
+          0.7259953161592506,
+          0.5550351288056206,
+          0.7166276346604216,
+          0.7213114754098361,
+          0.6440281030444965,
+          0.7213114754098361,
+          0.6182669789227166,
+          0.6651053864168618,
+          0.639344262295082,
+          0.65807962529274,
+          0.7892271662763466,
+          0.6370023419203747,
+          0.6557377049180327,
+          0.629976580796253,
+          0.6768149882903981,
+          0.8313817330210773,
+          0.5386416861826698,
+          0.7002341920374707,
+          0.6252927400468384,
+          0.5667447306791569,
+          1.0,
+          0.5245901639344263,
+          0.6487119437939111,
+          0.7213114754098361,
+          0.6182669789227166,
+          0.6978922716627635,
+          0.6416861826697893,
+          0.6908665105386417,
+          0.7728337236533958,
+          0.5784543325526932,
+          0.7377049180327869,
+          0.5971896955503513,
+          0.23185011709601874
+        ],
+        "playable": true
+      },
+      {
+        "episodeId": "x42-episode-3",
+        "workId": "x42-work",
+        "number": 3,
+        "season": 1,
+        "title": "第3集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          1.0,
+          0.45768025078369906,
+          0.7084639498432602,
+          0.7836990595611285,
+          0.7366771159874608,
+          0.64576802507837,
+          0.7147335423197492,
+          0.7115987460815048,
+          0.6394984326018809,
+          0.9341692789968652,
+          0.5391849529780565,
+          0.8150470219435737,
+          0.6677115987460815,
+          0.7115987460815048,
+          0.7554858934169278,
+          0.6426332288401254,
+          0.7115987460815048,
+          0.7147335423197492,
+          0.6990595611285266,
+          0.6865203761755486,
+          0.7241379310344828,
+          0.7931034482758621,
+          0.7241379310344828,
+          0.6614420062695925,
+          0.6677115987460815,
+          0.9373040752351097,
+          0.5705329153605015,
+          0.7554858934169278,
+          0.7053291536050157,
+          0.658307210031348,
+          0.9184952978056427,
+          0.4827586206896552,
+          0.6990595611285266,
+          0.7335423197492164,
+          0.7429467084639498,
+          0.8025078369905956,
+          0.5454545454545454,
+          0.7962382445141066,
+          0.7115987460815048,
+          0.768025078369906,
+          0.677115987460815,
+          0.7836990595611285,
+          0.5924764890282131,
+          0.780564263322884,
+          0.6489028213166145,
+          0.7899686520376176,
+          0.7178683385579937,
+          0.6175548589341693,
+          0.780564263322884,
+          0.7711598746081505,
+          0.6018808777429467,
+          0.7460815047021944,
+          0.6238244514106583,
+          0.9749216300940439,
+          0.64576802507837,
+          0.7899686520376176,
+          0.5987460815047022,
+          0.5830721003134797,
+          0.322884012539185,
+          0.19435736677115986
+        ],
+        "playable": true
+      }
+    ]
+  },
+  {
+    "label": "hero-comments",
+    "value": [
+      "2019年06月29日打卡~",
+      "2019年07月03日举手~",
+      "2019年07月04日打卡~",
+      "周末举手~",
+      "四川人民发来贺电",
+      "坐标东北打卡"
+    ]
+  },
+  {
+    "label": "deleted-input-copies",
+    "value": {
+      "deleted": 3,
+      "allMissing": true
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-1.mp4"
+      },
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-1.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-1.mp4",
+          "seriesTitle": "episode-1",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 3000000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback-after-deleting-copies",
+    "value": {
+      "tracks": [
+        {
+          "kind": "danmaku",
+          "origin": "agent_import",
+          "trackId": "next:danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+          "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+          "source": "youku",
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDYyNjk1Mg==",
+          "filePath": null,
+          "count": 16203,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "label": "playback.set_paused",
+    "value": {
+      "input": {
+        "paused": true
+      },
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "paused",
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/episode-1.mp4",
+          "seriesTitle": "episode-1",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 3000000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "danmaku.export",
+    "value": {
+      "input": {
+        "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/export.json",
+        "view": "raw"
+      },
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/data/media/export.json",
+        "count": 16203,
+        "bytes": 8660618,
+        "sha256": "ee3d3095fc6cc542fda5ecb13fb54ca636590afa9988f95aa7c6061d0fc9aa93",
+        "view": "raw"
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "entityId": "x42-episode-1",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/refresh.json",
+        "platform": "youku",
+        "platformVideoId": "XNDI0NDYyNjk1Mg=="
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+        "revision": 1,
+        "count": 1,
+        "loaded": false,
+        "provenance": {
+          "platform": "youku",
+          "platformVideoId": "XNDI0NDYyNjk1Mg==",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:21:53.113674Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-files-33456/harness/records/refresh.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "refresh-old-file-cleanup",
+    "value": {
+      "oldFile": "danmaku/61b86ebfe6fdb8f786f5ff13807c93df76b95cd345867ba986d6183ba95b3669.json",
+      "exists": false
+    }
+  },
+  {
+    "label": "playback-refreshed",
+    "value": {
+      "tracks": []
+    }
+  },
+  {
+    "label": "refreshed-files",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2279031,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:48.373427Z",
+          "file_path": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+          "entry_count": 13371,
+          "byte_count": 4060405,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-651e61f8-5ec3-4705-acb5-87d091a69cc3",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 1001,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:53.113674Z",
+          "file_path": "danmaku/c2fe54917533ec6010aca48c00055eb76b50b16f0f309b37098e7fda9d0865c2.json",
+          "entry_count": 1,
+          "byte_count": 287,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2879321,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:47.801050Z",
+          "file_path": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+          "entry_count": 17089,
+          "byte_count": 5190485,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 311296,
+      "fileBytes": 9251177,
+      "files": 3
+    }
+  },
+  {
+    "label": "legacy-database-before",
+    "value": {
+      "bytes": 14761984,
+      "counts": {
+        "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b": 17089,
+        "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8": 13371,
+        "danmaku-import-651e61f8-5ec3-4705-acb5-87d091a69cc3": 1
+      },
+      "totalCount": 30461,
+      "contentHashes": {
+        "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b": "74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d",
+        "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8": "f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce",
+        "danmaku-import-651e61f8-5ec3-4705-acb5-87d091a69cc3": "c2fe54917533ec6010aca48c00055eb76b50b16f0f309b37098e7fda9d0865c2"
+      }
+    }
+  },
+  {
+    "label": "instance-migration",
+    "value": {
+      "profile": "x42-files-33456",
+      "pid": 36153,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 2.8117378749884665
+    }
+  },
+  {
+    "label": "migrated-files",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2279031,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:48.373427Z",
+          "file_path": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+          "entry_count": 13371,
+          "byte_count": 4060405,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-651e61f8-5ec3-4705-acb5-87d091a69cc3",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 1001,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:53.113674Z",
+          "file_path": "danmaku/c2fe54917533ec6010aca48c00055eb76b50b16f0f309b37098e7fda9d0865c2.json",
+          "entry_count": 1,
+          "byte_count": 287,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2879321,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:47.801050Z",
+          "file_path": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+          "entry_count": 17089,
+          "byte_count": 5190485,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 311296,
+      "fileBytes": 9251177,
+      "files": 3
+    }
+  },
+  {
+    "label": "media.metadata.ui_facts",
+    "value": {
+      "input": {
+        "workId": "x42-work"
+      },
+      "status": "completed",
+      "result": {
+        "workId": "x42-work",
+        "fields": {
+          "title": {
+            "available": true,
+            "value": "X42 三集弹幕存储实验",
+            "source": {
+              "source": "entity_attributes"
+            },
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown",
+            "fallback": false
+          },
+          "originalTitle": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "overview": {
+            "available": false,
+            "value": null,
+            "source": null,
+            "language": "unknown",
+            "declaredLanguage": null,
+            "languageBasis": "unknown"
+          },
+          "year": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "genres": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "episodeCount": {
+            "available": true,
+            "value": 3,
+            "source": {
+              "source": "library_episode_count"
+            }
+          },
+          "studio": {
+            "available": false,
+            "value": null,
+            "source": null
+          },
+          "ratings": {
+            "available": false,
+            "value": [],
+            "source": []
+          },
+          "backdrop": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "poster": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          },
+          "logo": {
+            "available": false,
+            "path": null,
+            "url": null,
+            "source": null
+          }
+        },
+        "heroImage": null,
+        "tint": null,
+        "episodes": {
+          "total": 3,
+          "titles": 3,
+          "stills": 0,
+          "danmaku": 3,
+          "items": [
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-d827f755-53ab-4bfd-89be-ecf306b07af7",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDYyNjk1Mg==",
+                    "count": 1,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 1
+              },
+              "episodeId": "x42-episode-1",
+              "number": 1,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第1集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            },
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-432b9aeb-511c-419f-86d1-919d0c59b4ce",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDQ0ODEwNA==",
+                    "count": 17089,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 17089
+              },
+              "episodeId": "x42-episode-2",
+              "number": 2,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第2集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            },
+            {
+              "danmaku": {
+                "available": true,
+                "tracks": [
+                  {
+                    "bindingId": "danmaku-b9592fba-2b76-4644-ad42-2160a23d2386",
+                    "source": "youku",
+                    "platform": "youku",
+                    "platformVideoId": "XNDI0NDQ2MzU3Mg==",
+                    "count": 13371,
+                    "enabled": true,
+                    "origin": "import"
+                  }
+                ],
+                "count": 13371
+              },
+              "episodeId": "x42-episode-3",
+              "number": 3,
+              "season": 1,
+              "title": {
+                "available": true,
+                "value": "第3集",
+                "source": {
+                  "source": "entity_attributes"
+                }
+              },
+              "still": {
+                "available": false,
+                "path": null,
+                "url": null,
+                "source": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "heat-after-migration",
+    "value": [
+      {
+        "episodeId": "x42-episode-1",
+        "workId": "x42-work",
+        "number": 1,
+        "season": 1,
+        "title": "第1集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "playable": false
+      },
+      {
+        "episodeId": "x42-episode-2",
+        "workId": "x42-work",
+        "number": 2,
+        "season": 1,
+        "title": "第2集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          0.8032786885245902,
+          0.5011709601873536,
+          0.6861826697892272,
+          0.7447306791569087,
+          0.6370023419203747,
+          0.7283372365339579,
+          0.7587822014051522,
+          0.45433255269320844,
+          0.7540983606557377,
+          0.6651053864168618,
+          0.7213114754098361,
+          0.5339578454332553,
+          0.6885245901639344,
+          0.7775175644028103,
+          0.667447306791569,
+          0.747072599531616,
+          0.5761124121779859,
+          0.7845433255269321,
+          0.5269320843091335,
+          0.7377049180327869,
+          0.7494145199063232,
+          0.6346604215456675,
+          0.639344262295082,
+          0.7728337236533958,
+          0.5831381733021077,
+          0.5995316159250585,
+          0.7704918032786885,
+          0.7259953161592506,
+          0.5550351288056206,
+          0.7166276346604216,
+          0.7213114754098361,
+          0.6440281030444965,
+          0.7213114754098361,
+          0.6182669789227166,
+          0.6651053864168618,
+          0.639344262295082,
+          0.65807962529274,
+          0.7892271662763466,
+          0.6370023419203747,
+          0.6557377049180327,
+          0.629976580796253,
+          0.6768149882903981,
+          0.8313817330210773,
+          0.5386416861826698,
+          0.7002341920374707,
+          0.6252927400468384,
+          0.5667447306791569,
+          1.0,
+          0.5245901639344263,
+          0.6487119437939111,
+          0.7213114754098361,
+          0.6182669789227166,
+          0.6978922716627635,
+          0.6416861826697893,
+          0.6908665105386417,
+          0.7728337236533958,
+          0.5784543325526932,
+          0.7377049180327869,
+          0.5971896955503513,
+          0.23185011709601874
+        ],
+        "playable": true
+      },
+      {
+        "episodeId": "x42-episode-3",
+        "workId": "x42-work",
+        "number": 3,
+        "season": 1,
+        "title": "第3集",
+        "runtimeMs": null,
+        "still": null,
+        "progress": null,
+        "heat": [
+          1.0,
+          0.45768025078369906,
+          0.7084639498432602,
+          0.7836990595611285,
+          0.7366771159874608,
+          0.64576802507837,
+          0.7147335423197492,
+          0.7115987460815048,
+          0.6394984326018809,
+          0.9341692789968652,
+          0.5391849529780565,
+          0.8150470219435737,
+          0.6677115987460815,
+          0.7115987460815048,
+          0.7554858934169278,
+          0.6426332288401254,
+          0.7115987460815048,
+          0.7147335423197492,
+          0.6990595611285266,
+          0.6865203761755486,
+          0.7241379310344828,
+          0.7931034482758621,
+          0.7241379310344828,
+          0.6614420062695925,
+          0.6677115987460815,
+          0.9373040752351097,
+          0.5705329153605015,
+          0.7554858934169278,
+          0.7053291536050157,
+          0.658307210031348,
+          0.9184952978056427,
+          0.4827586206896552,
+          0.6990595611285266,
+          0.7335423197492164,
+          0.7429467084639498,
+          0.8025078369905956,
+          0.5454545454545454,
+          0.7962382445141066,
+          0.7115987460815048,
+          0.768025078369906,
+          0.677115987460815,
+          0.7836990595611285,
+          0.5924764890282131,
+          0.780564263322884,
+          0.6489028213166145,
+          0.7899686520376176,
+          0.7178683385579937,
+          0.6175548589341693,
+          0.780564263322884,
+          0.7711598746081505,
+          0.6018808777429467,
+          0.7460815047021944,
+          0.6238244514106583,
+          0.9749216300940439,
+          0.64576802507837,
+          0.7899686520376176,
+          0.5987460815047022,
+          0.5830721003134797,
+          0.322884012539185,
+          0.19435736677115986
+        ],
+        "playable": true
+      }
+    ]
+  },
+  {
+    "label": "migration-comparison",
+    "value": {
+      "beforeBytes": 14761984,
+      "afterBytes": 311296,
+      "beforeCount": 30461,
+      "afterCount": 30461,
+      "allContentHashesUnchanged": true
+    }
+  },
+  {
+    "label": "prune-imports-preserved",
+    "value": {
+      "deferred": false,
+      "reclaimedBytes": 0,
+      "deletedPools": 0,
+      "remainingBytes": 0
+    }
+  },
+  {
+    "label": "after-prune",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-38c90776-cd7e-4b75-8107-e0e2239af1d8",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2279031,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:48.373427Z",
+          "file_path": "danmaku/f7ebba30f9cb8f8928e3414a16e118ec6abb88acc60ac5c49da51bc8830934ce.json",
+          "entry_count": 13371,
+          "byte_count": 4060405,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-651e61f8-5ec3-4705-acb5-87d091a69cc3",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 1001,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:53.113674Z",
+          "file_path": "danmaku/c2fe54917533ec6010aca48c00055eb76b50b16f0f309b37098e7fda9d0865c2.json",
+          "entry_count": 1,
+          "byte_count": 287,
+          "storage_kind": "imported"
+        },
+        {
+          "cache_key": "danmaku-import-6a15605a-2391-456f-99d5-7367ee25ca1b",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2879321,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:21:47.801050Z",
+          "file_path": "danmaku/74c152ca10c689e7ba8cb0c155b6576803c8d2c62880193307b1adf8721bd43d.json",
+          "entry_count": 17089,
+          "byte_count": 5190485,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 311296,
+      "fileBytes": 9251177,
+      "files": 3
+    }
+  },
+  {
+    "label": "sources-unchanged",
+    "value": {
+      "allHashesMatch": true
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "profileRemoved": true,
+      "ownedPids": [
+        33629,
+        34553,
+        36153
+      ],
+      "lastProcessExited": true
+    }
+  }
+]

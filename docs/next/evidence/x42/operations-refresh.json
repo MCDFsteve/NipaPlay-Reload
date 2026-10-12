@@ -1,0 +1,214 @@
+[
+  {
+    "label": "instance-refresh-only",
+    "value": {
+      "profile": "x42-refresh-43998",
+      "pid": 44000,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x42-danmaku-files/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "startupSeconds": 2.1621957919560373
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/harness/records/pool.json",
+        "platform": "fixture",
+        "platformVideoId": "refresh"
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+        "revision": 0,
+        "count": 1,
+        "loaded": false,
+        "provenance": {
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:24:39.538039Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/harness/records/pool.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "input": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4"
+      },
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "status": "playing",
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4",
+          "seriesTitle": "refresh",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 300000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "refresh-first-loaded",
+    "value": {
+      "tracks": [
+        {
+          "kind": "danmaku",
+          "origin": "agent_import",
+          "trackId": "next:danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+          "bindingId": "danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+          "source": "fixture",
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "filePath": null,
+          "count": 1,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "label": "danmaku.import",
+    "value": {
+      "input": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4",
+        "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/harness/records/pool.json",
+        "platform": "fixture",
+        "platformVideoId": "refresh"
+      },
+      "status": "completed",
+      "result": {
+        "bindingId": "danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+        "revision": 1,
+        "count": 2,
+        "loaded": true,
+        "provenance": {
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "actor": "agent",
+          "origin": "harness_cli",
+          "importedAt": "2026-10-12T16:24:40.923804Z",
+          "filePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/harness/records/pool.json",
+          "note": null
+        }
+      }
+    }
+  },
+  {
+    "label": "refresh-current-state",
+    "value": {
+      "state": {
+        "player": "internal",
+        "volume": 0.0,
+        "brightness": null,
+        "status": "playing",
+        "hasVideo": true,
+        "paused": false,
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x42-refresh-43998/data/media/refresh.mp4",
+        "seriesTitle": "refresh",
+        "episodeTitle": null,
+        "animeId": null,
+        "episodeId": null,
+        "positionMs": 0,
+        "durationMs": 300000,
+        "rate": 1.0,
+        "canPrevious": true,
+        "canNext": true
+      }
+    }
+  },
+  {
+    "label": "refresh-second-loaded",
+    "value": {
+      "tracks": [
+        {
+          "kind": "danmaku",
+          "origin": "agent_import",
+          "trackId": "next:danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+          "bindingId": "danmaku-73d37fb8-f468-4058-88d7-c5357a602fa9",
+          "source": "fixture",
+          "platform": "fixture",
+          "platformVideoId": "refresh",
+          "filePath": null,
+          "count": 2,
+          "enabled": true
+        }
+      ]
+    }
+  },
+  {
+    "label": "refresh-files",
+    "value": {
+      "rows": [
+        {
+          "cache_key": "danmaku-import-8859f979-89a8-431c-9004-6740ed8937ab",
+          "chunk_index": 0,
+          "start_ms": 0,
+          "end_ms": 2001,
+          "payload": "[]",
+          "coverage": "importedPool",
+          "fetched_at": "2026-10-12T16:24:40.923804Z",
+          "file_path": "danmaku/eb88375089febc8db8aa3c0c533cdefa48b4159818afbacd1e59eca15fb0236f.json",
+          "entry_count": 2,
+          "byte_count": 533,
+          "storage_kind": "imported"
+        }
+      ],
+      "databaseBytes": 303104,
+      "fileBytes": 533,
+      "files": 1
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "profileRemoved": true,
+      "ownedPids": [
+        44000
+      ],
+      "lastProcessExited": true
+    }
+  }
+]
