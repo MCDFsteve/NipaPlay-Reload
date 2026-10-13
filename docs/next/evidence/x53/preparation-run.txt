@@ -1,0 +1,22 @@
+licensed-input
+gui-instance
+test-account-enrollment
+headless-instance
+gui-details
+gui-persisted-identity
+gui-online-danmaku-search
+gui-prepared-danmaku
+gui-saved-tracks
+gui-saved-metadata
+headless-details
+headless-persisted-identity
+danmaku.search-failure
+observation-stopped
+owned-instances-removed
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/scripts/next/x53_online_experiment.py", line 143, in <module>
+    online = call(data, 'danmaku.search', {'sourceId': 'dandanplay', 'query': '大雄兔'})
+             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/scripts/next/x53_online_experiment.py", line 58, in call
+    raise RuntimeError('action did not complete: ' + action)
+RuntimeError: action did not complete: danmaku.search

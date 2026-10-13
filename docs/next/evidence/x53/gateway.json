@@ -1,0 +1,851 @@
+[
+  {
+    "label": "fixture-input",
+    "value": {
+      "type": "syntheticGateway",
+      "videoLicense": "CC BY 3.0",
+      "commentLicense": "CC0",
+      "publicPoolClaimed": false,
+      "bytes": 64657027,
+      "sha256": "f78f39603e6774907f2faafabf26a667f4a6fc31769ec304a8a8f7c62d280508"
+    }
+  },
+  {
+    "label": "gui-instance",
+    "value": {
+      "pid": 8655,
+      "windowId": 60082,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "windowTitle": "NipaPlay · LAB [x53-gateway-8626]",
+      "viewId": 1,
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/macos/Build/Products/Debug/NipaPlay.app",
+      "experimentalProfile": true,
+      "profileName": "x53-gateway-8626",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "label": "gui-hash-match",
+    "value": {
+      "files": [
+        {
+          "index": 0,
+          "fileId": null,
+          "path": "/private/tmp/nipa-next/x53-gateway-bybjuijp/media/BigBuckBunny.mp4",
+          "headMd5": "660f9b30903922b42135b6430e88d5ca",
+          "candidates": [
+            {
+              "ref": {
+                "provider": "dandanplay",
+                "objectType": "anime",
+                "externalId": "42",
+                "scope": ""
+              },
+              "title": "Big Buck Bunny (X53 synthetic catalog)",
+              "kind": "anime",
+              "originalTitle": null,
+              "overview": null,
+              "imageUrl": null,
+              "year": null,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "provider",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T11:51:27.003087Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "dandanplay",
+                    "objectType": "episode",
+                    "externalId": "4201",
+                    "scope": "anime/42"
+                  },
+                  "title": "Full film (fixture)",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": null,
+                  "imageUrl": null,
+                  "year": null,
+                  "number": "1",
+                  "season": null,
+                  "episodeType": "regular",
+                  "order": "provider",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-13T11:51:27.002817Z",
+                  "episodes": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "gui-identity",
+    "value": {
+      "entries": [
+        {
+          "index": 0,
+          "workId": "work-7f593fa2f5a8e09a783a55a5c83b06063312dd669bfc643a044bc6a40d188f19",
+          "releaseId": "release-7f593fa2f5a8e09a783a55a5c83b06063312dd669bfc643a044bc6a40d188f19",
+          "episodeIds": [
+            "episode-48ac14087228ba66eee02894b20b3765b61beb92756e7fd7b7aef222f49d4578"
+          ],
+          "fileId": "file-bf1ffc9f-5d08-4541-a28e-48f0ce20aa3d",
+          "classicProjectionId": "projection-a2e5a0072994ba84cc6bc0e319f829b02b9e3be54bdb840fc9d37745e99bee83",
+          "bindingIds": [
+            "binding-74399979cd5d7b25065187a38c6499179e6b3d4ee62eae4864b312d67c4e755c",
+            "binding-6f2c324e570994715b0a1cfb5d1a3d3c2edb4efb5657181738f82c8f1ba207e8",
+            "binding-9682e84a05e6d0a51478b83214727e3fe5580c53739cb0c2c02ae68d8173790b",
+            "binding-18465a9ea8d0365c7f87a8006c18147bb90e8334cd017550a5707792dcc6f060"
+          ],
+          "classicProjection": [
+            {
+              "locator": "/private/tmp/nipa-next/x53-gateway-bybjuijp/media/BigBuckBunny.mp4",
+              "status": "written",
+              "restored": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "gui-online-search",
+    "value": {
+      "results": [
+        {
+          "sourceId": "dandanplay",
+          "videoId": "4201",
+          "title": "Big Buck Bunny (X53 synthetic catalog) · Full film (fixture)",
+          "durationMs": 0,
+          "objectType": "episode"
+        }
+      ]
+    }
+  },
+  {
+    "label": "gui-attach",
+    "value": {
+      "atomic": false,
+      "entries": [
+        {
+          "index": 0,
+          "status": "completed",
+          "result": {
+            "bindingId": "danmaku-c5e6f5cf-0818-4fdf-a5f0-c2eb96ae1537",
+            "jobId": "danmaku-fetch-2eeb049bb3a3d1d119e4b3f564159337a716b32a431fb968b9c01333834b1d18"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "gui-fetch-receipt",
+    "value": {
+      "jobId": "danmaku-fetch-2eeb049bb3a3d1d119e4b3f564159337a716b32a431fb968b9c01333834b1d18",
+      "type": "danmaku.fetch",
+      "title": "Fetch dandanplay danmaku",
+      "state": "succeeded",
+      "phase": "verify",
+      "progress": {
+        "completed": 1,
+        "total": 1,
+        "unit": "chunks"
+      },
+      "createdAt": "2026-10-13T11:51:30.536493Z",
+      "updatedAt": "2026-10-13T11:51:30.868976Z",
+      "ownerDeviceId": "device-e19c581a6c8f98cc1b8538706a67537c",
+      "revision": 7,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "sourceId": "dandanplay",
+          "videoId": "4201",
+          "cacheKey": "danmaku-cache-ca0014b784d4bf27b071133d2d27ec5bce8fdc9254c3d8302524a6c52ae96ff4",
+          "status": "complete",
+          "complete": true,
+          "localRangeComplete": true,
+          "localDurationMs": null,
+          "outOfRangeFailures": [],
+          "loaded": false,
+          "requestedRange": {
+            "startMs": 0,
+            "endMs": 596458
+          },
+          "coverageMeaning": "relatedPool",
+          "historyComplete": false,
+          "completedChunks": [
+            0
+          ],
+          "missingChunks": [],
+          "failures": [],
+          "alignmentVerified": false,
+          "verificationMeaning": "Response structure, requested pool coverage and cache readback; platform completeness and semantic matching remain unverified.",
+          "partial": false,
+          "rawCount": 2,
+          "cachedUniqueCount": 2,
+          "bindingId": "danmaku-c5e6f5cf-0818-4fdf-a5f0-c2eb96ae1537"
+        }
+      }
+    }
+  },
+  {
+    "label": "gui-tracks",
+    "value": {
+      "tracks": [
+        {
+          "origin": "binding",
+          "source": "dandanplay",
+          "platform": "dandanplay",
+          "platformVideoId": "4201",
+          "bindingId": "danmaku-c5e6f5cf-0818-4fdf-a5f0-c2eb96ae1537",
+          "entityId": "file-bf1ffc9f-5d08-4541-a28e-48f0ce20aa3d",
+          "revision": 0,
+          "status": "accepted",
+          "stale": false,
+          "video": {
+            "sourceId": "dandanplay",
+            "videoId": "4201",
+            "title": "Big Buck Bunny (X53 synthetic catalog) · Full film (fixture)",
+            "durationMs": 596458,
+            "objectType": "episode"
+          },
+          "enabled": true,
+          "deduplicate": true,
+          "offsetMs": 0,
+          "alignment": {
+            "method": "identity",
+            "confirmed": false
+          },
+          "evidence": {
+            "reason": "Acquire experimenter-authored CC0 comments from the temporary gateway.",
+            "url": null
+          },
+          "boundBy": "agent",
+          "cacheKey": "danmaku-cache-ca0014b784d4bf27b071133d2d27ec5bce8fdc9254c3d8302524a6c52ae96ff4",
+          "loaded": false,
+          "coverage": [
+            {
+              "chunk_index": 0,
+              "start_ms": 0,
+              "end_ms": 596458,
+              "coverage": "relatedPool",
+              "fetched_at": "2026-10-13T11:51:30.833104Z",
+              "file_path": "danmaku/6de2c601ef5c43014352d810adb55f877c70396df6420529bd3fa19be5aa56d0.json",
+              "entry_count": 2,
+              "byte_count": 577,
+              "storage_kind": "cache"
+            }
+          ],
+          "displayFold": true,
+          "bindingIds": [
+            "danmaku-c5e6f5cf-0818-4fdf-a5f0-c2eb96ae1537"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "gui-metadata",
+    "value": {
+      "identity": {
+        "id": "file-bf1ffc9f-5d08-4541-a28e-48f0ce20aa3d",
+        "kind": "file",
+        "parentId": null,
+        "revision": 0,
+        "bindingRevision": 1,
+        "metadata": [
+          {
+            "field": "title",
+            "value": "Full film (fixture)",
+            "provider": "dandanplay",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-13T11:51:27.455519Z",
+            "invocationId": "inv-1791892287010499-10",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "Full film (fixture)"
+          },
+          "provenance": {
+            "title": {
+              "provider": "dandanplay",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T11:51:27.455519Z",
+              "recordedAt": "2026-10-13T11:51:27.455519Z",
+              "snapshotId": "snapshot-dc721873a5d73619483398deed603319232e537b3e67c1af7e57926a53c17dee",
+              "entityId": "file-bf1ffc9f-5d08-4541-a28e-48f0ce20aa3d",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791892287010499-10"
+            }
+          },
+          "ratings": []
+        },
+        "bindings": [
+          {
+            "bindingId": "binding-18465a9ea8d0365c7f87a8006c18147bb90e8334cd017550a5707792dcc6f060",
+            "ref": {
+              "provider": "dandanplay",
+              "objectType": "episode",
+              "externalId": "4201",
+              "scope": "anime/42"
+            },
+            "relation": "exact",
+            "scope": {
+              "order": "provider",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "1"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 1,
+            "invocationId": "inv-1791892287010499-10",
+            "jobId": null,
+            "createdAt": "2026-10-13T11:51:30.228609Z"
+          }
+        ],
+        "locations": [
+          {
+            "locationId": "location-d36137ec-41bd-407d-b896-62c820569b2d",
+            "source": "local",
+            "ownerDeviceId": "device-e19c581a6c8f98cc1b8538706a67537c",
+            "locator": "/private/tmp/nipa-next/x53-gateway-bybjuijp/media/BigBuckBunny.mp4",
+            "available": true
+          }
+        ],
+        "episodes": [
+          {
+            "episodeId": "episode-48ac14087228ba66eee02894b20b3765b61beb92756e7fd7b7aef222f49d4578",
+            "relation": "exact",
+            "ordinal": 0,
+            "startMs": null,
+            "endMs": null
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "evidence-733ed843-a836-4f9d-90ac-f952668c50fd",
+            "bindingId": "binding-18465a9ea8d0365c7f87a8006c18147bb90e8334cd017550a5707792dcc6f060",
+            "source": "explicit_binding",
+            "event": "bind",
+            "reason": "Explicit X53 synthetic catalog binding on licensed bytes.",
+            "evidence": [],
+            "boundBy": "agent",
+            "invocationId": "inv-1791892287010499-10",
+            "origin": "harness_cli",
+            "fileRevision": 0,
+            "probe": {
+              "size": 64657027,
+              "modifiedAt": "2026-10-13T11:51:22.147Z",
+              "headMd5": "660f9b30903922b42135b6430e88d5ca",
+              "durationMs": 596458,
+              "subtitles": []
+            }
+          }
+        ],
+        "legacyEvidence": [
+          {
+            "locationId": "location-d36137ec-41bd-407d-b896-62c820569b2d",
+            "animeId": 42,
+            "episodeId": 4201,
+            "animeName": "Big Buck Bunny (X53 synthetic catalog)",
+            "episodeTitle": "Full film (fixture)",
+            "videoHash": null,
+            "provenance": "legacy_unknown"
+          }
+        ],
+        "classicObservations": [
+          {
+            "observationId": "classic-observation-fc0e0ea5-be1e-4cd4-9879-5628a0e131d8",
+            "locationId": "location-d36137ec-41bd-407d-b896-62c820569b2d",
+            "current": true,
+            "observedAt": "2026-10-13T11:51:30.295061Z",
+            "bindingId": null,
+            "animeId": 42,
+            "episodeId": 4201,
+            "animeName": "Big Buck Bunny (X53 synthetic catalog)",
+            "episodeTitle": "Full film (fixture)",
+            "videoHash": null,
+            "provenance": "next_projection_readback"
+          }
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "label": "headless-instance",
+    "value": {
+      "pid": 8781,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/headless/nipaplay-headless",
+      "appBundlePath": null,
+      "windowTitle": null,
+      "windowId": null,
+      "viewId": null,
+      "experimentalProfile": false,
+      "profileName": null,
+      "version": "1.11.10-headless"
+    }
+  },
+  {
+    "label": "headless-hash-match",
+    "value": {
+      "files": [
+        {
+          "index": 0,
+          "fileId": null,
+          "path": "/private/tmp/nipa-next/x53-gateway-bybjuijp/media/BigBuckBunny.mp4",
+          "headMd5": "660f9b30903922b42135b6430e88d5ca",
+          "candidates": [
+            {
+              "ref": {
+                "provider": "dandanplay",
+                "objectType": "anime",
+                "externalId": "42",
+                "scope": ""
+              },
+              "title": "Big Buck Bunny (X53 synthetic catalog)",
+              "kind": "anime",
+              "originalTitle": null,
+              "overview": null,
+              "imageUrl": null,
+              "year": null,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "provider",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T11:51:31.061218Z",
+              "episodes": [
+                {
+                  "ref": {
+                    "provider": "dandanplay",
+                    "objectType": "episode",
+                    "externalId": "4201",
+                    "scope": "anime/42"
+                  },
+                  "title": "Full film (fixture)",
+                  "kind": "episode",
+                  "originalTitle": null,
+                  "overview": null,
+                  "imageUrl": null,
+                  "year": null,
+                  "number": "1",
+                  "season": null,
+                  "episodeType": "regular",
+                  "order": "provider",
+                  "language": "zh-CN",
+                  "fetchedAt": "2026-10-13T11:51:31.061218Z",
+                  "episodes": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-identity",
+    "value": {
+      "entries": [
+        {
+          "index": 0,
+          "workId": "work-7f593fa2f5a8e09a783a55a5c83b06063312dd669bfc643a044bc6a40d188f19",
+          "releaseId": "release-7f593fa2f5a8e09a783a55a5c83b06063312dd669bfc643a044bc6a40d188f19",
+          "episodeIds": [
+            "episode-48ac14087228ba66eee02894b20b3765b61beb92756e7fd7b7aef222f49d4578"
+          ],
+          "fileId": "file-9205b3d7-0023-4e23-afd6-28a5fbb7d94c",
+          "classicProjectionId": "projection-dab3cb5cb56377f734de83e77fa2287660c13141eab4c1980db1c434a59f3687",
+          "bindingIds": [
+            "binding-74399979cd5d7b25065187a38c6499179e6b3d4ee62eae4864b312d67c4e755c",
+            "binding-6f2c324e570994715b0a1cfb5d1a3d3c2edb4efb5657181738f82c8f1ba207e8",
+            "binding-9682e84a05e6d0a51478b83214727e3fe5580c53739cb0c2c02ae68d8173790b",
+            "binding-81ce4af00a8f288cc521844e3345c59b8ac48bc548d12091c6c38869b584d588"
+          ],
+          "classicProjection": [
+            {
+              "status": "not_applicable",
+              "reason": "This host has no Classic history; Next identity and metadata are persisted."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-online-search",
+    "value": {
+      "results": [
+        {
+          "sourceId": "dandanplay",
+          "videoId": "4201",
+          "title": "Big Buck Bunny (X53 synthetic catalog) · Full film (fixture)",
+          "durationMs": 0,
+          "objectType": "episode"
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-attach",
+    "value": {
+      "atomic": false,
+      "entries": [
+        {
+          "index": 0,
+          "status": "completed",
+          "result": {
+            "bindingId": "danmaku-e6111e8f-88f6-4004-870d-007670875789",
+            "jobId": "danmaku-fetch-caf57fa82407137b9f337767b958959fb7b506d237e1eb5f9c51d232168f5c13"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-fetch-receipt",
+    "value": {
+      "jobId": "danmaku-fetch-caf57fa82407137b9f337767b958959fb7b506d237e1eb5f9c51d232168f5c13",
+      "type": "danmaku.fetch",
+      "title": "Fetch dandanplay danmaku",
+      "state": "succeeded",
+      "phase": "verify",
+      "progress": {
+        "completed": 1,
+        "total": 1,
+        "unit": "chunks"
+      },
+      "createdAt": "2026-10-13T11:51:31.497165Z",
+      "updatedAt": "2026-10-13T11:51:31.804185Z",
+      "ownerDeviceId": "device-a44486a945039cf4d11140160fef2ec2",
+      "revision": 7,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "sourceId": "dandanplay",
+          "videoId": "4201",
+          "cacheKey": "danmaku-cache-ca0014b784d4bf27b071133d2d27ec5bce8fdc9254c3d8302524a6c52ae96ff4",
+          "status": "complete",
+          "complete": true,
+          "localRangeComplete": true,
+          "localDurationMs": null,
+          "outOfRangeFailures": [],
+          "loaded": false,
+          "requestedRange": {
+            "startMs": 0,
+            "endMs": 596458
+          },
+          "coverageMeaning": "relatedPool",
+          "historyComplete": false,
+          "completedChunks": [
+            0
+          ],
+          "missingChunks": [],
+          "failures": [],
+          "alignmentVerified": false,
+          "verificationMeaning": "Response structure, requested pool coverage and cache readback; platform completeness and semantic matching remain unverified.",
+          "partial": false,
+          "rawCount": 2,
+          "cachedUniqueCount": 2,
+          "bindingId": "danmaku-e6111e8f-88f6-4004-870d-007670875789"
+        }
+      }
+    }
+  },
+  {
+    "label": "headless-tracks",
+    "value": {
+      "tracks": [
+        {
+          "origin": "binding",
+          "source": "dandanplay",
+          "platform": "dandanplay",
+          "platformVideoId": "4201",
+          "bindingId": "danmaku-e6111e8f-88f6-4004-870d-007670875789",
+          "entityId": "file-9205b3d7-0023-4e23-afd6-28a5fbb7d94c",
+          "revision": 0,
+          "status": "accepted",
+          "stale": false,
+          "video": {
+            "sourceId": "dandanplay",
+            "videoId": "4201",
+            "title": "Big Buck Bunny (X53 synthetic catalog) · Full film (fixture)",
+            "durationMs": 596458,
+            "objectType": "episode"
+          },
+          "enabled": true,
+          "deduplicate": true,
+          "offsetMs": 0,
+          "alignment": {
+            "method": "identity",
+            "confirmed": false
+          },
+          "evidence": {
+            "reason": "Acquire experimenter-authored CC0 comments from the temporary gateway.",
+            "url": null
+          },
+          "boundBy": "agent",
+          "cacheKey": "danmaku-cache-ca0014b784d4bf27b071133d2d27ec5bce8fdc9254c3d8302524a6c52ae96ff4",
+          "loaded": false,
+          "coverage": [
+            {
+              "chunk_index": 0,
+              "start_ms": 0,
+              "end_ms": 596458,
+              "coverage": "relatedPool",
+              "fetched_at": "2026-10-13T11:51:31.799137Z",
+              "file_path": "danmaku/6de2c601ef5c43014352d810adb55f877c70396df6420529bd3fa19be5aa56d0.json",
+              "entry_count": 2,
+              "byte_count": 577,
+              "storage_kind": "cache"
+            }
+          ],
+          "displayFold": true,
+          "bindingIds": [
+            "danmaku-e6111e8f-88f6-4004-870d-007670875789"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-metadata",
+    "value": {
+      "identity": {
+        "id": "file-9205b3d7-0023-4e23-afd6-28a5fbb7d94c",
+        "kind": "file",
+        "parentId": null,
+        "revision": 0,
+        "bindingRevision": 1,
+        "metadata": [
+          {
+            "field": "title",
+            "value": "Full film (fixture)",
+            "provider": "dandanplay",
+            "source": "provider_snapshot",
+            "language": "zh-CN",
+            "fetchedAt": "2026-10-13T11:51:31.314169Z",
+            "invocationId": "inv-1791892291062932-2",
+            "actor": null,
+            "origin": "harness_cli",
+            "mode": null
+          }
+        ],
+        "metadataView": {
+          "fields": {
+            "title": "Full film (fixture)"
+          },
+          "provenance": {
+            "title": {
+              "provider": "dandanplay",
+              "source": "provider_snapshot",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T11:51:31.314169Z",
+              "recordedAt": "2026-10-13T11:51:31.314169Z",
+              "snapshotId": "snapshot-5c3a43fc35c067c12dae3e707d2cfa4f61440b5a2ed3fd66298c9c462d0b829f",
+              "entityId": "file-9205b3d7-0023-4e23-afd6-28a5fbb7d94c",
+              "actor": null,
+              "origin": "harness_cli",
+              "invocationId": "inv-1791892291062932-2"
+            }
+          },
+          "ratings": []
+        },
+        "bindings": [
+          {
+            "bindingId": "binding-81ce4af00a8f288cc521844e3345c59b8ac48bc548d12091c6c38869b584d588",
+            "ref": {
+              "provider": "dandanplay",
+              "objectType": "episode",
+              "externalId": "4201",
+              "scope": "anime/42"
+            },
+            "relation": "exact",
+            "scope": {
+              "order": "provider",
+              "season": null,
+              "cour": null,
+              "numbers": [
+                "1"
+              ],
+              "startMs": null,
+              "endMs": null
+            },
+            "status": "accepted",
+            "source": "explicit_binding",
+            "boundBy": "agent",
+            "revision": 1,
+            "invocationId": "inv-1791892291062932-2",
+            "jobId": null,
+            "createdAt": "2026-10-13T11:51:31.485470Z"
+          }
+        ],
+        "locations": [
+          {
+            "locationId": "location-c83961b3-b523-4683-8c72-23da869f23aa",
+            "source": "local",
+            "ownerDeviceId": "device-a44486a945039cf4d11140160fef2ec2",
+            "locator": "/private/tmp/nipa-next/x53-gateway-bybjuijp/media/BigBuckBunny.mp4",
+            "available": true
+          }
+        ],
+        "episodes": [
+          {
+            "episodeId": "episode-48ac14087228ba66eee02894b20b3765b61beb92756e7fd7b7aef222f49d4578",
+            "relation": "exact",
+            "ordinal": 0,
+            "startMs": null,
+            "endMs": null
+          }
+        ],
+        "evidence": [
+          {
+            "evidenceId": "evidence-b0aee498-f771-4c34-b284-6f2f11f60fff",
+            "bindingId": "binding-81ce4af00a8f288cc521844e3345c59b8ac48bc548d12091c6c38869b584d588",
+            "source": "explicit_binding",
+            "event": "bind",
+            "reason": "Explicit X53 synthetic catalog binding on licensed bytes.",
+            "evidence": [],
+            "boundBy": "agent",
+            "invocationId": "inv-1791892291062932-2",
+            "origin": "harness_cli",
+            "fileRevision": 0,
+            "probe": {
+              "size": 64657027,
+              "modifiedAt": "2026-10-13T11:51:22.147Z",
+              "headMd5": "660f9b30903922b42135b6430e88d5ca",
+              "durationMs": 596458,
+              "subtitles": []
+            }
+          }
+        ],
+        "legacyEvidence": [],
+        "classicObservations": [],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "label": "comparison",
+    "value": {
+      "identityEqual": true,
+      "fetchSucceededBoth": true,
+      "note": "Different local file/binding/job IDs are expected; compare comments/count/coverage in track and task receipts."
+    }
+  },
+  {
+    "label": "gateway-requests",
+    "value": [
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/1",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/shin",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/trending/all/hot/week",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/trending/all/hot/week",
+        "expectedCredential": true
+      },
+      {
+        "method": "POST",
+        "path": "/dandanplay/api/v2/match",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/42",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/shin",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/search/episodes",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/comment/4201",
+        "expectedCredential": true
+      },
+      {
+        "method": "POST",
+        "path": "/dandanplay/api/v2/match",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/42",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/search/episodes",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/comment/4201",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/shin",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/shin",
+        "expectedCredential": true
+      },
+      {
+        "method": "GET",
+        "path": "/dandanplay/api/v2/bangumi/42",
+        "expectedCredential": true
+      }
+    ]
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pids": [
+        8655,
+        8781
+      ],
+      "guiRemoved": true,
+      "headlessRemoved": true,
+      "gatewayStopped": true
+    }
+  }
+]
