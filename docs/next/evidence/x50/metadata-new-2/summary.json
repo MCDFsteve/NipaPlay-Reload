@@ -1,0 +1,99 @@
+{
+  "version": "new",
+  "task": "metadata",
+  "repeat": 2,
+  "prompt": "好，把《莉可丽丝：友谊是时间的窃贼》的中文简介补上吧。",
+  "seedBytes": 8669,
+  "seedSha256": "d157e17d35c8ccb0d9f6906caca6b61781d2fd41a33666aa777af52ff8a53d6b",
+  "injectedBytes": 9118,
+  "header": {
+    "sessionId": "nipa-1791888170571868-148827a9",
+    "threadId": "01a134db-a133-7980-8e84-f554b25e8650",
+    "mainThreadId": "01a134db-a133-7980-8e84-f554b25e8650",
+    "model": "deepseek-v4.1-flash",
+    "provider": "cpa",
+    "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-metadata-new-2-28017/harness"
+  },
+  "fixture": {
+    "workId": "work-b67dda8597b5c8b256fb342946b1a999e86c1ce863e6198b761e99d249e34f89",
+    "basis": "Live verified Bangumi 504950 catalogue; no user data or video files."
+  },
+  "seconds": 80.486,
+  "naturalEnd": true,
+  "finalState": {
+    "header": {
+      "sessionId": "nipa-1791888170571868-148827a9",
+      "threadId": "01a134db-a133-7980-8e84-f554b25e8650",
+      "mainThreadId": "01a134db-a133-7980-8e84-f554b25e8650",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-metadata-new-2-28017/harness"
+    },
+    "liveness": {
+      "turnId": "01a134db-b016-78a3-913a-207572b98f93",
+      "startedAt": "2026-10-13T10:42:55.126099Z",
+      "endedAt": "2026-10-13T10:44:15.578709Z",
+      "lastEventAt": "2026-10-13T10:44:15.578709Z",
+      "lastContentAt": "2026-10-13T10:44:15.517833Z",
+      "status": "completed",
+      "elapsedMs": 80452,
+      "lastEventAgoMs": 31,
+      "lastContentAgoMs": 92,
+      "hasContent": true,
+      "eventCount": 690,
+      "contentCount": 452,
+      "reasoningDeltaCount": 143,
+      "latestError": null
+    },
+    "threads": {
+      "01a134db-a133-7980-8e84-f554b25e8650": {
+        "turnId": "01a134db-b016-78a3-913a-207572b98f93",
+        "startedAt": "2026-10-13T10:42:55.126099Z",
+        "endedAt": "2026-10-13T10:44:15.578709Z",
+        "lastEventAt": "2026-10-13T10:44:15.578709Z",
+        "lastContentAt": "2026-10-13T10:44:15.517833Z",
+        "status": "completed",
+        "elapsedMs": 80452,
+        "lastEventAgoMs": 31,
+        "lastContentAgoMs": 92,
+        "hasContent": true,
+        "eventCount": 690,
+        "contentCount": 452,
+        "reasoningDeltaCount": 143,
+        "latestError": null
+      }
+    },
+    "environment": {
+      "PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sakiko/.codex/tmp/arg0/codex-arg0yWvnv2:/Users/sakiko/.local/bin:/Users/sakiko/.mimocode/bin:/opt/homebrew/share/google-cloud-sdk/bin:/Users/sakiko/.antigravity/antigravity/bin:/Users/admin/Documents/JDK/jdk-17.0.12.jdk/Contents/Home/bin:/Users/sakiko/development/flutter/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/sakiko/.cargo/bin",
+      "HTTP_PROXY": "http://127.0.0.1:7897",
+      "HTTPS_PROXY": "http://127.0.0.1:7897",
+      "NO_PROXY": "127.0.0.1,localhost,cpa.shinokawa.top",
+      "CODEX_HOME": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-metadata-new-2-28017/codex-home",
+      "TMPDIR": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-metadata-new-2-28017/temp",
+      "NIPAPLAY_CHAT": "nipa-1791888170571868-148827a9"
+    }
+  },
+  "usageByThread": {
+    "rollout-2026-10-13T18-42-51-01a134db-a133-7980-8e84-f554b25e8650": {
+      "inputTokens": 1895828,
+      "cachedInputTokens": 1854464,
+      "outputTokens": 5647,
+      "reasoningOutputTokens": 2245,
+      "totalTokens": 1901475
+    }
+  },
+  "usage": {
+    "inputTokens": 1895828,
+    "cachedInputTokens": 1854464,
+    "outputTokens": 5647,
+    "reasoningOutputTokens": 2245,
+    "totalTokens": 1901475
+  },
+  "cacheHitRate": 0.9781815649942928,
+  "turns": 1,
+  "modelResponses": 16,
+  "complete": null,
+  "codexConfigUnchanged": true,
+  "codexConfigHasProjectTrust": false,
+  "agentsInRollout": true
+}

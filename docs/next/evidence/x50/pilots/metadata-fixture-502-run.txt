@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x50-seed/scripts/next/x50_experiment.py", line 304, in <module>
+    run(args.version, args.task, args.repeat, args.deadline)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x50-seed/scripts/next/x50_experiment.py", line 165, in run
+    bound = call('media.identity.bind_batch', {'requestId': label + '-fixture', 'entries': [
+        {'kind': 'release', 'workRef': ref, 'reason': 'X50 isolated public catalogue fixture, verified Bangumi 504950'}]})
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x50-seed/scripts/next/x50_experiment.py", line 140, in call
+    assert value['status'] == 'completed', REDACT(value, secrets)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'status': 'failed', 'error': {'code': 'unavailable', 'message': 'bangumi: Provider returned HTTP 502; host=api.bgm.tv; path=/v0/episodes; content-type=text/html Retry after 2026-10-13T10:59:49.588443Z.', 'retryable': True}}

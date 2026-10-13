@@ -1,0 +1,110 @@
+{
+  "version": "new",
+  "task": "trust",
+  "repeat": 3,
+  "prompt": "不调用任何工具，告诉我本次实验种子代号和会话 hook 给出的代号。",
+  "seedBytes": 8669,
+  "seedSha256": "d157e17d35c8ccb0d9f6906caca6b61781d2fd41a33666aa777af52ff8a53d6b",
+  "injectedBytes": 9169,
+  "header": {
+    "sessionId": "nipa-1791888222810878-a0aa4374",
+    "threadId": "01a134dc-6c61-7cb2-8ef4-5b258c6dc418",
+    "mainThreadId": "01a134dc-6c61-7cb2-8ef4-5b258c6dc418",
+    "model": "deepseek-v4.1-flash",
+    "provider": "cpa",
+    "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-trust-new-3-31734/harness"
+  },
+  "seconds": 4.035,
+  "naturalEnd": true,
+  "finalState": {
+    "header": {
+      "sessionId": "nipa-1791888222810878-a0aa4374",
+      "threadId": "01a134dc-6c61-7cb2-8ef4-5b258c6dc418",
+      "mainThreadId": "01a134dc-6c61-7cb2-8ef4-5b258c6dc418",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-trust-new-3-31734/harness"
+    },
+    "liveness": {
+      "turnId": "01a134dc-79e9-79f0-902c-cf10dffe2f40",
+      "startedAt": "2026-10-13T10:43:46.792624Z",
+      "endedAt": "2026-10-13T10:43:50.414421Z",
+      "lastEventAt": "2026-10-13T10:43:50.414421Z",
+      "lastContentAt": "2026-10-13T10:43:50.272206Z",
+      "status": "completed",
+      "elapsedMs": 3621,
+      "lastEventAgoMs": 410,
+      "lastContentAgoMs": 552,
+      "hasContent": true,
+      "eventCount": 53,
+      "contentCount": 33,
+      "reasoningDeltaCount": 4,
+      "latestError": null
+    },
+    "threads": {
+      "01a134dc-6c61-7cb2-8ef4-5b258c6dc418": {
+        "turnId": "01a134dc-79e9-79f0-902c-cf10dffe2f40",
+        "startedAt": "2026-10-13T10:43:46.792624Z",
+        "endedAt": "2026-10-13T10:43:50.414421Z",
+        "lastEventAt": "2026-10-13T10:43:50.414421Z",
+        "lastContentAt": "2026-10-13T10:43:50.272206Z",
+        "status": "completed",
+        "elapsedMs": 3621,
+        "lastEventAgoMs": 410,
+        "lastContentAgoMs": 552,
+        "hasContent": true,
+        "eventCount": 53,
+        "contentCount": 33,
+        "reasoningDeltaCount": 4,
+        "latestError": null
+      }
+    },
+    "environment": {
+      "PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/opt/homebrew/lib/node_modules/@openai/codex/node_modules/@openai/codex-darwin-arm64/vendor/aarch64-apple-darwin/codex-path:/Users/sakiko/.codex/tmp/arg0/codex-arg0yWvnv2:/Users/sakiko/.local/bin:/Users/sakiko/.mimocode/bin:/opt/homebrew/share/google-cloud-sdk/bin:/Users/sakiko/.antigravity/antigravity/bin:/Users/admin/Documents/JDK/jdk-17.0.12.jdk/Contents/Home/bin:/Users/sakiko/development/flutter/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/sakiko/.cargo/bin",
+      "HTTP_PROXY": "http://127.0.0.1:7897",
+      "HTTPS_PROXY": "http://127.0.0.1:7897",
+      "NO_PROXY": "127.0.0.1,localhost,cpa.shinokawa.top",
+      "CODEX_HOME": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-trust-new-3-31734/codex-home",
+      "TMPDIR": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x50-trust-new-3-31734/temp",
+      "NIPAPLAY_CHAT": "nipa-1791888222810878-a0aa4374"
+    }
+  },
+  "usageByThread": {
+    "rollout-2026-10-13T18-43-43-01a134dc-6c61-7cb2-8ef4-5b258c6dc418": {
+      "inputTokens": 96326,
+      "cachedInputTokens": 92032,
+      "outputTokens": 96,
+      "reasoningOutputTokens": 63,
+      "totalTokens": 96422
+    }
+  },
+  "usage": {
+    "inputTokens": 96326,
+    "cachedInputTokens": 92032,
+    "outputTokens": 96,
+    "reasoningOutputTokens": 63,
+    "totalTokens": 96422
+  },
+  "cacheHitRate": 0.9554222120715071,
+  "turns": 1,
+  "modelResponses": 1,
+  "hookRan": true,
+  "hookConfig": {
+    "hooks": {
+      "SessionStart": [
+        {
+          "hooks": [
+            {
+              "type": "command",
+              "command": "python3 hooks/x50-session.py"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "complete": true,
+  "codexConfigUnchanged": true,
+  "codexConfigHasProjectTrust": false,
+  "agentsInRollout": true
+}
