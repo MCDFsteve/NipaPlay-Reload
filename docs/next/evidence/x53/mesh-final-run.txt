@@ -1,0 +1,24 @@
+mutual-devices
+remote-library-and-tasks
+target-capability-facts
+remote-settings-write
+final-state-conversation-fixture
+final-state-transfer-fixture
+cleanup
+fixture-removed
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/tool/next/headless_loopback_check.py", line 165, in <module>
+    check_scope(a=a, b=b, aid=aid, bid=bid, raw=raw,
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                invoke=invoke, record=record, env=env, workspace=workspace)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/tool/next/program_loopback_scenario.py", line 44, in check_scope
+    record('remote-mesh-devices', invoke(a, bid, 'mesh.devices', {}))
+                                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/tool/next/headless_loopback_check.py", line 84, in invoke
+    def invoke(data, device, action, input): return call(data, 'mesh.invoke', {'deviceId': device, 'action': action, 'input': input})
+                                                    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/tool/next/headless_loopback_check.py", line 82, in call
+    assert envelope['status'] == 'completed', (action, envelope)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('mesh.invoke', {'status': 'failed', 'error': {'code': 'unavailable', 'message': 'Remote call outcome is unknown; query its task before retrying.', 'retryable': False}})

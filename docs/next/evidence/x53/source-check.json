@@ -1,0 +1,1742 @@
+[
+  {
+    "label": "licensed-input",
+    "value": {
+      "title": "Big Buck Bunny",
+      "license": "CC BY 3.0",
+      "attribution": "Blender Foundation / www.bigbuckbunny.org",
+      "source": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4.zip",
+      "bytes": 64657027,
+      "sha256": "f78f39603e6774907f2faafabf26a667f4a6fc31769ec304a8a8f7c62d280508"
+    }
+  },
+  {
+    "label": "gui-instance",
+    "value": {
+      "pid": 68468,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/macos/Build/Products/Debug/NipaPlay.app",
+      "windowTitle": "NipaPlay · LAB [x53-online-68467]",
+      "viewId": 1,
+      "windowId": 60088,
+      "experimentalProfile": true,
+      "profileName": "x53-online-68467",
+      "version": "1.11.10"
+    }
+  },
+  {
+    "label": "test-account-enrollment",
+    "value": {
+      "state": "succeeded",
+      "secretsRecorded": false
+    }
+  },
+  {
+    "label": "headless-instance",
+    "value": {
+      "pid": 68528,
+      "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x53-headless/build/headless/nipaplay-headless",
+      "appBundlePath": null,
+      "windowTitle": null,
+      "windowId": null,
+      "viewId": null,
+      "experimentalProfile": false,
+      "profileName": null,
+      "version": "1.11.10-headless"
+    }
+  },
+  {
+    "label": "headless-capabilities",
+    "value": {
+      "host": "headless",
+      "platform": "macos",
+      "families": {
+        "app": "Live host facts: app.instance identifies the process; app.capabilities reports supported features, provider/source readiness, credential references and required host setup, settings keys, action effects and remote policy. supported means an implementation exists; available means its declared host prerequisites are met, not a successful network probe. No secrets are accepted or returned. Remote writes follow local semantics; disk deletion/overwrite keep their existing NeedsDecision contract. On headless hosts indexing and download destinations treat media roots as read-only; file-channel operations use actual process permissions. A headless host has no Classic history/player/UI. download.import indexes verified files without inferring identity; roots.remove unregisters the root without deleting indexed facts or disk files. settings exposes only returned keys.",
+        "danmaku": "Persistent danmaku sources, caches and tracks. Both GUI and headless use the same NipaPlay Dandanplay gateway/client, host vault reference preferences/dandanplay_token and local import parser. sources reports installed adapters; app.capabilities reports credential readiness. Headless prepares persisted tracks without mounting a player; supply entityId or path because current playback is absent. Metadata identity, acquisition and binding are independent facts. Empty title/hash results mean no source candidate, not a broken host. A successful fetch task proves acquisition; an existing track alone does not. fetch_batch, attach_batch and import_batch accept 1–100 entries matching the single action schema, validate all schemas first, then return input index and complete outcome for every entry. atomic=false; failure retains earlier committed results. Credentials never enter inputs. Task/binding IDs and per-item decisions/errors are preserved. align/align_apply/align_keep are legacyRecovery; new analysis uses analyze_alignment and update. Positive offsetMs advances comments: displayTime=sourceTime-offsetMs. Headless exports are under data/exports."
+      },
+      "network": {
+        "systemProxySettings": false,
+        "processProxyEnvironment": true,
+        "requiredHostSetup": [
+          "Provide the host network/proxy environment needed to reach providers; GUI system proxy settings are not inherited. Keep loopback in NO_PROXY."
+        ]
+      },
+      "readinessScope": "hostPrerequisites; network availability is observed by each request",
+      "features": [
+        {
+          "id": "online.metadata",
+          "supported": true,
+          "reason": null,
+          "requiredHostSetup": []
+        },
+        {
+          "id": "online.hashMatch",
+          "supported": true,
+          "reason": null,
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "available": true
+        },
+        {
+          "id": "online.danmaku",
+          "supported": true,
+          "reason": null,
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "available": true
+        },
+        {
+          "id": "playback",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for playback.",
+          "requiredHostSetup": [
+            "Use a GUI host for playback; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "window",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for window.",
+          "requiredHostSetup": [
+            "Use a GUI host for window; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "accounts",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for accounts.",
+          "requiredHostSetup": [
+            "Use a GUI host for accounts; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "discover",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for discover.",
+          "requiredHostSetup": [
+            "Use a GUI host for discover; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "media.sources",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for media.sources.",
+          "requiredHostSetup": [
+            "Use a GUI host for media.sources; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "sync",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for sync.",
+          "requiredHostSetup": [
+            "Use a GUI host for sync; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "backup",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for backup.",
+          "requiredHostSetup": [
+            "Use a GUI host for backup; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "plugins",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for plugins.",
+          "requiredHostSetup": [
+            "Use a GUI host for plugins; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "diagnostics",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for diagnostics.",
+          "requiredHostSetup": [
+            "Use a GUI host for diagnostics; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "classic.history",
+          "supported": false,
+          "reason": "Headless stores Next facts without a Classic history database.",
+          "requiredHostSetup": [
+            "Use a GUI host for Classic history."
+          ]
+        },
+        {
+          "id": "subtitle.embeddedProbe",
+          "supported": true,
+          "available": true,
+          "reason": null,
+          "requiredHostSetup": [
+            "Provide the host ffprobe executable."
+          ]
+        },
+        {
+          "id": "program.execution",
+          "supported": true,
+          "reason": "Host program permission is disabled.",
+          "requiredHostSetup": [
+            "Set enabled in this device's program.json and restart."
+          ],
+          "available": false
+        }
+      ],
+      "providers": [
+        {
+          "id": "bangumi",
+          "supported": true,
+          "available": true,
+          "reason": null,
+          "credentialRef": null,
+          "requiredHostSetup": []
+        },
+        {
+          "id": "dandanplay",
+          "supported": true,
+          "available": true,
+          "reason": null,
+          "credentialRef": {
+            "namespace": "preferences",
+            "key": "dandanplay_token"
+          },
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in the host vault; no Action accepts this secret."
+          ]
+        },
+        {
+          "id": "tmdb",
+          "supported": true,
+          "available": false,
+          "reason": "Host vault credential is missing.",
+          "credentialRef": {
+            "namespace": "metadata",
+            "key": "tmdb"
+          },
+          "requiredHostSetup": [
+            "Enroll metadata/tmdb in the host vault; no Action accepts this secret."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "dandanplay",
+          "contractVersion": 1,
+          "implementationVersion": "1",
+          "platform": "dandanplay",
+          "runtimePlatforms": [
+            "io"
+          ],
+          "access": "hostPolicy",
+          "allowedHosts": [
+            "nipaplay.aimes-soft.com",
+            "43.142.85.190"
+          ],
+          "requestProfiles": [
+            "dandanplay.search",
+            "dandanplay.episodes",
+            "dandanplay.comments"
+          ],
+          "search": true,
+          "listEpisodes": true,
+          "resolve": true,
+          "segmentedFetch": false,
+          "rangeFetch": true,
+          "resumableFetch": true,
+          "cursorFetch": false,
+          "supportedModes": [
+            1,
+            4,
+            5
+          ],
+          "aggregation": true,
+          "compositionKnown": false,
+          "concurrency": 1,
+          "requestBudget": 120,
+          "responseBytes": 8388608,
+          "itemCount": 100000,
+          "historyFetch": false,
+          "available": true,
+          "reason": null,
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ]
+        },
+        {
+          "sourceId": "local",
+          "contractVersion": 1,
+          "implementationVersion": "1",
+          "platform": "unknown",
+          "runtimePlatforms": [
+            "io"
+          ],
+          "access": "localFile",
+          "allowedHosts": [],
+          "requestProfiles": [],
+          "search": false,
+          "listEpisodes": false,
+          "resolve": true,
+          "segmentedFetch": false,
+          "rangeFetch": true,
+          "resumableFetch": true,
+          "cursorFetch": false,
+          "supportedModes": [
+            1,
+            4,
+            5
+          ],
+          "aggregation": false,
+          "compositionKnown": true,
+          "concurrency": 1,
+          "requestBudget": 120,
+          "responseBytes": 8388608,
+          "itemCount": 100000,
+          "historyFetch": false,
+          "available": true,
+          "reason": null,
+          "requiredHostSetup": []
+        }
+      ],
+      "settingsKeys": [
+        "mesh.addressCandidates",
+        "next.heroOpeningSeconds"
+      ],
+      "semantics": {
+        "media.library.roots.remove": "unregisterOnly; preserves indexed facts and files",
+        "download.import": "indexVerifiedFiles; no automatic identification",
+        "mediaReadOnlyScope": [
+          "indexing",
+          "downloadDestination"
+        ],
+        "media.mesh_files": "processPermissions; delete/overwrite use NeedsDecision",
+        "danmaku": "persistent preparation; no player mounting"
+      },
+      "actions": [
+        {
+          "id": "activity.report",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "agent.wake",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "app.capabilities",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "app.instance",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "danmaku.align",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Retired; only existing requestId recovery is supported.",
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.align_apply",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.align_keep",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.analyze_alignment",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.attach",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.attach_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.cache_delete",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.cache_prune",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.detach",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.episodes",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.export",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.fetch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.fetch_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.import_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.offset",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.resolve",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.search",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.set_dedup",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.set_enabled",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.sources",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.tracks",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.update",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "download.add",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.directories",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.pause",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.preview",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.read",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.resume",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.select_files",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.set_paused",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.register",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.artwork.set",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.files.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.hash.match",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.bind_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.unbind_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.progress",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.readable",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.refresh",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.add",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.scan",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.work",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.works",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.begin",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.chunk",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.confirm",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.delete",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.finish",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.readable",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.get_batch",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.import_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.override",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.refresh",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.search",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.search_batch",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.snapshots",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.ui_facts",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.devices",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.invoke",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.invoke_destructive",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "program.repository.receive",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enable this host's program.json and restart."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Host program permission is disabled.",
+          "requiredUserPresence": false
+        },
+        {
+          "id": "program.run",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enable this host's program.json and restart."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Host program permission is disabled.",
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.describe",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.history",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.reset",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.set",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "state.describe",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "state.query",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.select",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.tracks",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.wait",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.present",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.shelves.put",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.shelves.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-online-hash",
+    "value": {
+      "files": [
+        {
+          "index": 0,
+          "fileId": null,
+          "path": "/private/tmp/nipa-next/x53-online/media/BigBuckBunny_320x180.mp4",
+          "headMd5": "660f9b30903922b42135b6430e88d5ca",
+          "candidates": []
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-online-metadata-search",
+    "value": {
+      "results": [
+        {
+          "index": 0,
+          "records": []
+        },
+        {
+          "index": 1,
+          "records": [
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "49696",
+                "scope": ""
+              },
+              "title": "大雄兔",
+              "kind": "subject",
+              "originalTitle": "Big Buck BUNNY",
+              "overview": "　　大雄兔（Big Buck Bunny）是 Blender 基金會第 2 部開放版權、創用CC 的動畫電影，代號 Peach。片長 10 分鐘，Big Buck Bunny 全部使用開放原始碼軟體製作（如 Blender、Linux），渲染的計算機集群使用昇陽電腦公司的 Sun Grid 亦是開放原始碼的（如：OpenSolaris、Sun Grid Engine 等），製作技術和素材徹底公開。\r\n　　不同於上一個項目 Elephants Dream，本篇全程無語音。本片完成之後，其素材適用在 blender 官方的遊戲項目 Yo Frankie! 之中，反派 Frankie 這次成為主角。",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/23/37/49696_ZAHAr.jpg",
+              "year": 2008,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957992Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "667060",
+                "scope": ""
+              },
+              "title": "打猎记",
+              "kind": "subject",
+              "originalTitle": "Big Heel-Watha (Buck of the Month)",
+              "overview": "To prove he's a true Indian brave, Big Heel-Watha decides to catch a squirrel - but wouldn't you know it; Screwy Squirrel is the first one he sees.",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/ef/e1/667060_Sj7Ni.jpg",
+              "year": 1944,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957997Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "36235",
+                "scope": ""
+              },
+              "title": "马戏团里的兔八哥",
+              "kind": "subject",
+              "originalTitle": "Big Top Bunny",
+              "overview": "At Colonel Korny's World Famous Circus, Bruno the \"Slobokian Acrobatic Bear\" is the star of the show. But when the Colonel gets a phone call about Bugs Bunny's talents, he agrees to put him on stage with Bruno - which Bruno shows his disgust for by spitting into a corner.\r\n\r\nWhen Bugs is introduced along with Bruno, Bruno can't help but smack Bugs around a little. Bruno tries to get the better of Bugs - either by placing an anvil on top of a series of targets so Bugs can hit his head, or by not catching Bugs during a trapeze act. However, Bugs soon starts getting the better of Bruno, which includes turning the tables on the bear by letting him fall from the trapeze into the band section (twice).\r\n\r\nAfter telling Bruno he's \"too clumsy\", Bugs then starts playing up the idea that he's going to be the sole star of the show, and to prove it, he'll take a 200-foot dive off a platform into a tank of water. Bruno gets on an adjacent platform, and challenges Bugs to an even higher heights and diving into smaller amounts of water (a damp sponge). Eventually, Bruno comes up with the challenge of diving 1,000 feet (305 m) off the platform into a block of cement (\"On my head, yet!!\"). Bugs accepts the challenge and starts to do the stunt, but Bruno forces his way into going first. When Bruno lands flat on the cement block, Bugs leads the dazed bear around, telling him that he's going on a 'trip' (\"But I'm not going on any trip\", Bruno says, thoroughly dazed; \"Oh, yes, you are...\", Bugs advises him). Cutting a rope, Bugs starts a series of thoroughly timed \"accidents\" that initially sends the bear flying across the tent. Bruno then gets whacked around by various stronger performers of the circus until finally landing in a cannon, which Bugs uses to shoot him out of the tent. Bugs ends the cartoon by giggling and saying: \"Well, that's one way to wind this up with a bang.\" Iris out.",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/5a/85/36235_4kuRi.jpg",
+              "year": 1951,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957998Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "75627",
+                "scope": ""
+              },
+              "title": "大战争 神击的红色荒野",
+              "kind": "subject",
+              "originalTitle": "BIG WARS 神撃つ朱き荒野に",
+              "overview": "大ヒットした架空SF戦記「紺碧の艦隊」シリーズで知られる作家・荒巻義雄。その未完の大作「BIG WARS」シリーズのOVA化。古代の類人猿に遺伝子操作を施し、現人類を創造した「神」。西暦2360年、その「神」が数万年ぶりに地球に帰還し、自立した人類を自分たちの僕（しもべ）に戻そうとする。これに対し、文明の存続と種の独立を掛けて「神」に抵抗する全人類。そんな中、火星で戦う隠密巡洋艦「青葉」の艦長・亜空歓喜だが、その彼が今参加している火星の戦局が、現在劣勢気味の人類の今後の運命にも大きく関わるとされていた。「神」の誇る強大な浮沈空母「地獄」に挑む「青葉」は……。原作シリーズのサブシリーズ的な立場にある火星篇「BIG WARS枝篇　火星戦記」の序盤分の映像化。キャラクターデザインは『NORA』『ケンタウロスの伝説』の漫画家・御厨さと美が担当。監督は「ボトムズ」シリーズなどで活躍の演出家・滝沢敏文。",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/fc/d6/75627_ohoJ2.jpg",
+              "year": 1993,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957998Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "111097",
+                "scope": ""
+              },
+              "title": "超能陆战队",
+              "kind": "subject",
+              "originalTitle": "Big Hero 6",
+              "overview": "影片故事设定在一个融合东西方文化（旧金山+东京）的虚构大都市旧京山（SanFransokyo）中，一位精通机器人技术的小神童滨田广（Hiro Hamada）发现，这座充斥高新技术的城市正遭遇着一场犯罪危机，为了拆穿阴谋拯救家园，他将携伙伴机器人Baymax，与一伙生拉硬凑的菜鸟团队组成“六大英雄”联盟，共同作战抗击罪恶。\r\n\r\nProtagonist Hiro Hamada is a 14-year-old robotics genius who lives in the futuristic (fictional) city of San Fransokyo and spends his time participating in illegal robot fights; to amend which, his older brother Tadashi takes him to the robotics center at his university, where Hiro meets Tadashi's friends: GoGo, Wasabi, Honey Lemon, and Fred, as well the healthcare robot Baymax that Tadashi created. To enroll in the school, Hiro presents microbots: swarms of tiny robots that can link together in any arrangement imaginable — to Professor Callaghan, the head of the school's robotics program. When a fire breaks out at the university, Tadashi rushes in to rescue Callaghan, but both are killed, and Hiro secludes himself. One day, Hiro accidentally activates Baymax, who follows one of his microbots to an abandoned warehouse. There, the two discover that someone has been mass-producing Hiro's microbots, and they are attacked by a masked man in control of them. To catch the man, Hiro equips Baymax with armor and a chip containing various Karate moves. After the masked man attacks Hiro, Baymax, GoGo, Wasabi, Honey, and Fred, the six form a superhero team, who discover a former laboratory of Krei Tech, a prestigious robotics company experimenting with teleportation technology until the disappearance of a test pilot, and identify the masked man as Professor Callaghan, who stole Hiro's bots to escape the fire. Realizing that Tadashi died in vain, Hiro removes Baymax's healthcare chip and orders him to kill Callaghan. Baymax almost does so, but Honey re-installs the healthcare chip to stop him. To console Hiro, Baymax plays several humorous videos of Tadashi running tests during Baymax's development.\r\n\r\nThe group discovers that the vanished test pilot was Callaghan's daughter Abigail, and that Callaghan is seeking revenge on Krei, the president of Krei Tech, for his daughter's death. The team saves Krei and destroys the microbots; but the teleportation's portal remains active. Baymax detects Abigail inside, alive, and he and Hiro leap into the portal to rescue her. To ensure the both Hiro and Abigail's safety, Baymax uses his armor's rocket fist to propel them back through the portal opening, and stays behind. Hiro and Abigail make it back, and Callaghan is arrested. Sometime later, Hiro discovers Baymax's healthcare chip (which contains his entire personality) clenched in his rocket fist, and rebuilds him, whereafter the six friends continue their exploits through the city, fulfilling Tadashi's hope of helping those in need.\r\n\r\nDuring the end credits, it is shown through newspaper headlines that Hiro has been awarded a grant from the university and a building is dedicated to Tadashi. In a post-credits scene, Fred accidentally opens a secret door in his family mansion and finds superhero gear inside. His father, a retired superhero, arrives stating that they have a lot to talk about as they embrace.",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/a0/3f/111097_8s404.jpg",
+              "year": 2014,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957999Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "162429",
+                "scope": ""
+              },
+              "title": "盛大晚宴",
+              "kind": "subject",
+              "originalTitle": "Big Game",
+              "overview": "森林里住着可怕的生物Bobo，猎人Sly信心满满地提着猎枪出门。这一天是Bobo的生日，看着猎人为自己准备的“生日大餐”，Bobo开心极了，但是猎人想到了开始，却没有猜中结尾。",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/6a/6b/162429_gMrRo.jpg",
+              "year": 2013,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957999Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "171364",
+                "scope": ""
+              },
+              "title": "剧版超能陆战队 第一季",
+              "kind": "subject",
+              "originalTitle": "Big Hero 6: The Series Season 1",
+              "overview": "In March 2016, Disney announced that a Big Hero 6 television series is in development and will premiere on Disney XD in 2017. The series takes place immediately after the events of the film, and is created by Mark McCorkle and Bob Schooley and executive produced by McCorkle, Schooley and Nick Filippi.",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/55/83/171364_XZFOt.jpg",
+              "year": 2017,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.957999Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "172030",
+                "scope": ""
+              },
+              "title": "空间爆发",
+              "kind": "subject",
+              "originalTitle": "Big Bang Big Boom",
+              "overview": "　　意大利的一家涂鸦工作室BLU于2010年7月公开了涂鸦定格动画《big bang big boom》，将整个城市当作画布，不知道要花费多少染料和时间，强悍的涂鸦从墙面蔓延到地面，从管道到桥梁，从天台到广场，从漫画到实物，甚至还跟真人互动，用心独到！ \r\n　　该短片从宇宙大爆炸开始，一路呈现世间万物的起源和人类进化的过程，一直讲到世界的终结。作品带有一些些死亡气息，和一种极端的现实感。 \r\n　　官网简介： \r\n　　\"BIG BANG BIG BOOM: \r\n　　an unscientific point of view on the beginning and evolution of life ... and how it could probably end. \r\n　　direction and animation by BLU \r\n　　blublu.org \r\n　　production and distribution by ARTSH.it \r\n　　artsh.it \r\n　　sountrack by ANDREA MARTIGNONI ",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/eb/22/172030_1U80O.jpg",
+              "year": 2010,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.958Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "336230",
+                "scope": ""
+              },
+              "title": "大嘴巴 第一季",
+              "kind": "subject",
+              "originalTitle": "Big Mouth Season 1",
+              "overview": "",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/c8/e7/336230_11O9M.jpg",
+              "year": 2017,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.958Z",
+              "episodes": []
+            },
+            {
+              "ref": {
+                "provider": "bangumi",
+                "objectType": "subject",
+                "externalId": "336231",
+                "scope": ""
+              },
+              "title": "大嘴巴 第二季",
+              "kind": "subject",
+              "originalTitle": "Big Mouth Season 2",
+              "overview": "",
+              "imageUrl": "https://lain.bgm.tv/pic/cover/l/fc/06/336231_w94i4.jpg",
+              "year": 2018,
+              "number": null,
+              "season": null,
+              "episodeType": "regular",
+              "order": "subject",
+              "language": "zh-CN",
+              "fetchedAt": "2026-10-13T12:13:53.958001Z",
+              "episodes": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label": "headless-online-danmaku-search",
+    "value": {
+      "status": "completed",
+      "result": {
+        "results": []
+      }
+    }
+  },
+  {
+    "label": "owned-instances-removed",
+    "value": {
+      "pids": [
+        68468,
+        68528
+      ],
+      "guiProfileRemoved": true,
+      "headlessDataRemoved": true
+    }
+  }
+]

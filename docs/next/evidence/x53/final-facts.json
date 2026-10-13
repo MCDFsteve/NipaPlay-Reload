@@ -1,0 +1,4170 @@
+[
+  {
+    "label": "missing-prerequisites-explicit",
+    "value": [
+      {
+        "id": "media.hash.match",
+        "title": "media.hash.match",
+        "description": "Match multiple native files against Dandanplay using the MD5 of their first 16 MiB. Returns per-file candidates or explicit errors; an empty candidate list means no hash match. No fallback search, cache, tasks or bindings.",
+        "effect": "read",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "files": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": false,
+                "oneOf": [
+                  {
+                    "required": [
+                      "entityId"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "path"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "files"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "files": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "index": {
+                    "type": "integer"
+                  },
+                  "fileId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "headMd5": {
+                    "type": "string"
+                  },
+                  "candidates": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "object",
+                          "properties": {
+                            "provider": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "objectType": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "externalId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scope": {
+                              "type": "string",
+                              "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                            }
+                          },
+                          "required": [
+                            "provider",
+                            "objectType",
+                            "externalId",
+                            "scope"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "kind": {
+                          "type": "string"
+                        },
+                        "originalTitle": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "overview": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "imageUrl": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "year": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "number": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "season": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "episodeType": {
+                          "type": "string"
+                        },
+                        "order": {
+                          "type": "string"
+                        },
+                        "language": {
+                          "type": "string"
+                        },
+                        "fetchedAt": {
+                          "type": "string"
+                        },
+                        "episodes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "ref": {
+                                "type": "object",
+                                "properties": {
+                                  "provider": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "objectType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "externalId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scope": {
+                                    "type": "string",
+                                    "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                                  }
+                                },
+                                "required": [
+                                  "provider",
+                                  "objectType",
+                                  "externalId",
+                                  "scope"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string"
+                              },
+                              "originalTitle": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "overview": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "imageUrl": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "year": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "number": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "season": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "episodeType": {
+                                "type": "string"
+                              },
+                              "order": {
+                                "type": "string"
+                              },
+                              "language": {
+                                "type": "string"
+                              },
+                              "fetchedAt": {
+                                "type": "string"
+                              },
+                              "episodes": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ref": {
+                                      "type": "object",
+                                      "properties": {
+                                        "provider": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "objectType": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "externalId": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "scope": {
+                                          "type": "string",
+                                          "description": "Provider object namespace, always a string (not a local ID or binding scope object). Work: \"\". Dandanplay episode: \"anime/<animeId>\"; Bangumi episode: \"subject/<subjectId>\". TMDB season: \"tv/<tvId>/season/<seasonNumber>\"; episode: \"tv/<tvId>/season/<seasonNumber>/episode/<episodeNumber>\". Use the exact ref returned by metadata; externalId is the provider object ID, not an episode number."
+                                        }
+                                      },
+                                      "required": [
+                                        "provider",
+                                        "objectType",
+                                        "externalId",
+                                        "scope"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "title": {
+                                      "type": "string"
+                                    },
+                                    "kind": {
+                                      "type": "string"
+                                    },
+                                    "originalTitle": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "overview": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "imageUrl": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "year": {
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "number": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "season": {
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "episodeType": {
+                                      "type": "string"
+                                    },
+                                    "order": {
+                                      "type": "string"
+                                    },
+                                    "language": {
+                                      "type": "string"
+                                    },
+                                    "fetchedAt": {
+                                      "type": "string"
+                                    },
+                                    "episodes": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {},
+                                        "additionalProperties": false
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "ref",
+                                    "title",
+                                    "kind",
+                                    "originalTitle",
+                                    "overview",
+                                    "imageUrl",
+                                    "year",
+                                    "number",
+                                    "season",
+                                    "episodeType",
+                                    "order",
+                                    "language",
+                                    "fetchedAt",
+                                    "episodes"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "title",
+                              "kind",
+                              "originalTitle",
+                              "overview",
+                              "imageUrl",
+                              "year",
+                              "number",
+                              "season",
+                              "episodeType",
+                              "order",
+                              "language",
+                              "fetchedAt",
+                              "episodes"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "title",
+                        "kind",
+                        "originalTitle",
+                        "overview",
+                        "imageUrl",
+                        "year",
+                        "number",
+                        "season",
+                        "episodeType",
+                        "order",
+                        "language",
+                        "fetchedAt",
+                        "episodes"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "error": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  }
+                },
+                "required": [
+                  "index"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "files"
+          ],
+          "additionalProperties": false
+        },
+        "available": false,
+        "availabilityScope": "hostPrerequisites",
+        "requiredHostSetup": [
+          "Enroll preferences/dandanplay_token in host vault."
+        ],
+        "availabilityReason": "Host vault credential is missing.",
+        "remoteCallable": true,
+        "requiredUserPresence": false
+      },
+      {
+        "id": "program.run",
+        "title": "在设备上运行程序",
+        "description": "Run a command/script as an ordinary-user background task in this device harness. Disabled by default; only the target host can enable it. No caller environment or credentials are transferred. Windows defaults to cmd (optional powershell), POSIX to sh. task.get/wait expose redacted output tails, exit code and elapsed time; task.cancel stops the process tree. Interrupted commands are not replayed. Completion returns to the originating conversation unless followup:false. Deletion and overwriting require user authorization.",
+        "effect": "write",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "writeOnly": true,
+              "x-secret": true,
+              "minLength": 1
+            },
+            "command": {
+              "type": "string",
+              "writeOnly": true,
+              "x-secret": true,
+              "minLength": 1
+            },
+            "shell": {
+              "type": "string",
+              "enum": [
+                "default",
+                "sh",
+                "cmd",
+                "powershell"
+              ]
+            },
+            "timeoutSeconds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3600
+            },
+            "followup": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "title",
+            "command"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "available": false,
+        "availabilityScope": "hostPrerequisites",
+        "requiredHostSetup": [
+          "Enable this host's program.json and restart."
+        ],
+        "availabilityReason": "Host program permission is disabled.",
+        "remoteCallable": true,
+        "requiredUserPresence": false
+      },
+      {
+        "id": "danmaku.align",
+        "title": "danmaku.align",
+        "description": "Retired compatibility lookup for existing alignment requestId tasks. New requests return unavailable with migration to danmaku.analyze_alignment and danmaku.update.",
+        "effect": "write",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "bindingId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requestId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "anchors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sourceTimeMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "mediaTimeMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "evidence": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceTimeMs",
+                  "mediaTimeMs",
+                  "evidence"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "bindingId",
+            "anchors",
+            "requestId"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "jobId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "jobId"
+          ],
+          "additionalProperties": false
+        },
+        "available": false,
+        "availabilityScope": "provider/source and input dependent; see providers/sources",
+        "requiredHostSetup": [],
+        "availabilityReason": "Retired; only existing requestId recovery is supported.",
+        "remoteCallable": true,
+        "requiredUserPresence": false,
+        "lifecycle": "legacyRecovery",
+        "replacement": [
+          "danmaku.analyze_alignment",
+          "danmaku.update"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "app-family",
+    "value": {
+      "family": "app",
+      "description": "Live host facts: app.instance identifies the process; app.capabilities reports supported features, provider/source readiness, credential references and required host setup, settings keys, action effects and remote policy. supported means an implementation exists; available means its declared host prerequisites are met, not a successful network probe. No secrets are accepted or returned. Remote writes follow local semantics; disk deletion/overwrite keep their existing NeedsDecision contract. On headless hosts indexing and download destinations treat media roots as read-only; file-channel operations use actual process permissions. A headless host has no Classic history/player/UI. download.import indexes verified files without inferring identity; roots.remove unregisters the root without deleting indexed facts or disk files. settings exposes only returned keys.",
+      "actions": [
+        {
+          "id": "app.capabilities",
+          "title": "Read host capability facts",
+          "description": "Live host facts: app.instance identifies the process; app.capabilities reports supported features, provider/source readiness, credential references and required host setup, settings keys, action effects and remote policy. supported means an implementation exists; available means its declared host prerequisites are met, not a successful network probe. No secrets are accepted or returned. Remote writes follow local semantics; disk deletion/overwrite keep their existing NeedsDecision contract. On headless hosts indexing and download destinations treat media roots as read-only; file-channel operations use actual process permissions. A headless host has no Classic history/player/UI. download.import indexes verified files without inferring identity; roots.remove unregisters the root without deleting indexed facts or disk files. settings exposes only returned keys.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "app.instance",
+          "title": "Identify the connected NipaPlay process",
+          "description": "Live process and main-window facts for this endpoint. Also returned as instance by nipa status. Paths identify this running build; appBundlePath is null on platforms without application bundles. experimentalProfile identifies the isolated lab configuration, not the Next switch.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "pid": {
+                "type": "integer"
+              },
+              "executablePath": {
+                "type": "string"
+              },
+              "appBundlePath": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "windowTitle": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "windowId": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "viewId": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "experimentalProfile": {
+                "type": "boolean"
+              },
+              "profileName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "pid",
+              "executablePath",
+              "appBundlePath",
+              "windowTitle",
+              "windowId",
+              "viewId",
+              "experimentalProfile",
+              "profileName",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "danmaku-family",
+    "value": {
+      "family": "danmaku",
+      "description": "Persistent danmaku sources, caches and tracks. Both GUI and headless use the same NipaPlay Dandanplay gateway/client, host vault reference preferences/dandanplay_token and local import parser. sources reports installed adapters; app.capabilities reports credential readiness. Headless prepares persisted tracks without mounting a player; supply entityId or path because current playback is absent. Metadata identity, acquisition and binding are independent facts. Empty title/hash results mean no source candidate, not a broken host. A successful fetch task proves acquisition; an existing track alone does not. fetch_batch, attach_batch and import_batch accept 1–100 entries matching the single action schema, validate all schemas first, then return input index and complete outcome for every entry. atomic=false; failure retains earlier committed results. Credentials never enter inputs. Task/binding IDs and per-item decisions/errors are preserved. align/align_apply/align_keep are legacyRecovery; new analysis uses analyze_alignment and update. Positive offsetMs advances comments: displayTime=sourceTime-offsetMs. Headless exports are under data/exports.",
+      "actions": [
+        {
+          "id": "danmaku.align",
+          "title": "danmaku.align",
+          "description": "Retired compatibility lookup for existing alignment requestId tasks. New requests return unavailable with migration to danmaku.analyze_alignment and danmaku.update.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "anchors",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.align_apply",
+          "title": "danmaku.align_apply",
+          "description": "Legacy recovery only: execute an existing persisted alignment decision option with a task revision check. New analysis returns data and offsets are set through danmaku.update.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "jobId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.align_keep",
+          "title": "danmaku.align_keep",
+          "description": "Legacy recovery only: execute an existing persisted alignment decision option with a task revision check. New analysis returns data and offsets are set through danmaku.update.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "jobId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.analyze_alignment",
+          "title": "danmaku.analyze_alignment",
+          "description": "Estimate a fixed offset from up to 100 supplied source/media time anchors. Returns the upper median, absolute residuals in input order, span, evidence and confidence limits. Reads the binding revision; no task, Decision or persistence. Positive integer milliseconds advance danmaku (display time = source time - offsetMs).",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "anchors"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observedRevision": {
+                "type": "integer"
+              },
+              "currentOffsetMs": {
+                "type": "integer"
+              },
+              "estimateOffsetMs": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "anchorOffsetsMs": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "residualsMs": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "maxResidualMs": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "anchorSpanMs": {
+                "type": "integer"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "median"
+                ]
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "consistentAnchors",
+                  "insufficientEvidence"
+                ]
+              },
+              "limitations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "observedRevision",
+              "currentOffsetMs",
+              "estimateOffsetMs",
+              "anchorOffsetsMs",
+              "residualsMs",
+              "maxResidualMs",
+              "anchorSpanMs",
+              "method",
+              "anchors",
+              "evidence",
+              "confidence",
+              "limitations"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.attach",
+          "title": "danmaku.attach",
+          "description": "Bind a platform video to entityId, path or the current file (default). Existing platform/video tracks are reused; Classic dandanplay reuse records a binding, with jobId=null. Local pools prevent online acquisition. refresh=true fetches and replaces. Invalid required local ranges fail without mounting; outside-range errors are reported separately. Credentials are opaque host references.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              },
+              "refresh": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "video",
+              "reason",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "jobId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "trackId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "bindingId",
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.attach_batch",
+          "title": "danmaku.attach batch",
+          "description": "Independent entries in input order using danmaku.attach. All schemas are validated before execution. atomic=false; each index returns its complete outcome (including binding/job IDs, decisions or failure). Successful entries are retained when another fails. Each requestId is scoped exactly as in the single action; credentials remain host references.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "description": "1–100 independent entries.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "video": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "videoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "durationMs": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 7200000
+                        },
+                        "objectType": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "videoId",
+                        "title",
+                        "durationMs",
+                        "objectType"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "requestId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "entityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "current": {
+                      "type": "boolean"
+                    },
+                    "refresh": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "video",
+                    "reason",
+                    "requestId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "atomic": {
+                "type": "boolean"
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": true
+                }
+              }
+            },
+            "required": [
+              "atomic",
+              "entries"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.cache_delete",
+          "title": "danmaku.cache_delete",
+          "description": "Delete a specific source cache object and unload bindings using it. Binding evidence remains.",
+          "effect": "destructive",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "cacheKey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "cacheKey"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "deleted": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "deleted"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.cache_prune",
+          "title": "danmaku.cache_prune",
+          "description": "Reclaim oldest recoverable danmaku pools to maxBytes (default 128 MiB). Imported unique copies are excluded. Defers while acquisition tasks are active; unloads evicted pools. Also collects unreferenced content files.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "maxBytes": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "danmaku.detach",
+          "title": "danmaku.detach",
+          "description": "Revoke this managed binding; unreferenced imported content files are deleted, provenance remains. Recoverable source cache remains subject to the cache budget. Classic local, automatic and Dandanplay tracks remain loaded with their managed binding detached. Other managed tracks are removed.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.episodes",
+          "title": "danmaku.episodes",
+          "description": "Read a finite catalogue page. Zero duration means unknown duration. Acquisition requires a finite range within a known media duration.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "workId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "sourceId",
+              "workId"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "videoId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "durationMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "objectType": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "videoId",
+                    "title",
+                    "durationMs",
+                    "objectType"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "page": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "results",
+              "page"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.export",
+          "title": "danmaku.export",
+          "description": "Export one committed binding as JSON to a new file in an authorized media folder. raw preserves original source fields; mapped applies its fixed offset without player filters. Readback is verified.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "view": {
+                "type": "string",
+                "enum": [
+                  "raw",
+                  "mapped"
+                ]
+              }
+            },
+            "required": [
+              "bindingId",
+              "path",
+              "view"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "count": {
+                "type": "integer"
+              },
+              "bytes": {
+                "type": "integer"
+              },
+              "sha256": {
+                "type": "string",
+                "minLength": 1
+              },
+              "view": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "path",
+              "count",
+              "bytes",
+              "sha256",
+              "view"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.fetch",
+          "title": "danmaku.fetch",
+          "description": "Create a cancellable segmented acquisition/cache task for one explicit video/range. Does not modify player tracks. requestId makes retries idempotent. A failed acquisition receipt also reports available Classic cache, assigned/partial Next cache and currently loaded matching player tracks; existing comments do not prove this request succeeded.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "localDurationMs": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 7200000
+              },
+              "refresh": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "video",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.fetch_batch",
+          "title": "danmaku.fetch batch",
+          "description": "Independent entries in input order using danmaku.fetch. All schemas are validated before execution. atomic=false; each index returns its complete outcome (including binding/job IDs, decisions or failure). Successful entries are retained when another fails. Each requestId is scoped exactly as in the single action; credentials remain host references.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "description": "1–100 independent entries.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "video": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "videoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "durationMs": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 7200000
+                        },
+                        "objectType": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "videoId",
+                        "title",
+                        "durationMs",
+                        "objectType"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "requestId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "startMs": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "endMs": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "localDurationMs": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 7200000
+                    },
+                    "refresh": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "video",
+                    "requestId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "atomic": {
+                "type": "boolean"
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": true
+                }
+              }
+            },
+            "required": [
+              "atomic",
+              "entries"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.import",
+          "title": "danmaku.import",
+          "description": "Import acquired danmaku using Classic local XML/JSON parsing and encoding support, including ARGB colors. Also accepts normalized JSON arrays (or {comments:[...]}): sourceTimeMs (nonnegative integer milliseconds), text, mode (positive integer), colorRgb (nonnegative integer, converted to RGB); optional platformId, sourceEntryId, originSource, sender, sentAt (strings), fontSize (positive integer). No registered source is required. Supply platform/platformVideoId; host records actor, origin and timestamp. Target entityId (file or episode), path, or current playback (default). Reimport replaces the same platform/video pool atomically, preserving track settings; empty or malformed files are rejected and leave the old track unchanged. Mounted immediately when the target is playing. File data stays in host storage; do not send large comment arrays through tool arguments.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platform": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platformVideoId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filePath",
+              "platform",
+              "platformVideoId"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "loaded": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "platform": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "platformVideoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "actor": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "origin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "importedAt": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "filePath": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "note": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "platform",
+                  "platformVideoId",
+                  "actor",
+                  "origin",
+                  "importedAt",
+                  "filePath",
+                  "note"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "count",
+              "loaded",
+              "provenance"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.import_batch",
+          "title": "danmaku.import batch",
+          "description": "Independent entries in input order using danmaku.import. All schemas are validated before execution. atomic=false; each index returns its complete outcome (including binding/job IDs, decisions or failure). Successful entries are retained when another fails. Each requestId is scoped exactly as in the single action; credentials remain host references.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "description": "1–100 independent entries.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "filePath": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "platform": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "platformVideoId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "entityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "current": {
+                      "type": "boolean"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "filePath",
+                    "platform",
+                    "platformVideoId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "atomic": {
+                "type": "boolean"
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": true
+                }
+              }
+            },
+            "required": [
+              "atomic",
+              "entries"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.offset",
+          "title": "danmaku.offset",
+          "description": "Compatibility alias for danmaku.update: set an absolute fixed offset in integer milliseconds, positive advances, zero resets. Does not refetch or accumulate offsets.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "offsetMs": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "offsetMs"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.resolve",
+          "title": "danmaku.resolve",
+          "description": "Resolve a public URL or platform ID. Multiple parts return executable selection decisions. No persistence.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "selectionVideoId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "sourceId",
+              "locator"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "video"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.search",
+          "title": "danmaku.search",
+          "description": "Bounded transient title search. Unsupported sources report unavailable; no binding or task is created.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "sourceId",
+              "query"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "videoId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "durationMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "objectType": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "videoId",
+                    "title",
+                    "durationMs",
+                    "objectType"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "results"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.set_dedup",
+          "title": "danmaku.set_dedup",
+          "description": "Compatibility alias for danmaku.update: set absolute deduplicate with a binding revision check. deduplicate controls displayFold only; original source cache is preserved.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "deduplicate": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "deduplicate"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.set_enabled",
+          "title": "danmaku.set_enabled",
+          "description": "Compatibility alias for danmaku.update: set absolute enabled with a binding revision check. deduplicate controls displayFold only; original source cache is preserved.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "enabled"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.sources",
+          "title": "danmaku.sources",
+          "description": "List registered sources and capabilities. No network or persistence.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "contractVersion": {
+                      "type": "integer"
+                    },
+                    "implementationVersion": {
+                      "type": "string"
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "runtimePlatforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "access": {
+                      "type": "string"
+                    },
+                    "allowedHosts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "requestProfiles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "search": {
+                      "type": "boolean"
+                    },
+                    "listEpisodes": {
+                      "type": "boolean"
+                    },
+                    "resolve": {
+                      "type": "boolean"
+                    },
+                    "segmentedFetch": {
+                      "type": "boolean"
+                    },
+                    "rangeFetch": {
+                      "type": "boolean"
+                    },
+                    "resumableFetch": {
+                      "type": "boolean"
+                    },
+                    "cursorFetch": {
+                      "type": "boolean"
+                    },
+                    "supportedModes": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "aggregation": {
+                      "type": "boolean"
+                    },
+                    "compositionKnown": {
+                      "type": "boolean"
+                    },
+                    "concurrency": {
+                      "type": "integer"
+                    },
+                    "requestBudget": {
+                      "type": "integer"
+                    },
+                    "responseBytes": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "historyFetch": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "contractVersion",
+                    "implementationVersion",
+                    "platform",
+                    "runtimePlatforms",
+                    "access",
+                    "allowedHosts",
+                    "requestProfiles",
+                    "search",
+                    "listEpisodes",
+                    "resolve",
+                    "segmentedFetch",
+                    "rangeFetch",
+                    "resumableFetch",
+                    "cursorFetch",
+                    "supportedModes",
+                    "aggregation",
+                    "compositionKnown",
+                    "concurrency",
+                    "requestBudget",
+                    "responseBytes",
+                    "itemCount",
+                    "historyFetch"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "sources"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.tracks",
+          "title": "danmaku.tracks",
+          "description": "List bindings and all current player tracks, including Classic and local pools with origin/platform/platformVideoId. loaded means mounted in the player registry, including Erika native danmaku; enabled is a track display switch. Neither reports whether comments are currently visible on screen. Accept entityId, path or current (default). Missing file locations are indexed without inferring work identity; no fetch or binding is created.",
+          "effect": "read",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "tracks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "trackId": {
+                      "type": "string"
+                    },
+                    "origin": {
+                      "type": "string"
+                    },
+                    "provenance": {
+                      "type": "object",
+                      "properties": {
+                        "platform": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "platformVideoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "actor": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "origin": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "importedAt": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filePath": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "note": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "platform",
+                        "platformVideoId",
+                        "actor",
+                        "origin",
+                        "importedAt",
+                        "filePath",
+                        "note"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "platformVideoId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "filePath": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "bindingId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "bindingIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "entityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "revision": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "stale": {
+                      "type": "boolean"
+                    },
+                    "video": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "videoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "durationMs": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 7200000
+                        },
+                        "objectType": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "videoId",
+                        "title",
+                        "durationMs",
+                        "objectType"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "enabled": {
+                      "type": "boolean",
+                      "description": "Track display switch; not proof of visible comments."
+                    },
+                    "deduplicate": {
+                      "type": "boolean"
+                    },
+                    "displayFold": {
+                      "type": "boolean"
+                    },
+                    "offsetMs": {
+                      "type": "integer"
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "method": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "confirmed": {
+                          "type": "boolean"
+                        },
+                        "offsetMs": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "anchors": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "sourceTimeMs": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 7200000
+                              },
+                              "mediaTimeMs": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 7200000
+                              },
+                              "evidence": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "sourceTimeMs",
+                              "mediaTimeMs",
+                              "evidence"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "maxResidualMs": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "confidence": {
+                          "type": "string"
+                        },
+                        "applicableRange": {
+                          "type": "string"
+                        },
+                        "autoApply": {
+                          "type": "boolean"
+                        },
+                        "confirmedBy": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "method",
+                        "confirmed"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "evidence": {
+                      "type": "object",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "reason",
+                        "url"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "boundBy": {
+                      "type": "string"
+                    },
+                    "cacheKey": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "loaded": {
+                      "type": "boolean",
+                      "description": "Mounted in the player track registry, including Erika native danmaku. Does not prove comments are visible at the current position."
+                    },
+                    "coverage": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "chunk_index": {
+                            "type": "integer"
+                          },
+                          "start_ms": {
+                            "type": "integer"
+                          },
+                          "end_ms": {
+                            "type": "integer"
+                          },
+                          "coverage": {
+                            "type": "string"
+                          },
+                          "fetched_at": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "entry_count": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "byte_count": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "storage_kind": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "chunk_index",
+                          "start_ms",
+                          "end_ms",
+                          "coverage",
+                          "fetched_at"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "entityId",
+                    "loaded",
+                    "origin",
+                    "platform",
+                    "platformVideoId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "tracks"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.update",
+          "title": "danmaku.update",
+          "description": "Update 1 to 100 bindings or current player tracks in input order. Each item sets enabled, offsetMs and/or displayFold absolutely; positive integer milliseconds advance, negative delay, zero resets. Any explicit offset in the supported range is accepted independently of analysis estimates. Persistent bindings (including bound trackId targets) require expectedRevision; each item is atomic and returns its own result or failure, without rolling back earlier items. Unbound tracks last for the current playback and have no binding revision. displayFold affects display grouping only; original caches remain unchanged.",
+          "effect": "write",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "changes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "bindingId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trackId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "expectedRevision": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "offsetMs": {
+                      "type": "integer"
+                    },
+                    "displayFold": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "oneOf": [
+                    {
+                      "required": [
+                        "bindingId"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "trackId"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "changes"
+            ],
+            "additionalProperties": false
+          },
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "completed",
+                        "failed"
+                      ]
+                    },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "bindingId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "trackId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "revision": {
+                          "type": "integer"
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "offsetMs": {
+                          "type": "integer"
+                        },
+                        "displayFold": {
+                          "type": "boolean"
+                        },
+                        "persistence": {
+                          "type": "string",
+                          "enum": [
+                            "binding",
+                            "playback"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "enabled",
+                        "offsetMs",
+                        "displayFold",
+                        "persistence"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "retryable": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message",
+                        "retryable"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "status"
+                  ],
+                  "additionalProperties": false,
+                  "oneOf": [
+                    {
+                      "required": [
+                        "result"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "results"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label": "unrecognized-host-enrollment-refused",
+    "value": {
+      "refused": true,
+      "vaultWritten": false
+    }
+  },
+  {
+    "label": "live-host-vault-readiness",
+    "value": {
+      "host": "headless",
+      "platform": "macos",
+      "families": {
+        "app": "Live host facts: app.instance identifies the process; app.capabilities reports supported features, provider/source readiness, credential references and required host setup, settings keys, action effects and remote policy. supported means an implementation exists; available means its declared host prerequisites are met, not a successful network probe. No secrets are accepted or returned. Remote writes follow local semantics; disk deletion/overwrite keep their existing NeedsDecision contract. On headless hosts indexing and download destinations treat media roots as read-only; file-channel operations use actual process permissions. A headless host has no Classic history/player/UI. download.import indexes verified files without inferring identity; roots.remove unregisters the root without deleting indexed facts or disk files. settings exposes only returned keys.",
+        "danmaku": "Persistent danmaku sources, caches and tracks. Both GUI and headless use the same NipaPlay Dandanplay gateway/client, host vault reference preferences/dandanplay_token and local import parser. sources reports installed adapters; app.capabilities reports credential readiness. Headless prepares persisted tracks without mounting a player; supply entityId or path because current playback is absent. Metadata identity, acquisition and binding are independent facts. Empty title/hash results mean no source candidate, not a broken host. A successful fetch task proves acquisition; an existing track alone does not. fetch_batch, attach_batch and import_batch accept 1–100 entries matching the single action schema, validate all schemas first, then return input index and complete outcome for every entry. atomic=false; failure retains earlier committed results. Credentials never enter inputs. Task/binding IDs and per-item decisions/errors are preserved. align/align_apply/align_keep are legacyRecovery; new analysis uses analyze_alignment and update. Positive offsetMs advances comments: displayTime=sourceTime-offsetMs. Headless exports are under data/exports."
+      },
+      "network": {
+        "systemProxySettings": false,
+        "processProxyEnvironment": true,
+        "requiredHostSetup": [
+          "Provide the host network/proxy environment needed to reach providers; GUI system proxy settings are not inherited. Keep loopback in NO_PROXY."
+        ]
+      },
+      "readinessScope": "hostPrerequisites; network availability is observed by each request",
+      "features": [
+        {
+          "id": "online.metadata",
+          "supported": true,
+          "reason": null,
+          "requiredHostSetup": []
+        },
+        {
+          "id": "online.hashMatch",
+          "supported": true,
+          "reason": "Host vault credential is missing.",
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "available": false
+        },
+        {
+          "id": "online.danmaku",
+          "supported": true,
+          "reason": "Host vault credential is missing.",
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "available": false
+        },
+        {
+          "id": "playback",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for playback.",
+          "requiredHostSetup": [
+            "Use a GUI host for playback; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "window",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for window.",
+          "requiredHostSetup": [
+            "Use a GUI host for window; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "accounts",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for accounts.",
+          "requiredHostSetup": [
+            "Use a GUI host for accounts; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "discover",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for discover.",
+          "requiredHostSetup": [
+            "Use a GUI host for discover; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "media.sources",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for media.sources.",
+          "requiredHostSetup": [
+            "Use a GUI host for media.sources; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "sync",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for sync.",
+          "requiredHostSetup": [
+            "Use a GUI host for sync; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "backup",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for backup.",
+          "requiredHostSetup": [
+            "Use a GUI host for backup; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "plugins",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for plugins.",
+          "requiredHostSetup": [
+            "Use a GUI host for plugins; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "diagnostics",
+          "supported": false,
+          "reason": "This host has no Classic service/player/widget host for diagnostics.",
+          "requiredHostSetup": [
+            "Use a GUI host for diagnostics; headless media metadata and danmaku providers do not need it."
+          ]
+        },
+        {
+          "id": "classic.history",
+          "supported": false,
+          "reason": "Headless stores Next facts without a Classic history database.",
+          "requiredHostSetup": [
+            "Use a GUI host for Classic history."
+          ]
+        },
+        {
+          "id": "subtitle.embeddedProbe",
+          "supported": true,
+          "available": false,
+          "reason": "Headless ffprobe is not configured.",
+          "requiredHostSetup": [
+            "Provide the host ffprobe executable."
+          ]
+        },
+        {
+          "id": "program.execution",
+          "supported": true,
+          "reason": "Host program permission is disabled.",
+          "requiredHostSetup": [
+            "Set enabled in this device's program.json and restart."
+          ],
+          "available": false
+        }
+      ],
+      "providers": [
+        {
+          "id": "bangumi",
+          "supported": true,
+          "available": true,
+          "reason": null,
+          "credentialRef": null,
+          "requiredHostSetup": []
+        },
+        {
+          "id": "dandanplay",
+          "supported": true,
+          "available": false,
+          "reason": "Host vault credential is missing.",
+          "credentialRef": {
+            "namespace": "preferences",
+            "key": "dandanplay_token"
+          },
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in the host vault; no Action accepts this secret."
+          ]
+        },
+        {
+          "id": "tmdb",
+          "supported": true,
+          "available": true,
+          "reason": null,
+          "credentialRef": {
+            "namespace": "metadata",
+            "key": "tmdb"
+          },
+          "requiredHostSetup": [
+            "Enroll metadata/tmdb in the host vault; no Action accepts this secret."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "dandanplay",
+          "contractVersion": 1,
+          "implementationVersion": "1",
+          "platform": "dandanplay",
+          "runtimePlatforms": [
+            "io"
+          ],
+          "access": "hostPolicy",
+          "allowedHosts": [
+            "nipaplay.aimes-soft.com",
+            "43.142.85.190"
+          ],
+          "requestProfiles": [
+            "dandanplay.search",
+            "dandanplay.episodes",
+            "dandanplay.comments"
+          ],
+          "search": true,
+          "listEpisodes": true,
+          "resolve": true,
+          "segmentedFetch": false,
+          "rangeFetch": true,
+          "resumableFetch": true,
+          "cursorFetch": false,
+          "supportedModes": [
+            1,
+            4,
+            5
+          ],
+          "aggregation": true,
+          "compositionKnown": false,
+          "concurrency": 1,
+          "requestBudget": 120,
+          "responseBytes": 8388608,
+          "itemCount": 100000,
+          "historyFetch": false,
+          "available": false,
+          "reason": "Host vault credential is missing.",
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ]
+        },
+        {
+          "sourceId": "local",
+          "contractVersion": 1,
+          "implementationVersion": "1",
+          "platform": "unknown",
+          "runtimePlatforms": [
+            "io"
+          ],
+          "access": "localFile",
+          "allowedHosts": [],
+          "requestProfiles": [],
+          "search": false,
+          "listEpisodes": false,
+          "resolve": true,
+          "segmentedFetch": false,
+          "rangeFetch": true,
+          "resumableFetch": true,
+          "cursorFetch": false,
+          "supportedModes": [
+            1,
+            4,
+            5
+          ],
+          "aggregation": false,
+          "compositionKnown": true,
+          "concurrency": 1,
+          "requestBudget": 120,
+          "responseBytes": 8388608,
+          "itemCount": 100000,
+          "historyFetch": false,
+          "available": true,
+          "reason": null,
+          "requiredHostSetup": []
+        }
+      ],
+      "settingsKeys": [
+        "mesh.addressCandidates",
+        "next.heroOpeningSeconds"
+      ],
+      "semantics": {
+        "media.library.roots.remove": "unregisterOnly; preserves indexed facts and files",
+        "download.import": "indexVerifiedFiles; no automatic identification",
+        "mediaReadOnlyScope": [
+          "indexing",
+          "downloadDestination"
+        ],
+        "media.mesh_files": "processPermissions; delete/overwrite use NeedsDecision",
+        "danmaku": "persistent preparation; no player mounting"
+      },
+      "actions": [
+        {
+          "id": "activity.report",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "agent.wake",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "app.capabilities",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "app.instance",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "danmaku.align",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Retired; only existing requestId recovery is supported.",
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.align_apply",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.align_keep",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports.",
+          "lifecycle": "legacyRecovery",
+          "replacement": [
+            "danmaku.analyze_alignment",
+            "danmaku.update"
+          ]
+        },
+        {
+          "id": "danmaku.analyze_alignment",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.attach",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.attach_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.cache_delete",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.cache_prune",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.detach",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.episodes",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.export",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.fetch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.fetch_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.import_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.offset",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.resolve",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.search",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.set_dedup",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.set_enabled",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.sources",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.tracks",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "danmaku.update",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false,
+          "inputConstraints": "Use entityId/path; current playback is unavailable. Exports must remain under data/exports."
+        },
+        {
+          "id": "download.add",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.directories",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.pause",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.preview",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.read",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.resume",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.select_files",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "download.set_paused",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "followup.register",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.artwork.set",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.files.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.hash.match",
+          "registered": true,
+          "effect": "read",
+          "available": false,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enroll preferences/dandanplay_token in host vault."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Host vault credential is missing.",
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.bind_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.identity.unbind_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.progress",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.readable",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.refresh",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.add",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.roots.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.scan",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.work",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.library.works",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.begin",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.chunk",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.confirm",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.delete",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.finish",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.mesh_files.readable",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.get_batch",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.import_batch",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.override",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.refresh",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.search",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.search_batch",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.snapshots",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "media.metadata.ui_facts",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "provider/source and input dependent; see providers/sources",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.devices",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.invoke",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "mesh.invoke_destructive",
+          "registered": true,
+          "effect": "destructive",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "program.repository.receive",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enable this host's program.json and restart."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Host program permission is disabled.",
+          "requiredUserPresence": false
+        },
+        {
+          "id": "program.run",
+          "registered": true,
+          "effect": "write",
+          "available": false,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [
+            "Enable this host's program.json and restart."
+          ],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": "Host program permission is disabled.",
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.describe",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.history",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.reset",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "settings.set",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "state.describe",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "state.query",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.import",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.select",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "subtitle.tracks",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.cancel",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.get",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.list",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "task.wait",
+          "registered": true,
+          "effect": "read",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.present",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.shelves.put",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        },
+        {
+          "id": "ui.shelves.remove",
+          "registered": true,
+          "effect": "write",
+          "available": true,
+          "availabilityScope": "hostPrerequisites",
+          "requiredHostSetup": [],
+          "remoteCallable": true,
+          "reason": null,
+          "availabilityReason": null,
+          "requiredUserPresence": false
+        }
+      ]
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 68395,
+      "removed": true,
+      "exited": true
+    }
+  }
+]
