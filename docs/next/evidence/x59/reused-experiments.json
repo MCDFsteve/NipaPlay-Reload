@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-13",
+  "continuation": "x59b",
+  "newModelCalls": 0,
+  "repeatedExperiments": 0,
+  "credentialFilesRead": 0,
+  "correction": "CPA Responses with deepseek-v4.1-flash is already evidenced by X52; it is not an unknown protocol route.",
+  "sources": [
+    {
+      "path": "docs/next/evidence/x52/experiment.json",
+      "sha256": "5b3b0fa3bb66f36a6065ae583f850219a2c2626fb08a9e40647ad595628c1c53",
+      "reusedClaims": [
+        "CPA Responses route succeeded",
+        "Managed and original turns used deepseek-v4.1-flash",
+        "Model-source switch retained the original thread and history",
+        "Successful and failed credential checks are already recorded"
+      ]
+    },
+    {
+      "path": "docs/next/evidence/x52/protocol.json",
+      "sha256": "87992d7994474e3bead37be9f7b3def19c4e43c984351d4c924f18ab1fde2b3d",
+      "reusedClaims": ["Codex 0.144.1 uses Responses; invalid chat wire settings do not become valid merely because initialize succeeds"]
+    },
+    {
+      "path": "docs/next/evidence/x52/delivery-scan.json",
+      "sha256": "83bebc5599cd054ead6f239262a6c468eaf26e8851ec846b906500836f6bb03c",
+      "reusedClaims": ["X52 recorded credential scanning after shell-snapshot isolation was corrected"]
+    }
+  ],
+  "notProvenByReusedEvidence": [
+    "CPA supports Anthropic Messages or Chat Completions",
+    "Official DeepSeek endpoint conformance",
+    "GLM Flash Responses and Codex tool conformance",
+    "Claude or DeepSeek Harness session and tool conformance",
+    "All recommended combinations complete real BT tasks"
+  ]
+}
