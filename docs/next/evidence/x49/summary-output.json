@@ -1,0 +1,353 @@
+{
+  "requests": 62,
+  "cache": [
+    {
+      "run": 1,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107134,
+          "hits": 105984,
+          "rate": 0.9892657793044225,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107155,
+          "hits": 107008,
+          "rate": 0.9986281554757127,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107176,
+          "hits": 107008,
+          "rate": 0.9984324848846756,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107176,
+          "hits": 105984,
+          "rate": 0.9888781070388893,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107197,
+          "hits": 107008,
+          "rate": 0.9982368909577694,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107218,
+          "hits": 107008,
+          "rate": 0.9980413736499468,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107223,
+          "hits": 105984,
+          "rate": 0.9884446434067318,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107244,
+          "hits": 107008,
+          "rate": 0.9977994106896423,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107265,
+          "hits": 107008,
+          "rate": 0.9976040646995759,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "aggregate": true,
+      "injection": true,
+      "allTurnsRate": 0.9950372517071108,
+      "laterTurnsRate": 0.998123605724013
+    },
+    {
+      "aggregate": true,
+      "injection": false,
+      "allTurnsRate": 0.9979707358752536,
+      "laterTurnsRate": 0.9980730180118634
+    }
+  ],
+  "deletionPrefixes": [
+    {
+      "run": 1,
+      "priorItems": 4,
+      "unchanged": true,
+      "noticeInNewInput": true
+    },
+    {
+      "run": 2,
+      "priorItems": 6,
+      "unchanged": true,
+      "noticeInNewInput": true
+    },
+    {
+      "run": 3,
+      "priorItems": 6,
+      "unchanged": true,
+      "noticeInNewInput": true
+    }
+  ],
+  "hookRuns": [
+    {
+      "run": 1,
+      "threadId": "01a134d2-4ade-7ec0-9f78-39e83102546d",
+      "turnId": "01a134d2-5364-76d3-bd80-463c12c98b2e",
+      "status": "completed",
+      "durationMs": 245
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d2-4ade-7ec0-9f78-39e83102546d",
+      "turnId": "01a134d3-8264-7cd1-be76-0f97f6cde7b8",
+      "status": "completed",
+      "durationMs": 127
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d3-a3da-7290-986f-f012c7cdbc68",
+      "turnId": "01a134d3-aa5f-7d50-863d-01410afc43b9",
+      "status": "completed",
+      "durationMs": 126
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d4-4f5a-7413-81d7-aa77a25541bf",
+      "turnId": "01a134d4-55f5-7393-b118-7f3e882a4adb",
+      "status": "completed",
+      "durationMs": 249
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d4-b6df-7123-9759-f838de0a6f77",
+      "turnId": "01a134d4-be17-7b11-ac85-548649bca760",
+      "status": "completed",
+      "durationMs": 239
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d4-b6df-7123-9759-f838de0a6f77",
+      "turnId": "01a134d5-4bb0-7012-aa36-ff6e3e96854f",
+      "status": "completed",
+      "durationMs": 170
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d5-899e-7403-9fc4-81faebed9407",
+      "turnId": "01a134d5-9030-72d0-ad77-6df6b710454e",
+      "status": "completed",
+      "durationMs": 151
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d5-fd11-7203-a71b-6ba948cab267",
+      "turnId": "01a134d6-03ab-70c1-a63d-4f6b3a030527",
+      "status": "completed",
+      "durationMs": 105
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d6-5945-7aa3-b28e-4a054b56b85a",
+      "turnId": "01a134d6-6001-7d60-865b-eb2e8d94eb20",
+      "status": "completed",
+      "durationMs": 136
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d6-5945-7aa3-b28e-4a054b56b85a",
+      "turnId": "01a134d6-f6dc-7250-870f-90c69054788a",
+      "status": "completed",
+      "durationMs": 125
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d7-2370-7072-be80-4b51bed506d3",
+      "turnId": "01a134d7-2a19-7310-8112-538adef7f5be",
+      "status": "completed",
+      "durationMs": 168
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d7-c801-7bc1-8c7f-7d27fcb8fef8",
+      "turnId": "01a134d7-ce8b-7bb1-8ae0-8f4d26435c87",
+      "status": "completed",
+      "durationMs": 143
+    }
+  ],
+  "secretChecks": [
+    {
+      "absent": true,
+      "files": 2
+    },
+    {
+      "absent": true,
+      "files": 3
+    },
+    {
+      "absent": true,
+      "files": 3
+    }
+  ],
+  "supplementHooks": [
+    {
+      "turnId": "01a134da-2def-79d0-9265-a4412fc18f3e",
+      "status": "completed",
+      "durationMs": 269
+    },
+    {
+      "turnId": "01a134da-4632-7ba2-82e5-d94badc5b43f",
+      "status": "completed",
+      "durationMs": 264
+    },
+    {
+      "turnId": "01a134da-68e5-7cf1-8586-81b266f17eff",
+      "status": "completed",
+      "durationMs": 188
+    },
+    {
+      "turnId": "01a134da-7df0-7ff3-b97e-3f7e649f488b",
+      "status": "completed",
+      "durationMs": 162
+    },
+    {
+      "turnId": "01a134da-a420-7d01-83e6-a6a071693d8a",
+      "status": "completed",
+      "durationMs": 258
+    },
+    {
+      "turnId": "01a134da-b903-7321-af2d-bbafcbdeedd9",
+      "status": "completed",
+      "durationMs": 183
+    }
+  ],
+  "restartHooks": [
+    {
+      "turnId": "01a134de-b422-7370-b704-9dea4da0a6d5",
+      "status": "completed",
+      "durationMs": 173
+    },
+    {
+      "turnId": "01a134de-c934-7e43-bfc4-f67accfe8798",
+      "status": "completed",
+      "durationMs": 154
+    },
+    {
+      "turnId": "01a134de-de44-75d3-a418-b2b0ab534a31",
+      "status": "completed",
+      "durationMs": 225
+    },
+    {
+      "turnId": "01a134de-f4ee-76c1-a958-990b6919dce5",
+      "status": "completed",
+      "durationMs": 156
+    }
+  ]
+}

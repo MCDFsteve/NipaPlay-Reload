@@ -1,0 +1,58 @@
+[
+  {
+    "at": 1791887470.541617,
+    "label": "launch-1",
+    "value": {
+      "pid": 71936,
+      "header": {
+        "sessionId": "nipa-1791887468217400-70e585f6",
+        "threadId": "01a134d0-e8c1-73a3-83cf-3d1f4f5e4861",
+        "mainThreadId": "01a134d0-e8c1-73a3-83cf-3d1f4f5e4861",
+        "model": "deepseek-v4.1-flash",
+        "provider": "cpa",
+        "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-71819-1/harness"
+      },
+      "hooks": {
+        "data": [
+          {
+            "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-71819-1/harness",
+            "hooks": [
+              {
+                "key": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-71819-1/harness/.codex/hooks.json:session_start:0:0",
+                "eventName": "sessionStart",
+                "handlerType": "command",
+                "matcher": "startup|resume|clear|compact",
+                "command": "python3 hooks/session_start.py",
+                "timeoutSec": 15,
+                "statusMessage": null,
+                "sourcePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-71819-1/harness/.codex/hooks.json",
+                "source": "project",
+                "pluginId": null,
+                "displayOrder": 0,
+                "enabled": true,
+                "isManaged": false,
+                "currentHash": "sha256:b4b83393d76b698d200d2cd4d2f92f262620cd0865e28047589fdc67d5880124",
+                "trustStatus": "trusted"
+              }
+            ],
+            "warnings": [],
+            "errors": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "at": 1791887542.1733,
+    "label": "memory-files-1",
+    "value": {
+      "MEMORY.md": "# 记忆索引\n\n一行一条：主题文件路径、内容描述、确认日期与出处。环境、经验与单部作品的笔记放在 memory/ 的其他 Markdown 文件，按需读取。秘密不进记忆。\n",
+      "preferences.md": "# 偏好\n\n每条写日期和出处。偏好变化时修改原条目。能落成 NipaPlay 设置的偏好写设置及理由，不在这里重复。秘密不进记忆。本文件上限 8192 UTF-8 字节。\n"
+    }
+  },
+  {
+    "at": 1791887542.639324,
+    "label": "seed-fact-bytes",
+    "value": 496
+  }
+]

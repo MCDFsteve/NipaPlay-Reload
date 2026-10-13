@@ -1,0 +1,388 @@
+{
+  "requests": 62,
+  "cache": [
+    {
+      "run": 1,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107134,
+          "hits": 105984,
+          "rate": 0.9892657793044225,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107155,
+          "hits": 107008,
+          "rate": 0.9986281554757127,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107176,
+          "hits": 107008,
+          "rate": 0.9984324848846756,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107176,
+          "hits": 105984,
+          "rate": 0.9888781070388893,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107197,
+          "hits": 107008,
+          "rate": 0.9982368909577694,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107218,
+          "hits": 107008,
+          "rate": 0.9980413736499468,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "injection": true,
+      "turns": [
+        {
+          "step": 1,
+          "input": 107223,
+          "hits": 105984,
+          "rate": 0.9884446434067318,
+          "hasInjection": true
+        },
+        {
+          "step": 2,
+          "input": 107244,
+          "hits": 107008,
+          "rate": 0.9977994106896423,
+          "hasInjection": true
+        },
+        {
+          "step": 3,
+          "input": 107265,
+          "hits": 107008,
+          "rate": 0.9976040646995759,
+          "hasInjection": true
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "injection": false,
+      "turns": [
+        {
+          "step": 1,
+          "input": 106093,
+          "hits": 105856,
+          "rate": 0.9977661108649958,
+          "hasInjection": false
+        },
+        {
+          "step": 2,
+          "input": 106114,
+          "hits": 105856,
+          "rate": 0.9975686525811863,
+          "hasInjection": false
+        },
+        {
+          "step": 3,
+          "input": 106135,
+          "hits": 105984,
+          "rate": 0.9985772836481839,
+          "hasInjection": false
+        }
+      ]
+    },
+    {
+      "aggregate": true,
+      "injection": true,
+      "allTurnsRate": 0.9950372517071108,
+      "laterTurnsRate": 0.998123605724013
+    },
+    {
+      "aggregate": true,
+      "injection": false,
+      "allTurnsRate": 0.9979707358752536,
+      "laterTurnsRate": 0.9980730180118634
+    }
+  ],
+  "compaction": [
+    {
+      "run": 1,
+      "summaryCharacters": 2501,
+      "originalPreferenceUserMessage": true,
+      "originalProbeUserMessage": true,
+      "oldAssistantItems": 0,
+      "oldToolOutputs": 0,
+      "freshHookCharacters": 1721,
+      "summary": "Another language model started to solve this problem and produced a summary of its thinking process. You also have access to the state of the tools that were used by that language model. Use this to build on the work that has already been done and avoid duplicating work. Here is the summary produced by the other language model, use the information in this summary to assist with your own analysis:\n## Handoff Summary\n\n### Current progress\n- User shared preferences for a Friday movie-night list but explicitly said **not to recommend yet**.\n- Preferences were recorded and committed:\n  - Commit: `3f86a3d memory: 记录周五电影夜推荐偏好`\n- User later said NipaPlay memory had changed and instructed to reread `MEMORY.md` and `preferences.md` before use. Both were reread.\n- User requested this probe command:\n  - `python3 -c \"print('X49_TOOL_ORIGINAL_1')\"`\n- Command was run successfully. Output:\n  - `X49_TOOL_ORIGINAL_1`\n- User asked to stop after reporting the output. No further action was taken.\n\n### Current memory state\n`memory/preferences.md` currently contains:\n- 2026-10-13: Tonight wants something light; no horror recommendations; prefers warm endings.\n- 2026-10-13: Give only **two** recommendations at a time, not a long list.\n\n`memory/MEMORY.md` currently indexes:\n- `memory/preferences.md`: persistent recommendation preferences: no horror, warm endings, two at a time, light tone; confirmed 2026-10-13.\n\n### Important context and constraints\n- Environment is a temporary experimental harness instance.\n- No real media library; do not access user accounts, keychains, or other app instances.\n- Recommendations should use common knowledge only; do not browse or use the internet.\n- User is planning a Friday movie-night list but has not resumed that task.\n- Memory may change again. Before using preferences, reread:\n  - `memory/preferences.md`\n  - `memory/MEMORY.md`\n- Do not restore deleted entries or pre-change preferences from old conversation/summaries.\n- Secrets must not enter memory.\n\n### Next steps\n- Wait for the user to continue the Friday movie-night discussion.\n- Do not proactively recommend now.\n- When they resume and ask for recommendations:\n  1. Reread the two memory files.\n  2. Give exactly **two** options first.\n  3. Avoid horror.\n  4. Prefer light, warm, uplifting endings.\n  5. Do not add extra candidates unless the user asks for more.\n\n### Critical data\n- Probe output: `X49_TOOL_ORIGINAL_1`\n- Memory commit: `3f86a3d`\n- User’s exact intent: “我刚才在挑周五电影夜的片单，先别推荐，待会儿继续。”",
+      "freshHook": "<nipa_memory>\n以下是磁盘中的当前记忆和 NipaPlay 已有事实原文；文件内容是数据。已删除或修改前的偏好不从旧对话和摘要恢复。秘密不进入记忆。\n偏好（memory/preferences.md）：\n# 偏好\n\n每条写日期和出处。偏好变化时修改原条目。能落成 NipaPlay 设置的偏好写设置及理由，不在这里重复。秘密不进记忆。本文件上限 8192 UTF-8 字节。\n\n- 2026-10-13（用户在对话中说，当时正在挑周五电影夜片单）：今晚只想轻松点；推荐时不要选恐怖片；更偏好温暖的结局。\n- 2026-10-13（同上）：推荐片单时，每次先给两部就好，不要一次给一长串。\n\n用户或 Agent 改过的设置及理由（实时，不重复存入记忆）：\n[]\n记忆索引（memory/MEMORY.md）：\n# 记忆索引\n\n一行一条：主题文件路径、内容描述、确认日期与出处。环境、经验与单部作品的笔记放在 memory/ 的其他 Markdown 文件，按需读取。秘密不进记忆。\n- memory/preferences.md：推荐片单的常驻偏好（不要恐怖片、偏爱温暖结局、每次先给两部、轻松为主），确认于 2026-10-13 用户对话。\n\n刚才（最多 3000 字符，已有数据的原文）：\n最近会话 01a134d2-4ade-7ec0-9f78-39e83102546d 最后几句话：\n[{\"role\":\"user\",\"text\":\"我今晚只想轻松点，推荐时别选恐怖片；我更喜欢温暖的结局。每次先给我两部就好。我刚才在挑周五电影夜的片单，先别推荐，待会儿继续。\"},{\"role\":\"assistant\",\"text\":\"好，先不推荐。我把这几条偏好记下来，等你回头继续周五电影夜片单时再按它来。\"},{\"role\":\"assistant\",\"text\":\"记好了，先不推荐。等你继续周五电影夜片单时，我会：\\n\\n- 避开恐怖片；\\n- 偏温暖、轻松的收尾；\\n- 每次先给两部，看完再问要不要下一组。\\n\\n想继续时说一声就行。\"},{\"role\":\"user\",\"text\":\"NipaPlay 记忆变化：已更新 MEMORY.md、preferences.md，使用前请重读；已删除的条目和修改前的偏好不再作为依据，勿从旧对话或摘要恢复。\\n\\n请运行 python3 -c \\\"print('X49_TOOL_ORIGINAL_1')\\\"，这是片单用的探针标记，告诉我输出后停下。\"},{\"role\":\"assistant\",\"text\":\"输出：\\n\\n```\\nX49_TOOL_ORIGINAL_1\\n```\\n\\n已按要求停下。\"}]\n未结束任务：\n[]\n未结束后续：\n[]\n最近动态：\n[{\"at\":\"2026-10-13T10:32:58.000Z\",\"title\":\"memory: 记录周五电影夜推荐偏好\",\"actor\":\"Sakiko\",\"type\":\"harness.commit\",\"facts\":{\"hash\":\"3f86a3dcfab63f32653dae8efbd0408b41513880\",\"author\":\"Sakiko\",\"authoredAt\":\"2026-10-13T18:32:58+08:00\",\"repository\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-83765-1/harness\",\"subject\":\"memory: 记录周五电影夜推荐偏好\"}},{\"at\":\"2026-10-13T10:32:36.000Z\",\"title\":\"fixture\",\"actor\":\"fixture\",\"type\":\"harness.commit\",\"facts\":{\"hash\":\"cd275583c9e9e43de3edda245602\n[截断：此节尾部 201 字符未注入]\n刚才省略项：[\"最近动态 尾部 201 字符\"]\n</nipa_memory>"
+    },
+    {
+      "run": 2,
+      "summaryCharacters": 1419,
+      "originalPreferenceUserMessage": true,
+      "originalProbeUserMessage": true,
+      "oldAssistantItems": 0,
+      "oldToolOutputs": 0,
+      "freshHookCharacters": 1872,
+      "summary": "Another language model started to solve this problem and produced a summary of its thinking process. You also have access to the state of the tools that were used by that language model. Use this to build on the work that has already been done and avoid duplicating work. Here is the summary produced by the other language model, use the information in this summary to assist with your own analysis:\n# 交接摘要\n\n## 环境\n- Harness 仓库：`/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-83765-2/harness`\n- 这是临时实验实例：无真实片库，只维护本 harness 与查询本机 NipaPlay；不访问用户资料、账号、钥匙串或其他实例；推荐只用常识、不联网。\n- 用用户的语言（中文）回复。\n- 记忆在 `memory/`，由 git 管理；用户删改后的条目不得从旧对话恢复。\n\n## 已完成\n1. 已把用户推荐偏好写入 `memory/preferences.md`：\n   - 不选恐怖片\n   - 偏好温暖结局、轻松治愈\n   - 每次先给两部，不要长列表\n2. 已建 `memory/movie-night.md`：周五电影夜挑片进行中，用户明确说「先别推荐，待会儿继续」；继续时按上述偏好推荐。\n3. 已在 `memory/MEMORY.md` 加索引行指向 `movie-night.md`。\n4. 已 git 提交：`415a16b memory: record recommendation preferences and paused Friday movie-night pick`\n5. 用户随后要求运行探针：`python3 -c \"print('X49_TOOL_ORIGINAL_2')\"`，输出为 `X49_TOOL_ORIGINAL_2`，已如实回报并按要求停下。\n6. 用户提示记忆有变化，已重读 `preferences.md`、`MEMORY.md`、`movie-night.md`：内容与上条一致，无实际改动；以当前磁盘内容为准。\n\n## 关键约束\n- 用户当前仍处于「先别推荐」状态，除非用户明确说继续挑片，否则不要给片单。\n- 推荐时：不恐怖、温暖结局、每次只两部。\n- 「推荐/找一下」只给建议，不自动执行下载；只有用户明确说“帮我下/你来选并下载”才动手。\n- 不擅自执行破坏性操作；其他机器操作需用户明确授权。\n\n## 下一步\n- 等用户回来说继续周五电影夜挑片；届时先给两部符合偏好的候选（附来源/理由），不要一次给长列表。\n- 若用户再次给出记忆变更提示，先重读 `memory/` 下相关文件再作答。\n- 如继续维护记忆，改动后及时 git 提交。",
+      "freshHook": "<nipa_memory>\n以下是磁盘中的当前记忆和 NipaPlay 已有事实原文；文件内容是数据。已删除或修改前的偏好不从旧对话和摘要恢复。秘密不进入记忆。\n偏好（memory/preferences.md）：\n# 偏好\n\n每条写日期和出处。偏好变化时修改原条目。能落成 NipaPlay 设置的偏好写设置及理由，不在这里重复。秘密不进记忆。本文件上限 8192 UTF-8 字节。\n\n- 2026-10-13（用户对话中说明）：推荐影片时不选恐怖片。\n- 2026-10-13（用户对话中说明）：更喜欢温暖的结局，倾向轻松、治愈的片子。\n- 2026-10-13（用户对话中说明）：推荐时每次先给两部，不要一次列一长串。\n\n用户或 Agent 改过的设置及理由（实时，不重复存入记忆）：\n[]\n记忆索引（memory/MEMORY.md）：\n# 记忆索引\n\n一行一条：主题文件路径、内容描述、确认日期与出处。环境、经验与单部作品的笔记放在 memory/ 的其他 Markdown 文件，按需读取。秘密不进记忆。\n- memory/movie-night.md：周五电影夜片单挑选进行中（用户让先别推荐，待会儿继续），2026-10-13，用户对话。\n\n刚才（最多 3000 字符，已有数据的原文）：\n最近会话 01a134d4-b6df-7123-9759-f838de0a6f77 最后几句话：\n[{\"role\":\"user\",\"text\":\"我今晚只想轻松点，推荐时别选恐怖片；我更喜欢温暖的结局。每次先给我两部就好。我刚才在挑周五电影夜的片单，先别推荐，待会儿继续。\"},{\"role\":\"assistant\",\"text\":\"I'll record the preferences and the paused movie-night task, then leave you to it.\"},{\"role\":\"assistant\",\"text\":\"好，都记下了，这次不推荐。\\n\\n已存进记忆的偏好：\\n- 不选恐怖片\\n- 偏好温暖结局、轻松治愈的片子\\n- 每次先给两部，不要一次列一长串\\n\\n另外记了一条「周五电影夜挑选进行中，先别推荐，待会儿继续」，你回来接着挑时我直接按上面这些来，不会重新问你一遍。\"},{\"role\":\"user\",\"text\":\"NipaPlay 记忆变化：已更新 MEMORY.md、movie-night.md、preferences.md，使用前请重读；已删除的条目和修改前的偏好不再作为依据，勿从旧对话或摘要恢复。\\n\\n请运行 python3 -c \\\"print('X49_TOOL_ORIGINAL_2')\\\"，这是片单用的探针标记，告诉我输出后停下。\"},{\"role\":\"assistant\",\"text\":\"X49_TOOL_ORIGINAL_2\\n\\n（记忆已重读：偏好和 movie-night.md 的内容与我上次记录的一致，没有变化；我会以当前磁盘内容为准。按你说的，输出完就停。）\"}]\n未结束任务：\n[]\n未结束后续：\n[]\n最近动态：\n[{\"at\":\"2026-10-13T10:35:39.000Z\",\"title\":\"memory: record recommendation preferences and paused Friday movie-night pick\",\"actor\":\"Sakiko\",\"type\":\"harness.commit\",\"facts\":{\"hash\":\"415a16b79354fd1e169e4915b75a637052990b51\",\"author\":\"Sakiko\",\"authoredAt\":\"2026-10-13T18:35:39+08:00\",\"repository\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-83765-2/harness\",\"subject\":\"memory: record recommendation preferences and paused Friday movie-night pick\"}},{\"at\":\"2026-10-13T10:35:\n[截断：此节尾部 315 字符未注入]\n刚才省略项：[\"最近动态 尾部 315 字符\"]\n</nipa_memory>"
+    },
+    {
+      "run": 3,
+      "summaryCharacters": 2687,
+      "originalPreferenceUserMessage": true,
+      "originalProbeUserMessage": true,
+      "oldAssistantItems": 0,
+      "oldToolOutputs": 0,
+      "freshHookCharacters": 1788,
+      "summary": "Another language model started to solve this problem and produced a summary of its thinking process. You also have access to the state of the tools that were used by that language model. Use this to build on the work that has already been done and avoid duplicating work. Here is the summary produced by the other language model, use the information in this summary to assist with your own analysis:\n# Handoff Summary\n\n## Environment\n- Harness cwd: `/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-83765-3/harness`\n- This is a **temporary experimental NipaPlay harness instance with no real media library**. Constraints: only maintain this harness and query the local NipaPlay; do **not** access user data, accounts, keychain, or other app instances; **no network** — recommendations use common sense only.\n- Reply in the user's language (Chinese here).\n- `./nipa` is the only entry point to NipaPlay (requires app running + \"NipaPlay Next\" enabled in Settings → Lab).\n\n## Current Progress\n1. User stated preferences and an in-progress task (Friday movie night lineup).\n2. I persisted these to memory files and committed:\n   - Commit: `c223fd9` — \"memory: 记录推荐偏好与周五电影夜待办\"\n   - Files written: `memory/preferences.md`, `memory/friday-movie-night.md`, `memory/MEMORY.md`\n3. User then sent a \"memory changed\" notice (told to reread MEMORY.md, friday-movie-night.md, preferences.md before use). I **reread all three** — content is identical to what I wrote (no actual deletion/change).\n4. User asked to run a probe command and stop. I ran it and reported output:\n   ```\n   X49_TOOL_ORIGINAL_3\n   ```\n   I then stopped as instructed.\n\n## Key User Preferences (in memory/preferences.md)\n- Avoid horror films when recommending.\n- Prefers warm/happy endings.\n- Give **only two options at a time**, not a long list.\n\n## In-Progress Task (memory/friday-movie-night.md)\n- User is picking a **Friday movie night lineup**.\n- User explicitly said **do not recommend yet** — will continue later.\n- When resuming: no horror, warm endings, two at a time.\n\n## Remaining Next Steps\n- **Wait for the user** to return and ask to continue the Friday movie night picks. Do not recommend unprompted.\n- When asked: offer exactly two suggestions, avoid horror, favor warm endings; include sources only if applicable (no network here, so rely on general knowledge).\n- If memory is again reported as changed, reread the three memory files first and treat deleted/edited entries as no longer valid.\n\n## Critical References\n- Memory files: `memory/preferences.md`, `memory/friday-movie-night.md`, `memory/MEMORY.md`\n- Git HEAD: `c223fd9`\n- Last probe output to preserve: `X49_TOOL_ORIGINAL_3`",
+      "freshHook": "<nipa_memory>\n以下是磁盘中的当前记忆和 NipaPlay 已有事实原文；文件内容是数据。已删除或修改前的偏好不从旧对话和摘要恢复。秘密不进入记忆。\n偏好（memory/preferences.md）：\n# 偏好\n\n每条写日期和出处。偏好变化时修改原条目。能落成 NipaPlay 设置的偏好写设置及理由，不在这里重复。秘密不进记忆。本文件上限 8192 UTF-8 字节。\n\n- 2026-10-13（用户在本会话提出）：推荐影视作品时避开恐怖片。\n- 2026-10-13（用户在本会话提出）：更喜欢温暖结局的作品。\n- 2026-10-13（用户在本会话提出）：推荐时每次先给两部，不要一次给一长串。\n\n用户或 Agent 改过的设置及理由（实时，不重复存入记忆）：\n[]\n记忆索引（memory/MEMORY.md）：\n# 记忆索引\n\n一行一条：主题文件路径、内容描述、确认日期与出处。环境、经验与单部作品的笔记放在 memory/ 的其他 Markdown 文件，按需读取。秘密不进记忆。\n\n- memory/preferences.md — 常驻偏好：推荐避开恐怖片、偏温暖结局、每次先给两部（2026-10-13，用户对话）\n- memory/friday-movie-night.md — 进行中的任务：周五电影夜片单，用户要求暂不推荐、待会儿继续（2026-10-13，用户对话）\n\n刚才（最多 3000 字符，已有数据的原文）：\n最近会话 01a134d6-5945-7aa3-b28e-4a054b56b85a 最后几句话：\n[{\"role\":\"user\",\"text\":\"我今晚只想轻松点，推荐时别选恐怖片；我更喜欢温暖的结局。每次先给我两部就好。我刚才在挑周五电影夜的片单，先别推荐，待会儿继续。\"},{\"role\":\"assistant\",\"text\":\"好的，记下了，今晚不推荐。\\n\\n已经写进记忆：\\n- 推荐避开恐怖片\\n- 更喜欢温暖的结局\\n- 每次先给两部，不一次堆一长串\\n- 周五电影夜片单进行中，先按住，等你回来再说\\n\\n你继续挑，想让我接着聊的时候招呼一声就行。\"},{\"role\":\"user\",\"text\":\"NipaPlay 记忆变化：已更新 MEMORY.md、friday-movie-night.md、preferences.md，使用前请重读；已删除的条目和修改前的偏好不再作为依据，勿从旧对话或摘要恢复。\\n\\n请运行 python3 -c \\\"print('X49_TOOL_ORIGINAL_3')\\\"，这是片单用的探针标记，告诉我输出后停下。\"},{\"role\":\"assistant\",\"text\":\"已重读记忆，探针输出：\\n\\n```\\nX49_TOOL_ORIGINAL_3\\n```\\n\\n停在这里。\"}]\n未结束任务：\n[]\n未结束后续：\n[]\n最近动态：\n[{\"at\":\"2026-10-13T10:37:27.000Z\",\"title\":\"memory: 记录推荐偏好与周五电影夜待办\",\"actor\":\"Sakiko\",\"type\":\"harness.commit\",\"facts\":{\"hash\":\"c223fd986e51825bf2f054a1f780d8e78d47571b\",\"author\":\"Sakiko\",\"authoredAt\":\"2026-10-13T18:37:27+08:00\",\"repository\":\"/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x49-memory-83765-3/harness\",\"subject\":\"memory: 记录推荐偏好与周五电影夜待办\"}},{\"at\":\"2026-10-13T10:37:03.000Z\",\"title\":\"fixture\",\"actor\":\"fixture\",\"type\":\"harness.commit\",\"facts\":{\"hash\":\"ad1e13ab544470860a019c\n[截断：此节尾部 207 字符未注入]\n刚才省略项：[\"最近动态 尾部 207 字符\"]\n</nipa_memory>"
+    }
+  ],
+  "deletionPrefixes": [
+    {
+      "run": 1,
+      "priorItems": 4,
+      "unchanged": true,
+      "noticeInNewInput": true
+    },
+    {
+      "run": 2,
+      "priorItems": 6,
+      "unchanged": true,
+      "noticeInNewInput": true
+    },
+    {
+      "run": 3,
+      "priorItems": 6,
+      "unchanged": true,
+      "noticeInNewInput": true
+    }
+  ],
+  "hookRuns": [
+    {
+      "run": 1,
+      "threadId": "01a134d2-4ade-7ec0-9f78-39e83102546d",
+      "turnId": "01a134d2-5364-76d3-bd80-463c12c98b2e",
+      "status": "completed",
+      "durationMs": 245
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d2-4ade-7ec0-9f78-39e83102546d",
+      "turnId": "01a134d3-8264-7cd1-be76-0f97f6cde7b8",
+      "status": "completed",
+      "durationMs": 127
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d3-a3da-7290-986f-f012c7cdbc68",
+      "turnId": "01a134d3-aa5f-7d50-863d-01410afc43b9",
+      "status": "completed",
+      "durationMs": 126
+    },
+    {
+      "run": 1,
+      "threadId": "01a134d4-4f5a-7413-81d7-aa77a25541bf",
+      "turnId": "01a134d4-55f5-7393-b118-7f3e882a4adb",
+      "status": "completed",
+      "durationMs": 249
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d4-b6df-7123-9759-f838de0a6f77",
+      "turnId": "01a134d4-be17-7b11-ac85-548649bca760",
+      "status": "completed",
+      "durationMs": 239
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d4-b6df-7123-9759-f838de0a6f77",
+      "turnId": "01a134d5-4bb0-7012-aa36-ff6e3e96854f",
+      "status": "completed",
+      "durationMs": 170
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d5-899e-7403-9fc4-81faebed9407",
+      "turnId": "01a134d5-9030-72d0-ad77-6df6b710454e",
+      "status": "completed",
+      "durationMs": 151
+    },
+    {
+      "run": 2,
+      "threadId": "01a134d5-fd11-7203-a71b-6ba948cab267",
+      "turnId": "01a134d6-03ab-70c1-a63d-4f6b3a030527",
+      "status": "completed",
+      "durationMs": 105
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d6-5945-7aa3-b28e-4a054b56b85a",
+      "turnId": "01a134d6-6001-7d60-865b-eb2e8d94eb20",
+      "status": "completed",
+      "durationMs": 136
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d6-5945-7aa3-b28e-4a054b56b85a",
+      "turnId": "01a134d6-f6dc-7250-870f-90c69054788a",
+      "status": "completed",
+      "durationMs": 125
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d7-2370-7072-be80-4b51bed506d3",
+      "turnId": "01a134d7-2a19-7310-8112-538adef7f5be",
+      "status": "completed",
+      "durationMs": 168
+    },
+    {
+      "run": 3,
+      "threadId": "01a134d7-c801-7bc1-8c7f-7d27fcb8fef8",
+      "turnId": "01a134d7-ce8b-7bb1-8ae0-8f4d26435c87",
+      "status": "completed",
+      "durationMs": 143
+    }
+  ],
+  "secretChecks": [
+    {
+      "absent": true,
+      "files": 2
+    },
+    {
+      "absent": true,
+      "files": 3
+    },
+    {
+      "absent": true,
+      "files": 3
+    }
+  ],
+  "supplementHooks": [
+    {
+      "turnId": "01a134da-2def-79d0-9265-a4412fc18f3e",
+      "status": "completed",
+      "durationMs": 269
+    },
+    {
+      "turnId": "01a134da-4632-7ba2-82e5-d94badc5b43f",
+      "status": "completed",
+      "durationMs": 264
+    },
+    {
+      "turnId": "01a134da-68e5-7cf1-8586-81b266f17eff",
+      "status": "completed",
+      "durationMs": 188
+    },
+    {
+      "turnId": "01a134da-7df0-7ff3-b97e-3f7e649f488b",
+      "status": "completed",
+      "durationMs": 162
+    },
+    {
+      "turnId": "01a134da-a420-7d01-83e6-a6a071693d8a",
+      "status": "completed",
+      "durationMs": 258
+    },
+    {
+      "turnId": "01a134da-b903-7321-af2d-bbafcbdeedd9",
+      "status": "completed",
+      "durationMs": 183
+    }
+  ],
+  "restartHooks": [
+    {
+      "turnId": "01a134de-b422-7370-b704-9dea4da0a6d5",
+      "status": "completed",
+      "durationMs": 173
+    },
+    {
+      "turnId": "01a134de-c934-7e43-bfc4-f67accfe8798",
+      "status": "completed",
+      "durationMs": 154
+    },
+    {
+      "turnId": "01a134de-de44-75d3-a418-b2b0ab534a31",
+      "status": "completed",
+      "durationMs": 225
+    },
+    {
+      "turnId": "01a134de-f4ee-76c1-a958-990b6919dce5",
+      "status": "completed",
+      "durationMs": 156
+    }
+  ]
+}
