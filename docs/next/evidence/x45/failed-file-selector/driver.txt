@@ -1,0 +1,14 @@
+mutual-devices
+cleanup
+fixture-removed
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 117, in <module>
+    'files':invoke(a,bid,'media.files.list',{}), 'tasks':invoke(a,bid,'task.list',{})})
+            ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 68, in invoke
+    def invoke(data, device, action, input): return call(data, 'mesh.invoke', {'deviceId': device, 'action': action, 'input': input})
+                                                    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 66, in call
+    assert envelope['status'] == 'completed', (action, envelope)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('mesh.invoke', {'status': 'failed', 'error': {'code': 'invalid_input', 'message': 'Invalid input.', 'retryable': False, 'violations': [{'path': '', 'message': 'Expected exactly one complete group from [[root], [workId]], with no fields from the other groups.'}]}})

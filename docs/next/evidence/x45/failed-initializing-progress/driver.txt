@@ -1,0 +1,9 @@
+mutual-devices
+remote-library-and-tasks
+cleanup
+fixture-removed
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 165, in <module>
+    assert first['trigger']['facts'][0]['data']['file']['verification']=='verified'
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'file'

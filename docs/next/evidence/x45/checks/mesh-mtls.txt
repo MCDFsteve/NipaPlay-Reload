@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_integration_test.dart
+00:00 +0: (setUpAll)
+00:49 +0: two real TLS nodes invoke the same Harness and wrap decision effects
+00:50 +1: replayed invocation id, repeated nonce, and expired deadline never execute twice
+00:50 +2: heartbeat revocation aborts a live TLS call and refuses new sessions
+Shell: mesh connection rejected: device revoked
+Shell: mesh connection rejected: device revoked or not registered
+Shell: mesh connection rejected: device revoked or not registered
+Shell: mesh connection rejected: device revoked or not registered
+Shell: mesh connection rejected: device revoked or not registered
+01:00 +3: valid chains from a different account are rejected before Harness dispatch
+Shell: mesh connection rejected: account mismatch
+01:00 +4: an expired client certificate is rejected by real mutual TLS
+Shell: mesh connection rejected: invalid peer certificate: certificate expired: verification time 1791832047 (UNIX), but certificate is not valid after 1791832046 (1 seconds ago)
+01:04 +5: an untrusted issuer is rejected by real mutual TLS
+Shell: mesh connection rejected: invalid peer certificate: BadSignature
+01:04 +6: (tearDownAll)
+01:04 +6: All tests passed!

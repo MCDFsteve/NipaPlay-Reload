@@ -1,0 +1,217 @@
+{
+  "source": "local-native/local-loopback.json.gz",
+  "scope": {
+    "network": "loopback only",
+    "gateway": "synthetic account",
+    "dht": false,
+    "lsd": false,
+    "meshBroadcast": false,
+    "torrentPrivate": true,
+    "license": "CC0-1.0",
+    "bytes": [
+      34808,
+      52898,
+      72474
+    ],
+    "modelTurns": 0,
+    "workstationConnections": 0
+  },
+  "mesh": {
+    "a": {
+      "status": "online",
+      "devices": [
+        {
+          "deviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+          "name": "Local conversation fixture",
+          "online": true,
+          "description": {
+            "deviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+            "name": "Local conversation fixture",
+            "platform": "macos",
+            "agentDeviceId": null,
+            "roles": [
+              "agent"
+            ],
+            "storage": [],
+            "host": "headless",
+            "conversationHost": false,
+            "mediaRoots": [],
+            "mediaReadOnly": true,
+            "downloadDirectory": "/private/tmp/nipa-next/x45-local-qiniw5so/conversation-fixture/downloads",
+            "storageFacts": [
+              {
+                "role": "download",
+                "readOnly": false,
+                "availableBytes": 615107461120,
+                "path": "/private/tmp/nipa-next/x45-local-qiniw5so/conversation-fixture/downloads"
+              }
+            ],
+            "downloadEngine": "librqbit"
+          },
+          "actionCount": 55
+        },
+        {
+          "deviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+          "name": "Local transfer fixture",
+          "online": true,
+          "description": {
+            "deviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+            "name": "Local transfer fixture",
+            "platform": "macos",
+            "agentDeviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+            "roles": [
+              "download",
+              "library"
+            ],
+            "storage": [],
+            "host": "headless",
+            "conversationHost": false,
+            "mediaRoots": [],
+            "mediaReadOnly": true,
+            "downloadDirectory": "/private/tmp/nipa-next/x45-local-qiniw5so/transfer-fixture/downloads",
+            "storageFacts": [
+              {
+                "role": "download",
+                "readOnly": false,
+                "availableBytes": 615107452928,
+                "path": "/private/tmp/nipa-next/x45-local-qiniw5so/transfer-fixture/downloads"
+              }
+            ],
+            "downloadEngine": "librqbit"
+          },
+          "actionCount": 55
+        }
+      ]
+    },
+    "b": {
+      "status": "online",
+      "devices": [
+        {
+          "deviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+          "name": "Local conversation fixture",
+          "online": true,
+          "description": {
+            "deviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+            "name": "Local conversation fixture",
+            "platform": "macos",
+            "agentDeviceId": null,
+            "roles": [
+              "agent"
+            ],
+            "storage": [],
+            "host": "headless",
+            "conversationHost": false,
+            "mediaRoots": [],
+            "mediaReadOnly": true,
+            "downloadDirectory": "/private/tmp/nipa-next/x45-local-qiniw5so/conversation-fixture/downloads",
+            "storageFacts": [
+              {
+                "role": "download",
+                "readOnly": false,
+                "availableBytes": 615107100672,
+                "path": "/private/tmp/nipa-next/x45-local-qiniw5so/conversation-fixture/downloads"
+              }
+            ],
+            "downloadEngine": "librqbit"
+          },
+          "actionCount": 55
+        },
+        {
+          "deviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+          "name": "Local transfer fixture",
+          "online": true,
+          "description": {
+            "deviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+            "name": "Local transfer fixture",
+            "platform": "macos",
+            "agentDeviceId": "FDCkl4Vq65I73Y2FxRD4DXUGbg5He5DGSUjlX3YJbxQ",
+            "roles": [
+              "download",
+              "library"
+            ],
+            "storage": [],
+            "host": "headless",
+            "conversationHost": false,
+            "mediaRoots": [],
+            "mediaReadOnly": true,
+            "downloadDirectory": "/private/tmp/nipa-next/x45-local-qiniw5so/transfer-fixture/downloads",
+            "storageFacts": [
+              {
+                "role": "download",
+                "readOnly": false,
+                "availableBytes": 615107100672,
+                "path": "/private/tmp/nipa-next/x45-local-qiniw5so/transfer-fixture/downloads"
+              }
+            ],
+            "downloadEngine": "librqbit"
+          },
+          "actionCount": 55
+        }
+      ]
+    }
+  },
+  "remoteLibraryAndTasks": {
+    "roots": {
+      "roots": [],
+      "readOnly": true
+    },
+    "files": {
+      "files": [],
+      "total": 0
+    },
+    "tasks": {
+      "jobs": []
+    }
+  },
+  "firstReturn": {
+    "threadId": "original-synthetic-thread",
+    "state": "ready",
+    "waitingFor": "Embedded chat host is not running.",
+    "sourceDeviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+    "sourceJobState": "running",
+    "event": "download.file_completed",
+    "file": {
+      "index": 0,
+      "expectedSize": 34808,
+      "actualSize": 34808,
+      "completedBytes": 34808,
+      "verification": "verified",
+      "imported": true,
+      "playable": true,
+      "identificationPending": true
+    }
+  },
+  "terminal": {
+    "state": "succeeded",
+    "progress": {
+      "completed": 3,
+      "total": 3,
+      "unit": "files"
+    },
+    "receiptVerification": "verified",
+    "downloadComplete": true
+  },
+  "wake": {
+    "sourceDeviceId": "tXiWZknFyKvIJtgY1zLNRR0wG4ayzqLWsZ2v0hS3YVc",
+    "threadId": null,
+    "state": "ready",
+    "trigger": {
+      "kind": "agent.wake",
+      "occurredAt": "2026-10-12T19:10:35.612415Z",
+      "facts": {
+        "event": "fixture.tick"
+      }
+    }
+  },
+  "cleanup": {
+    "pids": [
+      86160,
+      86171,
+      86189
+    ],
+    "exited": true
+  },
+  "fixtureRemoved": {
+    "removed": true
+  }
+}
