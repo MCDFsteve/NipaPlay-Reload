@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-14",
+  "source": "Main controller's explicit user instruction in this conversation",
+  "contextRestored": true,
+  "supersedesMissingTaskContextIn": "resume-checkpoint.json",
+  "decisions": [
+    "Agent runtime and model are independent selections; recommend DeepSeek V4.1 Flash and GLM 5.3 Flash.",
+    "NipaPlay defaults to providing a pinned Codex runtime; users select DeepSeek or Zhipu and enter one key for that provider.",
+    "Claude Code and DeepSeek Harness remain selectable alternatives.",
+    "A protocol conversion layer is considered only for combinations that cannot connect directly."
+  ],
+  "researchChanges": [
+    "Add section 14: out-of-box distribution, actual payload sizes, licensing, signing and generated presets.",
+    "Update section 11: bundled Codex, official DeepSeek Responses and GLM Flash Responses validation in phase one.",
+    "Update section 13: record the recommendation and out-of-box decisions; remove missing-scope prose."
+  ],
+  "futureExperimentKeysRequired": [
+    "DeepSeek official API key with approved budget",
+    "Domestic Zhipu API key with GLM Flash Responses permission and approved budget"
+  ],
+  "modelCallsExecuted": 0,
+  "productCodeChanges": 0
+}

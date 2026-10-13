@@ -1,0 +1,142 @@
+{
+  "retrievedAt": "2026-10-13T16:11:57.879735+00:00",
+  "version": "0.144.1",
+  "tag": "rust-v0.144.1",
+  "releaseUrl": "https://github.com/openai/codex/releases/tag/rust-v0.144.1",
+  "releaseMetadataUrl": "https://api.github.com/repos/openai/codex/releases/tags/rust-v0.144.1",
+  "releasePublishedAt": "2026-07-09T23:02:40Z",
+  "releaseMetadataSha256": "3a860fdac2f937a0b8aaa59e3c1d7f472aa5977c8688d59af9a016bd12866eb0",
+  "sources": [
+    {
+      "path": "distribution/LICENSE",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.144.1/LICENSE",
+      "sha256": "d17f227e4df5da1600391338865ce0f3055211760a36688f816941d58232d8dc",
+      "bytes": 10926
+    },
+    {
+      "path": "distribution/NOTICE",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.144.1/NOTICE",
+      "sha256": "9d71575ecfd9a843fc1677b0efb08053c6ba9fd686a0de1a6f5382fd3c220915",
+      "bytes": 242
+    },
+    {
+      "path": "distribution/cli-main.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.144.1/codex-rs/cli/src/main.rs",
+      "sha256": "9f0b17cfea4ffce46fdef5c155d55f85d6a9a0b39fd972e1416b49b26492d999",
+      "bytes": 144651
+    },
+    {
+      "path": "distribution/config.schema.json",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.144.1/codex-rs/core/config.schema.json",
+      "sha256": "841e0ab1c1bd2fea736ba2d46212ab5bedc06dce9fd83bbafbf50b57b9056d17",
+      "bytes": 161520
+    }
+  ],
+  "platforms": [
+    {
+      "platformPackage": "@openai/codex@0.144.1-darwin-arm64",
+      "target": "aarch64-apple-darwin",
+      "npmMetadataUrl": "https://registry.npmjs.org/@openai/codex/0.144.1-darwin-arm64",
+      "npmTarballUrl": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.1-darwin-arm64.tgz",
+      "npmUnpackedBytes": 311569963,
+      "npmCompressedBytes": 120299266,
+      "npmFileCount": 7,
+      "npmIntegrity": "sha512-dABeDK+ATqMG54MGBd3VjpKfh5EOoqx9PKVQB2QYDaEXx3F6CdUCXue5QIMfr4OxziUj8pUcLAQyd+KFqiTUFw==",
+      "binaryBytes": 260405808,
+      "releaseBinaryUrl": "https://github.com/openai/codex/releases/download/rust-v0.144.1/codex-aarch64-apple-darwin.tar.gz",
+      "releaseAssetBytes": 98299911,
+      "releasePublishedDigest": "sha256:88e72ac8bd30815f7d18e62dac333dc20ce3ad1cba94be1649a1977dd9bfdbb8",
+      "archiveHeaderMembers": [
+        {
+          "name": "codex-aarch64-apple-darwin",
+          "bytes": 260405808
+        }
+      ],
+      "archiveDigestVerified": false
+    },
+    {
+      "platformPackage": "@openai/codex@0.144.1-darwin-x64",
+      "target": "x86_64-apple-darwin",
+      "npmMetadataUrl": "https://registry.npmjs.org/@openai/codex/0.144.1-darwin-x64",
+      "npmTarballUrl": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.1-darwin-x64.tgz",
+      "npmUnpackedBytes": 337129194,
+      "npmCompressedBytes": 128728164,
+      "npmFileCount": 7,
+      "npmIntegrity": "sha512-K2g3Q3tNxzFhV0SuzO6HcsYK7EQrp/o4HyeReyhkwVrwwUPoYwyIbB0IRjHIiDzRhbKriDccid2iyF5aPqdTcg==",
+      "binaryBytes": 282836688,
+      "releaseBinaryUrl": "https://github.com/openai/codex/releases/download/rust-v0.144.1/codex-x86_64-apple-darwin.tar.gz",
+      "releaseAssetBytes": 107297255,
+      "releasePublishedDigest": "sha256:0ea72d21c794504342d5fe0d5d057b0221c0a42f4bdf4a48b95af243af2b0c0e",
+      "archiveHeaderMembers": [
+        {
+          "name": "codex-x86_64-apple-darwin",
+          "bytes": 282836688
+        }
+      ],
+      "archiveDigestVerified": false
+    },
+    {
+      "platformPackage": "@openai/codex@0.144.1-linux-x64",
+      "target": "x86_64-unknown-linux-musl",
+      "npmMetadataUrl": "https://registry.npmjs.org/@openai/codex/0.144.1-linux-x64",
+      "npmTarballUrl": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.1-linux-x64.tgz",
+      "npmUnpackedBytes": 351529018,
+      "npmCompressedBytes": 131162436,
+      "npmFileCount": 8,
+      "npmIntegrity": "sha512-HNGVI+BulrOaC/0IzBvd6EL62j7LrlbFKibrhw6hZjjCjAeUYzRB2jB4qDzXN1NfqDi6Xrvniof3kwbwab24lg==",
+      "binaryBytes": 298520624,
+      "releaseBinaryUrl": "https://github.com/openai/codex/releases/download/rust-v0.144.1/codex-x86_64-unknown-linux-musl.tar.gz",
+      "releaseAssetBytes": 109308813,
+      "releasePublishedDigest": "sha256:84091ae20c65fcc7d4120db97d1bd57d7ff8df9c7609fb781c78c2ebbd4f5a28",
+      "archiveHeaderMembers": [
+        {
+          "name": "codex-x86_64-unknown-linux-musl",
+          "bytes": 298520624
+        }
+      ],
+      "archiveDigestVerified": false
+    },
+    {
+      "platformPackage": "@openai/codex@0.144.1-win32-x64",
+      "target": "x86_64-pc-windows-msvc",
+      "npmMetadataUrl": "https://registry.npmjs.org/@openai/codex/0.144.1-win32-x64",
+      "npmTarballUrl": "https://registry.npmjs.org/@openai/codex/-/codex-0.144.1-win32-x64.tgz",
+      "npmUnpackedBytes": 409157780,
+      "npmCompressedBytes": 145088030,
+      "npmFileCount": 8,
+      "npmIntegrity": "sha512-qv2HOp6v/nVP31p5I5GxYyL0wa79PMzim1+W9CKSV0UldjFV9AMbualA8PeXcYhbvvh9Y1UASXxwjuQdlyfAvw==",
+      "binaryBytes": 341200688,
+      "releaseBinaryUrl": "https://github.com/openai/codex/releases/download/rust-v0.144.1/codex-x86_64-pc-windows-msvc.exe",
+      "releaseAssetBytes": 341200688,
+      "releasePublishedDigest": "sha256:cbacbb9726262ef558b4af0438a1b2a5bba9076132401d947b5b4d2bf92ab0e4",
+      "archiveHeaderMembers": [],
+      "archiveDigestVerified": false
+    }
+  ],
+  "localMacVendorFiles": [
+    {
+      "path": "aarch64-apple-darwin/bin/codex",
+      "bytes": 260405808
+    },
+    {
+      "path": "aarch64-apple-darwin/bin/codex-code-mode-host",
+      "bytes": 46374288
+    },
+    {
+      "path": "aarch64-apple-darwin/codex-package.json",
+      "bytes": 200
+    },
+    {
+      "path": "aarch64-apple-darwin/codex-path/rg",
+      "bytes": 4048816
+    },
+    {
+      "path": "aarch64-apple-darwin/codex-resources/zsh/bin/zsh",
+      "bytes": 737520
+    }
+  ],
+  "localMacVendorTotalBytes": 311566632,
+  "executedDownloadedBinaries": 0,
+  "modelCalls": 0,
+  "sizeCaveat": "Compressed npm payload and unpacked platform package are actual sizes; final NipaPlay installer delta requires a later packaging build."
+}
