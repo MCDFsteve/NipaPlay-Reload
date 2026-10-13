@@ -1,0 +1,36 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x56-search/test/next/search_jellyfin_experiment.dart
+00:00 +0: X56 temporary Jellyfin server search is bounded and does not register files
+{"observation":"server search","query":"X","total":3,"returned":3,"kinds":["Episode","Episode","Series"],"milliseconds":35.498,"unavailableSibling":true}
+{"observation":"server search","query":"X56","total":3,"returned":3,"kinds":["Episode","Episode","Series"],"milliseconds":12.834,"unavailableSibling":true}
+{"observation":"server search","query":"X56 Open","total":3,"returned":3,"kinds":["Episode","Episode","Series"],"milliseconds":11.628,"unavailableSibling":true}
+{"observation":"server search","query":"Open","total":3,"returned":3,"kinds":["Episode","Episode","Series"],"milliseconds":9.987,"unavailableSibling":true}
+{"observation":"server search","query":"不存在","total":0,"returned":0,"kinds":[],"milliseconds":3.176,"unavailableSibling":true}
+{"observation":"read-only boundary","queries":6,"fileEntities":0,"locations":0,"bindings":0,"totalChangesUnchanged":true,"limit1Returned":1,"serverTotal":3}
+{"observation":"source search opens Next original work","title":"X56 Open Series","episodes":2}
+00:00 +0 -1: X56 temporary Jellyfin server search is bounded and does not register files [E]
+  Expected: empty
+    Actual: [
+              {
+                'id': 'file-d124537c-e504-43a6-8a71-342e032ae4a2',
+                'kind': 'file',
+                'parent_id': null,
+                'revision': 0,
+                'attributes': '{"probe":{},"bindingRevision":0,"remoteSource":{"sourceId":"jellyfin:1791893048201","type":"jellyfin","serverId":"ee8c450a6fad40cf85e00f7504ecc1e7","itemId":"c15df9b0a65ff8d4ed257b8a46dd24a8","seriesId":"e215445685e89663d830bd49684f4aeb","seasonId":"fc5ddddc7ec4c6861e10ecc5e0d17738","number":1,"name":"X56 Open Series S01E01"}}'
+              },
+              {
+                'id': 'file-d80676df-fca5-471b-81f3-343a5e9249e6',
+                'kind': 'file',
+                'parent_id': null,
+                'revision': 0,
+                'attributes': '{"probe":{},"bindingRevision":0,"remoteSource":{"sourceId":"jellyfin:1791893048201","type":"jellyfin","serverId":"ee8c450a6fad40cf85e00f7504ecc1e7","itemId":"f5e932c820268dbf205fda37da84f501","seriesId":"e215445685e89663d830bd49684f4aeb","seasonId":"fc5ddddc7ec4c6861e10ecc5e0d17738","number":2,"name":"X56 Open Series S01E02"}}'
+              }
+            ]
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/next/search_jellyfin_experiment.dart 176:5     main.<fn>
+  
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x56-search/test/next/search_jellyfin_experiment.dart: X56 temporary Jellyfin server search is bounded and does not register files
