@@ -1,0 +1,122 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart
+test/next/headless_subtitle_constraints_test.dart:21:53: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    final track = imported.value.toJson()['entries'][0]['track'] as Map;
+                                                    ^
+test/next/headless_subtitle_constraints_test.dart:28:30: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect(value['selection']['trackId'], track['id']);
+                             ^
+test/next/headless_subtitle_constraints_test.dart:31:21: Error: Operator '[]' cannot be called on 'List<Map<String, Object>>?' because it is potentially null.
+ - 'List' is from 'dart:core'.
+ - 'Map' is from 'dart:core'.
+ - 'Object' is from 'dart:core'.
+    input['entries'][0]['filePath'] = invalid.path;
+                    ^
+test/next/headless_subtitle_constraints_test.dart:34:44: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect(failed.value.toJson()['entries'][0]['saved'], false);
+                                           ^
+test/next/headless_subtitle_constraints_test.dart:35:50: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect((await library.facts(id))['selection']['trackId'], track['id']);
+                                                 ^
+test/next/headless_subtitle_constraints_test.dart:42:51: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect((await library.facts(one))['selection']['trackId'], isNull);
+                                                  ^
+test/next/headless_subtitle_constraints_test.dart:43:51: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect((await library.facts(one))['selection']['basis'], 'explicit');
+                                                  ^
+00:00 +0 -1: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/headless_subtitle_constraints_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/headless_subtitle_constraints_test.dart":
+  Compilation failed for testPath=/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/headless_subtitle_constraints_test.dart: test/next/headless_subtitle_constraints_test.dart:21:53: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      final track = imported.value.toJson()['entries'][0]['track'] as Map;
+                                                      ^
+  test/next/headless_subtitle_constraints_test.dart:28:30: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect(value['selection']['trackId'], track['id']);
+                               ^
+  test/next/headless_subtitle_constraints_test.dart:31:21: Error: Operator '[]' cannot be called on 'List<Map<String, Object>>?' because it is potentially null.
+   - 'List' is from 'dart:core'.
+   - 'Map' is from 'dart:core'.
+   - 'Object' is from 'dart:core'.
+      input['entries'][0]['filePath'] = invalid.path;
+                      ^
+  test/next/headless_subtitle_constraints_test.dart:34:44: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect(failed.value.toJson()['entries'][0]['saved'], false);
+                                             ^
+  test/next/headless_subtitle_constraints_test.dart:35:50: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect((await library.facts(id))['selection']['trackId'], track['id']);
+                                                   ^
+  test/next/headless_subtitle_constraints_test.dart:42:51: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect((await library.facts(one))['selection']['trackId'], isNull);
+                                                    ^
+  test/next/headless_subtitle_constraints_test.dart:43:51: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect((await library.facts(one))['selection']['basis'], 'explicit');
+                                                    ^
+  .
+00:00 +0 -2: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: host-only permission is absent by default and cannot be set by an Action
+00:00 +1 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: remote catalog includes useful target families and excludes host mutation
+00:00 +2 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: bundle chunks are idempotent and cannot replace already received content
+00:00 +3 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: invalid digests and disabled receiving leave the harness untouched
+00:00 +4 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: command and bundle payloads do not enter the invocation journal
+00:00 +5 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: split output secrets and authenticated URLs stay redacted in bounded tails
+00:00 +6 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: interrupted persisted command is failed without replaying its effect
+test/next/mesh_delivery_constraints_test.dart:88:26: Error: The operator '[]' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the operator to an existing operator, or defining a '[]' operator.
+    expect(row['trigger']['facts'][0]['data']['receipt']['details']['stdoutTail'], 'finished');
+                         ^
+00:00 +7 -3: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/mesh_delivery_constraints_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/mesh_delivery_constraints_test.dart":
+  Compilation failed for testPath=/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/mesh_delivery_constraints_test.dart: test/next/mesh_delivery_constraints_test.dart:88:26: Error: The operator '[]' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the operator to an existing operator, or defining a '[]' operator.
+      expect(row['trigger']['facts'][0]['data']['receipt']['details']['stdoutTail'], 'finished');
+                           ^
+  .
+00:00 +7 -3: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/headless_subtitle_constraints_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/headless_subtitle_constraints_test.dart
+  /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/mesh_delivery_constraints_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/mesh_delivery_constraints_test.dart
+  /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/next/program_constraints_test.dart

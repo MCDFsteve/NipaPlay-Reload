@@ -1,0 +1,81 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/subtitle_manager_regression_test.dart
+00:00 +0: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/remote_subtitle_cache_test.dart: same-name subtitles keep distinct cache paths and offline contents
+已创建应用子目录: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_cache_Y4K5FN/nipaplay
+已清除自定义存储路径
+00:00 +1: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: resolveExternalSubtitleAction selects the requested external stream and normalizes its codec
+00:00 +2: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: resolveExternalSubtitleAction uses srt when the selected external subtitle omits its codec
+00:00 +3: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction downloads and activates only the selected current-source subtitle
+00:00 +4: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction disabled clears embedded and external subtitles without downloading
+00:00 +5: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction follow default preserves the existing external subtitle behavior
+00:00 +6: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction follow default stops after tracks load when playback generation changes
+00:00 +7: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction follow default checks identity after every subtitle download
+00:00 +8: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction follow default checks identity again immediately before activation
+00:00 +9: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction a missing download fails without caching or activating
+00:00 +10: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction download errors are preserved and never activate stale subtitles
+00:00 +11: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction activation errors are reported after the exact subtitle is cached
+00:00 +12: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction video-path guard invokes Emby application only for emby paths
+00:00 +13: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction video-path guard skips all Emby track application for transcoding
+00:00 +14: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: applyEmbyExternalSubtitleAction video-path guard leaves Jellyfin and unrelated paths untouched
+00:00 +15: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: activateEmbyExternalSubtitle awaits the asynchronous player setter before completing
+00:00 +16: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/emby_external_subtitle_selection_test.dart: activateEmbyExternalSubtitle preserves the exact asynchronous setter error
+00:00 +17: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/subtitle_manager_regression_test.dart: subtitle index is replaced when a cached file changes
+SubtitleManager: 设置外部字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt, 手动设置: false
+SubtitleManager: 使用应用内叠层渲染外挂字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+SubtitleManager: 外部字幕设置成功
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+SubtitleManager: 字幕文件已变化(/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt)，强制重新解析
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle-index-refresh-XFjOZD/track.srt
+00:00 +18: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/subtitle_manager_regression_test.dart: preserves a saved remote subtitle with the current SHA-1 cache name
+SubtitleManager: 保存视频字幕映射 - 视频: webdav://connection/episode.mkv, 字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_mapping_WDHS1L/834d690e7ddcbcec1f25c994281461301f3b056a.srt
+SubtitleManager: 获取视频对应的字幕路径 - 视频: webdav://connection/episode.mkv, 字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_mapping_WDHS1L/834d690e7ddcbcec1f25c994281461301f3b056a.srt
+00:00 +19: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/subtitle_manager_regression_test.dart: retains stacked subtitles when the primary subtitle reloads
+SubtitleManager: 设置外部字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt, 手动设置: false
+SubtitleManager: 使用应用内叠层渲染外挂字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+SubtitleManager: 外部字幕设置成功
+SubtitleManager: 使用应用内叠层渲染外挂字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/secondary.srt
+SubtitleManager: 设置外部字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt, 手动设置: false
+SubtitleManager: 使用应用内叠层渲染外挂字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+SubtitleManager: 外部字幕设置成功
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/secondary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/secondary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/secondary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/primary.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_stack_C28knL/secondary.srt
+00:00 +20: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/test/subtitle_manager_regression_test.dart: episode reset clears the stack and pending stack additions
+SubtitleManager: 设置外部字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt, 手动设置: false
+SubtitleManager: 使用应用内叠层渲染外挂字幕: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+SubtitleManager: 外部字幕设置成功
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] C++ 原生绑定不可用, 使用 Dart 路径: 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+[SubtitleParser] Dart 路径成功: 1 条目, 格式=srt, 编码=utf-8, 文件=/var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/subtitle_reset_3atmXe/episode1.srt
+SubtitleManager: 外部字幕状态已重置
+SubtitleManager: 外部字幕状态已重置
+00:00 +21: All tests passed!

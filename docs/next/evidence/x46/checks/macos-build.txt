@@ -1,0 +1,451 @@
+The following plugins do not support Swift Package Manager for macos:
+  - erika_flutter
+  - flutter_js
+  - fvp
+  - hotkey_manager_macos
+  - media_kit_libs_macos_video
+  - media_kit_video
+  - nipaplay_smb2
+  - rust_lib_nipaplay
+  - screen_retriever_macos
+  - tray_manager
+  - window_manager
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Running pod install...                                             54.4s
+Building macOS application...                                   
+# 1 "<command line>" 1
+ ^
+<command line>:493:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^ (in target 'media_kit_video' from project 'Pods')
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/<command line>:493:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^ (in target 'media_kit_video' from project 'Pods')
+#define POD_CONFIGURATION_DEBUG 1
+        ^ (in target 'media_kit_video' from project 'Pods')
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/socket.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:505:41: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  505 |                         len = smb2->spl - smb2->in.num_done;
+      |                             ~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:559:57: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  559 |                                         len = smb2->spl - smb2->in.num_done;
+      |                                             ~ ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:677:54: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  677 |                         len = smb2->hdr.next_command - (SMB2_HEADER_SIZE +
+      |                             ~ ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+  678 |                                   smb2->in.num_done - smb2->payload_offset);
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:680:57: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  680 |                         len = smb2->spl + SMB2_SPL_SIZE - smb2->in.num_done;
+      |                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:726:54: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  726 |                         len = smb2->hdr.next_command - (SMB2_HEADER_SIZE +
+      |                             ~ ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+  727 |                                   smb2->in.num_done - smb2->payload_offset);
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/socket.c:729:57: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  729 |                         len = smb2->spl + SMB2_SPL_SIZE - smb2->in.num_done;
+      |                             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+6 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-data-file-info.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-data-file-info.c:180:58: warning: implicit conversion loses integer precision: 'unsigned long' to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  180 |                                 fs->stream_name_length = strlen(name);
+      |                                                        ~ ^~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-data-file-info.c:466:45: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  466 |                         name_len = vec->len - 4;
+      |                                  ~ ~~~~~~~~~^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-data-file-info.c:473:36: warning: implicit conversion loses integer precision: 'unsigned long' to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  473 |                         name_len = strlen(name);
+      |                                  ~ ^~~~~~~~~~~~
+3 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-cmd-query-directory.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-query-directory.c:561:59: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+  561 |                         name_byte_len = strlen(req->name) + 1;
+      |                                       ~ ~~~~~~~~~~~~~~~~~~^~~
+1 warning generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-cmd-oplock-break.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-oplock-break.c:246:38: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  246 |         smb2_set_uint32(iov, 4, req->lease_duration);
+      |         ~~~~~~~~~~~~~~~         ~~~~~^~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-oplock-break.c:303:39: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  303 |         smb2_set_uint32(iov, 28, rep->lease_duration);
+      |         ~~~~~~~~~~~~~~~          ~~~~~^~~~~~~~~~~~~~
+2 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-cmd-negotiate.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-negotiate.c:289:47: warning: variable 'seclen' may be uninitialized when used here [-Wconditional-uninitialized]
+  289 |         rep->negotiate_context_offset = len + seclen + SMB2_HEADER_SIZE;
+      |                                               ^~~~~~
+  216 |         int len, seclen;
+      |                        ^
+      |                         = 0
+1 warning generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-cmd-ioctl.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-ioctl.c:433:48: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  433 |                         req->input_count = vec.len;
+      |                                          ~ ~~~~^~~
+1 warning generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/smb2-cmd-create.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/smb2-cmd-create.c:479:59: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+  479 |                         name_byte_len = strlen(req->name) + 1;
+      |                                       ~ ~~~~~~~~~~~~~~~~~~^~~
+1 warning generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/ntlmssp.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:338:32: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+  338 |                 alloc_len = 32 + strlen(smb2->server);
+      |                           ~ ~~~^~~~~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:349:49: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  349 |                 alloc_len = auth_data->ntlm_len + 400;
+      |                           ~ ~~~~~~~~~~~~~~~~~~~~^~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:911:27: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
+  911 |                 namelen = strlen(auth_data->workstation);
+      |                         ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:937:38: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  937 |         target_info_pos = auth_data->len;
+      |                         ~ ~~~~~~~~~~~^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:976:53: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+  976 |         auth_data->target_info_len = auth_data->len - target_info_pos;
+      |                                    ~ ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:1029:51: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+ 1028 |                         spnego_len = smb2_spnego_wrap_gssapi(smb2, auth_data->buf,
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~
+ 1029 |                                        auth_data->len, (void*)&spnego_buf);
+      |                                        ~~~~~~~~~~~^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:1064:69: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+ 1062 |                                         spnego_len = smb2_spnego_wrap_ntlmssp_challenge(smb2,
+      |                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1063 |                                                         auth_data->buf,
+ 1064 |                                                          auth_data->len, (void*)&spnego_buf);
+      |                                                          ~~~~~~~~~~~^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:1117:92: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
+ 1116 |                                         spnego_len = smb2_spnego_wrap_ntlmssp_auth(smb2,
+      |                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1117 |                                                                 auth_data->buf, auth_data->len,
+      |                                                                                 ~~~~~~~~~~~^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/ntlmssp.c:1280:31: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+ 1280 |         temp_len = auth_data->len;
+      |                  ~ ~~~~~~~~~~~^~~
+9 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/libsmb2.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/libsmb2.c:2838:57: warning: variable 'new_lease_state' may be uninitialized when used here [-Wconditional-uninitialized]
+ 2838 |                                 rep_lease.lease_state = new_lease_state;
+      |                                                         ^~~~~~~~~~~~~~~
+ 2812 |         uint32_t new_lease_state;
+      |                                 ^
+      |                                  = 0
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/libsmb2.c:2829:59: warning: variable 'new_oplock_level' may be uninitialized when used here [-Wconditional-uninitialized]
+ 2829 |                                 rep_oplock.oplock_level = new_oplock_level;
+      |                                                           ^~~~~~~~~~~~~~~~
+ 2811 |         uint8_t new_oplock_level;
+      |                                 ^
+      |                                  = '\0'
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/libsmb2.c:3669:21: warning: variable 'message_type' may be uninitialized when used here [-Wconditional-uninitialized]
+ 3669 |                 if (message_type == NEGOTIATE_MESSAGE) {
+      |                     ^~~~~~~~~~~~
+ 3618 |         uint32_t message_type;
+      |                              ^
+      |                               = 0
+3 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/dcerpc.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/dcerpc.c:710:70: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  710 |                         if (dcerpc_set_uint32(ctx, pdu, iov, offset, val)) {
+      |                             ~~~~~~~~~~~~~~~~~                        ^~~
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/dcerpc.c:911:29: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  911 |         carray->max_count = p;
+      |                           ~ ^
+2 warnings generated.
+In file included from /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/asn1-ber.c:1:
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/nipaplay_smb2/macos/Classes/libsmb2/../../../third_party/libsmb2/lib/asn1-ber.c:675:15: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+  675 |     *lenout = i;
+      |             ~ ^
+1 warning generated.
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/macos/Pods/HotKey/Sources/HotKey/NSEventModifierFlags+HotKey.swift:49:1: warning: extension declares a conformance of imported type 'ModifierFlags' to imported protocol 'CustomStringConvertible'; this will not behave correctly if the owners of 'AppKit' introduce this conformance in the future
+extension NSEvent.ModifierFlags: CustomStringConvertible {
+^
+extension NSEvent.ModifierFlags: CustomStringConvertible {
+^                                ~~~~~~~~~~~~~~~~~~~~~~~
+                                 @retroactive CustomStringConvertible
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/media_kit_video/macos/Classes/plugin/gl/MediaKitOpenGLVideoLayer.swift:76:14: warning: 'wantsBestResolutionOpenGLSurface' was deprecated in macOS 10.14: Use NSOpenGLView instead.
+    hostView.wantsBestResolutionOpenGLSurface = true
+             ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/media_kit_video/macos/Classes/plugin/gl/MediaKitOpenGLVideoLayer.swift:77:14: warning: 'wantsExtendedDynamicRangeOpenGLSurface' was deprecated in macOS 10.14: Use NSOpenGLView instead.
+    hostView.wantsExtendedDynamicRangeOpenGLSurface = true
+             ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/media_kit_video/macos/Classes/plugin/gl/MediaKitOpenGLVideoLayer.swift:810:46: warning: 'displayP3_PQ_EOTF' was deprecated in macOS 10.15.4: No longer supported
+      return CGColorSpace(name: CGColorSpace.displayP3_PQ_EOTF)
+                                             ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/media_kit_video/macos/Classes/plugin/gl/MediaKitOpenGLVideoLayer.swift:816:48: warning: 'itur_2020_PQ' was deprecated in macOS 11.0: No longer supported
+        return CGColorSpace(name: CGColorSpace.itur_2020_PQ)
+                                               ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/packages/media_kit_video/macos/Classes/plugin/gl/MediaKitOpenGLVideoLayer.swift:818:46: warning: 'itur_2020_PQ_EOTF' was deprecated in macOS 10.15.4: No longer supported
+      return CGColorSpace(name: CGColorSpace.itur_2020_PQ_EOTF)
+                                             ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+# 1 "<command line>" 1
+ ^
+<command line>:22:9: warning: 'POD_CONFIGURATION_DEBUG' macro redefined
+#define POD_CONFIGURATION_DEBUG 1 DEBUG=1 
+        ^
+#define POD_CONFIGURATION_DEBUG 1
+        ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/macos/Pods/HotKey/Sources/HotKey/NSEventModifierFlags+HotKey.swift:49:1: warning: extension declares a conformance of imported type 'ModifierFlags' to imported protocol 'CustomStringConvertible'; this will not behave correctly if the owners of 'AppKit' introduce this conformance in the future
+extension NSEvent.ModifierFlags: CustomStringConvertible {
+^
+extension NSEvent.ModifierFlags: CustomStringConvertible {
+^                                ~~~~~~~~~~~~~~~~~~~~~~~
+                                 @retroactive CustomStringConvertible
+-- The CXX compiler identification is AppleClang 17.0.0.17000319
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- ── NipaPlay Native ISA Optimization ──
+--   C++ (cpp_native): default (no -march override)
+--   Rust (cargo):    Apple default (-arch arm64 / x86-64-v3 for Intel)
+--   Compiler:        AppleClang 17.0.0.17000319
+--   Processor:       arm64
+-- 
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/DerivedSources/arm64
+[ 20%] Building CXX object CMakeFiles/nipaplay_native.dir/src/string_utils.cpp.o
+[ 20%] Building CXX object CMakeFiles/nipaplay_native.dir/src/danmaku_layout.cpp.o
+[ 40%] Building CXX object CMakeFiles/nipaplay_native.dir/src/nipaplay_native.cpp.o
+[ 40%] Building CXX object CMakeFiles/nipaplay_native.dir/src/example_calculator.cpp.o
+[ 50%] Building CXX object CMakeFiles/nipaplay_native.dir/src/pinyin_dict.cpp.o
+[ 70%] Building CXX object CMakeFiles/nipaplay_native.dir/src/similarity_engine.cpp.o
+[ 70%] Building CXX object CMakeFiles/nipaplay_native.dir/third_party/pugixml/pugixml.cpp.o
+[ 90%] Building CXX object CMakeFiles/nipaplay_native.dir/src/subtitle_parser.cpp.o
+[ 90%] Building CXX object CMakeFiles/nipaplay_native.dir/src/danmaku_parser.cpp.o
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/cpp_native/src/danmaku_layout.cpp:398:20: warning: variable 'dbgFrameCount' set but not used [-Wunused-but-set-variable]
+  398 |     static int32_t dbgFrameCount = 0;
+      |                    ^
+1 warning generated.
+[100%] Linking CXX shared library libnipaplay_native.dylib
+[100%] Built target nipaplay_native
+-- The CXX compiler identification is AppleClang 17.0.0.17000319
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- ── NipaPlay Native ISA Optimization ──
+--   C++ (cpp_native): x86-64-v3 (AVX2+FMA+BMI2+POPCNT)
+--   Rust (cargo):    x86-64-v3 (via .cargo/config.toml)
+--   Compiler:        AppleClang 17.0.0.17000319
+--   Processor:       arm64
+-- 
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/DerivedSources/x86_64
+[ 10%] Building CXX object CMakeFiles/nipaplay_native.dir/src/string_utils.cpp.o
+[ 30%] Building CXX object CMakeFiles/nipaplay_native.dir/src/nipaplay_native.cpp.o
+[ 30%] Building CXX object CMakeFiles/nipaplay_native.dir/src/danmaku_layout.cpp.o
+[ 40%] Building CXX object CMakeFiles/nipaplay_native.dir/src/example_calculator.cpp.o
+[ 50%] Building CXX object CMakeFiles/nipaplay_native.dir/src/similarity_engine.cpp.o
+[ 80%] Building CXX object CMakeFiles/nipaplay_native.dir/src/danmaku_parser.cpp.o
+[ 80%] Building CXX object CMakeFiles/nipaplay_native.dir/src/subtitle_parser.cpp.o
+[ 90%] Building CXX object CMakeFiles/nipaplay_native.dir/third_party/pugixml/pugixml.cpp.o
+[ 90%] Building CXX object CMakeFiles/nipaplay_native.dir/src/pinyin_dict.cpp.o
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/cpp_native/src/danmaku_layout.cpp:398:20: warning: variable 'dbgFrameCount' set but not used [-Wunused-but-set-variable]
+  398 |     static int32_t dbgFrameCount = 0;
+      |                    ^
+1 warning generated.
+[100%] Linking CXX shared library libnipaplay_native.dylib
+[100%] Built target nipaplay_native
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Products/Debug/NipaPlay.app/Contents/Frameworks/libnipaplay_native.dylib: replacing existing signature
+1 | #import "Headers/media_kit_video-umbrella.h"
+2 | #import "Headers/media_kit_video-Swift.h"
+3 | 
+
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Products/Debug/media_kit_video/media_kit_video.framework/Headers/media_kit_video-Swift.h:314:39: warning: 'CAOpenGLLayer' is deprecated: first deprecated in macOS 10.14 - OpenGL is deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings)
+312 | @class NSCoder;
+313 | SWIFT_CLASS("_TtC15media_kit_video24MediaKitOpenGLVideoLayer")
+314 | @interface MediaKitOpenGLVideoLayer : CAOpenGLLayer
+    |                                       `- warning: 'CAOpenGLLayer' is deprecated: first deprecated in macOS 10.14 - OpenGL is deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings)
+315 | - (nonnull instancetype)initWithLayer:(id _Nonnull)layer OBJC_DESIGNATED_INITIALIZER;
+316 | - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+
+ 21 | #endif
+ 22 | API_UNAVAILABLE(ios, tvos, watchos, visionos)
+ 23 | @interface CAOpenGLLayer : CALayer
+ 24 | {
+ 25 | @private
+
+1 | #import "Headers/media_kit_video-umbrella.h"
+2 | #import "Headers/media_kit_video-Swift.h"
+3 | 
+
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Products/Debug/media_kit_video/media_kit_video.framework/Headers/media_kit_video-Swift.h:340:31: warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+338 | SWIFT_CLASS("_TtC15media_kit_video20SafeResizableTexture")
+339 | @interface SafeResizableTexture : NSObject <FlutterTexture>
+340 | - (CVPixelBufferRef _Nullable __unsafe_unretained)copyPixelBuffer SWIFT_WARN_UNUSED_RESULT;
+    |                               `- warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+341 | - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+342 | + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+
+1 | #import "Headers/media_kit_video-umbrella.h"
+2 | #import "Headers/media_kit_video-Swift.h"
+3 | 
+
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Products/Debug/media_kit_video/media_kit_video.framework/Headers/media_kit_video-Swift.h:347:31: warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+345 | SWIFT_CLASS("_TtC15media_kit_video9TextureHW")
+346 | @interface TextureHW : NSObject <FlutterTexture>
+347 | - (CVPixelBufferRef _Nullable __unsafe_unretained)copyPixelBuffer SWIFT_WARN_UNUSED_RESULT;
+    |                               `- warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+348 | - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+349 | + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+
+1 | #import "Headers/media_kit_video-umbrella.h"
+2 | #import "Headers/media_kit_video-Swift.h"
+3 | 
+
+4 warnings generated.
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/build/macos/Build/Products/Debug/media_kit_video/media_kit_video.framework/Headers/media_kit_video-Swift.h:354:31: warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+352 | SWIFT_CLASS("_TtC15media_kit_video9TextureSW")
+353 | @interface TextureSW : NSObject <FlutterTexture>
+354 | - (CVPixelBufferRef _Nullable __unsafe_unretained)copyPixelBuffer SWIFT_WARN_UNUSED_RESULT;
+    |                               `- warning: 'objc_ownership' only applies to Objective-C object or block pointer types; type here is 'CVPixelBufferRef _Nullable' (aka 'struct __CVBuffer *')
+355 | - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+356 | + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/macos/Runner/MainFlutterWindow.swift:491:21: warning: 'CAOpenGLLayer' was deprecated in macOS 10.14: OpenGL is deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings)
+        if layer is CAOpenGLLayer {
+                    ^
+/Users/sakiko/Desktop/nipaplay-next-wt/x46-remote-run/macos/Runner/MainFlutterWindow.swift:568:36: warning: 'CAOpenGLLayer' was deprecated in macOS 10.14: OpenGL is deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings)
+    if let openGLLayer = layer as? CAOpenGLLayer {
+                                   ^
+warning: Run script build phase 'Run Script' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Flutter Assemble' from project 'Runner')
+warning: Run script build phase 'Build cpp_native' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Runner' from project 'Runner')
+warning: Run script build phase '[CP-User] Build Erika C ABI' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'erika_flutter' from project 'Pods')
+✓ Built build/macos/Build/Products/Debug/NipaPlay.app
