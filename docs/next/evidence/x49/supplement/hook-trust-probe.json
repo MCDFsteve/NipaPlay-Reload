@@ -1,0 +1,31 @@
+{
+  "id": 2,
+  "result": {
+    "data": [
+      {
+        "cwd": "/tmp/nipa-next/x49-hook-probe-rxebkkue/harness",
+        "hooks": [
+          {
+            "key": "/tmp/nipa-next/x49-hook-probe-rxebkkue/harness/.codex/hooks.json:session_start:0:0",
+            "eventName": "sessionStart",
+            "handlerType": "command",
+            "matcher": "startup|resume|clear|compact",
+            "command": "python3 hooks/session_start.py",
+            "timeoutSec": 15,
+            "statusMessage": null,
+            "sourcePath": "/tmp/nipa-next/x49-hook-probe-rxebkkue/harness/.codex/hooks.json",
+            "source": "project",
+            "pluginId": null,
+            "displayOrder": 0,
+            "enabled": true,
+            "isManaged": false,
+            "currentHash": "sha256:b4b83393d76b698d200d2cd4d2f92f262620cd0865e28047589fdc67d5880124",
+            "trustStatus": "untrusted"
+          }
+        ],
+        "warnings": [],
+        "errors": []
+      }
+    ]
+  }
+}
