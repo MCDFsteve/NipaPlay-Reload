@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-14",
+  "source": "https://raw.githubusercontent.com/bangumi/api/master/open-api/v0.yaml",
+  "snapshot_sha256": "5a7ddb7ddec132293b1aa08102e6ac63e31b2925574658e927d6f931df2519da",
+  "paths": {
+    "/v0/users/{username}/collections": "Paged GET supports subject_type, offset and limit",
+    "/v0/users/{username}/collections/{subject_id}": ["get"],
+    "/v0/users/-/collections/{subject_id}": ["post", "patch"]
+  },
+  "observation": "Current official v0 schema contains no delete method for a collection. No live account write was attempted.",
+  "decision": "Keep Bangumi removal unavailable rather than invent a write endpoint or treat dropped as removed."
+}
