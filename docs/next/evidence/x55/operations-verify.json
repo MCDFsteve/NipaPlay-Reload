@@ -1,0 +1,651 @@
+[
+  {
+    "label": "fixture",
+    "value": {
+      "license": "CC0, generated testsrc2 and owned trailing text",
+      "files": 193,
+      "bytes": 14869753
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "profile": "x55-system-84287",
+      "pid": 84353,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "facts": {
+        "pid": 84353,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "windowTitle": "NipaPlay · LAB [x55-system-84287]",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app",
+        "windowId": 60113,
+        "viewId": 1,
+        "experimentalProfile": true,
+        "profileName": "x55-system-84287",
+        "version": "1.11.10"
+      },
+      "quiet": true,
+      "modelHost": "disabled by isolated fixture shell"
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "media.library.scan_classic",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "jobId": "job-a35356ce6c81c32139097c8eba66dbd7",
+        "job": {
+          "jobId": "job-a35356ce6c81c32139097c8eba66dbd7",
+          "type": "media.scan_classic",
+          "title": "Classic 媒体扫描",
+          "state": "queued",
+          "phase": "queued",
+          "progress": {
+            "completed": 0,
+            "unit": "items"
+          },
+          "createdAt": "2026-10-13T12:32:11.809663Z",
+          "updatedAt": "2026-10-13T12:32:11.809663Z",
+          "ownerDeviceId": "device-64cf38db2e3dc90cb8ef522b5e0ba673",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "label": "job-terminal",
+    "value": {
+      "jobId": "job-a35356ce6c81c32139097c8eba66dbd7",
+      "type": "media.scan_classic",
+      "title": "Classic 媒体扫描",
+      "state": "succeeded",
+      "phase": "scan",
+      "progress": {
+        "completed": 1,
+        "total": 1,
+        "unit": "directories"
+      },
+      "createdAt": "2026-10-13T12:32:11.809663Z",
+      "updatedAt": "2026-10-13T12:32:11.871389Z",
+      "ownerDeviceId": "device-64cf38db2e3dc90cb8ef522b5e0ba673",
+      "revision": 5,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "outcomes": [
+            {
+              "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+              "message": "并发扫描 /Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media 完成。添加/更新 0 部番剧。1 个文件处理失败。",
+              "files": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media/test.mp4",
+                  "identified": false,
+                  "reason": "错误: Bad state: 请先登录弹弹play账号后再使用弹弹p",
+                  "animeId": null,
+                  "episodeId": null
+                }
+              ],
+              "skippedUnchangedFiles": "Classic file-diff skips unchanged files; files lists attempted recognition only",
+              "failedFiles": [
+                {
+                  "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media/test.mp4",
+                  "reason": "错误: Bad state: 请先登录弹弹play账号后再使用弹弹p"
+                }
+              ]
+            }
+          ],
+          "scanned": [
+            "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media"
+          ],
+          "filesRetained": true,
+          "identificationFailuresArePerFile": true
+        }
+      }
+    }
+  },
+  {
+    "label": "storage.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:32:11.907996Z",
+        "directories": [
+          {
+            "role": "app",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+            "bytes": 2446403,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "next",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next",
+            "bytes": 453441,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "classicDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/cache/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/compressed_images",
+            "bytes": 1966080,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "thumbnails",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "timeline",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/timeline_thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "nextDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "nextArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "subtitles",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/subtitles",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshAssets",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/mesh-assets",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/mesh-artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "downloads",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/downloads",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "library:/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "bytes": 77031,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          }
+        ],
+        "volumes": [
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+            "availableBytes": 482826022912,
+            "totalBytes": 994610155520
+          },
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "availableBytes": 482826022912,
+            "totalBytes": 994610155520
+          }
+        ],
+        "preservation": "Imports, artwork, mesh assets, databases and user downloads are retained. nextDanmaku contains both cache and unique imports; prune checks storage_kind."
+      }
+    }
+  },
+  {
+    "label": "cache.plan",
+    "value": {
+      "input": {
+        "kinds": [
+          "images"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "planId": "8818e836a6ddd049bc122c57640137784e12cc17174297bb8057b4935f6243fd",
+        "entries": [
+          {
+            "kind": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/compressed_images/x55-recoverable.jpg",
+            "bytes": 1966080,
+            "modified": 1791894731884000
+          }
+        ],
+        "retained": [],
+        "nextDanmakuKeys": [],
+        "reclaimableBytes": 1966080,
+        "maxBytes": 0,
+        "scope": "recoverable caches only; user files excluded",
+        "activeReferences": "At prune time: Next fetches defer collection; displayed image/thumbnail caches are retained while playback runs."
+      }
+    }
+  },
+  {
+    "label": "cache.prune",
+    "value": {
+      "input": {
+        "planId": "8818e836a6ddd049bc122c57640137784e12cc17174297bb8057b4935f6243fd"
+      },
+      "status": "completed",
+      "result": {
+        "planId": "8818e836a6ddd049bc122c57640137784e12cc17174297bb8057b4935f6243fd",
+        "removedBytes": 1966080,
+        "results": [
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/compressed_images/x55-recoverable.jpg",
+            "removed": true,
+            "bytes": 1966080
+          }
+        ],
+        "retained": []
+      }
+    }
+  },
+  {
+    "label": "storage.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:32:11.932902Z",
+        "directories": [
+          {
+            "role": "app",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+            "bytes": 493440,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "next",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next",
+            "bytes": 458366,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "classicDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/cache/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/compressed_images",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "thumbnails",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "timeline",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/timeline_thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "nextDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "nextArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "subtitles",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/subtitles",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshAssets",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/mesh-assets",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/next/mesh-artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "downloads",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data/downloads",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "library:/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "bytes": 77031,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          }
+        ],
+        "volumes": [
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+            "availableBytes": 482827980800,
+            "totalBytes": 994610155520
+          },
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+            "availableBytes": 482827980800,
+            "totalBytes": 994610155520
+          }
+        ],
+        "preservation": "Imports, artwork, mesh assets, databases and user downloads are retained. nextDanmaku contains both cache and unique imports; prune checks storage_kind."
+      }
+    }
+  },
+  {
+    "label": "cache-comparison",
+    "value": {
+      "beforeBytes": 1966080,
+      "afterBytes": 0,
+      "removedBytes": 1966080,
+      "volumeBefore": [
+        {
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+          "availableBytes": 482826022912,
+          "totalBytes": 994610155520
+        },
+        {
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+          "availableBytes": 482826022912,
+          "totalBytes": 994610155520
+        }
+      ],
+      "volumeAfter": [
+        {
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+          "availableBytes": 482827980800,
+          "totalBytes": 994610155520
+        },
+        {
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/classic-media",
+          "availableBytes": 482827980800,
+          "totalBytes": 994610155520
+        }
+      ]
+    }
+  },
+  {
+    "label": "storage.watch",
+    "value": {
+      "input": {
+        "thresholdBytes": 0,
+        "intervalMs": 1000
+      },
+      "status": "completed",
+      "result": {
+        "watch": {
+          "watchId": "space-1791894731936473",
+          "state": "above",
+          "thresholdBytes": 0,
+          "intervalMs": 1000,
+          "observedAt": "2026-10-13T12:32:11.936770Z",
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-84287/data",
+          "availableBytes": 482827968512,
+          "totalBytes": 994610155520
+        },
+        "lifetime": "current process; explicit subscription only"
+      }
+    }
+  },
+  {
+    "label": "storage.unwatch",
+    "value": {
+      "input": {
+        "watchId": "space-1791894731936473"
+      },
+      "status": "completed",
+      "result": {
+        "watchId": "space-1791894731936473",
+        "cancelled": true
+      }
+    }
+  },
+  {
+    "label": "network.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:32:11.942692Z",
+        "effectiveProxy": {
+          "mode": "system"
+        },
+        "routes": [
+          {
+            "provider": "dandanplay",
+            "mode": "auto",
+            "effectiveGateway": "https://nipaplay.aimes-soft.com:443",
+            "requestPrefixPresent": true,
+            "failoverUntil": null,
+            "customOriginTrust": "Selected by the user in Classic network settings."
+          }
+        ],
+        "mediaServerUserAgent": "",
+        "observations": [
+          {
+            "id": "bangumi:api.bgm.tv:443",
+            "source": "bangumi",
+            "origin": "https://api.bgm.tv:443",
+            "lastAttemptAt": "2026-10-13T12:32:11.579639Z",
+            "lastSuccessAt": "2026-10-13T12:32:11.579639Z",
+            "httpStatus": 200,
+            "error": null,
+            "availability": "reachable"
+          }
+        ],
+        "sources": [],
+        "historyScope": "this process"
+      }
+    }
+  },
+  {
+    "label": "notification.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "permission": "notDetermined",
+        "alertsEnabled": false,
+        "soundsEnabled": false,
+        "deliveryObservation": "OS acceptance is not proof the user saw a banner",
+        "supported": true
+      }
+    }
+  },
+  {
+    "label": "notification.send",
+    "value": {
+      "input": {
+        "id": "x55-system-84287",
+        "title": "NipaPlay 实验通知",
+        "body": "后台能力验证已完成。",
+        "sound": false,
+        "requestPermission": false
+      },
+      "status": "completed",
+      "result": {
+        "deliveryState": "blocked",
+        "reason": "system_authorization",
+        "settings": {
+          "permission": "notDetermined",
+          "soundsEnabled": false,
+          "alertsEnabled": false,
+          "deliveryObservation": "OS acceptance is not proof the user saw a banner",
+          "supported": true
+        }
+      }
+    }
+  },
+  {
+    "label": "notification.list",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "notifications": []
+      }
+    }
+  },
+  {
+    "label": "notification.cancel",
+    "value": {
+      "input": {
+        "id": "x55-system-84287"
+      },
+      "status": "completed",
+      "result": {
+        "id": "x55-system-84287",
+        "cancellationRequested": true
+      }
+    }
+  },
+  {
+    "label": "verified",
+    "value": {
+      "classicScan": "succeeded",
+      "quiet": true
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 84353,
+      "exitCode": -15,
+      "profileRemoved": true,
+      "otherInstancesTouched": false
+    }
+  }
+]

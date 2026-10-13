@@ -1,0 +1,253 @@
+[
+  {
+    "label": "fixture",
+    "value": {
+      "license": "CC0, generated testsrc2 and owned trailing text",
+      "files": 193,
+      "bytes": 14869753
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "profile": "x55-system-21212",
+      "pid": 21233,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "facts": {
+        "pid": 21233,
+        "windowTitle": "NipaPlay · LAB [x55-system-21212]",
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "windowId": 60153,
+        "viewId": 1,
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app",
+        "experimentalProfile": true,
+        "profileName": "x55-system-21212",
+        "version": "1.11.10"
+      },
+      "quiet": true,
+      "modelHost": "disabled by isolated fixture shell"
+    }
+  },
+  {
+    "label": "window.bounds.get",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "target": "main",
+        "bounds": {
+          "x": -633.0,
+          "y": 1725.0,
+          "width": 1512.0,
+          "height": 872.0
+        },
+        "coordinateSystem": "window_manager logical pixels; screen origin top-left"
+      }
+    }
+  },
+  {
+    "label": "download.limits.get",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "supported": true,
+        "sessionInitialized": false,
+        "applied": false,
+        "reason": "session_not_initialized",
+        "actual": null,
+        "scope": "builtinSession",
+        "appliesTo": "all builtin torrents",
+        "lifetime": "current native session; new sessions default to unlimited",
+        "unit": "bytes/second; 0 means unlimited",
+        "minimumPositive": 16384
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "input": {
+        "key": "download.directory",
+        "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-21212/downloads"
+      },
+      "status": "completed",
+      "result": {
+        "key": "download.directory",
+        "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-21212/downloads",
+        "revision": 1,
+        "scope": "device",
+        "apply": "immediate",
+        "provenance": {
+          "key": "download.directory",
+          "previousValue": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-21212/data/downloads",
+          "value": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-21212/downloads",
+          "changedAt": "2026-10-13T12:48:29.823999Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791895709819537-9",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "input": {
+        "key": "download.enabled",
+        "value": true
+      },
+      "status": "completed",
+      "result": {
+        "key": "download.enabled",
+        "value": true,
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "download.enabled",
+          "previousValue": false,
+          "value": true,
+          "changedAt": "2026-10-13T12:48:29.863969Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791895709844466-11",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "initialized-limits",
+    "value": {
+      "supported": true,
+      "sessionInitialized": true,
+      "applied": false,
+      "reason": null,
+      "actual": {
+        "downloadBytesPerSecond": 0,
+        "uploadBytesPerSecond": 0
+      },
+      "scope": "builtinSession",
+      "appliesTo": "all builtin torrents",
+      "lifetime": "current native session; new sessions default to unlimited",
+      "unit": "bytes/second; 0 means unlimited",
+      "minimumPositive": 16384
+    }
+  },
+  {
+    "label": "download.limits.set",
+    "value": {
+      "input": {
+        "downloadBytesPerSecond": 131072,
+        "uploadBytesPerSecond": 65536
+      },
+      "status": "completed",
+      "result": {
+        "supported": true,
+        "sessionInitialized": true,
+        "applied": true,
+        "reason": null,
+        "actual": {
+          "downloadBytesPerSecond": 131072,
+          "uploadBytesPerSecond": 65536
+        },
+        "scope": "builtinSession",
+        "appliesTo": "all builtin torrents",
+        "lifetime": "current native session; new sessions default to unlimited",
+        "unit": "bytes/second; 0 means unlimited",
+        "minimumPositive": 16384
+      }
+    }
+  },
+  {
+    "label": "download.limits.get",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "supported": true,
+        "sessionInitialized": true,
+        "applied": false,
+        "reason": null,
+        "actual": {
+          "downloadBytesPerSecond": 131072,
+          "uploadBytesPerSecond": 65536
+        },
+        "scope": "builtinSession",
+        "appliesTo": "all builtin torrents",
+        "lifetime": "current native session; new sessions default to unlimited",
+        "unit": "bytes/second; 0 means unlimited",
+        "minimumPositive": 16384
+      }
+    }
+  },
+  {
+    "label": "download.limits.set",
+    "value": {
+      "input": {
+        "uploadBytesPerSecond": 0
+      },
+      "status": "completed",
+      "result": {
+        "supported": true,
+        "sessionInitialized": true,
+        "applied": true,
+        "reason": null,
+        "actual": {
+          "downloadBytesPerSecond": 131072,
+          "uploadBytesPerSecond": 0
+        },
+        "scope": "builtinSession",
+        "appliesTo": "all builtin torrents",
+        "lifetime": "current native session; new sessions default to unlimited",
+        "unit": "bytes/second; 0 means unlimited",
+        "minimumPositive": 16384
+      }
+    }
+  },
+  {
+    "label": "download.limits.set",
+    "value": {
+      "input": {
+        "downloadBytesPerSecond": 0,
+        "uploadBytesPerSecond": 0
+      },
+      "status": "completed",
+      "result": {
+        "supported": true,
+        "sessionInitialized": true,
+        "applied": true,
+        "reason": null,
+        "actual": {
+          "downloadBytesPerSecond": 0,
+          "uploadBytesPerSecond": 0
+        },
+        "scope": "builtinSession",
+        "appliesTo": "all builtin torrents",
+        "lifetime": "current native session; new sessions default to unlimited",
+        "unit": "bytes/second; 0 means unlimited",
+        "minimumPositive": 16384
+      }
+    }
+  },
+  {
+    "label": "verified",
+    "value": {
+      "bandwidth": "native session readback",
+      "throughputMeasured": false
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 21233,
+      "exitCode": -15,
+      "profileRemoved": true,
+      "otherInstancesTouched": false
+    }
+  }
+]
