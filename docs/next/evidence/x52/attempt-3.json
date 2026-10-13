@@ -1,0 +1,50 @@
+{
+  "profile": "x52-host-e37cbc5500",
+  "protocol": "Responses API",
+  "configuredLabel": "DeepSeek",
+  "initialModel": "deepseek-v4.1-flash",
+  "correctCheck": {
+    "ok": true,
+    "message": "可以使用",
+    "latencyMs": 1806
+  },
+  "correctCheckReusedFrom": "attempt-1.json",
+  "managedTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "nipaplay",
+    "threadUnchanged": true,
+    "elapsedMs": 2706
+  },
+  "wrongKeyCheck": {
+    "ok": false,
+    "message": "密钥无效或没有权限",
+    "latencyMs": 115
+  },
+  "wrongKeyCheckReusedFrom": "attempt-2.json",
+  "originalTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "cpa",
+    "threadUnchanged": true,
+    "elapsedMs": 2339
+  },
+  "historyTurns": 2,
+  "originalLabConfigUnchanged": true,
+  "processExited": true,
+  "userChanges": 3,
+  "secretScan": {
+    "files": 282,
+    "leaks": 3,
+    "vaultFileExists": false,
+    "paths": [
+      "data/next/codex-home/shell_snapshots/01a134f9-f325-75d0-a489-213e84cc8217.1791890160537797000.sh",
+      "codex-home/shell_snapshots/01a134f9-f325-75d0-a489-213e84cc8217.1791890158416998000.sh",
+      "codex-home/shell_snapshots/01a134f9-f325-75d0-a489-213e84cc8217.1791890163289440000.sh"
+    ]
+  },
+  "complete": false,
+  "failure": "RuntimeError",
+  "reason": "Secret scan failed",
+  "profileRemoved": true
+}

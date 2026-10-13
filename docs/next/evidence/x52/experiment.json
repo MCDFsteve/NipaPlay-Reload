@@ -1,0 +1,44 @@
+{
+  "profile": "x52-host-2f5534972c",
+  "protocol": "Responses API",
+  "configuredLabel": "DeepSeek",
+  "initialModel": "deepseek-v4.1-flash",
+  "correctCheck": {
+    "ok": true,
+    "message": "可以使用",
+    "latencyMs": 1806
+  },
+  "correctCheckReusedFrom": "attempt-1.json",
+  "managedTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "nipaplay",
+    "threadUnchanged": true,
+    "elapsedMs": 2665
+  },
+  "wrongKeyCheck": {
+    "ok": false,
+    "message": "密钥无效或没有权限",
+    "latencyMs": 115
+  },
+  "wrongKeyCheckReusedFrom": "attempt-2.json",
+  "originalTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "cpa",
+    "threadUnchanged": true,
+    "elapsedMs": 1828
+  },
+  "historyTurns": 2,
+  "originalLabConfigUnchanged": true,
+  "processExited": true,
+  "userChanges": 3,
+  "secretScan": {
+    "files": 277,
+    "leaks": 0,
+    "vaultFileExists": false,
+    "paths": []
+  },
+  "complete": true,
+  "profileRemoved": true
+}

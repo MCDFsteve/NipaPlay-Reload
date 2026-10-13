@@ -1,0 +1,19 @@
+{
+  "version": "codex-cli 0.144.1",
+  "probes": [
+    {
+      "wireApi": "chat",
+      "initialized": true,
+      "loadedProvider": null,
+      "warnings": [
+        "[temporary CODEX_HOME]/config.toml:6:10: `wire_api = \"chat\"` is no longer supported.\nHow to fix: set `wire_api = \"responses\"` in your provider config.\nMore info: https://github.com/openai/codex/discussions/7782"
+      ]
+    },
+    {
+      "wireApi": "responses",
+      "initialized": true,
+      "loadedProvider": "test",
+      "warnings": []
+    }
+  ]
+}
