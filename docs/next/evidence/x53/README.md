@@ -10,7 +10,7 @@
 | source-check.json / source-check-proxy-run.txt | 最终宿主代理环境下headless公开hash/资料/弹幕搜索成功，无弹弹play候选 |
 | gateway.json / gateway-run.txt | 回环合成网关，两端非空hash/metadata/弹幕fetch链与凭据域校验；不是公共弹幕池 |
 | final-facts.json / final-facts-run.txt | 最终CLI可用前置、族describe、stdin登记、拒绝错误marker、TMDB引用变化及清理 |
-| mesh/local-loopback.json / mesh-run.txt | 真实本机mTLS、程序授权、字幕、bundle、回传；没有模型或工作站节点 |
+| mesh/local-loopback.json.gz / mesh-run.txt | 真实本机mTLS、程序授权、字幕、bundle、回传；没有模型或工作站节点 |
 | mesh-final/ / mesh-final-run.txt | 修复前远程mesh.devices超帧失败，所有实例清理 |
 | mesh-scope-success/ / mesh-scope-success-run.txt | 修复后完整/筛选设备、settings写、远端CLI目录、族describe、清理 |
 | next-full-tests.txt | 最终一次全test/next：515 passed、5 skipped |
