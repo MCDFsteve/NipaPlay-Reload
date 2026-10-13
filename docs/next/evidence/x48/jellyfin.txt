@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart
+00:00 +0: X48 real temporary Jellyfin source page, images, identities and readable playback
+{"observation":"real Jellyfin original","menu":["本地","X48 CC0"],"categories":["X48 CC0"],"total":1,"work":"X48 Open Series","episodes":[1,2],"localPoster":true,"identityBindingsBefore":0}
+{"observation":"ui.open source episode with real server Range","bytes":128,"identityRequired":false}
+00:00 +0 -1: X48 real temporary Jellyfin source page, images, identities and readable playback [E]
+  Invalid argument(s): Failed to load dynamic library 'mdk.framework/mdk': dlopen(mdk.framework/mdk, 0x0001): tried: 'mdk.framework/mdk' (no such file), '/System/Volumes/Preboot/Cryptexes/OSmdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./mdk.framework/mdk' (no such file), '/usr/local/lib/./mdk.framework/mdk' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./mdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../mdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/mdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./mdk.framework/mdk' (no such file), '/usr/local/lib/./mdk.framework/mdk' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./mdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../mdk.framework/mdk' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/mdk.framework/mdk' (no such file), '/usr/lib/mdk.framework/mdk' (no such file, not in dyld cache), 'mdk.framework/mdk' (no such file)
+  dart:ffi                                                    new DynamicLibrary.open
+  package:fvp/src/lib.dart 28:29                              Libmdk._load
+  package:fvp/src/lib.dart 34:41                              Libmdk.instance
+  package:fvp/src/lib.dart                                    Libmdk.instance
+  package:fvp/src/player.dart 877:26                          new Player
+  package:nipaplay/next/media/media_probe_flutter.dart 10:22  probeMediaInfo
+  package:nipaplay/next/media/media_service.dart 201:23       MediaService.probe
+  
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart: X48 real temporary Jellyfin source page, images, identities and readable playback

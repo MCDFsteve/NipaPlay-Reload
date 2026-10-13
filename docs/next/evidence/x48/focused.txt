@@ -1,0 +1,80 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart
+00:00 +0: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: Classic and Harness share live download and media tasks without Labs
+00:00 +1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: Classic and Harness share live download and media tasks without Labs
+00:00 +2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: Classic and Harness share live download and media tasks without Labs
+00:00 +2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_page_experiment.dart: X48 paged local conditions and source identity isolation observations
+{"observation":"paged condition","cachedWorks":5000,"total":3749,"pageSizes":[60,60],"milliseconds":36,"firstWork":"w4998"}
+{"observation":"new matching work enters without Nipa","total":3750,"workId":"new"}
+00:00 +3: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_page_experiment.dart: X48 paged local conditions and source identity isolation observations
+{"observation":"unbound source work opens","workId":"source-work:WyJqZWxseWZpbjp0ZXN0Iiwic2VyaWVzIl0=","episodeId":"source-episode:WyJqZWxseWZpbjp0ZXN0IiwiZXBpc29kZSJd","number":1,"total":500,"requestedPages":[{"offset":0,"limit":8,"recursive":false},{"offset":120,"limit":10,"recursive":false},{"offset":0,"limit":200,"recursive":true}]}
+00:00 +4: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views activity preserves revocation evidence and setting provenance without writes
+00:00 +4: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup recovers both domains using the persisted device and database
+[CredentialVault] CredentialRef(metadata, tmdb): ArgumentError
+00:00 +4 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views activity preserves revocation evidence and setting provenance without writes
+00:00 +4 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup recovers both domains using the persisted device and database [E]
+  Invalid argument(s): Failed to load dynamic library 'rust_lib_nipaplay.framework/rust_lib_nipaplay': dlopen(rust_lib_nipaplay.framework/rust_lib_nipaplay, 0x0001): tried: 'rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OSrust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/lib/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file, not in dyld cache), 'rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file)
+  dart:ffi                                                        new DynamicLibrary.open
+  package:flutter_rust_bridge/src/platform_types/_io.dart 42:47   new ExternalLibrary.open
+  package:nipaplay/src/rust/rust_external_library_io.dart 121:26  _openFirstAvailable
+  package:nipaplay/src/rust/rust_external_library_io.dart 43:12   openRustExternalLibrary
+  package:nipaplay/src/rust/rust_init.dart 16:24                  ensureRustInitialized
+  package:nipaplay/security/desktop_credential_vault.dart 20:11   DesktopCredentialVault._call
+  package:nipaplay/security/desktop_credential_vault.dart 31:12   DesktopCredentialVault.read
+  package:nipaplay/security/session_credential_vault.dart 39:54   SessionCredentialVault.read.<fn>.<fn>
+  package:nipaplay/security/session_credential_vault.dart 20:29   SessionCredentialVault._call
+  package:nipaplay/security/session_credential_vault.dart 39:29   SessionCredentialVault.read.<fn>
+  dart:_compact_hash                                              _LinkedHashMapMixin.putIfAbsent
+  package:nipaplay/security/session_credential_vault.dart 37:19   SessionCredentialVault.read
+  package:nipaplay/next/ui_data/artwork.dart 103:21               ArtworkCache._load
+  
+  Invalid argument(s): Failed to load dynamic library 'rust_lib_nipaplay.framework/rust_lib_nipaplay': dlopen(rust_lib_nipaplay.framework/rust_lib_nipaplay, 0x0001): tried: 'rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OSrust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/./rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/../../../rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/Users/sakiko/development/flutter-3.44.6/bin/cache/artifacts/engine/darwin-x64/Frameworks/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file), '/usr/lib/rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file, not in dyld cache), 'rust_lib_nipaplay.framework/rust_lib_nipaplay' (no such file)
+  dart:ffi                                                        new DynamicLibrary.open
+  package:flutter_rust_bridge/src/platform_types/_io.dart 42:47   new ExternalLibrary.open
+  package:nipaplay/src/rust/rust_external_library_io.dart 121:26  _openFirstAvailable
+  package:nipaplay/src/rust/rust_external_library_io.dart 43:12   openRustExternalLibrary
+  package:nipaplay/src/rust/rust_init.dart 16:24                  ensureRustInitialized
+  package:nipaplay/security/desktop_credential_vault.dart 20:11   DesktopCredentialVault._call
+  package:nipaplay/security/desktop_credential_vault.dart 31:12   DesktopCredentialVault.read
+  package:nipaplay/security/session_credential_vault.dart 39:54   SessionCredentialVault.read.<fn>.<fn>
+  package:nipaplay/security/session_credential_vault.dart 20:29   SessionCredentialVault._call
+  package:nipaplay/security/session_credential_vault.dart 39:29   SessionCredentialVault.read.<fn>
+  dart:_compact_hash                                              _LinkedHashMapMixin.putIfAbsent
+  package:nipaplay/security/session_credential_vault.dart 37:19   SessionCredentialVault.read
+  package:nipaplay/next/ui_data/artwork.dart 103:21               ArtworkCache._load
+  ===== asynchronous gap ===========================
+  dart:async                                                      _CustomZone.registerBinaryCallback
+  test/next/next_core_test.dart 62:5                              main.<fn>
+  
+00:00 +5 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: Core registers and resumes persisted danmaku execution before a player is bound
+00:00 +6 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views activity retains account transitions and receipt entity attribution
+00:00 +7 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup delivers pending Classic media projections without an Agent
+00:00 +7 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views one state.query returns all episodes files bindings and viewing progress
+00:00 +7 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup delivers pending Classic media projections without an Agent [E]
+  Instance of 'Failure'
+  package:nipaplay/next/ui_data/artwork.dart 232:7  ArtworkCache._download
+  
+  Instance of 'Failure'
+  package:nipaplay/next/ui_data/artwork.dart 232:7  ArtworkCache._download
+  ===== asynchronous gap ===========================
+  dart:async                                        _CustomZone.registerBinaryCallback
+  test/next/next_core_test.dart 62:5                main.<fn>
+  
+00:00 +8 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views all registered views exclude secret fields and authenticated URL components without writes
+[PlayerFactory] 同步设置临时默认值: mdk
+00:00 +9 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views registered setting schemas project history values and filter hidden keys
+00:00 +10 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views Classic URL filename fallback excludes authentication parameters
+00:00 +11 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views history joins use recorded file IDs and unavailable history is explicit
+00:00 +12 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: public Core views Classic query projections preserve existing getter identities and progress
+00:00 +13 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation filters projection stable sorting and query-bound pagination
+00:00 +14 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation unknown views fields relations operators and invalid limits fail before reading
+00:00 +15 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation nested public schemas exclude secrets even in malformed object values
+00:00 +16 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation filtering and sorting reach rows beyond the former scan window
+00:00 +17 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation relations page independently and public data is not silently cut
+01:23 +18 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation caller-selected timeouts do not block subsequent or concurrent readers
+01:23 +19 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation non-finite recorded measurements are JSON null without losing rows
+01:23 +20 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/state_query_test.dart: query pagination and validation source failures return a stable error without raw secrets or paths
+01:23 +21 -2: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup delivers pending Classic media projections without an Agent
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/next_core_test.dart: startup recovers both domains using the persisted device and database

@@ -1,0 +1,21 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart
+00:00 +0: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: invalid reference in a batch preserves all arrangements and activity
+00:00 +1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart: X48 real temporary Jellyfin source page, images, identities and readable playback
+00:00 +1 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart: X48 real temporary Jellyfin source page, images, identities and readable playback
+00:00 +1 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: source reconfiguration cannot reuse old server work, folder or episode ids [E]
+  Expected: <1>
+    Actual: <2>
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 139:5  main.<fn>
+  
+00:00 +2 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_jellyfin_experiment.dart: X48 real temporary Jellyfin source page, images, identities and readable playback
+{"observation":"real Jellyfin original","menu":["本地","X48 CC0"],"categories":["X48 CC0"],"total":1,"work":"X48 Open Series","episodes":[1,2],"localPoster":true,"identityBindingsBefore":0}
+{"observation":"ui.open source episode with real server Range","bytes":128,"identityRequired":false}
+{"observation":"bound merged episode routes through the same source play action","rangeBytes":64,"wrongServerRejectedBeforePlayback":true}
+{"observation":"accepted identity merges local and Jellyfin in one condition","total":1,"sourceFacts":{"sourceIds":["jellyfin:1791888148181","local"],"deviceIds":["x48"],"types":["series"],"identified":true,"watch":"unwatched","year":2019,"genres":[],"rating":null},"unboundSecondEpisodeStillInOriginal":true}
+00:00 +3 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: source reconfiguration cannot reuse old server work, folder or episode ids

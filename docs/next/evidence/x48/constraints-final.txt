@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart
+00:00 +0: invalid reference in a batch preserves all arrangements and activity
+00:00 +1: source reconfiguration cannot reuse old server work, folder or episode ids
+00:00 +2: source snapshots retain metadata but exclude authenticated transport URLs
+00:00 +2 -1: source snapshots retain metadata but exclude authenticated transport URLs [E]
+  Expected: contains '[redacted URL]'
+    Actual: '[{"id":"source-work:WyJqZWxseWZpbjp0ZXN0Iiwic2FtZS1pdGVtIiwiZmlyc3Qtc2VydmVyIl0=","fingerprint":"{\\"id\\":\\"same-item\\",\\"name\\":\\"测试作品\\",\\"kind\\":\\"Movie\\",\\"isDirectory\\":false,\\"metadata\\":{\\"Path\\":{\\"credentialRef\\":{\\"namespace\\":\\"diagnostic\\",\\"key\\":\\"/metadata/Path\\"}}},\\"serverId\\":\\"first-server\\"}","payload":"{\\"id\\":\\"same-item\\",\\"name\\":\\"测试作品\\",\\"kind\\":\\"Movie\\",\\"isDirectory\\":false,\\"metadata\\":{\\"Path\\":{\\"credentialRef\\":{\\"namespace\\":\\"diagnostic\\",\\"key\\":\\"/metadata/Path\\"}}},\\"serverId\\":\\"first-server\\"}"},{"id":"source-episode:WyJqZWxseWZpbjp0ZXN0Iiwic2FtZS1pdGVtIiwiZmlyc3Qtc2VydmVyIl0=","fingerprint":"{\\"id\\":\\"same-item\\",\\"name\\":\\"测试作品\\",\\"kind\\":\\"Movie\\",\\"isDirectory\\":false,\\"metadata\\":{\\"Path\\":{\\"credentialRef\\":{\\"namespace\\":\\"diagnostic\\",\\"key\\":\\"/metadata/Path\\"}}},\\"serverId\\":\\"first-server\\",\\"workId\\":\\"source-work:WyJqZWxseWZpbjp0ZXN0Iiwic2FtZS1pdGVtIiwiZmlyc3Qtc2VydmVyIl0=\\"}","payload":"{\\"id\\":\\"same-item\\",\\"name\\":\\"测试作品\\",\\"kind\\":\\"Movie\\",\\"isDirectory\\":false,\\"metadata\\":{\\"Path\\":{\\"credentialRef\\":{\\"namespace\\":\\"diagnostic\\",\\"key\\":\\"/metadata/Path\\"}}},\\"serverId\\":\\"first-server\\",\\"workId\\":\\"source-work:WyJqZWxseWZpbjp0ZXN0Iiwic2FtZS1pdGVtIiwiZmlyc3Qtc2VydmVyIl0=\\"}"}]'
+     Which: does not contain '[redacted URL]'
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 147:5  main.<fn>
+  
+00:00 +2 -1: user operations keep ordered contents, original switch and caller attribution
+00:00 +3 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: source snapshots retain metadata but exclude authenticated transport URLs
