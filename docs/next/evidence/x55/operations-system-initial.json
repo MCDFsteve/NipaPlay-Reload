@@ -1,0 +1,352 @@
+[
+  {
+    "label": "fixture",
+    "value": {
+      "license": "CC0, generated testsrc2 and owned trailing text",
+      "files": 193,
+      "bytes": 14869753
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "profile": "x55-system-68664",
+      "pid": 68681,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "facts": {
+        "pid": 68681,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app",
+        "windowTitle": "NipaPlay · LAB [x55-system-68664]",
+        "viewId": 1,
+        "windowId": 60089,
+        "experimentalProfile": true,
+        "profileName": "x55-system-68664",
+        "version": "1.11.10"
+      },
+      "quiet": true,
+      "modelHost": "disabled by isolated fixture shell"
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68664/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68664/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68664/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68664/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "task.resources",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "pools": [
+          {
+            "type": "media.scan",
+            "capacity": 1,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "media.scan_classic",
+            "capacity": 1,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "media.metadata.refresh",
+            "capacity": 4,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "agent.helper",
+            "capacity": 2,
+            "active": 0,
+            "queued": 0
+          }
+        ],
+        "classicMatching": {
+          "capacity": 4,
+          "applies": "new scan"
+        },
+        "downloadLimits": {
+          "supported": false,
+          "reason": "The bundled engine exposes no runtime bandwidth limit API."
+        },
+        "nativeHelpers": {
+          "capacityOwner": "Codex"
+        }
+      }
+    }
+  },
+  {
+    "label": "media.indexers.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "workers": [
+          {
+            "kind": "danmaku.sidecar",
+            "enabled": false,
+            "running": false,
+            "queue": 0,
+            "lastRun": null,
+            "nextRun": null,
+            "error": null
+          },
+          {
+            "kind": "subtitle.probe",
+            "enabled": false,
+            "running": false,
+            "queue": 0,
+            "lastRun": null,
+            "nextRun": null,
+            "error": null
+          }
+        ],
+        "startupScan": {
+          "enabled": false,
+          "applies": "next startup while Next enabled",
+          "stopsRunningScan": false
+        },
+        "policies": {
+          "danmaku.autoLoadStrategy": {
+            "key": "danmaku.autoLoadStrategy",
+            "value": "remoteAndLocal",
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          },
+          "danmaku.skipMatching": {
+            "key": "danmaku.skipMatching",
+            "value": true,
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          },
+          "download.autoScanCompletedTasks": {
+            "key": "download.autoScanCompletedTasks",
+            "value": true,
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "followup.register",
+    "value": {
+      "input": {
+        "when": {
+          "event": "settings.changed",
+          "objectId": "network.mediaServerUserAgent"
+        },
+        "threadId": "x55-unavailable-fixture-thread",
+        "title": "X55 设置事实",
+        "instruction": "记录设置变化的事实。"
+      },
+      "status": "completed",
+      "result": {
+        "followup": {
+          "id": "followup-1791893677952959-91c0bdbc",
+          "state": "waiting",
+          "title": "X55 设置事实",
+          "instruction": "记录设置变化的事实。",
+          "condition": {
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent"
+          },
+          "waitingFor": "settings.changed for network.mediaServerUserAgent",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68664/harness",
+          "threadId": "x55-unavailable-fixture-thread",
+          "turnId": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791893677952115-10",
+          "createdAt": "2026-10-13T12:14:37.952952Z",
+          "updatedAt": "2026-10-13T12:14:37.952952Z",
+          "trigger": null,
+          "reason": null,
+          "turnStatus": null
+        }
+      }
+    }
+  },
+  {
+    "label": "events.wait",
+    "value": {
+      "input": {
+        "timeoutMs": 0,
+        "limit": 1000
+      },
+      "status": "completed",
+      "result": {
+        "events": [
+          {
+            "eventId": "1791893677937958-1791893676822241",
+            "event": "network.state_changed",
+            "objectId": "dandanplay:api.bgm.tv:443",
+            "entityId": "dandanplay:api.bgm.tv:443",
+            "revision": null,
+            "changedFields": [
+              "id",
+              "source",
+              "origin",
+              "lastAttemptAt",
+              "lastSuccessAt",
+              "httpStatus",
+              "error",
+              "availability"
+            ],
+            "facts": {
+              "id": "dandanplay:api.bgm.tv:443",
+              "source": "dandanplay",
+              "origin": "https://api.bgm.tv:443",
+              "lastAttemptAt": "2026-10-13T12:14:37.936358Z",
+              "lastSuccessAt": "2026-10-13T12:14:37.936358Z",
+              "httpStatus": 200,
+              "error": null,
+              "availability": "reachable"
+            },
+            "occurredAt": "2026-10-13T12:14:37.937975Z",
+            "data": {
+              "id": "dandanplay:api.bgm.tv:443",
+              "source": "dandanplay",
+              "origin": "https://api.bgm.tv:443",
+              "lastAttemptAt": "2026-10-13T12:14:37.936358Z",
+              "lastSuccessAt": "2026-10-13T12:14:37.936358Z",
+              "httpStatus": 200,
+              "error": null,
+              "availability": "reachable"
+            },
+            "cursor": 1
+          }
+        ],
+        "nextCursor": 1,
+        "truncated": false,
+        "replay": "persisted facts; hooks are not replayed"
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "input": {
+        "key": "network.mediaServerUserAgent",
+        "value": "NipaPlay-X55-Fixture/1.0"
+      },
+      "status": "completed",
+      "result": {
+        "key": "network.mediaServerUserAgent",
+        "value": "NipaPlay-X55-Fixture/1.0",
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "network.mediaServerUserAgent",
+          "previousValue": "",
+          "value": "NipaPlay-X55-Fixture/1.0",
+          "changedAt": "2026-10-13T12:14:37.962485Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791893677959893-12",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "events.wait",
+    "value": {
+      "input": {
+        "afterCursor": 1,
+        "events": [
+          "settings.changed"
+        ],
+        "entityId": "network.mediaServerUserAgent",
+        "timeoutMs": 10000
+      },
+      "status": "completed",
+      "result": {
+        "events": [
+          {
+            "eventId": "1791893677963146-1791893676822241",
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent",
+            "entityId": "network.mediaServerUserAgent",
+            "revision": 1,
+            "changedFields": [
+              "value"
+            ],
+            "facts": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            },
+            "occurredAt": "2026-10-13T12:14:37.963149Z",
+            "data": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            },
+            "cursor": 2
+          }
+        ],
+        "nextCursor": 2,
+        "truncated": false,
+        "replay": "persisted facts; hooks are not replayed"
+      }
+    }
+  },
+  {
+    "label": "experiment-failed",
+    "value": {
+      "type": "KeyError",
+      "message": "'details'"
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 68681,
+      "exitCode": -15,
+      "profileRemoved": true,
+      "otherInstancesTouched": false
+    }
+  }
+]

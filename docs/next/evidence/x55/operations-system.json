@@ -1,0 +1,1116 @@
+[
+  {
+    "label": "fixture",
+    "value": {
+      "license": "CC0, generated testsrc2 and owned trailing text",
+      "files": 193,
+      "bytes": 14869753
+    }
+  },
+  {
+    "label": "instance",
+    "value": {
+      "profile": "x55-system-68835",
+      "pid": 68856,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "facts": {
+        "pid": 68856,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "windowTitle": "NipaPlay · LAB [x55-system-68835]",
+        "windowId": 60090,
+        "viewId": 1,
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x55-system/build/macos/Build/Products/Debug/NipaPlay.app",
+        "experimentalProfile": true,
+        "profileName": "x55-system-68835",
+        "version": "1.11.10"
+      },
+      "quiet": true,
+      "modelHost": "disabled by isolated fixture shell"
+    }
+  },
+  {
+    "label": "media.library.roots.add",
+    "value": {
+      "input": {
+        "paths": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "selected": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+        ],
+        "roots": [
+          "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+        ],
+        "scanning": false,
+        "progress": 0.0,
+        "message": "已添加媒体文件夹：/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media",
+        "totalFilesFound": 0,
+        "failedFiles": []
+      }
+    }
+  },
+  {
+    "label": "task.resources",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "pools": [
+          {
+            "type": "media.scan",
+            "capacity": 1,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "media.scan_classic",
+            "capacity": 1,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "media.metadata.refresh",
+            "capacity": 4,
+            "active": 0,
+            "queued": 0
+          },
+          {
+            "type": "agent.helper",
+            "capacity": 2,
+            "active": 0,
+            "queued": 0
+          }
+        ],
+        "classicMatching": {
+          "capacity": 4,
+          "applies": "new scan"
+        },
+        "downloadLimits": {
+          "supported": false,
+          "reason": "The bundled engine exposes no runtime bandwidth limit API."
+        },
+        "nativeHelpers": {
+          "capacityOwner": "Codex"
+        }
+      }
+    }
+  },
+  {
+    "label": "media.indexers.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "workers": [
+          {
+            "kind": "danmaku.sidecar",
+            "enabled": false,
+            "running": false,
+            "queue": 0,
+            "lastRun": null,
+            "nextRun": null,
+            "error": null
+          },
+          {
+            "kind": "subtitle.probe",
+            "enabled": false,
+            "running": false,
+            "queue": 0,
+            "lastRun": null,
+            "nextRun": null,
+            "error": null
+          }
+        ],
+        "startupScan": {
+          "enabled": false,
+          "applies": "next startup while Next enabled",
+          "stopsRunningScan": false
+        },
+        "policies": {
+          "danmaku.autoLoadStrategy": {
+            "key": "danmaku.autoLoadStrategy",
+            "value": "remoteAndLocal",
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          },
+          "danmaku.skipMatching": {
+            "key": "danmaku.skipMatching",
+            "value": true,
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          },
+          "download.autoScanCompletedTasks": {
+            "key": "download.autoScanCompletedTasks",
+            "value": true,
+            "revision": 0,
+            "scope": "user",
+            "apply": "immediate",
+            "provenance": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "label": "followup.register",
+    "value": {
+      "input": {
+        "when": {
+          "event": "settings.changed",
+          "objectId": "network.mediaServerUserAgent"
+        },
+        "threadId": "x55-unavailable-fixture-thread",
+        "title": "X55 设置事实",
+        "instruction": "记录设置变化的事实。"
+      },
+      "status": "completed",
+      "result": {
+        "followup": {
+          "id": "followup-1791893730084511-14058212",
+          "state": "waiting",
+          "title": "X55 设置事实",
+          "instruction": "记录设置变化的事实。",
+          "condition": {
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent"
+          },
+          "waitingFor": "settings.changed for network.mediaServerUserAgent",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/harness",
+          "threadId": "x55-unavailable-fixture-thread",
+          "turnId": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791893730080676-10",
+          "createdAt": "2026-10-13T12:15:30.084501Z",
+          "updatedAt": "2026-10-13T12:15:30.084501Z",
+          "trigger": null,
+          "reason": null,
+          "turnStatus": null
+        }
+      }
+    }
+  },
+  {
+    "label": "events.wait",
+    "value": {
+      "input": {
+        "timeoutMs": 0,
+        "limit": 1000
+      },
+      "status": "completed",
+      "result": {
+        "events": [],
+        "nextCursor": 0,
+        "truncated": false,
+        "replay": "persisted facts; hooks are not replayed"
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "input": {
+        "key": "network.mediaServerUserAgent",
+        "value": "NipaPlay-X55-Fixture/1.0"
+      },
+      "status": "completed",
+      "result": {
+        "key": "network.mediaServerUserAgent",
+        "value": "NipaPlay-X55-Fixture/1.0",
+        "revision": 1,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "network.mediaServerUserAgent",
+          "previousValue": "",
+          "value": "NipaPlay-X55-Fixture/1.0",
+          "changedAt": "2026-10-13T12:15:30.095038Z",
+          "changedBy": "harness_cli",
+          "origin": "harness_cli",
+          "reason": null,
+          "invocationId": "inv-1791893730092530-12",
+          "revision": 1
+        }
+      }
+    }
+  },
+  {
+    "label": "events.wait",
+    "value": {
+      "input": {
+        "afterCursor": 0,
+        "events": [
+          "settings.changed"
+        ],
+        "entityId": "network.mediaServerUserAgent",
+        "timeoutMs": 10000
+      },
+      "status": "completed",
+      "result": {
+        "events": [
+          {
+            "eventId": "1791893730096130-1791893728951914",
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent",
+            "entityId": "network.mediaServerUserAgent",
+            "revision": 1,
+            "changedFields": [
+              "value"
+            ],
+            "facts": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            },
+            "occurredAt": "2026-10-13T12:15:30.096136Z",
+            "data": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            },
+            "cursor": 1
+          }
+        ],
+        "nextCursor": 1,
+        "truncated": false,
+        "replay": "persisted facts; hooks are not replayed"
+      }
+    }
+  },
+  {
+    "label": "hook-receipt",
+    "value": {
+      "event": "settings.changed",
+      "objectId": "network.mediaServerUserAgent",
+      "jobId": "job-688d50005f42d87aedc0a046451aabeb",
+      "type": "harness.hook",
+      "title": "Hook settings.changed",
+      "state": "succeeded",
+      "phase": "execute",
+      "progress": {
+        "completed": 0,
+        "unit": "items"
+      },
+      "createdAt": "2026-10-13T12:15:30.098633Z",
+      "updatedAt": "2026-10-13T12:15:30.468926Z",
+      "ownerDeviceId": "device-94442b32149e53ed5ebbd87a95929c5a",
+      "revision": 4,
+      "receipt": {
+        "verification": "verified",
+        "details": {
+          "exitCode": 0,
+          "elapsedMs": 354,
+          "timedOut": false,
+          "stdoutTail": "Observed settings.changed for network.mediaServerUserAgent\n",
+          "stderrTail": ""
+        }
+      }
+    }
+  },
+  {
+    "label": "hook-file",
+    "value": {
+      "eventId": "1791893730096130-1791893728951914",
+      "event": "settings.changed",
+      "objectId": "network.mediaServerUserAgent",
+      "entityId": "network.mediaServerUserAgent",
+      "occurredAt": "2026-10-13T12:15:30.096136Z",
+      "revision": 1,
+      "changedFields": [
+        "value"
+      ],
+      "facts": {
+        "key": "network.mediaServerUserAgent",
+        "previousValue": "",
+        "value": "NipaPlay-X55-Fixture/1.0",
+        "revision": 1,
+        "changedFields": [
+          "value"
+        ],
+        "origin": "harness_cli"
+      },
+      "data": {
+        "key": "network.mediaServerUserAgent",
+        "previousValue": "",
+        "value": "NipaPlay-X55-Fixture/1.0",
+        "revision": 1,
+        "changedFields": [
+          "value"
+        ],
+        "origin": "harness_cli"
+      }
+    }
+  },
+  {
+    "label": "followup.list",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "followups": [
+          {
+            "id": "followup-1791893730084511-14058212",
+            "state": "ready",
+            "title": "X55 设置事实",
+            "instruction": "记录设置变化的事实。",
+            "condition": {
+              "event": "settings.changed",
+              "objectId": "network.mediaServerUserAgent"
+            },
+            "waitingFor": "Bad state: app-server connection closed",
+            "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/harness",
+            "threadId": "x55-unavailable-fixture-thread",
+            "turnId": null,
+            "origin": "harness_cli",
+            "invocationId": "inv-1791893730080676-10",
+            "createdAt": "2026-10-13T12:15:30.084501Z",
+            "updatedAt": "2026-10-13T12:15:30.172655Z",
+            "trigger": {
+              "eventId": "1791893730096130-1791893728951914",
+              "event": "settings.changed",
+              "objectId": "network.mediaServerUserAgent",
+              "entityId": "network.mediaServerUserAgent",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "facts": {
+                "key": "network.mediaServerUserAgent",
+                "previousValue": "",
+                "value": "NipaPlay-X55-Fixture/1.0",
+                "revision": 1,
+                "changedFields": [
+                  "value"
+                ],
+                "origin": "harness_cli"
+              },
+              "occurredAt": "2026-10-13T12:15:30.096136Z",
+              "data": {
+                "key": "network.mediaServerUserAgent",
+                "previousValue": "",
+                "value": "NipaPlay-X55-Fixture/1.0",
+                "revision": 1,
+                "changedFields": [
+                  "value"
+                ],
+                "origin": "harness_cli"
+              }
+            },
+            "reason": "Bad state: app-server connection closed",
+            "turnStatus": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "followup.cancel",
+    "value": {
+      "input": {
+        "id": "followup-1791893730084511-14058212"
+      },
+      "status": "completed",
+      "result": {
+        "followup": {
+          "id": "followup-1791893730084511-14058212",
+          "state": "cancelled",
+          "title": "X55 设置事实",
+          "instruction": "记录设置变化的事实。",
+          "condition": {
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent"
+          },
+          "waitingFor": null,
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/harness",
+          "threadId": "x55-unavailable-fixture-thread",
+          "turnId": null,
+          "origin": "harness_cli",
+          "invocationId": "inv-1791893730080676-10",
+          "createdAt": "2026-10-13T12:15:30.084501Z",
+          "updatedAt": "2026-10-13T12:15:31.575777Z",
+          "trigger": {
+            "eventId": "1791893730096130-1791893728951914",
+            "event": "settings.changed",
+            "objectId": "network.mediaServerUserAgent",
+            "entityId": "network.mediaServerUserAgent",
+            "revision": 1,
+            "changedFields": [
+              "value"
+            ],
+            "facts": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            },
+            "occurredAt": "2026-10-13T12:15:30.096136Z",
+            "data": {
+              "key": "network.mediaServerUserAgent",
+              "previousValue": "",
+              "value": "NipaPlay-X55-Fixture/1.0",
+              "revision": 1,
+              "changedFields": [
+                "value"
+              ],
+              "origin": "harness_cli"
+            }
+          },
+          "reason": "Cancelled by caller.",
+          "turnStatus": null
+        }
+      }
+    }
+  },
+  {
+    "label": "storage.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:15:31.638176Z",
+        "directories": [
+          {
+            "role": "app",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data",
+            "bytes": 2452863,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "next",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next",
+            "bytes": 450610,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "classicDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/cache/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/compressed_images",
+            "bytes": 1966080,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "thumbnails",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "timeline",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/timeline_thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "nextDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "nextArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "subtitles",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/subtitles",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshAssets",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/mesh-assets",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/mesh-artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "downloads",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/downloads",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "library:/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media",
+            "bytes": 14869753,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          }
+        ],
+        "volumes": [
+          {
+            "totalBytes": 994610155520,
+            "availableBytes": 487915892736,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data"
+          },
+          {
+            "totalBytes": 994610155520,
+            "availableBytes": 487915892736,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+          }
+        ],
+        "preservation": "Imports, artwork, mesh assets, databases and user downloads are retained. nextDanmaku contains both cache and unique imports; prune checks storage_kind."
+      }
+    }
+  },
+  {
+    "label": "cache.plan",
+    "value": {
+      "input": {
+        "kinds": [
+          "images"
+        ]
+      },
+      "status": "completed",
+      "result": {
+        "planId": "09d285ae69c8739dab2ba3694dfffda1bd4dc9dc16e8f9a987fe2c13dbc31d5f",
+        "entries": [
+          {
+            "kind": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/compressed_images/x55-recoverable.jpg",
+            "bytes": 1966080,
+            "modified": 1791893731583000
+          }
+        ],
+        "retained": [],
+        "nextDanmakuKeys": [],
+        "reclaimableBytes": 1966080,
+        "maxBytes": 0,
+        "scope": "recoverable caches only; user files excluded",
+        "activeReferences": "At prune time: Next fetches defer collection; displayed image/thumbnail caches are retained while playback runs."
+      }
+    }
+  },
+  {
+    "label": "cache.prune",
+    "value": {
+      "input": {
+        "planId": "09d285ae69c8739dab2ba3694dfffda1bd4dc9dc16e8f9a987fe2c13dbc31d5f"
+      },
+      "status": "completed",
+      "result": {
+        "planId": "09d285ae69c8739dab2ba3694dfffda1bd4dc9dc16e8f9a987fe2c13dbc31d5f",
+        "removedBytes": 1966080,
+        "results": [
+          {
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/compressed_images/x55-recoverable.jpg",
+            "removed": true,
+            "bytes": 1966080
+          }
+        ],
+        "retained": []
+      }
+    }
+  },
+  {
+    "label": "storage.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:15:31.684815Z",
+        "directories": [
+          {
+            "role": "app",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data",
+            "bytes": 491687,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "next",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next",
+            "bytes": 455514,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": "includes children; do not sum directories"
+          },
+          {
+            "role": "classicDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/cache/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "images",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/compressed_images",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "thumbnails",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "timeline",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/timeline_thumbnails",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": false,
+            "overlap": null
+          },
+          {
+            "role": "nextDanmaku",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/danmaku",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "nextArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": true,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "subtitles",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/subtitles",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshAssets",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/mesh-assets",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "meshArtwork",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/next/mesh-artwork",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "downloads",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data/downloads",
+            "bytes": 0,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          },
+          {
+            "role": "library:/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media",
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media",
+            "bytes": 14869753,
+            "error": null,
+            "disposable": false,
+            "uniqueData": true,
+            "overlap": null
+          }
+        ],
+        "volumes": [
+          {
+            "totalBytes": 994610155520,
+            "availableBytes": 487917846528,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data"
+          },
+          {
+            "totalBytes": 994610155520,
+            "availableBytes": 487917846528,
+            "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+          }
+        ],
+        "preservation": "Imports, artwork, mesh assets, databases and user downloads are retained. nextDanmaku contains both cache and unique imports; prune checks storage_kind."
+      }
+    }
+  },
+  {
+    "label": "cache-comparison",
+    "value": {
+      "beforeBytes": 1966080,
+      "afterBytes": 0,
+      "removedBytes": 1966080,
+      "volumeBefore": [
+        {
+          "totalBytes": 994610155520,
+          "availableBytes": 487915892736,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data"
+        },
+        {
+          "totalBytes": 994610155520,
+          "availableBytes": 487915892736,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+        }
+      ],
+      "volumeAfter": [
+        {
+          "totalBytes": 994610155520,
+          "availableBytes": 487917846528,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data"
+        },
+        {
+          "totalBytes": 994610155520,
+          "availableBytes": 487917846528,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/media"
+        }
+      ]
+    }
+  },
+  {
+    "label": "storage.watch",
+    "value": {
+      "input": {
+        "thresholdBytes": 0,
+        "intervalMs": 1000
+      },
+      "status": "completed",
+      "result": {
+        "watch": {
+          "watchId": "space-1791893731688627",
+          "state": "above",
+          "thresholdBytes": 0,
+          "intervalMs": 1000,
+          "observedAt": "2026-10-13T12:15:31.688939Z",
+          "totalBytes": 994610155520,
+          "availableBytes": 487917838336,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x55-system-68835/data"
+        },
+        "lifetime": "current process; explicit subscription only"
+      }
+    }
+  },
+  {
+    "label": "storage.unwatch",
+    "value": {
+      "input": {
+        "watchId": "space-1791893731688627"
+      },
+      "status": "completed",
+      "result": {
+        "watchId": "space-1791893731688627",
+        "cancelled": true
+      }
+    }
+  },
+  {
+    "label": "app.update.check",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "currentVersion": "1.11.10",
+        "latestVersion": "1.11.9",
+        "hasUpdate": false,
+        "releaseName": "Release v1.11.9",
+        "releaseNotes": "## 新功能\n\n**外挂字幕编辑框与多字幕交互** ([#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933))\n\n播放界面支持多条外挂字幕同时加载，各字幕拥有独立时间轴。长按字幕文字可弹出编辑框，拖动编辑框可同步调整全局字幕位置偏移。切换视频或跳转到下一句台词时编辑框自动收起，避免弹幕层因编辑框持续重绘而出现闪烁。字幕轨道菜单和字幕设置菜单同步提供 Cupertino 与 NipaPlay 两套主题样式。关联：[#920](https://github.com/AimesSoft/NipaPlay-Reload/issues/920)、[#922](https://github.com/AimesSoft/NipaPlay-Reload/issues/922)\n\n**VobSub (.sub+.idx) 图形字幕支持** ([#957](https://github.com/AimesSoft/NipaPlay-Reload/pull/957))\n\n新增对 VobSub 图形字幕格式的完整支持，包括本地文件选择器、WebDAV/SMB 等远程来源及自动配对下载。加载视频时自动优先选择简体中文或日语字幕轨道，其余候选字幕堆叠在轨道菜单中供手动切换，切换时不会打断当前正在播放的字幕。远程缓存的字幕文件始终以原始文件名显示，冷启动后也能正确还原。\n\n**播放器快捷调节与媒体库 NEW 标识开关** ([#945](https://github.com/AimesSoft/NipaPlay-Reload/pull/945))\n\n在\"设置 → 播放器\"新增\"播放器菜单快捷调节\"开关，开启后可在播放器菜单顶部直接调整倍速和音量增强，默认关闭。在\"设置 → 外观\"新增\"媒体库 NEW 标识\"开关，关闭后隐藏桌面、手机和电视媒体库卡片上的 NEW 角标，新内容追踪与排序逻辑不受影响，默认开启。两项设置重启后均保持选择。\n\n**首页新番回顾板块** ([#953](https://github.com/AimesSoft/NipaPlay-Reload/pull/953))\n\n首页新增限时开启的新番回顾板块，可在设置中关闭。\n\n**Linux 平台启用 Erika 播放内核** ([#972](https://github.com/AimesSoft/NipaPlay-Reload/pull/972))\n\nLinux 源码构建现在支持使用 Erika 原生播放内核。Wayland 环境下视频、字幕和弹幕通过原生视图渲染，Flutter 控件以透明层叠加；X11 使用兼容纹理视图。新安装默认使用 Erika，已保存的内核选择不受影响。源码构建安装器支持 `NIPAPLAY_WSL_GPU_COPY=1` 选项，可在 WSL 环境下启用 D3D12 GPU 帧直传，减少解码帧在 GPU 与 CPU 之间的往返传输。\n\n**升级 Erika 至 0.2.1，Linux 发布包内置 Erika** ([#982](https://github.com/AimesSoft/NipaPlay-Reload/pull/982))\n\n将 Erika 播放引擎升级至 0.2.1，Linux 正式发布包现在随包携带 Erika 内核，新安装默认启用，已有用户的内核选择保留。amd64 和 arm64 均静态链接 FFmpeg 8，并启用 NVDEC、VA-API 和 Vulkan 互操作。\n\n**媒体信息页剧集多版本绑定** ([#971](https://github.com/AimesSoft/NipaPlay-Reload/pull/971))\n\n新版媒体信息页支持将同一剧集绑定多个视频文件版本，播放前弹窗供用户选择对应版本，也可快速解除匹配。同时新增剧集自动定位，修复鼠标滚轮在剧集列表中滚动速度过慢的问题。\n\n**Jellyfin 剧集添加日期排序** ([#979](https://github.com/AimesSoft/NipaPlay-Reload/pull/979))\n\n新增 Jellyfin 的\"剧集添加日期\"排序选项，使近期新增剧集的番剧可以排在前面，支持升序和降序。同时修复 Emby/Jellyfin 旧排序存档字段缺失时打开排序菜单或加载媒体库触发空值异常的问题。关联：[#795](https://github.com/AimesSoft/NipaPlay-Reload/issues/795)\n\n---\n\n## 体验改进\n\n**跳过片头/片尾按钮改为无容器阴影样式** ([#954](https://github.com/AimesSoft/NipaPlay-Reload/pull/954))\n\n移除\"跳过片头/片尾\"按钮的半透明胶囊背景和边框，改为直接显示图标和文字并添加阴影，在视频画面上可读性更好，视觉更简洁。\n\n**GIF 导出支持复制到系统剪贴板** ([#953](https://github.com/AimesSoft/NipaPlay-Reload/pull/953))\n\n桌面端 GIF 导出菜单中的\"复制到剪贴板\"现在可将实际图片内容写入系统剪贴板，可直接粘贴到聊天软件等位置，而非此前的文件路径。移动端因系统限制隐藏此按钮。同时修复 JavaScript 弹幕引擎在播放前几秒使用默认配置的问题，以及视频加载失败时错误弹窗改为展示 URL 解码后的地址，方便排查。\n\n**Android TV 启动时自动适配界面缩放** ([#951](https://github.com/AimesSoft/NipaPlay-Reload/pull/951))\n\nAndroid TV 现在在启动时根据实际输出分辨率和逻辑密度自动选择全局缩放比例，解决 1920×1080 输出下界面过大的问题。\"设置 → 外观\"新增\"自动适配界面大小\"开关，没有手动缩放记录的 Android TV 默认启用，每次启动重新计算；已有手动值继续保留。全局缩放范围扩展至 0.5～1.3。TV 顶部状态栏和底部菜单栏改为完全不透明的主题底色。\n\n**弹幕随视频缓冲同步启停** ([#973](https://github.com/AimesSoft/NipaPlay-Reload/pull/973))\n\nDFM+ 和 JavaScript 弹幕引擎现在接入播放器内核的缓冲信号，视频缓冲时弹幕同步暂停，缓冲结束后恢复，避免弹幕与画面不同步。同时修复鼠标指针在进度条上悬浮时时间提示频闪的问题。\n\n**iOS DFM+ 弹幕渲染对齐显示时钟** ([#969](https://github.com/AimesSoft/NipaPlay-Reload/pull/969))\n\n修复 iOS DFM+ 弹幕由 Rust 定时器与 CADisplayLink 各自出帧导致的重复帧、跳帧和位移抖动问题，现在统一由原生显示时钟驱动出帧。同时修复暂停后小幅跳转（如 8.0 → 8.1 秒）被时钟校正阈值吞掉、弹幕不跟随 seek 的问题。\n\n**媒体库排序弹窗使用 NipaPlay 原生控件** ([#958](https://github.com/AimesSoft/NipaPlay-Reload/pull/958))\n\n修复桌面和平板端\"媒体库排序\"弹窗使用 Material 默认控件、与整体界面风格不一致的问题，改为使用 NipaPlay 原生窗口和控件，并修正向下拖动时的目标索引计算错误。\n\n**下载器可靠性与交互改进** ([#950](https://github.com/AimesSoft/NipaPlay-Reload/pull/950))\n\n修复点击添加后需等待下一次轮询才显示任务、磁力预览后再次联网解析、暂停/恢复/保存任务和完成后入库不可靠等问题。添加任务后立即显示处理状态，操作结束后立即刷新任务状态，其他任务可继续操作。Android/鸿蒙任务数据库改用固定应用支持目录，合并旧记录并保留下载位置和暂停状态。下载状态改为纯文本，移除多处弹窗和设置面板标题前的装饰图标。\n\n**插件市场支持直接卸载已安装插件** ([#949](https://github.com/AimesSoft/NipaPlay-Reload/pull/949))\n\n插件市场中已安装的非内置插件现在显示\"删除\"按钮；有可用更新时\"更新\"和\"删除\"并列显示。删除前需确认，执行期间显示进度，完成后卡片恢复为\"安装\"状态。\n\n**Windows 中文字形渲染修复** ([#944](https://github.com/AimesSoft/NipaPlay-Reload/pull/944))\n\n修复 Windows 端大量界面文字使用日文异形字而非中文汉字的问题。同时修复新版媒体信息页视频时长显示错误、无观看记录时\"继续播放\"按钮错误显示为最后一话的问题，以及推荐栏过滤无实际内容的\"未知动画\"空壳条目。番剧删除新增多端同步墓碑机制，防止批量删除观看记录后云端残留数据重新同步回本地。\n\n---\n\n## Bug 修复\n\n**修复切换播放内核时界面卡死** ([#935](https://github.com/AimesSoft/NipaPlay-Reload/pull/935))\n\n修复在播放过程中切换 mdk（fvp）与 libmpv（media_kit）播放内核时，平台线程死锁导致界面冻结的问题。两个内核的原生销毁现在完全序列化，新内核在旧内核完全释放后才开始初始化，保证任意时刻只有一个原生播放器实例存在。\n\n**修复画面比例菜单位置与生命周期** ([#936](https://github.com/AimesSoft/NipaPlay-Reload/pull/936))\n\n修复画面比例菜单在屏幕右侧向进度条方向溢出的问题，以及退出播放器后浮层与控制栏锁状态无法清理的问题。菜单现在仅在支持画面比例切换的播放表面上显示。\n\n**修复外挂字幕编辑框在切换视频后残留** ([#937](https://github.com/AimesSoft/NipaPlay-Reload/pull/937))\n\n修复外挂字幕编辑框在切换视频或切换台词后可能残留的问题。编辑框现在绑定播放会话，媒体路径或字幕集合变化时自动收起；拖动进行中时收框延后至拖动结束。双指长按手势改用指针事件识别，解决同一手势检测器中 pan/scale 回调冲突的问题。\n\n**修复字幕列表高亮行定位偏差** ([#938](https://github.com/AimesSoft/NipaPlay-Reload/pull/938))\n\n修复字幕列表按估算行高定位导致长列表累计偏差、台词间隙高亮未来字幕的问题。高亮行完整可见时不再触发滚动，离开视口才滚动；远距离 seek 后目标行尚未构建时，先将数据窗口移至目标位置再按真实布局显示。\n\n**修复截图对话框无法点击外部关闭** ([#948](https://github.com/AimesSoft/NipaPlay-Reload/pull/948))\n\n修复平板全屏播放时控制栏隐藏状态下，截图/GIF 导出对话框无法通过点击外部区域关闭，只能依赖右上角关闭按钮的问题。\n\n**修复退到后台后媒体库图片永久留白** ([#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933))\n\n修复应用退到后台后媒体库封面图片无法恢复显示的问题。\n\n**修复 iOS 横屏播放控件与刘海/灵动岛重叠** ([#959](https://github.com/AimesSoft/NipaPlay-Reload/pull/959))\n\n修复 iPhone 横屏播放时，顶部按钮、标题、锁定按钮、跳过按钮及底部进度条与刘海/灵动岛区域重叠的问题，各控件现在正确读取左右安全区域边距。\n\n**修复 iOS 媒体库设置按钮点击区域错位** ([#962](https://github.com/AimesSoft/NipaPlay-Reload/pull/962))\n\n修复 iOS 媒体库页面右上角设置按钮因原生工具栏布局导致点击区域偏移、只有极小区域可触发的问题，改为 Flutter 内布局的 44×44 点透明按钮，保留按压反馈和无障碍支持。\n\n**修复 iOS「文件」打开视频后不播放** ([#963](https://github.com/AimesSoft/NipaPlay-Reload/pull/963))\n\n修复在 iOS「文件」中选择\"打开方式 > NipaPlay\"后，应用启动但视频不播放的问题。现在支持冷启动和运行期间接收文件 URL，使用安全范围访问将文件复制到应用目录后播放，同一来源的未修改文件复用副本。关联：[#961](https://github.com/AimesSoft/NipaPlay-Reload/issues/961)\n\n**修复鸿蒙本地媒体添加失败** ([#964](https://github.com/AimesSoft/NipaPlay-Reload/pull/964))\n\n修复鸿蒙添加本地媒体时目录选择通道未注册、目录实现缺失的问题。支持目录选择和持久授权的设备可直接选择本地目录；不支持的手机提供 MP4/MKV 视频复制导入流程，导入文件同名时自动编号，失败时清理临时文件。关联：[#940](https://github.com/AimesSoft/NipaPlay-Reload/issues/940)\n\n**修复 WebDAV/SMB 视频弹幕自动识别失败** ([#965](https://github.com/AimesSoft/NipaPlay-Reload/pull/965))\n\n修复弹幕自动识别系统未接入 WebDAV 和 SMB 私有协议导致无法识别的问题，并延长播放前等待时间，确保弹幕和剧集信息在播放开始前准备完毕。\n\n**修复 Android 适配填充模式时弹幕无法覆盖黑边** ([#966](https://github.com/AimesSoft/NipaPlay-Reload/pull/966))\n\n修复 Android 使用适配填充（aspect-fit）模式播放时，Erika 弹幕层被缩小到视频矩形内，无法在上下/左右黑边区域显示弹幕的问题。现在 Erika 渲染层保持全播放器尺寸，由渲染器内部处理视频适配。\n\n**修复 iOS 底部导航栏图标与文字重叠** ([#970](https://github.com/AimesSoft/NipaPlay-Reload/pull/970))\n\n修复 iOS 底部导航栏图标覆盖\"视频播放\"\"媒体库\"等标签文字的问题。原生容器现在在布局完成、加入窗口及安全区域变化后重新测量高度，横竖屏切换后自动更新。\n\n**修复 iPhone 播放器加载卡片文字被挤到底部** ([#975](https://github.com/AimesSoft/NipaPlay-Reload/pull/975))\n\n修复 iPhone 播放器加载卡片中，加载文字上方出现大块空白、文字被挤到卡片底部的问题。\n\n**修复 macOS 沙盒构建启动中断** ([#976](https://github.com/AimesSoft/NipaPlay-Reload/pull/976))\n\n修复 macOS 沙盒构建因无法访问 `/tmp/nipaplay_instance.lock` 导致应用在启动时中断的问题。单实例锁文件现在存放在沙盒可访问的 Application Support 目录，初始化失败时记录错误并允许应用继续启动。关联：[#955](https://github.com/AimesSoft/NipaPlay-Reload/issues/955)\n\n**修复 DFM/DFM+ 超采样设置和弹幕开关重启后被重置** ([#977](https://github.com/AimesSoft/NipaPlay-Reload/pull/977))\n\n修复关闭 DFM/DFM+ 超采样后重启恢复默认值，以及弹幕开关在启动恢复和用户设置之间相互覆盖的问题。超采样选择现在明确持久化，弹幕可见性恢复提前到耗时初始化之前，用户已显式修改时不再被启动存档覆盖。关联：[#835](https://github.com/AimesSoft/NipaPlay-Reload/issues/835)、[#836](https://github.com/AimesSoft/NipaPlay-Reload/issues/836)\n\n**修复 iPadOS 媒体库搜索输入无法继续编辑** ([#978](https://github.com/AimesSoft/NipaPlay-Reload/pull/978))\n\n修复 iPadOS 媒体库搜索框在搜索结果更新后无法继续编辑关键词、输入法和光标操作异常的问题。关联：[#834](https://github.com/AimesSoft/NipaPlay-Reload/issues/834)\n\n**修复 macOS 切换音频输出设备时崩溃** ([#980](https://github.com/AimesSoft/NipaPlay-Reload/pull/980))\n\n回移上游 mpv CoreAudio 初始化失败的生命周期修复，避免耳机插拔或蓝牙设备切换时遗留的 hotplug 回调访问已释放的音频输出对象导致崩溃。关联：[#913](https://github.com/AimesSoft/NipaPlay-Reload/issues/913)\n\n---\n\n## 维护与发布流程\n\n- 版本号 bump 至 1.11.9、1.11.11（[#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933) 内及 direct commit）\n- 修复鸿蒙发布构建中 FVP 子类异步释放接口不匹配和 MDK 缓冲监听兼容问题，补齐 Web 平台 `exit()` 接口声明，使内置 Web 页面和鸿蒙 HAP 可正常编译（[#983](https://github.com/AimesSoft/NipaPlay-Reload/pull/983)）\n- 修复 Linux CI 剧集多文件匹配测试共享数据库导致用例间相互干扰的问题（[#974](https://github.com/AimesSoft/NipaPlay-Reload/pull/974)）\n- Linux 发布包补齐 DEB/RPM 运行依赖，同步使用文档（[#982](https://github.com/AimesSoft/NipaPlay-Reload/pull/982)）\n- Android 调试版使用独立包名，可与正式版并行安装；Rust 构建遵循显式 `target-platform`（[#951](https://github.com/AimesSoft/NipaPlay-Reload/pull/951)）\n\n## Contributors\n\n@MCDFsteve, @Shinokawa, @TsangAsuna, @aozaoz112233, @makabaka11\n",
+        "publishedAt": "2026-10-02T02:46:10Z",
+        "publicReleaseUrl": "https://github.com/AimesSoft/NipaPlay-Reload/releases/tag/v1.11.9",
+        "checkedAt": "2026-10-13T12:15:32.241448Z",
+        "error": null,
+        "installationSupported": false
+      }
+    }
+  },
+  {
+    "label": "app.update.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "checking": false,
+        "checked": true,
+        "result": {
+          "currentVersion": "1.11.10",
+          "latestVersion": "1.11.9",
+          "hasUpdate": false,
+          "releaseName": "Release v1.11.9",
+          "releaseNotes": "## 新功能\n\n**外挂字幕编辑框与多字幕交互** ([#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933))\n\n播放界面支持多条外挂字幕同时加载，各字幕拥有独立时间轴。长按字幕文字可弹出编辑框，拖动编辑框可同步调整全局字幕位置偏移。切换视频或跳转到下一句台词时编辑框自动收起，避免弹幕层因编辑框持续重绘而出现闪烁。字幕轨道菜单和字幕设置菜单同步提供 Cupertino 与 NipaPlay 两套主题样式。关联：[#920](https://github.com/AimesSoft/NipaPlay-Reload/issues/920)、[#922](https://github.com/AimesSoft/NipaPlay-Reload/issues/922)\n\n**VobSub (.sub+.idx) 图形字幕支持** ([#957](https://github.com/AimesSoft/NipaPlay-Reload/pull/957))\n\n新增对 VobSub 图形字幕格式的完整支持，包括本地文件选择器、WebDAV/SMB 等远程来源及自动配对下载。加载视频时自动优先选择简体中文或日语字幕轨道，其余候选字幕堆叠在轨道菜单中供手动切换，切换时不会打断当前正在播放的字幕。远程缓存的字幕文件始终以原始文件名显示，冷启动后也能正确还原。\n\n**播放器快捷调节与媒体库 NEW 标识开关** ([#945](https://github.com/AimesSoft/NipaPlay-Reload/pull/945))\n\n在\"设置 → 播放器\"新增\"播放器菜单快捷调节\"开关，开启后可在播放器菜单顶部直接调整倍速和音量增强，默认关闭。在\"设置 → 外观\"新增\"媒体库 NEW 标识\"开关，关闭后隐藏桌面、手机和电视媒体库卡片上的 NEW 角标，新内容追踪与排序逻辑不受影响，默认开启。两项设置重启后均保持选择。\n\n**首页新番回顾板块** ([#953](https://github.com/AimesSoft/NipaPlay-Reload/pull/953))\n\n首页新增限时开启的新番回顾板块，可在设置中关闭。\n\n**Linux 平台启用 Erika 播放内核** ([#972](https://github.com/AimesSoft/NipaPlay-Reload/pull/972))\n\nLinux 源码构建现在支持使用 Erika 原生播放内核。Wayland 环境下视频、字幕和弹幕通过原生视图渲染，Flutter 控件以透明层叠加；X11 使用兼容纹理视图。新安装默认使用 Erika，已保存的内核选择不受影响。源码构建安装器支持 `NIPAPLAY_WSL_GPU_COPY=1` 选项，可在 WSL 环境下启用 D3D12 GPU 帧直传，减少解码帧在 GPU 与 CPU 之间的往返传输。\n\n**升级 Erika 至 0.2.1，Linux 发布包内置 Erika** ([#982](https://github.com/AimesSoft/NipaPlay-Reload/pull/982))\n\n将 Erika 播放引擎升级至 0.2.1，Linux 正式发布包现在随包携带 Erika 内核，新安装默认启用，已有用户的内核选择保留。amd64 和 arm64 均静态链接 FFmpeg 8，并启用 NVDEC、VA-API 和 Vulkan 互操作。\n\n**媒体信息页剧集多版本绑定** ([#971](https://github.com/AimesSoft/NipaPlay-Reload/pull/971))\n\n新版媒体信息页支持将同一剧集绑定多个视频文件版本，播放前弹窗供用户选择对应版本，也可快速解除匹配。同时新增剧集自动定位，修复鼠标滚轮在剧集列表中滚动速度过慢的问题。\n\n**Jellyfin 剧集添加日期排序** ([#979](https://github.com/AimesSoft/NipaPlay-Reload/pull/979))\n\n新增 Jellyfin 的\"剧集添加日期\"排序选项，使近期新增剧集的番剧可以排在前面，支持升序和降序。同时修复 Emby/Jellyfin 旧排序存档字段缺失时打开排序菜单或加载媒体库触发空值异常的问题。关联：[#795](https://github.com/AimesSoft/NipaPlay-Reload/issues/795)\n\n---\n\n## 体验改进\n\n**跳过片头/片尾按钮改为无容器阴影样式** ([#954](https://github.com/AimesSoft/NipaPlay-Reload/pull/954))\n\n移除\"跳过片头/片尾\"按钮的半透明胶囊背景和边框，改为直接显示图标和文字并添加阴影，在视频画面上可读性更好，视觉更简洁。\n\n**GIF 导出支持复制到系统剪贴板** ([#953](https://github.com/AimesSoft/NipaPlay-Reload/pull/953))\n\n桌面端 GIF 导出菜单中的\"复制到剪贴板\"现在可将实际图片内容写入系统剪贴板，可直接粘贴到聊天软件等位置，而非此前的文件路径。移动端因系统限制隐藏此按钮。同时修复 JavaScript 弹幕引擎在播放前几秒使用默认配置的问题，以及视频加载失败时错误弹窗改为展示 URL 解码后的地址，方便排查。\n\n**Android TV 启动时自动适配界面缩放** ([#951](https://github.com/AimesSoft/NipaPlay-Reload/pull/951))\n\nAndroid TV 现在在启动时根据实际输出分辨率和逻辑密度自动选择全局缩放比例，解决 1920×1080 输出下界面过大的问题。\"设置 → 外观\"新增\"自动适配界面大小\"开关，没有手动缩放记录的 Android TV 默认启用，每次启动重新计算；已有手动值继续保留。全局缩放范围扩展至 0.5～1.3。TV 顶部状态栏和底部菜单栏改为完全不透明的主题底色。\n\n**弹幕随视频缓冲同步启停** ([#973](https://github.com/AimesSoft/NipaPlay-Reload/pull/973))\n\nDFM+ 和 JavaScript 弹幕引擎现在接入播放器内核的缓冲信号，视频缓冲时弹幕同步暂停，缓冲结束后恢复，避免弹幕与画面不同步。同时修复鼠标指针在进度条上悬浮时时间提示频闪的问题。\n\n**iOS DFM+ 弹幕渲染对齐显示时钟** ([#969](https://github.com/AimesSoft/NipaPlay-Reload/pull/969))\n\n修复 iOS DFM+ 弹幕由 Rust 定时器与 CADisplayLink 各自出帧导致的重复帧、跳帧和位移抖动问题，现在统一由原生显示时钟驱动出帧。同时修复暂停后小幅跳转（如 8.0 → 8.1 秒）被时钟校正阈值吞掉、弹幕不跟随 seek 的问题。\n\n**媒体库排序弹窗使用 NipaPlay 原生控件** ([#958](https://github.com/AimesSoft/NipaPlay-Reload/pull/958))\n\n修复桌面和平板端\"媒体库排序\"弹窗使用 Material 默认控件、与整体界面风格不一致的问题，改为使用 NipaPlay 原生窗口和控件，并修正向下拖动时的目标索引计算错误。\n\n**下载器可靠性与交互改进** ([#950](https://github.com/AimesSoft/NipaPlay-Reload/pull/950))\n\n修复点击添加后需等待下一次轮询才显示任务、磁力预览后再次联网解析、暂停/恢复/保存任务和完成后入库不可靠等问题。添加任务后立即显示处理状态，操作结束后立即刷新任务状态，其他任务可继续操作。Android/鸿蒙任务数据库改用固定应用支持目录，合并旧记录并保留下载位置和暂停状态。下载状态改为纯文本，移除多处弹窗和设置面板标题前的装饰图标。\n\n**插件市场支持直接卸载已安装插件** ([#949](https://github.com/AimesSoft/NipaPlay-Reload/pull/949))\n\n插件市场中已安装的非内置插件现在显示\"删除\"按钮；有可用更新时\"更新\"和\"删除\"并列显示。删除前需确认，执行期间显示进度，完成后卡片恢复为\"安装\"状态。\n\n**Windows 中文字形渲染修复** ([#944](https://github.com/AimesSoft/NipaPlay-Reload/pull/944))\n\n修复 Windows 端大量界面文字使用日文异形字而非中文汉字的问题。同时修复新版媒体信息页视频时长显示错误、无观看记录时\"继续播放\"按钮错误显示为最后一话的问题，以及推荐栏过滤无实际内容的\"未知动画\"空壳条目。番剧删除新增多端同步墓碑机制，防止批量删除观看记录后云端残留数据重新同步回本地。\n\n---\n\n## Bug 修复\n\n**修复切换播放内核时界面卡死** ([#935](https://github.com/AimesSoft/NipaPlay-Reload/pull/935))\n\n修复在播放过程中切换 mdk（fvp）与 libmpv（media_kit）播放内核时，平台线程死锁导致界面冻结的问题。两个内核的原生销毁现在完全序列化，新内核在旧内核完全释放后才开始初始化，保证任意时刻只有一个原生播放器实例存在。\n\n**修复画面比例菜单位置与生命周期** ([#936](https://github.com/AimesSoft/NipaPlay-Reload/pull/936))\n\n修复画面比例菜单在屏幕右侧向进度条方向溢出的问题，以及退出播放器后浮层与控制栏锁状态无法清理的问题。菜单现在仅在支持画面比例切换的播放表面上显示。\n\n**修复外挂字幕编辑框在切换视频后残留** ([#937](https://github.com/AimesSoft/NipaPlay-Reload/pull/937))\n\n修复外挂字幕编辑框在切换视频或切换台词后可能残留的问题。编辑框现在绑定播放会话，媒体路径或字幕集合变化时自动收起；拖动进行中时收框延后至拖动结束。双指长按手势改用指针事件识别，解决同一手势检测器中 pan/scale 回调冲突的问题。\n\n**修复字幕列表高亮行定位偏差** ([#938](https://github.com/AimesSoft/NipaPlay-Reload/pull/938))\n\n修复字幕列表按估算行高定位导致长列表累计偏差、台词间隙高亮未来字幕的问题。高亮行完整可见时不再触发滚动，离开视口才滚动；远距离 seek 后目标行尚未构建时，先将数据窗口移至目标位置再按真实布局显示。\n\n**修复截图对话框无法点击外部关闭** ([#948](https://github.com/AimesSoft/NipaPlay-Reload/pull/948))\n\n修复平板全屏播放时控制栏隐藏状态下，截图/GIF 导出对话框无法通过点击外部区域关闭，只能依赖右上角关闭按钮的问题。\n\n**修复退到后台后媒体库图片永久留白** ([#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933))\n\n修复应用退到后台后媒体库封面图片无法恢复显示的问题。\n\n**修复 iOS 横屏播放控件与刘海/灵动岛重叠** ([#959](https://github.com/AimesSoft/NipaPlay-Reload/pull/959))\n\n修复 iPhone 横屏播放时，顶部按钮、标题、锁定按钮、跳过按钮及底部进度条与刘海/灵动岛区域重叠的问题，各控件现在正确读取左右安全区域边距。\n\n**修复 iOS 媒体库设置按钮点击区域错位** ([#962](https://github.com/AimesSoft/NipaPlay-Reload/pull/962))\n\n修复 iOS 媒体库页面右上角设置按钮因原生工具栏布局导致点击区域偏移、只有极小区域可触发的问题，改为 Flutter 内布局的 44×44 点透明按钮，保留按压反馈和无障碍支持。\n\n**修复 iOS「文件」打开视频后不播放** ([#963](https://github.com/AimesSoft/NipaPlay-Reload/pull/963))\n\n修复在 iOS「文件」中选择\"打开方式 > NipaPlay\"后，应用启动但视频不播放的问题。现在支持冷启动和运行期间接收文件 URL，使用安全范围访问将文件复制到应用目录后播放，同一来源的未修改文件复用副本。关联：[#961](https://github.com/AimesSoft/NipaPlay-Reload/issues/961)\n\n**修复鸿蒙本地媒体添加失败** ([#964](https://github.com/AimesSoft/NipaPlay-Reload/pull/964))\n\n修复鸿蒙添加本地媒体时目录选择通道未注册、目录实现缺失的问题。支持目录选择和持久授权的设备可直接选择本地目录；不支持的手机提供 MP4/MKV 视频复制导入流程，导入文件同名时自动编号，失败时清理临时文件。关联：[#940](https://github.com/AimesSoft/NipaPlay-Reload/issues/940)\n\n**修复 WebDAV/SMB 视频弹幕自动识别失败** ([#965](https://github.com/AimesSoft/NipaPlay-Reload/pull/965))\n\n修复弹幕自动识别系统未接入 WebDAV 和 SMB 私有协议导致无法识别的问题，并延长播放前等待时间，确保弹幕和剧集信息在播放开始前准备完毕。\n\n**修复 Android 适配填充模式时弹幕无法覆盖黑边** ([#966](https://github.com/AimesSoft/NipaPlay-Reload/pull/966))\n\n修复 Android 使用适配填充（aspect-fit）模式播放时，Erika 弹幕层被缩小到视频矩形内，无法在上下/左右黑边区域显示弹幕的问题。现在 Erika 渲染层保持全播放器尺寸，由渲染器内部处理视频适配。\n\n**修复 iOS 底部导航栏图标与文字重叠** ([#970](https://github.com/AimesSoft/NipaPlay-Reload/pull/970))\n\n修复 iOS 底部导航栏图标覆盖\"视频播放\"\"媒体库\"等标签文字的问题。原生容器现在在布局完成、加入窗口及安全区域变化后重新测量高度，横竖屏切换后自动更新。\n\n**修复 iPhone 播放器加载卡片文字被挤到底部** ([#975](https://github.com/AimesSoft/NipaPlay-Reload/pull/975))\n\n修复 iPhone 播放器加载卡片中，加载文字上方出现大块空白、文字被挤到卡片底部的问题。\n\n**修复 macOS 沙盒构建启动中断** ([#976](https://github.com/AimesSoft/NipaPlay-Reload/pull/976))\n\n修复 macOS 沙盒构建因无法访问 `/tmp/nipaplay_instance.lock` 导致应用在启动时中断的问题。单实例锁文件现在存放在沙盒可访问的 Application Support 目录，初始化失败时记录错误并允许应用继续启动。关联：[#955](https://github.com/AimesSoft/NipaPlay-Reload/issues/955)\n\n**修复 DFM/DFM+ 超采样设置和弹幕开关重启后被重置** ([#977](https://github.com/AimesSoft/NipaPlay-Reload/pull/977))\n\n修复关闭 DFM/DFM+ 超采样后重启恢复默认值，以及弹幕开关在启动恢复和用户设置之间相互覆盖的问题。超采样选择现在明确持久化，弹幕可见性恢复提前到耗时初始化之前，用户已显式修改时不再被启动存档覆盖。关联：[#835](https://github.com/AimesSoft/NipaPlay-Reload/issues/835)、[#836](https://github.com/AimesSoft/NipaPlay-Reload/issues/836)\n\n**修复 iPadOS 媒体库搜索输入无法继续编辑** ([#978](https://github.com/AimesSoft/NipaPlay-Reload/pull/978))\n\n修复 iPadOS 媒体库搜索框在搜索结果更新后无法继续编辑关键词、输入法和光标操作异常的问题。关联：[#834](https://github.com/AimesSoft/NipaPlay-Reload/issues/834)\n\n**修复 macOS 切换音频输出设备时崩溃** ([#980](https://github.com/AimesSoft/NipaPlay-Reload/pull/980))\n\n回移上游 mpv CoreAudio 初始化失败的生命周期修复，避免耳机插拔或蓝牙设备切换时遗留的 hotplug 回调访问已释放的音频输出对象导致崩溃。关联：[#913](https://github.com/AimesSoft/NipaPlay-Reload/issues/913)\n\n---\n\n## 维护与发布流程\n\n- 版本号 bump 至 1.11.9、1.11.11（[#933](https://github.com/AimesSoft/NipaPlay-Reload/pull/933) 内及 direct commit）\n- 修复鸿蒙发布构建中 FVP 子类异步释放接口不匹配和 MDK 缓冲监听兼容问题，补齐 Web 平台 `exit()` 接口声明，使内置 Web 页面和鸿蒙 HAP 可正常编译（[#983](https://github.com/AimesSoft/NipaPlay-Reload/pull/983)）\n- 修复 Linux CI 剧集多文件匹配测试共享数据库导致用例间相互干扰的问题（[#974](https://github.com/AimesSoft/NipaPlay-Reload/pull/974)）\n- Linux 发布包补齐 DEB/RPM 运行依赖，同步使用文档（[#982](https://github.com/AimesSoft/NipaPlay-Reload/pull/982)）\n- Android 调试版使用独立包名，可与正式版并行安装；Rust 构建遵循显式 `target-platform`（[#951](https://github.com/AimesSoft/NipaPlay-Reload/pull/951)）\n\n## Contributors\n\n@MCDFsteve, @Shinokawa, @TsangAsuna, @aozaoz112233, @makabaka11\n",
+          "publishedAt": "2026-10-02T02:46:10Z",
+          "publicReleaseUrl": "https://github.com/AimesSoft/NipaPlay-Reload/releases/tag/v1.11.9",
+          "checkedAt": "2026-10-13T12:15:32.241448Z",
+          "error": null,
+          "installationSupported": false
+        }
+      }
+    }
+  },
+  {
+    "label": "diagnostics.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:15:32.260203Z",
+        "build": {
+          "version": "1.11.10",
+          "buildNumber": "1.11.10",
+          "packageName": "com.aimessoft.nipaplay"
+        },
+        "dependencies": {
+          "dart": "3.12.2",
+          "os": "macos",
+          "osVersion": "Version 26.7 (Build 25G229)",
+          "torrent": "bundled librqbit",
+          "unobservedVersions": [
+            "Flutter engine",
+            "player native libraries"
+          ]
+        },
+        "resources": {
+          "processId": 68856,
+          "rssBytes": 612040704,
+          "maxRssBytes": 677281792
+        },
+        "player": {
+          "available": true,
+          "kernel": "MDK",
+          "status": "idle",
+          "hasVideo": false,
+          "buffering": false,
+          "bufferedPositionMs": 0,
+          "positionMs": 0,
+          "durationMs": 0,
+          "video": [],
+          "audio": [],
+          "details": {}
+        },
+        "health": {
+          "database": [
+            {
+              "quick_check": "ok"
+            }
+          ],
+          "pendingProjections": 0,
+          "networkFailures": []
+        },
+        "logs": {
+          "collecting": true,
+          "fileWriterRunning": true
+        },
+        "storageMigration": {
+          "applicable": false
+        },
+        "recoveries": [
+          "logs.restart",
+          "media.projections.reconcile",
+          "indexers.reconcile"
+        ]
+      }
+    }
+  },
+  {
+    "label": "diagnostics.file_logs",
+    "value": {
+      "input": {
+        "limit": 10
+      },
+      "status": "completed",
+      "result": {
+        "files": [],
+        "lines": [],
+        "nextCursor": null
+      }
+    }
+  },
+  {
+    "label": "network.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "observedAt": "2026-10-13T12:15:32.282308Z",
+        "effectiveProxy": {
+          "mode": "system"
+        },
+        "routes": [
+          {
+            "provider": "dandanplay",
+            "mode": "auto",
+            "effectiveGateway": "https://nipaplay.aimes-soft.com:443/dandanplay",
+            "failoverUntil": null,
+            "customOriginTrust": "Selected by the user in Classic network settings."
+          }
+        ],
+        "mediaServerUserAgent": "NipaPlay-X55-Fixture/1.0",
+        "observations": [],
+        "historyScope": "this process"
+      }
+    }
+  },
+  {
+    "label": "notification.status",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "alertsEnabled": false,
+        "soundsEnabled": false,
+        "authorization": "[redacted]",
+        "deliveryObservation": "OS acceptance is not proof the user saw a banner"
+      }
+    }
+  },
+  {
+    "label": "notification.send",
+    "value": {
+      "input": {
+        "id": "x55-system-68835",
+        "title": "NipaPlay 实验通知",
+        "body": "后台能力验证已完成。",
+        "sound": false,
+        "requestPermission": false
+      },
+      "status": "completed",
+      "result": {
+        "deliveryState": "blocked",
+        "reason": "system_authorization",
+        "settings": {
+          "alertsEnabled": false,
+          "soundsEnabled": false,
+          "authorization": "[redacted]",
+          "deliveryObservation": "OS acceptance is not proof the user saw a banner"
+        }
+      }
+    }
+  },
+  {
+    "label": "notification.list",
+    "value": {
+      "input": {},
+      "status": "completed",
+      "result": {
+        "notifications": []
+      }
+    }
+  },
+  {
+    "label": "notification.cancel",
+    "value": {
+      "input": {
+        "id": "x55-system-68835"
+      },
+      "status": "completed",
+      "result": {
+        "id": "x55-system-68835",
+        "cancellationRequested": true
+      }
+    }
+  },
+  {
+    "label": "completed",
+    "value": {
+      "scan": "already_verified_in_initial_run",
+      "hook": "succeeded",
+      "cacheRemovedBytes": 1966080,
+      "notification": {
+        "deliveryState": "blocked",
+        "reason": "system_authorization",
+        "settings": {
+          "alertsEnabled": false,
+          "soundsEnabled": false,
+          "authorization": "[redacted]",
+          "deliveryObservation": "OS acceptance is not proof the user saw a banner"
+        }
+      }
+    }
+  },
+  {
+    "label": "cleanup",
+    "value": {
+      "pid": 68856,
+      "exitCode": -15,
+      "profileRemoved": true,
+      "otherInstancesTouched": false
+    }
+  }
+]
