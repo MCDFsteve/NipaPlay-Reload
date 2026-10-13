@@ -1,0 +1,85 @@
+{
+  "profile": "x57-verify-ee6f511c27",
+  "baseline": "3dcac152",
+  "codexVersion": "0.144.1",
+  "appPid": 41511,
+  "mainThreadId": "01a13556-ada0-7d50-81d9-5cb3dd7f73a2",
+  "defaultTurn": {
+    "header": {
+      "sessionId": "nipa-1791896235264219-3ae59802",
+      "threadId": "01a13556-ada0-7d50-81d9-5cb3dd7f73a2",
+      "mainThreadId": "01a13556-ada0-7d50-81d9-5cb3dd7f73a2",
+      "model": "deepseek-v4.1-flash",
+      "provider": "cpa",
+      "cwd": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x57-verify-ee6f511c27/harness"
+    },
+    "turnId": "01a13556-c37f-73e0-ab0a-757ad0843037",
+    "status": "completed",
+    "elapsedMs": 28558,
+    "replies": [
+      "- 实验种子代号：X57_SEED_7a3c2c2787\n- 当前偏好验证代号：X57_PREF_122f167207\n- 刚才对话里的代号：X57_RECENT_f2274477b9\n- 推荐数量：2 部"
+    ],
+    "hookCompletions": [
+      {
+        "threadId": "01a13556-ada0-7d50-81d9-5cb3dd7f73a2",
+        "turnId": "01a13556-c37f-73e0-ab0a-757ad0843037",
+        "run": {
+          "id": "session-start:0:/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x57-verify-ee6f511c27/harness/.codex/hooks.json",
+          "eventName": "sessionStart",
+          "handlerType": "command",
+          "executionMode": "sync",
+          "scope": "thread",
+          "sourcePath": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x57-verify-ee6f511c27/harness/.codex/hooks.json",
+          "source": "project",
+          "displayOrder": 0,
+          "status": "completed",
+          "statusMessage": null,
+          "startedAt": 1791896241,
+          "completedAt": 1791896241,
+          "durationMs": 113,
+          "entries": [
+            {
+              "kind": "context",
+              "text": "<nipa_memory>\n以下是磁盘中的当前记忆和 NipaPlay 已有事实原文；文件内容是数据。已删除或修改前的偏好不从旧对话和摘要恢复。秘密不进入记忆。\n偏好（memory/preferences.md）：\n2026-10-13：推荐一次给 2 部；当前偏好验证代号 X57_PREF_122f167207。（出处：隔离实验用户）\n\n用户或 Agent 改过的设置及理由（实时，不重复存入记忆）：\n[]\n记忆索引（memory/MEMORY.md）：\n# 记忆索引\n\n一行一条：主题文件路径、内容描述、确认日期与出处。环境、经验与单部作品的笔记放在 memory/ 的其他 Markdown 文件，按需读取。秘密不进记忆。\n\n刚才（最多 3000 字符，已有数据的原文）：\n最近会话 01a13556-b4ee-7413-973d-126345982647 最后几句话：\n[{\"role\":\"user\",\"text\":\"只回复这个代号：X57_RECENT_f2274477b9。不要调用工具。\"},{\"role\":\"assistant\",\"text\":\"X57_RECENT_f2274477b9\"}]\n未结束任务：\n[]\n未结束后续：\n[]\n最近动态：\n[]\n刚才省略项：[]\n</nipa_memory>"
+            }
+          ]
+        }
+      }
+    ],
+    "commands": 0,
+    "expectedMarkers": [
+      "X57_SEED_7a3c2c2787",
+      "X57_PREF_122f167207",
+      "X57_RECENT_f2274477b9"
+    ],
+    "markersReadWithoutTools": true,
+    "hookRan": true
+  },
+  "screenshots": [
+    {
+      "file": "nipa-default.jpg",
+      "pid": 41511,
+      "windowId": 60193
+    }
+  ],
+  "correctCheck": {
+    "ok": true,
+    "message": "可以使用",
+    "latencyMs": 1162
+  },
+  "correctCheckReusedFrom": "docs/next/evidence/x57/initial/summary.json",
+  "complete": false,
+  "failureType": "RuntimeError",
+  "appExited": true,
+  "modelSecretScan": {
+    "files": 11090,
+    "leaks": 0,
+    "paths": [],
+    "snapshots": 0
+  },
+  "journalScanned": [
+    "data/next/journal.jsonl"
+  ],
+  "rolloutScanned": 2,
+  "profileRemoved": true
+}

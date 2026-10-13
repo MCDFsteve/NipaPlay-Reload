@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": null,
+  "observedAt": "2026-10-13T13:00:28.241336Z",
+  "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+  "sources": {
+    "activity": "2026-10-13T13:00:28.239928Z"
+  },
+  "rows": [
+    {
+      "id": "body:3",
+      "at": "2026-10-13T13:00:22.295146Z",
+      "type": "host_settings.changed",
+      "title": "model · host_settings.changed",
+      "actor": "user",
+      "origin": "gui",
+      "deviceId": "device-f7ea8960cc619ba1dbc39f58e1b1cfa2",
+      "originDeviceId": null,
+      "invocationId": "inv-1791896422295143-18",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "model",
+      "source": "body_changes",
+      "facts": {
+        "before": {
+          "id": "model",
+          "source": "nipaplay",
+          "revision": 2,
+          "provider": "DeepSeek",
+          "baseUrl": "https://cpa.shinokawa.top/v1",
+          "model": "deepseek-v4.1-flash"
+        },
+        "after": {
+          "id": "model",
+          "source": "codex",
+          "revision": 3,
+          "provider": "DeepSeek",
+          "baseUrl": "https://cpa.shinokawa.top/v1",
+          "model": "deepseek-v4.1-flash"
+        }
+      }
+    },
+    {
+      "id": "body:2",
+      "at": "2026-10-13T13:00:22.059538Z",
+      "type": "host_settings.changed",
+      "title": "model · host_settings.changed",
+      "actor": "user",
+      "origin": "gui",
+      "deviceId": "device-f7ea8960cc619ba1dbc39f58e1b1cfa2",
+      "originDeviceId": null,
+      "invocationId": "inv-1791896422059535-17",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "model",
+      "source": "body_changes",
+      "facts": {
+        "before": {
+          "id": "model",
+          "source": "nipaplay",
+          "revision": 1,
+          "provider": "DeepSeek",
+          "baseUrl": "https://cpa.shinokawa.top/v1",
+          "model": "deepseek-v4.1-flash"
+        },
+        "after": {
+          "id": "model",
+          "source": "nipaplay",
+          "revision": 2,
+          "provider": "DeepSeek",
+          "baseUrl": "https://cpa.shinokawa.top/v1",
+          "model": "deepseek-v4.1-flash"
+        }
+      }
+    },
+    {
+      "id": "body:1",
+      "at": "2026-10-13T13:00:17.809740Z",
+      "type": "host_settings.changed",
+      "title": "model · host_settings.changed",
+      "actor": "user",
+      "origin": "gui",
+      "deviceId": "device-f7ea8960cc619ba1dbc39f58e1b1cfa2",
+      "originDeviceId": null,
+      "invocationId": "inv-1791896417809731-11",
+      "entityId": null,
+      "entityIds": [],
+      "jobId": null,
+      "subjectId": "model",
+      "source": "body_changes",
+      "facts": {
+        "before": {
+          "id": "model"
+        },
+        "after": {
+          "id": "model",
+          "source": "nipaplay",
+          "revision": 1,
+          "provider": "DeepSeek",
+          "baseUrl": "https://cpa.shinokawa.top/v1",
+          "model": "deepseek-v4.1-flash"
+        }
+      }
+    }
+  ],
+  "nextCursor": null,
+  "truncated": true,
+  "warnings": [
+    "activity.harness_git_log_failed:128"
+  ]
+}
