@@ -1,0 +1,119 @@
+warning: version requirement `0.6.0+11769913` for dependency `ndk-sys` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion
+   Compiling nipaplay-headless-native v0.1.0 (/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/rust/headless)
+warning: unused variable: `session_dir`
+   --> src/../../src/api/torrent.rs:140:9
+    |
+140 |     let session_dir = session_dir
+    |         ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_session_dir`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `stream_server` is never read
+  --> src/../../src/api/torrent.rs:25:5
+   |
+18 | struct TorrentRuntime {
+   |        -------------- field in this struct
+...
+25 |     stream_server: Mutex<Option<TorrentStreamServer>>,
+   |     ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `port` is never read
+  --> src/../../src/api/torrent.rs:74:5
+   |
+73 | struct TorrentStreamServer {
+   |        ------------------- field in this struct
+74 |     port: u16,
+   |     ^^^^
+
+warning: struct `HttpRange` is never constructed
+  --> src/../../src/api/torrent.rs:78:8
+   |
+78 | struct HttpRange {
+   |        ^^^^^^^^^
+
+warning: function `torrent_details` is never used
+   --> src/../../src/api/torrent.rs:414:8
+    |
+414 | pub fn torrent_details(id: i32) -> Result<String, String> {
+    |        ^^^^^^^^^^^^^^^
+
+warning: function `torrent_stream_url` is never used
+   --> src/../../src/api/torrent.rs:505:8
+    |
+505 | pub fn torrent_stream_url(id: i32, file_id: i32, filename: String) -> Result<String, String> {
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: function `torrent_delete` is never used
+   --> src/../../src/api/torrent.rs:550:8
+    |
+550 | pub fn torrent_delete(id: i32) -> Result<(), String> {
+    |        ^^^^^^^^^^^^^^
+
+warning: function `ensure_stream_server` is never used
+   --> src/../../src/api/torrent.rs:588:4
+    |
+588 | fn ensure_stream_server(state: &'static TorrentRuntime) -> Result<u16, String> {
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `handle_stream_request` is never used
+   --> src/../../src/api/torrent.rs:631:4
+    |
+631 | fn handle_stream_request(mut socket: TcpStream) -> Result<(), String> {
+    |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `read_http_request` is never used
+   --> src/../../src/api/torrent.rs:732:4
+    |
+732 | fn read_http_request(socket: &mut TcpStream) -> Result<String, String> {
+    |    ^^^^^^^^^^^^^^^^^
+
+warning: function `parse_http_request` is never used
+   --> src/../../src/api/torrent.rs:753:4
+    |
+753 | fn parse_http_request(request: &str) -> Result<(&str, String, Option<HttpRange>), String> {
+    |    ^^^^^^^^^^^^^^^^^^
+
+warning: function `parse_range` is never used
+   --> src/../../src/api/torrent.rs:778:4
+    |
+778 | fn parse_range(value: &str) -> Option<HttpRange> {
+    |    ^^^^^^^^^^^
+
+warning: function `parse_stream_path` is never used
+   --> src/../../src/api/torrent.rs:790:4
+    |
+790 | fn parse_stream_path(path: &str) -> Option<(usize, usize)> {
+    |    ^^^^^^^^^^^^^^^^^
+
+warning: function `write_simple_response` is never used
+   --> src/../../src/api/torrent.rs:804:4
+    |
+804 | fn write_simple_response(
+    |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `file_stem_or_name` is never used
+   --> src/../../src/api/torrent.rs:869:4
+    |
+869 | fn file_stem_or_name(file_path: &str) -> String {
+    |    ^^^^^^^^^^^^^^^^^
+
+warning: function `url_path_segment_encode` is never used
+   --> src/../../src/api/torrent.rs:953:4
+    |
+953 | fn url_path_segment_encode(input: &str) -> String {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `nipaplay-headless-native` (lib test) generated 16 warnings (run `cargo fix --lib -p nipaplay-headless-native --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.57s
+     Running unittests src/lib.rs (rust/headless/target/debug/deps/nipaplay_headless_native-6c165520f806f8a3)
+
+running 4 tests
+test torrent::tests::cancellation_before_dispatch_releases_the_request ... ok
+test torrent::tests::cancellation_aborts_an_in_flight_resolution ... ok
+test torrent::tests::resolution_timeout_drops_network_work ... ok
+test torrent::tests::adding_resolved_bytes_offline_reports_duplicates_and_keeps_original_directory ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.01s
+

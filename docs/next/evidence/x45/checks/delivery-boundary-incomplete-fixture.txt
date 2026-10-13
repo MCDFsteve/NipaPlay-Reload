@@ -1,0 +1,38 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart
+00:00 +0 -1: loading /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/followups_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/followups_test.dart": Does not exist.
+00:00 +0 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: mesh return target comes from authenticated transport, never current local chat
+00:00 +1 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: lost acknowledgement seals the batch; later files survive as another batch after reopen
+00:00 +2 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: receiver keeps original target and receipt under duplicate delivery and restart
+00:00 +3 -1: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: unissued or wrong-peer ticket is rejected before persistence
+00:00 +3 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: unissued or wrong-peer ticket is rejected before persistence [E]
+  type 'Null' is not a subtype of type 'String' in type cast
+  package:nipaplay/next/followups/service.dart 408:54           Followups.sweep.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                    Future.catchError
+  package:nipaplay/next/followups/service.dart 84:23            Followups._schedule
+  package:nipaplay/next/followups/download_returns.dart 211:5   DownloadReturns.acceptMeshDelivery.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                    _CustomZone.registerUnaryCallback
+  package:nipaplay/next/followups/download_returns.dart 180:22  DownloadReturns.acceptMeshDelivery.<fn>
+  package:nipaplay/next/followups/service.dart 69:53            Followups._serial.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                    Future.then
+  package:nipaplay/next/followups/service.dart 69:32            Followups._serial
+  package:nipaplay/next/followups/download_returns.dart 177:29  DownloadReturns.acceptMeshDelivery
+  package:nipaplay/next/mesh/delivery.dart 62:24                attachMeshDelivery.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                    _CustomZone.registerUnaryCallback
+  package:nipaplay/next/mesh/delivery.dart 51:7                 attachMeshDelivery.<fn>
+  test/next/mesh_delivery_constraints_test.dart 231:43          main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                    _CustomZone.registerUnaryCallback
+  test/next/mesh_delivery_constraints_test.dart 197:9           main.<fn>
+  
+00:00 +3 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: wake cannot forge an automatic download return or target a transfer-only host
+00:00 +4 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: script wake follows host agent device; forwarded receipt never starts local chat
+00:00 +5 -2: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/followups_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/followups_test.dart
+  /Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/test/next/mesh_delivery_constraints_test.dart: unissued or wrong-peer ticket is rejected before persistence

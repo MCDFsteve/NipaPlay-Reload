@@ -1,0 +1,33 @@
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49475)
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 500, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 488, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 75, in do_GET
+    assert self.path == '/dandanplay/api/v2/playhistory'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+----------------------------------------
+cleanup
+fixture-removed
+Traceback (most recent call last):
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 106, in <module>
+    wait(lambda: (a/'endpoint.json').exists())
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sakiko/Desktop/nipaplay-next-wt/x45-mesh-three/tool/next/headless_loopback_check.py", line 55, in wait
+    time.sleep(.2)
+    ~~~~~~~~~~^^^^
+RuntimeError: local observation deadline
