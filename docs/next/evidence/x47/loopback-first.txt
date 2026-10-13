@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart
+test/next/mesh_library_experiment.dart:55:11: Error: The method 'setArtwork' isn't defined for the type 'UiDataService'.
+ - 'UiDataService' is from 'package:nipaplay/next/ui_data/service.dart' ('lib/next/ui_data/service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'setArtwork'.
+  await b.setArtwork({'entries': [{'entityId': 'source-work', 'kind': 'poster', 'file': poster.path, 'source': {'label': 'CC0 fixture'}}]}, Invocation(origin: 'fixture'));
+          ^^^^^^^^^^
+00:00 +0 -1: loading /Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart":
+  Compilation failed for testPath=/Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart: test/next/mesh_library_experiment.dart:55:11: Error: The method 'setArtwork' isn't defined for the type 'UiDataService'.
+   - 'UiDataService' is from 'package:nipaplay/next/ui_data/service.dart' ('lib/next/ui_data/service.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'setArtwork'.
+    await b.setArtwork({'entries': [{'entityId': 'source-work', 'kind': 'poster', 'file': poster.path, 'source': {'label': 'CC0 fixture'}}]}, Invocation(origin: 'fixture'));
+            ^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x47-mesh-library/test/next/mesh_integration_test.dart
