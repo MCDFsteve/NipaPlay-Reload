@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-13",
+  "secretPatternCount": 0,
+  "diffCheckPassed": true,
+  "podfileClean": true,
+  "nextUiClean": true,
+  "pycacheAbsent": true,
+  "resumptionAudit": {
+    "branch": "next/x54-catalog",
+    "reportEvidenceLinksChecked": 18,
+    "missingEvidenceLinks": 0,
+    "currentBuildSignatureVerified": true,
+    "recordedProfilesStillRemoved": true,
+    "secretPatternCount": 0,
+    "experimentsRepeated": false,
+    "testsRepeated": false,
+    "buildRepeated": false
+  },
+  "finalCatalogExperiment": {
+    "associationSurvivesHistorySync": true,
+    "lastPositionMs": 10000,
+    "durationMs": 45000,
+    "sharedFileRestoredEpisodes": 2,
+    "fileRetained": true
+  },
+  "profileCleanup": [
+    {"evidence": "operations.json", "pidStopped": true, "profileRemoved": true},
+    {"evidence": "operations-retry.json", "pidStopped": true, "profileRemoved": true},
+    {"evidence": "operations-catalog.json", "pidStopped": true, "profileRemoved": true}
+  ],
+  "tests": {
+    "fullPassed": 563,
+    "fullSkipped": 7,
+    "subsequentPlaybackPassed": 66,
+    "finalCatalogPassed": 25,
+    "finalSubtitleArtworkPassed": 14
+  }
+}

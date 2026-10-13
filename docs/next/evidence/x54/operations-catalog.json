@@ -1,0 +1,5369 @@
+[
+  {
+    "event": "app.instance",
+    "result": {
+      "status": "completed",
+      "result": {
+        "pid": 73482,
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "viewId": 1,
+        "windowId": 60091,
+        "windowTitle": "NipaPlay · LAB [x54-catalog-73480]",
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app",
+        "experimentalProfile": true,
+        "profileName": "x54-catalog-73480",
+        "version": "1.11.10"
+      }
+    }
+  },
+  {
+    "event": "isolated-instance",
+    "result": {
+      "profile": "x54-catalog-73480",
+      "pid": 73482,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "quiet": true,
+      "license": "CC0-1.0"
+    }
+  },
+  {
+    "event": "media.entities",
+    "result": {
+      "family": "media.entities",
+      "description": "Local catalog entities have stable caller-supplied IDs and expectedRevision on update. parentId is an actual local parent, never an external ID. fileIds on an episode replace its local associations. Removal includes descendants, retains tombstones and exact relationship before-images, and returns undoId; restore refuses subsequent conflicting changes. These operations do not manufacture Classic platform matches.",
+      "actions": [
+        {
+          "id": "media.entities.put_batch",
+          "description": "Atomically create/update local-only work → release → episode entities without external IDs. Caller assigns stable entityIds; parents must exist or precede children in entries. Updates require expectedRevision. fileIds on episodes replace local file associations. Changes to existing associations require preview:true first, then the returned expectedPlan. Files and watch history are retained. requestId deduplicates the entire batch.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "work",
+                        "release",
+                        "episode"
+                      ]
+                    },
+                    "parentId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "number": {
+                      "type": "string"
+                    },
+                    "season": {
+                      "type": "integer"
+                    },
+                    "fileIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "expectedRevision": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "entityId",
+                    "kind",
+                    "title"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "preview": {
+                "type": "boolean"
+              },
+              "expectedPlan": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "entries",
+              "requestId",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "media.entities.remove_batch",
+          "description": "Preview (default) or remove local-only catalog associations. Recursively includes children. Retains entity tombstones, files, watch progress and provenance; never deletes disk files or external identities. Apply with preview:false and expectedPlan from preview. Returns an undoId usable with media.entities.restore. requestId is idempotent.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entityIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "preview": {
+                "type": "boolean"
+              },
+              "expectedPlan": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "entityIds",
+              "requestId",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "media.entities.restore",
+          "description": "Restore the exact catalog rows and associations retained by remove_batch. Refuses if any affected entity or file association changed after removal; preserves current watch progress.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "undoId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "undoId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "event": "playback",
+    "result": {
+      "family": "playback",
+      "description": "open/pause/seek/navigation accept commands; snapshots observe asynchronously. State reports sessionId, readiness, buffering, buffered position, error/recovery and actual supported controls. External unknown position/duration/pause/rate remain null. wait is bounded and detects a changed session; retry explicitly reloads the source through Classic and may preserve position. chapters exposes container markers and detected skip segments; navigate uses chapter, frame or active skip semantics. Backward frame stepping may be approximate. playlist reports the actual detail source list, without authenticated stream URLs.",
+      "actions": [
+        {
+          "id": "playback.authorize_directory",
+          "description": "Opens the Classic directory picker and creates its platform access bookmark. The user selects the directory; cancellation returns path null.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "initialDirectory": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.capture",
+          "description": "Actually generates and saves media using Classic capture/export. Screenshots use the Classic save directory unless outputPath is specified. includeDanmaku defaults to the screenshot setting. Erika snapshots exclude native danmaku even when includeDanmaku=true; this does not mean tracks are unloaded or danmaku is invisible on screen. Screenshot results report danmakuRequested, danmakuIncluded and danmakuReason. danmakuIncluded describes inclusion of the displayed layer, not proof of visible comments at this position. GIF requires outputPath, startMs and endMs; maximum duration is 30 seconds. Existing output files are never overwritten.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "screenshot",
+                  "gif"
+                ]
+              },
+              "outputPath": {
+                "type": "string",
+                "minLength": 1
+              },
+              "includeDanmaku": {
+                "type": "boolean"
+              },
+              "includeSubtitles": {
+                "type": "boolean"
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "fps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 4096
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 4096
+              },
+              "quality": {
+                "type": "string",
+                "enum": [
+                  "normal",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "screenshot",
+                  "gif"
+                ]
+              },
+              "danmakuRequested": {
+                "type": "boolean",
+                "description": "Screenshot request after applying the default setting."
+              },
+              "danmakuIncluded": {
+                "type": "boolean",
+                "description": "Whether the displayed danmaku layer is included. It may be empty; this is not on-screen comment telemetry."
+              },
+              "danmakuReason": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Why the screenshot excludes danmaku; null when included."
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "kind"
+            ],
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.chapters",
+          "description": "Read container chapter markers, current index and all detected opening/ending segments with provenance. Empty list means no markers/segments, not permission to invent them.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.close",
+          "description": "Closes an active external session, otherwise resets the Classic internal player and saves progress through its normal exit path.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.external",
+          "description": "Read actual session telemetry, pause, resume, seek or close via Classic external console. Unknown progress is null. Unsupported controls fail explicitly; commands return observed state which may lag IPC delivery.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "enum": [
+                  "state",
+                  "pause",
+                  "resume",
+                  "seek",
+                  "close"
+                ]
+              },
+              "positionMs": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.external.danmaku",
+          "description": "Patch an active Classic external console session. style fields are opacity 0–1, fontSize 12–60, outlineWidth 0–5 (0 disables; positive values below 0.5 normalize to 0.5), stacking bool. offsetSeconds is any finite number; positive delays comments. rules adds/removes multiple keyword/regex/userId rules; matching and deduplication are case insensitive. Invalid regex/empty rule rejects the call before changing the session. sync:from_user first reapplies current user style, then this patch. sync:to_user writes the resulting style/offset back through Classic setters with provenance. Otherwise changes affect only this session. ASS reload is queued by Classic; read danmaku_state or capture the external player to observe it.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "style": {
+                "type": "object",
+                "properties": {
+                  "opacity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "fontSize": {
+                    "type": "number",
+                    "minimum": 12,
+                    "maximum": 60
+                  },
+                  "outlineWidth": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "stacking": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "offsetSeconds": {
+                "type": "number"
+              },
+              "sync": {
+                "type": "string",
+                "enum": [
+                  "from_user",
+                  "to_user"
+                ]
+              },
+              "rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "operation": {
+                      "type": "string",
+                      "enum": [
+                        "add",
+                        "remove"
+                      ]
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "keyword",
+                        "regex",
+                        "userId"
+                      ]
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "type",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.external.danmaku_state",
+          "description": "Read external session style, offset, block rules and paginated comments including blocked state. offset defaults to 0; limit defaults to 100. senderId is for Classic userId rules.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "offset": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.external_player_path",
+          "description": "command:detect uses Classic installed-mpv detection; command:choose opens the Classic executable picker for the user. On success saves externalPath and detected externalType through settings provenance. Does not enable external playback. Cancellation or no installed mpv returns path:null. To use a known installed path directly, set player.externalPath and player.externalType.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "enum": [
+                  "detect",
+                  "choose"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.external_state",
+          "description": "Read actual external session progress. Unknown/unavailable telemetry is null; mpv is queried through its IPC endpoint.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.levels",
+          "description": "Read ordinary internal-player volume and mobile brightness, or set either/both in one call. Values are 0–1; omitted values are unchanged. Brightness is unavailable on desktop and returned null. On mobile volume controls system volume. Changes use settings provenance; reason is optional. For external-player volume use that player UI; these levels belong to Classic internal playback.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "volume": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "brightness": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.load_subtitle",
+          "description": "Mount a local subtitle path or HTTP(S) subtitle URL using Classic subtitle cache and stack. Returns its local path; activate defaults to true.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "activate": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.navigate",
+          "description": "Use exactly one chapterIndex, frameDelta (-1 or +1), or skipKind (current/opening/ending). Chapter/skip use the same Classic operation. Frame result reports native or approximate 42ms seek honestly. Accepted command and observed position are distinct.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "chapterIndex": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "frameDelta": {
+                "type": "integer",
+                "minimum": -1,
+                "maximum": 1
+              },
+              "skipKind": {
+                "type": "string",
+                "enum": [
+                  "current",
+                  "opening",
+                  "ending"
+                ]
+              }
+            },
+            "required": [
+              "sessionId"
+            ],
+            "additionalProperties": false,
+            "oneOf": [
+              {
+                "required": [
+                  "chapterIndex"
+                ]
+              },
+              {
+                "required": [
+                  "frameDelta"
+                ]
+              },
+              {
+                "required": [
+                  "skipKind"
+                ]
+              }
+            ]
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.open",
+          "description": "Play a local file, URL, jellyfin://itemId or emby://itemId, including files with no watch history, or a recorded episode by IDs. Multiple episode files return a decision with executable path calls. An optional start position is supported by controllable players. On success, returns the selected path, player type and current state.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Absolute local file path, URL, jellyfin://itemId or emby://itemId. Watch history is optional. Mutually exclusive with animeId and episodeId.",
+                "minLength": 1
+              },
+              "animeId": {
+                "type": "integer",
+                "description": "Dandanplay anime ID. Required together with episodeId; mutually exclusive with path."
+              },
+              "episodeId": {
+                "type": "integer",
+                "description": "Dandanplay episode ID. Required together with animeId; mutually exclusive with path."
+              },
+              "startPositionMs": {
+                "type": "integer",
+                "description": "Start position in milliseconds; 0 plays from the beginning. Omit to resume from the saved position.",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false,
+            "oneOf": [
+              {
+                "required": [
+                  "path"
+                ]
+              },
+              {
+                "required": [
+                  "animeId",
+                  "episodeId"
+                ]
+              }
+            ]
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "player": {
+                "type": "string",
+                "enum": [
+                  "internal",
+                  "external"
+                ]
+              },
+              "state": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "external"
+                    ]
+                  },
+                  "external": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "observedState": {
+                    "type": "string"
+                  },
+                  "hasVideo": {
+                    "type": "boolean"
+                  },
+                  "paused": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "seriesTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "episodeTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "episodeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "positionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "durationMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ready": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "buffering": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "bufferedPositionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "error": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "observedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "supportedControls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "brightness": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "canPrevious": {
+                    "type": "boolean"
+                  },
+                  "canNext": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status",
+                  "hasVideo",
+                  "paused",
+                  "path",
+                  "seriesTitle",
+                  "episodeTitle",
+                  "animeId",
+                  "episodeId",
+                  "positionMs",
+                  "durationMs",
+                  "rate",
+                  "canPrevious",
+                  "canNext"
+                ],
+                "additionalProperties": false
+              },
+              "commandStatus": {
+                "type": "string",
+                "enum": [
+                  "accepted"
+                ]
+              }
+            },
+            "required": [
+              "path",
+              "player",
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "playback.playlist",
+          "description": "Read the current playback detail source and its exact ordered cached/loaded episodes. Does not reconstruct a list from catalog IDs. Legacy playback without detail context reports unsupported. Authenticated actualPlayUrl is never returned.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.remove_subtitle",
+          "description": "Unmount a subtitle by its local cache path and update the Classic subtitle list. The subtitle file is retained.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.retry",
+          "description": "Explicitly reload the same internal source through Classic initialization, resolving its source again. Keeps saved progress, detail context and manual danmaku offset. preservePosition defaults true. Result describes observed readiness; further observation uses wait. External reload is unsupported.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "preservePosition": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "sessionId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.seek",
+          "description": "Seek to an absolute position or move by a relative offset in milliseconds, clamped to the video duration. Returns the resulting state, or unavailable when no video is loaded.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "positionMs": {
+                "type": "integer",
+                "description": "Absolute target position in milliseconds.",
+                "minimum": 0
+              },
+              "offsetMs": {
+                "type": "integer",
+                "description": "Relative move in milliseconds; negative values rewind."
+              }
+            },
+            "additionalProperties": false,
+            "oneOf": [
+              {
+                "required": [
+                  "positionMs"
+                ]
+              },
+              {
+                "required": [
+                  "offsetMs"
+                ]
+              }
+            ]
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "external"
+                    ]
+                  },
+                  "external": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "observedState": {
+                    "type": "string"
+                  },
+                  "hasVideo": {
+                    "type": "boolean"
+                  },
+                  "paused": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "seriesTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "episodeTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "episodeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "positionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "durationMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ready": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "buffering": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "bufferedPositionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "error": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "observedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "supportedControls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "brightness": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "canPrevious": {
+                    "type": "boolean"
+                  },
+                  "canNext": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status",
+                  "hasVideo",
+                  "paused",
+                  "path",
+                  "seriesTitle",
+                  "episodeTitle",
+                  "animeId",
+                  "episodeId",
+                  "positionMs",
+                  "durationMs",
+                  "rate",
+                  "canPrevious",
+                  "canNext"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "playback.select_stream",
+          "description": "Applies version, quality, transcoding and server audio/subtitle burn-in through Classic stream reload. Quality/transcode settings use the same saved defaults as Classic. Omitted fields retain current selections; subtitleIndex -1 disables server subtitle selection.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "mediaSourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quality": {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "original",
+                  "bandwidth40m",
+                  "bandwidth20m",
+                  "bandwidth10m",
+                  "bandwidth5m",
+                  "bandwidth2m",
+                  "bandwidth1m"
+                ]
+              },
+              "transcode": {
+                "type": "boolean"
+              },
+              "audioIndex": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "subtitleIndex": {
+                "type": "integer",
+                "minimum": -1
+              },
+              "burnIn": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.select_track",
+          "description": "Select an embedded or server audio/subtitle track, or disable subtitles with index -1. Server selection reloads the current stream.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "audio",
+                  "subtitle"
+                ]
+              },
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "embedded",
+                  "server"
+                ]
+              },
+              "index": {
+                "type": "integer",
+                "minimum": -1
+              }
+            },
+            "required": [
+              "kind",
+              "origin",
+              "index"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.set_paused",
+          "description": "Pause or resume the current video and return its state. Returns unavailable when no video is loaded.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "paused": {
+                "type": "boolean",
+                "description": "true pauses the current video; false resumes it."
+              }
+            },
+            "required": [
+              "paused"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "external"
+                    ]
+                  },
+                  "external": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "observedState": {
+                    "type": "string"
+                  },
+                  "hasVideo": {
+                    "type": "boolean"
+                  },
+                  "paused": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "seriesTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "episodeTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "episodeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "positionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "durationMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ready": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "buffering": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "bufferedPositionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "error": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "observedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "supportedControls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "brightness": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "canPrevious": {
+                    "type": "boolean"
+                  },
+                  "canNext": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status",
+                  "hasVideo",
+                  "paused",
+                  "path",
+                  "seriesTitle",
+                  "episodeTitle",
+                  "animeId",
+                  "episodeId",
+                  "positionMs",
+                  "durationMs",
+                  "rate",
+                  "canPrevious",
+                  "canNext"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "playback.state",
+          "description": "Read the current player status, video metadata, position, duration, rate and episode navigation availability. The snapshot also describes the player when no video is loaded.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "external"
+                    ]
+                  },
+                  "external": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "observedState": {
+                    "type": "string"
+                  },
+                  "hasVideo": {
+                    "type": "boolean"
+                  },
+                  "paused": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "seriesTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "episodeTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "episodeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "positionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "durationMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ready": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "buffering": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "bufferedPositionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "error": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "observedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "supportedControls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "brightness": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "canPrevious": {
+                    "type": "boolean"
+                  },
+                  "canNext": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status",
+                  "hasVideo",
+                  "paused",
+                  "path",
+                  "seriesTitle",
+                  "episodeTitle",
+                  "animeId",
+                  "episodeId",
+                  "positionMs",
+                  "durationMs",
+                  "rate",
+                  "canPrevious",
+                  "canNext"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "playback.stream_options",
+          "description": "Reads current Jellyfin/Emby media versions, server tracks, quality presets and transcoding settings without exposing authenticated stream URLs.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.switch_episode",
+          "description": "Play the next or previous episode and return the new state after the switch completes. Returns unavailable when no video is loaded or the requested direction is unavailable.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "type": "string",
+                "description": "Which neighbouring episode to play.",
+                "enum": [
+                  "next",
+                  "previous"
+                ]
+              }
+            },
+            "required": [
+              "direction"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "external"
+                    ]
+                  },
+                  "external": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "observedState": {
+                    "type": "string"
+                  },
+                  "hasVideo": {
+                    "type": "boolean"
+                  },
+                  "paused": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "seriesTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "episodeTitle": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "episodeId": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "positionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "durationMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "rate": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ready": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "buffering": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "bufferedPositionMs": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "error": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {},
+                    "additionalProperties": true
+                  },
+                  "observedAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "supportedControls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "volume": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "brightness": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "canPrevious": {
+                    "type": "boolean"
+                  },
+                  "canNext": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "status",
+                  "hasVideo",
+                  "paused",
+                  "path",
+                  "seriesTitle",
+                  "episodeTitle",
+                  "animeId",
+                  "episodeId",
+                  "positionMs",
+                  "durationMs",
+                  "rate",
+                  "canPrevious",
+                  "canNext"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "state"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "playback.tracks",
+          "description": "Lists embedded, mounted external and server audio/subtitle tracks. Also lists Next managed danmaku tracks with binding ID and count. Audio/subtitle indexes are scoped to kind and origin; use these values in select_track.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "playback.wait",
+          "description": "Bounded observation of this session only. until=ready/playing/paused/buffering/error; timeoutMs <= 30000 (default 5000). Returns matched, timeout, error or session_changed with the observed snapshot. A command being accepted is not evidence of playback success.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "until": {
+                "type": "string",
+                "enum": [
+                  "ready",
+                  "playing",
+                  "paused",
+                  "buffering",
+                  "error"
+                ]
+              },
+              "timeoutMs": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 30000
+              }
+            },
+            "required": [
+              "sessionId",
+              "until"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "event": "subtitle",
+    "result": {
+      "family": "subtitle",
+      "description": "Per-file subtitle facts persist independently from playback. Imports copy content into managed storage and batch errors retain index and recovery information. update edits imported language/title/source with expectedRevision; remove releases an imported association and retains its copy. reset_selection restores automatic selection; select null explicitly disables. Current internal playback and persistent selection use the same facts. copy_delete alone deletes unreferenced managed copies and returns NeedsDecision with an exact fingerprint. cues reads active external timed text with delay-aware current/context lines; embedded or bitmap limitations are explicit.",
+      "actions": [
+        {
+          "id": "subtitle.copy_delete",
+          "description": "Destructive disk cleanup of explicit managed copy paths only. Returns NeedsDecision with exact paths and SHA-256 fingerprint; confirm:true requires that fingerprint. Refuses any copy referenced by any file track, including VobSub companions and converted WebVTT. Never deletes source files outside managed subtitles directory.",
+          "effect": "destructive",
+          "input": {
+            "type": "object",
+            "properties": {
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "confirm": {
+                "type": "boolean"
+              },
+              "expectedFingerprint": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "paths"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.cues",
+          "description": "Read timed text from active external subtitle tracks, including current cues and surrounding lines. Omit positionMs for current position, context defaults 2 (0–10). Optional startMs/endMs restrict interval; cursor is an index in the session/track cue array, limit defaults 100. Display times include global and per-track delay. Embedded/bitmap text is unavailable without extraction/OCR, explicitly reported. This is the active text timeline, not pixel/OCR observation.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "positionMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "context": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+              },
+              "cursor": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.import",
+          "description": "Copy local subtitle files into NipaPlay storage for indexed local fileIds, with declared BCP-47 language and source. Originals can be deleted afterwards; read-only video directories need no writes. Batch entries are saved individually; the reply gives every saved track. Supports ass/ssa/srt/vtt/sub/sup/idx (VobSub pair required). Saved tracks are restored next playback. Use subtitle.select for a persistent explicit default.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "filePath": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "language": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "url": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "label"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "fileId",
+                    "filePath",
+                    "language",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.remove",
+          "description": "Batch detach imported subtitle associations. Retains copies on disk and provenance in activity. Selected removed track falls back to automatic choice. Use copy_delete separately to delete unreferenced copies.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trackId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "expectedRevision": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "fileId",
+                    "trackId",
+                    "expectedRevision"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.reset_selection",
+          "description": "Batch clear explicit defaults and restore automatic language/Classic selection. Does not disable subtitles. Current player is updated. Headless selection becomes null because it has no Classic language preferences.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "fileId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.select",
+          "description": "Persist an explicit subtitle choice for a file, including disable (trackId:null). Applied on the next playback; survives language preference and discovery changes.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "trackId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "fileId",
+              "trackId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.select_batch",
+          "description": "Apply explicit defaults or disable with null for multiple files. Each item commits independently and updates current playback; returns every result.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trackId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "fileId",
+                    "trackId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.tracks",
+          "description": "Read persistent per-file embedded and external subtitle tracks, language, title, format, provenance, availability, probe status and default selection. Omit fileIds to read indexed facts ordered by fileId. Optional limit (1–200) and afterFileId provide keyset pagination; nextAfterFileId is null at the end. Without limit retains the full-result contract. No video probing.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "fileIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 200
+              },
+              "afterFileId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "subtitle.update",
+          "description": "Batch edit imported track language/title/source with file facts expectedRevision. Each item commits independently, returns index and structured error. Persistent and current player facts are updated together.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trackId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "expectedRevision": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "patch": {
+                      "type": "object",
+                      "properties": {
+                        "language": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "source": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "url": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "label"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "fileId",
+                    "trackId",
+                    "expectedRevision",
+                    "patch"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "entries"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "event": "danmaku",
+    "result": {
+      "family": "danmaku",
+      "description": "entries reads the active merged/filtered display timeline around current time or an interval, including global offset and available provenance. Pagination can require expectedListVersion. It describes data supplied to the renderer, not pixel visibility; raw bound content remains available via export.",
+      "actions": [
+        {
+          "id": "danmaku.align",
+          "description": "Retired compatibility lookup for existing alignment requestId tasks. New requests return unavailable with migration to danmaku.analyze_alignment and danmaku.update.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "anchors",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.align_apply",
+          "description": "Legacy recovery only: execute an existing persisted alignment decision option with a task revision check. New analysis returns data and offsets are set through danmaku.update.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "jobId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.align_keep",
+          "description": "Legacy recovery only: execute an existing persisted alignment decision option with a task revision check. New analysis returns data and offsets are set through danmaku.update.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "jobId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.analyze_alignment",
+          "description": "Estimate a fixed offset from up to 100 supplied source/media time anchors. Returns the upper median, absolute residuals in input order, span, evidence and confidence limits. Reads the binding revision; no task, Decision or persistence. Positive integer milliseconds advance danmaku (display time = source time - offsetMs).",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "anchors"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observedRevision": {
+                "type": "integer"
+              },
+              "currentOffsetMs": {
+                "type": "integer"
+              },
+              "estimateOffsetMs": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "anchorOffsetsMs": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "residualsMs": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "maxResidualMs": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "anchorSpanMs": {
+                "type": "integer"
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "median"
+                ]
+              },
+              "anchors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "mediaTimeMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceTimeMs",
+                    "mediaTimeMs",
+                    "evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "consistentAnchors",
+                  "insufficientEvidence"
+                ]
+              },
+              "limitations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "bindingId",
+              "observedRevision",
+              "currentOffsetMs",
+              "estimateOffsetMs",
+              "anchorOffsetsMs",
+              "residualsMs",
+              "maxResidualMs",
+              "anchorSpanMs",
+              "method",
+              "anchors",
+              "evidence",
+              "confidence",
+              "limitations"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.attach",
+          "description": "Bind a platform video to entityId, path or the current file (default). Existing platform/video tracks are reused; Classic dandanplay reuse records a binding, with jobId=null. Local pools prevent online acquisition. refresh=true fetches and replaces. Invalid required local ranges fail without mounting; outside-range errors are reported separately. Credentials are opaque host references.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              },
+              "refresh": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "video",
+              "reason",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "jobId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "trackId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "bindingId",
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.cache_delete",
+          "description": "Delete a specific source cache object and unload bindings using it. Binding evidence remains.",
+          "effect": "destructive",
+          "input": {
+            "type": "object",
+            "properties": {
+              "cacheKey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "cacheKey"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "deleted": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "deleted"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.cache_prune",
+          "description": "Reclaim oldest recoverable danmaku pools to maxBytes (default 128 MiB). Imported unique copies are excluded. Defers while acquisition tasks are active; unloads evicted pools. Also collects unreferenced content files.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "maxBytes": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "danmaku.detach",
+          "description": "Revoke this managed binding; unreferenced imported content files are deleted, provenance remains. Recoverable source cache remains subject to the cache budget. Classic local, automatic and Dandanplay tracks remain loaded with their managed binding detached. Other managed tracks are removed.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.entries",
+          "description": "Read the current merged and filtered display timeline near current/positionMs (windowMs default 5000) or explicit startMs/endMs, with stable pagination within this list version. Includes global time mapping, track/source provenance when present. This is the timeline delivered to the renderer, not a claim that each comment is visible in pixels. Raw bound pools remain accessible through danmaku.export.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sessionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "positionMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "windowMs": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 60000
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+              },
+              "cursor": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "expectedListVersion": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "danmaku.episodes",
+          "description": "Read a finite catalogue page. Zero duration means unknown duration. Acquisition requires a finite range within a known media duration.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "workId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "sourceId",
+              "workId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "videoId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "durationMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "objectType": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "videoId",
+                    "title",
+                    "durationMs",
+                    "objectType"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "page": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "results",
+              "page"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.export",
+          "description": "Export one committed binding as JSON to a new file in an authorized media folder. raw preserves original source fields; mapped applies its fixed offset without player filters. Readback is verified.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "view": {
+                "type": "string",
+                "enum": [
+                  "raw",
+                  "mapped"
+                ]
+              }
+            },
+            "required": [
+              "bindingId",
+              "path",
+              "view"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "count": {
+                "type": "integer"
+              },
+              "bytes": {
+                "type": "integer"
+              },
+              "sha256": {
+                "type": "string",
+                "minLength": 1
+              },
+              "view": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "path",
+              "count",
+              "bytes",
+              "sha256",
+              "view"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.fetch",
+          "description": "Create a cancellable segmented acquisition/cache task for one explicit video/range. Does not modify player tracks. requestId makes retries idempotent. A failed acquisition receipt also reports available Classic cache, assigned/partial Next cache and currently loaded matching player tracks; existing comments do not prove this request succeeded.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "localDurationMs": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 7200000
+              },
+              "refresh": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "video",
+              "requestId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "jobId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.import",
+          "description": "Import acquired danmaku using Classic local XML/JSON parsing and encoding support, including ARGB colors. Also accepts normalized JSON arrays (or {comments:[...]}): sourceTimeMs (nonnegative integer milliseconds), text, mode (positive integer), colorRgb (nonnegative integer, converted to RGB); optional platformId, sourceEntryId, originSource, sender, sentAt (strings), fontSize (positive integer). No registered source is required. Supply platform/platformVideoId; host records actor, origin and timestamp. Target entityId (file or episode), path, or current playback (default). Reimport replaces the same platform/video pool atomically, preserving track settings; empty or malformed files are rejected and leave the old track unchanged. Mounted immediately when the target is playing. File data stays in host storage; do not send large comment arrays through tool arguments.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "filePath": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platform": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platformVideoId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filePath",
+              "platform",
+              "platformVideoId"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "loaded": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "platform": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "platformVideoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "actor": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "origin": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "importedAt": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "filePath": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "note": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "platform",
+                  "platformVideoId",
+                  "actor",
+                  "origin",
+                  "importedAt",
+                  "filePath",
+                  "note"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "count",
+              "loaded",
+              "provenance"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.offset",
+          "description": "Compatibility alias for danmaku.update: set an absolute fixed offset in integer milliseconds, positive advances, zero resets. Does not refetch or accumulate offsets.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "offsetMs": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "offsetMs"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.resolve",
+          "description": "Resolve a public URL or platform ID. Multiple parts return executable selection decisions. No persistence.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "selectionVideoId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "sourceId",
+              "locator"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "video": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "videoId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7200000
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "videoId",
+                  "title",
+                  "durationMs",
+                  "objectType"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "video"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.search",
+          "description": "Bounded transient title search. Unsupported sources report unavailable; no binding or task is created.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "sourceId",
+              "query"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "videoId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "durationMs": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 7200000
+                    },
+                    "objectType": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "videoId",
+                    "title",
+                    "durationMs",
+                    "objectType"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "results"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.send",
+          "description": "Publish one comment to the currently identified internal playing/paused episode through Classic DanmakuMatchingService, then echo it in a new Classic local track. text is trimmed and must contain 1–100 characters; mode defaults to scroll (scroll/top/bottom), color defaults to #FFFFFF and accepts #RRGGBB. Position is the current playback position in seconds. Requires Dandanplay login completed by the user; use accounts.login to initiate it. This publishes online; do not retry a failed/lost response blindly.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "1–100 characters after trimming.",
+                "minLength": 1
+              },
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "scroll",
+                  "top",
+                  "bottom"
+                ]
+              },
+              "color": {
+                "type": "string",
+                "description": "RGB hex color, #RRGGBB."
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        {
+          "id": "danmaku.set_dedup",
+          "description": "Compatibility alias for danmaku.update: set absolute deduplicate with a binding revision check. deduplicate controls displayFold only; original source cache is preserved.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "deduplicate": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "deduplicate"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.set_enabled",
+          "description": "Compatibility alias for danmaku.update: set absolute enabled with a binding revision check. deduplicate controls displayFold only; original source cache is preserved.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision",
+              "enabled"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "bindingId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "bindingId",
+              "revision"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.sources",
+          "description": "List registered sources and capabilities. No network or persistence.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "contractVersion": {
+                      "type": "integer"
+                    },
+                    "implementationVersion": {
+                      "type": "string"
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "runtimePlatforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "access": {
+                      "type": "string"
+                    },
+                    "allowedHosts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "requestProfiles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "search": {
+                      "type": "boolean"
+                    },
+                    "listEpisodes": {
+                      "type": "boolean"
+                    },
+                    "resolve": {
+                      "type": "boolean"
+                    },
+                    "segmentedFetch": {
+                      "type": "boolean"
+                    },
+                    "rangeFetch": {
+                      "type": "boolean"
+                    },
+                    "resumableFetch": {
+                      "type": "boolean"
+                    },
+                    "cursorFetch": {
+                      "type": "boolean"
+                    },
+                    "supportedModes": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "aggregation": {
+                      "type": "boolean"
+                    },
+                    "compositionKnown": {
+                      "type": "boolean"
+                    },
+                    "concurrency": {
+                      "type": "integer"
+                    },
+                    "requestBudget": {
+                      "type": "integer"
+                    },
+                    "responseBytes": {
+                      "type": "integer"
+                    },
+                    "itemCount": {
+                      "type": "integer"
+                    },
+                    "historyFetch": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "contractVersion",
+                    "implementationVersion",
+                    "platform",
+                    "runtimePlatforms",
+                    "access",
+                    "allowedHosts",
+                    "requestProfiles",
+                    "search",
+                    "listEpisodes",
+                    "resolve",
+                    "segmentedFetch",
+                    "rangeFetch",
+                    "resumableFetch",
+                    "cursorFetch",
+                    "supportedModes",
+                    "aggregation",
+                    "compositionKnown",
+                    "concurrency",
+                    "requestBudget",
+                    "responseBytes",
+                    "itemCount",
+                    "historyFetch"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "sources"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.tracks",
+          "description": "List bindings and all current player tracks, including Classic and local pools with origin/platform/platformVideoId. loaded means mounted in the player registry, including Erika native danmaku; enabled is a track display switch. Neither reports whether comments are currently visible on screen. Accept entityId, path or current (default). Missing file locations are indexed without inferring work identity; no fetch or binding is created.",
+          "effect": "read",
+          "input": {
+            "type": "object",
+            "properties": {
+              "entityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "tracks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "trackId": {
+                      "type": "string"
+                    },
+                    "origin": {
+                      "type": "string"
+                    },
+                    "provenance": {
+                      "type": "object",
+                      "properties": {
+                        "platform": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "platformVideoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "actor": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "origin": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "importedAt": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "filePath": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "note": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "platform",
+                        "platformVideoId",
+                        "actor",
+                        "origin",
+                        "importedAt",
+                        "filePath",
+                        "note"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "platformVideoId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "filePath": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "bindingId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "bindingIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "entityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "revision": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "stale": {
+                      "type": "boolean"
+                    },
+                    "video": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "videoId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "durationMs": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 7200000
+                        },
+                        "objectType": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "videoId",
+                        "title",
+                        "durationMs",
+                        "objectType"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "enabled": {
+                      "type": "boolean",
+                      "description": "Track display switch; not proof of visible comments."
+                    },
+                    "deduplicate": {
+                      "type": "boolean"
+                    },
+                    "displayFold": {
+                      "type": "boolean"
+                    },
+                    "offsetMs": {
+                      "type": "integer"
+                    },
+                    "alignment": {
+                      "type": "object",
+                      "properties": {
+                        "method": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "confirmed": {
+                          "type": "boolean"
+                        },
+                        "offsetMs": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "anchors": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "sourceTimeMs": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 7200000
+                              },
+                              "mediaTimeMs": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 7200000
+                              },
+                              "evidence": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "sourceTimeMs",
+                              "mediaTimeMs",
+                              "evidence"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "maxResidualMs": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "confidence": {
+                          "type": "string"
+                        },
+                        "applicableRange": {
+                          "type": "string"
+                        },
+                        "autoApply": {
+                          "type": "boolean"
+                        },
+                        "confirmedBy": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "method",
+                        "confirmed"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "evidence": {
+                      "type": "object",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "reason",
+                        "url"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "boundBy": {
+                      "type": "string"
+                    },
+                    "cacheKey": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "loaded": {
+                      "type": "boolean",
+                      "description": "Mounted in the player track registry, including Erika native danmaku. Does not prove comments are visible at the current position."
+                    },
+                    "coverage": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "chunk_index": {
+                            "type": "integer"
+                          },
+                          "start_ms": {
+                            "type": "integer"
+                          },
+                          "end_ms": {
+                            "type": "integer"
+                          },
+                          "coverage": {
+                            "type": "string"
+                          },
+                          "fetched_at": {
+                            "type": "string"
+                          },
+                          "file_path": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "entry_count": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "byte_count": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "storage_kind": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "chunk_index",
+                          "start_ms",
+                          "end_ms",
+                          "coverage",
+                          "fetched_at"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "entityId",
+                    "loaded",
+                    "origin",
+                    "platform",
+                    "platformVideoId"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "tracks"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "id": "danmaku.update",
+          "description": "Update 1 to 100 bindings or current player tracks in input order. Each item sets enabled, offsetMs and/or displayFold absolutely; positive integer milliseconds advance, negative delay, zero resets. Any explicit offset in the supported range is accepted independently of analysis estimates. Persistent bindings (including bound trackId targets) require expectedRevision; each item is atomic and returns its own result or failure, without rolling back earlier items. Unbound tracks last for the current playback and have no binding revision. displayFold affects display grouping only; original caches remain unchanged.",
+          "effect": "write",
+          "input": {
+            "type": "object",
+            "properties": {
+              "changes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "bindingId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "trackId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "expectedRevision": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "offsetMs": {
+                      "type": "integer"
+                    },
+                    "displayFold": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "oneOf": [
+                    {
+                      "required": [
+                        "bindingId"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "trackId"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "changes"
+            ],
+            "additionalProperties": false
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "completed",
+                        "failed"
+                      ]
+                    },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "bindingId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "trackId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "revision": {
+                          "type": "integer"
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "offsetMs": {
+                          "type": "integer"
+                        },
+                        "displayFold": {
+                          "type": "boolean"
+                        },
+                        "persistence": {
+                          "type": "string",
+                          "enum": [
+                            "binding",
+                            "playback"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "enabled",
+                        "offsetMs",
+                        "displayFold",
+                        "persistence"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "retryable": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message",
+                        "retryable"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "status"
+                  ],
+                  "additionalProperties": false,
+                  "oneOf": [
+                    {
+                      "required": [
+                        "result"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "results"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "event": "media.library.scan",
+    "result": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-b9a7bbc19c47bf9a2a50face590cdea4901addd2e2a7e86121df26ff22bcb079",
+          "state": "queued",
+          "revision": 0
+        }
+      }
+    }
+  },
+  {
+    "event": "task.get",
+    "result": {
+      "status": "completed",
+      "result": {
+        "job": {
+          "jobId": "scan-b9a7bbc19c47bf9a2a50face590cdea4901addd2e2a7e86121df26ff22bcb079",
+          "type": "media.scan",
+          "title": "Scan media folder",
+          "state": "succeeded",
+          "phase": "enumerate",
+          "progress": {
+            "completed": 1,
+            "unit": "files"
+          },
+          "createdAt": "2026-10-13T12:19:29.374681Z",
+          "updatedAt": "2026-10-13T12:19:29.532296Z",
+          "ownerDeviceId": "device-b63b09a9c27749c81149db700dfcac36",
+          "revision": 6,
+          "receipt": {
+            "verification": "verified",
+            "details": {
+              "indexed": 1,
+              "fileIds": [
+                "file-4e4ec8c5-0055-4516-a98a-15113c63272c"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "event": "state.query",
+    "result": {
+      "status": "completed",
+      "result": {
+        "schemaVersion": 1,
+        "snapshotId": null,
+        "observedAt": "2026-10-13T12:19:29.644685Z",
+        "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+        "sources": {
+          "library.files": "2026-10-13T12:19:29.642587Z"
+        },
+        "rows": [
+          {
+            "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+            "episodeId": null,
+            "workId": null,
+            "releaseId": null,
+            "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+            "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+            "source": "local",
+            "ownerDeviceId": "device-b63b09a9c27749c81149db700dfcac36",
+            "available": true,
+            "revision": 0,
+            "bindingRevision": 0,
+            "relation": null,
+            "ordinal": null,
+            "startMs": null,
+            "endMs": null,
+            "bindings": [],
+            "progress": null,
+            "historyStatus": "no_history"
+          }
+        ],
+        "nextCursor": null,
+        "truncated": false,
+        "warnings": []
+      }
+    }
+  },
+  {
+    "event": "media.entities.put_batch",
+    "result": {
+      "status": "completed",
+      "result": {
+        "atomic": true,
+        "entries": [
+          {
+            "entityId": "x54-home",
+            "created": true,
+            "revision": 0
+          },
+          {
+            "entityId": "x54-release",
+            "created": true,
+            "revision": 0
+          },
+          {
+            "entityId": "x54-episode",
+            "created": true,
+            "revision": 0
+          },
+          {
+            "entityId": "x54-bonus",
+            "created": true,
+            "revision": 0
+          }
+        ],
+        "before": []
+      }
+    }
+  },
+  {
+    "event": "media.library.work",
+    "result": {
+      "status": "completed",
+      "result": {
+        "work": {
+          "workId": "x54-home",
+          "title": "CC0 Home Videos",
+          "metadata": [
+            {
+              "field": "title",
+              "value": "CC0 Home Videos",
+              "provider": "local",
+              "source": "local_catalog",
+              "language": "und",
+              "fetchedAt": null,
+              "invocationId": null,
+              "actor": null,
+              "origin": null,
+              "mode": null
+            }
+          ],
+          "metadataView": {
+            "fields": {
+              "title": "CC0 Home Videos"
+            },
+            "provenance": {
+              "title": {
+                "provider": "local",
+                "source": "local_catalog",
+                "language": "und",
+                "entityId": "x54-home"
+              }
+            },
+            "ratings": []
+          },
+          "releases": [
+            {
+              "releaseId": "x54-release",
+              "title": "CC0 Home Videos",
+              "metadata": [
+                {
+                  "field": "title",
+                  "value": "CC0 Home Videos",
+                  "provider": "local",
+                  "source": "local_catalog",
+                  "language": "und",
+                  "fetchedAt": null,
+                  "invocationId": null,
+                  "actor": null,
+                  "origin": null,
+                  "mode": null
+                }
+              ],
+              "metadataView": {
+                "fields": {
+                  "title": "CC0 Home Videos"
+                },
+                "provenance": {
+                  "title": {
+                    "provider": "local",
+                    "source": "local_catalog",
+                    "language": "und",
+                    "entityId": "x54-home"
+                  }
+                },
+                "ratings": []
+              },
+              "episodes": [
+                {
+                  "episodeId": "x54-episode",
+                  "title": "Test Pattern",
+                  "number": "1",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Test Pattern",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Test Pattern"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-episode"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                },
+                {
+                  "episodeId": "x54-bonus",
+                  "title": "Same-file Bonus",
+                  "number": "2",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Same-file Bonus",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Same-file Bonus"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-bonus"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.open",
+    "result": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:73482:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:19:31.111503Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+          "seriesTitle": "cc0-pattern",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "matched",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:73482:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:19:31.157442Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+          "seriesTitle": "cc0-pattern",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.state",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:73482:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:19:31.667810Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+          "seriesTitle": "cc0-pattern",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 547,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.seek",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:73482:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:19:31.674524Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+          "seriesTitle": "cc0-pattern",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 10000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.set_paused",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "buffering",
+          "sessionId": "internal:73482:1:1",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:19:31.689945Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+          "seriesTitle": "cc0-pattern",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 10000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.close",
+    "result": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "event": "media.library.import_history",
+    "result": {
+      "status": "completed",
+      "result": {
+        "imported": 1
+      }
+    }
+  },
+  {
+    "event": "media.library.work",
+    "result": {
+      "status": "completed",
+      "result": {
+        "work": {
+          "workId": "x54-home",
+          "title": "CC0 Home Videos",
+          "metadata": [
+            {
+              "field": "title",
+              "value": "CC0 Home Videos",
+              "provider": "local",
+              "source": "local_catalog",
+              "language": "und",
+              "fetchedAt": null,
+              "invocationId": null,
+              "actor": null,
+              "origin": null,
+              "mode": null
+            }
+          ],
+          "metadataView": {
+            "fields": {
+              "title": "CC0 Home Videos"
+            },
+            "provenance": {
+              "title": {
+                "provider": "local",
+                "source": "local_catalog",
+                "language": "und",
+                "entityId": "x54-home"
+              }
+            },
+            "ratings": []
+          },
+          "releases": [
+            {
+              "releaseId": "x54-release",
+              "title": "CC0 Home Videos",
+              "metadata": [
+                {
+                  "field": "title",
+                  "value": "CC0 Home Videos",
+                  "provider": "local",
+                  "source": "local_catalog",
+                  "language": "und",
+                  "fetchedAt": null,
+                  "invocationId": null,
+                  "actor": null,
+                  "origin": null,
+                  "mode": null
+                }
+              ],
+              "metadataView": {
+                "fields": {
+                  "title": "CC0 Home Videos"
+                },
+                "provenance": {
+                  "title": {
+                    "provider": "local",
+                    "source": "local_catalog",
+                    "language": "und",
+                    "entityId": "x54-home"
+                  }
+                },
+                "ratings": []
+              },
+              "episodes": [
+                {
+                  "episodeId": "x54-episode",
+                  "title": "Test Pattern",
+                  "number": "1",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Test Pattern",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Test Pattern"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-episode"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                },
+                {
+                  "episodeId": "x54-bonus",
+                  "title": "Same-file Bonus",
+                  "number": "2",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Same-file Bonus",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Same-file Bonus"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-bonus"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "event": "media.entities.remove_batch",
+    "result": {
+      "status": "completed",
+      "result": {
+        "preview": [
+          {
+            "entity": {
+              "id": "x54-home",
+              "kind": "work",
+              "parent_id": null,
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "CC0 Home Videos"
+              }
+            },
+            "files": [],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-release",
+              "kind": "release",
+              "parent_id": "x54-home",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Test Collection"
+              }
+            },
+            "files": [],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-episode",
+              "kind": "episode",
+              "parent_id": "x54-release",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Test Pattern",
+                "number": "1"
+              }
+            },
+            "files": [
+              {
+                "link": {
+                  "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                  "episode_id": "x54-episode",
+                  "relation": "local_catalog",
+                  "ordinal": 0,
+                  "start_ms": null,
+                  "end_ms": null
+                },
+                "associations": [
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-bonus",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  },
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-episode",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  }
+                ],
+                "locations": [
+                  {
+                    "id": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "source": "local",
+                    "owner_device_id": "device-b63b09a9c27749c81149db700dfcac36",
+                    "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                    "available": 1
+                  }
+                ],
+                "progress": [
+                  {
+                    "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "observed": true,
+                    "source": "classic_watch_history",
+                    "lastPosition": 10000,
+                    "watchProgress": 0.2222222222222222,
+                    "duration": 45000,
+                    "lastWatchTime": "2026-10-13T20:19:31.733172"
+                  }
+                ]
+              }
+            ],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-bonus",
+              "kind": "episode",
+              "parent_id": "x54-release",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Same-file Bonus",
+                "number": "2"
+              }
+            },
+            "files": [
+              {
+                "link": {
+                  "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                  "episode_id": "x54-bonus",
+                  "relation": "local_catalog",
+                  "ordinal": 0,
+                  "start_ms": null,
+                  "end_ms": null
+                },
+                "associations": [
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-bonus",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  },
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-episode",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  }
+                ],
+                "locations": [
+                  {
+                    "id": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "source": "local",
+                    "owner_device_id": "device-b63b09a9c27749c81149db700dfcac36",
+                    "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                    "available": 1
+                  }
+                ],
+                "progress": [
+                  {
+                    "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "observed": true,
+                    "source": "classic_watch_history",
+                    "lastPosition": 10000,
+                    "watchProgress": 0.2222222222222222,
+                    "duration": 45000,
+                    "lastWatchTime": "2026-10-13T20:19:31.733172"
+                  }
+                ]
+              }
+            ],
+            "sources": []
+          }
+        ],
+        "expectedPlan": "plan-b30e0ce57c2672dc7354deffafee86200b52d2c8f8eeb3064ae5be8a40d9a9fd",
+        "filesRetained": true,
+        "progressRetained": true
+      }
+    }
+  },
+  {
+    "event": "media.entities.remove_batch",
+    "result": {
+      "status": "completed",
+      "result": {
+        "undoId": "media.entities.remove_batch-3c0ec30084a1346bed0f159c5c5370a080e984cbb16ef0056c5a9f53d2ba7649",
+        "before": [
+          {
+            "entity": {
+              "id": "x54-home",
+              "kind": "work",
+              "parent_id": null,
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "CC0 Home Videos"
+              }
+            },
+            "files": [],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-release",
+              "kind": "release",
+              "parent_id": "x54-home",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Test Collection"
+              }
+            },
+            "files": [],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-episode",
+              "kind": "episode",
+              "parent_id": "x54-release",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Test Pattern",
+                "number": "1"
+              }
+            },
+            "files": [
+              {
+                "link": {
+                  "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                  "episode_id": "x54-episode",
+                  "relation": "local_catalog",
+                  "ordinal": 0,
+                  "start_ms": null,
+                  "end_ms": null
+                },
+                "associations": [
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-bonus",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  },
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-episode",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  }
+                ],
+                "locations": [
+                  {
+                    "id": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "source": "local",
+                    "owner_device_id": "device-b63b09a9c27749c81149db700dfcac36",
+                    "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                    "available": 1
+                  }
+                ],
+                "progress": [
+                  {
+                    "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "observed": true,
+                    "source": "classic_watch_history",
+                    "lastPosition": 10000,
+                    "watchProgress": 0.2222222222222222,
+                    "duration": 45000,
+                    "lastWatchTime": "2026-10-13T20:19:31.733172"
+                  }
+                ]
+              }
+            ],
+            "sources": []
+          },
+          {
+            "entity": {
+              "id": "x54-bonus",
+              "kind": "episode",
+              "parent_id": "x54-release",
+              "revision": 0,
+              "attributes": {
+                "localOnly": true,
+                "removed": false,
+                "title": "Same-file Bonus",
+                "number": "2"
+              }
+            },
+            "files": [
+              {
+                "link": {
+                  "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                  "episode_id": "x54-bonus",
+                  "relation": "local_catalog",
+                  "ordinal": 0,
+                  "start_ms": null,
+                  "end_ms": null
+                },
+                "associations": [
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-bonus",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  },
+                  {
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "episode_id": "x54-episode",
+                    "relation": "local_catalog",
+                    "ordinal": 0,
+                    "start_ms": null,
+                    "end_ms": null
+                  }
+                ],
+                "locations": [
+                  {
+                    "id": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "file_id": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                    "source": "local",
+                    "owner_device_id": "device-b63b09a9c27749c81149db700dfcac36",
+                    "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                    "available": 1
+                  }
+                ],
+                "progress": [
+                  {
+                    "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+                    "observed": true,
+                    "source": "classic_watch_history",
+                    "lastPosition": 10000,
+                    "watchProgress": 0.2222222222222222,
+                    "duration": 45000,
+                    "lastWatchTime": "2026-10-13T20:19:31.733172"
+                  }
+                ]
+              }
+            ],
+            "sources": []
+          }
+        ],
+        "filesRetained": true,
+        "progressRetained": true
+      }
+    }
+  },
+  {
+    "event": "media.entities.restore",
+    "result": {
+      "status": "completed",
+      "result": {
+        "restored": true,
+        "entityIds": [
+          "x54-home",
+          "x54-release",
+          "x54-episode",
+          "x54-bonus"
+        ]
+      }
+    }
+  },
+  {
+    "event": "media.library.work",
+    "result": {
+      "status": "completed",
+      "result": {
+        "work": {
+          "workId": "x54-home",
+          "title": "CC0 Home Videos",
+          "metadata": [
+            {
+              "field": "title",
+              "value": "CC0 Home Videos",
+              "provider": "local",
+              "source": "local_catalog",
+              "language": "und",
+              "fetchedAt": null,
+              "invocationId": null,
+              "actor": null,
+              "origin": null,
+              "mode": null
+            }
+          ],
+          "metadataView": {
+            "fields": {
+              "title": "CC0 Home Videos"
+            },
+            "provenance": {
+              "title": {
+                "provider": "local",
+                "source": "local_catalog",
+                "language": "und",
+                "entityId": "x54-home"
+              }
+            },
+            "ratings": []
+          },
+          "releases": [
+            {
+              "releaseId": "x54-release",
+              "title": "CC0 Home Videos",
+              "metadata": [
+                {
+                  "field": "title",
+                  "value": "CC0 Home Videos",
+                  "provider": "local",
+                  "source": "local_catalog",
+                  "language": "und",
+                  "fetchedAt": null,
+                  "invocationId": null,
+                  "actor": null,
+                  "origin": null,
+                  "mode": null
+                }
+              ],
+              "metadataView": {
+                "fields": {
+                  "title": "CC0 Home Videos"
+                },
+                "provenance": {
+                  "title": {
+                    "provider": "local",
+                    "source": "local_catalog",
+                    "language": "und",
+                    "entityId": "x54-home"
+                  }
+                },
+                "ratings": []
+              },
+              "episodes": [
+                {
+                  "episodeId": "x54-episode",
+                  "title": "Test Pattern",
+                  "number": "1",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Test Pattern",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Test Pattern"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-episode"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                },
+                {
+                  "episodeId": "x54-bonus",
+                  "title": "Same-file Bonus",
+                  "number": "2",
+                  "order": null,
+                  "type": null,
+                  "metadata": [
+                    {
+                      "field": "title",
+                      "value": "Same-file Bonus",
+                      "provider": "local",
+                      "source": "local_catalog",
+                      "language": "und",
+                      "fetchedAt": null,
+                      "invocationId": null,
+                      "actor": null,
+                      "origin": null,
+                      "mode": null
+                    }
+                  ],
+                  "metadataView": {
+                    "fields": {
+                      "title": "Same-file Bonus"
+                    },
+                    "provenance": {
+                      "title": {
+                        "provider": "local",
+                        "source": "local_catalog",
+                        "language": "und",
+                        "entityId": "x54-bonus"
+                      }
+                    },
+                    "ratings": []
+                  },
+                  "files": [
+                    {
+                      "fileId": "file-4e4ec8c5-0055-4516-a98a-15113c63272c",
+                      "locator": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-73480/data/fixtures/cc0-pattern.mp4",
+                      "source": "local",
+                      "relation": "local_catalog",
+                      "ordinal": 0,
+                      "startMs": null,
+                      "endMs": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "event": "experiment-complete",
+    "result": {
+      "phase": "catalog",
+      "localCatalogPlayed": true,
+      "associationSurvivesHistorySync": true,
+      "previewObservedProgress": {
+        "locationId": "location-5449223d-8704-4963-9cdc-2e59d6dd4b60",
+        "observed": true,
+        "source": "classic_watch_history",
+        "lastPosition": 10000,
+        "watchProgress": 0.2222222222222222,
+        "duration": 45000,
+        "lastWatchTime": "2026-10-13T20:19:31.733172"
+      },
+      "removalRetainsFile": true,
+      "restoredAssociation": true,
+      "sharedFileRestoredEpisodes": 2
+    }
+  },
+  {
+    "event": "cleanup",
+    "result": {
+      "pidStopped": true,
+      "profileRemoved": true
+    }
+  }
+]

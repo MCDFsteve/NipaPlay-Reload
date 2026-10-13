@@ -1,0 +1,680 @@
+[
+  {
+    "event": "app.instance",
+    "result": {
+      "status": "completed",
+      "result": {
+        "pid": 45953,
+        "viewId": 1,
+        "windowId": 60085,
+        "appBundlePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app",
+        "executablePath": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+        "windowTitle": "NipaPlay · LAB [x54-catalog-45951]",
+        "experimentalProfile": true,
+        "profileName": "x54-catalog-45951",
+        "version": "1.11.10"
+      }
+    }
+  },
+  {
+    "event": "isolated-instance",
+    "result": {
+      "profile": "x54-catalog-45951",
+      "pid": 45953,
+      "executable": "/Users/sakiko/Desktop/nipaplay-next-wt/x54-catalog/build/macos/Build/Products/Debug/NipaPlay.app/Contents/MacOS/NipaPlay",
+      "quiet": true,
+      "license": "CC0-1.0"
+    }
+  },
+  {
+    "event": "playback.open",
+    "result": {
+      "status": "completed",
+      "result": {
+        "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "error",
+          "observedState": "error",
+          "sessionId": "internal:45953:1:1",
+          "ready": false,
+          "buffering": true,
+          "bufferedPositionMs": 0,
+          "error": {
+            "code": "media_load_failed",
+            "message": "Failed to recognize file format.",
+            "reason": "source_or_decoder_failure",
+            "retryable": true,
+            "recoveryAction": "playback.retry"
+          },
+          "observedAt": "2026-10-13T12:02:15.236902Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": false,
+          "paused": false,
+          "path": null,
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 0,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": false
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "matched",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "error",
+          "observedState": "error",
+          "sessionId": "internal:45953:1:1",
+          "ready": false,
+          "buffering": true,
+          "bufferedPositionMs": 0,
+          "error": {
+            "code": "media_load_failed",
+            "message": "Failed to recognize file format.",
+            "reason": "source_or_decoder_failure",
+            "retryable": true,
+            "recoveryAction": "playback.retry"
+          },
+          "observedAt": "2026-10-13T12:02:15.244911Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": false,
+          "paused": false,
+          "path": null,
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 0,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": false
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.retry",
+    "result": {
+      "status": "completed",
+      "result": {
+        "commandStatus": "accepted",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.523802Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "matched",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "buffering",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.527191Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "session_changed",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "buffering",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.529098Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.seek",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "buffering",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.539813Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.set_paused",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "buffering",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.565385Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.state",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "observedState": "buffering",
+          "sessionId": "internal:45953:2:2",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:16.608099Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.retry",
+    "result": {
+      "status": "completed",
+      "result": {
+        "commandStatus": "accepted",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:45953:3:3",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:17.733971Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "matched",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "observedState": "paused",
+          "sessionId": "internal:45953:3:3",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:17.790981Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.state",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "observedState": "paused",
+          "sessionId": "internal:45953:3:3",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:17.795383Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 7000,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.retry",
+    "result": {
+      "status": "completed",
+      "result": {
+        "commandStatus": "accepted",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:45953:4:4",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:18.869386Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.wait",
+    "result": {
+      "status": "completed",
+      "result": {
+        "outcome": "matched",
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "observedState": "paused",
+          "sessionId": "internal:45953:4:4",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:18.936686Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.state",
+    "result": {
+      "status": "completed",
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 1.0,
+          "brightness": null,
+          "status": "paused",
+          "observedState": "paused",
+          "sessionId": "internal:45953:4:4",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": 44875,
+          "error": null,
+          "observedAt": "2026-10-13T12:02:18.940260Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "retry",
+            "chapters",
+            "frame",
+            "skip",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x54-catalog-45951/data/fixtures/retry.mp4",
+          "seriesTitle": "retry",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 45000,
+          "rate": 1.0,
+          "canPrevious": true,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "event": "playback.close",
+    "result": {
+      "status": "completed",
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "event": "experiment-complete",
+    "result": {
+      "phase": "retry",
+      "localCatalogPlayed": false,
+      "loadFailureRecovered": true,
+      "subtitleEditedDetachedReset": true,
+      "currentCuesAndDanmakuRead": true
+    }
+  },
+  {
+    "event": "cleanup",
+    "result": {
+      "pidStopped": true,
+      "profileRemoved": true
+    }
+  }
+]
