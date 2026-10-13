@@ -1,0 +1,44 @@
+{
+  "profile": "x52-host-3a0683b799",
+  "protocol": "Responses API",
+  "configuredLabel": "DeepSeek",
+  "initialModel": "deepseek-v4.1-flash",
+  "correctCheck": {
+    "ok": true,
+    "message": "可以使用",
+    "latencyMs": 1806
+  },
+  "correctCheckReusedFrom": "attempt-1.json",
+  "managedTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "nipaplay",
+    "threadUnchanged": true,
+    "elapsedMs": 2227
+  },
+  "wrongKeyCheck": {
+    "ok": false,
+    "message": "密钥无效或没有权限",
+    "latencyMs": 115
+  },
+  "originalTurn": {
+    "status": "completed",
+    "model": "deepseek-v4.1-flash",
+    "provider": "cpa",
+    "threadUnchanged": true,
+    "elapsedMs": 1803
+  },
+  "historyTurns": 2,
+  "originalLabConfigUnchanged": true,
+  "processExited": true,
+  "userChanges": 3,
+  "secretScan": {
+    "files": 282,
+    "leaks": 3,
+    "vaultFileExists": false
+  },
+  "complete": false,
+  "failure": "RuntimeError",
+  "reason": "Secret scan failed",
+  "profileRemoved": true
+}

@@ -1,0 +1,105 @@
+{
+  "status": "completed",
+  "result": {
+    "schemaVersion": 1,
+    "snapshotId": null,
+    "observedAt": "2026-10-13T11:25:25.236853Z",
+    "consistency": "Per-source observations of live state; no global transaction snapshot. Cursors paginate live observations.",
+    "sources": {
+      "activity": "2026-10-13T11:25:25.235267Z"
+    },
+    "rows": [
+      {
+        "id": "body:2",
+        "at": "2026-10-13T11:25:25.166999Z",
+        "type": "host_settings.changed",
+        "title": "model · host_settings.changed",
+        "actor": "user",
+        "origin": "gui",
+        "deviceId": "device-48be9a8addd3d278899e5124369c2342",
+        "originDeviceId": null,
+        "invocationId": "inv-1791890725166993-11",
+        "entityId": null,
+        "entityIds": [],
+        "jobId": null,
+        "subjectId": "model",
+        "source": "body_changes",
+        "facts": {
+          "before": {
+            "id": "model",
+            "source": "nipaplay",
+            "revision": 1,
+            "provider": "DeepSeek",
+            "baseUrl": "https://cpa.shinokawa.top/v1",
+            "model": "deepseek-v4.1-flash"
+          },
+          "after": {
+            "id": "model",
+            "source": "codex",
+            "revision": 2,
+            "provider": "DeepSeek",
+            "baseUrl": "https://cpa.shinokawa.top/v1",
+            "model": "deepseek-v4.1-flash"
+          }
+        }
+      },
+      {
+        "id": "body:1",
+        "at": "2026-10-13T11:25:25.165032Z",
+        "type": "host_settings.changed",
+        "title": "model · host_settings.changed",
+        "actor": "user",
+        "origin": "gui",
+        "deviceId": "device-48be9a8addd3d278899e5124369c2342",
+        "originDeviceId": null,
+        "invocationId": "inv-1791890725165022-10",
+        "entityId": null,
+        "entityIds": [],
+        "jobId": null,
+        "subjectId": "model",
+        "source": "body_changes",
+        "facts": {
+          "before": {
+            "id": "model"
+          },
+          "after": {
+            "id": "model",
+            "source": "nipaplay",
+            "revision": 1,
+            "provider": "DeepSeek",
+            "baseUrl": "https://cpa.shinokawa.top/v1",
+            "model": "deepseek-v4.1-flash"
+          }
+        }
+      },
+      {
+        "id": "git:c8764b20af808466f540963b5c81e501a13b1545",
+        "at": "2026-10-13T11:25:22.000Z",
+        "type": "harness.commit",
+        "title": "Update NipaPlay harness seed",
+        "actor": "NipaPlay",
+        "origin": "git",
+        "deviceId": "device-48be9a8addd3d278899e5124369c2342",
+        "originDeviceId": null,
+        "invocationId": null,
+        "entityId": null,
+        "entityIds": [],
+        "jobId": null,
+        "subjectId": "c8764b20af808466f540963b5c81e501a13b1545",
+        "source": "git log",
+        "facts": {
+          "hash": "c8764b20af808466f540963b5c81e501a13b1545",
+          "author": "NipaPlay",
+          "authoredAt": "2026-10-13T19:25:22+08:00",
+          "repository": "/Users/sakiko/Library/Application Support/NipaPlay/LabProfiles/x52-host-9248e7303b/harness",
+          "subject": "Update NipaPlay harness seed"
+        }
+      }
+    ],
+    "nextCursor": null,
+    "truncated": true,
+    "warnings": [
+      "activity.journal_absent"
+    ]
+  }
+}
