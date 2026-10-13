@@ -1,0 +1,76 @@
+{
+  "scope": "Controlled loopback transports, actual Classic clients, temporary SQLite/vault fixtures and real mutual TLS. No GUI instance or production accounts.",
+  "collections": {
+    "client": "Classic Bangumi",
+    "requests": 2,
+    "subject_type": 2,
+    "page1": {"items": [{"workId": 10, "status": "doing", "rating": 8}], "hasNextCursor": true},
+    "page2": {"items": [{"workId": 30, "status": "doing", "rating": 9}], "nextCursor": null},
+    "test": "test/next/accounts_test.dart"
+  },
+  "torrent_preview": {
+    "inputs": ["temporary local path", "file URI", "loopback HTTP URL"],
+    "equal_manifests": true,
+    "totalSize": 10,
+    "paths": ["series/a.mkv", "series/b.mkv"],
+    "traversal_rejected": true,
+    "native_download_task_created": false,
+    "test": "test/next/x60_capabilities_constraints_test.dart"
+  },
+  "source_poster": {
+    "search_before_load": null,
+    "image_requests_before_load": 0,
+    "load": "Local cache file matches generated PNG bytes",
+    "search_after_load": "Same local file path",
+    "total_image_requests": 1,
+    "media_entities": 0,
+    "media_bindings": 0,
+    "test": "test/next/media_sources_test.dart"
+  },
+  "history": {
+    "first_page": ["0", "1"],
+    "mutation": "Delete 0/1, insert a newer record; delete anchor 3 after second page",
+    "second_page": ["2", "3"],
+    "third_page": ["4", "5"],
+    "unavailable_locator_removal": "removedCount=1, removedPaths=[], stable removedEntryIds present; other record retains progress",
+    "tests": ["test/next/x60_capabilities_constraints_test.dart", "test/next/local_operations_constraints_test.dart"]
+  },
+  "association_management": {
+    "preview_writes_associations": false,
+    "intervening_binding_invalidates_plan": true,
+    "progress_change_invalidates_plan": false,
+    "progress_before": 0.4,
+    "progress_changed_to": 0.7,
+    "progress_after_unbind_and_rebuild": 0.7,
+    "video_retained": true,
+    "test": "test/next/x60_capabilities_constraints_test.dart"
+  },
+  "mesh": {
+    "transport": "Real mutual TLS",
+    "ordinary_write": "completed",
+    "classic_approval_calls": 0,
+    "destructive_decision_preserved": true,
+    "management_owner_workIds": ["mac-work", "source-work"],
+    "remote_episodeId": "source-work-episode-4",
+    "offline_owner_retained": true,
+    "offline_reason": "source_device_offline",
+    "invalid_certificates_and_accounts_rejected": true,
+    "test": "test/next/mesh_integration_test.dart"
+  },
+  "download_deletion": {
+    "first_outcome": "NeedsDecision with manifest",
+    "cross_caller_request": "failed",
+    "changed_file_target": "failed",
+    "second_use": "failed",
+    "refusal_cancel_restart_auto_delete": false,
+    "approved_local_user_deletion": "verified receipt",
+    "test": "test/next/safety_constraints_test.dart"
+  },
+  "host_secrets": {
+    "null_retains": true,
+    "empty_clears": true,
+    "read_model": "booleans only",
+    "plaintext_in_preferences_files_or_journal": false,
+    "test": "test/next/host_settings_test.dart"
+  }
+}
