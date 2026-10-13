@@ -1,0 +1,66 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart
+00:00 +0: invalid reference in a batch preserves all arrangements and activity
+00:00 +1: source reconfiguration cannot reuse old server work, folder or episode ids
+00:00 +2: source snapshots retain metadata but exclude authenticated transport URLs
+00:00 +3: user operations keep ordered contents, original switch and caller attribution
+00:00 +4: original ordering, hiding and restoration persist without changing source contents
+00:00 +5: invalid original batch changes neither layout nor activity; local original can be restored
+00:00 +6: jellyfin last successful pages and covers survive disconnect and service recreation
+00:00 +6 -1: jellyfin last successful pages and covers survive disconnect and service recreation [E]
+  Expected: MappedListIterable<UiCategory, String>:['库A', '库B', '库C']
+    Actual: MappedListIterable<UiCategory, String>:[]
+     Which: at location [0] is MappedListIterable<UiCategory, String>:[] which shorter than expected
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 286:7  main.<fn>
+  
+00:00 +6 -1: jellyfin never successfully read offline source has an empty page
+00:00 +7 -1: emby last successful pages and covers survive disconnect and service recreation
+00:00 +7 -2: emby last successful pages and covers survive disconnect and service recreation [E]
+  Expected: MappedListIterable<UiCategory, String>:['库A', '库B', '库C']
+    Actual: MappedListIterable<UiCategory, String>:[]
+     Which: at location [0] is MappedListIterable<UiCategory, String>:[] which shorter than expected
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 286:7  main.<fn>
+  
+00:00 +7 -2: emby never successfully read offline source has an empty page
+00:00 +8 -2: smb last successful pages and covers survive disconnect and service recreation
+00:00 +8 -3: smb last successful pages and covers survive disconnect and service recreation [E]
+  Expected: MappedListIterable<UiCategory, String>:['库/']
+    Actual: MappedListIterable<UiCategory, String>:[]
+     Which: at location [0] is MappedListIterable<UiCategory, String>:[] which shorter than expected
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 286:7  main.<fn>
+  
+00:00 +8 -3: smb never successfully read offline source has an empty page
+00:00 +9 -3: webdav last successful pages and covers survive disconnect and service recreation
+00:00 +9 -4: webdav last successful pages and covers survive disconnect and service recreation [E]
+  Expected: MappedListIterable<UiCategory, String>:['库/']
+    Actual: MappedListIterable<UiCategory, String>:[]
+     Which: at location [0] is MappedListIterable<UiCategory, String>:[] which shorter than expected
+  
+  package:matcher                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18         expect
+  test/next/library_arrangement_constraints_test.dart 286:7  main.<fn>
+  
+00:00 +9 -4: webdav never successfully read offline source has an empty page
+00:00 +10 -4: offline series keeps its next and previously read episodes with playback disabled
+00:01 +10 -5: offline series keeps its next and previously read episodes with playback disabled [E]
+  Bad state: No element
+  dart:core                                                   List.first
+  test/next/library_arrangement_constraints_test.dart 337:40  main.<fn>
+  
+00:01 +10 -5: source caches reject malformed responses and never cross actual server identities
+00:01 +11 -5: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: emby last successful pages and covers survive disconnect and service recreation
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: jellyfin last successful pages and covers survive disconnect and service recreation
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: offline series keeps its next and previously read episodes with playback disabled
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: smb last successful pages and covers survive disconnect and service recreation
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: webdav last successful pages and covers survive disconnect and service recreation

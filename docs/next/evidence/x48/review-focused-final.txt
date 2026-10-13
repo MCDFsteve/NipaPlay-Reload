@@ -1,0 +1,30 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart
+00:00 +0: invalid reference in a batch preserves all arrangements and activity
+00:00 +1: source reconfiguration cannot reuse old server work, folder or episode ids
+00:00 +2: source snapshots retain metadata but exclude authenticated transport URLs
+00:00 +3: user operations keep ordered contents, original switch and caller attribution
+00:00 +4: original ordering, hiding and restoration persist without changing source contents
+00:00 +5: invalid original batch changes neither layout nor activity; local original can be restored
+00:00 +6: jellyfin last successful pages and covers survive disconnect and service recreation
+00:00 +7: jellyfin never successfully read offline source has an empty page
+00:00 +8: emby last successful pages and covers survive disconnect and service recreation
+00:00 +9: emby never successfully read offline source has an empty page
+00:00 +10: smb last successful pages and covers survive disconnect and service recreation
+00:00 +11: smb never successfully read offline source has an empty page
+00:00 +12: webdav last successful pages and covers survive disconnect and service recreation
+00:01 +13: webdav never successfully read offline source has an empty page
+00:01 +14: offline series keeps its next and previously read episodes with playback disabled
+00:01 +15: source caches reject malformed responses and never cross actual server identities
+00:01 +16: SMB transport errors preserve the catalogue without catching programming errors
+00:01 +17: bound server works in condition and manual categories lose playback when their source disconnects
+00:01 +17 -1: bound server works in condition and manual categories lose playback when their source disconnects [E]
+  SqfliteFfiException(sqlite_error: 1299, , SqliteException(1299): while executing statement, NOT NULL constraint failed: media_file_episodes.relation, constraint failed (code 1299)
+    Causing statement: INSERT INTO media_file_episodes (file_id, episode_id) VALUES (?, ?), parameters: file-0e7664ec-6671-4b16-81cc-824cc64fec56, episode}) DatabaseException(SqliteException(1299): while executing statement, NOT NULL constraint failed: media_file_episodes.relation, constraint failed (code 1299)
+    Causing statement: INSERT INTO media_file_episodes (file_id, episode_id) VALUES (?, ?), parameters: file-0e7664ec-6671-4b16-81cc-824cc64fec56, episode) sql 'INSERT INTO media_file_episodes (file_id, episode_id) VALUES (?, ?)' args [file-0e7664ec-6671-4b16-81cc-824cc64fec56, episode] {details: {database: {path: /var/folders/7t/363d2swj60v08tg0lbxg9gnc0000gn/T/nipa-x48-constraints-lIULfI/next.db, id: 18, readOnly: false, singleInstance: true}}}
+  package:sqflite_common_ffi/src/method_call.dart 125:9  responseToResultOrThrow
+  package:sqflite_common_ffi/src/isolate.dart 35:12      SqfliteIsolate.handle
+  
+00:01 +17 -1: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x48-library/test/next/library_arrangement_constraints_test.dart: bound server works in condition and manual categories lose playback when their source disconnects
