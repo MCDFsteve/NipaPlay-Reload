@@ -1,0 +1,50 @@
+00:00 +0: loading /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart
+test/next/responses_probe_test.dart:17:61: Error: The argument type 'Utf8Decoder' can't be assigned to the parameter type 'StreamTransformer<Uint8List, dynamic>'.
+ - 'Utf8Decoder' is from 'dart:convert'.
+ - 'StreamTransformer' is from 'dart:async'.
+ - 'Uint8List' is from 'dart:typed_data'.
+      final input = jsonDecode(await request.transform(utf8.decoder).join()) as Map;
+                                                            ^
+00:00 +0 -1: loading /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/responses_probe_test.dart [E]
+  Failed to load "/Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/responses_probe_test.dart":
+  Compilation failed for testPath=/Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/responses_probe_test.dart: test/next/responses_probe_test.dart:17:61: Error: The argument type 'Utf8Decoder' can't be assigned to the parameter type 'StreamTransformer<Uint8List, dynamic>'.
+   - 'Utf8Decoder' is from 'dart:convert'.
+   - 'StreamTransformer' is from 'dart:async'.
+   - 'Uint8List' is from 'dart:typed_data'.
+        final input = jsonDecode(await request.transform(utf8.decoder).join()) as Map;
+                                                              ^
+  .
+00:00 +0 -2: loading /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart: windows complete native layout, cancellation, resume, digest rejection
+00:00 +1 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart: linux complete native layout, cancellation, resume, digest rejection
+00:00 +2 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart: manifest pins six desktop native package assets, never latest
+00:07 +3 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: host keys are write-only, retained by null and cleared without setting journal values
+00:07 +4 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: keys stay in vault; null retains only matching provider credentials
+00:07 +5 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: host authorization takes effect immediately, remains absent from Actions
+00:07 +6 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: mesh leaves config intact when unavailable, and remembers known devices
+00:07 +7 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: check follows app proxy and path prefix; rejects keys without echoing response
+00:07 +8 -2: /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/host_settings_test.dart: real Codex switches only between turns and resumes same rollout across homes
+00:12 +9 -2: Some tests failed.
+
+Failing tests:
+  /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/codex_runtime_test.dart
+  /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/responses_probe_test.dart: loading /Users/sakiko/Desktop/nipaplay-next-wt/x61-runtime/test/next/responses_probe_test.dart
