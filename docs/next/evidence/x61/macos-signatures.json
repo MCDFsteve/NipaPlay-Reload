@@ -1,0 +1,66 @@
+[
+  {
+    "path": "bin/codex",
+    "sha256": "29915529b97697def1a957b0505e770aa6a45744435d62fc263e98d7619e167a",
+    "verify": {
+      "exit": 0,
+      "output": ""
+    },
+    "notarized": {
+      "exit": 0,
+      "output": ""
+    },
+    "display": {
+      "exit": 0,
+      "output": "Executable=/private[native-directory]/bin/codex\nIdentifier=codex\nFormat=Mach-O thin (arm64)\nCodeDirectory v=20500 size=2018865 flags=0x10000(runtime) hashes=63079+7 location=embedded\nVersionPlatform=1\nVersionMin=720896\nVersionSDK=984320\nHash type=sha256 size=32\nCandidateCDHash sha256=d03151872f950e955737aa42334e5bc513dcabc2\nCandidateCDHashFull sha256=d03151872f950e955737aa42334e5bc513dcabc29f7e8148aa4baf37d5e15443\nHash choices=sha256\nCMSDigest=d03151872f950e955737aa42334e5bc513dcabc29f7e8148aa4baf37d5e15443\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=241762304\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=d03151872f950e955737aa42334e5bc513dcabc2\nSignature size=9047\nAuthority=Developer ID Application: OpenAI OpCo, LLC (2DC432GLL2)\nAuthority=Developer ID Certification Authority\nAuthority=Apple Root CA\nTimestamp=Jul 10, 2026 at 06:38:11\nInfo.plist=not bound\nTeamIdentifier=2DC432GLL2\nRuntime Version=15.5.0\nSealed Resources=none\nInternal requirements count=1 size=168\n"
+    }
+  },
+  {
+    "path": "bin/codex-code-mode-host",
+    "sha256": "92209f78d399af5545d8df0ea2263b6fee45dfc688a1e1b9f217c06ce4954819",
+    "verify": {
+      "exit": 0,
+      "output": ""
+    },
+    "notarized": {
+      "exit": 0,
+      "output": ""
+    },
+    "display": {
+      "exit": 0,
+      "output": "Executable=/private[native-directory]/bin/codex-code-mode-host\nIdentifier=codex-code-mode-host\nFormat=Mach-O thin (arm64)\nCodeDirectory v=20500 size=359744 flags=0x10000(runtime) hashes=11231+7 location=embedded\nVersionPlatform=1\nVersionMin=720896\nVersionSDK=984320\nHash type=sha256 size=32\nCandidateCDHash sha256=2ebcdd40f05dbb908d0d2ad4814ddbfb7401dc88\nCandidateCDHashFull sha256=2ebcdd40f05dbb908d0d2ad4814ddbfb7401dc8889ac4721eda3f96d1b43a10e\nHash choices=sha256\nCMSDigest=2ebcdd40f05dbb908d0d2ad4814ddbfb7401dc8889ac4721eda3f96d1b43a10e\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=39190528\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=2ebcdd40f05dbb908d0d2ad4814ddbfb7401dc88\nSignature size=9047\nAuthority=Developer ID Application: OpenAI OpCo, LLC (2DC432GLL2)\nAuthority=Developer ID Certification Authority\nAuthority=Apple Root CA\nTimestamp=Jul 10, 2026 at 06:39:18\nInfo.plist=not bound\nTeamIdentifier=2DC432GLL2\nRuntime Version=15.5.0\nSealed Resources=none\nInternal requirements count=1 size=180\n"
+    }
+  },
+  {
+    "path": "codex-path/rg",
+    "sha256": "4fdf1d8365af224bc70e3c1490d8461d859c37cc70e739a11e987af0215f3e94",
+    "verify": {
+      "exit": 0,
+      "output": ""
+    },
+    "notarized": {
+      "exit": 3,
+      "output": "test-requirement: code failed to satisfy specified code requirement(s)\n"
+    },
+    "display": {
+      "exit": 0,
+      "output": "Executable=/private[native-directory]/codex-path/rg\nIdentifier=rg\nFormat=Mach-O thin (arm64)\nCodeDirectory v=20400 size=31483 flags=0x20002(adhoc,linker-signed) hashes=981+0 location=embedded\nVersionPlatform=1\nVersionMin=720896\nVersionSDK=984320\nHash type=sha256 size=32\nCandidateCDHash sha256=a7dbf01facbbddf9e0356a5cefb5af62452a2c78\nCandidateCDHashFull sha256=a7dbf01facbbddf9e0356a5cefb5af62452a2c782365f05fc472e748cad3ef63\nHash choices=sha256\nCMSDigest=a7dbf01facbbddf9e0356a5cefb5af62452a2c782365f05fc472e748cad3ef63\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=3751936\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=a7dbf01facbbddf9e0356a5cefb5af62452a2c78\nSignature=adhoc\nInfo.plist=not bound\nTeamIdentifier=not set\nSealed Resources=none\nInternal requirements=none\n"
+    }
+  },
+  {
+    "path": "codex-resources/zsh/bin/zsh",
+    "sha256": "b69893d9da08786211bac0862212e26a8a31af24eb77da21692671c58d388b8d",
+    "verify": {
+      "exit": 0,
+      "output": ""
+    },
+    "notarized": {
+      "exit": 3,
+      "output": "test-requirement: code failed to satisfy specified code requirement(s)\n"
+    },
+    "display": {
+      "exit": 0,
+      "output": "Executable=/private[native-directory]/codex-resources/zsh/bin/zsh\nIdentifier=zsh\nFormat=Mach-O thin (arm64)\nCodeDirectory v=20400 size=5820 flags=0x20002(adhoc,linker-signed) hashes=179+0 location=embedded\nVersionPlatform=1\nVersionMin=983040\nVersionSDK=984320\nHash type=sha256 size=32\nCandidateCDHash sha256=03e3b9c0452e51b6cc69498d36891e9036fb0b78\nCandidateCDHashFull sha256=03e3b9c0452e51b6cc69498d36891e9036fb0b7868e65283de072a884dcce4df\nHash choices=sha256\nCMSDigest=03e3b9c0452e51b6cc69498d36891e9036fb0b7868e65283de072a884dcce4df\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=568848\nExecutable Segment flags=0x1\nPage size=4096\nCDHash=03e3b9c0452e51b6cc69498d36891e9036fb0b78\nSignature=adhoc\nInfo.plist=not bound\nTeamIdentifier=not set\nSealed Resources=none\nInternal requirements=none\n"
+    }
+  }
+]

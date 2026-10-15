@@ -1,0 +1,18 @@
+The following plugins do not support Swift Package Manager for macos:
+  - erika_flutter
+  - flutter_js
+  - fvp
+  - hotkey_manager_macos
+  - media_kit_libs_macos_video
+  - media_kit_video
+  - nipaplay_smb2
+  - rust_lib_nipaplay
+  - screen_retriever_macos
+  - tray_manager
+  - window_manager
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Running pod install...                                           1,130ms
+Building macOS application...                                   
+warning: Run script build phase '[CP-User] Build Erika C ABI' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'erika_flutter' from project 'Pods')
+warning: Run script build phase 'Build cpp_native' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Runner' from project 'Runner')
+✓ Built build/macos/Build/Products/Debug/NipaPlay.app
