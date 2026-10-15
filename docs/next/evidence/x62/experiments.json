@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-15",
+  "charged_model_dialogues": 0,
+  "started_nipaplay": false,
+  "built_nipaplay": false,
+  "limits": "Fake-model success verifies transport/projection/loop behavior, not DeepSeek or GLM tool quality, refusal behavior, real API compatibility, native subagents, compaction hooks, or all platform distributions.",
+  "experiments": [
+    {
+      "name": "codex-probe",
+      "date": "2026-10-15",
+      "isolation": "Explicit temporary runtime home, XDG/TMP dirs, credential environment whitelist; no HOME override, no reads of user .claude/.codex credentials. Model URL binds 127.0.0.1; only a fabricated key was supplied.",
+      "protocol_version": 1,
+      "agent": {
+        "name": "@agentclientprotocol/codex-acp",
+        "title": "Codex",
+        "version": "2.2.2"
+      },
+      "passed_methods": [
+        "initialize",
+        "authenticate",
+        "new",
+        "list_empty",
+        "prompt",
+        "tool",
+        "steer",
+        "steered_prompt",
+        "cancel_prompt",
+        "load",
+        "close",
+        "resume",
+        "close_final"
+      ],
+      "prompt_stop_reason": "end_turn",
+      "cancel_stop_reason": "cancelled",
+      "model_request_count": 6,
+      "model_paths": [
+        "/v1/responses"
+      ],
+      "all_requests_contain_memory_marker": true,
+      "update_kinds": [
+        "agent_message_chunk",
+        "available_commands_update",
+        "session_info_update",
+        "tool_call",
+        "tool_call_update",
+        "usage_update",
+        "user_message_chunk"
+      ],
+      "initial_mode": "agent-full-access",
+      "artifacts": [
+        {
+          "tmp_path": "/tmp/nipa-next/x62/codex-probe/results.json",
+          "bytes": 48095,
+          "sha256": "150b2d85c9a720c5d79ce06c02361799e95e91d28c7b81f7d0bbad652b83b3d3"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/codex-probe/wire.json",
+          "bytes": 80535,
+          "sha256": "57eeb72f1d66b39119d41b98c9bb07f463de554256d4fb83123b269cb4f31cbe"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/codex-probe/requests.json",
+          "bytes": 2768,
+          "sha256": "13558302072f859ba9a017ee8579574d9fa00b902a1ca6f975a430cc01c932e8"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/codex-probe/stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "adapter_version": "2.2.2",
+      "codex_version": "0.160.1",
+      "steer_extension": "_session/steering",
+      "steer_outcome": "injected",
+      "tool_command": "printf x62-tool-ok",
+      "tool_output": "x62-tool-ok",
+      "tool_exit_code": 0,
+      "tool_output_fields": [
+        "tool_call_update._meta.terminal_output_delta",
+        "tool_call_update._meta.terminal_exit"
+      ],
+      "permission_mode": "agent-full-access",
+      "fresh_session_list_count": 0,
+      "cold_restart": {
+        "passed_methods": [
+          "initialize",
+          "authenticate",
+          "cold_resume",
+          "cold_list",
+          "cold_load",
+          "cold_close"
+        ],
+        "model_request_count": 0,
+        "artifacts": [
+          {
+            "tmp_path": "/tmp/nipa-next/x62/codex-probe/cold-results.json",
+            "bytes": 30245,
+            "sha256": "679af7e275b63117ab16a1b63c5e782df1cf48e465cd986bc4870407cee0d786"
+          },
+          {
+            "tmp_path": "/tmp/nipa-next/x62/codex-probe/cold-wire.json",
+            "bytes": 48058,
+            "sha256": "802a7f982d2e8b8372308d3ba785f53c55d952fbe4da6b809b59df0671631cfa"
+          },
+          {
+            "tmp_path": "/tmp/nipa-next/x62/codex-probe/cold-requests.json",
+            "bytes": 2,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          }
+        ]
+      }
+    },
+    {
+      "name": "kimi-code-probe",
+      "date": "2026-10-15",
+      "isolation": "Explicit temporary runtime home, XDG/TMP dirs, credential environment whitelist; no HOME override, no reads of user .claude/.codex credentials. Model URL binds 127.0.0.1; only a fabricated key was supplied.",
+      "protocol_version": 1,
+      "agent": {
+        "name": "Kimi Code CLI",
+        "version": "2.2.0"
+      },
+      "passed_methods": [
+        "initialize",
+        "new",
+        "set_yolo",
+        "list",
+        "prompt",
+        "cancel_prompt",
+        "load",
+        "close"
+      ],
+      "prompt_stop_reason": "end_turn",
+      "cancel_stop_reason": "cancelled",
+      "model_request_count": 2,
+      "model_paths": [
+        "/v1/chat/completions"
+      ],
+      "all_requests_contain_memory_marker": true,
+      "update_kinds": [
+        "agent_message_chunk",
+        "available_commands_update",
+        "config_option_update",
+        "current_mode_update",
+        "session_info_update",
+        "usage_update",
+        "user_message_chunk"
+      ],
+      "initial_mode": "default",
+      "artifacts": [
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-code-probe/results.json",
+          "bytes": 6457,
+          "sha256": "e3fb192dc33ded47e30d7bd5f87f7bb31b5907b8e53dbd8a6885bef5036edfe3"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-code-probe/wire.json",
+          "bytes": 22416,
+          "sha256": "473261ef908c7e52e82cd395b671b6278f5d119a43e887c2b288d5aaddf69d80"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-code-probe/requests.json",
+          "bytes": 420,
+          "sha256": "bab657697af5ea47aeb725399ed6a3c474ee10112823b4ede3d79f27a6e590b9"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-code-probe/stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "version": "2.2.0",
+      "set_yolo_succeeded": true,
+      "fresh_session_list_count": 2,
+      "cold_restart_tested": false,
+      "tool_execution_tested": false
+    },
+    {
+      "name": "legacy-kimi-cli",
+      "version": "1.52.0",
+      "date": "2026-10-15",
+      "installation": "Isolated uv venv Python 3.12.14; no global installation.",
+      "observed": "--version succeeds; acp --help and acp print retirement/migration message instead of a usable ACP server. Probe therefore failed JSON decoding; no model dialogue was attempted.",
+      "scope": "This is the actual published Python package behavior, not a test of the successor Kimi Code CLI.",
+      "artifacts": [
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-probe/version.txt",
+          "bytes": 159,
+          "sha256": "775b533a39f6c69cec8cb75ee3278c218851241cf7297759c334f4acd9542c67"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-probe/help.txt",
+          "bytes": 138,
+          "sha256": "80c357020dddd83cce86d5500733e5596990594af5563cdcbf0ee35263212831"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-probe/stderr.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "tmp_path": "/tmp/nipa-next/x62/kimi-probe/results.json",
+          "bytes": 81,
+          "sha256": "2f124b943d925f5dfb9298e4cf9791360d673bedb5b027b4f18981be4e51959a"
+        }
+      ]
+    },
+    {
+      "name": "pi-install-only",
+      "adapter_version": "0.0.34",
+      "pi_version": "1.2.0",
+      "date": "2026-10-15",
+      "observed": "Local npm installation completed, without lifecycle scripts or optional packages. No pi or pi-acp session was run, so RPC compatibility and model behavior remain unverified.",
+      "reason": "The adapter writes a hard-coded per-user session map. This research did not override HOME or use the user state directory."
+    }
+  ],
+  "probe_sources": [
+    {
+      "tmp_path": "/tmp/nipa-next/x62/probe_codex.py",
+      "bytes": 10783,
+      "sha256": "f9f6c2217c843da248868cac2883b9532045c45d41b89776a5538f4bf51bfc30"
+    },
+    {
+      "tmp_path": "/tmp/nipa-next/x62/probe_kimi_code.py",
+      "bytes": 5912,
+      "sha256": "4549daa7fcfa3326c2bf3ab09a3b19081078415dfbe7499dffa5b3984598bbe2"
+    },
+    {
+      "tmp_path": "/tmp/nipa-next/x62/probe_kimi.py",
+      "bytes": 2443,
+      "sha256": "768a32046d73e8ea6d8a6b32ea6a59b2eea6555848d224edd66aa255fb04bd4a"
+    }
+  ]
+}

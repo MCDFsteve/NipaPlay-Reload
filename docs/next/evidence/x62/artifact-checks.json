@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-15T16:24:21.845969+00:00",
+  "resume_review": {
+    "local_date": "2026-10-16",
+    "timezone": "Asia/Taipei",
+    "reason": "Resumed after upstream interruption; complete report and evidence were already saved and match prior delivery hashes.",
+    "report_research_cutoff_utc": "2026-10-15",
+    "agent_or_model_experiment_reruns": 0,
+    "existing_deliverables_unchanged": true,
+    "action": "Rechecked original-file hashes, JSON, local links, Markdown structure and allowed paths; refreshed this verification record only."
+  },
+  "branch": "next/x62-acp",
+  "baseline_commit": "96fba609398e18d5daccc6e923d267dd23f25d14",
+  "changed_paths": [
+    "docs/next/evidence/x62/README.md",
+    "docs/next/evidence/x62/artifact-checks.json",
+    "docs/next/evidence/x62/experiments.json",
+    "docs/next/evidence/x62/runtimes.json",
+    "docs/next/evidence/x62/sources.json",
+    "docs/next/research/ACP.md"
+  ],
+  "allowed_paths_only": true,
+  "json_files_parsed_before_this_record": 3,
+  "source_records": 497,
+  "source_failure_records": 22,
+  "successful_source_original_hashes_verified": 475,
+  "experiment_original_hashes_verified": 18,
+  "local_markdown_links_checked": 13,
+  "git_diff_check_exit_code": 0,
+  "markdown_tables_and_fences_checked": true,
+  "complete_third_party_file_hash_collisions": 0,
+  "policy_review": "Only original analysis/observations and provenance metadata in repository; third-party originals, packages, SDK and source remain under /tmp/nipa-next/x62/. No product code changes, build or NipaPlay execution.",
+  "deliverable_hashes_excluding_this_self_referential_record": [
+    {
+      "path": "docs/next/research/ACP.md",
+      "bytes": 69006,
+      "sha256": "e4daeabe51beb7c14a0a85e624b4e0ab8fd3c1bdc41fca7458f5fdca64256894"
+    },
+    {
+      "path": "docs/next/evidence/x62/README.md",
+      "bytes": 2097,
+      "sha256": "8bf8b5fa793ba1243890cffa1a7c9561de3a69f8ab61dafca37bdd26e39bce3c"
+    },
+    {
+      "path": "docs/next/evidence/x62/experiments.json",
+      "bytes": 8305,
+      "sha256": "36822c05f8bb4eefeed7ddd259b5f3ca6e700789829affe542a9cf39701867ff"
+    },
+    {
+      "path": "docs/next/evidence/x62/runtimes.json",
+      "bytes": 55451,
+      "sha256": "3ce5faa78c2024390ddb7762253323e4228da86d15d601a47116b32b98218a59"
+    },
+    {
+      "path": "docs/next/evidence/x62/sources.json",
+      "bytes": 289303,
+      "sha256": "504a5f25f6231d0bf398666503625f39c0dc422fc4699ec9ba34b1158d2bb448"
+    }
+  ],
+  "verification_script": {
+    "tmp_path": "/tmp/nipa-next/x62/verify_artifacts.py",
+    "sha256": "1f833f4ff000bea9198a4749a32a0ca52d255d5ab211af7fa8eec4dc256009c7"
+  },
+  "errors": [],
+  "passed": true
+}
