@@ -348,14 +348,25 @@ extension VideoPlayerStatePlayerSetup on VideoPlayerState {
       }
     }
 
-    // 新格式远程路径 (webdav:// / smb://) 需要解析为实际的 HTTP URL
-    if (isNewRemotePath &&
-        (resolvedActualPlayUrl == null || resolvedActualPlayUrl.isEmpty)) {
+    // 新格式远程路径 (webdav:// / smb://) 需要解析为实际的 HTTP URL。
+    // WebDAV 即使调用方传入了直链也要替换为本地认证代理地址：MDK 无法在
+    // 401 挑战时完成 Digest 协商，直链内嵌凭证不会被 FFmpeg 转换为认证头。
+    final bool needsRemoteResolution = isNewRemotePath &&
+        ((resolvedActualPlayUrl == null || resolvedActualPlayUrl.isEmpty) ||
+            MediaSourceUtils.isNewWebDavPath(videoPath));
+    if (needsRemoteResolution) {
       try {
         if (MediaSourceUtils.isNewWebDavPath(videoPath)) {
+          final proxyUrl =
+              await MediaSourceUtils.resolveWebDavPathToUrlAsync(videoPath);
+          // 代理解析失败（连接不存在等）时保留传入直链，维持旧行为。
           resolvedActualPlayUrl =
-              MediaSourceUtils.resolveWebDavPathToUrl(videoPath);
-        } else if (MediaSourceUtils.isNewSmbPath(videoPath)) {
+              (proxyUrl != null && proxyUrl.isNotEmpty)
+                  ? proxyUrl
+                  : resolvedActualPlayUrl;
+        } else if (MediaSourceUtils.isNewSmbPath(videoPath) &&
+            (resolvedActualPlayUrl == null ||
+                resolvedActualPlayUrl.isEmpty)) {
           resolvedActualPlayUrl =
               MediaSourceUtils.resolveSmbPathToUrl(videoPath);
         }
