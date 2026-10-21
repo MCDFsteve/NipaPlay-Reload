@@ -15,6 +15,7 @@ import 'package:nipaplay/services/dandanplay_remote_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:nipaplay/utils/player_event_log.dart';
 import 'package:nipaplay/utils/media_source_utils.dart';
+import 'package:nipaplay/utils/webdav_http_auth.dart';
 import 'package:nipaplay/utils/storage_service.dart';
 import 'package:nipaplay/utils/subtitle_file_utils.dart';
 
@@ -1814,41 +1815,95 @@ class RemoteSubtitleService {
     final rawUri = Uri.parse(rawUrl);
     final sanitized = rawUri.replace(userInfo: '');
 
-    final headers = <String, String>{
-      'user-agent': 'NipaPlay',
-      'accept': '*/*',
-    };
-
-    final hasAuth = candidate.connection.username.isNotEmpty ||
-        candidate.connection.password.isNotEmpty;
-    if (hasAuth) {
-      final credentials =
-          '${candidate.connection.username}:${candidate.connection.password}';
-      headers['authorization'] =
-          'Basic ${base64Encode(utf8.encode(credentials))}';
-    }
+    final auth = WebDavChallengeAuth(
+      username: candidate.connection.username,
+      password: candidate.connection.password,
+    );
 
     final dio = Dio(
       BaseOptions(
         connectTimeout: const Duration(milliseconds: 15000),
         receiveTimeout: const Duration(milliseconds: 45000),
         sendTimeout: const Duration(milliseconds: 15000),
-        followRedirects: true,
+        // 401 挑战协商需要自行处理重定向前的认证响应。
+        followRedirects: false,
+        maxRedirects: 0,
         responseType: ResponseType.bytes,
-        headers: headers,
+        validateStatus: (status) => status != null && status < 400,
+        headers: {
+          'user-agent': 'NipaPlay',
+          'accept': '*/*',
+          ...auth.authHeaders('GET', webDavDigestRequestTarget(rawUri)),
+        },
       ),
     );
 
-    final resp = await dio.get<List<int>>(sanitized.toString());
+    var resp = await dio.get<List<int>>(sanitized.toString());
+    if (resp.statusCode == 401 &&
+        auth.tryHandleUnauthorized(resp.headers.value('www-authenticate'))) {
+      // 按服务器挑战切换 Basic/Digest 后重试一次。
+      final retryHeaders = <String, String>{
+        'user-agent': 'NipaPlay',
+        'accept': '*/*',
+        ...auth.authHeaders('GET', webDavDigestRequestTarget(rawUri)),
+      };
+      resp = await dio.get<List<int>>(
+        sanitized.toString(),
+        options: Options(headers: retryHeaders),
+      );
+    }
+    resp = await _followWebDavRedirects(dio, resp, () {
+      final headers = <String, String>{
+        'user-agent': 'NipaPlay',
+        'accept': '*/*',
+        ...auth.authHeaders('GET', webDavDigestRequestTarget(rawUri)),
+      };
+      return Options(headers: headers);
+    });
+
     final status = resp.statusCode ?? 0;
     if (status != 200 && status != 206) {
-      throw Exception('WebDAV 下载失败 (HTTP $status)');
+      final message = status == 401 || status == 403
+          ? 'WebDAV 服务器拒绝了提供的用户名或密码 (HTTP $status)'
+          : 'WebDAV 下载失败 (HTTP $status)';
+      throw Exception(message);
     }
     final data = resp.data;
     if (data == null || data.isEmpty) {
       throw Exception('WebDAV 返回空内容');
     }
     await destination.writeAsBytes(data, flush: true);
+  }
+
+  /// 手动跟随 30x 重定向，重定向时重建认证头（跨主机不携带 Authorization）。
+  Future<Response<List<int>>> _followWebDavRedirects(
+    Dio dio,
+    Response<List<int>> response,
+    Options Function() buildOptions,
+  ) async {
+    var current = response;
+    for (var redirects = 0;
+        redirects < 5 &&
+            current.statusCode != null &&
+            current.statusCode! >= 300 &&
+            current.statusCode! < 400 &&
+            current.headers.value('location') != null;
+        redirects++) {
+      final location = current.headers.value('location')!;
+      final target = Uri.parse(current.realUri.toString()).resolve(location);
+      final isCrossHost = target.host.toLowerCase() !=
+          Uri.parse(current.realUri.toString()).host.toLowerCase();
+      final options = buildOptions();
+      if (isCrossHost) {
+        options.headers?.remove('authorization');
+      }
+      final next = await dio.get<List<int>>(
+        target.toString(),
+        options: options,
+      );
+      current = next;
+    }
+    return current;
   }
 
   Future<void> _downloadSmbSubtitle(

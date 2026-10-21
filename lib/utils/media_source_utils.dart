@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:nipaplay/services/webdav_service.dart';
+import 'package:nipaplay/services/webdav_proxy_service.dart';
 import 'package:nipaplay/services/smb_service.dart';
 import 'package:nipaplay/services/smb_proxy_service.dart';
 
@@ -415,15 +416,41 @@ class MediaSourceUtils {
     return filePath;
   }
 
-  /// 将新格式 WebDAV 路径解析为可播放的 HTTP URL
-  /// 返回 null 如果找不到对应连接
+  /// 将新格式 WebDAV 路径解析为可播放的 HTTP URL（本地认证代理）。
+  ///
+  /// 播放内核（MDK/Media Kit）无法完成 WebDAV 的 Digest 挑战协商，统一走
+  /// WebDAVProxyService 由应用代持认证。连接未认证/代理未启动时回退直链，
+  /// 保持旧行为。返回 null 如果找不到对应连接。
   static String? resolveWebDavPathToUrl(String filePath) {
     final resolved = WebDAVService.instance.resolveMediaPath(filePath);
     if (resolved == null) return null;
+
+    final proxy = WebDAVProxyService.instance;
+    if (proxy.isRunning) {
+      try {
+        return proxy.buildStreamUrl(
+          resolved.connection,
+          resolved.relativePath,
+        );
+      } catch (_) {
+        // 代理异常时回退直链。
+      }
+    }
     return WebDAVService.instance.getFileUrl(
       resolved.connection,
       resolved.relativePath,
     );
+  }
+
+  /// 异步版本：确保本地代理已启动后再解析，播放主链路使用。
+  static Future<String?> resolveWebDavPathToUrlAsync(String filePath) async {
+    if (!isNewWebDavPath(filePath)) return filePath;
+    try {
+      await WebDAVProxyService.instance.initialize();
+    } catch (e) {
+      debugPrint('MediaSourceUtils: WebDAV 本地代理启动失败，回退直链: $e');
+    }
+    return resolveWebDavPathToUrl(filePath);
   }
 
   /// 将新格式 SMB 路径解析为可播放的代理 URL

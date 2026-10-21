@@ -907,7 +907,7 @@ class _PlaylistMenuState extends State<PlaylistMenu> {
             final fallbackTitle = _remoteDisplayNameCache[filePath] ??
                 p.basenameWithoutExtension(_safeDecode(lastSegment));
             final actualPlayUrl =
-                MediaSourceUtils.resolveRemotePathToUrl(filePath);
+                await MediaSourceUtils.resolveWebDavPathToUrlAsync(filePath);
             if (actualPlayUrl == null || actualPlayUrl.isEmpty) {
               throw Exception('无法解析远程媒体路径: $filePath');
             }
