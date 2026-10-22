@@ -162,6 +162,12 @@ extension VideoPlayerStateSubtitles on VideoPlayerState {
     _notifyListeners();
   }
 
+  // 选内嵌字幕轨（>= 0）或关闭字幕（< 0），同时摘掉外挂字幕
+  void selectEmbeddedSubtitleTrack(int trackIndex) {
+    _subtitleManager.selectEmbeddedSubtitleTrack(trackIndex);
+    _notifyListeners();
+  }
+
   // 强制设置外部字幕（手动操作）
   void forceSetExternalSubtitle(String path) {
     _subtitleManager.forceSetExternalSubtitle(path);

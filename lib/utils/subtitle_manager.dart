@@ -680,7 +680,8 @@ class SubtitleManager extends ChangeNotifier {
         final shouldFixEncoding = _shouldFixExternalSubtitleEncoding();
         _currentExternalSubtitlePath = path;
         if (shouldRenderInApp) {
-          _activateAppRenderedExternalSubtitle(path);
+          _activateAppRenderedExternalSubtitle(path,
+              keepKernelExternal: preserveStack);
         } else if (!shouldFixEncoding) {
           // 设置外部字幕文件
           _loadExternalSubtitleIntoPlayer(
@@ -847,7 +848,7 @@ class SubtitleManager extends ChangeNotifier {
       if (displayName != null) registerPathDisplayName(path, displayName);
       _activeExternalSubtitlePaths.add(path);
       unawaited(_loadPathDisplayState(path));
-      _activateAppRenderedExternalSubtitle(path);
+      _activateAppRenderedExternalSubtitle(path, keepKernelExternal: true);
       if (!_activeExternalSubtitlePaths
           .contains(_currentExternalSubtitlePath)) {
         _currentExternalSubtitlePath = path;
@@ -958,11 +959,43 @@ class SubtitleManager extends ChangeNotifier {
     return false;
   }
 
-  void _activateAppRenderedExternalSubtitle(String path) {
-    // 多字幕分块渲染：外挂字幕（SRT/ASS）走 Flutter 叠层，与内嵌轨共存，
-    // 不再清内核字幕轨/选择——否则挂载外挂会顶掉用户选好的内嵌轨。
+  void _activateAppRenderedExternalSubtitle(String path,
+      {bool keepKernelExternal = false}) {
+    // 同一时间只显示一条字幕：外挂字幕走 Flutter 叠层渲染，内核里选中的内嵌轨
+    // 会同时出画面，所以挂载时先关掉内核的内嵌轨。叠加挂载时若内核正在渲染外挂
+    // ASS/SSA（占 sid），则保持不动。
+    final kernelExternalActive = keepKernelExternal &&
+        _activeExternalSubtitlePaths.any(
+            (other) => other != path && !_shouldRenderExternalSubtitleInApp(other));
+    if (!kernelExternalActive) {
+      try {
+        if (_player.activeSubtitleTracks.isNotEmpty) {
+          _player.activeSubtitleTracks = [];
+        }
+      } catch (e) {
+        debugPrint('SubtitleManager: 关闭内嵌字幕轨失败: $e');
+      }
+    }
     unawaited(preloadSubtitleFile(path));
     debugPrint('SubtitleManager: 使用应用内叠层渲染外挂字幕: $path');
+  }
+
+  /// 在字幕菜单里选内嵌轨（[trackIndex] >= 0）或关闭字幕（< 0）：
+  /// 先摘掉所有外挂字幕（叠层与内核轨），再选内嵌轨，保证同一时间只显示一条。
+  void selectEmbeddedSubtitleTrack(int trackIndex) {
+    setExternalSubtitle('');
+    try {
+      if (trackIndex >= 0) {
+        _lastSelectedEmbeddedTrackIndex = trackIndex;
+        _player.activeSubtitleTracks = [trackIndex];
+      } else {
+        _player.activeSubtitleTracks = [];
+      }
+    } catch (e) {
+      debugPrint('SubtitleManager: 切换内嵌字幕轨失败: $e');
+    }
+    onSubtitleTrackChanged();
+    notifyListeners();
   }
 
   /// 该外挂字幕是否走 App 叠层渲染（false = 内核轨，如 libmpv 的 ASS/SSA）
