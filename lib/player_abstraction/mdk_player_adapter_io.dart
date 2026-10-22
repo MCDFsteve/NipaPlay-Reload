@@ -228,6 +228,7 @@ class MdkPlayerAdapter
   // disposeAsync，必须合并为同一次 teardown，杜绝 double mdkPlayerAPI_delete。
   bool _isDisposed = false;
   Future<void>? _disposeAsyncFuture;
+  final Set<String> _callsAfterTeardown = {};
   StreamSubscription<({mdk.MediaStatus oldValue, mdk.MediaStatus newValue})>?
       _mediaStatusSubscription;
   MdkPlayerAdapter({String? httpProxy})
@@ -355,16 +356,35 @@ class MdkPlayerAdapter
     }());
   }
 
+  /// fvp deletes the native player on another isolate while this one runs
+  /// on, and its members call through that player's function table, which
+  /// is gone then. Once teardown begins, members answer as a stopped player
+  /// with no media and change nothing; the first call of each is traced
+  /// with its caller.
+  bool _released(String member) {
+    if (!_isDisposed) return false;
+    if (_callsAfterTeardown.add(member)) {
+      final caller = StackTrace.current.toString().split('\n').skip(1).take(14);
+      PlayerKernelManager.traceHotSwapStage(
+          'mdk $member called after teardown began\n${caller.join('\n')}');
+    }
+    return true;
+  }
+
   @override
   double get volume => _mdkPlayer.volume;
   @override
-  set volume(double value) => _mdkPlayer.volume = value;
+  set volume(double value) {
+    if (_released('volume=')) return;
+    _mdkPlayer.volume = value;
+  }
 
   @override
   double get playbackRate => _playbackRate;
   @override
   set playbackRate(double value) {
     _playbackRate = value;
+    if (_released('playbackRate=')) return;
     try {
       _mdkPlayer.playbackRate = value;
       debugPrint('MDK: 设置播放速度: ${value}x');
@@ -376,8 +396,10 @@ class MdkPlayerAdapter
   @override
   PlayerPlaybackState get state => _toPlayerPlaybackState(_mdkPlayer.state);
   @override
-  set state(PlayerPlaybackState value) =>
-      _mdkPlayer.state = _fromPlayerPlaybackState(value);
+  set state(PlayerPlaybackState value) {
+    if (_released('state=')) return;
+    _mdkPlayer.state = _fromPlayerPlaybackState(value);
+  }
 
   @override
   ValueListenable<int?> get textureId => _mdkPlayer.textureId;
@@ -397,26 +419,33 @@ class MdkPlayerAdapter
   }
 
   @override
-  PlayerMediaInfo get mediaInfo => _toPlayerMediaInfo(_mdkPlayer.mediaInfo,
-      internalAudioTrackCount: _internalAudioTrackCount);
+  PlayerMediaInfo get mediaInfo => _released('mediaInfo')
+      ? PlayerMediaInfo(duration: 0)
+      : _toPlayerMediaInfo(_mdkPlayer.mediaInfo,
+          internalAudioTrackCount: _internalAudioTrackCount);
 
   @override
   List<int> get activeSubtitleTracks => _mdkPlayer.activeSubtitleTracks;
   @override
-  set activeSubtitleTracks(List<int> value) =>
-      _mdkPlayer.activeSubtitleTracks = value;
+  set activeSubtitleTracks(List<int> value) {
+    if (_released('activeSubtitleTracks=')) return;
+    _mdkPlayer.activeSubtitleTracks = value;
+  }
 
   @override
   List<int> get activeAudioTracks => _mdkPlayer.activeAudioTracks;
   @override
-  set activeAudioTracks(List<int> value) =>
-      _mdkPlayer.activeAudioTracks = value;
+  set activeAudioTracks(List<int> value) {
+    if (_released('activeAudioTracks=')) return;
+    _mdkPlayer.activeAudioTracks = value;
+  }
 
   @override
-  int get position => _mdkPlayer.position;
+  int get position => _released('position') ? 0 : _mdkPlayer.position;
 
   @override
   int get bufferedPosition {
+    if (_released('bufferedPosition')) return 0;
     try {
       final bufferedDuration = _mdkPlayer.buffered();
       if (bufferedDuration <= 0) {
@@ -435,6 +464,7 @@ class MdkPlayerAdapter
 
   @override
   void setBufferRange({int minMs = -1, int maxMs = -1, bool drop = false}) {
+    if (_released('setBufferRange')) return;
     try {
       _mdkPlayer.setBufferRange(min: minMs, max: maxMs, drop: drop);
     } catch (e) {
@@ -460,6 +490,7 @@ class MdkPlayerAdapter
 
   @override
   void setMedia(String path, PlayerMediaType type) {
+    if (_released('setMedia')) return;
     if (type == PlayerMediaType.video || type == PlayerMediaType.unknown) {
       _buffering.value = false;
     }
@@ -480,6 +511,7 @@ class MdkPlayerAdapter
 
   @override
   Future<void> prepare() async {
+    if (_released('prepare')) return;
     try {
       _mdkPlayer.prepare();
       // prepare后重新应用播放速度，确保设置生效
@@ -494,6 +526,7 @@ class MdkPlayerAdapter
 
   @override
   void seek({required int position}) {
+    if (_released('seek')) return;
     _mdkPlayer.seek(position: position);
   }
 
@@ -519,6 +552,7 @@ class MdkPlayerAdapter
 
   @override
   Future<PlayerFrame?> snapshot({int width = 0, int height = 0}) async {
+    if (_released('snapshot')) return null;
     final Uint8List? frameBytes =
         await _mdkPlayer.snapshot(width: width, height: height);
     if (frameBytes == null) {
@@ -550,6 +584,7 @@ class MdkPlayerAdapter
       default:
         break;
     }
+    if (_released('setDecoders')) return;
     _mdkPlayer.setDecoders(_fromPlayerMediaType(type), decoders);
   }
 
@@ -575,6 +610,7 @@ class MdkPlayerAdapter
       case 'decoder.audio':
         return _activeAudioDecoder;
     }
+    if (_released('getProperty')) return null;
     return _mdkPlayer.getProperty(key);
   }
 
@@ -586,6 +622,7 @@ class MdkPlayerAdapter
 
   @override
   void setProperty(String key, String value) {
+    if (_released('setProperty')) return;
     try {
       _setStickyProperty(key, value);
     } catch (e) {
@@ -626,6 +663,7 @@ class MdkPlayerAdapter
 
   @override
   Future<void> playDirectly() async {
+    if (_released('playDirectly')) return;
     try {
       _mdkPlayer.state = mdk.PlaybackState.playing;
     } catch (e) {}
@@ -633,6 +671,7 @@ class MdkPlayerAdapter
 
   @override
   Future<void> pauseDirectly() async {
+    if (_released('pauseDirectly')) return;
     try {
       _mdkPlayer.state = mdk.PlaybackState.paused;
     } catch (e) {}
@@ -645,6 +684,9 @@ class MdkPlayerAdapter
 
   // 提供详细播放技术信息（MDK）
   Map<String, dynamic> getDetailedMediaInfo() {
+    if (_released('getDetailedMediaInfo')) {
+      return {'kernel': 'MDK', 'video': <dynamic>[], 'audio': <dynamic>[], 'duration': 0};
+    }
     final info = _mdkPlayer.mediaInfo;
     final Map<String, dynamic> ret = {
       'kernel': 'MDK',
