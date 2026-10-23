@@ -1905,6 +1905,7 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
             VideoPlayerState.defaultSubtitleScale);
     _srtSubtitleDelaySeconds = prefs.getDouble(_srtSubtitleDelayKey) ??
         VideoPlayerState.defaultSubtitleDelaySeconds;
+    _subtitleManager.srtDelaySeconds = _srtSubtitleDelaySeconds;
     _subtitleDelaySeconds = prefs.getDouble(_subtitleDelayKey) ??
         VideoPlayerState.defaultSubtitleDelaySeconds;
     _subtitlePosition = _clampSubtitlePosition(
@@ -1986,6 +1987,7 @@ extension VideoPlayerStatePreferences on VideoPlayerState {
     final clamped = _resolveSubtitleDelaySecondsForCurrentVideo(seconds);
     if (_srtSubtitleDelaySeconds == clamped) return;
     _srtSubtitleDelaySeconds = clamped;
+    _subtitleManager.srtDelaySeconds = clamped;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble(_srtSubtitleDelayKey, clamped);
     _notifyListeners();
