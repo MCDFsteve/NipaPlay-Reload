@@ -1,0 +1,1564 @@
+[
+  {
+    "label": "instance",
+    "value": {
+      "pid": 11779,
+      "profile": "core-lab-s",
+      "frontBefore": "ASN:0x0-0x5adaad5:"
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "pause",
+        "revision": 13,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "autoNext",
+          "value": "pause",
+          "changedAt": "2026-10-23T14:57:11.914478Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767431866670-9",
+          "revision": 13
+        },
+        "effective": "pause",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 1,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:12.178333Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 1,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.select_stream",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": true,
+        "burnIn": false,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.stream_options",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": true,
+        "burnIn": false,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.autoNextCountdownSeconds",
+        "value": 4,
+        "revision": 3,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.autoNextCountdownSeconds",
+          "previousValue": 3,
+          "value": 4,
+          "changedAt": "2026-10-23T14:57:15.511187Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767435509370-24",
+          "revision": 3
+        },
+        "effective": null,
+        "effectiveState": "inactive",
+        "effectiveSource": null,
+        "effectiveReason": "inactive_dependency",
+        "effectiveDetail": "player.playbackEndAction is not autoNext, so no countdown runs."
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "pause",
+        "revision": 14,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "pause",
+          "value": "pause",
+          "changedAt": "2026-10-23T14:57:15.514733Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767435514207-25",
+          "revision": 14
+        },
+        "effective": "pause",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 3,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:3:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:16.273397Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 68,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 3,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:3:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:16.857075Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "transcode-end-pause.png"
+  },
+  {
+    "label": "end action pause",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 3,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "paused",
+      "observedState": "paused",
+      "sessionId": "internal:11779:3:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:16.868594Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": true,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 90084,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": true
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "loop",
+        "revision": 15,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "pause",
+          "value": "loop",
+          "changedAt": "2026-10-23T14:57:18.764955Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767438761965-35",
+          "revision": 15
+        },
+        "effective": "loop",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 4,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:4:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:19.424403Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 4,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:4:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:20.192685Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "end action loop",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 4,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "playing",
+      "observedState": "playing",
+      "sessionId": "internal:11779:4:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:20.197570Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": false,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 0,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": true
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "exitPlayer",
+        "revision": 16,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "loop",
+          "value": "exitPlayer",
+          "changedAt": "2026-10-23T14:57:21.796158Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767441794226-44",
+          "revision": 16
+        },
+        "effective": "exitPlayer",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 5,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:5:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:22.560511Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 42,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 5,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "idle",
+          "observedState": "idle",
+          "sessionId": "internal:11779:5:1",
+          "ready": false,
+          "buffering": null,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:23.186680Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": false,
+          "paused": null,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": false
+        }
+      }
+    }
+  },
+  {
+    "label": "end action exitPlayer",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 5,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "idle",
+      "observedState": "idle",
+      "sessionId": "internal:11779:5:1",
+      "ready": false,
+      "buffering": null,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:23.205536Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": false,
+      "paused": null,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 90084,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": false
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "autoNext",
+        "revision": 17,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "exitPlayer",
+          "value": "autoNext",
+          "changedAt": "2026-10-23T14:57:24.730232Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767444728965-53",
+          "revision": 17
+        },
+        "effective": "autoNext",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 6,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:6:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:25.585004Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 63,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 6,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": {
+            "sessionId": "internal:11779:6:1",
+            "endAction": "autoNext",
+            "countingDown": true,
+            "remainingSeconds": 4,
+            "nextTitle": "Sintel Lab S01E02",
+            "next": {
+              "path": "jellyfin://c4bdc42489b4381076d0a30412cd4fd5",
+              "title": "Sintel Lab S01E02",
+              "subtitle": "Sintel Lab",
+              "animeId": null,
+              "episodeId": null
+            },
+            "source": "playback_end_action"
+          },
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:6:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:26.066142Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "transcode-end-autoNext.png"
+  },
+  {
+    "label": "end action autoNext",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 7,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "ready",
+      "observedState": "ready",
+      "sessionId": "internal:11779:7:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:32.090824Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": true,
+      "path": "jellyfin://c4bdc42489b4381076d0a30412cd4fd5",
+      "seriesTitle": "Sintel Lab S01E02",
+      "episodeTitle": "Sintel Lab",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 0,
+      "durationMs": 91636,
+      "rate": 1.0,
+      "canPrevious": true,
+      "canNext": false
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "autoNext",
+        "revision": 18,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "autoNext",
+          "value": "autoNext",
+          "changedAt": "2026-10-23T14:57:32.708852Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792767452708345-83",
+          "revision": 18
+        },
+        "effective": "autoNext",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 8,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:8:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:33.551208Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 73,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 8,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": {
+            "sessionId": "internal:11779:8:1",
+            "endAction": "autoNext",
+            "countingDown": true,
+            "remainingSeconds": 4,
+            "nextTitle": "Sintel Lab S01E02",
+            "next": {
+              "path": "jellyfin://c4bdc42489b4381076d0a30412cd4fd5",
+              "title": "Sintel Lab S01E02",
+              "subtitle": "Sintel Lab",
+              "animeId": null,
+              "episodeId": null
+            },
+            "source": "playback_end_action"
+          },
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:8:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:34.034269Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "transcode-end-cancel.png"
+  },
+  {
+    "label": "playback.cancel_auto_next",
+    "value": {
+      "result": {
+        "cancelled": true,
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 8,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:11779:8:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:57:34.204598Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "end action cancel",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 8,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "paused",
+      "observedState": "paused",
+      "sessionId": "internal:11779:8:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:39.219789Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": true,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 90084,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": true
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "player perf",
+    "value": {
+      "windowMs": 28915,
+      "spans": {
+        "danmaku.changed": {
+          "n": 24,
+          "perMinute": 49.80114127615425,
+          "totalMs": 0.274,
+          "p50Us": 10,
+          "p95Us": 35,
+          "p99Us": 35,
+          "maxUs": 35
+        },
+        "facade.sync": {
+          "n": 161,
+          "perMinute": 334.0826560608681,
+          "totalMs": 7.542,
+          "p50Us": 14,
+          "p95Us": 175,
+          "p99Us": 498,
+          "maxUs": 811
+        },
+        "mdk.status": {
+          "n": 76,
+          "perMinute": 157.7036140411551,
+          "totalMs": 5.959,
+          "p50Us": 17,
+          "p95Us": 382,
+          "p99Us": 1024,
+          "maxUs": 1024
+        },
+        "facade.transport": {
+          "n": 74,
+          "perMinute": 153.55351893480892,
+          "totalMs": 2.363,
+          "p50Us": 17,
+          "p95Us": 133,
+          "p99Us": 228,
+          "maxUs": 228
+        },
+        "session.kernel": {
+          "n": 109,
+          "perMinute": 226.1801832958672,
+          "totalMs": 8.909,
+          "p50Us": 24,
+          "p95Us": 258,
+          "p99Us": 762,
+          "maxUs": 2217
+        },
+        "mdk.state": {
+          "n": 26,
+          "perMinute": 53.95123638250043,
+          "totalMs": 5.912,
+          "p50Us": 50,
+          "p95Us": 765,
+          "p99Us": 2375,
+          "maxUs": 2375
+        },
+        "watch.changed": {
+          "n": 42,
+          "perMinute": 87.15199723326992,
+          "totalMs": 0.459,
+          "p50Us": 3,
+          "p95Us": 49,
+          "p99Us": 129,
+          "maxUs": 129
+        },
+        "runtime.playbackChanged": {
+          "n": 60,
+          "perMinute": 124.50285319038561,
+          "totalMs": 2.107,
+          "p50Us": 8,
+          "p95Us": 120,
+          "p99Us": 374,
+          "maxUs": 374
+        },
+        "mdk.sample": {
+          "n": 21,
+          "perMinute": 43.57599861663496,
+          "totalMs": 1.738,
+          "p50Us": 51,
+          "p95Us": 164,
+          "p99Us": 594,
+          "maxUs": 594
+        },
+        "facade.tick": {
+          "n": 2,
+          "perMinute": 4.150095106346187,
+          "totalMs": 0.211,
+          "p50Us": 148,
+          "p95Us": 148,
+          "p99Us": 148,
+          "maxUs": 148
+        }
+      },
+      "mainIsolateShare": 0.0012268372816877054,
+      "counts": {
+        "danmaku.refreshCurrent": {
+          "n": 24,
+          "perMinute": 49.80114127615425
+        }
+      },
+      "latencies": {},
+      "slowest": [
+        {
+          "name": "mdk.state",
+          "us": 2375,
+          "atMs": 1661
+        },
+        {
+          "name": "session.kernel",
+          "us": 2217,
+          "atMs": 1661
+        },
+        {
+          "name": "mdk.status",
+          "us": 1024,
+          "atMs": 275
+        },
+        {
+          "name": "mdk.status",
+          "us": 975,
+          "atMs": 4955
+        },
+        {
+          "name": "facade.sync",
+          "us": 811,
+          "atMs": 230
+        },
+        {
+          "name": "mdk.state",
+          "us": 765,
+          "atMs": 313
+        },
+        {
+          "name": "session.kernel",
+          "us": 762,
+          "atMs": 275
+        },
+        {
+          "name": "session.kernel",
+          "us": 695,
+          "atMs": 4955
+        },
+        {
+          "name": "mdk.sample",
+          "us": 594,
+          "atMs": 4668
+        },
+        {
+          "name": "facade.sync",
+          "us": 498,
+          "atMs": 387
+        },
+        {
+          "name": "facade.sync",
+          "us": 420,
+          "atMs": 1661
+        },
+        {
+          "name": "mdk.status",
+          "us": 413,
+          "atMs": 14200
+        },
+        {
+          "name": "mdk.state",
+          "us": 410,
+          "atMs": 275
+        },
+        {
+          "name": "mdk.status",
+          "us": 382,
+          "atMs": 242
+        },
+        {
+          "name": "runtime.playbackChanged",
+          "us": 374,
+          "atMs": 1661
+        },
+        {
+          "name": "session.kernel",
+          "us": 371,
+          "atMs": 14200
+        },
+        {
+          "name": "facade.sync",
+          "us": 354,
+          "atMs": 27362
+        },
+        {
+          "name": "runtime.playbackChanged",
+          "us": 314,
+          "atMs": 387
+        },
+        {
+          "name": "mdk.state",
+          "us": 287,
+          "atMs": 13721
+        },
+        {
+          "name": "mdk.state",
+          "us": 287,
+          "atMs": 15510
+        }
+      ]
+    }
+  },
+  {
+    "label": "responsive at end",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": null,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "idle",
+      "observedState": "idle",
+      "sessionId": null,
+      "ready": null,
+      "buffering": null,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:57:40.780548Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": false,
+      "paused": null,
+      "path": null,
+      "seriesTitle": null,
+      "episodeTitle": null,
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 0,
+      "durationMs": 0,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": false
+    }
+  },
+  {
+    "label": "frontAfter",
+    "value": "ASN:0x0-0x5adaad5:"
+  },
+  {
+    "label": "main isolate blocked",
+    "value": []
+  },
+  {
+    "label": "instance stopped",
+    "value": {
+      "pid": 11779,
+      "exit": -15
+    }
+  }
+]
