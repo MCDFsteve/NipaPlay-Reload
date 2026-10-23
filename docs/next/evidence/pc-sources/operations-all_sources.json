@@ -1,0 +1,1780 @@
+[
+  {
+    "label": "instance",
+    "value": {
+      "pid": 85289,
+      "profile": "core-lab-s",
+      "frontBefore": "ASN:0x0-0x5adaad5:"
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "pause",
+        "revision": 10,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "autoNext",
+          "value": "pause",
+          "changedAt": "2026-10-23T14:44:23.956216Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792766663908134-10",
+          "revision": 10
+        },
+        "effective": "pause",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 1,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:24.223131Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 1,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.playlist",
+    "value": {
+      "result": {
+        "supported": true,
+        "source": "jellyfin:cd5a980995c8d9a85ad18db88c22cb06:d36f21172a41e441099ca8fe0709747c",
+        "items": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+            "title": "Sintel Lab S01E01",
+            "episodeId": null
+          },
+          {
+            "id": "c4bdc42489b4381076d0a30412cd4fd5",
+            "path": "jellyfin://c4bdc42489b4381076d0a30412cd4fd5",
+            "title": "Sintel Lab S01E02",
+            "episodeId": null
+          }
+        ],
+        "currentIndex": 0,
+        "autoNext": null,
+        "loadError": null
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 1,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:1:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:24.742359Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 51958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.stream_options",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": false,
+        "quality": "original",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": false,
+        "burnIn": false,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.select_stream",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": false,
+        "quality": "original",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": false,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.tracks",
+    "value": {
+      "result": {
+        "sessionId": "internal:85289:2:1",
+        "tracks": [
+          {
+            "index": 1,
+            "kind": "audio",
+            "origin": "server",
+            "codec": "aac",
+            "language": "eng",
+            "title": "Original A - English - AAC - 5.1 - Default",
+            "external": false,
+            "default": true,
+            "selected": false
+          },
+          {
+            "index": 2,
+            "kind": "audio",
+            "origin": "server",
+            "codec": "aac",
+            "language": "eng",
+            "title": "Original B - English - AAC - 5.1 - Default",
+            "external": false,
+            "default": true,
+            "selected": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "jellyfin native audio selection",
+    "value": [
+      1
+    ]
+  },
+  {
+    "label": "capture",
+    "value": "jellyfin-audio-seek.png"
+  },
+  {
+    "label": "jellyfin progress comparison",
+    "value": {
+      "localMs": 58771,
+      "serverMs": 57915.0,
+      "differenceMs": 856.0
+    }
+  },
+  {
+    "label": "playback.select_stream",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": true,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "jellyfin quality position",
+    "value": {
+      "beforeMs": 58778,
+      "afterMs": 59979
+    }
+  },
+  {
+    "label": "playback.stream_options",
+    "value": {
+      "result": {
+        "server": "jellyfin",
+        "itemId": "88000101b9c32bde2765f4ed54839b0f",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "88000101b9c32bde2765f4ed54839b0f",
+        "transcode": true,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "88000101b9c32bde2765f4ed54839b0f",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 2126033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original A - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "Original B - English - AAC - 5.1 - Default",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "jellyfin-transcode.png"
+  },
+  {
+    "label": "jellyfin progress comparison",
+    "value": {
+      "localMs": 66022,
+      "serverMs": 65763.0,
+      "differenceMs": 259.0
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "jellyfin transcoders after close",
+    "value": {
+      "count": 0,
+      "elapsedMs": 444
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "pause",
+        "revision": 11,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "pause",
+          "value": "pause",
+          "changedAt": "2026-10-23T14:44:43.141270Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792766683138898-59",
+          "revision": 11
+        },
+        "effective": "pause",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "emby://8",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 4,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:4:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:43.349326Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "emby://8",
+          "seriesTitle": "8",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.playlist",
+    "value": {
+      "result": {
+        "supported": true,
+        "source": "emby:5:6",
+        "items": [
+          {
+            "id": "8",
+            "path": "emby://8",
+            "title": "Sintel Lab S01E01",
+            "episodeId": null
+          },
+          {
+            "id": "7",
+            "path": "emby://7",
+            "title": "Sintel Lab S01E02",
+            "episodeId": null
+          }
+        ],
+        "currentIndex": 0,
+        "autoNext": null,
+        "loadError": null
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 4,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:4:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:43.515203Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "emby://8",
+          "seriesTitle": "8",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 51958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.stream_options",
+    "value": {
+      "result": {
+        "server": "emby",
+        "itemId": "8",
+        "isTranscoding": false,
+        "quality": "original",
+        "mediaSourceId": "mediasource_8",
+        "transcode": false,
+        "burnIn": false,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "mediasource_8",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 1486033,
+            "container": "mkv",
+            "supportsTranscoding": false,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.select_stream",
+    "value": {
+      "result": {
+        "server": "emby",
+        "itemId": "8",
+        "isTranscoding": false,
+        "quality": "original",
+        "mediaSourceId": "mediasource_8",
+        "transcode": false,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "mediasource_8",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 1486033,
+            "container": "mkv",
+            "supportsTranscoding": false,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "playback.tracks",
+    "value": {
+      "result": {
+        "sessionId": "internal:85289:5:1",
+        "tracks": [
+          {
+            "index": 1,
+            "kind": "audio",
+            "origin": "server",
+            "codec": "aac",
+            "language": "eng",
+            "title": "English AAC 5.1 (Default)",
+            "external": false,
+            "default": true,
+            "selected": false
+          },
+          {
+            "index": 2,
+            "kind": "audio",
+            "origin": "server",
+            "codec": "aac",
+            "language": "eng",
+            "title": "English AAC 5.1 (Default)",
+            "external": false,
+            "default": true,
+            "selected": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "emby native audio selection",
+    "value": [
+      1
+    ]
+  },
+  {
+    "label": "capture",
+    "value": "emby-audio-seek.png"
+  },
+  {
+    "label": "emby progress comparison",
+    "value": {
+      "localMs": 58147,
+      "serverMs": 57847.9954,
+      "differenceMs": 299.0046000000002
+    }
+  },
+  {
+    "label": "playback.select_stream",
+    "value": {
+      "result": {
+        "server": "emby",
+        "itemId": "8",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "mediasource_8",
+        "transcode": true,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "mediasource_8",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 1486033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "emby quality position",
+    "value": {
+      "beforeMs": 58153,
+      "afterMs": 59933
+    }
+  },
+  {
+    "label": "playback.stream_options",
+    "value": {
+      "result": {
+        "server": "emby",
+        "itemId": "8",
+        "isTranscoding": true,
+        "quality": "bandwidth1m",
+        "mediaSourceId": "mediasource_8",
+        "transcode": true,
+        "burnIn": false,
+        "audioIndex": 2,
+        "qualities": [
+          "auto",
+          "bandwidth1m",
+          "bandwidth2m",
+          "bandwidth5m",
+          "bandwidth10m",
+          "bandwidth20m",
+          "bandwidth40m",
+          "original"
+        ],
+        "versions": [
+          {
+            "id": "mediasource_8",
+            "name": "Sintel Lab S01E01",
+            "size": 16733481,
+            "bitrate": 1486033,
+            "container": "mkv",
+            "supportsTranscoding": true,
+            "tracks": [
+              {
+                "index": 1,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": false
+              },
+              {
+                "index": 2,
+                "kind": "audio",
+                "origin": "server",
+                "codec": "aac",
+                "language": "eng",
+                "title": "English AAC 5.1 (Default)",
+                "external": false,
+                "default": true,
+                "selected": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "emby-transcode.png"
+  },
+  {
+    "label": "emby progress comparison",
+    "value": {
+      "localMs": 66016,
+      "serverMs": 65759.6118,
+      "differenceMs": 256.38820000000123
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "emby transcoders after close",
+    "value": {
+      "count": 0,
+      "elapsedMs": 39
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 7,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:7:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:58.010541Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 0,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": false
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 7,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:7:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:58.121764Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.set_paused",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 7,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "paused",
+          "observedState": "paused",
+          "sessionId": "internal:85289:7:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:58.160239Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52987,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "webdav-seek.png"
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 8,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:8:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:58.585826Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "webdav resume",
+    "value": {
+      "beforeMs": 52987,
+      "afterMs": 52969,
+      "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv"
+    }
+  },
+  {
+    "label": "playback.playlist",
+    "value": {
+      "result": {
+        "supported": true,
+        "source": "webdav:pcs-dav:/Sintel Lab/Season 01",
+        "items": [
+          {
+            "id": "/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+            "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+            "title": "Sintel Lab S01E01",
+            "episodeId": null
+          },
+          {
+            "id": "/Sintel Lab/Season 01/Sintel Lab S01E02.mkv",
+            "path": "webdav://pcs-dav/Sintel Lab/Season 01/Sintel Lab S01E02.mkv",
+            "title": "Sintel Lab S01E02",
+            "episodeId": null
+          }
+        ],
+        "currentIndex": 0,
+        "autoNext": null,
+        "loadError": null
+      }
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 9,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:9:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:58.800828Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 80,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 9,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:9:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:59.037987Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "playback.set_paused",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 9,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "paused",
+          "observedState": "buffering",
+          "sessionId": "internal:85289:9:1",
+          "ready": true,
+          "buffering": true,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:59.075142Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": true,
+          "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52997,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "capture",
+    "value": "smb-seek.png"
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 10,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:10:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:44:59.751851Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+          "seriesTitle": "Sintel Lab S01E01",
+          "episodeTitle": null,
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 52958,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "smb resume",
+    "value": {
+      "beforeMs": 52997,
+      "afterMs": 53194,
+      "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv"
+    }
+  },
+  {
+    "label": "playback.playlist",
+    "value": {
+      "result": {
+        "supported": true,
+        "source": "smb:pcs-smb:/media/Sintel Lab/Season 01",
+        "items": [
+          {
+            "id": "/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+            "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E01.mkv",
+            "title": "Sintel Lab S01E01",
+            "episodeId": null
+          },
+          {
+            "id": "/media/Sintel Lab/Season 01/Sintel Lab S01E02.mkv",
+            "path": "smb://pcs-smb/media/Sintel Lab/Season 01/Sintel Lab S01E02.mkv",
+            "title": "Sintel Lab S01E02",
+            "episodeId": null
+          }
+        ],
+        "currentIndex": 0,
+        "autoNext": null,
+        "loadError": null
+      }
+    }
+  },
+  {
+    "label": "playback.close",
+    "value": {
+      "result": {
+        "closed": true
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.autoNextCountdownSeconds",
+        "value": 4,
+        "revision": 2,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.autoNextCountdownSeconds",
+          "previousValue": 3,
+          "value": 4,
+          "changedAt": "2026-10-23T14:45:00.089516Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792766700079782-150",
+          "revision": 2
+        },
+        "effective": null,
+        "effectiveState": "inactive",
+        "effectiveSource": null,
+        "effectiveReason": "inactive_dependency",
+        "effectiveDetail": "player.playbackEndAction is not autoNext, so no countdown runs."
+      }
+    }
+  },
+  {
+    "label": "settings.set",
+    "value": {
+      "result": {
+        "key": "player.playbackEndAction",
+        "value": "pause",
+        "revision": 12,
+        "scope": "user",
+        "apply": "immediate",
+        "provenance": {
+          "key": "player.playbackEndAction",
+          "previousValue": "pause",
+          "value": "pause",
+          "changedAt": "2026-10-23T14:45:00.194722Z",
+          "changedBy": "user",
+          "origin": "gui",
+          "reason": "S 线一次性实验验收",
+          "invocationId": "inv-1792766700192358-151",
+          "revision": 12
+        },
+        "effective": "pause",
+        "effectiveState": "same",
+        "effectiveSource": "live",
+        "effectiveReason": null,
+        "effectiveDetail": null
+      }
+    }
+  },
+  {
+    "label": "playback.open",
+    "value": {
+      "result": {
+        "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+        "player": "internal",
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 11,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:11:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:45:01.289872Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 78,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        },
+        "commandStatus": "accepted"
+      }
+    }
+  },
+  {
+    "label": "playback.seek",
+    "value": {
+      "result": {
+        "state": {
+          "player": "internal",
+          "volume": 0.0,
+          "brightness": null,
+          "effectiveRate": 1.0,
+          "kernelRate": 1.0,
+          "speedBoost": null,
+          "kernel": {
+            "id": "mdk",
+            "name": "MDK",
+            "instance": 11,
+            "configured": "mdk",
+            "layer": "next_core"
+          },
+          "danmakuRenderer": null,
+          "autoNext": null,
+          "status": "playing",
+          "observedState": "playing",
+          "sessionId": "internal:85289:11:1",
+          "ready": true,
+          "buffering": false,
+          "bufferedPositionMs": null,
+          "error": null,
+          "observedAt": "2026-10-23T14:45:01.821598Z",
+          "supportedControls": [
+            "pause",
+            "resume",
+            "seek",
+            "close",
+            "wait",
+            "playlist"
+          ],
+          "hasVideo": true,
+          "paused": false,
+          "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+          "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+          "episodeTitle": "Season 1",
+          "animeId": null,
+          "episodeId": null,
+          "positionMs": 90084,
+          "durationMs": 90084,
+          "rate": 1.0,
+          "canPrevious": false,
+          "canNext": true
+        }
+      }
+    }
+  },
+  {
+    "label": "timeout state",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 11,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "paused",
+      "observedState": "paused",
+      "sessionId": "internal:85289:11:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:45:36.896146Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": true,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 334,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": true
+    }
+  },
+  {
+    "label": "responsive at end",
+    "value": {
+      "player": "internal",
+      "volume": 0.0,
+      "brightness": null,
+      "effectiveRate": 1.0,
+      "kernelRate": 1.0,
+      "speedBoost": null,
+      "kernel": {
+        "id": "mdk",
+        "name": "MDK",
+        "instance": 11,
+        "configured": "mdk",
+        "layer": "next_core"
+      },
+      "danmakuRenderer": null,
+      "autoNext": null,
+      "status": "paused",
+      "observedState": "paused",
+      "sessionId": "internal:85289:11:1",
+      "ready": true,
+      "buffering": false,
+      "bufferedPositionMs": null,
+      "error": null,
+      "observedAt": "2026-10-23T14:45:36.902050Z",
+      "supportedControls": [
+        "pause",
+        "resume",
+        "seek",
+        "close",
+        "wait",
+        "playlist"
+      ],
+      "hasVideo": true,
+      "paused": true,
+      "path": "jellyfin://88000101b9c32bde2765f4ed54839b0f",
+      "seriesTitle": "88000101b9c32bde2765f4ed54839b0f",
+      "episodeTitle": "Season 1",
+      "animeId": null,
+      "episodeId": null,
+      "positionMs": 334,
+      "durationMs": 90084,
+      "rate": 1.0,
+      "canPrevious": false,
+      "canNext": true
+    }
+  },
+  {
+    "label": "frontAfter",
+    "value": "ASN:0x0-0x5adaad5:"
+  },
+  {
+    "label": "main isolate blocked",
+    "value": []
+  },
+  {
+    "label": "instance stopped",
+    "value": {
+      "pid": 85289,
+      "exit": -15
+    }
+  }
+]
